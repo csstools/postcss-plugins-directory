@@ -1,0 +1,155 @@
+{
+	"_id": "postcss-cyspriter",
+	"_rev": "6-b87177e1b59acef14618b52806acc6c8",
+	"name": "postcss-cyspriter",
+	"time": {
+		"modified": "2022-06-24T09:47:11.080Z",
+		"created": "2015-12-03T13:50:42.270Z",
+		"0.0.5": "2015-12-03T13:50:42.270Z",
+		"0.0.6": "2015-12-20T00:15:31.962Z"
+	},
+	"maintainers": [
+		{
+			"name": "hitmands",
+			"email": "gius.mand.developer@gmail.com"
+		},
+		{
+			"name": "lughino",
+			"email": "luca.pau82@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "0.0.6"
+	},
+	"description": "PostCSS Plugin for Working With Sprites",
+	"readme": "# postcss-cyspriter \n\n[PostCSS] plugin that creates sprites using css rules prefixed by `cys-`.\n\n[PostCSS]: https://github.com/postcss/postcss\n\nWhat you need is just to write your css rule using `cys-` prefix and assign it the `cys-src` required declaration. That's All.\n\n```css\n/* Input example */\n.cys-[className] {\n    cys-src: [folderName];\n}\n```\n\n```css\n/* Output example */\n.className,\n.className-imagename {\n    background-image: url(\"/[httpDest]/[spriteName].png[?cacheBuster]\");\n}\n\n.className-imagename {\n  background-position: 168px 171px;\n}\n```\n\n## Usage\n\n### Installation\n\n```bash\n$ npm i [--save] postcss-cyspriter\n```\n\n### Configuration\n```js\nlet cyspriterOptions = {\n    src: './examples/images',\n    dest: './examples/sprites',\n    relativeTo: './examples/dist'\n  };\n  \npostcss([ \n  require('postcss-cyspriter')(cyspriterOptions) \n])\n```\n\n## Options\n\n### Required\n#### Global\n - **src** {string} - Full (or relative) file system path where sprite-folders are kept. \n - **dest** {string} - Full (or relative) file system path where generated sprites must be saved\n - **relativeTo** {string} - Full (or relative) file system path usable in output css\n\n#### Local\n - cys-src {string} - The directory name that contains all images that will compose the sprite, this property will be merged with the global `src`option (` src = path.join(global.src, src); `)\n - cys-debug {boolean} - Enables debug info for sprite instance\n \n### Optional\n \n - **verbose** {boolean} [verbose = false] - Decides whether or not to print additional debug info in console\n - **cacheBuster** {boolean} [cacheBuster = true] - Append a query string to the sprite to prevent cache\n - **httpDest** {string} [httpDest = ''] - Full web server path where generated sprites are deployed, if provided the *relativeTo option* will be ignored\n - **padding** {integer} [padding = 0] - Spacing in pixel between each image\n - **retina** {boolean} [retina = false] - Allows support for retina displays\n - **ratio** {number} [ratio = 2] - Defines the ratio to be applied to images retina\n - **includeSize** {boolean} [includeSize = true] - Decides whether or not to include the dimensions in the output rules\n - **decorate** {boolean} [decorate = true] - Decides whether or not to include useful declarations in the output rules\n - **layout** {string} [layout = 'smart'] - Sets the layout of the generated sprite. Possible values are: `'diagonal'`,  `'vertical'`, `'horizontal'`, `'smart'`\n\n#### NOTE: except for *httpDest* and *verbose* options, each option can be overridden for sprite instance using the `cys-` prefix. Example:\n```css\n.cys-icons {\n\tcys-src: 'icons';\n\tcys-padding: 5px;\n\tcys-include-size: false;\n\tcys-layout: 'vertical';\n\t...\n}\n```\n\n#### NOTE: magic selectors are supported.\nIf cyspriter finds an image with (hover|active|focus|target) in the filename, a pseudo-selector will be generated. Example:\n\nconsidering a filename as follows: `foo_active.png`;\n\ncyspriter generates a rule like this:\n\n```css\n.[spritemap]-foo:active { ... }\n```\n\n---------\nSee [PostCSS] docs for examples for your environment.\n\n\n## Authors\n\n| Contributor | Type | E-mail |\n|-------------|------|--------|\n| [Luca Pau](https://github.com/Lughino) | author  | <luca.pau82@gmail.com> |\n| [Giuseppe Mandato](https://github.com/hitmands) | author  | <gius.mand.developer@gmail.com> |\n\n---------\n## Copyright\n\nCopyright (c) 2015 Code-Y - Luca Pau, Giuseppe Mandato. See [LICENSE](LICENSE) for details.\n",
+	"versions": {
+		"0.0.6": {
+			"name": "postcss-cyspriter",
+			"version": "0.0.6",
+			"description": "PostCSS Plugin for Working With Sprites",
+			"main": "dist/index.js",
+			"scripts": {
+				"dev": "nodemon test.js",
+				"cov": "babel-node ./node_modules/.bin/isparta cover --include-all-sources --report lcov --report html --root './lib' ./node_modules/.bin/_mocha -- './test/**/*.js' --compilers js:babel-register --require './test/index.js'",
+				"test": "mocha --reporter spec -u tdd --compilers js:babel-register --require should './test/index.js' './test/**/test.*.js'",
+				"compile": "gulp transpile",
+				"prepublish": "npm run compile"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Code-Y/postcss-cyspriter.git"
+			},
+			"keywords": [
+				"PostCSS",
+				"Sprites",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "CodeY",
+				"email": "https://github.com/Code-Y/"
+			},
+			"contributors": [
+				{
+					"name": "Hitmands - Giuseppe Mandato",
+					"email": "gius.mand.developer@gmail.com"
+				},
+				{
+					"name": "Lughino - Luca Pau",
+					"email": "luca.pau82@gmail.com"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/Code-Y/postcss-cyspriter/issues"
+			},
+			"engines": {
+				"node": ">= 0.12.0"
+			},
+			"license": "ISC",
+			"homepage": "https://github.com/Code-Y/postcss-cyspriter#readme",
+			"dependencies": {
+				"bluebird": "^3.0.5",
+				"colors": "^1.1.2",
+				"lodash": "^3.10.1",
+				"postcss": "^5.0.12",
+				"q": "^1.4.1",
+				"gulp": "^3.9.0",
+				"spritesmith": "^2.0.1"
+			},
+			"devDependencies": {
+				"autoprefixer": "^6.1.0",
+				"babel": "^6.3.13",
+				"babel-cli": "^6.3.17",
+				"babel-eslint": "^4.1.5",
+				"babel-preset-es2015": "^6.1.18",
+				"babel-register": "^6.3.13",
+				"babel-runtime": "^6.3.13",
+				"gulp-babel": "^6.1.0",
+				"gulp-eslint": "^1.1.0",
+				"gulp-plumber": "^1.0.1",
+				"gulp-postcss": "^6.0.1",
+				"gulp-sourcemaps": "^1.6.0",
+				"gulp-util": "^3.0.7",
+				"mocha": "^2.3.4",
+				"should": "^8.0.1",
+				"sinon": "^1.17.2"
+			},
+			"gitHead": "5621dc8856ef6798261e9be139f9c7bae65352e5",
+			"_id": "postcss-cyspriter@0.0.6",
+			"_shasum": "bf58ab8154c60ad43ed04a4950a8a9e31342010a",
+			"_from": ".",
+			"_npmVersion": "3.5.3",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "lughino",
+				"email": "luca.pau82@gmail.com"
+			},
+			"dist": {
+				"shasum": "bf58ab8154c60ad43ed04a4950a8a9e31342010a",
+				"tarball": "https://registry.npmjs.org/postcss-cyspriter/-/postcss-cyspriter-0.0.6.tgz",
+				"integrity": "sha512-v3Sy4Cy2p15q4MiSPMHS3hlMhMO/nSImXUYSnXDEsWSnT6KbgX5bCB8y//NT+BNnOffd4B8VC0IqSxWfMVjRmA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIEijE0f7SzkWnkrhdIVDVXbLNRcpG1RkXOkwLQltMbS+AiAfL57koWIDwJerMt85b9MRP2EPaW4sPuTA/bPyM8HRZQ=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "lughino",
+					"email": "luca.pau82@gmail.com"
+				}
+			]
+		}
+	},
+	"homepage": "https://github.com/Code-Y/postcss-cyspriter#readme",
+	"keywords": [
+		"PostCSS",
+		"Sprites",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Code-Y/postcss-cyspriter.git"
+	},
+	"contributors": [
+		{
+			"name": "Hitmands - Giuseppe Mandato",
+			"email": "gius.mand.developer@gmail.com"
+		},
+		{
+			"name": "Lughino - Luca Pau",
+			"email": "luca.pau82@gmail.com"
+		}
+	],
+	"author": {
+		"name": "CodeY",
+		"email": "https://github.com/Code-Y/"
+	},
+	"bugs": {
+		"url": "https://github.com/Code-Y/postcss-cyspriter/issues"
+	},
+	"license": "ISC",
+	"readmeFilename": "README.MD"
+}

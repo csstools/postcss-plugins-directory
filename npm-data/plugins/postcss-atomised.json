@@ -1,0 +1,2011 @@
+{
+	"_id": "postcss-atomised",
+	"_rev": "23-5d030182c1f3e959cd210c76e45b47a5",
+	"name": "postcss-atomised",
+	"time": {
+		"modified": "2022-06-24T09:28:40.818Z",
+		"created": "2016-06-17T10:51:12.897Z",
+		"0.1.0-beta": "2016-06-17T10:51:12.897Z",
+		"0.1.0-alpha.0": "2016-06-17T11:13:28.704Z",
+		"0.1.0-alpha.1": "2016-06-19T20:26:41.247Z",
+		"0.1.0-alpha.2": "2016-06-20T07:45:33.107Z",
+		"0.1.0-alpha.3": "2016-06-20T07:46:38.225Z",
+		"0.1.0-alpha.4": "2016-06-20T07:47:18.525Z",
+		"0.2.0-alpha.0": "2016-06-20T07:50:59.117Z",
+		"0.2.0-alpha.1": "2016-06-20T07:56:33.244Z",
+		"0.2.0-alpha.2": "2016-06-20T08:01:26.037Z",
+		"0.2.0-alpha.3": "2016-06-20T08:06:42.654Z",
+		"0.2.0-alpha.4": "2016-06-30T08:57:19.412Z",
+		"0.2.0-alpha.5": "2016-06-30T08:57:50.531Z",
+		"0.2.0-alpha.6": "2016-07-08T11:33:47.566Z",
+		"0.2.0": "2016-07-10T11:40:06.350Z",
+		"0.2.1": "2016-07-10T11:52:23.604Z",
+		"0.2.2": "2016-07-10T12:29:39.674Z",
+		"0.2.3": "2016-07-10T13:10:46.870Z",
+		"0.3.0": "2016-07-15T08:58:14.853Z",
+		"0.3.1": "2016-07-15T09:04:42.601Z",
+		"0.3.2": "2016-08-04T13:59:58.397Z"
+	},
+	"maintainers": [
+		{
+			"name": "sndrs",
+			"email": "a@snd.rs"
+		}
+	],
+	"dist-tags": {
+		"latest": "0.3.2"
+	},
+	"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+	"readme": "# postcss-atomised\n[![npm version](https://badge.fury.io/js/postcss-atomised.svg)](https://badge.fury.io/js/postcss-atomised) [![Build Status](https://travis-ci.org/atomised-css/postcss-atomised.svg?branch=master)](https://travis-ci.org/atomised-css/postcss-atomised) [![Coverage Status](https://coveralls.io/repos/github/atomised-css/postcss-atomised/badge.svg?branch=master)](https://coveralls.io/github/atomised-css/postcss-atomised?branch=master)  [![Dependency Status](https://dependencyci.com/github/atomised-css/postcss-atomised/badge)](https://dependencyci.com/github/atomised-css/postcss-atomised) [![Dependency Status](https://david-dm.org/atomised-css/postcss-atomised.svg)](https://david-dm.org/atomised-css/postcss-atomised) [![devDependency Status](https://david-dm.org/atomised-css/postcss-atomised/dev-status.svg)](https://david-dm.org/atomised-css/postcss-atomised#info=devDependencies)\n\n _“This is under active, initial developement for use on https://github.com/guardian/frontend and is not yet stable. It will get a proper 1.0.0 release when it is.”_ – :construction_worker:\n\n---\n\n[PostCSS](http://postcss.org) plugin that [atomises](http://www.creativebloq.com/css3/atomic-css-11619006) a standard set of CSS, and provides a json map from the original classes to the atomic ones.\n\nIt will turn this:\n\n```CSS\n.one {\n    background-color: red;\n    margin: 1rem;\n}\n.two {\n    background-color: red;\n    margin-top: 1rem;\n}\n@media (min-width: 100px) {\n    .two:hover {\n        background-color: hotpink;\n    }\n}\n```\n\ninto this atomised `css`:\n\n```CSS\n.a { background-color: red; }\n.b { margin-top: 1rem; }\n.c { margin-right: 1rem; }\n.d { margin-bottom: 1rem; }\n.e { margin-left: 1rem; }\n@media (min-width: 100px) {\n .f:hover { background-color: hotpink; }\n}\n```\n\nand this json map:\n\n```JSON\n{\n  \"one\": [\"a\", \"b\", \"c\",\" d\", \"e\"],\n  \"two\": [\"a\", \"b\", \"f\"]\n}\n```\n\nThe idea is that in development, you leave your big stylesheet alone, with sourcemaps etc all intact. In production though, you could inline the atomic CSS and then using the json map, transform the following:\n\n```HTML\n<div class=\"one\"></div>\n<div class=\"two\"></div>\n```\n\ninto:\n\n```HTML\n<div class=\"a b c d e f\"></div>\n<div class=\"a c g h\"></div>\n```\n\nThis should mean you can the get benefit of writing CSS in an insolated, super-modular fashion without worrying about the bloat of duplication (the only way you could serve a smaller stylesheet would be to use fewer styles).\n\n### Restrictions\n- only single class selectors can be atomised (other selectors will pass straight through)\n- pseudo selectors/elements are fine\n- multiple/duplicate selectors are fine\n\n| Selector  | Ok |\n|---|---|\n| `.a:b { }`  | :white_check_mark: |\n| `.a, .b { }`  | :white_check_mark:  |\n| `.a { }; .a { }`  | :white_check_mark:  |\n| `.a .b { }`  | :x: |\n| `.a.b { }`  | :x:  |\n| `a { }`  | :x:  |\n| `a b { }`  | :x:  |\n|  `#a { }` | :x:  |\n| `a[b] { }`  | :x:  |\n| `a > b { }`  | :x:  |\n| `a + b { }`  | :x:  |\n| `a ~ b { }`  | :x:  |\n| `*`  | :x:  |\n\n## Usage\n\n```javascript\nimport postcss from 'postcss';\nimport atomised from 'postcss-atomised';\n\nconst options = {\n    jsonPath: 'path/to/json' // atomic map is written to path/to/json.json\n};\n\npostcss([atomised(options)]).process(css).then(result => {\n    // result.css => atomised css\n});\n```\n\n## Development\nRun `npm start` to run the Ava test runner in watch mode, or `npm test` for a one-off.\n\n## Node.js 0.10\nAs it's a PostCSS plugin, [their caveat](https://github.com/postcss/postcss#nodejs-010-and-the-promise-api) about v0.10 applies.\n",
+	"versions": {
+		"0.1.0-alpha.0": {
+			"name": "postcss-atomised",
+			"version": "0.1.0-alpha.0",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"perfectionist": "^2.1.3",
+				"postcss": "^5.0.19",
+				"postcss-reporter": "^1.3.3",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"stylelint": "^6.6.0",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/index.js",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "199760f70e2e71b0d1f00a429ccf163d2d3d7be9",
+			"_id": "postcss-atomised@0.1.0-alpha.0",
+			"_shasum": "f95add8b596630cb3475cc564749bee5f59a70b3",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "5.11.1",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "f95add8b596630cb3475cc564749bee5f59a70b3",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.1.0-alpha.0.tgz",
+				"integrity": "sha512-wUqNNn1cKZmD0YziRAL8QQQ7IOtPtsD5uIBYmJ/lFM4eJ3FqmQDO7b3Xlchl8QiUgKTscyZvY9O6VD0gyfof+w==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDkv+w4pd4oOvo/ElUCPMpTlnn/obudiwyGQlsPm7cVoQIgdujR9NiaSVQDELBZQCTQt0SiSdLVgIp2Tai/LEJPrJ8="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.1.0-alpha.0.tgz_1466162006139_0.6784387442748994"
+			}
+		},
+		"0.1.0-alpha.1": {
+			"name": "postcss-atomised",
+			"version": "0.1.0-alpha.1",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"postcss-reporter": "^1.3.3",
+				"perfectionist": "^2.1.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "2f7fa021c9937346ac923fa822cb553902811ea0",
+			"_id": "postcss-atomised@0.1.0-alpha.1",
+			"_shasum": "e1e8680ae4cae11f08c5e5b37befdcb50fd44887",
+			"_from": ".",
+			"_npmVersion": "3.9.3",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "e1e8680ae4cae11f08c5e5b37befdcb50fd44887",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.1.0-alpha.1.tgz",
+				"integrity": "sha512-S2jh35mz0aXK1pcynBubUFEYxJFceeFjIXkazWkv+QDJQdghEYcjbRygtZ9QsgYaX0iChGMteknDftnpA7pY0Q==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCPMZgUZN7ys/cN+xlVckzMLOb2LWDj8ceoQ+sKH9MrJAIhANq4c6PnlnUp5XWnWgLrEv0YvhgmGp3ifDib4/poOq7Y"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.1.0-alpha.1.tgz_1466367998800_0.6899458181578666"
+			}
+		},
+		"0.1.0-alpha.2": {
+			"name": "postcss-atomised",
+			"version": "0.1.0-alpha.2",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"postcss-reporter": "^1.3.3",
+				"perfectionist": "^2.1.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "f699ba4aaab5be3861fcde16c7421ab3720628c6",
+			"_id": "postcss-atomised@0.1.0-alpha.2",
+			"_shasum": "4c051a4593530956ee005ef4404467beadb08cdf",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "5.11.1",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "4c051a4593530956ee005ef4404467beadb08cdf",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.1.0-alpha.2.tgz",
+				"integrity": "sha512-w5quG0Syke1Zgj/r6GhHO/vxF/kp4v5xMtSGALWgkLpBUV37bIFGSL4L2qY5cWzJK5XzMX+64sx2/GuPF6w8Vg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD6nheWealrEWjHv8GcGAeh/1pcqIV0Dqb6603ECvw89AIhAO660RS+U0tXfE8XyyAio4V7fPHR2gHVDl+Iuq3iD/UL"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.1.0-alpha.2.tgz_1466408730930_0.05200955318287015"
+			}
+		},
+		"0.1.0-alpha.3": {
+			"name": "postcss-atomised",
+			"version": "0.1.0-alpha.3",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"postcss-reporter": "^1.3.3",
+				"perfectionist": "^2.1.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "ff79498dd1fb57dddd0337c9d6f7012963f83217",
+			"_id": "postcss-atomised@0.1.0-alpha.3",
+			"_shasum": "bdf7a68fe7f9318bf876346799e2f8645668a279",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "5.11.1",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "bdf7a68fe7f9318bf876346799e2f8645668a279",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.1.0-alpha.3.tgz",
+				"integrity": "sha512-652gcHlZ5Fkj+7lBXllVcFAvEloDDvdyAMmK2Mtet7v5/CC9LqbCLvYUaZyZu7xPG6LD/jtV1HnA0+lP+cV2Hw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFi6ro+XBlc7FK1xvHaQCMlF2K83sB1u50dZQNJz7UwSAiEA01VZI0SvIGMKrEZrYeaj5A/vhUcTGlTfTX628zpNygk="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.1.0-alpha.3.tgz_1466408795721_0.7829237596597522"
+			}
+		},
+		"0.1.0-alpha.4": {
+			"name": "postcss-atomised",
+			"version": "0.1.0-alpha.4",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"postcss-reporter": "^1.3.3",
+				"perfectionist": "^2.1.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "7b9838d5d514435751e646a7e1f22e6f1d5abf0a",
+			"_id": "postcss-atomised@0.1.0-alpha.4",
+			"_shasum": "f35983e432a6c3749f4dc24eac204ecc43911acc",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "5.11.1",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "f35983e432a6c3749f4dc24eac204ecc43911acc",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.1.0-alpha.4.tgz",
+				"integrity": "sha512-MeZHuiOrZCPOnJJqeuZRzgDBIpjSd36LiPOI92bUspz18H1f0Ifr5lDBLxnl/lF7cmNFne38HC7yiAzWJ2KdXw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDwTF9kCSTM6UayVjGZgOKXQ2x30vGij+3KL4AQEM81aAIgPhwDVuqiY9xv6kYJEjxl3PDNIlN4qC2pwVqm5zLX5ig="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.1.0-alpha.4.tgz_1466408837306_0.8234872375614941"
+			}
+		},
+		"0.2.0-alpha.0": {
+			"name": "postcss-atomised",
+			"version": "0.2.0-alpha.0",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"postcss-reporter": "^1.3.3",
+				"perfectionist": "^2.1.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "7b9838d5d514435751e646a7e1f22e6f1d5abf0a",
+			"_id": "postcss-atomised@0.2.0-alpha.0",
+			"_shasum": "a5de3511f620ea9c853b1ce081cdc0249bdc4b3c",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "5.11.1",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "a5de3511f620ea9c853b1ce081cdc0249bdc4b3c",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.0-alpha.0.tgz",
+				"integrity": "sha512-sW5BysxUX3d3BMDs7U0TUmwuIJLnrWkJoSzvUJ7QWlWr8LcUGLK/xq8vueqBk76cTNlQO/zMaHh6zlxrb9QrgQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDNysvlDZgWeOxPXYFUjvx7IKt/sa5CrfjpiBahjwHwaAIhAIwMP47QFwx2z8ecXX8RKPq8XwdUS2EiL7q76XDvVFgs"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.0-alpha.0.tgz_1466409057834_0.1146813512314111"
+			}
+		},
+		"0.2.0-alpha.1": {
+			"name": "postcss-atomised",
+			"version": "0.2.0-alpha.1",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"postcss-reporter": "^1.3.3",
+				"perfectionist": "^2.1.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "4d2fb257087f3567bde3569997c97ed518b1a2aa",
+			"_id": "postcss-atomised@0.2.0-alpha.1",
+			"_shasum": "6b2a22af18e4eb92466cb29cb549dfd504b9c3d5",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "5.11.1",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "6b2a22af18e4eb92466cb29cb549dfd504b9c3d5",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.0-alpha.1.tgz",
+				"integrity": "sha512-IgyZD32kegJhT1IqCxjGL0x8GiNXTQrLBI1p29WyQ8kjndYq1hj1a/P8pf2MJNvfOc9jiVSQ2LpNbsA39bPN9w==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDaEM/L/n+0gLPf+PM2G+U63AmPe2z6B3QpO4hgjOY1hwIgHG7l8ncCzK38K2VbXTcqhFIMOPoETJllm0AIiM+42ic="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.0-alpha.1.tgz_1466409391046_0.27043305546976626"
+			}
+		},
+		"0.2.0-alpha.2": {
+			"name": "postcss-atomised",
+			"version": "0.2.0-alpha.2",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"postcss-reporter": "^1.3.3",
+				"perfectionist": "^2.1.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "3251f67783362e58d211805351de9f417dcc9fea",
+			"_id": "postcss-atomised@0.2.0-alpha.2",
+			"_shasum": "eb7e144cb39ef6fc9f057f5da44ac624c11ecf10",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "eb7e144cb39ef6fc9f057f5da44ac624c11ecf10",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.0-alpha.2.tgz",
+				"integrity": "sha512-shkcrQ81DwZtj0hMlpoGwsUUvzC3JQyPeQ0MOwe22ljlHMxoctfejW8JiHXQR3wHr+Ua6U3zWfyoXo+g2WMWWQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDoW4f2GKxCC6aEkxfNofzkBw/Ge31O658/AqOcNssA2wIhAOEG5CpjQnqhHIoR991lOsry0pboKiouw+gbFFfUqDje"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.0-alpha.2.tgz_1466409684717_0.6196323577314615"
+			}
+		},
+		"0.2.0-alpha.3": {
+			"name": "postcss-atomised",
+			"version": "0.2.0-alpha.3",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"css-mqpacker": "^4.0.1",
+				"junk": "^1.0.2",
+				"postcss-reporter": "^1.3.3",
+				"perfectionist": "^2.1.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "60a185dac7940d7a2b2d92fb8060ef878e98336f",
+			"_id": "postcss-atomised@0.2.0-alpha.3",
+			"_shasum": "9fd02324f2b9f41178c63ec4dcc74219bffec47f",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "9fd02324f2b9f41178c63ec4dcc74219bffec47f",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.0-alpha.3.tgz",
+				"integrity": "sha512-9oA8xgf8HtEna8CLGQ9OWCqm+GzwuQQj4P4g0Y3x9uEuAzDT62ZqR2pwvd8NYYsgrT5iTFL5rL4mU/F2dOdQaA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDj3Dwy+TEMu6qqInyP+Rkt/09BlXhbwbG8Xij1XmrgbwIgNK1lWSA4ctmcAHJe/LohRyN0JZjgPVe9zMrjmhwdpgY="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.0-alpha.3.tgz_1466410001281_0.7189579939004034"
+			}
+		},
+		"0.2.0-alpha.4": {
+			"name": "postcss-atomised",
+			"version": "0.2.0-alpha.4",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^6.6.1",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "45831c8118e5f622c2112e565044fd174a17dfb6",
+			"_id": "postcss-atomised@0.2.0-alpha.4",
+			"_shasum": "8c645399ffb5b53a35244e1e3e2816844a505808",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "8c645399ffb5b53a35244e1e3e2816844a505808",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.0-alpha.4.tgz",
+				"integrity": "sha512-qXhMeZii4my3MtfWKTPO2sGkjUz/mfOCdYSpU7fnuO40MKk68JjHWz0F6f3wtHWu/EdVx7AtYe0JbdLekz3/Mw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBCZPQeumMrMAmzqWp7zlo5Q2/870mTFHBrf3y3Y81vrAiBPHP1Ib3oK0H6DEO7R2fzWImRmGm0ScjNGQLgPbmxdRg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.0-alpha.4.tgz_1467277037869_0.250602524029091"
+			}
+		},
+		"0.2.0-alpha.5": {
+			"name": "postcss-atomised",
+			"version": "0.2.0-alpha.5",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^6.6.1",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/build && ava",
+				"build": "babel src -d build",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "f4e5e2b7910a92713a76982315f9b31d2ec51090",
+			"_id": "postcss-atomised@0.2.0-alpha.5",
+			"_shasum": "5aad1455cc6c444f159fbb13d1bd99c186c834bc",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "5aad1455cc6c444f159fbb13d1bd99c186c834bc",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.0-alpha.5.tgz",
+				"integrity": "sha512-5XslTxas7L+f48nnMwDf2kuzPtt/sY2VfbjiBPMgFpDBhClqF8Wv50qnOU4ySYaDp5hbaPccRqfzAwLIPr4DZg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDCMkER6kDpQuEElziefJRSQ2GtBDwHukYzBZoPhGXTfQIgcW9Gw7mN9qz/MYeAa76GdEzHvBNwFsCmqsZ7aA8fmzg="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.0-alpha.5.tgz_1467277069035_0.13408656558021903"
+			}
+		},
+		"0.2.0-alpha.6": {
+			"name": "postcss-atomised",
+			"version": "0.2.0-alpha.6",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-preset-es2015-rollup": "^1.1.1",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^6.6.1",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3",
+				"rollup": "^0.33.0",
+				"rollup-plugin-babel": "^2.6.1"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/output && nyc ava",
+				"build": "rm -rf build && rollup -c",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags",
+				"coverage": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "8be9f9c705e8a41c83b4fc68912fcb9ec74de8e1",
+			"_id": "postcss-atomised@0.2.0-alpha.6",
+			"_shasum": "f456fdf851e62d602f0b9944609673078b59abe9",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "f456fdf851e62d602f0b9944609673078b59abe9",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.0-alpha.6.tgz",
+				"integrity": "sha512-jGCgzLWQvETTVgbrcEPv7+pkC+Du5Nfv9CelDA4zhaIa4vy00gzQSc5PJK3R78x0MwDDq6w8CaBDD+sS+pWE1g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHq7t2NMXxxWpbJXgN+s7VGhTAyC8BhSJbowI/2dU+eUAiBuisNSXhNouJ8fqM72Em9PNOrxLRw2w0enBCSFWQP/0w=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.0-alpha.6.tgz_1467977626280_0.6716970002744347"
+			}
+		},
+		"0.2.0": {
+			"name": "postcss-atomised",
+			"version": "0.2.0",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-preset-es2015-rollup": "^1.1.1",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^7.0.0",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3",
+				"rollup": "^0.34.0",
+				"rollup-plugin-babel": "^2.6.1"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/output && nyc ava",
+				"build": "rm -rf build && rollup -c",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags",
+				"coverage": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "d6dbdd1668f0fd892181c0126dca0c66323b5142",
+			"_id": "postcss-atomised@0.2.0",
+			"_shasum": "abb69feb5331e28c6951b5b4e0dde4019468640d",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "abb69feb5331e28c6951b5b4e0dde4019468640d",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.0.tgz",
+				"integrity": "sha512-9w9O4KzmAOpIvQfqONdgG/nGMDYUlCmvqj8wmfZZV3BQTd4aIkdwSMIf6f4lJkxXMSErFkX1eXUOTquLzm9roA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCICHNNh3BdsaNPv6hGGNU1pfCBPLfPSgSxgUKJ3BPV2sOAiAQaDrq9DO+HOjcUxY5jujGIF2oLIIotOKm6LxXrFak6g=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.0.tgz_1468150804825_0.982408594340086"
+			}
+		},
+		"0.2.1": {
+			"name": "postcss-atomised",
+			"version": "0.2.1",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2",
+				"writefile": "^0.2.8"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-preset-es2015-rollup": "^1.1.1",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^7.0.0",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3",
+				"rollup": "^0.34.0",
+				"rollup-plugin-babel": "^2.6.1"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/output && nyc ava",
+				"build": "rm -rf build && rollup -c",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags",
+				"coverage": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "944a6872733a134eedadab2416138b017be14497",
+			"_id": "postcss-atomised@0.2.1",
+			"_shasum": "0f6be897d78cc2fb6a516032c17bf71e0edf96cf",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "0f6be897d78cc2fb6a516032c17bf71e0edf96cf",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.1.tgz",
+				"integrity": "sha512-0zQDmDXFlT7b1SkgvNo8fFNJWThFp4oxbckSsnG+85l3cEOwTEc4BQU1xUyoC6MLkXCs9qRmuLmgje+u4HIG4A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBxX1c23rsv5+9zSVuwFESFlPTJn832Mr/xfGZOnjZgYAiEAwi+HpJSwat/vs+3ty/zz86GVeP6eFJIwu0c8uMQeAXQ="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.1.tgz_1468151541281_0.7131406001280993"
+			}
+		},
+		"0.2.2": {
+			"name": "postcss-atomised",
+			"version": "0.2.2",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-preset-es2015-rollup": "^1.1.1",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^7.0.0",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3",
+				"rollup": "^0.34.0",
+				"rollup-plugin-babel": "^2.6.1"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/output && nyc ava",
+				"build": "rm -rf build && rollup -c",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags",
+				"coverage": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "951baa4b427e218f38b6287e211788dddf5e3918",
+			"_id": "postcss-atomised@0.2.2",
+			"_shasum": "a4d9469443eda0a2731e1bc600f81b63e4fa5a28",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "a4d9469443eda0a2731e1bc600f81b63e4fa5a28",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.2.tgz",
+				"integrity": "sha512-YS3xL9gfmTnkjQ6yGytxx7uP+khSdIOvpShO3r9teAW/wTLFpAdzmfJgNxT6ldjc+tPx2NGw3DbmYMTlH/BFsw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBEP/85hPoKU3etXr+PxYpAhAVK+eHOF30QJsIPqMgJWAiBPgNlH7+82SPQpiFpySiRZS/WuRKpzDj42MIq3nmtIqQ=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.2.tgz_1468153778320_0.6188538542483002"
+			}
+		},
+		"0.2.3": {
+			"name": "postcss-atomised",
+			"version": "0.2.3",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.0.0",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-preset-es2015-rollup": "^1.1.1",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^7.0.0",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3",
+				"rollup": "^0.34.0",
+				"rollup-plugin-babel": "^2.6.1"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/output && nyc ava",
+				"build": "rm -rf build && rollup -c",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags",
+				"coverage": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "07967338f729cb69a53ceeb44a1efae9815948cf",
+			"_id": "postcss-atomised@0.2.3",
+			"_shasum": "e0d6ed01acf6e538a18f0801013b8b5133188c13",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "e0d6ed01acf6e538a18f0801013b8b5133188c13",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.2.3.tgz",
+				"integrity": "sha512-wqKe1MOJldDSWh/HH79XlKAe//QV0cRrZ/pHZY71hItpZ4mf2Z0ViyX836RknSMCy1qegBGYY0mLVjNgmaQ9bg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQD2Ex9ekOjQnngDytSa7novARGYzOkS9qQjJVR6tWP8kwIgdceZEPAhgPNa6jaBBwCMrWKsVC9rc7EBfLWtTysaAuU="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.2.3.tgz_1468156245405_0.5567230866290629"
+			}
+		},
+		"0.3.0": {
+			"name": "postcss-atomised",
+			"version": "0.3.0",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"pify": "^2.3.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.1.1",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-preset-es2015-rollup": "^1.1.1",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^7.0.0",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3",
+				"rollup": "^0.34.1",
+				"rollup-plugin-babel": "^2.6.1"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/output && nyc ava",
+				"build": "rm -rf build && rollup -c",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags",
+				"coverage": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "6eea443092888557511f04a6a9245cef0de12d97",
+			"_id": "postcss-atomised@0.3.0",
+			"_shasum": "6250c4dd5528d7c86b101925119e1b123549a1d5",
+			"_from": ".",
+			"_npmVersion": "3.10.5",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "6250c4dd5528d7c86b101925119e1b123549a1d5",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.3.0.tgz",
+				"integrity": "sha512-wL5oID9Ljcep2s+TWgQapnQh6b+jzVzlSzwgQ3EJ+oUAs43x0NMneZG87REpg9iSlvuSkDe9UoMmG1YNj6vohA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDQHQyS6sl8Zpt2MmtZu+hc0ROvqXAM1lTRm+IZcZNyRAiEA2Y9rUVC9D2uxQEQo34zaNYiI88YfFsY6CRLinnE7Xds="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.3.0.tgz_1468573092311_0.5608790849801153"
+			}
+		},
+		"0.3.1": {
+			"name": "postcss-atomised",
+			"version": "0.3.1",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/sndrs/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/sndrs/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/sndrs/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"pify": "^2.3.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.1.1",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-preset-es2015-rollup": "^1.1.1",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^7.0.0",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3",
+				"rollup": "^0.34.1",
+				"rollup-plugin-babel": "^2.6.1"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/output && nyc ava",
+				"build": "rm -rf build && rollup -c",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags",
+				"coverage": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "a908759d7739aa3ebc679eaa72521b018c1a7b72",
+			"_id": "postcss-atomised@0.3.1",
+			"_shasum": "8093fac91f6a10463f097537df15e715a1303944",
+			"_from": ".",
+			"_npmVersion": "3.10.5",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "8093fac91f6a10463f097537df15e715a1303944",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.3.1.tgz",
+				"integrity": "sha512-6GrW64463pWYlDf6fnfjb/KfAC8DiQW1IAJhSoH8r0VCKIi5jWnRV8EgfvGBDtSHPUCN+KETuMn2DqwJEaW7Pw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCpsMpNUcsSwa3Ay3Ep2Li+w7+223x1fTdmYAXiQc84twIgOVVheJhtNBn8m4fLtCzWPziqtJwLo4o1n9fRZNIyiOo="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.3.1.tgz_1468573480068_0.6723806881345809"
+			}
+		},
+		"0.3.2": {
+			"name": "postcss-atomised",
+			"version": "0.3.2",
+			"description": "PostCSS plugin that creates an atomised stylesheet from the input CSS, and provides a json map from the original classes to the atomic ones.",
+			"main": "build/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/atomised-css/postcss-atomised.git"
+			},
+			"author": {
+				"name": "Alex Sanders",
+				"email": "a@snd.rs"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/atomised-css/postcss-atomised/issues"
+			},
+			"homepage": "https://github.com/atomised-css/postcss-atomised#readme",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"atomic",
+				"atomic-css"
+			],
+			"dependencies": {
+				"chalk": "^1.1.3",
+				"css-mqpacker": "^5.0.1",
+				"cssstats": "^3.0.0-beta.1",
+				"lodash.isequal": "^4.3.1",
+				"lodash.uniqby": "^4.5.0",
+				"mkdirp": "^0.5.1",
+				"parse-css-font": "^2.0.2",
+				"parse-css-sides": "^2.0.0",
+				"pify": "^2.3.0",
+				"postcss": "^5.0.19",
+				"postcss-resolve-prop": "^3.1.0",
+				"postcss-selector-parser": "^2.1.1",
+				"pretty-bytes": "^3.0.1",
+				"shorthash": "0.0.2"
+			},
+			"devDependencies": {
+				"ava": "^0.15.0",
+				"babel-cli": "^6.9.0",
+				"babel-preset-es2015": "^6.9.0",
+				"babel-preset-es2015-rollup": "^1.1.1",
+				"babel-register": "^6.9.0",
+				"coveralls": "^2.11.9",
+				"junk": "^1.0.2",
+				"nyc": "^7.0.0",
+				"perfectionist": "^2.1.3",
+				"postcss-reporter": "^1.3.3",
+				"rollup": "^0.34.1",
+				"rollup-plugin-babel": "^2.6.1"
+			},
+			"scripts": {
+				"start": "npm test -- --watch",
+				"test": "rm -rf test/output && nyc ava",
+				"build": "rm -rf build && rollup -c",
+				"prepublish": "npm run build",
+				"postpublish": "rm -rf build && git push --follow-tags",
+				"coverage": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"ava": {
+				"files": [
+					"test/test.js"
+				],
+				"source": [
+					"src/**/*",
+					"test/fixtures/**/*"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"gitHead": "1b384885de5e9c2c39af3f7ea579c4be61e1bb68",
+			"_id": "postcss-atomised@0.3.2",
+			"_shasum": "28e2190d9c4cad3d62babf9c30b497a74ca0a24e",
+			"_from": ".",
+			"_npmVersion": "3.10.6",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "sndrs",
+				"email": "a@snd.rs"
+			},
+			"dist": {
+				"shasum": "28e2190d9c4cad3d62babf9c30b497a74ca0a24e",
+				"tarball": "https://registry.npmjs.org/postcss-atomised/-/postcss-atomised-0.3.2.tgz",
+				"integrity": "sha512-DIgH/yUGGUhDqHeFhsaybqgrF9FOgK+rrgB9RIBAYFEhXwynk/eRgF81xXnHb+w+/QVWW9g9AsEWOhYy3/LThw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQD4FYCvHqmglo2JJ6q1VerpzHuqYsTW1K5i06IcMCRaHQIgK4azOddm+EyYcns7A1LQkQrG+IAQjure4DjxeO63B9s="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sndrs",
+					"email": "a@snd.rs"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-atomised-0.3.2.tgz_1470319196854_0.9341563123743981"
+			}
+		}
+	},
+	"homepage": "https://github.com/atomised-css/postcss-atomised#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"atomic",
+		"atomic-css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/atomised-css/postcss-atomised.git"
+	},
+	"author": {
+		"name": "Alex Sanders",
+		"email": "a@snd.rs"
+	},
+	"bugs": {
+		"url": "https://github.com/atomised-css/postcss-atomised/issues"
+	},
+	"license": "ISC",
+	"readmeFilename": "README.md"
+}

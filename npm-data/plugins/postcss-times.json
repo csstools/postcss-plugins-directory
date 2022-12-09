@@ -1,0 +1,152 @@
+{
+	"_id": "postcss-times",
+	"_rev": "3-f1b203242195fd72c9dfd16f18e093d6",
+	"name": "postcss-times",
+	"description": "PostCSS plugin that to use instead of !important",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-times",
+			"description": "PostCSS plugin that to use instead of !important",
+			"version": "1.0.0",
+			"author": {
+				"name": "nju33",
+				"email": "sski0155+npm@gmail.com",
+				"url": "http://nju33.work/"
+			},
+			"bugs": {
+				"url": "https://github.com/totora0155/postcss-times/issues"
+			},
+			"dependencies": {
+				"lodash": "^4.13.1",
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-core": "^6.7.4",
+				"babel-plugin-syntax-async-functions": "^6.5.0",
+				"babel-plugin-transform-async-to-generator": "^6.5.0",
+				"babel-plugin-transform-es2015-destructuring": "^6.9.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
+				"babel-plugin-transform-es2015-parameters": "^6.6.4",
+				"babel-plugin-transform-es2015-spread": "^6.8.0",
+				"babel-plugin-transform-function-bind": "^6.5.2",
+				"babel-plugin-transform-object-assign": "^6.5.0",
+				"babel-plugin-transform-object-rest-spread": "^6.6.4",
+				"babel-plugin-transform-remove-console": "^6.5.0",
+				"babel-plugin-transform-runtime": "^6.6.0",
+				"babel-register": "^6.7.2",
+				"babel-runtime": "^6.5.0",
+				"babel-template": "^6.7.0",
+				"babel-types": "^6.7.2",
+				"gulp": "^3.9.1",
+				"gulp-babel": "^6.1.2",
+				"gulp-plumber": "^1.1.0",
+				"gulp-rename": "^1.2.2",
+				"xo": "^0.16.0"
+			},
+			"homepage": "https://github.com/totora0155/postcss-times#readme",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/totora0155/postcss-times.git"
+			},
+			"scripts": {
+				"prepublish": "npm run build",
+				"build": "gulp babel",
+				"start": "gulp watch",
+				"test": "xo && ava"
+			},
+			"ava": {
+				"files": [
+					"test/**/*.js"
+				],
+				"require": [
+					"babel-register"
+				],
+				"babel": "inherit"
+			},
+			"xo": {
+				"env": [
+					"node"
+				],
+				"esnext": true,
+				"space": 2,
+				"ignores": [
+					"build/**"
+				]
+			},
+			"gitHead": "c0995ecf8a4e9298e0d04a67d91f02cdcd5f03fc",
+			"_id": "postcss-times@1.0.0",
+			"_shasum": "2891b7cfc5f7eb37bca0577f863b481d808a79a1",
+			"_from": ".",
+			"_npmVersion": "2.15.5",
+			"_nodeVersion": "4.4.5",
+			"_npmUser": {
+				"name": "nju33",
+				"email": "sski0155@gmail.com"
+			},
+			"dist": {
+				"shasum": "2891b7cfc5f7eb37bca0577f863b481d808a79a1",
+				"tarball": "https://registry.npmjs.org/postcss-times/-/postcss-times-1.0.0.tgz",
+				"integrity": "sha512-0e83IOMI2KKUpggG+i2tiWzAoT/BwURZAAD4FA9JK7J1JMSlFZdChZesNTTdj7tFeItOuzT3UbsB0uziAf1sxA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIAsXGj4A0ZIbNgXgGtAB8fWhIjvxYTpbX+DnglC7bb7sAiEA1jk+SUl5Y8SVrWLn6TqG1owa5WvFqjBd+cHvh2xLSOI="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "nju33",
+					"email": "sski0155@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-times-1.0.0.tgz_1467263150368_0.1738977360073477"
+			}
+		}
+	},
+	"readme": "# postcss-times\n\n[![npm version](https://badge.fury.io/js/postcss-times.svg)](https://badge.fury.io/js/postcss-times)\n[![Build Status](https://travis-ci.org/totora0155/postcss-times.svg?branch=master)](https://travis-ci.org/totora0155/postcss-times)\n[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)\n\n<p><img width=\"20\" src=\"https://camo.githubusercontent.com/2ec260a9d4d3dcc109be800af0b29a8471ad5967/687474703a2f2f706f73746373732e6769746875622e696f2f706f73746373732f6c6f676f2e737667\"> <a href=\"https://github.com/postcss/postcss\">PostCSS</a> plugin that to use instead of !important</p>\n\n---\n\n## Install\n\n```\nnpm i postcss-times\n```\n\n## Usage\n\nWrite css.\n\n```css\n#id:times(2) {}\n.class:times(3) {}\n.parent .child:times(2) {}\n.parent .child.multi:times(2) {}\n[attr=class]:times(2) {}\n[attr^=class]:times(2) {}\n[attr$=class]:times(2) {}\n[attr=\"class\"]:times(2) {}\n\n#id:times(str) {}\n```\n\n## Transform\n\n```javascript\nconst fs = require('fs');\nconst postcss = require('postcss');\nconst times = require('postcss-times');\n\nconst css = fs.readFileSync('./sample.css', 'utf-8');\n\npostcss([times])\n  .process(css)\n  .then(result => console.log(result.css));\n```\n\n## Output\n\nGet like this.\n\n```css\n#id#id {}\n.class.class.class {}\n.parent .child.child {}\n.parent .child.multi.multi {}\n[attr=class][attr=class] {}\n[attr^=class][attr^=class] {}\n[attr$=class][attr$=class] {}\n[attr=\"class\"][attr=\"class\"] {}\n\n#id {}\n```\n\n## Run to example\n\n**1** Clone this\n\n```\ngit clone git@github.com:totora0155/postcss-times.git\n```\n\n**2** Change directory\n```\ncd postcss-times\n```\n\n**3** Install modules\n```\nnpm install\n```\n\n**4** Run to script\n```\ncd examples && node postcss.js\n```\n\n## Change log\n\n|version|log|\n|:-:|:--|\n|1.0.0|Rewrite es6|\n|0.0.1|Release!|\n",
+	"maintainers": [
+		{
+			"name": "nju33",
+			"email": "sski0155@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T11:04:13.241Z",
+		"created": "2016-06-30T05:05:53.226Z",
+		"1.0.0": "2016-06-30T05:05:53.226Z"
+	},
+	"homepage": "https://github.com/totora0155/postcss-times#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/totora0155/postcss-times.git"
+	},
+	"author": {
+		"name": "nju33",
+		"email": "sski0155+npm@gmail.com",
+		"url": "http://nju33.work/"
+	},
+	"bugs": {
+		"url": "https://github.com/totora0155/postcss-times/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

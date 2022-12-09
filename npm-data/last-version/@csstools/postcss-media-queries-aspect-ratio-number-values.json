@@ -1,0 +1,114 @@
+{
+	"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
+	"description": "Use number values in aspect-ratio media queries.",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-parser-algorithms": "^1.0.0",
+		"@csstools/css-tokenizer": "^1.0.0",
+		"@csstools/media-query-list-parser": "^1.0.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-queries-aspect-ratio-number-values#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-media-queries-aspect-ratio-number-values"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"postcss-plugin"
+	],
+	"csstools": {
+		"cssdbId": "TODO",
+		"exportName": "postcssMediaQueriesAspectRatioNumberValues",
+		"humanReadableName": "PostCSS Media Queries Aspect-Ratio Number Values",
+		"specUrl": "https://www.w3.org/TR/mediaqueries-4/#aspect-ratio"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "8a3541f17d229aff6706549f91c357b6fe6502ac",
+	"_id": "@csstools/postcss-media-queries-aspect-ratio-number-values@1.0.0",
+	"_nodeVersion": "16.15.1",
+	"_npmVersion": "8.11.0",
+	"dist": {
+		"integrity": "sha512-gC5RQSI/42TbaOdPZoObcL4lhLYggBzTp/PTypcmLMp8JLPQdlJq2Ys0t8pxfDw98GvsHZahUbhPxJaebbCT1w==",
+		"shasum": "152e8db29986186f792bc4f5cd773ded1982d763",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-media-queries-aspect-ratio-number-values/-/postcss-media-queries-aspect-ratio-number-values-1.0.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 23963,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIGBpbYtuAso8sgEY3Cjz0FbVwAXufEnxbR7yEmuv/bLTAiEA0SLDm5gySgfJlzMb7+XhAnRBEaiiSlbr5gU5Gf5BmRQ="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjcgTRACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr1YQ/9GAwJhXKDiE5ZfTMp4R1dYXfI4SjMDfU01XOfrbY9J3Mf8iDg\r\ngoxC1DXYleJiL7zrtRN4TxVhtPBNHvlpJgikZIEL67LwGbOX5xS07s5loQPS\r\n37i1odjEnevqglvX8Au9m2z338ZdH6VFYo79Is1WBxcWFym/qQ3QRdQQHVIK\r\n5K/1xZL4Y84WKN3UIDb+pzFdH8Vpcw4rmt7EFT6RP4ctQjo2EwyFtwgDbWD4\r\nrSzOVsF8TaAtyy2ICHC92hKoOllkk1My/z3hlo/jiYqNRATOi2ilD3uEB1+J\r\ncfmwuUk1K2UK5VVXbUniLpHFvdbAsoMtR+lAeIG9O6LhBuRDBH7YuQDGX3IP\r\nAr0EG4LwSpsUzo6M1njwYzfZbI5o1MFVAc/JQeGFnJCv9xLnB3F2g9/sEPgI\r\nJ2h6MVSkXcSkD6lSyEqNKkC6UIZ98zxiHhT4DwDHMn7JWx0skFv3MScEgJ46\r\ngpia2MmlGsoYIhoMh2V07FPHrVhrsX2//qoFe4+gdB8BOXFfkVcmH02mH0Ja\r\n1ztOBPLhiVFDba6G0iLM1rveqCEaawp83cLSf9qCih6+Acy9Z7kLs0VZFdVP\r\nXYtpTWtqzleiFhLFT9odXiUcvm8fBOJA7+nl55JitELRX7HdnDaSTATB/Hao\r\nG7s72bXxpxWR1/+RfNKICpdSAIR07AMq4s4=\r\n=wwW0\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-media-queries-aspect-ratio-number-values_1.0.0_1668416721209_0.4345927054307166"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-11-14T09:05:21.403Z"
+}

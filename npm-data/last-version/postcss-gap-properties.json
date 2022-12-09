@@ -1,0 +1,108 @@
+{
+	"name": "postcss-gap-properties",
+	"description": "Use the gap, column-gap, and row-gap shorthand properties in CSS",
+	"version": "3.0.5",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gap-properties#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-gap-properties"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"columns",
+		"css",
+		"gaps",
+		"grids",
+		"layouts",
+		"postcss",
+		"postcss-plugin",
+		"prefixes",
+		"rows",
+		"shorthands"
+	],
+	"csstools": {
+		"exportName": "postcssGapProperties",
+		"humanReadableName": "PostCSS Gap Properties"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "ee108981ac4c6b42df5df944daf05efd21edde17",
+	"_id": "postcss-gap-properties@3.0.5",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-IuE6gKSdoUNcvkGIqdtjtcMtZIFyXZhmFd5RUlg97iVEvp1BZKV5ngsAjCjrVy+14uhGBQl9tzmi1Qwq4kqVOg==",
+		"shasum": "f7e3cddcf73ee19e94ccf7cb77773f9560aa2fff",
+		"tarball": "https://registry.npmjs.org/postcss-gap-properties/-/postcss-gap-properties-3.0.5.tgz",
+		"fileCount": 6,
+		"unpackedSize": 13033,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQC9AelKHrtxKY030byL7q9+PDR7LVgqvJIhPiVS85MfUQIhAJZQJbAok7zeKwc3Fsa2QL3Wk1GB289AkR0wUKwLklsk"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJizU5UACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmonUQ/9HfyQdOO9/Z6c5xipN0EpRRZi01aIkDb3r+m0ylu4bIM+2I4y\r\noLQdMN5hW/mRa46bsDCSY+IN9CkEN3WMZtY++m7VIRjsidgVH64QKgvj/OnI\r\nhr6IodxvrJ/Acsg1x+X7yDW+wxNZVPhs026E8fUP21xQDI3ch3V4+ZfBD1xf\r\n4HDo3BguuGwfGvz2KEzK2ZKIwKFxwlU6cGPTHvBH/5jFr5UP8V2lIJw/E2uD\r\ncxHO3CTZMeYUxLQU+OQedRXWip84vvHjl3LQ/Hb8i0mBLik5vHimfith4IvL\r\nO4e11MkSaQo6ni6VvFvG0SenmjZMAiQCDJYoxJXe5z/V+diyuDHGSNyPYDzW\r\nmR8uU5SD4kF9uvOn6e8CQqytLQL9CZPEl/1l9rJGewCdtMH1JdFaSrq9Mgzv\r\n/IlQYJK5K7CRoUEKpnuvnUsek7jvE1J6bH1uM9ulZcVDxA6G5BAsYNg/lfoE\r\nj2LytTP3LR3EhF1JFLIpEDtPOw2nowK/kFxkJh8bzDNJfgVWNZyTbFSRTblF\r\nRaYSm/ehGQohF4G5Kfca3y2CYRuDkY93RrOSy6hsZz5qaI1TqREqboiX/OPg\r\nk4pEX6QLNPz98tG7HA6wUVZXK63I5Egy2DFeHIGMwzKRxHoxMNpZbvvLq2AO\r\nxhRyh0VadctC8wSl1b/TbsXiwQwdJLkWD4I=\r\n=+Y16\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-gap-properties_3.0.5_1657622099795_0.9490675796962484"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-07-12T10:35:00.007Z"
+}

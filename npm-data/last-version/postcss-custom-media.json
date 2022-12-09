@@ -1,0 +1,140 @@
+{
+	"name": "postcss-custom-media",
+	"description": "Use Custom Media Queries in CSS",
+	"version": "9.0.1",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "Maxime Thirouin"
+		}
+	],
+	"license": "MIT",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-parser-algorithms": "^1.0.0",
+		"@csstools/css-tokenizer": "^1.0.0",
+		"@csstools/media-query-list-parser": "^1.0.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-custom-media"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"at-rule",
+		"atrule",
+		"css",
+		"csswg",
+		"custom",
+		"media",
+		"postcss",
+		"postcss-plugin",
+		"queries",
+		"query",
+		"specification",
+		"w3c"
+	],
+	"csstools": {
+		"cssdbId": "custom-media-queries",
+		"exportName": "postcssCustomMedia",
+		"humanReadableName": "PostCSS Custom Media",
+		"specUrl": "https://www.w3.org/TR/mediaqueries-5/#at-ruledef-custom-media"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "a38dd6ff4fa96b0b11b6cf64d53feb5c5d49a9fd",
+	"_id": "postcss-custom-media@9.0.1",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-CimS72gZZ0V4WPFg7t7EqFVLxJ0mqwAJSsuk+LNHSo9ApC7d/SuOr65sKrUY/D8locOh+3s4yO7IdqQ9cRSR7Q==",
+		"shasum": "b59ecc762cf5ba4b540434e0043f5b3ce8c80bce",
+		"tarball": "https://registry.npmjs.org/postcss-custom-media/-/postcss-custom-media-9.0.1.tgz",
+		"fileCount": 15,
+		"unpackedSize": 29260,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDTFjWeix8ZpnHX/4yiEiJwQn21M9hbAqkhcwq48uXk2QIhAJ6ZOiNA5qz0advb3ODZwzbIwuyd9gz2QCEhb46F+HVS"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjeRseACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoJyw/7ByafPazV6G3+UotJGoYSfoZCqlRE7R2jEMGo0HxdEHFw7pPM\r\n5jLcxBvz2g/XWNfXyb7m/NQlfBy7Tsuc26L5mirSE22/J9/MHGv0uwphwxV6\r\nAJnVj6HAu81rf5JwIFddM7AAlnjvc3cbFcnpikHwqh/FvUaFSF8JmF1YkSJi\r\njyTE4APybpq8tgvDGVWF011HEiOm+lPmQFRSyWauSP0RHUYCjp+5N/1bNtie\r\nj4RS2s3EP8aneWTdaCc0Hge7M0cKVqHJv6sugtAfLMcJPCkMRW5ms4tCer2X\r\nboVRp2TtZjgJphoUnghBMrN02xWe1LciQ/kMbNu4WG7DoQWr+JHC49nDf0Nz\r\nErw71YVqGHiqQAl8ibvI38dUPsXiAANvH5zYIMmRkdQEPjRrzoMDqNklV7gC\r\nVR2CtX38v4ULXamRhvnTKf+G7tRqY9C9tTX2zEWZwvb6O7ERWCIL9Wf0YoPY\r\nuFdaQx/1NLvONx98vk2RET1zM7Gvu1Lv0zf62+KujtAvbXxwzd+6O3yxStGK\r\nAQ2e9d1xA+xMnPTK9LcJbs7b0YQLn945hwAcs8qaWvNQfs6+VXo3xPk3XjjG\r\nqai9JGhkTlcHcxPmdA4voPBYvwuHDAnSGkXx40OWwHq/8cvoTqT3YfZnfap4\r\nhhTidUlF4krbh8xZMUH+kEBUOIeqVeG38qo=\r\n=gEhz\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "moox",
+			"email": "npm@moox.io"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "semigradsky",
+			"email": "semigradskyd@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-custom-media_9.0.1_1668881182125_0.7169366622643019"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-11-19T18:06:22.313Z"
+}

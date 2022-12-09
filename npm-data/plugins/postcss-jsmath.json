@@ -1,0 +1,352 @@
+{
+	"_id": "postcss-jsmath",
+	"_rev": "16-97ac27d102d853192271c3bbabfadefe",
+	"name": "postcss-jsmath",
+	"time": {
+		"modified": "2022-06-24T10:15:42.348Z",
+		"created": "2017-09-22T08:42:11.290Z",
+		"0.0.1": "2017-09-22T08:42:11.290Z",
+		"0.0.2": "2017-09-22T09:50:32.251Z",
+		"0.0.3": "2017-09-22T11:49:11.206Z",
+		"0.0.4": "2017-09-22T11:50:23.764Z",
+		"0.0.5": "2017-09-22T12:22:01.006Z",
+		"0.0.6": "2017-09-22T12:45:55.464Z",
+		"0.0.7": "2017-09-26T10:06:33.364Z",
+		"0.0.8": "2017-09-26T10:07:35.257Z",
+		"0.0.81": "2017-09-26T10:27:35.085Z",
+		"0.0.83": "2018-04-22T18:38:21.317Z"
+	},
+	"maintainers": [
+		{
+			"name": "sameerveda",
+			"email": "naaspati@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "0.0.83"
+	},
+	"description": "PostCSS plugin to do some math",
+	"readme": "![icon][logo]\n# PostCSS JSMath \n\n[PostCSS] plugin to do some math using Javascript Math\n\nIt uses javascript's Math object and eval() to perform Math operations. \n\nit supports all Math's constants and function.\nAlso gives the ability to defined custom constants and functions.  \n\n[PostCSS]: https://github.com/postcss/postcss\n[logo]: https://raw.githubusercontent.com/naaspati/postcss-jsmath/master/g21.png\n\n## Installation\n\n```console\n$ npm install postcss-jsmath\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-jsmath') ])\n```\n\ngulpfile.js\n```js\n'use strict';\n\nconst gulp = require(\"gulp\"),\n    postcss = require(\"gulp-postcss\"),\n    rename = require(\"gulp-rename\"),\n    math = require(\"postcss-jsmath\");\n\ngulp.task(\"default\", function () {\n    gulp.src(\"test.pcss\")\n        .pipe(postcss([math]))\n        .pipe(rename(p => {\n            p.extname = \".css\";\n        }))\n        .pipe(gulp.dest(\".\"));\n});\n```\n\ntest.pcss: \n```scss\n.val-math(1+1), .val-math(2+2) {\n    margin: math(10+10)px math(100%3)rem;\n    z-index: math(15+15);\n    background: linear-gradient(90deg, black math(100/3)%, red math(100/3)%, blue math(100/3)%);\n}\n```\ntest.css:\n```css\n.val-2, .val-4 {\n    margin: 20px 1rem;\n    z-index: 30;\n    background: linear-gradient(90deg, black 33.333333333333336%, red 33.333333333333336%, blue 33.333333333333336%);\n}\n```\n\ncustom constants and functions.\n\n\ngulpfile.js: \n```js\n'use strict';\n\nconst gulp = require(\"gulp\"),\n    postcss = require(\"gulp-postcss\"),\n    rename = require(\"gulp-rename\"),\n    math = require(\"./postcss-jsmath\");\n\ngulp.task(\"default\", function () {\n    gulp.src(\"_TEST_/test.pcss\")\n        .pipe(postcss([math({\n            r: 8.3144598,\n            sum(...numbers) {\n                return numbers.reduce((x, y) => x + y);\n            },\n            firstNumber(...numbers) {\n                return numbers[0];\n            }\n        })]))\n        .pipe(rename(p => {\n            p.extname = \".css\";\n        }))\n        .pipe(gulp.dest(\"_TEST_\"));\n});\n```\n\ntest.pcss\n```scss\n.cls {\n    order: math(sum(1, 2, 3, 5, 6));\n    z-index: math(firstnumber(111, 2, 4, 5));\n    order: math(r);\n    order: math(floor(random()*100));\n}\n```\n\ntest.css\n```css\n.cls {\n    order: 17;\n    z-index: 111;\n    order: 8.3144598;\n    order: 38;\n}\n```\n\n### Examples\n```js\n.val-math(1+1), .val-math(2+2)  =>  .val-2, .val-4\nmath(11+11), math(22+22)  =>  22, 44\nmath(11+11)math(22+22)  =>  2244\nmath(65515/8/1024)  =>  7.9974365234375\nmath(Sqrt(e+1+Sqrt(25)+Abs(-10)))  =>  4.326462969731631\nmath(sqrt(e+1+sqrt(25)+abs(-10)))  =>  4.326462969731631\nmath(floor(sqrt(e+1+sqrt(25)+abs(-10))))  =>  4\nlinear-gradient(90deg, black math(100/3)%, red math(100/3)%, blue math(100/3)%)  =>  linear-gradient(90deg, black 33.333333333333336%, red 33.333333333333336%, blue 33.333333333333336%)\nmath()  =>\nmath(sum(1, 2, 3, 5, 6))  =>  17\nmath(firstnumber(111, 2, 4, 5))  =>  111\nmath(r)  =>  8.3144598\nmath(floor(random()*100))  =>  62\n```\n\n\n\n\nIcons made by [Trinh Ho](https://www.flaticon.com/authors/trinh-ho) from [www.flaticon.com](https://www.flaticon.com/) is licensed by [CC 3.0](http://creativecommons.org/licenses/by/3.0/)\n\n",
+	"versions": {
+		"0.0.6": {
+			"name": "postcss-jsmath",
+			"version": "0.0.6",
+			"description": "PostCSS plugin to do some math",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"math",
+				"calc"
+			],
+			"author": {
+				"name": "Naaspati",
+				"email": "sameerveda@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/naaspati/postcss-jsmath.git"
+			},
+			"bugs": {
+				"url": "https://github.com/naaspati/postcss-jsmath/issues"
+			},
+			"homepage": "https://github.com/naaspati/postcss-jsmath",
+			"dependencies": {
+				"postcss": "^6.0.1",
+				"postcss-message-helpers": "^2.0.0"
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2017 Naaspati <sameerveda@gmail.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-jsmath@0.0.6",
+			"dist": {
+				"shasum": "d94a5f45599cc8974a008b4a845b6528a2a47e49",
+				"tarball": "https://registry.npmjs.org/postcss-jsmath/-/postcss-jsmath-0.0.6.tgz",
+				"integrity": "sha512-oFvt4tnw34c060smZuh2oylHLJQRTWWLKMADOnl/KQSTLZJ2C/MmnEJrLBaICMJ2ZJ/GkBgQ9WdhSGTvLXdPAA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCHUktRcF6Ygo9K3+EBiAXxJOwvn4lNT4mkhVhHshlpzAIhAJXdG4XZovtHmKbt9qEuGYwYo1+GrhWHvZnVDrL2B+GE"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sameerveda",
+					"email": "naaspati@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "sameerveda",
+				"email": "naaspati@gmail.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-jsmath-0.0.6.tgz_1506084354438_0.1863023319747299"
+			},
+			"directories": {}
+		},
+		"0.0.7": {
+			"name": "postcss-jsmath",
+			"version": "0.0.7",
+			"description": "PostCSS plugin to do some math",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"math",
+				"calc",
+				"mathematics",
+				"math-function"
+			],
+			"author": {
+				"name": "Naaspati",
+				"email": "sameerveda@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/naaspati/postcss-jsmath.git"
+			},
+			"bugs": {
+				"url": "https://github.com/naaspati/postcss-jsmath/issues"
+			},
+			"homepage": "https://github.com/naaspati/postcss-jsmath",
+			"dependencies": {
+				"postcss": "^6.0.1",
+				"postcss-message-helpers": "^2.0.0"
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2017 Naaspati <sameerveda@gmail.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-jsmath@0.0.7",
+			"dist": {
+				"shasum": "720f3064e754f03d2de8969c74a0375c551154f5",
+				"tarball": "https://registry.npmjs.org/postcss-jsmath/-/postcss-jsmath-0.0.7.tgz",
+				"integrity": "sha512-t41jqoGRFFYzzcpR2gK2+bdUWGavyAc5dgIwl6OCERSGHKSi9hmY/L2gKAFm02PL7BXlDxaonM3dLf4EBAl4KQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBuSWhm/I/U1m5P8yA9O63ZiQj4ZwHRz1BOvafQw21HnAiEA7QbvyoqNfmtnbHsMYvR4W+oVO9BSyxtETfYp8KH2IeY="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sameerveda",
+					"email": "naaspati@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "sameerveda",
+				"email": "naaspati@gmail.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-jsmath-0.0.7.tgz_1506420392449_0.387077780906111"
+			},
+			"directories": {}
+		},
+		"0.0.8": {
+			"name": "postcss-jsmath",
+			"version": "0.0.8",
+			"description": "PostCSS plugin to do some math",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"math",
+				"calc",
+				"mathematics",
+				"math-function"
+			],
+			"author": {
+				"name": "Naaspati",
+				"email": "sameerveda@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/naaspati/postcss-jsmath.git"
+			},
+			"bugs": {
+				"url": "https://github.com/naaspati/postcss-jsmath/issues"
+			},
+			"homepage": "https://github.com/naaspati/postcss-jsmath",
+			"dependencies": {
+				"postcss": "^6.0.1",
+				"postcss-message-helpers": "^2.0.0"
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2017 Naaspati <sameerveda@gmail.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-jsmath@0.0.8",
+			"dist": {
+				"shasum": "a3a57dac7c150664457e99f47dd07d14357f2816",
+				"tarball": "https://registry.npmjs.org/postcss-jsmath/-/postcss-jsmath-0.0.8.tgz",
+				"integrity": "sha512-vyTZBjgWudBuGPLSRcsnPZVa+ekjP24rCjWK75z2UKZbsL4icBowmwg9Wp7insk/vYk+ehwsaKVS6eBee0WG0g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD5cwPtUaQcZHPjLsd5RxClwQpkrAZwu1XbIxaMAfXkswIhAINP7gQEM9P+HborACt0d/rjgxBEgYhLghNrrvnOy4A7"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sameerveda",
+					"email": "naaspati@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "sameerveda",
+				"email": "naaspati@gmail.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-jsmath-0.0.8.tgz_1506420454328_0.3741882126778364"
+			},
+			"directories": {}
+		},
+		"0.0.81": {
+			"name": "postcss-jsmath",
+			"version": "0.0.81",
+			"description": "PostCSS plugin to do some math",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"math",
+				"calc",
+				"mathematics",
+				"math-function"
+			],
+			"author": {
+				"name": "Naaspati",
+				"email": "sameerveda@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/naaspati/postcss-jsmath.git"
+			},
+			"bugs": {
+				"url": "https://github.com/naaspati/postcss-jsmath/issues"
+			},
+			"homepage": "https://github.com/naaspati/postcss-jsmath",
+			"dependencies": {
+				"postcss": "^6.0.1",
+				"postcss-message-helpers": "^2.0.0"
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2017 Naaspati <sameerveda@gmail.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-jsmath@0.0.81",
+			"dist": {
+				"shasum": "6156386431f09b07bb6d12ba2e89cb7b7ee89bbd",
+				"tarball": "https://registry.npmjs.org/postcss-jsmath/-/postcss-jsmath-0.0.81.tgz",
+				"integrity": "sha512-0xaRJeVI1PTuES+CrbyEbJKQbRYwcE0CHReOOlbwVqz7AOYfKoL0ebF28apZGe+vH3S3kV+Dr38Cjv/6he97Dw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGq3HhFBvVKmriTiW5x72aMbvcRt2H+cYtQjvGzT7GYYAiEAgCf/B8e+mA7PdZExpyEgZA35Sg2g3WJ9Xx4D004ZU68="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sameerveda",
+					"email": "naaspati@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "sameerveda",
+				"email": "naaspati@gmail.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-jsmath-0.0.81.tgz_1506421654228_0.755584058817476"
+			},
+			"directories": {}
+		},
+		"0.0.83": {
+			"name": "postcss-jsmath",
+			"version": "0.0.83",
+			"description": "PostCSS plugin to do some math",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"math",
+				"calc",
+				"mathematics",
+				"math-function"
+			],
+			"author": {
+				"name": "Naaspati",
+				"email": "sameerveda@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/naaspati/postcss-jsmath.git"
+			},
+			"bugs": {
+				"url": "https://github.com/naaspati/postcss-jsmath/issues"
+			},
+			"homepage": "https://github.com/naaspati/postcss-jsmath",
+			"dependencies": {
+				"postcss": "^6.0.1",
+				"postcss-message-helpers": "^2.0.0"
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2017 Naaspati <sameerveda@gmail.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-jsmath@0.0.83",
+			"dist": {
+				"shasum": "f9018314f09f8282a791035f58b8b31722e738ed",
+				"tarball": "https://registry.npmjs.org/postcss-jsmath/-/postcss-jsmath-0.0.83.tgz",
+				"fileCount": 9,
+				"unpackedSize": 14017,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa3NaeCRA9TVsSAnZWagAALe4P/RI3dQpm81mD3LIIEisv\n0ATZftvqjHukE4XRS0+GV/GTeDO2AbGnNj/unAeGpp7M24lzWe+vDSblBUh7\n7uj1EiipSgz/6MTK5vTyfBTUnhhwWDZZkr5spKimg4WlrlvSM9IpGM48/MwG\nA2dY56/svrfcV4OUT1TqaHQiEK2TwGkucXO3tE67fd5PzT56a+Zx+2EzrPif\napiAt3Qqy98/mdFhC49sD5XGTL0QylWq9mwEyDcp3Kt523w+4Gc4rzbWF+6F\nmGYRTqcgns87bTgKPUEkdMbinIB5Im7XTmlXe9TTAytzqZ3jOSJh4dzDbsyW\n18G6Q1h1oYlNRSkTRvR0isN3kmxe6cs3CC3ZVg+GyCn9H4W/CUxhCbAnC9Tf\nFKKA4zwAo1NwV0qeaQBdUm175d/KbXUq28Fck4VDNmuE3JS44z1Q0U8DVPMy\nzachU7ifhwblZgXm/XFncBqPvIfhyZbLlA7Bp89zuW8FwwStKV6uKOhidmYL\ndbNZfiLruNZDa37u1NovCMWJ44ExYTkMZeEEJqEitodai8+YP/pcsFx2qMUy\nnKu8AArfmZcAyBakLYNHH2TMPTLE2tjF2rNjH/9JXp/z/AaJXyqH4iwvumti\nuOZDc2t9u0UvTXp28v2ELiLs9RJ/T0yPSz4vtQE3s6xoJilAc/LQiOde/mGR\nGoow\r\n=NxDE\r\n-----END PGP SIGNATURE-----\r\n",
+				"integrity": "sha512-NbHxaA7mS/WS01bJ5ItFjysDBJnMg4ev1UqHFEsIfrIL2/J+FWoW+XQP3f+Fk6Fab+C2WlT0JQMYv8rEYI3X6Q==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBbB9MjKRvlao+TfCqjN5HL49pf0Owd6qJrTL5jt8kYbAiEAgUpC1+b4KdSpQQznhB3b+5SIgWPYY+LwwnMhs877bSQ="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sameerveda",
+					"email": "naaspati@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "sameerveda",
+				"email": "naaspati@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-jsmath_0.0.83_1524422301224_0.1648582246773449"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"homepage": "https://github.com/naaspati/postcss-jsmath",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"math",
+		"calc",
+		"mathematics",
+		"math-function"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/naaspati/postcss-jsmath.git"
+	},
+	"author": {
+		"name": "Naaspati",
+		"email": "sameerveda@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/naaspati/postcss-jsmath/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

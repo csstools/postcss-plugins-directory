@@ -1,0 +1,112 @@
+{
+	"_id": "postcss-move-media",
+	"_rev": "4-b6b3f34f694fc4030c623628b3399d74",
+	"name": "postcss-move-media",
+	"description": "PostCSS plugin to combine and move Media Queries to the end of the CSS file",
+	"dist-tags": {
+		"latest": "1.0.0-pre"
+	},
+	"versions": {
+		"1.0.0-pre": {
+			"name": "postcss-move-media",
+			"version": "1.0.0-pre",
+			"description": "PostCSS plugin to combine and move Media Queries to the end of the CSS file",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test.js | tap-spec"
+			},
+			"keywords": [
+				"css",
+				"mediaquery",
+				"mq",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^5.0.4"
+			},
+			"devDependencies": {
+				"tap-spec": "^4.1.0",
+				"tape": "^4.2.0"
+			},
+			"homepage": "https://github.com/SlexAxton/postcss-move-media",
+			"author": {
+				"name": "Alex Sexton",
+				"email": "alexsexton@gmail.com",
+				"url": "https://alexsexton.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/slexaxton/postcss-move-media.git"
+			},
+			"gitHead": "ff0cf6995eff6757c435bf23759ee226e85646b4",
+			"bugs": {
+				"url": "https://github.com/slexaxton/postcss-move-media/issues"
+			},
+			"_id": "postcss-move-media@1.0.0-pre",
+			"_shasum": "ee261d7bdd3c77c2327d4eb1bc8765b0a5555282",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "slexaxton",
+				"email": "alexsexton@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "slexaxton",
+					"email": "alexsexton@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ee261d7bdd3c77c2327d4eb1bc8765b0a5555282",
+				"tarball": "https://registry.npmjs.org/postcss-move-media/-/postcss-move-media-1.0.0-pre.tgz",
+				"integrity": "sha512-p6CEK+cIo0tChKrMOCPq/lu5zfhJQTrvtX8KSg/s0R40rK+hNvhdWQA24opXidfqvxpv1SLUZPNmzssg49SLDw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCICs7RWPe/BFMxTYc+aonUwcJOBERHevzUosoPJJIqqtPAiAXeinA9KqhA7/pyzghEfJEXaGqbB0psWqy8/fr4eIFOw=="
+					}
+				]
+			}
+		}
+	},
+	"readme": "# [postcss][postcss]-move-media\n\n[![Build Status](https://travis-ci.org/SlexAxton/postcss-move-media.svg?branch=master)][ci]\n\n[![NPM version](https://badge.fury.io/js/postcss-move-media.svg)][npm]\n\n[![Dependency Status](https://gemnasium.com/SlexAxton/postcss-move-media.svg)][deps]\n\n> PostCSS plugin to combine and move Media Queries to the end of the CSS file\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-move-media) do:\n\n```\nnpm install postcss-move-media --save\n```\n\n## Example\n\nThis plugin allows you to write mediaqueries where they make sense contextually, including\nrepeating the same set of parameters, but groups these mediaqueries together at the bottom\nof the CSS file for output quality reasons.\n\n### Input\n\n```css\n@media (min-width: 100px) {\n  body {\n    color: black;\n  }\n}\n\nbody {\n  color: yellow;\n}\n\n@media (min-width: 100px) {\n  body {\n    color: green;\n  }\n}\n\n@media (min-width: 100px) {\n  body {\n    color: red;\n  }\n}\n\n@media (max-width: 300px) {\n  body {\n    color: orange;\n  }\n}\n\n@media (min-width: 100px) {\n  body {\n    color: purple;\n  }\n}\n```\n\n### Output\n\n```css\nbody {\n  color: yellow;\n}\n\n@media (min-width: 100px) {\n  body {\n    color: black;\n  }\n\n  body {\n    color: green;\n  }\n\n  body {\n    color: red;\n  }\n\n  body {\n    color: purple;\n  }\n}\n\n@media (max-width: 300px) {\n  body {\n    color: orange;\n  }\n}\n```\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributing\n\nPull requests are welcome. If you add functionality, then please add unit tests\nto cover it.\n\n## Thanks\n\nThanks to [ben-eb](https://github.com/ben-eb) for lots of great PostCSS plugins to steal best practices from. And thanks to\nthe original [rework-move-media](https://github.com/reworkcss/rework-move-media) rework plugin for\ninspiration/direction/hints/love.\n\n## License\n\nMIT © Alex Sexton\n\n[ci]:      https://travis-ci.org/SlexAxton/postcss-move-media\n[deps]:    https://gemnasium.com/SlexAxton/postcss-move-media\n[npm]:     http://badge.fury.io/js/postcss-move-media\n[postcss]: https://github.com/postcss/postcss\n",
+	"maintainers": [
+		{
+			"name": "slexaxton",
+			"email": "alexsexton@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:27:12.591Z",
+		"created": "2015-09-28T20:18:02.541Z",
+		"1.0.0-pre": "2015-09-28T20:18:02.541Z"
+	},
+	"homepage": "https://github.com/SlexAxton/postcss-move-media",
+	"keywords": [
+		"css",
+		"mediaquery",
+		"mq",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/slexaxton/postcss-move-media.git"
+	},
+	"author": {
+		"name": "Alex Sexton",
+		"email": "alexsexton@gmail.com",
+		"url": "https://alexsexton.com"
+	},
+	"bugs": {
+		"url": "https://github.com/slexaxton/postcss-move-media/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"griname": true
+	}
+}

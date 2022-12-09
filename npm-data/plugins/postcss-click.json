@@ -1,0 +1,123 @@
+{
+	"_id": "postcss-click",
+	"_rev": "5-a4a48afe270332a2900405f1f29c6e44",
+	"name": "postcss-click",
+	"time": {
+		"modified": "2022-06-24T09:37:04.869Z",
+		"created": "2016-09-14T23:36:59.845Z",
+		"0.1.0": "2016-09-14T23:36:59.845Z",
+		"1.0.0": "2016-09-15T00:20:31.308Z"
+	},
+	"maintainers": [
+		{
+			"name": "ismamz",
+			"email": "ismael@isma.uy"
+		}
+	],
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"description": "PostCSS plugin that allows to use the :click pseudo class and implement it in JavaScript.",
+	"readme": "# PostCSS Click [![Build Status][ci-img]][ci]\n\n[PostCSS]: https://github.com/postcss/postcss\n[jQuery]:  https://jquery.com/https://jquery.com/\n[ci-img]:  https://travis-ci.org/ismamz/postcss-click.svg\n[ci]:      https://travis-ci.org/ismamz/postcss-click\n\n\n> [PostCSS] plugin that allows to use the `:click` pseudo class and implement it in JavaScript.\n\n<p align=\"center\">\n    <img src=\"http://ci.memecdn.com/103/8066103.gif\" alt=\"Magic!\">\n</p>\n\nWith this plugin you can define in your stylesheet the behavior of an element when it is clicked. Using the `:click` pseudo class (like `:hover`) you will get a generated JavaScript file after processing the CSS with PostCSS.\n\nIn this first stage, the JavaScript is written with jQuery. Why? Because is easier.\n\n\n---\n\nRun an example locally. [See the example branch](tree/example) (:warning: Not available yet)\n\n---\n\n\n## Example\n\n#### CSS Input\n\n```css\n.menu a {\n    color: #000;\n}\n\n.menu a:click {\n    color: red;\n    @action toggle-class(\"active\");\n}\n\n.menu a:click next {\n    @action show(1000);\n}\n\n.menu a:click .item {\n    @action slide-toggle();\n}\n```\n\n#### CSS Output\n```css\n.menu a {\n    color: #000;\n}\n```\n\n#### JavaScript Generated file\n\nThe CSS code will generate the JavaScript file with the click events and methods.\n\n```js\n$(function() {\n    $(\".menu a\").on(\"click\", function () {\n    \t$(this).css({\n            \"color\", \"red\"\n        }).toggleClass(\"active\");\n    });\n\n    $(\".menu a\").on(\"click\", function () {\n        $(this).next().show(1000);\n    });\n\n    $(\".menu a\").on(\"click\", function () {\n        $('.item').slideToggle();\n    });\n});\n```\n\n\n## Rule Structure\n\n#### Vanilla CSS\n\n```css\nelement:click target {\n    property: value; /* css declaration */\n    @action method-name(params); /* atRule for methods */\n}\n```\n\n#### Nested\n\nYou can use the following syntax with [PreCSS](https://github.com/jonathantneal/precss), Sass, Less, Stylus or just the [postcss-nested](https://github.com/postcss/postcss-nested) plugin:\n\n```scss\nelement:click {\n    target {\n        property: value; /* css declaration */\n        @action method-name(param); /* atRule for methods */\n    }\n}\n```\n\n### jQuery result\n\nThe result in JavaScript will be:\n\n```js\n$(\"element\").on(\"click\", function () {\n\t$(\"target\").css({\n        \"property\": \"value\"\n    }).methodName(param);\n});\n```\n\n\n## Features\n- `element` can be a element tag, `id` or `class`\n- `target` can be a element tag, `id` or `class` or `this` to refer to the main `element` or a [Traversing Method](https://learn.jquery.com/using-jquery-core/traversing/) like `next`, `prev`, `parent`, etc. ([See complete list of available selectors](#selectors))\n- `method-name` should be written like CSS properties (hyphenated lowercase). Ex: `toggleClass` should be `toggle-class`.\n- `method-name` you can use jQuery methods or jQuery plugins methods (like [Bootstrap JS Plugins](http://getbootstrap.com/javascript/)):\n    - `toggle-class`\n    - `add-class`\n    - `remove-class`\n    - `show`\n    - `hide`\n    - `slide-up`\n    - `slide-toggle`\n    - `append`\n    - `html`\n    - `text`\n    - [`collapse`](http://getbootstrap.com/javascript/#collapse) (Bootstrap)\n    - [`modal`](http://getbootstrap.com/javascript/#modals) (Bootstrap)\n    - [`button`](http://getbootstrap.com/javascript/#buttons) (Bootstrap)\n    - [`alert`](http://getbootstrap.com/javascript/#alerts) (Bootstrap)\n    - and more!\n- `params` are the parameters and values that admit the function.\n    - `toggle-class` function admit a class name like `\"foo\"` (`string`)\n    - `show` function admit the value of the duration like `300` (`int`)\n    - [`button`](http://getbootstrap.com/javascript/#buttons) (Bootstrap) function admit the value `toggle` (`string`)\n    - [`modal`](http://getbootstrap.com/javascript/#modals) (Bootstrap) function should be empty: `modal()`\n\n**Note:** Multiple selectors is not supported yet.\n\n```css\n.foo:click,\n.bar {\n    @action toggle();\n}\n// => error\n```\n\n## Selectors\n\n| CSS | jQuery |\n|-----|--------|\n|`this`|`$(this)` or just let `target` empty|\n|`next`|`$(this).next()`|\n|`prev`|`$(this).prev()`|\n|`parent`|`$(this).parent()`|\n|`children`|`$(this).children()`|\n|`closest`|`$(this).closest()`|\n|`siblings`|`$(this).siblings()`|\n|`find[sel=\".bar\"]`|`$(this).find(\".bar\")`|\n|`next[sel=\".foo\"]`|`$(this).next(\".foo\")`|\n\nThe list of selectors is open for suggestions.\n\n\n<img align=\"right\" width=\"90\" height=\"80\" src=\"https://camo.githubusercontent.com/2ec260a9d4d3dcc109be800af0b29a8471ad5967/687474703a2f2f706f73746373732e6769746875622e696f2f706f73746373732f6c6f676f2e737667\" />\n\n## Usage\n\n```js\npostcss([ require('postcss-click')( /* opts */ ) ])\n```\n\nSee [PostCSS] docs for examples of your environment.\n\n#### Add scripts\n\nOff course, in your HTML file you have to include the scripts:\n\n```html\n<script src=\"https://code.jquery.com/jquery-1.12.0.min.js\"></script>\n<script src=\"click.js\"></script>\n```\n\n## Options\n\n### `output`\n\n- Type: `String`\n- Default: `\"click.js\"`\n\nSpecifies the output file destination.\n\n### `append`\n\n- Type: `boolean`\n- Default: `false`\n\nIf you set `true` you must specify the `output` option to append at the end the JavaScript generated into your own file.\n\n### `beautify`\n\n- Type: `object`\n- Default: `{ indent_size: 2, indent_char: ' ', end_with_newline: true, break_chained_methods: false }`\n\nReformat and reindent the JavaScript output file. _This object overrides the default options of js-beautify._\n\nSee [js-beautify options](https://github.com/beautify-web/js-beautify#options).\n\n\n## Contributing\n\nHelp to improve code and documentation:\n\n- If you have a problem or find an error, [create an issue](https://github.com/ismamz/postcss-click/issues/new)\n- Do you want to contribute with code? [Send a pull request](https://github.com/ismamz/postcss-click/pull/new/master)\n\n\n## License\n\nMIT © [Ismael Martínez](https://github.com/ismamz)\n",
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-click",
+			"version": "1.0.0",
+			"description": "PostCSS plugin that allows to use the :click pseudo class and implement it in JavaScript.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"click",
+				"jQuery",
+				"pseudo-class"
+			],
+			"author": {
+				"name": "Ismael Martínez",
+				"email": "ismael@isma.uy"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ismamz/postcss-click.git"
+			},
+			"bugs": {
+				"url": "https://github.com/ismamz/postcss-click/issues"
+			},
+			"homepage": "https://github.com/ismamz/postcss-click",
+			"dependencies": {
+				"fs": "0.0.2",
+				"js-beautify": "^1.6.3",
+				"postcss": "^5.0.13",
+				"postcss-value-parser": "^3.3.0"
+			},
+			"devDependencies": {
+				"ava": "^0.9.1",
+				"eslint": "^1.10.3",
+				"eslint-config-postcss": "^1.0.0"
+			},
+			"scripts": {
+				"test": "ava test.js && eslint index.js test.js"
+			},
+			"eslintConfig": {
+				"extends": "postcss/es5",
+				"rules": {
+					"camelcase": 0
+				}
+			},
+			"gitHead": "0754414e71eea9eabc6307b87ac109b058853d4a",
+			"_id": "postcss-click@1.0.0",
+			"_shasum": "c94283da66170483d9e1d153834b1df36c69bb0f",
+			"_from": ".",
+			"_npmVersion": "3.10.6",
+			"_nodeVersion": "4.5.0",
+			"_npmUser": {
+				"name": "ismamz",
+				"email": "ismael@isma.uy"
+			},
+			"dist": {
+				"shasum": "c94283da66170483d9e1d153834b1df36c69bb0f",
+				"tarball": "https://registry.npmjs.org/postcss-click/-/postcss-click-1.0.0.tgz",
+				"integrity": "sha512-wOWvXu8W/COg8hjNquMKGgoy7tSA9g1Kw7pWOYISY0GQuWvKlEDOM5cLWWNVFwfM3hDA3qZi1OlrnYnCzacXdQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIC11n1x2ny/p4PwAoYS5SYUDMAVXaW8QjFfyUltWEAd8AiEAzpnJuyjzBXdZ0PyPSsMoxNQcwCPA/IFkSiHS2VfyOfw="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "ismamz",
+					"email": "ismael@isma.uy"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-click-1.0.0.tgz_1473898828997_0.4215782033279538"
+			}
+		}
+	},
+	"homepage": "https://github.com/ismamz/postcss-click",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"click",
+		"jQuery",
+		"pseudo-class"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ismamz/postcss-click.git"
+	},
+	"author": {
+		"name": "Ismael Martínez",
+		"email": "ismael@isma.uy"
+	},
+	"bugs": {
+		"url": "https://github.com/ismamz/postcss-click/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

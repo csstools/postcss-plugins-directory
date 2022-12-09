@@ -1,0 +1,260 @@
+{
+	"_id": "@csstools/postcss-ic-unit",
+	"_rev": "2-5e9b7014439841bf03889748d60fbb46",
+	"name": "@csstools/postcss-ic-unit",
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-ic-unit",
+			"version": "1.0.0",
+			"description": "Use the ic length unit",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"ic",
+				"css",
+				"values",
+				"length",
+				"glyph",
+				"CJK water ideograph"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-ic-unit"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-ic-unit#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"gitHead": "fbcbffb0576fb9930ca0f74c32fa63c19e3c35a5",
+			"_id": "@csstools/postcss-ic-unit@1.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-i4yps1mBp2ijrx7E96RXrQXQQHm6F4ym1TOD0D69/sjDjZvQ22tqiEvaNw7pFZTUO5b9vWRHzbHzP9+UKuw+bA==",
+				"shasum": "f484db59fc94f35a21b6d680d23b0ec69b286b7f",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-ic-unit/-/postcss-ic-unit-1.0.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 13560,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiC/chCRA9TVsSAnZWagAAroIP/3giG2gnFWJzF9AdCjoJ\nRqdhmntrcyYIA52ISyOn6EtdnfSY5I58zH4etCFFdlbHBK0Lu66yUQLjk7+h\ng99ENfjMdrbNzpTnd7O8zlkb80MkOytHNUBxBD8intUNXbqc8Xs3wxYGb/ZP\nOV7hzWhvih2groKmxdvUbLpcYWIPb8I+UtkB8diFaDgqYBbI8JPxZnxkQDsV\nzJQYQqwpE8B3oUzrahll0wFJs/lQW1y6xNX3QSDJYcyYYH9plsT/aLB4uZbk\nY/kFtXBnSnslhwAbtX4fhOfwxyXWmhl7nfPXKb8hh2dQzjVjeGjn8z+AggJq\nA+8sGqUhd84FenHg73T/OW0pkQOVJ/3HZjsC/FL6sC7+m5oeqybpCuA5cy90\nWzkS89fKLx+T51igoEQgCY5PAFIQ5m3KFQ7qUeY0+P48CpP+SR2nep/oi7ST\nS/cKbwEVnt3+hrZSfo0LJLlNwvAGu/xpEv4XovSs6ifKPaByXSRenjRzBlHe\npEQWMAqDULpAAyZjZmZQDl0z5ctxEo7q1A9k/0LaUcZNzbkf0uCxxkPIgSQI\nUCHGBtGTyEcUIe2jLS5PQuGEtYlqG3bCt2wsGc2AzPjpr4Lp5tq8Z+4j0jOs\nJmog8lzrJSAIlne5zT6F/pCVjkrlAjAnoO9r7dWXVKuIh/8dV35ZR7QFDyHA\nZwRO\r\n=sJpN\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEUdW63pJCoHF9VDxp952QOPGYBtHJ2mqyfsJAoxIlisAiEAuwHRGkApTgSnxFzqhY8WWeqVEv6D/ejqbxzIHRzR9GQ="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-ic-unit_1.0.0_1644951328958_0.3954563715245547"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-ic-unit",
+			"description": "Use the ic length unit",
+			"version": "1.0.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-ic-unit#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-ic-unit"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"CJK water ideograph",
+				"css",
+				"glyph",
+				"ic",
+				"length",
+				"postcss-plugin",
+				"values"
+			],
+			"csstools": {
+				"exportName": "postcssIcUnit",
+				"humanReadableName": "PostCSS IC Unit"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "bd50761ea0b6c0697e27f672cc0cfd71ed6f33be",
+			"_id": "@csstools/postcss-ic-unit@1.0.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-Ot1rcwRAaRHNKC9tAqoqNZhjdYBzKk1POgWfhN4uCOE47ebGcLRqXjKkApVDpjifL6u2/55ekkpnFcp+s/OZUw==",
+				"shasum": "28237d812a124d1a16a5acc5c3832b040b303e58",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-ic-unit/-/postcss-ic-unit-1.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 13993,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHKG0TcOBZ33DpiykTw9Rklj7NXPJFsiDa3dQqZxIx+8AiA0viLC2snqCsO6gmF477TywjsR+XswNn1JpAcmYaKQaA=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGBMACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo7WQ//QUdekMdowAVrvofMfdZZP8/5jW9Zd88W8rp+u9QttH/UnAfl\r\nTPWuX4UwfdEAUZHlxjHc3/KhGsBjZxTwzAoFN3yqPovwZpoU+rb4iZhD9Gh5\r\nbgBy98hSQKQ5vjQwMJFF/6/2zr3pnXmglfGO4XgIXC7xWI51NgdZ1J3oT3Tm\r\nI14V6YPiaF0eZeuLX0U3fSPpWfRsXGVCx8EbEh72PfOz5cPmbkDTJeeJ9WOc\r\ndCTuQmfU4c816QQLiSptwpF/9jifAQ2gyjrN8R9HkB8Cq9qSzeK3G13UilkS\r\nOGbBNlfylyWYtSA+HCwoGrffjId7abyyAMoo2IHGpyfuBH9Lovd85AaKVTqU\r\nZLTj1EpC6tlfL4vh25D18C4A/vUTu94GVhYRk8OlWZhi6IUvcJtHWtowhl2R\r\nAJeqDHLdFrkxQstr8edFwhUhjGQTkp6g06JWlQ0jGaTEKcR+OcZtDj19BirC\r\na6BRVOVHk4+QQ/xp958K6D4MbhqLd5xKnjlqiF7/0yGeyf9Bvf2fCqObM/6l\r\nP1YG509EjGrRh5e/9/v0fcPBYvd4X81X38nn0YzcNJeVv3uFY9SfR45HpA9x\r\nv3Wo1HvAHKb6Anm1tBhc6xBYmfimRmESU/zRPRXFvPVaPX6vQ/HKGIdIegsI\r\nj2cuP3+bUXFkpxzMnm74ywiSfediDB6YwpU=\r\n=B/oF\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-ic-unit_1.0.1_1657299019758_0.15776676126843037"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-02-15T18:55:28.902Z",
+		"1.0.0": "2022-02-15T18:55:29.139Z",
+		"modified": "2022-07-08T16:50:20.135Z",
+		"1.0.1": "2022-07-08T16:50:19.989Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Use the ic length unit",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-ic-unit#readme",
+	"keywords": [
+		"CJK water ideograph",
+		"css",
+		"glyph",
+		"ic",
+		"length",
+		"postcss-plugin",
+		"values"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-ic-unit"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS IC Unit [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-ic-unit.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/ic-unit.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS IC Unit] lets you use the ic length unit, following the [CSS Values and Units Module] specification.\n\n```pcss\np {\n  text-indent: 2ic;\n}\n\n.bubble {\n  width: calc(8ic + 20px);\n}\n\n/* becomes */\np {\n  text-indent: 2em;\n}\n\n.bubble {\n  width: calc(8em + 20px);\n}\n```\n\n_See prior work by [JLHwung](https://github.com/JLHwung) here [postcss-ic-unit](https://github.com/JLHwung/postcss-ic-unit)\nTo ensure long term maintenance and to provide the needed features this plugin was recreated based on JLHwung's work._\n\n## Usage\n\nAdd [PostCSS IC Unit] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-ic-unit --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssIcUnit = require('@csstools/postcss-ic-unit');\n\npostcss([\n  postcssIcUnit(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS IC Unit] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original source\nis preserved. By default, it is not preserved.\n\n```js\npostcssIcUnit({ preserve: true })\n```\n\n```pcss\np {\n  text-indent: 2ic;\n}\n\n/* becomes */\n\np {\n  text-indent: 2em;\n  text-indent: 2ic;\n}\n```\n\n[postcss]: https://github.com/postcss/postcss\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#ic-unit\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-ic-unit\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[CSS Values and Units Module]: https://www.w3.org/TR/css-values-4/#ic\n[PostCSS IC Unit]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-ic-unit\n",
+	"readmeFilename": "README.md"
+}

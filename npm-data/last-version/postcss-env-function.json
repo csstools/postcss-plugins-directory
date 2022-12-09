@@ -1,0 +1,105 @@
+{
+	"name": "postcss-env-function",
+	"description": "Use env() variables in CSS",
+	"version": "4.0.6",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.cjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.cjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-env-function#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-env-function"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"constants",
+		"css",
+		"environments",
+		"envs",
+		"functions",
+		"postcss",
+		"postcss-plugin",
+		"variables"
+	],
+	"csstools": {
+		"exportName": "postcssEnvFunction",
+		"humanReadableName": "PostCSS Environment Variables"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "99a732a41a7c83b6ac5da44aa96b85881f598431",
+	"_id": "postcss-env-function@4.0.6",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-kpA6FsLra+NqcFnL81TnsU+Z7orGtDTxcOhl6pwXeEq1yFPpRMkCDpHhrz8CFQDr/Wfm0jLiNQ1OsGGPjlqPwA==",
+		"shasum": "7b2d24c812f540ed6eda4c81f6090416722a8e7a",
+		"tarball": "https://registry.npmjs.org/postcss-env-function/-/postcss-env-function-4.0.6.tgz",
+		"fileCount": 6,
+		"unpackedSize": 19768,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiNhzpACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrzxA/8CFonl7f7UcVoyecC9VtUzIHoMPptpVG0Ws8SoFAotJ87PA62\r\nK1ht7MW9ERknEjno76g0wd7Yu5yts1nFnZfxQ3B6E2mcs/g3CJm9zy5sh06p\r\nl/B58XHNwxISia6CMk+TM4l6mNoCkLUABuj+RcQHGB8x3OEuzR2VNu2bzA5t\r\nFBFl7olRl4QknfWHyzLt4LG7NnftRivK8SX7M5u6ng2XQpZeNDnwWpnSVplb\r\nrKedEZradI+sR1hj5zuEqbw06TVqKymxv67aYSFcDgYLAwPNhM+eoeNon30q\r\nsqZJVZuNy1PNeqSbJvKtzsOBFereNLmLphXKQmvcJGwQXWDMTZGcfw3+u+L7\r\nhGAzGofhYsSbPQ49qijIZyTFzSTRfR8S0uO2P+AsrvY+p4HE3QDDL+GP6omT\r\ni3dnMtvq0HgrCB2/wmzcew2n3Dg7rXkCXSTGQ4WPD+5bCRaGcJdKfQQgXMmM\r\n5k22Uw/cPo9cPgpA6lrUuGAdQUrKj5UuhH4g1SjB9hZGH/emSj/+LDjxLP/B\r\nHdsRfve4Nc1brKebCDbk8ThAo5vrWx27wqWsBbvsiKpLKqnOS8VLNbHNmrUK\r\nANYU4uP2/iyAg4JsmPfk+LDGFphBlTTe0SSHz/vdMVNZMtZ5efdFYhH0zICs\r\n+9pDSMpz58W9mzxBdJrcckCq9D45kSDRA8g=\r\n=Zej3\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDreJpKIHH3Roxj8zNzDSzQ77fsbOKYFe3lGZpI81kEOQIhANeyrLdTbBfUFI4vCaYzQgsSL8bOND305/wMZ4FEKvFw"
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-env-function_4.0.6_1647713513215_0.7557344337139731"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-03-19T18:11:53.408Z"
+}

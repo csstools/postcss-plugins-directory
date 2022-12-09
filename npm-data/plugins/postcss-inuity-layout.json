@@ -1,0 +1,117 @@
+{
+	"_id": "postcss-inuity-layout",
+	"_rev": "7-aba79518e3813b1025c79e71c63c1ea7",
+	"name": "postcss-inuity-layout",
+	"time": {
+		"modified": "2022-06-24T10:14:18.305Z",
+		"created": "2015-10-27T13:29:53.827Z",
+		"2.0.0": "2015-10-27T13:29:53.827Z",
+		"0.0.1": "2015-10-27T13:32:24.169Z",
+		"0.0.2": "2015-10-27T13:35:26.057Z"
+	},
+	"maintainers": [
+		{
+			"name": "laruiss",
+			"email": "laruiss@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "0.0.2"
+	},
+	"description": "An easy way to create inuitcss-like layout/grid system for PostCSS",
+	"readme": "# postcss-inuity-layout\r\n\r\nAn easy way to create a [inuitcss]-like layout/grid system for [PostCSS]\r\n\r\n[PostCSS]: https://github.com/postcss/postcss\r\n[inuitcss]: https://github.com/inuitcss\r\n\r\n## Installation\r\n\r\n```js\r\nnpm install postcss-inuity-layout\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\nvar fs = require('fs');\r\nvar postcss = require('postcss');\r\nvar width = require('postcss-inuity-layout');\r\n\r\nvar css = fs.readFileSync('input.css', 'utf8');\r\n\r\nvar output = postcss()\r\n  .use(width())\r\n  .process(css)\r\n  .css;\r\n```\r\n\r\n### *Inuity* layouts and layout items\r\n\r\nLayouts are created by using the `layout` declaration and passing the value of the gutter.\r\n\r\nLayout items are created by using the `layout-item` declaration and passing the same gutter value.\r\n\r\n**Example**:\r\n\r\n(In your `objects.css`:)\r\n\r\n```css\r\n$layout-gutter: 24px;\r\n\r\n.layout {\r\n  layout-wrapper: $layout-gutter;\r\n}\r\n\r\n.layout__item {\r\n  layout-item: $layout-gutter;\r\n}\r\n```\r\n\r\nTurns into:\r\n\r\n```css\r\n.layout {\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    margin-left: -24px; /* -$layout-gutter */\r\n}\r\n\r\n.layout__item {\r\n    display: inline-block;\r\n    padding-left: 24px; /* $layout-gutter */\r\n    vertical-align: top;\r\n    width: 100%\r\n}\r\n```\r\n\r\n(And in `trumps.css`:)\r\n\r\n```css\r\n.u-1\\/2 {\r\n    width: width(1/2) !important;\r\n}\r\n```\r\n\r\nTurns into:\r\n\r\n```css\r\n.u-1\\/2 {\r\n    width: 50% !important;\r\n}\r\n```\r\n\r\n### Use in conjunction with @each and @for\r\n\r\nThe real power of this plugin comes with using it in conjunction with [postcss-each] and [postcss-for] plugins:\r\n\r\n[postcss-each]: https://github.com/outpunk/postcss-each\r\n[postcss-for]: https://github.com/antyakushev/postcss-for\r\n\r\n**Example**:\r\n\r\n```css\r\n@each $val, $mq in (palm, lap-and-up), (max-width: 44.9375em, min-width: 45em) {\r\n    @media ($mq) {\r\n        @for $j from 1 to 12 {\r\n            @each $i in 2,3,4,5,6,7,8,9,10,11,12 {\r\n                @if $i > $j {\r\n                    .u-$(j)\\/$(i)-$(val) {\r\n                        width: width($j/$i) !important;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n```\r\n\r\nTurns into:\r\n\r\n```css\r\n.u-1\\/2 {\r\n    width: 50% !important;\r\n}\r\n.u-1\\/3 {\r\n    width: 33.33333% !important;\r\n}\r\n.u-1\\/4 {\r\n    width: 25% !important;\r\n}\r\n\r\n(...)\r\n\r\n.u-1\\/12 {\r\n    width: 8.33333% !important;\r\n}\r\n\r\n.u-2\\/3 {\r\n    width: 66.66667% !important;\r\n}\r\n\r\n(...)\r\n\r\n.u-2\\/12 {\r\n    width: 16.66667% !important;\r\n}\r\n\r\n.u-3\\/4 {\r\n    width: 75% !important;\r\n}\r\n\r\n(...)\r\n\r\n.u-11\\/12 {\r\n    width: 91.66667% !important;\r\n}\r\n\r\n@media (max-width: 44.9375em) {\r\n    .u-1\\/2-palm {\r\n        width: 50% !important;\r\n    }\r\n    .u-1\\/3-palm {\r\n        width: 33.33333% !important\r\n    }\r\n\r\n    (...)\r\n\r\n    .u-11\\/12-palm {\r\n        width: 91.66667% !important;\r\n    }\r\n\r\n}\r\n\r\n@media (min-width: 45em) {\r\n    .u-1\\/2-lap-and-up {\r\n        width: 50% !important;\r\n    }\r\n    .u-1\\/3-lap-and-up {\r\n        width: 33.33333% !important\r\n    }\r\n\r\n    (...)\r\n\r\n    .u-11\\/12-lap-and-up {\r\n        width: 91.66667% !important;\r\n    }\r\n\r\n}\r\n```\r\n\r\n### Use the generated CSS like this in your HTML:\r\n\r\n```html\r\n<div class=\"layout\">\r\n    <div class=\"layout__item  u-1/2-lap-and-up\">\r\n        Left part if your screen is big enough, top part otherwise.\r\n    </div>\r\n    <div class=\"layout__item  u-1/2-lap-and-up\">\r\n        Right part of the layout if your screen is big enough, bottom part otherwise.\r\n    </div>\r\n</div>\r\n```\r\n",
+	"versions": {
+		"0.0.2": {
+			"name": "postcss-inuity-layout",
+			"version": "0.0.2",
+			"description": "An easy way to create inuitcss-like layout/grid system for PostCSS",
+			"main": "src/index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "mocha test/test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/laruiss/postcss-inuity-layout.git"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"width",
+				"grid",
+				"layout",
+				"inuitcss"
+			],
+			"author": {
+				"name": "Stanislas Ormières",
+				"email": "laruiss@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/laruiss/postcss-inuity-layout/issues"
+			},
+			"homepage": "https://github.com/laruiss/postcss-inuity-layout#readme",
+			"devDependencies": {
+				"mocha": "^2.3.3",
+				"should": "^7.1.1"
+			},
+			"dependencies": {
+				"postcss": "^5.0.5",
+				"reduce-function-call": "^1.0.1"
+			},
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "laruiss",
+				"email": "laruiss@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "laruiss",
+					"email": "laruiss@gmail.com"
+				}
+			],
+			"gitHead": "34a8c0f0d5bf41ba0868ccee09f9f96c0f49714c",
+			"_id": "postcss-inuity-layout@0.0.2",
+			"_shasum": "b729dd628e50e4e95d7ada39c4626d61470eca88",
+			"dist": {
+				"shasum": "b729dd628e50e4e95d7ada39c4626d61470eca88",
+				"tarball": "https://registry.npmjs.org/postcss-inuity-layout/-/postcss-inuity-layout-0.0.2.tgz",
+				"integrity": "sha512-8J7SV1VT5C3HGD5FpwAAdh8Ppo+4nc2tLmenxPOGF06jvyM0IAptRBnWxkPz3vromb6oXMQ41l+NCrI1Wo+6jw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIC9fhq7S02N/E359ZYnYP+qV/QYT4v2GfCy47QsI/u93AiEA6jGr435i7w1ofbEIDebpyXmKW+9DFJKmR1ZE+1H8ahc="
+					}
+				]
+			}
+		}
+	},
+	"homepage": "https://github.com/laruiss/postcss-inuity-layout#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"width",
+		"grid",
+		"layout",
+		"inuitcss"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/laruiss/postcss-inuity-layout.git"
+	},
+	"author": {
+		"name": "Stanislas Ormières",
+		"email": "laruiss@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/laruiss/postcss-inuity-layout/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

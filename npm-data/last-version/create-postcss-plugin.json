@@ -1,0 +1,115 @@
+{
+	"name": "create-postcss-plugin",
+	"version": "3.1.1",
+	"description": "Quickly create new PostCSS plugins",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/create-postcss-plugin.git"
+	},
+	"homepage": "https://github.com/csstools/create-postcss-plugin#readme",
+	"bugs": {
+		"url": "https://github.com/csstools/create-postcss-plugin/issues"
+	},
+	"main": "index.js",
+	"bin": {
+		"create-postcss-plugin": "./index.js"
+	},
+	"scripts": {
+		"build": "rollup --config --silent",
+		"posttest:cli": "npm unlink && rm -rf .test",
+		"prepublishOnly": "npm test && npm run build",
+		"pretest:cli": "npm run build && npm link",
+		"test": "npm run test:js && npm run test:cli",
+		"test:cli": "create-postcss-plugin .test --title test --author test --email test@test.test --user test --keywords comma,separated,keywords",
+		"test:js": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet"
+	},
+	"engines": {
+		"node": ">=8.0.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.7.2",
+		"@babel/plugin-syntax-dynamic-import": "^7.2.0",
+		"@babel/preset-env": "^7.7.1",
+		"babel-eslint": "^10.0.3",
+		"eslint": "^6.6.0",
+		"pre-commit": "^1.2.2",
+		"rollup": "^1.26.3",
+		"rollup-plugin-babel": "^4.3.3",
+		"rollup-plugin-terser": "^5.1.2"
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"es6": true,
+			"node": true
+		},
+		"extends": "eslint:recommended",
+		"parser": "babel-eslint",
+		"parserOptions": {
+			"ecmaVersion": 2018,
+			"impliedStrict": true,
+			"sourceType": "module"
+		},
+		"root": true,
+		"rules": {
+			"no-console": [
+				0,
+				{
+					"allow": [
+						"warn",
+						"error"
+					]
+				}
+			],
+			"require-atomic-updates": [
+				0
+			]
+		}
+	},
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"boilerplate"
+	],
+	"gitHead": "3a6dfa388e14ddfb5a36277bcfab83b23d4dbac6",
+	"_id": "create-postcss-plugin@3.1.1",
+	"_nodeVersion": "12.12.0",
+	"_npmVersion": "6.13.0",
+	"dist": {
+		"integrity": "sha512-TMAwTNSvnyTyzN79WrzTwCgQxve60aWgHGzLoWUVpf6RL7ulWE/S900roY2u9v6yCsX3AixE1awsR8umS6WWlQ==",
+		"shasum": "77e35759531c04f1c1bce55701dbd91fa5593368",
+		"tarball": "https://registry.npmjs.org/create-postcss-plugin/-/create-postcss-plugin-3.1.1.tgz",
+		"fileCount": 18,
+		"unpackedSize": 31170,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdxrR+CRA9TVsSAnZWagAAbj4QAIM5JHC88jTgtrYw88em\nCid+F0fwecU7syfYqF1w4xmlMDsCbvsgNsU44VwjbXv+Q5Qzh1MKIVXrywk5\nNiMOuy6Yg0MBeAHGWeErNVQk2gXXDgrhRUWJcloi4hvzM0rgywewTth0ByZZ\n1C0lJLvikUGjOAk6rvJ6lTeK0aWpgnb10oBKQ4NpiGhaDHdvfcpiwPrA1Bl/\nCR+o7q1SIkKErHknCcQlmGHjXyBTk9167LDVKWOia3UEWQ0MhHO8Jn7Ml9m3\nssusvKJqvUnWK2dmKIZ3QxHBtbPDCS2fUp6jRMfR6sqcc7gaQ/xCioX0+8xy\n6YYCW+qzHN39D2hSrvpGvO2CgkA75PgqDD43ioAFb7ptk8iXm4s+j080PBxv\nwfQabV2+TEqi4YrWMf1Anv6i2o6w686m5gi/C1vEZECbhRy8G84ozD5lkEEi\nvBjriMhW+9OmW2b/gSGAR4nhxj3bwiCTfQJ/Ca6xit9ja7DttIHdtUXTaAgz\nM26TetRTiGQrR4I79vIHIiQnWxbOZ7VCDff9NRlO9JsuNHNjtBvNvjMXEspF\nNcuwKIetjyqpV/d1Q4FBFbYl/ZVxeofsim4AWJsNQLNDAdKHUdQr2adqbpI6\nxoQIb900/eKAC2D/TQNsheWOTwyeoLCt3AmspBlkQOx8uQ3e+xJS6i22YmLQ\nEKeQ\r\n=hGEc\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIHRiGblSe+sp7O+/UU00n921wWcTS05pIZlsv46VB3UoAiBOdwFJTAHTXQ8R2vJgaeKT9Jwq52zsza7MSUILZ3Uq+Q=="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmUser": {
+		"name": "jonathantneal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"directories": {},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/create-postcss-plugin_3.1.1_1573303421835_0.6231679398635801"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2019-11-09T12:43:42.016Z"
+}

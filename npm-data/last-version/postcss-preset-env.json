@@ -1,0 +1,162 @@
+{
+	"name": "postcss-preset-env",
+	"description": "Convert modern CSS into something browsers understand",
+	"version": "7.8.3",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/postcss-cascade-layers": "^1.1.1",
+		"@csstools/postcss-color-function": "^1.1.1",
+		"@csstools/postcss-font-format-keywords": "^1.0.1",
+		"@csstools/postcss-hwb-function": "^1.0.2",
+		"@csstools/postcss-ic-unit": "^1.0.1",
+		"@csstools/postcss-is-pseudo-class": "^2.0.7",
+		"@csstools/postcss-nested-calc": "^1.0.0",
+		"@csstools/postcss-normalize-display-values": "^1.0.1",
+		"@csstools/postcss-oklab-function": "^1.1.1",
+		"@csstools/postcss-progressive-custom-properties": "^1.3.0",
+		"@csstools/postcss-stepped-value-functions": "^1.0.1",
+		"@csstools/postcss-text-decoration-shorthand": "^1.0.0",
+		"@csstools/postcss-trigonometric-functions": "^1.0.2",
+		"@csstools/postcss-unset-value": "^1.0.2",
+		"autoprefixer": "^10.4.13",
+		"browserslist": "^4.21.4",
+		"css-blank-pseudo": "^3.0.3",
+		"css-has-pseudo": "^3.0.4",
+		"css-prefers-color-scheme": "^6.0.3",
+		"cssdb": "^7.1.0",
+		"postcss-attribute-case-insensitive": "^5.0.2",
+		"postcss-clamp": "^4.1.0",
+		"postcss-color-functional-notation": "^4.2.4",
+		"postcss-color-hex-alpha": "^8.0.4",
+		"postcss-color-rebeccapurple": "^7.1.1",
+		"postcss-custom-media": "^8.0.2",
+		"postcss-custom-properties": "^12.1.10",
+		"postcss-custom-selectors": "^6.0.3",
+		"postcss-dir-pseudo-class": "^6.0.5",
+		"postcss-double-position-gradients": "^3.1.2",
+		"postcss-env-function": "^4.0.6",
+		"postcss-focus-visible": "^6.0.4",
+		"postcss-focus-within": "^5.0.4",
+		"postcss-font-variant": "^5.0.0",
+		"postcss-gap-properties": "^3.0.5",
+		"postcss-image-set-function": "^4.0.7",
+		"postcss-initial": "^4.0.1",
+		"postcss-lab-function": "^4.2.1",
+		"postcss-logical": "^5.0.4",
+		"postcss-media-minmax": "^5.0.0",
+		"postcss-nesting": "^10.2.0",
+		"postcss-opacity-percentage": "^1.1.2",
+		"postcss-overflow-shorthand": "^3.0.4",
+		"postcss-page-break": "^3.0.4",
+		"postcss-place": "^7.0.5",
+		"postcss-pseudo-class-any-link": "^7.1.6",
+		"postcss-replace-overflow-wrap": "^4.0.0",
+		"postcss-selector-not": "^6.0.1",
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"devDependencies": {
+		"postcss-simple-vars": "^7.0.0"
+	},
+	"scripts": {
+		"prebuild": "node ./scripts/generate-plugins-data.mjs && eslint --fix ./src/plugins/*.mjs",
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ./docs/generate.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"stryker": "stryker run --logLevel error",
+		"test": "node .tape.mjs && node ./src/test/test.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugin-packs/postcss-preset-env"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"css",
+		"csswg",
+		"features",
+		"future",
+		"lists",
+		"next",
+		"postcss",
+		"postcss-plugin",
+		"specifications",
+		"specs",
+		"stages",
+		"w3c"
+	],
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "cca5160cece4eafd38956370a573c42d8db66223",
+	"_id": "postcss-preset-env@7.8.3",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-T1LgRm5uEVFSEF83vHZJV2z19lHg4yJuZ6gXZZkqVsqv63nlr6zabMH3l4Pc01FQCyfWVrh2GaUeCVy9Po+Aag==",
+		"shasum": "2a50f5e612c3149cc7af75634e202a5b2ad4f1e2",
+		"tarball": "https://registry.npmjs.org/postcss-preset-env/-/postcss-preset-env-7.8.3.tgz",
+		"fileCount": 6,
+		"unpackedSize": 100996,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCnu2Tfkcq2KaDe7awW9IEPFRs73ucFo5SdT6N7SwI3XQIgQ7bLoQ3lKVkO5FQGN7gFEXxRMZZa9owQA6FxT0jdS8M="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjcgkRACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqEcQ/9EjacRvymQdvU3nS2hTgJbxMHuXVbHKRM+4hKkQBcNoFe0uS5\r\n0yjjCnRIA9w+aU3jqVZvKokFPhGSENKFpCmTiYuK/rKRUlXJ4u43/6p3EiLg\r\nOigWeg68x9GWEYEBr4iymb6V28++04erGpYvGLIMUzNkBPQFpMsSJCZSpyPu\r\nzcs0R0CX98kfPzUtAS3c1Z7uT2pi0I2ASqWhcjvavGhwhGA0VutJTkz6z8N9\r\nE/Bi+LN82yXZQGmt0dGwRMuJb8MSVbComhrKUbYFNY/Uw72g1z4yAPNF70CD\r\ngDRK/P5X7XpANXw9LOKJ+KHjpm+LDNLz0u4TiyvSRX3VAUswaL3zPsom249Y\r\nPCghxudEAgdUUm5W6fSfxOyWFv9xVSPjvb/djHYdotqST2whJJ196KV0+Em9\r\n/3x3u6h2Ajf9kFWhl06M6eKM7e2sHryjr4AmlHJ3V1EV9+FMtuUAmLr+1orV\r\n0ursxrkeD7uDZRJZoTmXAdbYoJRxNubjQmP3pkqRFkgFZSDXL76l05auCOvM\r\nK2pRsLcD9tVjzBCMl1p6KhGGiQgaDNx0COgat00ypUpOXv0U/4A8mmbWDDbF\r\nXbjFNFk7vSu9f6SfEkGXAuMws8saD05fauTSdNsRq65ODSpTjqMjUxpVjdLM\r\nbzEBq/xUqzr6E+UIyvhYZM1JsVFBn1JD7Fs=\r\n=wNrQ\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-preset-env_7.8.3_1668417809539_0.1057178322204313"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-11-14T09:23:29.658Z"
+}

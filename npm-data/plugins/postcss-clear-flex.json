@@ -1,0 +1,129 @@
+{
+	"_id": "postcss-clear-flex",
+	"_rev": "2-25b884be1dc48b3e90f8e7bd59acf5e1",
+	"name": "postcss-clear-flex",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-clear-flex",
+			"version": "1.0.0",
+			"description": "PostCSS plugin Clear old flex prefixes",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"flex"
+			],
+			"author": {
+				"name": "shrpne",
+				"email": "shrpne@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/shrpne/postcss-clear-flex.git"
+			},
+			"bugs": {
+				"url": "https://github.com/shrpne/postcss-clear-flex/issues"
+			},
+			"homepage": "https://github.com/shrpne/postcss-clear-flex",
+			"dependencies": {
+				"postcss": "^6.0.16"
+			},
+			"devDependencies": {
+				"eslint": "^4.15.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^21.0.0"
+			},
+			"scripts": {
+				"test": "jest && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"rules": {
+					"indent": [
+						"error",
+						4,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"max-len": [
+						"off"
+					]
+				},
+				"env": {
+					"jest": true
+				}
+			},
+			"gitHead": "fe691b38b63157cdaf1bf43569a75c3bd0ca57db",
+			"_id": "postcss-clear-flex@1.0.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "shrpne",
+				"email": "shrpne@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-s7DYCnucS6uWHimMGeAZB4wVBLts+LSui2CtW6q/KEEzKAuOGDmny1WZaItG//NWmyYZyZtamLds/eSfIlRatg==",
+				"shasum": "d5701a0b1690018d6a248be5582d72c2b4cef984",
+				"tarball": "https://registry.npmjs.org/postcss-clear-flex/-/postcss-clear-flex-1.0.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 28897,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCqwN8Fpi8dUdGIp21qF8RKUQ4XDJ0ib2GenNHpA2Pv0QIge7Gjg8lMHocCiAcSx3b9aPBUolB/onaWk072ogvddIs="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "shrpne",
+					"email": "shrpne@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-clear-flex_1.0.0_1519574717702_0.2990596912693684"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-02-25T16:05:17.701Z",
+		"1.0.0": "2018-02-25T16:05:17.756Z",
+		"modified": "2022-05-13T06:07:38.739Z"
+	},
+	"maintainers": [
+		{
+			"name": "shrpne",
+			"email": "shrpne@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin Clear old flex prefixes",
+	"homepage": "https://github.com/shrpne/postcss-clear-flex",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"flex"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/shrpne/postcss-clear-flex.git"
+	},
+	"author": {
+		"name": "shrpne",
+		"email": "shrpne@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/shrpne/postcss-clear-flex/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Clear Flex [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin clear old webkit flex prefixes to prevent wrong order in the autoprefixer output.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/shrpne/postcss-clear-flex.svg\n[ci]:      https://travis-ci.org/shrpne/postcss-clear-flex\n\nIf you have to use prefixed sources like [Uikit 2](https://github.com/uikit/uikit/blob/v2/master/src/less/core/grid.less#L71) and need to support browsers with old [flexbox](https://caniuse.com/#search=flex) specification like Safari 6, Android 4.3, Blackberry 7, Autoprefixer will produce wrong prefixes order\n\n```css\n/* source */\n.foo {\n    display: -webkit-flex;\n    display: flex;\n}\n\n/* output from Autoprefixer with config \"Safari 6, Safari 8\" */\n.foo {\n  display: -webkit-flex;\n  display: -webkit-box; \n  /* ^^^ old prefix get higher priority than new prefix, Safari 8 will be forced to use old flexbox specification and layout will break */\n  display: flex;\n}\n```\n\nTo prevent it this plugin clear flexbox prefixes so Autoprefixer will apply prefixes from scratch with correct order\n\n\n```css\n/* source */\n.foo {\n    display: -webkit-flex;\n    display: flex;\n}\n\n/* postcss-clear-flex */\n.foo {\n  display: flex;\n}\n\n/* Autoprefixer */\n.foo {\n    display: -ms-flexbox;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n}\n```\n\n## Usage\npostcss-clear-flex should be used before Autoprefixer\n\n```js\npostcss([ require('postcss-clear-flex') ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n",
+	"readmeFilename": "README.md"
+}

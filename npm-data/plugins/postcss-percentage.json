@@ -1,0 +1,118 @@
+{
+	"_id": "postcss-percentage",
+	"_rev": "3-0d717fb1a72bb59432d01f09c2af9ec4",
+	"name": "postcss-percentage",
+	"description": "PostCSS plugin to support percentage() function",
+	"dist-tags": {
+		"latest": "0.0.0"
+	},
+	"versions": {
+		"0.0.0": {
+			"name": "postcss-percentage",
+			"version": "0.0.0",
+			"description": "PostCSS plugin to support percentage() function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"percentage",
+				"percentage function"
+			],
+			"author": {
+				"name": "creeperyang",
+				"email": "yangcreeper@hotmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/creeperyang/postcss-percentage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/creeperyang/postcss-percentage/issues"
+			},
+			"homepage": "https://github.com/creeperyang/postcss-percentage",
+			"dependencies": {
+				"math-expression-evaluator": "^1.2.16",
+				"postcss": "^5.2.16",
+				"postcss-value-parser": "^3.3.0"
+			},
+			"devDependencies": {
+				"eslint": "^3.12.2",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^19.0.2"
+			},
+			"scripts": {
+				"lint": "eslint *.js",
+				"test": "jest"
+			},
+			"gitHead": "8b27dcf3758d5e084794981eb1e5ec39c25ee8ec",
+			"_id": "postcss-percentage@0.0.0",
+			"_shasum": "f5643d8522d67d20d781cc809ae69aaa305bcc83",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.0",
+			"_npmUser": {
+				"name": "creeper",
+				"email": "pashanhu6@hotmail.com"
+			},
+			"dist": {
+				"shasum": "f5643d8522d67d20d781cc809ae69aaa305bcc83",
+				"tarball": "https://registry.npmjs.org/postcss-percentage/-/postcss-percentage-0.0.0.tgz",
+				"integrity": "sha512-0k+G0JM515TRsrDfYVj6/CVLTum7GX9T8j64bHt7F/xGuD8pfIZZe3TSiFtyovY4B71IXv9jKgA02B5RIeyN1g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIARO5ejFuK1kksDwvgxQyMIpmscqUtxQiKVo2P8XDOWiAiEA7M/keRK1B97PYz5KLOqwb4mWjBdeg+1BpSx9eQX1HR8="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "creeper",
+					"email": "pashanhu6@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-percentage-0.0.0.tgz_1490980229103_0.8254710477776825"
+			},
+			"directories": {}
+		}
+	},
+	"readme": "# PostCSS Percentage [![Build Status][ci-img]][ci]\n\n> [PostCSS] plugin to support `percentage()` function.\n\nThis plugin will transform all `percentage(expression)` functions to correct percentage.\nIt's almost the same as [sass function percentage](http://sass-lang.com/documentation/Sass/Script/Functions.html#percentage-instance_method),\nexcept for the support for the unit (`percentage(50px / 50px)`).\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/creeperyang/postcss-percentage.svg\n[ci]:      https://travis-ci.org/creeperyang/postcss-percentage\n\n## Installation\n\n```bash\nnpm i --save postcss-percentage\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-percentage')(opts) ])\n```\n\nIf the input is\n\n```css\n.box {\n    width: percentage(1 / 24);\n    margin: percentage(- 1 / 24) percentage(0.01 * 5);\n}\n```\n\nThen you will get\n\n```css\n.box {\n    width: 4.166667%;\n    margin: -4.166667% 5%;\n}\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n## Options\n\n```js\nrequire('postcss-percentage')({\n    precision: 9,\n    trimTrailingZero: true,\n    floor: true\n})\n```\n\n### `precision` (default: `6`)\n\nAllow you to definine the precision for decimal numbers.\n\nNote: allowed value for `precision` is between `[0, 20]`.\n\n### `trimTrailingZero` (default: `true`)\n\nAllow you to trim trailing zeroes.\n\nWhen computed value is `1.234000%`, we will get `1.234%` instead.\n\n### `floor` (default: `false`)\n\nAllow you to ensure the percentage will not greater than the original value. It will be quite useful to ensure the total value won't be greater than `100%` (sum of some percentages).\n\nFor example, when `floor` is `true` and `precision` is `3`, the `percentage(1/24)`\nwill get `4.166%` rather than `4.167%`.\n\n## License\n\n[MIT](LICENSE)\n",
+	"maintainers": [
+		{
+			"name": "creeper",
+			"email": "pashanhu6@hotmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:34:00.707Z",
+		"created": "2017-03-31T17:10:29.356Z",
+		"0.0.0": "2017-03-31T17:10:29.356Z"
+	},
+	"homepage": "https://github.com/creeperyang/postcss-percentage",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"percentage",
+		"percentage function"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/creeperyang/postcss-percentage.git"
+	},
+	"author": {
+		"name": "creeperyang",
+		"email": "yangcreeper@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/creeperyang/postcss-percentage/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"kgl": true
+	}
+}

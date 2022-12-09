@@ -1,0 +1,113 @@
+{
+	"_id": "postcss-rpxtorem",
+	"_rev": "2-0dd31747526845e8aa432f1a8bd36a23",
+	"name": "postcss-rpxtorem",
+	"dist-tags": {
+		"latest": "4.0.1"
+	},
+	"versions": {
+		"4.0.1": {
+			"name": "postcss-rpxtorem",
+			"description": "A CSS post-processor that converts rpx to rem.",
+			"version": "4.0.1",
+			"author": {
+				"name": "landn172"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/landn172/postcss-rpxtorem.git"
+			},
+			"bugs": {
+				"url": "https://github.com/landn172/postcss-rpxtorem/issues"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "jasmine-node spec"
+			},
+			"devDependencies": {
+				"jasmine-node": "~1.11.0"
+			},
+			"keywords": [
+				"css",
+				"rem",
+				"pixel",
+				"rpx",
+				"postcss",
+				"postcss-plugin"
+			],
+			"dependencies": {
+				"object-assign": "^4.1.0",
+				"postcss": "^5.2.10"
+			},
+			"gitHead": "018625f4aa698b0a16426dbeef7aec379b7acec9",
+			"homepage": "https://github.com/landn172/postcss-rpxtorem#readme",
+			"_id": "postcss-rpxtorem@4.0.1",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "landn172",
+				"email": "landn172@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-9Z0L+1sYTGhiCIPtiinZHQm8VdsjKDZlvsNSU6VNggQBp/5vUEqKniEyHPhmBoUgUPHdDzzB0YU551KVixmuLg==",
+				"shasum": "a62e4fa95a7bfb8761873c82f6c96f78fcec2129",
+				"tarball": "https://registry.npmjs.org/postcss-rpxtorem/-/postcss-rpxtorem-4.0.1.tgz",
+				"fileCount": 14,
+				"unpackedSize": 31680,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGvWGUuCH4GW/tw3ToIueAQltnhaFaLiRmJT0GwvBC31AiEA5TZ9PmCuPvhkooWfYlKFpwNM9y5wQB0CYY5kKusjMb4="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "landn172",
+					"email": "landn172@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-rpxtorem_4.0.1_1521018937967_0.43214789707429024"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-03-14T09:15:37.912Z",
+		"4.0.1": "2018-03-14T09:15:38.089Z",
+		"modified": "2022-05-13T06:44:03.471Z"
+	},
+	"maintainers": [
+		{
+			"name": "landn172",
+			"email": "landn172@gmail.com"
+		}
+	],
+	"description": "A CSS post-processor that converts rpx to rem.",
+	"homepage": "https://github.com/landn172/postcss-rpxtorem#readme",
+	"keywords": [
+		"css",
+		"rem",
+		"pixel",
+		"rpx",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/landn172/postcss-rpxtorem.git"
+	},
+	"author": {
+		"name": "landn172"
+	},
+	"bugs": {
+		"url": "https://github.com/landn172/postcss-rpxtorem/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-rpxtorem [![NPM version](https://badge.fury.io/js/postcss-rpxtorem.svg)](http://badge.fury.io/js/postcss-rpxtorem)\n\nA plugin for [PostCSS](https://github.com/ai/postcss) that generates rem units from pixel units.\n\n## Fork [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem)\n背景：小程序转换其他项目（vue等）时，需要把rpx转换成rem\n\n## Install\n\n```shell\n$ npm install postcss-rpxtorem --save-dev\n```\n\n## Usage\n\nPixels are the easiest unit to use (*opinion*). The only issue with them is that they don't let browsers change the default font size of 16. This script converts every px value to a rem from the properties you choose to allow the browser to set the font size.\n\n## rpx\n\n关于rpx的[描述](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxss.html):\n> rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。\n> | 设备 | rpx换算px (屏幕宽度/750) | px换算rpx (750/屏幕宽度)\n> | ------------- |:-------------:| -----:|\n> | iPhone5 | 1rpx = 0.42px | 1px = 2.34rpx\n> | iPhone6 | 1rpx = 0.5px | 1px = 2rpx\n\n### Input/Output\n\n*With the default settings, only font related properties are targeted.*\n\n```css\n// input\nh1 {\n    margin: 0 0 20rpx;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n// output\nh1 {\n    margin: 0 0 1.25rem;\n    font-size: 2rem;\n    line-height: 1.2;\n    letter-spacing: 0.0625rem;\n}\n```\n\n### Example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar rpxtorem = require('postcss-rpxtorem');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(rpxtorem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n### options\n\nType: `Object | Null`  \nDefault:\n```js\n{\n    rootValue: 16,\n    unitPrecision: 5,\n    propList: ['*'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0\n}\n```\n\n- `rootValue` (Number) The root element font size.\n- `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.\n- `propList` (Array) The properties that can change from px to rem.\n    - Values need to be exact matches.\n    - Use wildcard `*` to enable all properties. Example: `['*']`\n    - Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n    - Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n    - Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']` \n- `selectorBlackList` (Array) The selectors to ignore and leave as px.\n    - If value is string, it checks to see if selector contains the string.\n        - `['body']` will match `.body-class`\n    - If value is regexp, it checks to see if the selector matches the regexp.\n        - `[/^body$/]` will match `body` but not `.body`\n- `replace` (Boolean) replaces rules containing rems instead of adding fallbacks.\n- `mediaQuery` (Boolean) Allow px to be converted in media queries.\n- `minPixelValue` (Number) Set the minimum pixel value to replace.\n\n\n### Use with gulp-postcss and autoprefixer\n\n```js\nvar gulp = require('gulp');\nvar postcss = require('gulp-postcss');\nvar autoprefixer = require('autoprefixer');\nvar rpxtorem = require('postcss-rpxtorem');\n\ngulp.task('css', function () {\n\n    var processors = [\n        autoprefixer({\n            browsers: 'last 1 version'\n        }),\n        rpxtorem({\n            replace: false\n        })\n    ];\n\n    return gulp.src(['build/css/**/*.css'])\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('build/css'));\n});\n```\n\n### A message about ignoring properties\nCurrently, the easiest way to have a single property ignored is to use a capital in the pixel unit declaration.\n\n```css\n// `rpx` is converted to `rem`\n.convert {\n    font-size: 16rpx; // converted to 1rem\n}\n\n// `Px` or `PX` is ignored by `postcss-pxtorem` but still accepted by browsers\n.ignore {\n    border: 1rPx solid; // ignored\n    border-width: 2RPX; // ignored\n}\n```\n",
+	"readmeFilename": "README.md"
+}

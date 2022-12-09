@@ -1,0 +1,294 @@
+{
+	"_id": "postcss-unit-converter",
+	"_rev": "9-5c667ae6120265b897ddae4904d3deb0",
+	"name": "postcss-unit-converter",
+	"time": {
+		"modified": "2022-05-13T06:52:47.273Z",
+		"created": "2017-07-23T20:38:50.948Z",
+		"0.1.0": "2017-07-23T20:38:50.948Z",
+		"0.1.5": "2017-07-23T20:43:31.421Z",
+		"0.1.1": "2017-07-25T22:59:26.335Z",
+		"0.2.0": "2017-07-27T21:21:37.376Z",
+		"0.2.1": "2017-07-27T21:30:12.705Z",
+		"0.2.3": "2017-07-28T10:46:18.566Z"
+	},
+	"maintainers": [
+		{
+			"name": "walmokrani",
+			"email": "wal.mokrani@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "0.2.1"
+	},
+	"description": "PostCSS plugin that provides a function to convert CSS values from one unit to another.",
+	"readme": "# PostCSS Unit Converter \n[![Build Status][ci-img]][ci] [![Coverage Status][cover-img]][cover] [![npm version][npm-img]][npm]\n\n[PostCSS] plugin that provides a function to convert CSS values from one unit to another.\n\nThis is a wrapper on top of [css-unit-converter] to provide a `convert()` CSS function.\n\n[PostCSS]:   https://github.com/postcss/postcss\n[ci-img]:    https://travis-ci.org/walmokrani/postcss-unit-converter.svg\n[ci]:        https://travis-ci.org/walmokrani/postcss-unit-converter\n[cover-img]: https://coveralls.io/repos/github/walmokrani/postcss-unit-converter/badge.svg?branch=master\n[cover]:     https://coveralls.io/github/walmokrani/postcss-unit-converter?branch=master\n[npm-img]:   https://badge.fury.io/js/postcss-unit-converter.svg\n[npm]:       https://badge.fury.io/js/postcss-unit-converter\n[css-unit-converter]: https://github.com/andyjansson/css-unit-converter\n\n```css\n/* Input example */\n.foo {\n    width: convert(600px, pt);\n}\n\n@media screen and (min-width: convert(200px, pt)) {\n    bar {\n        display: none;\n    }\n}\n```\n\n```css\n/* Output example */\n.foo {\n    width: 450pt;\n}\n\n@media screen and (min-width: 150pt) {\n    bar {\n        display: none;\n    }\n}\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-unit-converter')(options) ])\n```\nSee [PostCSS] docs for examples for your environment.\n\n### options\n\nType: `Object | Null`  \nDefault:\n```js\n{\n    precision: 5\n}\n```\n\n- `precision`(Number): The maximum number of decimals.\n\n## Provided CSS functions\n\n### `convert()`\nConverts a CSS value from one unit to another.\n```\nconvert(sourceValue, targetUnit, precision);\n```\n\nAccepts 3 arguments:\n\n* `sourceValue`: The value to be converted\n* `targetUnit`:  The target unit\n* `precision`(optional): The maximum number of decimals. default is 5.\n\nAvailable Units\n\n* Length: px, cm, mm, in, pt, pc.\n* Angle: deg, grad, rad, turn.\n* Time: s, ms.\n* Frequency: Hz, kHz.\n* Resolution: dpi, dpcm, dppx.\n\n#### Example\n\n```css\n.foo {\n    /* Input example */\n    transform: rotate(convert(180deg, rad, 2));\n}\n```\n\n```css\n.foo {\n    /* Output example */\n    transform: rotate(3.14rad);\n}\n```\n\n## Credits\n\nThanks to:\n\n* [css-unit-converter] - Created by [Andy Jansson](https://github.com/andyjansson).\n",
+	"versions": {
+		"0.1.1": {
+			"name": "postcss-unit-converter",
+			"version": "0.1.1",
+			"description": "PostCSS plugin that provides a function to convert CSS values from one unit to another.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"value",
+				"unit",
+				"converter",
+				"convert"
+			],
+			"author": {
+				"name": "Mokrani Walid",
+				"email": "walid.mokrani@mps.dz"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/walmokrani/postcss-unit-converter.git"
+			},
+			"bugs": {
+				"url": "https://github.com/walmokrani/postcss-unit-converter/issues"
+			},
+			"homepage": "https://github.com/walmokrani/postcss-unit-converter",
+			"dependencies": {
+				"postcss": "^6.0.1"
+			},
+			"devDependencies": {
+				"coveralls": "^2.13.1",
+				"css-unit-converter": "^1.1.1",
+				"eslint": "^3.19.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^20.0.0",
+				"parse-css-dimension": "^1.1.0",
+				"postcss-value-parser": "^3.3.0",
+				"standard-version": "^4.2.0"
+			},
+			"scripts": {
+				"test": "jest --coverage && eslint *.js",
+				"release": "standard-version",
+				"coveralls": "cat ./coverage/lcov.info | coveralls"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"env": {
+					"jest": true
+				}
+			},
+			"gitHead": "ba9b2fbf2d91d042c0eb7da4256ee69d4bfb2f2e",
+			"_id": "postcss-unit-converter@0.1.1",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "7.7.3",
+			"_npmUser": {
+				"name": "walmokrani",
+				"email": "wal.mokrani@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-U/zamfqcQVhO1oD3utxlzMBSfl/LpeUzUxP87yEdgYeZHrYlWrP4ynaw36mbOpRo5CuPgo+YAJvEfyYv0nlhYQ==",
+				"shasum": "72db44eb3a26a5aa67fe301df21acf2ac6f96b43",
+				"tarball": "https://registry.npmjs.org/postcss-unit-converter/-/postcss-unit-converter-0.1.1.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAYmTRJYbhYtVvKHxNlRdHgMQKNrjIqrLMMezl1aAlKPAiAE44wbfVAJsrw86JPidwgVs1xO5hmvRgcSD6VgnuR9vg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "walmokrani",
+					"email": "wal.mokrani@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-unit-converter-0.1.1.tgz_1501023565382_0.9946264352183789"
+			}
+		},
+		"0.2.0": {
+			"name": "postcss-unit-converter",
+			"version": "0.2.0",
+			"description": "PostCSS plugin that provides a function to convert CSS values from one unit to another.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"value",
+				"unit",
+				"converter",
+				"convert"
+			],
+			"author": {
+				"name": "Mokrani Walid",
+				"email": "walid.mokrani@mps.dz"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/walmokrani/postcss-unit-converter.git"
+			},
+			"bugs": {
+				"url": "https://github.com/walmokrani/postcss-unit-converter/issues"
+			},
+			"homepage": "https://github.com/walmokrani/postcss-unit-converter",
+			"dependencies": {
+				"postcss": "^6.0.1"
+			},
+			"devDependencies": {
+				"coveralls": "^2.13.1",
+				"css-unit-converter": "^1.1.1",
+				"eslint": "^3.19.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^20.0.0",
+				"parse-css-dimension": "^1.1.0",
+				"postcss-value-parser": "^3.3.0",
+				"standard-version": "^4.2.0"
+			},
+			"scripts": {
+				"test": "jest --coverage && eslint *.js",
+				"release": "standard-version",
+				"coveralls": "cat ./coverage/lcov.info | coveralls"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"env": {
+					"jest": true
+				}
+			},
+			"gitHead": "dd7413512e6f388c81f8e019b4fa537d3e657601",
+			"_id": "postcss-unit-converter@0.2.0",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "7.7.3",
+			"_npmUser": {
+				"name": "walmokrani",
+				"email": "wal.mokrani@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-D7qDP7YmXP0I8zyz6bfCCBm2x5xBABG7b6DMrL04SQ9DquHwtEXsutnC3CohyqsjcjJ8DUas0HxPi59/wJY1Kg==",
+				"shasum": "d27351fe6f3078d8325cf76f998a859f76f0b490",
+				"tarball": "https://registry.npmjs.org/postcss-unit-converter/-/postcss-unit-converter-0.2.0.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDYIEtZyNP6qNwWkhz3KFYRJ9Ez9eaKQvWYfQrymUPESAIhAO8FOOHtEndWW9QA1CJ9SYFLCTnkz9fKfDeKHHJBen1D"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "walmokrani",
+					"email": "wal.mokrani@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-unit-converter-0.2.0.tgz_1501190496409_0.9652377888560295"
+			}
+		},
+		"0.2.1": {
+			"name": "postcss-unit-converter",
+			"version": "0.2.1",
+			"description": "PostCSS plugin that provides a function to convert CSS values from one unit to another.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"value",
+				"unit",
+				"converter",
+				"convert"
+			],
+			"author": {
+				"name": "Mokrani Walid",
+				"email": "walid.mokrani@mps.dz"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/walmokrani/postcss-unit-converter.git"
+			},
+			"bugs": {
+				"url": "https://github.com/walmokrani/postcss-unit-converter/issues"
+			},
+			"homepage": "https://github.com/walmokrani/postcss-unit-converter",
+			"dependencies": {
+				"postcss": "^6.0.1"
+			},
+			"devDependencies": {
+				"coveralls": "^2.13.1",
+				"css-unit-converter": "^1.1.1",
+				"eslint": "^3.19.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^20.0.0",
+				"parse-css-dimension": "^1.1.0",
+				"postcss-value-parser": "^3.3.0",
+				"standard-version": "^4.2.0"
+			},
+			"scripts": {
+				"test": "jest --coverage && eslint *.js",
+				"release": "standard-version",
+				"coveralls": "cat ./coverage/lcov.info | coveralls"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"env": {
+					"jest": true
+				}
+			},
+			"gitHead": "0098261fdb0b531ee540b2e05cf283f30b43263e",
+			"_id": "postcss-unit-converter@0.2.1",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "7.7.3",
+			"_npmUser": {
+				"name": "walmokrani",
+				"email": "wal.mokrani@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-RP9Pn83hzOPDIT8NaIWK+KzyaoXXjXgpT0AnqVUSAQJ+5Tjr0zhy297gymEaIZJRymH1nPcVnHdTARJHqMzZhg==",
+				"shasum": "9068864695ae058925bc44de5cdc9dec4113ae85",
+				"tarball": "https://registry.npmjs.org/postcss-unit-converter/-/postcss-unit-converter-0.2.1.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCID0W4/3Ztog8wtxLbvZ5jbcqf+ewi8FUw17FkOGjayiWAiEA3sggmVCM67jwPj8kSdqc+i9vaD56iHJOrjr37gGEK/o="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "walmokrani",
+					"email": "wal.mokrani@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-unit-converter-0.2.1.tgz_1501191011633_0.8185936696827412"
+			}
+		}
+	},
+	"homepage": "https://github.com/walmokrani/postcss-unit-converter",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"value",
+		"unit",
+		"converter",
+		"convert"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/walmokrani/postcss-unit-converter.git"
+	},
+	"author": {
+		"name": "Mokrani Walid",
+		"email": "walid.mokrani@mps.dz"
+	},
+	"bugs": {
+		"url": "https://github.com/walmokrani/postcss-unit-converter/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"walmokrani": true
+	}
+}

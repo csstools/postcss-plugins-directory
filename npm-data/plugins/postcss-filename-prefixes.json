@@ -1,0 +1,505 @@
+{
+	"_id": "postcss-filename-prefixes",
+	"_rev": "12-77d2bbca2b85e8356e9d4975bd84e99f",
+	"name": "postcss-filename-prefixes",
+	"time": {
+		"modified": "2022-06-24T09:55:59.291Z",
+		"created": "2017-03-06T19:02:08.450Z",
+		"0.3.1": "2017-03-06T19:02:08.450Z",
+		"0.3.2": "2017-03-06T19:04:03.540Z",
+		"0.3.0": "2017-03-06T19:07:26.848Z",
+		"0.3.3": "2017-03-06T19:09:06.773Z",
+		"0.3.5": "2017-03-06T22:07:33.326Z",
+		"0.3.6": "2017-03-07T01:55:06.657Z",
+		"0.3.7": "2017-03-07T07:33:25.092Z",
+		"0.3.8": "2017-03-17T21:26:27.976Z"
+	},
+	"maintainers": [
+		{
+			"name": "viktortsarevskiy",
+			"email": "viktor.tsarevskiy@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "0.3.8"
+	},
+	"description": "Postcss plugin for prefixing classes with corresponding filenames",
+	"readme": "[Forked from here](https://github.com/vmakhaev/postcss-filename-prefix) \n\n# postcss-filename-prefix\nA [PostCSS](https://github.com/postcss/postcss) plugin to prefix classes with corresponding filenames  \nThe idea is to isolate styles in framework components\n\n[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)\n\nMyComponent.css\n\n```css\n.myclass { /* ... */ }\n.-mymodifier { /* ... */ }\n.Mycapitalclass { /* ... */ }\n```\n\nOutput:\n\n```css\n.MyComponent-myclass { /* ... */ }\n.-mymodifier { /* ... */ }\n.Mycapitalclass { /* ... */ }\n```\n\nIgnores:\n- filenames that starts from not capital letter\n- modifiers (classes that starts from hyphen)\n- classes that starts from capital letter\n\n## Installation\n\n```\nnpm install postcss-filename-prefixes\n```\n\n## Usage\n\n```javascript\nvar fs        = require('fs');\nvar postcss   = require('postcss');\nvar filenamePrefix = require('postcss-filename-prefix');\n\nvar css = fs.readFileSync('css/MyFile.css', 'utf8').toString();\nvar out = postcss()\n          .use(filenamePrefix())\n          .process(css);\n```\n\n### Using the `delimeter` option\nBy default delimeter between prefix and class is dash character. You can setup any string like:\n```javascript\nfilenamePrefix({delimeter: '__'})\n```\n\n### Using the `lowerCase` option\nForce using of lowecased prefix:\n```javascript\nfilenamePrefix({lowerCase: true})\n```\n\n### Using the `ignoreRoot` option\nOmit `.root` class\n\n### Using the `ignoreLowerCasedFileName` option\nAllow to use lowercase name for css file\n\n```javascript\nfilenamePrefix({ignoreRoot: true})\n```\n### Using the `ignore` option\n\n```javascript\nvar fs        = require('fs');\nvar postcss   = require('postcss');\nvar filenamePrefix = require('postcss-filename-prefix');\n\nvar css = fs.readFileSync('css/MyFile.css', 'utf8').toString();\nvar out = postcss()\n          .use(filenamePrefix({ ignore: [/ng-/, 'some-class-to-ignore']}))\n          .process(css);\n```\n\n## License\n\nMIT\n\n## Recommendation\n\n* Use it with [react-prefix-loader](https://github.com/vmakhaev/react-prefix-loader) for React components\n\n## Acknowledgements\n\n* Inspired by [postcss-class-prefix](https://github.com/thompsongl/postcss-class-prefix)\n",
+	"versions": {
+		"0.3.3": {
+			"name": "postcss-filename-prefixes",
+			"version": "0.3.3",
+			"description": "Postcss plugin for prefixing classes with corresponding filenames",
+			"keywords": [
+				"css",
+				"postcss",
+				"prefix",
+				"filename",
+				"postcss-plugin"
+			],
+			"main": "lib/index.js",
+			"scripts": {
+				"prepublish": "babel --optional runtime src --out-dir lib",
+				"postpublish": "rm -rf lib",
+				"lint": "standard | snazzy",
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"author": {
+				"name": "Viktor Tsarevskiy"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/viktortsarevskiy/postcss-filename-prefix.git"
+			},
+			"dependencies": {
+				"postcss": "5.x.x"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.3.17",
+				"babel-core": "^6.3.21",
+				"babel-eslint": "^5.0.0-beta6",
+				"babel-plugin-add-module-exports": "^0.1.2",
+				"babel-plugin-transform-runtime": "^6.3.13",
+				"babel-polyfill": "^6.3.14",
+				"babel-preset-es2015": "^6.3.13",
+				"babel-preset-react": "^6.3.13",
+				"babel-preset-stage-0": "^6.3.13",
+				"babel-runtime": "^6.3.19",
+				"snazzy": "^2.0.1",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"assert",
+					"describe",
+					"it",
+					"before",
+					"beforeEach",
+					"after",
+					"afterEach"
+				],
+				"parser": "babel-eslint"
+			},
+			"gitHead": "2bfabd261d1c940349bd0d930e27bc96d31d30e0",
+			"bugs": {
+				"url": "https://github.com/viktortsarevskiy/postcss-filename-prefix/issues"
+			},
+			"homepage": "https://github.com/viktortsarevskiy/postcss-filename-prefix#readme",
+			"_id": "postcss-filename-prefixes@0.3.3",
+			"_shasum": "99228964d6cd2d6f178bfc33fde1261bd8c148b8",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.6.0",
+			"_npmUser": {
+				"name": "viktortsarevskiy",
+				"email": "viktor.tsarevskiy@gmail.com"
+			},
+			"dist": {
+				"shasum": "99228964d6cd2d6f178bfc33fde1261bd8c148b8",
+				"tarball": "https://registry.npmjs.org/postcss-filename-prefixes/-/postcss-filename-prefixes-0.3.3.tgz",
+				"integrity": "sha512-dWYSvhZjDyBGIL3hAsxSyVTVYoMvafyqiNBWMPA6FcNnkLJnj9YH77Vxb6wL1FEtijOMJEeAnWXX42bN1YmJmg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCaEbAQKqaAxsPuWPJn+wwkzFYTbAI5hGIyhzhkPXd1gwIhAPeFUKeAmS/OayNmH+RPSzy9cqjtlXt+G+EBImtc9iyA"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "viktortsarevskiy",
+					"email": "viktor.tsarevskiy@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-filename-prefixes-0.3.3.tgz_1488827344948_0.525172988884151"
+			}
+		},
+		"0.3.5": {
+			"name": "postcss-filename-prefixes",
+			"version": "0.3.5",
+			"description": "Postcss plugin for prefixing classes with corresponding filenames",
+			"keywords": [
+				"css",
+				"postcss",
+				"prefix",
+				"filename",
+				"postcss-plugin"
+			],
+			"main": "lib/index.js",
+			"scripts": {
+				"prepublish": "babel --optional runtime src --out-dir lib",
+				"postpublish": "rm -rf lib",
+				"lint": "standard | snazzy",
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"author": {
+				"name": "Viktor Tsarevskiy"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/viktortsarevskiy/postcss-filename-prefix.git"
+			},
+			"dependencies": {
+				"postcss": "5.x.x"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.3.17",
+				"babel-core": "^6.3.21",
+				"babel-eslint": "^5.0.0-beta6",
+				"babel-plugin-add-module-exports": "^0.1.2",
+				"babel-plugin-transform-runtime": "^6.3.13",
+				"babel-polyfill": "^6.3.14",
+				"babel-preset-es2015": "^6.3.13",
+				"babel-preset-react": "^6.3.13",
+				"babel-preset-stage-0": "^6.3.13",
+				"babel-runtime": "^6.3.19",
+				"snazzy": "^2.0.1",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"assert",
+					"describe",
+					"it",
+					"before",
+					"beforeEach",
+					"after",
+					"afterEach"
+				],
+				"parser": "babel-eslint"
+			},
+			"gitHead": "00519279502911562719c1bf5ad29e92da290025",
+			"bugs": {
+				"url": "https://github.com/viktortsarevskiy/postcss-filename-prefix/issues"
+			},
+			"homepage": "https://github.com/viktortsarevskiy/postcss-filename-prefix#readme",
+			"_id": "postcss-filename-prefixes@0.3.5",
+			"_shasum": "b22d8ab51fa24af1b90113a46a61d252e9a6e106",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "viktortsarevskiy",
+				"email": "viktor.tsarevskiy@gmail.com"
+			},
+			"dist": {
+				"shasum": "b22d8ab51fa24af1b90113a46a61d252e9a6e106",
+				"tarball": "https://registry.npmjs.org/postcss-filename-prefixes/-/postcss-filename-prefixes-0.3.5.tgz",
+				"integrity": "sha512-8g1ofVytorIdZpolRnWj00MniLEdp5+8X27BCwxY0C2uEtzwYPAKzOKWZPJnwVI3H524cJ8TPGT2dMGB/baxqA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIELh0MScnbLLKVuZLovm+Uf3S/6llNjJvckzM0UgaqR0AiBxLCbzxVazeuCI+JtDfxVJS/BaxvkQiVSU2A2N9kIZCg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "viktortsarevskiy",
+					"email": "viktor.tsarevskiy@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-filename-prefixes-0.3.5.tgz_1488838051404_0.5685544977895916"
+			}
+		},
+		"0.3.6": {
+			"name": "postcss-filename-prefixes",
+			"version": "0.3.6",
+			"description": "Postcss plugin for prefixing classes with corresponding filenames",
+			"keywords": [
+				"css",
+				"postcss",
+				"prefix",
+				"filename",
+				"postcss-plugin"
+			],
+			"main": "lib/index.js",
+			"scripts": {
+				"prepublish": "babel --optional runtime src --out-dir lib",
+				"postpublish": "rm -rf lib",
+				"lint": "standard | snazzy",
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"author": {
+				"name": "Viktor Tsarevskiy"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/viktortsarevskiy/postcss-filename-prefix.git"
+			},
+			"dependencies": {
+				"postcss": "5.x.x"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.3.17",
+				"babel-core": "^6.3.21",
+				"babel-eslint": "^5.0.0-beta6",
+				"babel-plugin-add-module-exports": "^0.1.2",
+				"babel-plugin-transform-runtime": "^6.3.13",
+				"babel-polyfill": "^6.3.14",
+				"babel-preset-es2015": "^6.3.13",
+				"babel-preset-react": "^6.3.13",
+				"babel-preset-stage-0": "^6.3.13",
+				"babel-runtime": "^6.3.19",
+				"snazzy": "^2.0.1",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"assert",
+					"describe",
+					"it",
+					"before",
+					"beforeEach",
+					"after",
+					"afterEach"
+				],
+				"parser": "babel-eslint"
+			},
+			"gitHead": "e49501c8be72a6ce777c8a29aa5bb95b631bee18",
+			"bugs": {
+				"url": "https://github.com/viktortsarevskiy/postcss-filename-prefix/issues"
+			},
+			"homepage": "https://github.com/viktortsarevskiy/postcss-filename-prefix#readme",
+			"_id": "postcss-filename-prefixes@0.3.6",
+			"_shasum": "c0b25748a0fad2b6e47cca1ff44118b84bdda510",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "viktortsarevskiy",
+				"email": "viktor.tsarevskiy@gmail.com"
+			},
+			"dist": {
+				"shasum": "c0b25748a0fad2b6e47cca1ff44118b84bdda510",
+				"tarball": "https://registry.npmjs.org/postcss-filename-prefixes/-/postcss-filename-prefixes-0.3.6.tgz",
+				"integrity": "sha512-2NA5cdpxdI5+IBPB3CXGzlRZ9LBUPMe2UgHbhPbe2QB4AIVgkCujF9GlM/KwlYRhmn6F3VAFlR8KZIIycpl7YA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDjpdaWTXY9/f+06/NBxdxEo+0s0dR8WGyjjLT8H/1XKgIgIccXxCIQMJdHcjO34tfkM5UlXBeD8N3MIIW61Ke5mi8="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "viktortsarevskiy",
+					"email": "viktor.tsarevskiy@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-filename-prefixes-0.3.6.tgz_1488851704863_0.806639420799911"
+			}
+		},
+		"0.3.7": {
+			"name": "postcss-filename-prefixes",
+			"version": "0.3.7",
+			"description": "Postcss plugin for prefixing classes with corresponding filenames",
+			"keywords": [
+				"css",
+				"postcss",
+				"prefix",
+				"filename",
+				"postcss-plugin"
+			],
+			"main": "lib/index.js",
+			"scripts": {
+				"prepublish": "babel --optional runtime src --out-dir lib",
+				"postpublish": "rm -rf lib",
+				"lint": "standard | snazzy",
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"author": {
+				"name": "Viktor Tsarevskiy"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/viktortsarevskiy/postcss-filename-prefix.git"
+			},
+			"dependencies": {
+				"postcss": "5.x.x"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.3.17",
+				"babel-core": "^6.3.21",
+				"babel-eslint": "^5.0.0-beta6",
+				"babel-plugin-add-module-exports": "^0.1.2",
+				"babel-plugin-transform-runtime": "^6.3.13",
+				"babel-polyfill": "^6.3.14",
+				"babel-preset-es2015": "^6.3.13",
+				"babel-preset-react": "^6.3.13",
+				"babel-preset-stage-0": "^6.3.13",
+				"babel-runtime": "^6.3.19",
+				"snazzy": "^2.0.1",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"assert",
+					"describe",
+					"it",
+					"before",
+					"beforeEach",
+					"after",
+					"afterEach"
+				],
+				"parser": "babel-eslint"
+			},
+			"gitHead": "e49501c8be72a6ce777c8a29aa5bb95b631bee18",
+			"bugs": {
+				"url": "https://github.com/viktortsarevskiy/postcss-filename-prefix/issues"
+			},
+			"homepage": "https://github.com/viktortsarevskiy/postcss-filename-prefix#readme",
+			"_id": "postcss-filename-prefixes@0.3.7",
+			"_shasum": "910da6dc7081b648e255524c599a87af63dd58c7",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "viktortsarevskiy",
+				"email": "viktor.tsarevskiy@gmail.com"
+			},
+			"dist": {
+				"shasum": "910da6dc7081b648e255524c599a87af63dd58c7",
+				"tarball": "https://registry.npmjs.org/postcss-filename-prefixes/-/postcss-filename-prefixes-0.3.7.tgz",
+				"integrity": "sha512-SfCsjGjXckGmnKjROLy8l3xsXYzC/k5GheS7oJS8tCcM5jtNZJ0bVHorOIY7j4EarBxYRghQEFJOmeKUCrC7lA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBfYhMAWiu9SAwh5/cqDr1XCSwtZNSxZ9OhbQCKpiD2IAiEA3psDytImJP6XUmfbHEhDVgDJ9DFdohGRxZZ+2VglGhY="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "viktortsarevskiy",
+					"email": "viktor.tsarevskiy@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-filename-prefixes-0.3.7.tgz_1488872003436_0.8772854530252516"
+			}
+		},
+		"0.3.8": {
+			"name": "postcss-filename-prefixes",
+			"version": "0.3.8",
+			"description": "Postcss plugin for prefixing classes with corresponding filenames",
+			"keywords": [
+				"css",
+				"postcss",
+				"prefix",
+				"filename",
+				"postcss-plugin"
+			],
+			"main": "lib/index.js",
+			"scripts": {
+				"prepublish": "babel --optional runtime src --out-dir lib",
+				"postpublish": "rm -rf lib",
+				"lint": "standard | snazzy",
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"author": {
+				"name": "Viktor Tsarevskiy"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/viktortsarevskiy/postcss-filename-prefix.git"
+			},
+			"dependencies": {
+				"postcss": "5.x.x"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.3.17",
+				"babel-core": "^6.3.21",
+				"babel-eslint": "^5.0.0-beta6",
+				"babel-plugin-add-module-exports": "^0.1.2",
+				"babel-plugin-transform-runtime": "^6.3.13",
+				"babel-polyfill": "^6.3.14",
+				"babel-preset-es2015": "^6.3.13",
+				"babel-preset-react": "^6.3.13",
+				"babel-preset-stage-0": "^6.3.13",
+				"babel-runtime": "^6.3.19",
+				"snazzy": "^2.0.1",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"assert",
+					"describe",
+					"it",
+					"before",
+					"beforeEach",
+					"after",
+					"afterEach"
+				],
+				"parser": "babel-eslint"
+			},
+			"gitHead": "bbd76ed9710f96e30811640637564f66df023531",
+			"bugs": {
+				"url": "https://github.com/viktortsarevskiy/postcss-filename-prefix/issues"
+			},
+			"homepage": "https://github.com/viktortsarevskiy/postcss-filename-prefix#readme",
+			"_id": "postcss-filename-prefixes@0.3.8",
+			"_shasum": "ed84bca9df436a7595eb19ebda348b29fe2047c6",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.6.0",
+			"_npmUser": {
+				"name": "viktortsarevskiy",
+				"email": "viktor.tsarevskiy@gmail.com"
+			},
+			"dist": {
+				"shasum": "ed84bca9df436a7595eb19ebda348b29fe2047c6",
+				"tarball": "https://registry.npmjs.org/postcss-filename-prefixes/-/postcss-filename-prefixes-0.3.8.tgz",
+				"integrity": "sha512-mEMxkPyF9FnKh5qCaDE9bU6+9ii/zLEBRwLMzZSIzW9qkILyFiQhQ+ymMbL4zKu6wEpoxYqnRGoDJIWLPaRp5g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBLokqMVf/FNpChtFOw0w9xdwkKQO/1xmgxUHeB2WlN3AiACTRd8AkwCJ4DDKYTtcsVdABRZVT5Cusghe2TpstWvwA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "viktortsarevskiy",
+					"email": "viktor.tsarevskiy@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-filename-prefixes-0.3.8.tgz_1489785986123_0.06662922375835478"
+			}
+		}
+	},
+	"homepage": "https://github.com/viktortsarevskiy/postcss-filename-prefix#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"prefix",
+		"filename",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/viktortsarevskiy/postcss-filename-prefix.git"
+	},
+	"author": {
+		"name": "Viktor Tsarevskiy"
+	},
+	"bugs": {
+		"url": "https://github.com/viktortsarevskiy/postcss-filename-prefix/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

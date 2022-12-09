@@ -1,0 +1,135 @@
+{
+	"name": "postcss-normalize-next",
+	"version": "10.0.2",
+	"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/radiosilence/postcss-normalize.git"
+	},
+	"homepage": "https://github.com/radiosilence/postcss-normalize-next#readme",
+	"bugs": {
+		"url": "https://github.com/radiosilence/postcss-normalize-next/issues"
+	},
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.esm.mjs",
+	"scripts": {
+		"build": "npx rollup -c .rollup.js",
+		"build:watch": "npx rollup -c .rollup.js --watch",
+		"lint": "npx eslint --cache src",
+		"lint:fix": "npx eslint --cache --fix",
+		"pretest": "npm install && npm run build",
+		"test": "npm run lint && npm run tape",
+		"tape": "npx postcss-tape"
+	},
+	"engines": {
+		"node": ">=10.0.0"
+	},
+	"dependencies": {
+		"@csstools/normalize.css": "10.1.0",
+		"postcss-browser-comments-next": "^8.0.0",
+		"sanitize.css": "11.0.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.9.0",
+		"@babel/plugin-syntax-import-meta": "^7.8.3",
+		"@babel/preset-env": "^7.9.5",
+		"babel-eslint": "^10.1.0",
+		"browserslist": "^4.16.3",
+		"eslint": "^6.8.0",
+		"postcss": "^8.2.8",
+		"postcss-import": "^12.0.1",
+		"postcss-tape": "^6.0.1",
+		"pre-commit": "^1.2.2",
+		"rollup": "^2.6.0",
+		"rollup-plugin-babel": "^4.4.0"
+	},
+	"peerDependencies": {
+		"browserslist": "^4.16.3",
+		"postcss": "^8.2.8"
+	},
+	"babel": {
+		"plugins": [
+			"@babel/plugin-syntax-import-meta"
+		],
+		"presets": [
+			[
+				"@babel/env",
+				{
+					"targets": "maintained node versions"
+				}
+			]
+		]
+	},
+	"eslintConfig": {
+		"env": {
+			"es6": true,
+			"node": true
+		},
+		"extends": "eslint:recommended",
+		"parser": "babel-eslint"
+	},
+	"rollup": {
+		"input": "src/index.js",
+		"plugins": [
+			"rollup-plugin-babel"
+		],
+		"output": [
+			{
+				"file": "dist/index.cjs.js",
+				"format": "cjs"
+			},
+			{
+				"file": "dist/index.esm.js",
+				"format": "esm"
+			}
+		]
+	},
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"normalizes",
+		"browsers",
+		"fixes"
+	],
+	"gitHead": "bc9eac75ad68433d409b191c27613ac00201e822",
+	"_id": "postcss-normalize-next@10.0.2",
+	"_nodeVersion": "14.15.4",
+	"_npmVersion": "7.6.2",
+	"dist": {
+		"integrity": "sha512-ZM5EHRcrPbQ7eMOTsvhDIPwv3s4RHbspqjaE4WayJWObKNj4dQIAhyolh5Oiysprc4V9/Rjt6kxnPEi/VzBn9g==",
+		"shasum": "88bfdba53c14a79466ddaca6e0c3ceb1f8eeb2de",
+		"tarball": "https://registry.npmjs.org/postcss-normalize-next/-/postcss-normalize-next-10.0.2.tgz",
+		"fileCount": 6,
+		"unpackedSize": 31698,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgiT/JCRA9TVsSAnZWagAAzg0P/0gKAhFkNK+V/Wwv0LEt\nrm5gvNjutrzQL2/bFMiOI0PFf/zuaXslqQoMFXJe/Qy71wV1pqcTEAs6z93k\nfixQ2jMp2uQWjwZs6sBSTMowAFOJuWkuWtpyzZVQpu/zeicN06+y70iqdELK\ncltPHsq2adE5+B/TiwbV0vrFZ1sIqIZQ2k2u5b5Dw8R97QlIOE/LoItbnFMu\nn0Ai0/8hWiVllIZH+E2umnxmEnk65RqG3G/9sSViS6eKPxESWVJEvUzJ5xMO\nkijdk3YXZXMiuGU2jML72xQJX11rDhtEk2ZTuSbBEt6OlFEY/j1izINiC7Xn\nut8VKMwQO9/YWZ2y16GRhw2zZkw+lonIkwA93EQf0azEB4bWg3EXfp8Frg6c\nIogoFC5HmsAUXODsa/Hk0gYva1f726siaM9ELhSKzGx3c93g711c3/DFdR/2\nB44TRkvByaaROIAEEm77mwiFKFeHyxqjRn82objqajQjYqPpXw2lc3R88/3N\nQsKlBtP4NLT/HEI1/gxONmV8z/hGypOII5Essdg1RTpoTHdEN5ppgPgKV2+k\nLb5e/dUH0nxPAefeqJ0SL8Y1YmF5DHE2l8+jfn1zFHAPW25kUYK/YTlxHbB7\nEW1P0t3q/m1E3HKwLz3oG4L0+hGf27EUKvvrxlb4hdRA07BetwO4jPFm5Db9\nrF4h\r\n=HVYm\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQDE07EpNK1IOa/UI4eRjhnJ2e2geCnCfOd1OsYFNajfcQIgO/unkQ4/66TLxb9ZF7chPX4hIJPhxqDK7HpvsLFVOME="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "ratsupremacy",
+		"email": "jc@blit.cc"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "ratsupremacy",
+			"email": "jc@blit.cc"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-normalize-next_10.0.2_1619607497359_0.7644087985067323"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2021-04-28T10:58:17.527Z"
+}

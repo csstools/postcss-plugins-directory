@@ -1,0 +1,1770 @@
+{
+	"_id": "css-blank-pseudo",
+	"_rev": "15-c15438bff8b828c1721012c28a19be4e",
+	"name": "css-blank-pseudo",
+	"dist-tags": {
+		"latest": "4.1.1"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "css-blank-pseudo",
+			"version": "0.1.0",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/css-blank-pseudo.git"
+			},
+			"homepage": "https://github.com/csstools/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/css-blank-pseudo/issues"
+			},
+			"main": "index.js",
+			"module": "index.mjs",
+			"bin": {
+				"css-blank-pseudo": "cli.js"
+			},
+			"scripts": {
+				"build": "npm run build:browser && npm run build:cli && npm run build:node && npm run build:postcss",
+				"build:browser": "cross-env NODE_ENV=browser rollup -c .rollup.js --silent",
+				"build:cli": "cross-env NODE_ENV=cli rollup -c .rollup.js --silent",
+				"build:postcss": "cross-env NODE_ENV=postcss rollup -c .rollup.js --silent",
+				"build:node": "rollup -c .rollup.js --silent",
+				"prepublishOnly": "npm build && npm test",
+				"pretest": "npm run build:postcss",
+				"pretest:postcss": "npm run build:postcss",
+				"test": "npm run test:js && npm run test:postcss",
+				"test:js": "eslint src/*.js --cache --ignore-path .gitignore --quiet",
+				"test:postcss": "postcss-tape --plugin=postcss.js"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"dependencies": {
+				"postcss": "^7.0.5"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.1.6",
+				"@babel/preset-env": "^7.1.6",
+				"babel-eslint": "^10.0.1",
+				"cross-env": "^5.2.0",
+				"eslint": "^5.9.0",
+				"eslint-config-dev": "2.0.0",
+				"postcss-tape": "^2.2.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^0.67.3",
+				"rollup-plugin-babel": "^4.0.3",
+				"rollup-plugin-terser": "^3.0.0"
+			},
+			"eslintConfig": {
+				"extends": "dev",
+				"parser": "babel-eslint"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"focus",
+				"within",
+				"pseudos",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"descendants",
+				"ancestors"
+			],
+			"gitHead": "d0582142e05b9504a7e12ad5ff4ebbedadca8904",
+			"_id": "css-blank-pseudo@0.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.1.0",
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-5NQtutgcT0MU4dowT6+Wy3JbtDzkHGPFREQ2lEjqtuvHWcB4yqRGmMfdrQ9z8tpnkW9YB7o4ZLFOtWaRqhI22Q==",
+				"shasum": "3dfbbacc8bd492b720fb878ef8338d2f7421ac24",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-0.1.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 36923,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb8B6KCRA9TVsSAnZWagAAJmMP/2iyrpWnP/yedbCTTucy\nCvGOybQRsh25Ollur9Mc96dCBWIGRLZhiFpTkjKAiUOF/MERy42lzAntBZt+\n0VqMe3o4Gl1wuDUKj0/RubbwLt9G+NWGfyUXcJ17rm+Sv5TC5UVpVB0TcQMP\nUE87yBmRK9pmikcZ9AxkVSPlVAl9+w8ilmD9tmzvrJN4KvcJaIIQ6Ion3La9\nz7UAvlV4HIhJDGkVQkpxwDxM+Vj3iwrJHSVg5gnVQMgEkKkXDeart1xlwZXW\nHJSg8wmem89pWoDMs6E9uhyPTsM/TISLV2eICJrLkTGjAYSwcw575s8SOmEg\njl9a5MNaJVnCz8cc8a2BIVsKtonBFJYIoviuK7V1m0mcr4Jxk84u0sY/G9Cw\niA0ArY3Y3ovdXAechRL0hHgymROaVBAAYW4O0j0izXvfdc4ZpzLpEbyjxWcR\nX9bui5m7cir0ln8wJf4xnXTGKrfymHsFE46nCQWMT9WHaTkDpNhy2UKz8f38\n5e933eVaDr3BhCu8AMO+BZ4k2g/xV0GhN9r40wy0GibJHvC+eyp2BLRfWJdA\nq5f8+hyrqpYCL9oPpCIhurNHlRtcUkxS1IoyLdB/3ex2yBXTAt0yQf9fVDhv\nsZsBCzvNa81y36Y6Vn99F5kFftX1SdWm2eiu6iyvdZoWrhz8z+TwnWp9HmDg\nwpzR\r\n=dvQ0\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFxIVvZO3FlENrpNM0lVq59ZqmX3DCd+9akdBEm4ItguAiEA5fynASnCde28M75oh2wTmtutEM7naZcRWia8T79EGu0="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_0.1.0_1542463113582_0.3418607352396441"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.1.1": {
+			"name": "css-blank-pseudo",
+			"version": "0.1.1",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/css-blank-pseudo.git"
+			},
+			"homepage": "https://github.com/csstools/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/css-blank-pseudo/issues"
+			},
+			"main": "index.js",
+			"module": "index.mjs",
+			"bin": {
+				"css-blank-pseudo": "cli.js"
+			},
+			"scripts": {
+				"build": "npm run build:browser && npm run build:cli && npm run build:node && npm run build:postcss",
+				"build:browser": "cross-env NODE_ENV=browser rollup -c .rollup.js --silent",
+				"build:cli": "cross-env NODE_ENV=cli rollup -c .rollup.js --silent",
+				"build:postcss": "cross-env NODE_ENV=postcss rollup -c .rollup.js --silent",
+				"build:node": "rollup -c .rollup.js --silent",
+				"prepublishOnly": "npm build && npm test",
+				"pretest": "npm run build:postcss",
+				"pretest:postcss": "npm run build:postcss",
+				"test": "npm run test:js && npm run test:postcss",
+				"test:js": "eslint src/*.js --cache --ignore-path .gitignore --quiet",
+				"test:postcss": "postcss-tape --plugin=postcss.js"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"dependencies": {
+				"postcss": "^7.0.5"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.1.6",
+				"@babel/preset-env": "^7.1.6",
+				"babel-eslint": "^10.0.1",
+				"cross-env": "^5.2.0",
+				"eslint": "^5.9.0",
+				"eslint-config-dev": "2.0.0",
+				"postcss-tape": "^2.2.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^0.67.3",
+				"rollup-plugin-babel": "^4.0.3",
+				"rollup-plugin-terser": "^3.0.0"
+			},
+			"eslintConfig": {
+				"extends": "dev",
+				"parser": "babel-eslint"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"gitHead": "c02b74e2ce0c9f3610d1f41f96217dfdca42d299",
+			"_id": "css-blank-pseudo@0.1.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.1.0",
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-koWIKR2yPlC4aFV8iVwo/3B0WpjddR1q+oCbgRV8leffa56kAhI7v+QlrzW5wMXS+5DdcZrn5mlIL9f61pdlvw==",
+				"shasum": "18241f751c5b9c908c128da895b8e89f40f60e6d",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-0.1.1.tgz",
+				"fileCount": 14,
+				"unpackedSize": 36983,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb8B+1CRA9TVsSAnZWagAAjmUP/i4cTj9ExfvNuV05zEVh\nER0qgR6uayVsuTmJsHpraM9EbV7+7xsM7iUd5Oz8vhO4qq8gSHcxIV+XvJNM\nwWLW2URxjtzdMlCZUGZd3lClosIz/EIGyt2wajx7fvJROlR+4jRncQ9emGf9\ncpbCcYnn1yrjwKiokG6IRKaTffTnVcINNQ1I0ZpSmMt1a1+rhNoTMYIn6nec\nUdk6OcVHb3vPGzHWzQj4VFRMoCG7sn0Nemij/qEO9JwrmO8lh3H0LhYuYLQ4\nwH9iBKrt3xwptpIzYxDOZaECFGHVJbKUhTo/sfB4p+jkMldVkOgqwXDgq+cV\nRhU44IcjYP8AA64aXjgBtimaB5Ks/fYTI0IFrlI/3nnJV2DXDbmhq+2udFKb\ncvdPe8MDHDayw36eIVv8H1yQaHZhLNgn0YWd90jjSj6TiI7NMAb7x7ZJYtQl\nFnhsOG0EsggYXnrmmgeXUI202fXmQ/16wHQPaVxyme1da01T7YvJHw/IqUHu\nfk6R6YKxKO/S5FYRM4Mhkj/IW6NBGV+fnVnbVdcU1NLXxbveghXMFnAEa28L\nYiax1rpndl/HXx689AaWsRKM2fInqChHMbW0WiLxphoCW/k4bXFQiTh8CN50\nyimkWVabjz9FTkreuPUEasaBriDWeRYZ/R40Q4vmfwDjj2ULrv84D1eVDlwd\nzpQ0\r\n=omII\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDEQuqiMhDRo+myeiPwZ7sie1E4CvyNe5+7Ti3ocwcYHQIhAJzTEjnTcCe/v0wetzeTKoTYXwZf0vNWFjdmmTTXlLO/"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_0.1.1_1542463412901_0.5539402493453545"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.1.2": {
+			"name": "css-blank-pseudo",
+			"version": "0.1.2",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/css-blank-pseudo.git"
+			},
+			"homepage": "https://github.com/csstools/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/css-blank-pseudo/issues"
+			},
+			"main": "index.js",
+			"module": "index.mjs",
+			"bin": {
+				"css-blank-pseudo": "cli.js"
+			},
+			"scripts": {
+				"build": "npm run build:browser && npm run build:cli && npm run build:node && npm run build:postcss",
+				"build:browser": "cross-env NODE_ENV=browser rollup -c .rollup.js --silent && cross-env NODE_ENV=browser:legacy rollup -c .rollup.js --silent",
+				"build:cli": "cross-env NODE_ENV=cli rollup -c .rollup.js --silent",
+				"build:postcss": "cross-env NODE_ENV=postcss rollup -c .rollup.js --silent",
+				"build:node": "rollup -c .rollup.js --silent && cross-env NODE_ENV=legacy rollup -c .rollup.js --silent",
+				"prepublishOnly": "npm build && npm test",
+				"pretest": "npm run build:postcss",
+				"pretest:postcss": "npm run build:postcss",
+				"test": "npm run test:js && npm run test:postcss",
+				"test:js": "eslint src/*.js --cache --ignore-path .gitignore --quiet",
+				"test:postcss": "postcss-tape --plugin=postcss.js"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"dependencies": {
+				"postcss": "^7.0.5"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.1.6",
+				"@babel/preset-env": "^7.1.6",
+				"babel-eslint": "^10.0.1",
+				"cross-env": "^5.2.0",
+				"eslint": "^5.9.0",
+				"eslint-config-dev": "2.0.0",
+				"postcss-tape": "^2.2.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^0.67.3",
+				"rollup-plugin-babel": "^4.0.3",
+				"rollup-plugin-terser": "^3.0.0"
+			},
+			"eslintConfig": {
+				"extends": "dev",
+				"parser": "babel-eslint"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"gitHead": "963c3446f564512a3761b52933bd737a15114d91",
+			"_id": "css-blank-pseudo@0.1.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.1.0",
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-fdaIMrKPw1yxs5wxaI0YjFwRDqPlgHiWntHsfWTkOwge/WfCW2JJtItmIhVlcid8/99vg78DUhvb0h+0ILiPYw==",
+				"shasum": "fe2eb21acdb5e55f66e79b3b514178cc8417b35d",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-0.1.2.tgz",
+				"fileCount": 19,
+				"unpackedSize": 63994,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb8DBLCRA9TVsSAnZWagAAHfMP/1clv7+aPpsiliyN7U4F\nEzrBbk/4EVv69eWAOPkWYXXoyGMsF90LnzCpeBwaWYaTmyHd+AgMAoOhUJjm\ntQNJdEImdcI+QQr3YUPVCd7r2gHz7k62dwChCsWQoj8gf6CwVUVubRVw6Imz\n53XwT0MTgxOT/xOJBg+VR+LYn/NlB59W23tGIYQLHSTcQzUU8naZDQqa7FDx\nWclayp3p1v+FitzlG3Kr3WJb7oR6UR2NpFn/Omu9IW4q+S/hqGHrpDCten5E\nXpqltqAPYNJwuhEgR6hyvOGd3xaEef5Q6qc5V2aSDLQMCc9bh16DF/PnXmmd\np1WnQ8rVD8Rw/takbua/66y3Rm5/oobbRErH/g4BS5Rc3IMK5la50Q4s5u9S\noXA9LipRSjlQReoYlsnLE3SLptCNhtsgBRLRqalVqxTMTd6Mz6bf3miGJCes\n3MlW7+opYy6RDeyrmkyOERa2FJT2HzCZfslJe21pJrekv2jvaPDQx+B7R8U9\nRMFokNdynY7fP7UMoroU2te3ogMEPXYwqXfXEEszrfT8h0/RxVY5ai/3MrSJ\nLue//jdqfI1fFxCibysd6IV2TXH/qtukBs2eIMwyML0h0RZaYEnMyVGbV6fI\neBTPAk5Ou2Ods2YOtmMkeQa25oQn/AAIO8jgzMQgNxOfFdR1ct7Ea8y/5m/z\nC2Av\r\n=+xMt\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDtbsKajjTPlN/AC+nmu5M8S3srO6YMjull3ll9kZcuCgIhAPAoJo3g3bXzBvsSOhuT54887y/e01+Yy9OEW9nELs5G"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_0.1.2_1542467659004_0.8085430491096015"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.1.3": {
+			"name": "css-blank-pseudo",
+			"version": "0.1.3",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/css-blank-pseudo.git"
+			},
+			"homepage": "https://github.com/csstools/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/css-blank-pseudo/issues"
+			},
+			"main": "index.js",
+			"module": "index.mjs",
+			"bin": {
+				"css-blank-pseudo": "cli.js"
+			},
+			"scripts": {
+				"build": "npm run build:browser && npm run build:cli && npm run build:node && npm run build:postcss",
+				"build:browser": "cross-env NODE_ENV=browser rollup -c .rollup.js --silent && cross-env NODE_ENV=browser:legacy rollup -c .rollup.js --silent",
+				"build:cli": "cross-env NODE_ENV=cli rollup -c .rollup.js --silent",
+				"build:postcss": "cross-env NODE_ENV=postcss rollup -c .rollup.js --silent",
+				"build:node": "rollup -c .rollup.js --silent && cross-env NODE_ENV=legacy rollup -c .rollup.js --silent",
+				"prepublishOnly": "npm run build && npm test",
+				"pretest": "npm run build:postcss",
+				"pretest:postcss": "npm run build:postcss",
+				"test": "npm run test:js && npm run test:postcss",
+				"test:js": "eslint src/*.js --cache --ignore-path .gitignore --quiet",
+				"test:postcss": "postcss-tape --plugin=postcss.js"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"dependencies": {
+				"postcss": "^7.0.5"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.1.6",
+				"@babel/preset-env": "^7.1.6",
+				"babel-eslint": "^10.0.1",
+				"cross-env": "^5.2.0",
+				"eslint": "^5.9.0",
+				"eslint-config-dev": "2.0.0",
+				"postcss-tape": "^2.2.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^0.67.3",
+				"rollup-plugin-babel": "^4.0.3",
+				"rollup-plugin-terser": "^3.0.0"
+			},
+			"eslintConfig": {
+				"extends": "dev",
+				"parser": "babel-eslint"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"gitHead": "01a84c52aeb50732c162a6de0f280f9bdd096871",
+			"_id": "css-blank-pseudo@0.1.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.1.0",
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-AfBofYyuRhk1BwU2eMd1ODbRcl0Bb/PN1ao4boApj4yrwPAVYG2b7JLiM7+mLhSHOXzUHAQ3I86uDzQHpniPoA==",
+				"shasum": "6d32b49c023935269cdef383343981511824e8cb",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-0.1.3.tgz",
+				"fileCount": 19,
+				"unpackedSize": 63942,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb8Ew1CRA9TVsSAnZWagAABDMQAJL/z1vEH4CARlGNxzNJ\nHzJ+/zEysFoRu9UyAKDesnqFuLouQ4uWLjyqTpKZ58oHD4IJpYooWnZtqyCN\nwVflp7R8ubaRVJUnuesgRKIyDfsRLNHjtQ6igWi270TOXFim3TFaN+e9Es7k\nxzMFV7FEEBOZ8CNHOmoxjYWNFWhj1a1OiyIiJR7UrDGc3eBE4Lyxw8WcWgoX\nDOTOZGC17e8SnepA43LHR7oUT8gsUKJIHg4lZYRXFeDvGvexJ9SLSZ1oAZtk\nEU52J2CXAYWcZUVwIR7yL630Z49MCPMzLfitOi/jU2yQrdXD0WpfiyPqGZHv\n2vj9GyYmDePwFEdRkptA8j/wywJTS6kMreYYwZAmxU0IFjICmqbV4A8/4SA8\nqURggo90aIAdiZPv875ZuRgeI4Fgd1vvFivwrYS8UeGtc5ZO3eEcv8vw179n\nOn4C7vrb5K1AuXdO5gRZOb3yP+LHNUn6hCqzXKrkXyw6J7TJZNN9jKMeMydR\nHIJAdPqZuPYaM4goBxAJzwoEZTlWwGLEqxEwaJKZyNrUrO2Ksb5jSL/dHJd6\nvIlH26X/NS+cwUmF/sTQOdPfkvy2yoic2WG0l+07cJtDkhabZ5xgjr6sNFa6\nTGgLQoDtzMhEljDvZTthWOY21xp7Lc5/h0e5sA2Bu0H3O6xD/J14YcZ5yavz\njE8N\r\n=I51z\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIH8WiH2SR8iDkTYJ6hqFdTgE8yJjH6ozABNQdcQhfK0dAiEAsgifKVts5zJAgJrdEvupZnnEgXMTRNlrqPbxGG/H3BA="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_0.1.3_1542474804760_0.550475582872981"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.1.4": {
+			"name": "css-blank-pseudo",
+			"version": "0.1.4",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/css-blank-pseudo.git"
+			},
+			"homepage": "https://github.com/csstools/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/css-blank-pseudo/issues"
+			},
+			"main": "index.js",
+			"module": "index.mjs",
+			"bin": {
+				"css-blank-pseudo": "cli.js"
+			},
+			"scripts": {
+				"build": "npm run build:browser && npm run build:cli && npm run build:node && npm run build:postcss",
+				"build:browser": "cross-env NODE_ENV=browser rollup -c .rollup.js --silent && cross-env NODE_ENV=browser:legacy rollup -c .rollup.js --silent",
+				"build:cli": "cross-env NODE_ENV=cli rollup -c .rollup.js --silent",
+				"build:postcss": "cross-env NODE_ENV=postcss rollup -c .rollup.js --silent",
+				"build:node": "rollup -c .rollup.js --silent && cross-env NODE_ENV=legacy rollup -c .rollup.js --silent",
+				"prepublishOnly": "npm run build && npm test",
+				"pretest": "npm run build:postcss",
+				"pretest:postcss": "npm run build:postcss",
+				"test": "npm run test:js && npm run test:postcss",
+				"test:js": "eslint src/*.js --cache --ignore-path .gitignore --quiet",
+				"test:postcss": "postcss-tape --plugin=postcss.js"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"dependencies": {
+				"postcss": "^7.0.5"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.1.6",
+				"@babel/preset-env": "^7.1.6",
+				"babel-eslint": "^10.0.1",
+				"cross-env": "^5.2.0",
+				"eslint": "^5.9.0",
+				"eslint-config-dev": "2.0.0",
+				"postcss-tape": "^2.2.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^0.67.3",
+				"rollup-plugin-babel": "^4.0.3",
+				"rollup-plugin-terser": "^3.0.0"
+			},
+			"eslintConfig": {
+				"extends": "dev",
+				"parser": "babel-eslint"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"gitHead": "6c091814d92f411e3fa57c9f986b3a69e8cce17f",
+			"_id": "css-blank-pseudo@0.1.4",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.1.0",
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-LHz35Hr83dnFeipc7oqFDmsjHdljj3TQtxGGiNWSOsTLIAubSm4TEz8qCaKFpk7idaQ1GfWscF4E6mgpBysA1w==",
+				"shasum": "dfdefd3254bf8a82027993674ccf35483bfcb3c5",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-0.1.4.tgz",
+				"fileCount": 19,
+				"unpackedSize": 63983,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb8H5iCRA9TVsSAnZWagAAPfkQAJnyZ7OL25jC5w30xmMI\nDgE0gZ2b6adBS3NQO3LAhqfcZvTxLzrF9sSy1/xyYC0Poepgt31593ZoBBXr\nF5C1TOu3wNmGBTUmSoK+Iga+N7x8b4XBomTt5ar4OBDVf8YHX8AmViKsjv6h\nXC0ieErrUZNXoHdMEmMHMj6haJ8vjqMBcjKnha5/t6YXreMWpANVqR+yCZ+H\nGixH7uOMR4XCBvfiJ0SgublkdDGfwrYU8swP4kJqdaLlzJladuABJxjJVFrE\nLg0TFatcC4t2Xh8Q/Ds909DZFuH4VRJiXdyM7bbSUdKtYoc+/dohKV9seeBD\n9qwgQ60hcAcJFRwh3n81IiiFtLmTnmz70bEhUSE9PDfjYD6YrRQKHUzlynUi\nNwQM8v/Ldvk3b8MuD7IpPnT6pyAmAV+8XA9oNu7aj9P0vhGSn47igK+XnZ/s\nbYeT7/7RcQrbV+8VSBoHvkz+S0e0Wf6q94Dpqik0NaVAIAQo5o9vt0HaqFkp\n6GVMBsXqx25trv6IvK+5sZUtGrTlnZlxDaBxE9AKFic03yghRfc3jskzpfOZ\nyygkhyUZ+pG4G+/M65buXN3k3bnwK8sMO+/MMm70NjWlpkPVeSfCpygzg0bc\nvVfe610e3h9NNCE3GdN3rKB0+mPSJrBnucznzbTjX7Ij6EE4bpvnshYESGBw\neyBd\r\n=SP2i\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGR+j5hkgFH9o6OS3lgtM6Pu+4yHhQSNUKKxRPFx95B9AiEAi4dNHHW8wkDf4ToXV5JxpCoPkgqfVfrcr51rytFaYyM="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_0.1.4_1542487649684_0.7714486683103847"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0": {
+			"name": "css-blank-pseudo",
+			"version": "1.0.0",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/css-blank-pseudo.git"
+			},
+			"homepage": "https://github.com/csstools/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/css-blank-pseudo/issues"
+			},
+			"main": "index.js",
+			"module": "index.mjs",
+			"bin": {
+				"css-blank-pseudo": "cli.js"
+			},
+			"scripts": {
+				"build": "npm run build:browser && npm run build:cli && npm run build:node && npm run build:postcss",
+				"build:browser": "cross-env NODE_ENV=browser rollup --config .rollup.js --silent && cross-env NODE_ENV=browser:legacy rollup --config .rollup.js --silent",
+				"build:cli": "cross-env NODE_ENV=cli rollup --config .rollup.js --silent",
+				"build:postcss": "cross-env NODE_ENV=postcss rollup --config .rollup.js --silent",
+				"build:node": "rollup --config .rollup.js --silent && cross-env NODE_ENV=legacy rollup --config .rollup.js --silent",
+				"prepublishOnly": "npm test && npm run build",
+				"pretest:postcss": "npm run build:postcss",
+				"test": "npm run test:js && npm run test:postcss",
+				"test:js": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+				"test:postcss": "postcss-tape --plugin postcss.js"
+			},
+			"engines": {
+				"node": ">=8.0.0"
+			},
+			"dependencies": {
+				"postcss": "^7.0.17"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.4.5",
+				"@babel/preset-env": "^7.4.5",
+				"babel-eslint": "^10.0.1",
+				"cross-env": "^5.2.0",
+				"eslint": "^5.16.0",
+				"postcss-tape": "^5.0.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^1.14.6",
+				"rollup-plugin-babel": "^4.3.2",
+				"rollup-plugin-terser": "^5.0.0"
+			},
+			"eslintConfig": {
+				"env": {
+					"browser": true,
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint",
+				"parserOptions": {
+					"ecmaVersion": 2018,
+					"impliedStrict": true,
+					"sourceType": "module"
+				},
+				"root": true,
+				"rules": {
+					"no-console": [
+						0
+					]
+				}
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"gitHead": "2cfe8acfbb1f449b54ceb0d23211456f95aba400",
+			"_id": "css-blank-pseudo@1.0.0",
+			"_nodeVersion": "12.1.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-Qg/fy3RoLHVjgwbY6E9xstXF+Lao6HxoOHMU1Y/1U45WLhdPWfmUiBOtQeT9hoj9W+2TDvQCdSamwqvBkXY5lQ==",
+				"shasum": "8fd2204d2945de29425d3eee22d848eab9de50bd",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-1.0.0.tgz",
+				"fileCount": 19,
+				"unpackedSize": 64481,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc/koNCRA9TVsSAnZWagAA9ioP/Awb+VgEzTm5kH0xrwSX\nTHhcDTLSCweyn0a+0asBwe6SbjTZi+VTdQvH+ZJRCljoj9wsZ6YFKW/1Y84w\nz3kF1cPArXMXm82lZC6XT9LQIP4RCu7JaQ9T49FORI5V0ulOIJGOa3OOG16f\nNzKIxbJwVdYAh5RwIzAv66yHU8l4Oai09PKwcvMCxxxa1s9p7jDrBhkduSkR\nlICwln5DTgghckyvMUFnU3rn9GYQIPFenfiR9U7D707RS9RLaIhARmCJwspK\n7tlP7LVogww5QsFhZ66M89TM7aDQGuCX2vOYgE57ttD0MvMq5xXGvLTlHzPS\nRLq5RO/6wX+3CEUnsnqqTvWOblG07rRyITh1TWyE1KYoXfszdknvCf7GWEyZ\nb9N9B7oor4gmt5XIZvWFqyL4e/e5NBOQ6RwyAerCZf4cKFEexFIFygTYrDXw\n8T80WRFmyjdOKfflcJkCKUWbS/kSUHPES94Rwqs2Ev8dKEZCQKN4AHfkYE6k\nVOF6s1HOh0AoUMDPUhuw8qF7h5ttZzwJ6/wjvDMISniCNTs7k5ZtH8HqgJGy\ngl7YSBFlsdOyeExFBx77Prro3hbFhJnRfzzmSSFJlpbWtcxNH4VPT2waqgDG\nYtgeIX+RJ5VWj2zKD0eiVpCdjH2c92LRNzYlvkpXXtU+uBnJuvrVEXiRL170\nGdhI\r\n=DdhG\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDmgqbjYvvUPnjP3t5DB9QJm4nMIqQdvQV+sL4zXPd3WAIhAM2Jl1L1uoOXp7gmudISprAvnMQn/97lYVgwnpWWamh7"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_1.0.0_1560168972716_0.8097366202967449"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "css-blank-pseudo",
+			"version": "2.0.0",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/css-blank-pseudo.git"
+			},
+			"homepage": "https://github.com/csstools/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/css-blank-pseudo/issues"
+			},
+			"main": "index.js",
+			"module": "index.mjs",
+			"bin": {
+				"css-blank-pseudo": "cli.js"
+			},
+			"scripts": {
+				"build": "npm run build:browser && npm run build:cli && npm run build:node && npm run build:postcss",
+				"build:browser": "cross-env NODE_ENV=browser rollup --config .rollup.js --silent && cross-env NODE_ENV=browser:legacy rollup --config .rollup.js --silent",
+				"build:cli": "cross-env NODE_ENV=cli rollup --config .rollup.js --silent",
+				"build:postcss": "cross-env NODE_ENV=postcss rollup --config .rollup.js --silent",
+				"build:node": "rollup --config .rollup.js --silent && cross-env NODE_ENV=legacy rollup --config .rollup.js --silent",
+				"prepublishOnly": "npm test && npm run build",
+				"pretest:postcss": "npm run build:postcss",
+				"test": "npm run test:js && npm run test:postcss",
+				"test:js": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+				"test:postcss": "postcss-tape --plugin postcss.js"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.15.5",
+				"@babel/preset-env": "^7.15.6",
+				"@rollup/plugin-babel": "^5.3.0",
+				"cross-env": "^7.0.3",
+				"eslint": "^7.32.0",
+				"postcss": "^8.3.6",
+				"postcss-tape": "^6.0.1",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.56.3",
+				"rollup-plugin-terser": "^7.0.2"
+			},
+			"eslintConfig": {
+				"env": {
+					"browser": true,
+					"es6": true,
+					"node": true
+				},
+				"parserOptions": {
+					"sourceType": "module"
+				},
+				"root": true
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"gitHead": "0c624acddf3d361efeac731974e142b9d9bc8d97",
+			"_id": "css-blank-pseudo@2.0.0",
+			"_nodeVersion": "16.6.1",
+			"_npmVersion": "7.20.3",
+			"dist": {
+				"integrity": "sha512-n7fxEOyuvAVPLPb9kL4XTIK/gnp2fKQ7KFQ+9lj60W9pDn/jTr5LjS/kHHm+rES/YJ3m0S6+uJgYSuAJg9zOyA==",
+				"shasum": "10667f9c5f91e4fbde76c4efac55e8eaa6ed9967",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-2.0.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 63416,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhQ1rwCRA9TVsSAnZWagAA538P/A1KLGHjvl+we3uQbQXd\nh+Gt0T+77oMEctJKSARafIhrAZsXS/Vj642DWzFo1hrLXyI5BAJTEEdMkvzp\nbkEaOKHv7SrKJNJ5YUpf3gFrO+uPqt6bTIaqwTJm9wxey6ocn18p4HeVCAXy\nlW7P/MGmqfPjhMYoQi6dWDdET9Z5jF9Cb1DvtA+PCu7ateHkN4d6m5XB01x6\nT+7t166ggYltULU5U0SZvumnefHBRSCmairs/Pkz3IFRAPQhfcUae1yIVPbX\nJqm4aiydjlcK+hSMGnB9e3RRF8/qK+NAY/S12UWI5PiToUaF9ysMsEThs57t\nHioCcrF93WulBn43b3BMT6fhMvthiJyGKfWryHzXK9wu9Yn3xAzGlY484xhU\nVxTJJ/aPCCmy6jMTKUHKoo70mycJlC4S7ioVxGfG18ulI1XxU7Q2aloAASIo\nKGQYg476WVJ2etRWs9p8kNunfqAHTKGKOQfSM5lqtSHrvUAHRa9diFTNtJXU\n641hYWfVetvuEBpg3tz2I6p2AnIYs9F7/Ep1pdBfVsF+QcnrnFSJvvu/7J35\nWgM1tMgQ3CFVmssTt0GMeTV5EDT/Pwn3JlC3FzIbb4Z3iAvjcQrU7w6E4vof\nSZQbgC798Dmf4gVInZPo4gBGGFm8qUfi/Mtg60KU1SmMsj6g15UR4lHoBzOD\nCDTr\r\n=nWi9\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGUt0XQxPUniGigzRX38H8ublqCfezjP/6xXdwlBD5N2AiEAlESNQWulRWTARyaTWC3CHMeTcExXAav1GNQQGb0jx2M="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_2.0.0_1631804144672_0.7544044103822423"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "css-blank-pseudo",
+			"version": "3.0.0",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"default": "./dist/browser.js"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"bin": {
+				"css-blank-pseudo": "dist/cli.mjs"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js && npm run copy-browser-scripts-to-old-location",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"copy-browser-scripts-to-old-location": "node -e \"fs.copyFileSync('./dist/browser-global.js', './browser.js'); fs.copyFileSync('./dist/browser-global.js', './browser-legacy.js')\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "postcss-tape --ci",
+				"cli": "css-blank-pseudo"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.7"
+			},
+			"devDependencies": {
+				"postcss": "^8.3.6",
+				"postcss-tape": "^6.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/css-blank-pseudo"
+			},
+			"_id": "css-blank-pseudo@3.0.0",
+			"_nodeVersion": "14.17.6",
+			"_npmVersion": "7.8.0",
+			"dist": {
+				"integrity": "sha512-lBG90FEc4A2lZeRoFkJHYnJlQFgR49hTo3E8HA6oGN+mN66EIslimxtcAYx4xlkBR0c3eNCOjqQ2ACHaav+7Qw==",
+				"shasum": "c40a428886b600ee8a1622231f6cb22c13518d9e",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-3.0.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 134527,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhtwUBCRA9TVsSAnZWagAAIHwP/iB3qbYzKeP1NkYMKBo6\nvyxxxrwAE9enFNHV3q2JkstgF0UNU9DfKVpb5IGObjTpg31UcPgLyb8cY1L3\nRl/Wuls7b2a8RyPjs6ulLwFnTwjsFfn8WJpBjSiY7fJIfENIYOxmQG9u0/p2\nClewTJvuBA9wLloLZB6JlrjMdL+g8kLRk+OxWHjOm0bR2oibZTtz+ddKZpPn\njkjCJtjGwRPVVBaMiFvL/+tvkSFvpK+GNX3UQyfDGwse+bWaU9sVwa7M4DDX\naSfp2GtOZU8QgWfOrTZqBKwo2UkXL/js/PBhio+E5iFB1QgAVewodK2jDKHw\nvyKGvztQqoI/wbUJI8/bTtB9ay1bO+uMr/OgsEOEWDK2grVS84yL8qSHZxIo\n7homkTyzC8eR2kyiD0J1ka8fWMVx6ayKgctPFsVuTHhWDkt8b658k626nzSl\nkW3Ne65vBnqrY0/yfZ/bUHHz/ancg3vmhUOuvNz6Tipbhx8h0iJmVczbep48\nAyQSuwN7Ng63oqR8+B4aobXdovFnv9gae5Z56TKpliHxmv+8GKTVYM8mfZ09\nfLCNdPOXfnCRY42dgDr4jOsIY3o34T3QpHZ9vVZWMKjB9zK+9N9mi5zowyKB\nUL9Ri4FRFQoOTn5ttcK1zU34w2SseTDCfRQl2iA6i3AegcaPgFo4oA8Ru2YF\neVcA\r\n=r75r\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBqvyu5n/L68n0TV032X+IgLgbQ8P5GaOUTB8JOvmnc7AiBgOCoeXnAUfwJpd0tpERMy4peJbjeEL6LzYPNkrC0HZQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_3.0.0_1639384321523_0.5555443776074405"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "css-blank-pseudo",
+			"version": "3.0.1",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"bin": {
+				"css-blank-pseudo": "dist/cli.mjs"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js && npm run copy-browser-scripts-to-old-location",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"copy-browser-scripts-to-old-location": "node -e \"fs.copyFileSync('./dist/browser-global.js', './browser.js'); fs.copyFileSync('./dist/browser-global.js', './browser-legacy.js')\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "postcss-tape --ci",
+				"cli": "css-blank-pseudo"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.8"
+			},
+			"devDependencies": {
+				"postcss": "^8.3.6",
+				"postcss-tape": "^6.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/css-blank-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "f5d7ce99b1c17aecbd89b921a8853a39b8626b8e",
+			"_id": "css-blank-pseudo@3.0.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-ZGuwEmAZLsEHyKe/UVk+7Bj6Fl5nvxKAddxovyi5mI3jl4mFRqX7VW7M2ZejsE3XlWkL4GyVCifsKrmuxVdrcg==",
+				"shasum": "aa9d4a8d9387728c9668c6bd91a258c5c1873746",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-3.0.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 147418,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhygKTCRA9TVsSAnZWagAAPi4QAJs7c4BGcWXia97NueG+\n51bw568aUYsvldJBhxTKghBQG4fIj87DzuJNrjDcOOGnAMZzfAeAEPPgC3dz\nLe1th9sY9dcLd8cI7UF+zhHibAQiru7P2VPXMh0nLp4cmW4401z5PCxtEN2K\nW5swGrgkHotpRWyIN9mvYNbzCxloYrbhvwg0WzptTCjN2LQb7uzXt6979Dz1\nQUjmWliqpo8UAiJsmB5eD0pXUHvKCK48Zj773a54ojyZk39nvyAPeTLRIt/q\n91Bbn3oTBUJzF6vaOsM592HqPRd2BSA58ATCIUwcawhG7wTbDEL6YrYHFx3l\nrrGpI6ma+wVWhU8piH6YfvIX5CTA0wIeGz0+O11FhnUShBMVffZbf6FBhcr6\n4WSwrcPmnVbHJ6ZI/8yuIe6mrkPx/ELss/IDEeMSPolej5dfSuPz3JvzNZKH\nTKKLfu2rTMuCXpZsG+HgUHzumGWH3KyIx02wdr5dgtViCp0a4K5MMlQj/JDp\nSHJYvnN07vFdY+fMazzV3BLg3diIyBsoHS0FYGg7pMkB809Hm37Bvbpkdbqc\nXzevCoTdBxEQvV1gMiiqNkGDZmlaNVuwe6u33/xQRHn+hEM3gfrs31gjVt4C\nqnv9EefSTvMrub7nSos8Ce6GbyKMRe/WvncsRpcn2DdsUzn7BofsL1d25GaS\nPOJ5\r\n=EQ9+\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAWv4ckagdbRSqhA0TU5w+8wxZ1RAho7+dQU0wWE+ZfzAiBT6Bawy9YtCscSUBDCUcoa4fL4K0j6Mmw9ZsWZhmh19g=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_3.0.1_1640628883149_0.6257043370913884"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.2": {
+			"name": "css-blank-pseudo",
+			"version": "3.0.2",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"bin": {
+				"css-blank-pseudo": "dist/cli.cjs"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js && npm run copy-browser-scripts-to-old-location",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"copy-browser-scripts-to-old-location": "node -e \"fs.copyFileSync('./dist/browser-global.js', './browser.js'); fs.copyFileSync('./dist/browser-global.js', './browser-legacy.js')\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "postcss-tape --ci && npm run test:exports",
+				"cli": "css-blank-pseudo",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.8"
+			},
+			"devDependencies": {
+				"postcss": "^8.3.6",
+				"postcss-tape": "^6.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/css-blank-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "a1501d783dae42cfe20d0f5deeba0ddb745a13d1",
+			"_id": "css-blank-pseudo@3.0.2",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-hOb1LFjRR+8ocA071xUSmg5VslJ8NGo/I2qpUpdeAYyBVCgupS5O8SEVo4SxEMYyFBNodBkzG3T1iqW9HCXxew==",
+				"shasum": "f8660f6a48b17888a9277e53f25cc5abec1f0169",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-3.0.2.tgz",
+				"fileCount": 14,
+				"unpackedSize": 142925,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh0dhbCRA9TVsSAnZWagAA9k4QAJzT6gWS/myExit0QgYj\nR54h9huTYmUiBwBv/IlKtD7ZTPeBBkqUJdlsTchdjX4eQPGoGbotZ4SD8Tt1\nZ7NHVqBAb2FBUZdEv/SJURF5UJN+ceIihTAX14KcPeckpLNaReEdzWo+9lx+\nLGx0NEmxEdi52gWD+19fVBAfVVGoREAz0yYZlLgNd5ROmFqIVTM3xPnl6wZ6\nlf+HqtKcxQTaM8y6Q841VgJ0KNB6e60pjuJYbLywl35ZRzW4PkoE2l228tQe\n53j15U+cXdi8SXezpOHMuLl0CxEdS448pMPs1GCBhrC9VwnTeijxI6QGtyTe\n/EL42+c2I/U4QR++pOOcom1O4jp2gIpFCILjX5DEy/8X2fXfKsYb+EjNqQdq\ncmOPhpLT1x3xzQlMhRogAOLG91F0NyVa9rpg6KWnxABajV/wI+A2ATBxYNq8\nwY1j16XNRy+SSmJ1cib74iCPEL59H9yy/Tx51hXL7eY9xv7/nk1b/lm4jdnZ\nkZ2QQz2y+rMklpV9feCpbavMwZbhBYf2+c1hEYJlfMvO9GhVzQjmjP4LIXnw\n43Nmp7WE3U269IQuz37L6rdOU9nk80JBgsn/fwVOooCOHW8Rq9EqF9W1dgrK\n4Bbli8gkoLWBCaa4k/sEDhsiXbMF3BRniNtul4sC3OSA+oxHUqQkECFKf/2t\nGcjO\r\n=5tVY\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC9pczRINgmIUHUsLoXGtpCF+udqzMepoKMLq5qhYQJcwIhAJ+MQqoeALpBmXWRW4KtUdVP2atRj/rYwM+DUL/cJsMT"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_3.0.2_1641142363570_0.35739869415117"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.3": {
+			"name": "css-blank-pseudo",
+			"version": "3.0.3",
+			"description": "Style form elements when they are empty",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"bin": {
+				"css-blank-pseudo": "dist/cli.cjs"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js && npm run copy-browser-scripts-to-old-location",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"copy-browser-scripts-to-old-location": "node -e \"fs.copyFileSync('./dist/browser-global.js', './browser.js'); fs.copyFileSync('./dist/browser-global.js', './browser-legacy.js')\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"cli": "css-blank-pseudo",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.9"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"blank",
+				"empty",
+				"pseudo",
+				"selectors",
+				"accessibility",
+				"a11y",
+				"input",
+				"select",
+				"textarea"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/css-blank-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "8233fcfb5da76e86b62e2371739f08cfa1d75907",
+			"_id": "css-blank-pseudo@3.0.3",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-VS90XWtsHGqoM0t4KpH053c4ehxZ2E6HtGI7x68YFV0pTo/QmkV/YFA+NnlvK8guxZVNWGQhVNJGC39Q8XF4OQ==",
+				"shasum": "36523b01c12a25d812df343a32c322d2a2324561",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-3.0.3.tgz",
+				"fileCount": 14,
+				"unpackedSize": 127255,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh/quoCRA9TVsSAnZWagAAzDgP/3GBMxf4PhdI8GPY/8l6\ntiN7LyolP/BZH/h8FmiyWCRACNDkk36KJUpvfKm87JHh1/DSl6wRbHp6kSwN\nLX2gDV4Dhf4WKCzO3sOwsu24h51ojwnS0ounPsAtHBgHCUk5psECUDTOhXCu\nRNHUZiOlxeAqYQn16ds6FdFJxkBiVDhwBs46AJXPaqFf2FzucYR0uQGkgpUL\nftIHj1jy665pJcHrJspiR631pNZZSI956M6tM9keYnMFUfkqsnp08Y70Oisg\n8eWRVe8k1RR0y9mx7k8rEvABtEdmbmkOhblJk+CHBFWstl6m2YDYkZve+/go\nwv9UC+Ye7yuexATpcV+T7GtA63Uoolf4F0O4Nsd5V7+HtkCu/1EjQgjWcPlD\nRWTv8YjR9XlFhq64lyJTzzrUoiDXqUwhvMPzW92w6rF3sFjU2AsoOmi7zaRh\ncLl+e4ptnVEKYaI08/KbOE/4S49Odx5wgsKpG0I0s5hRKML3zIOCONWeWbCF\naBcri6or3rRSBWbCoKma0NY3sgT6D4YjDGNqtmSRaJHXpLaGRx/5DNTx1PDA\nLX5FHPHuFpDFdjwJwpIh/6gHCLn/joTFIh1B6MCdXLulP8No1LrhxXUp9vBS\n8+4zODiAgB+p8p4WetxbRqHNADAePhJT8tV4rBnVzEE7epXa7vHlZDSDrcux\njMUA\r\n=XnhD\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDkK5tPrKjfbc8osMZhvuO7IDqp43sz/vrRc2cf/azqbQIhAN9e8d2PiMx2QMUSHbw+AoAiy1K02TJvF/DFX3EAkCAY"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_3.0.3_1644080040230_0.8769787822307613"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"name": "css-blank-pseudo",
+			"description": "Style form elements when they are empty",
+			"version": "4.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"devDependencies": {
+				"puppeteer": "^15.1.1"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports && npm run test:invalid-replacement",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:invalid-replacement": "node ./test/_valid-replacements.mjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/css-blank-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"a11y",
+				"accessibility",
+				"blank",
+				"css",
+				"empty",
+				"input",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"select",
+				"selectors",
+				"textarea"
+			],
+			"csstools": {
+				"cssdbId": "blank-pseudo-class",
+				"exportName": "postcssBlankPseudo",
+				"humanReadableName": "PostCSS Blank Pseudo",
+				"specUrl": "https://www.w3.org/TR/selectors-4/#blank"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "351cde7da3b462826985d25bb242ed2e5c7abc10",
+			"_id": "css-blank-pseudo@4.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-Tds7ajD08hgBnclITzu+YvcgfbVlQK7Yc58q2GRuGqieBvZhGaV/iWxcrhGGq9iD47Er8PGUB3kK77DRyzbc1g==",
+				"shasum": "05d3cf59f768391c1846e87442d90c79e6b4c736",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-4.0.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 56068,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDwurviH6v/0Gsfsoj2WLHy9URFqauuCWOIMYO7VndPnwIgTXb8Sd920T9XtfckytuHakCKHjI0FwXNcFJPdNnAn1U="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGkSACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpibg//YHRrSs6UIo8wRo4cHZ8CgLN0tHjTTQjgP3BwvvgCc2Ydlo2J\r\nk+uj+wJHdMuGwjNGi/cD7qFDM8k4Rh0Kahol+7IIjaKWQyBFVcOW283M11pg\r\nD3u44537OxynfJB+Ip5rXATLhH4TWMrTPhG+gwIpafoADdVPJXvVG0LcS3D/\r\nBvvwtBGKPRZL/yUz3hUNGgxBFchgrM2VC587XCESI1t7i4+xisg08XGL9DL4\r\nP2cdKpl9c7D6UHteKQS49ZKreEdOt6z2zss3t9yQOE/a6ERKt9TzyUdrqvfQ\r\nVgAGq70MSTzMTzzJlJMXhRfwxTOsL/bwX09y+qout4+0aBJ/JD4LoCP9wxuI\r\nSx211nT/x++FuT71vVf94RWBuShk9NgMMjs8kw+7PaFjFva4LnCc/ccEBz8A\r\nhbDHZ58G4rw6VRnHYAaswHVprrldY4tkB5EqvbblrecYTLLutMFYRE3xuRl9\r\n8B+LDzo6fVFxrHO9PfH+3dsKpMciuQ+GcBh6UzskC8k/ZBmMplw1xY9+wVmJ\r\ng1tEXJ+xiu9gqynQK7ku2IGWGf8tCWqXBKVb4s+TjVJDER3f4glofEM+Yi2N\r\ncv7ve/ZHZ8ZSpEicg+7MvZfdLkScGcUHoMXu+ZDJPvYSJdzzKDEHOOxy7YRn\r\nouH89/VfW6eyX/bc0oMbIAuoe19Uccyy6xk=\r\n=Ung5\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_4.0.0_1657301266761_0.44937900814759035"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.0": {
+			"name": "css-blank-pseudo",
+			"description": "Style form elements when they are empty",
+			"version": "4.1.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"devDependencies": {
+				"puppeteer": "^15.5.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports && npm run test:invalid-replacement",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:invalid-replacement": "node ./test/_valid-replacements.mjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/css-blank-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"a11y",
+				"accessibility",
+				"blank",
+				"css",
+				"empty",
+				"input",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"select",
+				"selectors",
+				"textarea"
+			],
+			"csstools": {
+				"cssdbId": "blank-pseudo-class",
+				"exportName": "postcssBlankPseudo",
+				"humanReadableName": "PostCSS Blank Pseudo",
+				"specUrl": "https://www.w3.org/TR/selectors-4/#blank"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "7eca7136da7c21fb6d89732eef9e8afc5184d419",
+			"_id": "css-blank-pseudo@4.1.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-VWFrG2x/J8NxVTRfViIEyHlP9CbNa9aWnt7897l0Qo8x+wzIBNRldcQ76yWfKPqMYn+UcKixyy+wNoKnR3TsBg==",
+				"shasum": "12e246b35ce31db5d06914e2de42ff2921d55d07",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-4.1.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 57052,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGT/dv/QN0PImTa1hIMdomoTnSvl79iy9Zq80QQoeXswAiBJo2Op2I0h+Aui0vP+n8wkVaT0cGLA/gQwLiKZDXTh1w=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi5WxOACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqaYg/+KnPiruq07L3aw3/8a7YgNWiyQjmoCfdjKM/xzGIGn62mrGCd\r\nOGB1TBTLkB6KNxYfRSWeYCFaHUf+4SPFqO8tMfPE6z71IDZ7CiRqh1DDqzVi\r\n8QVnuoFBFmmkv3fdnpQZcZdqinI8VdX5cCT5E8of3UfWzIlyfrqyPSJyZs0o\r\nclCNldVnb1oGl2smngPgKxUcSA1bJ+y9IrryT0aMDw68CyEJUZYft84uPFrI\r\n3hFDq/OUjd3EuRwisjlHBTxH/1JIRtfwiuoLW+naoGR8526GNO5I4j2GAozT\r\n4yU4snrzfs3US7j2zKcibucZvnZJwf9adidKjeibTNulckTsGLAoA2SZhdVT\r\nuGwKWAybhlB8e/af0H7cBEb0Q40jiRrrxAKPK2cpMbUZKH67CxYGfa84e8+s\r\n3mT8NvRZxCB2ykndZkbaOhfE2Czz+SbebZnxSISsnQ/6D/PZe5I7snlX66K9\r\nW7Ie2ZeDClJ5eu3jBcEM0ijJ6C0v5fLBcKlIvH8IH4TR5LHK/CCN2yJhNMnl\r\nWUsQKOSMHmkOV3HYngf4lwLGNpAVBs65yYyKXCmTwLvVRWvscRR1NzQRw/sk\r\nPjVnLnKZvlmmwjnnbFpW3ZJVWTW5trHoFRbnLTk0GFmDQdsHbXvTzMFLRJn3\r\nTYccN15EDF31DlW+n776wU2aoAuUrIj4dj0=\r\n=yC9q\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_4.1.0_1659202638593_0.44789856447063237"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.1": {
+			"name": "css-blank-pseudo",
+			"description": "Style form elements when they are empty",
+			"version": "4.1.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"devDependencies": {
+				"puppeteer": "^16.0.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports && npm run test:invalid-replacement",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:invalid-replacement": "node ./test/_valid-replacements.mjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/css-blank-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"a11y",
+				"accessibility",
+				"blank",
+				"css",
+				"empty",
+				"input",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"select",
+				"selectors",
+				"textarea"
+			],
+			"csstools": {
+				"cssdbId": "blank-pseudo-class",
+				"exportName": "postcssBlankPseudo",
+				"humanReadableName": "PostCSS Blank Pseudo",
+				"specUrl": "https://www.w3.org/TR/selectors-4/#blank"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "4c3a0dffb77db3d4c3291884a67824c424c6dcd4",
+			"_id": "css-blank-pseudo@4.1.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-YlRrkfaHdl4N/uqUpDY+33l5iSW4ZLWLwKUamXreM+3GoKjVXsCn8hjYcsoFHEI7jmVruqHp+TG/0tGF4tHvpw==",
+				"shasum": "e788055a78810639a0e5ba694a9c1ab63771fbba",
+				"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-4.1.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 57397,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDW+xFKFhifmpITUae2hmCRx5sk9n7UTWL38ZiOLwIpbAIgAtlGs1ed/NCZko+3OAzjiLK7xSS3d5bUg3vfmdS8LPA="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjBT2eACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqeHw//fVZtvJ1i9Skziv4oQxSwc6QHg5SwlrCzbEEinbNIN9xlCbH2\r\ne9NLRL+mLBpH2p8iqR3jBHLP2pSZoIl4/nZ9arUximFVPv+rVPNVd5D1p64l\r\nGUT4jfZTNXbIYyJithQcQwGdvBuKpmlYuDR7O+RfqIFRIehpejXYvqrXBdR7\r\n2ukSn0WmD9+YOXGR02MklcgzGdnzuNUhZ2xqi2nUMnqJVEiLu/JfNePNhr98\r\nH12509a2dnlZ3QzFP8cO29jQhj1yMBt9DiuHdLVph9QdT5QYcw8z0SEXWIW3\r\n35QZtunJSKN60qQeUdwl/cbVsCJpn0cd0REjffh4ORa7SUPK+vdySlg77Lzy\r\n9AytAkLXpgA8d6wbUflDY0Jv76Dy46ynXrIpBJmBYg9vApo3C4rEigSsYXoT\r\nOBOziKByvi0qXklATRbXP3qjL78YIu0xPYWVCo+hcXR79KIuzc6OaahyMgp7\r\nEsdjj8gu14XiNU7HQeD7km8/nUTBePzv/yMPD9/ZWXNLk/fxO6VUZ+CJOry7\r\nUVbKrBr+FyDuy09hNn8gACobYLN+HKEvP0OUrWL1b9KOvfOFa5MU3JFUjp3c\r\nUYaSjN3jUrP2Xp2VfAeHmWDszuiZId8WPHag/bVKWOv7gbqhlwjIpgX9lQ52\r\nIxKSRXnM2uz1HYSMpmawBUuXXLFgQsKPEpI=\r\n=GIZT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-blank-pseudo_4.1.1_1661287837976_0.981539923063873"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-11-17T13:58:33.582Z",
+		"0.1.0": "2018-11-17T13:58:33.685Z",
+		"modified": "2022-08-23T20:50:38.311Z",
+		"0.1.1": "2018-11-17T14:03:33.013Z",
+		"0.1.2": "2018-11-17T15:14:19.142Z",
+		"0.1.3": "2018-11-17T17:13:24.891Z",
+		"0.1.4": "2018-11-17T20:47:29.776Z",
+		"1.0.0": "2019-06-10T12:16:12.852Z",
+		"2.0.0": "2021-09-16T14:55:44.794Z",
+		"3.0.0": "2021-12-13T08:32:01.668Z",
+		"3.0.1": "2021-12-27T18:14:43.282Z",
+		"3.0.2": "2022-01-02T16:52:43.716Z",
+		"3.0.3": "2022-02-05T16:54:00.385Z",
+		"4.0.0": "2022-07-08T17:27:46.904Z",
+		"4.1.0": "2022-07-30T17:37:18.841Z",
+		"4.1.1": "2022-08-23T20:50:38.212Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Style form elements when they are empty",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
+	"keywords": [
+		"a11y",
+		"accessibility",
+		"blank",
+		"css",
+		"empty",
+		"input",
+		"javascript",
+		"js",
+		"polyfill",
+		"postcss",
+		"postcss-plugin",
+		"pseudo",
+		"select",
+		"selectors",
+		"textarea"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/css-blank-pseudo"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS Blank Pseudo [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/css-blank-pseudo.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/blank-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Blank Pseudo] lets you style form elements when they are empty, following \nthe [Selectors Level 4] specification.\n\n```pcss\ninput:blank {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\ninput[blank].js-blank-pseudo, .js-blank-pseudo input[blank] {\n\tbackground-color: yellow;\n}\ninput:blank {\n\tbackground-color: yellow;\n}\n```\n\n## Usage\n\nAdd [PostCSS Blank Pseudo] to your project:\n\n```bash\nnpm install postcss css-blank-pseudo --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBlankPseudo = require('css-blank-pseudo');\n\npostcss([\n\tpostcssBlankPseudo(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Blank Pseudo] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssBlankPseudo({ preserve: false })\n```\n\n```pcss\ninput:blank {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\ninput[blank].js-blank-pseudo, .js-blank-pseudo input[blank] {\n\tbackground-color: yellow;\n}\n```\n\n### replaceWith\n\nThe `replaceWith` option determines the selector to use when replacing\nthe `:blank` pseudo. By default is `[blank]`\n\n```js\npostcssBlankPseudo({ replaceWith: '.css-blank' })\n```\n\n```pcss\ninput:blank {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.foo {\n\tcolor: blue;\n\tcolor: red;\n}\n\n.baz {\n\tcolor: green;\n}\n```\n\nNote that changing this option implies that it needs to be passed to the\nbrowser polyfill as well.\n\n### disablePolyfillReadyClass\n\nThe `disablePolyfillReadyClass` option determines if selectors are prefixed with an indicator class.\nThis class is only set on your document if the polyfill loads and is needed.\n\nBy default this option is `false`.\nSet this to `true` to prevent the class from being added.\n\n```js\npostcssBlankPseudo({ disablePolyfillReadyClass: true })\n```\n\n```pcss\ninput:blank {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\ninput[blank], input[blank] {\n\tbackground-color: yellow;\n}\ninput:blank {\n\tbackground-color: yellow;\n}\n```\n\n## Browser\n\n```js\nimport cssBlankPseudoInit from 'css-blank-pseudo/browser';\n\ncssBlankPseudoInit();\n```\n\nor\n\n```html\n<!-- When using a CDN url you will have to manually update the version number -->\n<script src=\"https://unpkg.com/css-blank-pseudo@4.1.1/dist/browser-global.js\"></script>\n<script>cssBlankPseudoInit()</script>\n```\n\n[PostCSS Blank Pseudo] works in all major browsers, including Safari 6+ and\nInternet Explorer 9+ without any additional polyfills.\n\nThis plugin conditionally uses `MutationObserver` to ensure recently inserted \ninputs get correct styling upon insertion. If you intend to rely on that \nbehaviour for browsers that do not support `MutationObserver`, you have two\noptions:\n\n1. Polyfill `MutationObserver`. As long as it runs before `cssBlankPseudoInit`,\nthe polyfill will work.\n2. If you don't want to polyfill `MutationObserver` you can also manually fire\na `change` event upon insertion so they're automatically inspected by the\npolyfill.\n\n### Browser Usage\n\n#### force\n\nThe `force` option determines whether the library runs even if the browser \nsupports the selector or not. By default, it won't run if the browser does\nsupport the selector.\n\n```js\ncssBlankPseudoInit({ force: true });\n```\n\n#### replaceWith\n\nSimilar to the option for the PostCSS Plugin, `replaceWith` determines the\nattribute or class to apply to an element when it's considered to be `:blank`.\n\n```js\ncssBlankPseudoInit({ replaceWith: '.css-blank' });\n```\n\nThis option should be used if it was changed at PostCSS configuration level.\nPlease note that using a class, leverages `classList` under the hood which \nmight  not be supported on some old browsers such as IE9, so you may need \nto polyfill `classList` in those cases.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#blank-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/css-blank-pseudo\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Blank Pseudo]: https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo\n[Selectors Level 4]: https://www.w3.org/TR/selectors-4/#blank\n",
+	"readmeFilename": "README.md",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	]
+}

@@ -1,0 +1,594 @@
+{
+	"_id": "@csstools/postcss-oklab-function",
+	"_rev": "5-acb75e2b7ce58a3c5e9f8b30cb2ef414",
+	"name": "@csstools/postcss-oklab-function",
+	"dist-tags": {
+		"latest": "1.1.1"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-oklab-function",
+			"version": "1.0.0",
+			"description": "Use oklab() and oklch() color functions in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-oklab-function#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.0.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"color",
+				"colors",
+				"display-p3",
+				"oklab",
+				"oklch",
+				"design",
+				"syntax"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-oklab-function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "d548cc060efcf48b40d2918284e788616b87c63f",
+			"_id": "@csstools/postcss-oklab-function@1.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-bxoOhQ0CDhm2SMr7MjjKFdK0eWHIKCp7d+76Z6AhmVq1bCoIvj4AjwV8verjmeOeCogHjfMeDFlv+uFFo1kjWA==",
+				"shasum": "eb0c9945efde795ad922876884a0ee0624b8f333",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-oklab-function/-/postcss-oklab-function-1.0.0.tgz",
+				"fileCount": 20,
+				"unpackedSize": 42201,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiBnhgCRA9TVsSAnZWagAAFXAP/1AZfucEKtEXAkCkWX7e\njvmWqaY+FIQJHs5ha0hdyl6cK4WVPfWNHduyjs+jOSUaeUClQ3thI/lCw2Lq\nE/qWIJuFwPqfeaJBrNXqpAGO2r52XrCKaZqlcr/MGKxRUvmzhe+5Cag/ikqX\nrFfD2HWKwOTj53HQG4JrKKik1W86Ja9xzue9FsS/7YmMr81nCznN3aE0iuuP\na60eHauNTXMMgYmHizLvRHD2l5HbBXcEVeIhLQtUXnd9gJaCq8mVCR1lZM63\nnwbNTbp0IwJdDjwFKQ/myUbxXbztmbEFoilN3uacI67aV9WOaz5gT7QMueiH\n8cwXTS3dPPavH0QVLxWZYb54+72DC4XjK7HuosMTrwdQM2Okcb5bU9W7Wk1i\n03LIcZ7KtWsRqS0L7+MvRl0hS2RYAaZPj4DCDQnEG1OBhx21fCRUCoUkYvEp\nQ74KLz6NeBMTT7gZQJ30Ag19tp/Bn3nl7Z0M/P0LFQpCiehEzOTQqqXUBvWA\nwJKClmoQPYAfXS7Y/KIlYbnmQlcNiHHrlgv7tgNzFAG88TPc9qRoy4DOo6fM\n0X2z8KDSydwF+3QTs2fKFlq9aOJD1EV8tStI7gX5YRqcxZffG1OzobPMUaFQ\nmV4BuN0QepYitv3cAqdDWaH5+8gFwLCytgLY1UCPRP7ZN2pnXOddjyj/vnaU\ngwC/\r\n=OBLx\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIEQeNW1URZRHAyu+jRZJwxxdMH7gZie3CNABfNaZkKDXAiAUhkh3XXtc1aZ4EIF7kEW8tRoT6NNK5LHZx0YByzNW0Q=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-oklab-function_1.0.0_1644591199998_0.2120005223629049"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-oklab-function",
+			"version": "1.0.1",
+			"description": "Use oklab() and oklch() color functions in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-oklab-function#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"color",
+				"colors",
+				"display-p3",
+				"oklab",
+				"oklch",
+				"design",
+				"syntax"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-oklab-function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "627a026e14aab569997e9400475df2131aeba68d",
+			"_id": "@csstools/postcss-oklab-function@1.0.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-Bnly2FWWSTZX20hDJLYHpurhp1ot+ZGvojLOsrHa9frzOVruOv4oPYMZ6wQomi9KsbZZ+Af/CuRYaGReTyGtEg==",
+				"shasum": "a12348eae202d4ded908a06aa92cf19a946b6cec",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-oklab-function/-/postcss-oklab-function-1.0.1.tgz",
+				"fileCount": 20,
+				"unpackedSize": 42559,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiB8OTCRA9TVsSAnZWagAAXSkQAIENtFtIupNgCix8OViB\nUNzJN5eAcQCGUgdf04w7DM72Kf4Z3JflCgUpFRNQdQO6GzbIrtcAzDyYVqkp\ncBQ2a8WC3rrS9r5tbkf33I+DelsLfsGClpgv5O5GBr97fyAfxK7QRvxHpf8r\nVZjSxJgjbaMpXryUuqU474exR848OHrzetaUxjepIsPLEAvJaYayh+6FTlZ1\nCV+N/bR0aQvD0l6Ti/4G/XQi7u+pAfIG4hAlVAYa2Ervuu9VWEhXnDXm5725\nGWptIqFpN8LkP8d8ko8wYTILRIdbR+LZSAKPcTGks6Oq0FuW3k+kFmZJLktD\nXP/+nmA/ULD4DckRYPF+CE3UApN5TC6rYGZ7g80AxTH2gVPHD4JGVjUi2J8u\n73Wpi643sd6hZmFRcbU2xKeXzS0KA3vM1keQ+GsvrMaWfLryAZuFRcCxndTH\nnlsEniF6PmlD4VQAuxReRMjgtM5b+YOg4mbA/INQtSE3HPTh8E5HxMfcNcA2\nFtQP7ZzX1vGP9Cm2L9L9Z80ndFFwe7tv7nhkqqSo8CuT6KVfOWAkofqPb1z2\nJZP6uzWzQjWBmJF01pajrxP2VbHu0yqkJn1FL/K5UxJPqp+d73ZRajj3Il2o\nWovnzHtDgXEi+qw3ov9IZ3Q4HmLbyTWBpHxaAulOHWYuAVUYvSS6Omlftf3w\n0IzJ\r\n=IN6g\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDCBi3xTr6+EEQONVEkJRwA9tMcNUHvivYz1Lc/4jKB2QIgDU5rs/vm/txqDxWG0kWaAvvU6hNe81A43KQVVmQum4I="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-oklab-function_1.0.1_1644675987565_0.325715379994836"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.2": {
+			"name": "@csstools/postcss-oklab-function",
+			"description": "Use oklab() and oklch() color functions in CSS",
+			"version": "1.0.2",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-oklab-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-oklab-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"colors",
+				"css",
+				"design",
+				"display-p3",
+				"oklab",
+				"oklch",
+				"postcss",
+				"postcss-plugin",
+				"syntax"
+			],
+			"csstools": {
+				"exportName": "postcssOKLabFunction",
+				"humanReadableName": "PostCSS OKLab Function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "747e91dd1691310686551588243d17236f801670",
+			"_id": "@csstools/postcss-oklab-function@1.0.2",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-QwhWesEkMlp4narAwUi6pgc6kcooh8cC7zfxa9LSQNYXqzcdNUtNBzbGc5nuyAVreb7uf5Ox4qH1vYT3GA1wOg==",
+				"shasum": "87cd646e9450347a5721e405b4f7cc35157b7866",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-oklab-function/-/postcss-oklab-function-1.0.2.tgz",
+				"fileCount": 20,
+				"unpackedSize": 43130,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiJw86ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqYIxAAiUf32jQkdex7PywvYl0VQC0NsEhj/h6rdzKkM4byh/vRaBl6\r\nctSSspGF8cBxdpQNM0h+LegThuprD4WHS5AFptaEckGcvg3HvQqUv3a94qPG\r\nbnOl6J2wRocNknkVib8ile+203Z6gKK55Jc7NehjBaD8QtIj5MbV5NQzf94n\r\n42dHIWHF4BFIbCFnYIDp0x1mtHBDRUGoMSuTBF2w0XeLY+KMleokJtJ8NuBi\r\nGo3fc93sp1ElkpiKi0TXoc63EsIruxaVTinr0cwdU2pk1rknNmCu89R4UfQD\r\nYyDXC4JO85f7bNKwr8r1FW2s1og3CWj29SQ45gC1RSaIDqL4Sanrug3eC9J+\r\nG3tJOQtLaPrYzO8W5+xopYk8L1mwwl5iI5b8sywZv48W2JpSMYJS4j0ffwt7\r\nGrVKM3hyUX/hwfcUNSBjNPOScOcbIB77sb31JYbLzLTLaEfSQonFY988EyC/\r\n6KJyYbtcQBuEGBVFWCR9wrTuOMt7wjbYJd189L/+xF9C/ToKHJ81rC1e8D+v\r\nXGt3D2EFUyjnGwN/2KgPWMToMTAVcNGuRNQrZUXX6QJ2+23l9zf9qlimsILl\r\nlPZdG83JNYzStWrKrJTxuVRaP8b9b3wFVAeUlbLLyjesfwrUkt0sNBtia0Br\r\nwhkqmtDn+kqDBgYqLdU2ODVQm789sB2ru20=\r\n=S/1m\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIA6H2gT4iNm2NKWeJkkJfx8u2KOgZHeuZLOvCsADAj0jAiACa0qBNhXRLHUxdP+QvhfbcVxLFsAxTA6Wr0Vu5uKxhw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-oklab-function_1.0.2_1646726970297_0.241232414669996"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "@csstools/postcss-oklab-function",
+			"description": "Use oklab() and oklch() color functions in CSS",
+			"version": "1.1.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-oklab-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-oklab-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"colors",
+				"css",
+				"design",
+				"display-p3",
+				"oklab",
+				"oklch",
+				"postcss",
+				"postcss-plugin",
+				"syntax"
+			],
+			"csstools": {
+				"exportName": "postcssOKLabFunction",
+				"humanReadableName": "PostCSS OKLab Function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "35d031ff8c39ddcb99ded92ac3f83578e8b8ad2e",
+			"_id": "@csstools/postcss-oklab-function@1.1.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-e/Q5HopQzmnQgqimG9v3w2IG4VRABsBq3itOcn4bnm+j4enTgQZ0nWsaH/m9GV2otWGQ0nwccYL5vmLKyvP1ww==",
+				"shasum": "e9a269487a292e0930760948e923e1d46b638ee6",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-oklab-function/-/postcss-oklab-function-1.1.0.tgz",
+				"fileCount": 20,
+				"unpackedSize": 44265,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCzC/Xlw2MrwnQxcR4/9fuVReW0qARLO+WdJCcBoLRlZQIhAKN87OLTFSH/xtp4L5lVm8DQSkX+WAvYe1kKODQkoZwz"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiSockACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqCjg//XqbmT2Q8qHQnlY0bxxLFnkLgTpNFQDsKZqK9tEL5mgXOcAh6\r\nuJwEjjUARWrHrNZGjZmDSVdZfxui3704AXrHRXLAKcgeuuqOO23Ui9wnWePK\r\nKfKnXJu6qoZ60e2VAHTydXIbz5rGPS0qvoE/EUo2zF4pp32DRz1+vCjBnkih\r\nqBAE8zc+5gmUZoukMfVZ0oqXmCrxUK7XMrxpIf3kXsCQw1rTRCNxX8T4zhku\r\n8pvBQzMc0yx7pZZNXvNivp3K7c+S8AhJqSifddqeXC7dG+CWxgzNKoM1nXBd\r\nJtS4vLp8sIi/E6GO+wUK9ejUliLe7Eeo/NRrCJ0k/M6GNq0qEQKexmJCiJBw\r\nUVCYwWU42D9/xhvqM4L+kMBofVMwF5gx0ggq1jtVdAJZjuEDqLhbAf3vbdkC\r\nCJHT6FIodz4D/0anMX6koKh/2vEv6Gqli/7tb+yRYRzlSYuunrWJKfxhqSAZ\r\nSAtrnIh7b9kvFfzvXu7zWylJz+hUSoIKaO0bDTIoL/hgQgLrhMwgf30kYfDl\r\nbEBikpq2CsTg/YcvuNEGA3ztI1IJjXe69A7dPxiXJ+b+QKM1DTi/kJ+uniYD\r\nVMKjhTbC16xd4Xeorevd3fN8jdGBdkvLpCqdvtS0aK/Kdh4lHt9lChD8jc2Z\r\n4dGC4lmPSirssHnQo2SQWQOf2mAGJ9XKdSE=\r\n=LP+A\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-oklab-function_1.1.0_1649051428342_0.23347695053440232"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.1": {
+			"name": "@csstools/postcss-oklab-function",
+			"description": "Use oklab() and oklch() color functions in CSS",
+			"version": "1.1.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-oklab-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-oklab-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"colors",
+				"css",
+				"design",
+				"display-p3",
+				"oklab",
+				"oklch",
+				"postcss",
+				"postcss-plugin",
+				"syntax"
+			],
+			"csstools": {
+				"exportName": "postcssOKLabFunction",
+				"humanReadableName": "PostCSS OKLab Function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "6e778349db96620429a4f0182c70a6df330362d6",
+			"_id": "@csstools/postcss-oklab-function@1.1.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-nJpJgsdA3dA9y5pgyb/UfEzE7W5Ka7u0CX0/HIMVBNWzWemdcTH3XwANECU6anWv/ao4vVNLTMxhiPNZsTK6iA==",
+				"shasum": "88cee0fbc8d6df27079ebd2fa016ee261eecf844",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-oklab-function/-/postcss-oklab-function-1.1.1.tgz",
+				"fileCount": 20,
+				"unpackedSize": 44775,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDOebh4if2mNkHRuzk0/4ZP31asW0oi9EN9EDvQovyWhwIhAJxPawGopEGWVjNbsAGOVB1BZZjyYidBNu5pnA4sLjXX"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGO7ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpxqQ/+OSCwMHLkK7OG+GqOr06VvNOQFbhO5EhJGM7hrZwjyA/3VnLp\r\nIlAtbLRhPXlqsA7J25e6Ya39rl9CxEtDRjtFroYjkTPLJUEPX0A21njirnIw\r\nzzYRhYOEAjvtaX7rhvg2luYCWw/in2rx/MFKJUtj1k6NzvcwhgJxeknsFmHG\r\nNWJeT5qth54QE2n9B4zegWg+rYTTnr8qEpbqqvXb0rstXYGas5zBVxLThGz0\r\nIrKTdOwX4t4YU6pKhiIDoCNVBsmxLcfrq9FNcNJwK5EQNOjDL2S2poKiGNoQ\r\nbBvQDVtU/S8i4t53LQpQ+ND10H8l8MTN8eLDbDvN1o99FVJFdEzPmUanrtaE\r\nl67MiarCou8HYlUJ4hkuCzhsTFENW3QJTsR9hqxdDvTWdygGfYkKHet1JY+Q\r\n1AoOkP/064CACn/BKL8ImQkqd/zPA7M6Xtlt4a8VvrEJWM/VB1ajNz4yq7RA\r\nTOOYtDsYWmfMowo8iHohkNXLzAaae2WvCFfI+CYLoHwg0unq6W6vEZFkmnGU\r\nmdRGa7g5RBZCrgFAsDvNp+9OoroXka+wKjNdlF01/Yt+ulOrvq5ePCA35xNZ\r\njC/g2ce0srVHIf9cNnWX+A7THn/SyHb9PNibOGONKzzZokFZT87kuuIV/BIr\r\nYcmRkVJmw+zT9oORYXfE6eRRs7Has9z9bm4=\r\n=28AC\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-oklab-function_1.1.1_1657299899381_0.6272359019972555"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-02-11T14:53:19.867Z",
+		"1.0.0": "2022-02-11T14:53:20.158Z",
+		"modified": "2022-07-08T17:04:59.655Z",
+		"1.0.1": "2022-02-12T14:26:27.773Z",
+		"1.0.2": "2022-03-08T08:09:30.439Z",
+		"1.1.0": "2022-04-04T05:50:28.480Z",
+		"1.1.1": "2022-07-08T17:04:59.537Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Use oklab() and oklch() color functions in CSS",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-oklab-function#readme",
+	"keywords": [
+		"color",
+		"colors",
+		"css",
+		"design",
+		"display-p3",
+		"oklab",
+		"oklch",
+		"postcss",
+		"postcss-plugin",
+		"syntax"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-oklab-function"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS OKLab Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-oklab-function.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/oklab-function.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS OKLab Function] lets you use `oklab` and `oklch` color functions in\nCSS, following the [CSS Color] specification.\n\n```pcss\n.test-oklab {\n\tcolor: oklab(40% 0.001236 0.0039);\n}\n\n.test-oklch {\n\tcolor: oklch(40% 0.268735435 34.568626);\n}\n\n/* becomes */\n\n.test-oklab {\n\tcolor: rgb(73, 71, 69);\n\tcolor: color(display-p3 0.28515 0.27983 0.27246);\n}\n\n.test-oklch {\n\tcolor: rgb(131, 28, 0);\n\tcolor: color(display-p3 0.49163 0.11178 0.00000);\n}\n```\n\n## Usage\n\nAdd [PostCSS OKLab Function] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-oklab-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssOKLabFunction = require('@csstools/postcss-oklab-function');\n\npostcss([\n  postcssOKLabFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS OKLab Function] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssOKLabFunction({ preserve: true })\n```\n\n```pcss\n.test-oklab {\n\tcolor: oklab(40% 0.001236 0.0039);\n}\n\n.test-oklch {\n\tcolor: oklch(40% 0.268735435 34.568626);\n}\n\n/* becomes */\n\n.test-oklab {\n\tcolor: rgb(73, 71, 69);\n\tcolor: color(display-p3 0.28515 0.27983 0.27246);\n\tcolor: oklab(40% 0.001236 0.0039);\n}\n\n.test-oklch {\n\tcolor: rgb(131, 28, 0);\n\tcolor: color(display-p3 0.49163 0.11178 0.00000);\n\tcolor: oklch(40% 0.268735435 34.568626);\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssOKLabFunction({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n:root {\n\t--firebrick: oklab(40% 0.234 0.39);\n}\n\n/* becomes */\n\n:root {\n\t--firebrick: rgb(133, 0, 67); /* will never be used, not even in older browser */\n\t--firebrick: color(display-p3 0.49890 0.00000 0.25954); /* will never be used, not even in older browser */\n\t--firebrick: oklab(40% 0.234 0.39);\n}\n```\n\n### subFeatures\n\n#### displayP3\n\nThe `subFeatures.displayP3` option determines if `color(display-p3 ...)` is used as a fallback.<br>\nBy default, it is enabled.\n\n`display-p3` can display wider gamut colors than `rgb` on some devices.\n\n```js\npostcssOKLabFunction({\n\tsubFeatures: {\n\t\tdisplayP3: false\n\t}\n})\n```\n\n```pcss\n.test-oklab {\n\tcolor: oklab(40% 0.001236 0.0039);\n}\n\n.test-oklch {\n\tcolor: oklch(40% 0.268735435 34.568626);\n}\n\n/* becomes */\n\n.test-oklab {\n\tcolor: rgb(73, 71, 69);\n}\n\n.test-oklch {\n\tcolor: rgb(131, 28, 0);\n}\n```\n\n## Out of gamut colors\n\nDepending on the browser implementation out of gamut colors may be clipped, resulting in a different color.<br>\nFallback values generated by [PostCSS OKLab Function] are always mapped to a close alternative in sRGB.\n\nWhen setting `preserve` to `true` the original values will be used by some browsers and these may be clipped.<br>\nCertain browsers will have an incorrect color if this occurs.\n\nIf the plugin detects out of gamut colors it will emit a warning :\n\n> \"oklab(40% 0.234 0.39)\" is out of gamut for \"display-p3\". When \"preserve: true\" is set this will lead to unexpected results in some browsers.\n\nTo resolve this warning you can use a color that is in gamut for `display-p3`.\n\n## Copyright : color conversions\n\nThis software or document includes material copied from or derived from https://github.com/w3c/csswg-drafts/tree/main/css-color-4. Copyright © 2022 W3C® (MIT, ERCIM, Keio, Beihang).\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#oklab-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-oklab-function\n\n[CSS Color]: https://www.w3.org/TR/css-color-4/#specifying-oklab-oklch\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS OKLab Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-oklab-function\n",
+	"readmeFilename": "README.md"
+}

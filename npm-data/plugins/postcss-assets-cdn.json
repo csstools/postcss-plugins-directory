@@ -1,0 +1,493 @@
+{
+	"_id": "postcss-assets-cdn",
+	"_rev": "11-3d98bdaac533f96d875f4e37331ce8ec",
+	"name": "postcss-assets-cdn",
+	"dist-tags": {
+		"latest": "0.0.8"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-assets-cdn",
+			"version": "0.0.1",
+			"description": "postcss-assets-cdn",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"author": {
+				"name": "huixisheng"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/huixisheng/postcss-assets-cdn.git"
+			},
+			"bugs": {
+				"url": "https://github.com/huixisheng/postcss-assets-cdn/issues"
+			},
+			"homepage": "https://github.com/huixisheng/postcss-assets-cdn",
+			"main": "lib/index.js",
+			"dependencies": {
+				"ali-oss": "^6.1.1",
+				"postcss": "^6.0.23"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.14.0",
+				"babel-jest": "^21.0.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-env": "^1.6.0",
+				"babel-register": "^6.14.0",
+				"coveralls": "^2.11.15",
+				"eslint": "^4.6.1",
+				"eslint-config-postcss": "^2.0.2",
+				"jest-cli": "^21.0.1",
+				"npm-run-all": "^4.1.1",
+				"postcss-test-fixtures": "^1.0.0",
+				"rimraf": "^2.5.4",
+				"x-config-deploy": "^0.0.6"
+			},
+			"scripts": {
+				"prebuild": "rimraf lib",
+				"build": "babel src --out-dir lib",
+				"coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+				"lint": "eslint src/**/*.js --fix",
+				"release:patch": "npm test && npm run build && npm version patch",
+				"release:minor": "npm test && npm run build && npm version minor",
+				"release:major": "npm test && npm run build && npm version major",
+				"release:quick": "npm test && npm run build && git add -A && git commit -m 'Quick release patch' && npm version patch",
+				"postversion": "git push && git push --tags && npm publish --access public",
+				"pretest": "rimraf coverage",
+				"test": "npm run lint && npm run build && jest --coverage"
+			},
+			"license": "MIT",
+			"gitHead": "52361bbdf9c056f9b7f3bc98f3807161994bdc88",
+			"_id": "postcss-assets-cdn@0.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "huixisheng",
+				"email": "469184346@qq.com"
+			},
+			"dist": {
+				"integrity": "sha512-AJn83JQcs1pQXYvnAuPZlNVmN8p0wRKW3FFH+PEUlNCfRkH2cUjS+VVVmsqaR+MykjN34zQPjySD/5smJParsA==",
+				"shasum": "d919d0a2d0ee3f572d463a91f68cb20651e24ade",
+				"tarball": "https://registry.npmjs.org/postcss-assets-cdn/-/postcss-assets-cdn-0.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 12335,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc61XTCRA9TVsSAnZWagAASDQP/A4n6ehywTOLkEysYkJ0\nFrzj3vOTq0+MAcGx4ZIfNKEH6RdeHw19TCxX8Nq3PXXu2hTzl5A7evU5S6WA\nGBQpIPAloUXYVmZfkDQERUqBrW1ImB9LAJL3PE0vxv0H+9Bi+8HTbqwbDbfJ\ngpOkdMDPclJo+BcT6lGCXdIp07pbFQqNIHWsFJiGO53FCdZxbHjk34NoOm8G\nG40jg1hv81dIRrtT3NMDMpjkAVt6ggoEvLWTu8ChAg2+nRlvOIrpAMWuI+RF\nskMmqFRzBvNDXPZOFREyu1aqpFFpyNJSBIoZxgC0RinhXPNeDoHtWeyR4LgG\nlkZmwS2D60UAtUjQhvf3MQOOLdqRG6bAbUJuxapMYcUApCzDXXePRriuNYwW\n/Qxj9iWweSeW1VlJiv/RhfVvNlUzHnbGZl/LPRq216qpjnCqrUl0uJY+av5y\n/YgekbSom43PKvfYBMF6m7kalw/bcYb0tfh0xbhbsup1RFZULU/QcvJ9OZ57\n79GDwDPnhfgZfFw7iodwN/y6MQSmkRQ8eINbxUAAzhP7vjWhmbvdwBnY+g5s\nXoD7eM5K5H7kd+p2WggxdW8IUIHDRU3ggIL2Du6umDqjMCCo7UxZ52uAwi5p\nBGf/kyhxo7OK3Om5MrxddYynjS5K/jTPGICfzxqr2+yW4ODHLf0T9Cb07qDV\n1zU7\r\n=QVoe\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCDyRUrsF4AlSDE+wNNhkDW7LFbbPodWmG0NzBX0iEdCQIhAOuwzdok60ck9KedNGzAWc3UAP/3odbcDs95SHbWJWPz"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "huixisheng",
+					"email": "469184346@qq.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-assets-cdn_0.0.1_1558926802590_0.2006923201285753"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.2": {
+			"name": "postcss-assets-cdn",
+			"version": "0.0.2",
+			"description": "postcss-assets-cdn",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"author": {
+				"name": "huixisheng"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/huixisheng/postcss-assets-cdn.git"
+			},
+			"bugs": {
+				"url": "https://github.com/huixisheng/postcss-assets-cdn/issues"
+			},
+			"homepage": "https://github.com/huixisheng/postcss-assets-cdn",
+			"main": "lib/index.js",
+			"dependencies": {
+				"ali-oss": "^6.1.1",
+				"postcss": "^6.0.23"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.14.0",
+				"babel-jest": "^21.0.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-env": "^1.6.0",
+				"babel-register": "^6.14.0",
+				"coveralls": "^2.11.15",
+				"eslint": "^4.6.1",
+				"eslint-config-postcss": "^2.0.2",
+				"jest-cli": "^21.0.1",
+				"npm-run-all": "^4.1.1",
+				"postcss-test-fixtures": "^1.0.0",
+				"rimraf": "^2.5.4",
+				"x-config-deploy": "^0.0.6"
+			},
+			"scripts": {
+				"prebuild": "rimraf lib",
+				"build": "babel src --out-dir lib",
+				"coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+				"lint": "eslint src/**/*.js --fix",
+				"release:patch": "npm test && npm run build && npm version patch",
+				"release:minor": "npm test && npm run build && npm version minor",
+				"release:major": "npm test && npm run build && npm version major",
+				"release:quick": "npm test && npm run build && git add -A && git commit -m 'Quick release patch' && npm version patch",
+				"postversion": "git push && git push --tags && npm publish --access public",
+				"pretest": "rimraf coverage",
+				"test": "npm run lint && npm run build && jest --coverage"
+			},
+			"license": "MIT",
+			"gitHead": "52361bbdf9c056f9b7f3bc98f3807161994bdc88",
+			"_id": "postcss-assets-cdn@0.0.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "huixisheng",
+				"email": "469184346@qq.com"
+			},
+			"dist": {
+				"integrity": "sha512-Jefl5JNkblcTt5J4zc5hpvlM1hS6qw51MqESOt7Jjwn9gyAHzX+QE76orJ5pEc7nqR0oW2JB3awpytupgEv3fA==",
+				"shasum": "f5bceb9cb0f75d1c4d679e5f8f04ef11da986c67",
+				"tarball": "https://registry.npmjs.org/postcss-assets-cdn/-/postcss-assets-cdn-0.0.2.tgz",
+				"fileCount": 8,
+				"unpackedSize": 12620,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc626fCRA9TVsSAnZWagAA1rMQAJL3P+8hf3w1jEnPLUYf\nGrss7fX64Qh2zZdXkZJYCofTZirt+3GvZLMdQR5KhHuGdUUNSA5WcID5vCDd\nr45JS1Xj4EBxP1Sfj9tvMnoT5cyKk171rliS8LKwnzW36D6WDcd9sDASz6t/\nq5Os5ghCj9RdwIArg4dABv73IfffA9n7OXJQZCCOJ7clitUadFJdk4Th99on\nhkN05+hrk3QnyZgq9crYlUX5LEB/uOoJiOGPmCAkgZO5IJaiKAPXYX2O21RG\nuu3a+pWQM+0YjsENDaenkguiVTNLeUOk+SZAz5RoOTpaa8dkr4wP7P2SECNy\nWWeKhPFJOSXwkwiXDwaTjXRnY1zOFKCTe60I3N61MbyyNKKTKftDdPxzHIdt\no9vzpnfoqF7iTPt25yVuskOm2PnCH+j8FTSdIuK7jZXCSQPHHyQfn4LWsgXR\nFFjW7l7G14tuAxlivdY80R/gnJlRRL4AeBlmUSV76gLAoMAfGwaczR9OUcsb\nqrFaSsK1ol9h/q38eAinCI301Hq0xU9mq2402FYi6rIpBaqS8V81wDhhbjWu\nSV2hNBY+6hKBvuWCOlcqRw7B4bYQY98tlGB0vgSRFneWvTrN8I7LPaNa+vlQ\n3i1vSLjximUt4XjNDiC7IL5kI4xQwjwoP+aHImmC8XH8OVDDIFzTfGkv1fDe\nZVOH\r\n=YsDM\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCgRCAaW3m9oRFE4/tbrutmTSbIz4sA8uuYZ2MhnsrNgQIhAJNQ3nPuBbxLeoXLfG5ZfXaPkInV+np+xcMsnnBj0vJr"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "huixisheng",
+					"email": "469184346@qq.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-assets-cdn_0.0.2_1558933150818_0.47063395972735966"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.6": {
+			"name": "postcss-assets-cdn",
+			"version": "0.0.6",
+			"description": "postcss-assets-cdn",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"author": {
+				"name": "huixisheng"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/huixisheng/postcss-assets-cdn.git"
+			},
+			"bugs": {
+				"url": "https://github.com/huixisheng/postcss-assets-cdn/issues"
+			},
+			"homepage": "https://github.com/huixisheng/postcss-assets-cdn",
+			"main": "lib/index.js",
+			"dependencies": {
+				"ali-oss": "^6.1.1",
+				"postcss": "^6.0.23"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.14.0",
+				"babel-jest": "^21.0.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-env": "^1.6.0",
+				"babel-register": "^6.14.0",
+				"coveralls": "^2.11.15",
+				"eslint": "^4.6.1",
+				"eslint-config-postcss": "^2.0.2",
+				"jest-cli": "^21.0.1",
+				"npm-run-all": "^4.1.1",
+				"postcss-test-fixtures": "^1.0.0",
+				"rimraf": "^2.5.4",
+				"x-config-deploy": "^0.0.6"
+			},
+			"scripts": {
+				"prebuild": "rimraf lib",
+				"build": "babel src --out-dir lib",
+				"coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+				"lint": "eslint src/**/*.js --fix",
+				"release:patch": "npm test && npm run build && npm version patch",
+				"release:minor": "npm test && npm run build && npm version minor",
+				"release:major": "npm test && npm run build && npm version major",
+				"release:quick": "npm test && npm run build && git add -A && git commit -m 'Quick release patch' && npm version patch",
+				"postversion": "git push && git push --tags && npm publish --access public",
+				"pretest": "rimraf coverage",
+				"test": "npm run lint && npm run build && jest --coverage"
+			},
+			"license": "MIT",
+			"gitHead": "633ba6104ec13333bba753e7619a02b288e13692",
+			"_id": "postcss-assets-cdn@0.0.6",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "huixisheng",
+				"email": "469184346@qq.com"
+			},
+			"dist": {
+				"integrity": "sha512-Kk9uIMhede7ZziIpqjVxWAyJiat1Rnl2A8s51Mtq6956fJaCK/6mQGSIVatAdc3kJGtQw65gnl4CJGpq6Ib16A==",
+				"shasum": "f3efa24475a2360be26edbada713aae0bc9faa91",
+				"tarball": "https://registry.npmjs.org/postcss-assets-cdn/-/postcss-assets-cdn-0.0.6.tgz",
+				"fileCount": 8,
+				"unpackedSize": 12730,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc7gatCRA9TVsSAnZWagAAcrQP+wUMDSYFlzuWMzvzWYjm\n+7OfgBjZ1/4Dn/u5fL1AkmAT3nRuO0R14DWx629afzeQa6LcuzIUrFkP5U8S\nyLt99831oTYMku3Bx+izO8CvlKi08K2PMMdv+OqxYUMKjKthXqBx6uoE/uK6\nNL7d9TpARtu8+p2EfphuN9AQK8Y9pWyRPodJU04UN9oGa3+cpxRmXv09wm1L\n4VNFwAjdLcGZ/kqdLTM+y+3fKCRrQXRfcWo2zd+RGHzu23ty8nZJWtRuWeyC\nf1U4x/RdNZEOJTVDqgUE1FUSY3PaV07xjS0MyVh6sqm7+Y+WramC9tMu9YFD\nvUgAzRYzIlxdF2XPKCzn9GrwfXxoQAEvTJ0GcDbK6BwOWx7pJabD0/WWCz/H\ntnIM1b0hu+CPKbwyyHP2N91PMGejQtwjZkAThx+b1B0rSeTeSNBf0OWjjaUv\nFNUW1MthvAXRLPbavZUwewtvBG6mSJCikF2hADIkB/cF+j9YwBrnmkzV80D5\n0UNf8DRKaorfaZX+n8UWGU5fsLZzBOLCZgwnf4njqgk1o81ufkjttT9g97W2\nQ983gFApZQ0mVM6wuRiL5i82vd/opYWLSojFTjkkrTzatiVDeIW00r/DTRVr\n06l6XxmnkPC36fAPVBX//VsFwE4rlYApD8o0C9y8EQg7J4mialS8Z7WeNxuC\ntboF\r\n=Ol+R\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDqYXxcMUQGSMI7pWCJwcnjiUapNzKwe6MhrhQvIBbTKAiBCk0E/XFRvcsQ/dQLhpcim7v+AQxV3HMZLuonwEmbTOA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "huixisheng",
+					"email": "469184346@qq.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-assets-cdn_0.0.6_1559103148894_0.14911382117617067"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.7": {
+			"name": "postcss-assets-cdn",
+			"version": "0.0.7",
+			"description": "postcss-assets-cdn",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"author": {
+				"name": "huixisheng"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/huixisheng/postcss-assets-cdn.git"
+			},
+			"bugs": {
+				"url": "https://github.com/huixisheng/postcss-assets-cdn/issues"
+			},
+			"homepage": "https://github.com/huixisheng/postcss-assets-cdn",
+			"main": "lib/index.js",
+			"dependencies": {
+				"ali-oss": "^6.1.1",
+				"postcss": "^6.0.23"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.14.0",
+				"babel-jest": "^21.0.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-env": "^1.6.0",
+				"babel-register": "^6.14.0",
+				"coveralls": "^2.11.15",
+				"eslint": "^4.6.1",
+				"eslint-config-postcss": "^2.0.2",
+				"jest-cli": "^21.0.1",
+				"npm-run-all": "^4.1.1",
+				"postcss-test-fixtures": "^1.0.0",
+				"rimraf": "^2.5.4",
+				"x-config-deploy": "^0.0.6"
+			},
+			"scripts": {
+				"prebuild": "rimraf lib",
+				"build": "babel src --out-dir lib",
+				"coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+				"lint": "eslint src/**/*.js --fix",
+				"release:patch": "npm test && npm run build && npm version patch",
+				"release:minor": "npm test && npm run build && npm version minor",
+				"release:major": "npm test && npm run build && npm version major",
+				"release:quick": "npm test && npm run build && git add -A && git commit -m 'Quick release patch' && npm version patch",
+				"postversion": "git push && git push --tags && npm publish --access public",
+				"pretest": "rimraf coverage",
+				"test": "npm run lint && npm run build && jest --coverage"
+			},
+			"license": "MIT",
+			"gitHead": "076e21974dc83cfe4ff0a6be989fbd0ac8099d46",
+			"_id": "postcss-assets-cdn@0.0.7",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "huixisheng",
+				"email": "469184346@qq.com"
+			},
+			"dist": {
+				"integrity": "sha512-GXfnl3QSpgsfYuFOVHgbCMBwQ31eOkIvJxazrJZGy3WsoD+9IMSMujED9RuC05tvbMEZl2YODfteZ7wCZ3L7lQ==",
+				"shasum": "371e2c291cc33f1ef868071ce86c288cd28640fa",
+				"tarball": "https://registry.npmjs.org/postcss-assets-cdn/-/postcss-assets-cdn-0.0.7.tgz",
+				"fileCount": 8,
+				"unpackedSize": 12730,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc7i8kCRA9TVsSAnZWagAAYGYP/iknITU3HZPgXgTNC4ie\n51TJRZW+54HXwt1iYqgSGUu7ysT20w1EurPWB9739kvpuwp0ZayToHhuA1+x\n4gVuMgIIGnMJ4q2M7WicRqtkIS7TT3Q9U00akpnhluWoThB3ZejzoyKXrfvq\ngwzpgIPF7s08NVmdUuV0hWQVi4oNqWYLw8E95xUbouQIEmL5YEbqNG365Mpw\nourLWMFJZjdUHtF2FtUdaqOgATQZwL7J2mOP6x2mQ3d1MjpXdHIA2O/LcMbt\ntLMHfPqS1K4IYF1CP9bqX5L8uy291BfY88GZuegY8tBfHvRcbW4Ojz0zgFxZ\nZZloq+wyWsMyE7BOP5HQO16tn16facEtzYn6s5lfCz80QmbuPaGmBjrxC8il\nCa0p4UR1LYb5phtjmgcwtp6rKAmIby3p2GvQDtJb5zQKsvB2/+wrSxThzw6m\nJYBHLG166VQPEelzGW9VDQ8Zbz9XCiPyvixE9AytYgWv5197qWlH1fvpTsE6\nozbR11QECD4dhKlFVaC0SP0x7pfja66pX/C/MF1EdvoR/MfSeeMYqeq4pSD4\n9M2BTcb2HtzrJicdrUQbqDfgfZ4Lmy7OadSTWXigUNPqqpKjpcnmjsDqVaTm\nJxi32zIaBcm8H4WPbLjwQpd8N0C7R6KjWInKCIfOX8T1Zi5p2Qg2HC5E+iiM\n6y0y\r\n=tORA\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDHYYUlg3yQg3s8w2vXtgMtuctJVVNcdCcvAukRmxzmPwIhAKeua9+WxgTaXvstCB0td7R9S04u8A58UlXj7j7ROxWI"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "huixisheng",
+					"email": "469184346@qq.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-assets-cdn_0.0.7_1559113508263_0.9643520448765563"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.8": {
+			"name": "postcss-assets-cdn",
+			"version": "0.0.8",
+			"description": "postcss-assets-cdn",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"author": {
+				"name": "huixisheng"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/huixisheng/postcss-assets-cdn.git"
+			},
+			"bugs": {
+				"url": "https://github.com/huixisheng/postcss-assets-cdn/issues"
+			},
+			"homepage": "https://github.com/huixisheng/postcss-assets-cdn",
+			"main": "lib/index.js",
+			"dependencies": {
+				"ali-oss": "^6.1.1",
+				"postcss": "^6.0.23"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.14.0",
+				"babel-jest": "^21.0.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-env": "^1.6.0",
+				"babel-register": "^6.14.0",
+				"coveralls": "^2.11.15",
+				"eslint": "^4.6.1",
+				"eslint-config-postcss": "^2.0.2",
+				"jest-cli": "^21.0.1",
+				"npm-run-all": "^4.1.1",
+				"postcss-test-fixtures": "^1.0.0",
+				"rimraf": "^2.5.4",
+				"x-config-deploy": "^0.0.6"
+			},
+			"scripts": {
+				"prebuild": "rimraf lib",
+				"build": "babel src --out-dir lib",
+				"coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+				"lint": "eslint src/**/*.js --fix",
+				"release:patch": "npm test && npm run build && npm version patch",
+				"release:minor": "npm test && npm run build && npm version minor",
+				"release:major": "npm test && npm run build && npm version major",
+				"release:quick": "npm test && npm run build && git add -A && git commit -m 'Quick release patch' && npm version patch",
+				"postversion": "git push && git push --tags && npm publish --access public --registry=https://registry.npmjs.org/",
+				"pretest": "rimraf coverage",
+				"test": "npm run lint && npm run build && jest --coverage"
+			},
+			"license": "MIT",
+			"gitHead": "f94c5acce17878d6a79a28e0359948fd32f264a1",
+			"_id": "postcss-assets-cdn@0.0.8",
+			"_nodeVersion": "10.16.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-5ZOfhP4uZhBoz3P+nVs5q/cKZ3k7UCkZtHvkOojHisgJs6ETM0tPI2Z890flGNAIdu4yNvMxJdqXwzm1+JjyWg==",
+				"shasum": "d6919818226c3d4d3973e3d3f24472f9f704c888",
+				"tarball": "https://registry.npmjs.org/postcss-assets-cdn/-/postcss-assets-cdn-0.0.8.tgz",
+				"fileCount": 8,
+				"unpackedSize": 12778,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdMydDCRA9TVsSAnZWagAA50gQAKTzXuR+saNReiU6JBz2\n4hEg3NyaSrMvaohH7nptyicbxDqX+jYYlIhpwRpXrcTozczKUFXuEEbDlwYQ\nDQlqkl0vmhAIT1fzNuF1RpYwCKeziYtDuc4Y1ocZJ6DfFBBTxGbQxxpXcpmh\nhf65Fprj8MsQXgTddqYCmRzs3MB30rHAv8GIwlUDReqwKoHSvrFlAGBGcmTN\nv7xeQu10DS5F4vcg7IvvEqos2udxQWuvEfxn4/i+JmNHUlg2awbwyb3XimLN\nZpqoBsbJKO84LChypvn6Dz1wvJhWxebW3r3S1vSRHxMRA6wbEsJSJFdqNVQ5\n38/+h38yBZS5ZkzDQZyR2nYxRvwBa731PDGWt7DgYR757vyNVuNDO88bAQ85\nvhdGmwj/DLsqEjYwMfUnDKQjpbj+Lf+CLh9YjCc1qQz18vweyM1dWftWulXs\n3uVWNuvnd7F8bAThNdvZuaeAVR8jzQDIg06nEgkZBwloUUOWr5LTMbzgHceQ\nfAeUOZosyJiGXNBO3RtwnKFdaQ43GtMkrSDKSLhe7936l6AGiEw8im91uqNh\nDc2YEk6YMNWKTJud9ko8CwGVoE9nHzFzieWdM2W6cn17L8n4ftCoqYb9cNO5\n07CjO18Vm5ICL7Zo0pt/LF5hFZpsfrtH5NbBhiTiEw8+AyVkYyVVhhRZGzhu\niYga\r\n=ZoNm\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD58EpcAAK6KNJKUMNjLU+NUp/tvrpSqY7gwd9DTS/RwgIhANADgI5b7kTS6sEuQrcaOKw+JpCHM6QC/pvh17fYdaef"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "huixisheng",
+					"email": "469184346@qq.com"
+				}
+			],
+			"_npmUser": {
+				"name": "huixisheng",
+				"email": "469184346@qq.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-assets-cdn_0.0.8_1563633474861_0.42456954683171255"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2019-05-27T03:13:22.589Z",
+		"0.0.1": "2019-05-27T03:13:22.732Z",
+		"modified": "2022-05-13T06:03:26.625Z",
+		"0.0.2": "2019-05-27T04:59:10.909Z",
+		"0.0.3": "2019-05-29T03:06:45.072Z",
+		"0.0.4": "2019-05-29T03:24:06.764Z",
+		"0.0.5": "2019-05-29T03:48:15.577Z",
+		"0.0.6": "2019-05-29T04:12:29.036Z",
+		"0.0.7": "2019-05-29T07:05:08.347Z",
+		"0.0.8": "2019-07-20T14:37:54.990Z"
+	},
+	"maintainers": [
+		{
+			"name": "huixisheng",
+			"email": "469184346@qq.com"
+		}
+	],
+	"description": "postcss-assets-cdn",
+	"homepage": "https://github.com/huixisheng/postcss-assets-cdn",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/huixisheng/postcss-assets-cdn.git"
+	},
+	"author": {
+		"name": "huixisheng"
+	},
+	"bugs": {
+		"url": "https://github.com/huixisheng/postcss-assets-cdn/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-assets-cdn [![Build Status][travis-image]][travis-url] [![Coverage percentage][coveralls-image]][coveralls-url]\n\n> postcss-assets-cdn\n\nThis [PostCSS] plugin will transform this:\n\n```\n.foo {\n  background: url('/assets/alipay.png')\n}\n```\n\nTo this:\n\n```\n.foo {\n  background: url(https://huixisheng.github.com/Fg0s0GU_xDPd2rOgAYYikJDTiEhL)\n}\n```\n\n## Installation\n\n```\nnpm i -D postcss-assets-cdn\n```\n\n## Usage\n\n```\npostcss([ require('postcss-assets-cdn') ])\n```\n\n## Config\n\n```\nbaseUrl: configDeploy.get('ossConfig.baseUrl'),\ncache: '.cache.json',\nossConfig: {\n    accessKeyId: configDeploy.get('ossConfig.accessKeyId'),\n    accessKeySecret: configDeploy.get('ossConfig.accessKeySecret'),\n    bucket: configDeploy.get('ossConfig.bucket'),\n    endpoint: configDeploy.get('ossConfig.endpoint'),\n    https: true,\n    delDistImg: false,\n    region: configDeploy.get('ossConfig.region')\n}\n```\n\n> install x-config-deploy Setting to configure sensitive information\n\n[coveralls-image]: https://coveralls.io/repos/huixisheng/postcss-assets-cdn/badge.svg\n[coveralls-url]: https://coveralls.io/r/huixisheng/postcss-assets-cdn\n[travis-image]: https://travis-ci.org/huixisheng/postcss-assets-cdn.svg?branch=master\n[travis-url]: https://travis-ci.org/huixisheng/postcss-assets-cdn\n[PostCSS]: https://github.com/postcss/postcss\n",
+	"readmeFilename": "README.md"
+}

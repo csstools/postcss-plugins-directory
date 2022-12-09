@@ -1,0 +1,129 @@
+{
+	"_id": "postcss-clear-empty-strings",
+	"_rev": "2-c459be35ac96ec1cc43feddffba4a2ed",
+	"name": "postcss-clear-empty-strings",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-clear-empty-strings",
+			"version": "1.0.0",
+			"description": "PostCSS plugin remove declaration with empty values",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"clear-empty"
+			],
+			"author": {
+				"name": "shrpne",
+				"email": "shrpne@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/shrpne/postcss-clear-empty-strings.git"
+			},
+			"bugs": {
+				"url": "https://github.com/shrpne/postcss-clear-empty-strings/issues"
+			},
+			"homepage": "https://github.com/shrpne/postcss-clear-empty-strings",
+			"dependencies": {
+				"postcss": "^6.0.16"
+			},
+			"devDependencies": {
+				"eslint": "^4.15.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^21.0.0"
+			},
+			"scripts": {
+				"test": "jest && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"rules": {
+					"indent": [
+						"error",
+						4,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"max-len": [
+						"off"
+					]
+				},
+				"env": {
+					"jest": true
+				}
+			},
+			"gitHead": "4ce39960ee5d612b4139cfe0fb95c06c3e1fb287",
+			"_id": "postcss-clear-empty-strings@1.0.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "shrpne",
+				"email": "shrpne@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-B4LoFQ6np2aw0urLXBPLWFZi2UG5Qj/KfiGMHqAhS/RSYDLRczn7ts9dl22k2APckbfq6tNMPE08xwjVB/s1hQ==",
+				"shasum": "24d9d317ca496aa77c23ad838ce7bd7fcc9a3395",
+				"tarball": "https://registry.npmjs.org/postcss-clear-empty-strings/-/postcss-clear-empty-strings-1.0.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 25511,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIF5Kneb9Dc9NkIj6oxPOMJ8TOvcvTz3wjGbOjnEpdNiWAiAhTShoWaGIBqb+hgdJn2rCeltmBPMOAXwUwz3xiNjnZg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "shrpne",
+					"email": "shrpne@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-clear-empty-strings_1.0.0_1519578747598_0.26905364414130784"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-02-25T17:12:27.598Z",
+		"1.0.0": "2018-02-25T17:12:27.709Z",
+		"modified": "2022-05-13T06:07:35.938Z"
+	},
+	"maintainers": [
+		{
+			"name": "shrpne",
+			"email": "shrpne@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin remove declaration with empty values",
+	"homepage": "https://github.com/shrpne/postcss-clear-empty-strings",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"clear-empty"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/shrpne/postcss-clear-empty-strings.git"
+	},
+	"author": {
+		"name": "shrpne",
+		"email": "shrpne@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/shrpne/postcss-clear-empty-strings/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Clear Empty Strings [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin remove declarations with empty values, except `content` property.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/shrpne/postcss-clear-empty-strings.svg\n[ci]:      https://travis-ci.org/shrpne/postcss-clear-empty-strings\n\nIf you use CSS framework like [Bootstrap](https://getbootstrap.com/) or [Uikit](https://getuikit.com/), you can override their variables with empty string to remove declaration which use that variable.\n\n```scss\n/* Bootstrap scss source */\nh1, .h1 { font-size: $h1-font-size; }\nh2, .h2 { font-size: $h2-font-size; }\nh3, .h3 { font-size: $h3-font-size; }\nh4, .h4 { font-size: $h4-font-size; }\nh5, .h5 { font-size: $h5-font-size; }\nh6, .h6 { font-size: $h6-font-size; }\n\n/* Your scss variables */\n$h1-font-size: 32px;\n$h2-font-size: 24px;\n$h3-font-size: 16px;\n$h4-font-size: \"\";\n$h5-font-size: \"\";\n$h6-font-size: \"\";\n\n/* css output generated from scss */\nh1, .h1 { font-size: 32px; }\nh2, .h2 { font-size: 24px; }\nh3, .h3 { font-size: 16px; }\nh4, .h4 { font-size: \"\"; }\nh5, .h5 { font-size: \"\"; }\nh6, .h6 { font-size: \"\"; }\n\n/* postcss-clear-empty-string */\nh1, .h1 { font-size: 32px; }\nh2, .h2 { font-size: 24px; }\nh3, .h3 { font-size: 16px; }\nh4, .h4 { }\nh5, .h5 { }\nh6, .h6 { }\n\n/* minify */\nh1,.h1{font-size:32px}h2,.h2{font-size:24px}h3,.h3{font-size:16px}\n```\n\n\n## Usage\n\n```js\npostcss([ require('postcss-clear-empty-strings') ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n",
+	"readmeFilename": "README.md"
+}

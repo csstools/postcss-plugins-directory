@@ -1,0 +1,108 @@
+{
+	"name": "fix-postcss-flexibility-mao",
+	"version": "3.0.2",
+	"description": "PostCSS plugin for fix-Flexibility polyfill",
+	"main": "index.es5.js",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"flex",
+		"flexbox",
+		"polyfill",
+		"flexibility"
+	],
+	"author": {
+		"name": "Valentin Semirulnik",
+		"email": "v7rulnik@gmail.com",
+		"url": "https://7rulnik.me/"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/7rulnik/postcss-flexibility.git"
+	},
+	"bugs": {
+		"url": "https://github.com/7rulnik/postcss-flexibility/issues"
+	},
+	"homepage": "https://github.com/7rulnik/postcss-flexibility",
+	"devDependencies": {
+		"@babel/cli": "^7.8.4",
+		"@babel/core": "^7.8.4",
+		"@babel/preset-env": "^7.8.4",
+		"babel-eslint": "^7.2.3",
+		"babel-jest": "^25.1.0",
+		"chokidar-cli": "^2.1.0",
+		"coveralls": "^3.0.9",
+		"eslint": "^6.8.0",
+		"eslint-config-xo": "^0.18.2",
+		"eslint-plugin-babel": "^4.1.1",
+		"eslint-plugin-jest": "^23.7.0",
+		"eslint-plugin-require-path-exists": "^1.1.7",
+		"jest": "^25.1.0",
+		"npm-run-all": "^4.1.5",
+		"nyc": "^15.0.0",
+		"postcss": "^8.0.0",
+		"rimraf": "^3.0.2"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"scripts": {
+		"watch": "npm run transpile -- --watch",
+		"coverage": "nyc -r=text -r=lcov npm test",
+		"precoveralls": "npm run coverage",
+		"coveralls": "coveralls < coverage/lcov.info",
+		"test": "jest",
+		"tdd": "npm test -- --watch",
+		"lint": "eslint index.js index.spec.js",
+		"transpile": "babel index.js --out-file index.es5.js",
+		"prepublish": "npm run transpile",
+		"clean": "rimraf index.es5.js",
+		"push": "git push --follow-tags",
+		"postpublish": "npm-run-all clean push"
+	},
+	"jest": {
+		"transform": {
+			"^.+\\.js$": "babel-jest"
+		}
+	},
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"dependencies": {},
+	"_id": "fix-postcss-flexibility-mao@3.0.2",
+	"_nodeVersion": "14.13.1",
+	"_npmVersion": "6.14.8",
+	"dist": {
+		"integrity": "sha512-rIaWi0X0XEsmpQsw2sVfyl2SGM8+FHMWXgKj3xcR59IOwYCIYlmyNmdsNiiSXvUJl0IsiQ5ze5iEte+7Cu34AQ==",
+		"shasum": "03ec5294bcc3a20b5d8f6a8c9aa41442d5b0fd04",
+		"tarball": "https://registry.npmjs.org/fix-postcss-flexibility-mao/-/fix-postcss-flexibility-mao-3.0.2.tgz",
+		"fileCount": 5,
+		"unpackedSize": 6173,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2rKRCRA9TVsSAnZWagAAXBgP/0KkQWb8k8a2FS4xHAbs\nRWaFkGT8+Af2O+DFRiKlRthZUZBVv560j5etmrPDlg3nqlXNA1iVp5/dPKBm\nlAZqm7B786vQDcScyXXDaFH5+5i24gbfY/u4kYPPso5DCYiFYkBn1Z2UlQq3\nC/ov6c0f5t/q+e8C32N3miK+sg+DPFuigfzwbJmarNJsgJQ3gPN3SH1ANxU5\ntF4NlNrZ76uDstvzU3OHVISH63Y1m/VcsdWjG4yLGIQHIIzeFJjgomxmX747\nWaeVo3QqlYtfZOepbHCH1+6RxKS0gtuUTVS0vXy845UqofNLOiwOxqLxsd7G\nXUFa8qPTZmzD0haZwSFUw4PPUz0j8uF9/5cKM9jZ8DrGwnTrgt0deSo+BzVS\nJ2Jhuql4wWhcGOcguKHf1IZzDedFsa6YTOfO/kvbeBWIvud9Cmb0uvKPMoEd\njrfHqhockT+WhACLuNvkrsAtJREdkHecMui0UuXddbho9I+FeT2hv/5zggal\n9d4X3xb67c/e780QCBGggV0D3hKNvYe1e2B4m8bjjL2LfrqttbmzK3h8qBGg\n2xJBkriwRD9j6cPfugpdaRO+df1Zq9lpm92UBjfEjs59u3kLulO0d9dBl7ct\nSs99+zxzMKNWEwbStkGPZ8kc9vIDsuO7wWm8s0pp+9rG9+bml6OLjVsd5PYl\nXG9a\r\n=C6Lu\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDFEAXlhu7Gz4did63SKMbxSqDjcJ/Koitqsth3a55HmAIhALFvI9wjrfDHKXhA7rGmHvsnknWFoeBxi0S0lXTcuLz/"
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "maozhi0720",
+		"email": "maozhijob@163.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "maozhi0720",
+			"email": "maozhijob@163.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/fix-postcss-flexibility-mao_3.0.2_1634781910048_0.18035187638400818"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2021-10-21T02:05:10.216Z"
+}

@@ -1,0 +1,113 @@
+{
+	"_id": "postcss-hide",
+	"_rev": "3-6eb7947663d2aedb9fab9abd8f0e0142",
+	"name": "postcss-hide",
+	"description": "PostCSS plugin that adds shortcuts to hiding elements",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-hide",
+			"version": "0.1.0",
+			"description": "PostCSS plugin that adds shortcuts to hiding elements",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"hide"
+			],
+			"author": {
+				"name": "Simon Smith",
+				"email": "me@simonsmith.io"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/simonsmith/postcss-hide.git"
+			},
+			"main": "build/index.js",
+			"dependencies": {
+				"array.prototype.find": "^1.0.0",
+				"object-assign": "^3.0.0",
+				"postcss": "^4.1.12"
+			},
+			"devDependencies": {
+				"babel": "^5.6.4",
+				"chai": "^3.0.0",
+				"gulp": "^3.9.0",
+				"gulp-babel": "^5.1.0",
+				"gulp-eslint": "^0.14.0",
+				"gulp-mocha": "^2.1.2"
+			},
+			"scripts": {
+				"test": "gulp",
+				"build": "gulp build",
+				"prepublish": "npm run build"
+			},
+			"gitHead": "b9ea90e36ec374dcd9742592e05a25c78ae40f18",
+			"bugs": {
+				"url": "https://github.com/simonsmith/postcss-hide/issues"
+			},
+			"homepage": "https://github.com/simonsmith/postcss-hide#readme",
+			"_id": "postcss-hide@0.1.0",
+			"_shasum": "b920085f195d99a47a311aa87c800917644b714c",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "simonsmith",
+				"email": "me@simonsmith.io"
+			},
+			"maintainers": [
+				{
+					"name": "simonsmith",
+					"email": "me@simonsmith.io"
+				}
+			],
+			"dist": {
+				"shasum": "b920085f195d99a47a311aa87c800917644b714c",
+				"tarball": "https://registry.npmjs.org/postcss-hide/-/postcss-hide-0.1.0.tgz",
+				"integrity": "sha512-m4csNuJjrAYQ6W3ailv8JS0z2j1HlhPlLYBK8RpBq+y0LWnbJaJ0JlirvhmHWUVoJmNsrDNGUh0YXLrQ0bIhdw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDmqHJ8066kAj9hPyMToE6BCWVPn5MWD3akuXkhuxDQKgIgX9PV+PrzZap6fdhUE3z5OV7R3iNUVPr3r8lUAAPuXrc="
+					}
+				]
+			}
+		}
+	},
+	"readme": "# postcss-hide [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin that adds shortcuts to hiding elements.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/simonsmith/postcss-hide.svg\n[ci]:      https://travis-ci.org/simonsmith/postcss-hide\n\n### Installation\n\n```console\n$ npm install postcss-hide --save-dev\n```\n\n### Usage\n\n#### `all`\n\nHide visually and from screen readers\n\n``` css\n.all {\n  hide: all;\n}\n```\n\n``` css\n.all {\n  display: none !important;\n}\n```\n\n#### `invisible`\n\nHide visually and from screen readers, but maintain layout\n\n``` css\n.invisible {\n  hide: invisible;\n}\n```\n\n``` css\n.invisible {\n  visibility: hidden;\n}\n```\n\n#### `text`\n\nImage replacement, not widely used but present in Bootstrap.\n\n``` css\n.text-hide {\n  hide: text;\n}\n```\n\n```css\n.text-hide {\n  font: 0/0 a;\n  color: transparent;\n  text-shadow: none;\n  background-color: transparent;\n  border: 0;\n}\n```\n\n#### `visually`\n\nHide visually but not from screenreaders\n\n``` css\n.visuallyhidden {\n  hide: visually;\n}\n```\n\n``` css\n.visuallyhidden {\n  position: absolute !important;\n  overflow: hidden !important;\n  width: 1px !important;\n  height: 1px !important;\n  padding: 0 !important;\n  border: 0 !important;\n  clip: rect(1px, 1px, 1px, 1px) !important;\n}\n```\n\n### `focusable`\n\nExtends the `visually` declarations to allow the element\nto be focusable when navigated to via the keyboard\n\n``` css\n.visuallyhidden.focusable:focus,\n.visuallyhidden.focusable:active {\n  hide: focusable;\n}\n```\n\n``` css\n.visuallyhidden.focusable:focus,\n.visuallyhidden.focusable:active {\n  clip: auto !important;\n  height: auto !important;\n  margin: 0 !important;\n  overflow: visible !important;\n  position: static !important;\n  width: auto !important;\n}\n```\n\n### Options\n\n#### `overrides`\n\nOverwrite the default styles using a configuration object\n\n``` js\nimport postcss from 'postcss';\nimport hide from 'postcss-hide';\n\npostcss.use(hide({\n  overrides: {\n    all: 'display: none; overflow: hidden;'\n  }\n}));\n```\n\nSee [PostCSS] docs for examples for your environment.\n",
+	"maintainers": [
+		{
+			"name": "simonsmith",
+			"email": "me@simonsmith.io"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:07:05.493Z",
+		"created": "2015-06-27T22:49:30.613Z",
+		"0.1.0": "2015-06-27T22:49:30.613Z"
+	},
+	"homepage": "https://github.com/simonsmith/postcss-hide#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"hide"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/simonsmith/postcss-hide.git"
+	},
+	"author": {
+		"name": "Simon Smith",
+		"email": "me@simonsmith.io"
+	},
+	"bugs": {
+		"url": "https://github.com/simonsmith/postcss-hide/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

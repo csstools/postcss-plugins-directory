@@ -1,0 +1,149 @@
+{
+	"name": "@outstand/postcss-extend-rule",
+	"version": "4.1.2",
+	"description": "Use the @extend at-rule and functional selectors in CSS",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-extend-rule.git"
+	},
+	"homepage": "https://github.com/csstools/postcss-extend-rule#readme",
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-extend-rule/issues"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"scripts": {
+		"build": "rollup --config .rollup.js --silent",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "npm run lint && npm run test:tape",
+		"lint": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+		"test:tape": "postcss-tape"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"dependencies": {
+		"postcss-nesting": "^10.1.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.17.2",
+		"@babel/eslint-parser": "^7.17.0",
+		"@babel/preset-env": "^7.16.11",
+		"eslint": "^8.8.0",
+		"postcss": "^8.4.17",
+		"postcss-tape": "^6.0.1",
+		"rollup": "^2.67.2",
+		"rollup-plugin-babel": "^4.4.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4.6"
+	},
+	"postcssConfig": {
+		"config": ".tape.js"
+	},
+	"eslintConfig": {
+		"env": {
+			"es6": true,
+			"node": true
+		},
+		"extends": "eslint:recommended",
+		"rules": {
+			"quotes": [
+				"error",
+				"single"
+			],
+			"comma-dangle": [
+				"error",
+				"always-multiline"
+			],
+			"semi": [
+				"error",
+				"always"
+			],
+			"curly": "error",
+			"brace-style": "error",
+			"indent": [
+				"error",
+				"tab",
+				{
+					"SwitchCase": 1
+				}
+			],
+			"radix": "error"
+		},
+		"parserOptions": {
+			"ecmaVersion": 2020,
+			"sourceType": "module"
+		},
+		"root": true
+	},
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"extend",
+		"matched",
+		"matches",
+		"match",
+		"selectors",
+		"subclassing",
+		"subclasses",
+		"subclass",
+		"styling",
+		"styles",
+		"style",
+		"placeholder",
+		"placehold",
+		"selectors",
+		"selector",
+		"chaining"
+	],
+	"gitHead": "0ec0bbba769ca5e0193764290351bc358bf24b0c",
+	"_id": "@outstand/postcss-extend-rule@4.1.2",
+	"_nodeVersion": "16.15.1",
+	"_npmVersion": "8.11.0",
+	"dist": {
+		"integrity": "sha512-CV8dLxhVn2e+dg4CXZ6DuTjAackVrXWxJ3XJaLtth5P4ITP+auAx6ruxVXgjjbSSlSSGxCKg8z0USMetHnpAvA==",
+		"shasum": "6be020837f7733d89a1aaca7f38531cd67d4f376",
+		"tarball": "https://registry.npmjs.org/@outstand/postcss-extend-rule/-/postcss-extend-rule-4.1.2.tgz",
+		"fileCount": 6,
+		"unpackedSize": 26142,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIA7vr83SSyv/5Su/YtWKyJCIZ1OQ7MB6X2XvtQiXk4HNAiEAqkMNdFxVoceOPwJVvnpa9Oet9eS60nT4IZrJz/jS3DE="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjPxNrACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp0ww/7BYyIe9Oxdrx08q4wjfAqrcZTAz/W5vdVlZ0VH60Jw/eks/sG\r\nFWI999xtI8GC5tn2z3fDqkwlrUguhERF5QZUorA6gB8VGUJPlfjElqHZtPq9\r\nRzZ22eoagaUG1MIrksmtFBuSzjikDcwZ6VS29yAUNXC/5l4jvRbO/AIdQORJ\r\notvVd2KT/8sSYnVbcj+ELFgG8dgFruL6flncIab7V6r0oMLLIJ0RVXsMu+Mn\r\nIDAUUKXzow/ziErWkNjCg/0Iyncj18Uuuc47KDKrUb8NlV/SfVeftINBX5LT\r\naDwWHMQAgrBJZkNc7fWbbI1Hnbdvq3ZxnSNhgMo5lnVSCBJGGrWMp19oCAL+\r\nvHJoZxysd+Jx4YuZuP1iN6DsfEj6Z7FtDnwqFAt8aNNMQP7MPTE4wVLCMOG+\r\nzS0Pr931RBeMcWZsV9T5DGsp7XrSSYSjUOC2Ep+G540RvSmGE42peL94TRWh\r\nwP45Yp4PQa25SSDEHQkttvnIoUFIxNtmuJYTb9xY7QPbenHkmvtEGE3zYXM9\r\nYqAV3s6Z1KJppY8CazCkG1LDUpfxoQTmUqBad/yMe0V5/sOmldiI5TiLP+kZ\r\nsShae18AhQAWj6WORejCyWUW4M1ZOOodwzbVHSrHNDWTOU9RqUjO9UbBvyep\r\nq74LmrvD5guJGQgibIJYKXcDHvzlQ+TFU54=\r\n=gLRP\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "ryansch",
+		"email": "ryan@ryanschlesinger.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "ryansch",
+			"email": "ryan@ryanschlesinger.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-extend-rule_4.1.2_1665078122858_0.4396442403244112"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-10-06T17:42:03.044Z"
+}

@@ -1,0 +1,744 @@
+{
+	"_id": "@softmotions/postcss-typescript-css",
+	"_rev": "6-5e5f2a2048c4fc2bb4405efa3209c46a",
+	"name": "@softmotions/postcss-typescript-css",
+	"dist-tags": {
+		"latest": "0.2.6"
+	},
+	"versions": {
+		"0.2.1": {
+			"name": "@softmotions/postcss-typescript-css",
+			"version": "0.2.1",
+			"description": "PostCSS plugin to create a typescript file by each CSS file",
+			"main": "dist/postcss-typescript-css",
+			"scripts": {
+				"clean": "rimraf dist coverage *.log",
+				"copyFakePostcssFile": "cpx \"src/spec/styles/*\" dist/spec/styles/",
+				"compile": "npm run clean && tsc",
+				"compile:watch": "tsc --watch",
+				"lint": "npm run tslint \"src/**/*.ts\"",
+				"test": "nyc ava",
+				"test:watch": "ava --watch",
+				"tslint": "tslint --project tsconfig.json",
+				"precommit": "npm test",
+				"pretest": "npm run lint && npm run clean && tsc && npm run copyFakePostcssFile",
+				"report-coverage": "codecov -f coverage/lcov.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:ezavile/postcss-typescript-css.git"
+			},
+			"author": {
+				"name": "Edgar Zavala",
+				"email": "ezavile@gmail.com"
+			},
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"typescript",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/ezavile/postcss-typescript-css/issues"
+			},
+			"homepage": "https://github.com/ezavile/postcss-typescript-css",
+			"ava": {
+				"files": [
+					"dist/spec/*.spec.js"
+				],
+				"source": [
+					"dist/**/*.js"
+				]
+			},
+			"nyc": {
+				"lines": 100,
+				"statements": 100,
+				"functions": 100,
+				"branches": 100,
+				"include": [
+					"dist/**/*.js"
+				],
+				"exclude": [
+					"dist/**/*.spec.js",
+					"dist/namespace/*.js"
+				],
+				"reporter": [
+					"lcov",
+					"text"
+				],
+				"cache": true,
+				"all": true,
+				"check-coverage": true
+			},
+			"devDependencies": {
+				"@types/core-js": "0.9.41",
+				"@types/node": "7.0.12",
+				"ava": "0.19.1",
+				"codecov": "2.1.0",
+				"core-js": "2.4.1",
+				"cpx": "1.5.0",
+				"husky": "0.13.3",
+				"nyc": "10.2.0",
+				"rimraf": "2.6.1",
+				"tslint": "5.1.0",
+				"typescript": "2.2.2"
+			},
+			"dependencies": {
+				"camelcase": "4.1.0",
+				"postcss": "5.2.17",
+				"postcss-selector-parser": "2.2.3"
+			},
+			"licenseText": "MIT License\n\nCopyright (c) 2017 Edgar Zavala\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+			"_id": "@softmotions/postcss-typescript-css@0.2.1",
+			"dist": {
+				"shasum": "e9a5ac7ed925019e988144aa568d790b5bf19842",
+				"integrity": "sha512-9nfNEWjt11Vmjq9HUsr6lwnd+4Yt7WweKDir8UziQwhuXzf980vr+12x4mhtBUwV+XzpTltOiYlGn2kHc2Ui+g==",
+				"tarball": "https://registry.npmjs.org/@softmotions/postcss-typescript-css/-/postcss-typescript-css-0.2.1.tgz",
+				"fileCount": 19,
+				"unpackedSize": 11204,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWmJMCRA9TVsSAnZWagAA96AP/Apo+yoLaJKtbpSCsWir\nR/mlF3WeRokQr5C8/betkUQoVu08Xm6298U42sII/2X62LiuIFdM+b63CZ0h\nl5zdODcDxdjzEb5XSm1BliydAU7IBnEldFrXPffXX4TRluLwfVJm8UgFau7r\neDhgA0u6pkhgftVbrR9oQcmTRAr9bObzSBcbN0tIfeWs78whMWLw1yLmfxG0\nwETaHkCkNaMcFU5PrEPn8fqv8UXZ1tHhkU/V9e3Eaq1nwpwVqaAbnzDKxgM5\nELWbqICfxHcSyPHqvgNs2NTK9BrRp0j5cFFMBib2dJ81w8hCN8MJbgmzfH6l\nOA4ydIGk3vpuNMFeHi/4NbQIKnhbuDKRIlT9KsAo4/SiqD6i1M8qI0Vlyuv4\nDXlJxWUtFhSVAfz6DzA0NAXLeZYMowXRGDX5mihUzbvkd01053I0ocZ7P5Wc\nHkRWA6WxWj04m2aOxouO5Ph66GgG5J+GR1K5CfPqaA8tRo9/Yers8jbznBfF\naUe3XqE57TOqqEwMN+ClNR3m5yP7SHo07Vxir+9mC9h3YrAagl4TDDjJGFIS\nmLzmxAPI6UVeeUGrSSzsxtT9Y2ec9TPhpLvRW/m0095d755J0/m75z536hnL\nNn9m7wNHufxjy00uvJ3MXA8jJeICD19Tp3qCeXa5AO8JFV7rIb+Jg3PrR8T1\njVUe\r\n=rIFn\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHYlziBVAakM2NEURiCUlFl/MPp7QNTSqYhB0et5j92EAiEAokcl1of1XPRgYxYkgCsKtO6AyE/UZr298t5d8qNLNLw="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "adamansky",
+					"email": "adamansky@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "adamansky",
+				"email": "adamansky@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-typescript-css_0.2.1_1566204492233_0.3674863891731661"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.2": {
+			"name": "@softmotions/postcss-typescript-css",
+			"version": "0.2.2",
+			"description": "PostCSS plugin to create a typescript file by each CSS file",
+			"main": "dist/postcss-typescript-css",
+			"scripts": {
+				"clean": "rimraf dist coverage *.log",
+				"copyFakePostcssFile": "cpx \"src/spec/styles/*\" dist/spec/styles/",
+				"compile": "npm run clean && tsc",
+				"compile:watch": "tsc --watch",
+				"lint": "npm run tslint \"src/**/*.ts\"",
+				"test": "nyc ava",
+				"test:watch": "ava --watch",
+				"tslint": "tslint --project tsconfig.json",
+				"precommit": "npm test",
+				"pretest": "npm run lint && npm run clean && tsc && npm run copyFakePostcssFile",
+				"report-coverage": "codecov -f coverage/lcov.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:ezavile/postcss-typescript-css.git"
+			},
+			"author": {
+				"name": "Edgar Zavala",
+				"email": "ezavile@gmail.com"
+			},
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"typescript",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/ezavile/postcss-typescript-css/issues"
+			},
+			"homepage": "https://github.com/ezavile/postcss-typescript-css",
+			"ava": {
+				"files": [
+					"dist/spec/*.spec.js"
+				],
+				"source": [
+					"dist/**/*.js"
+				]
+			},
+			"nyc": {
+				"lines": 100,
+				"statements": 100,
+				"functions": 100,
+				"branches": 100,
+				"include": [
+					"dist/**/*.js"
+				],
+				"exclude": [
+					"dist/**/*.spec.js",
+					"dist/namespace/*.js"
+				],
+				"reporter": [
+					"lcov",
+					"text"
+				],
+				"cache": true,
+				"all": true,
+				"check-coverage": true
+			},
+			"devDependencies": {
+				"@types/core-js": "0.9.41",
+				"@types/node": "7.0.12",
+				"ava": "0.19.1",
+				"codecov": "2.1.0",
+				"core-js": "2.4.1",
+				"cpx": "1.5.0",
+				"husky": "0.13.3",
+				"nyc": "10.2.0",
+				"rimraf": "2.6.1",
+				"tslint": "5.1.0",
+				"typescript": "2.2.2"
+			},
+			"dependencies": {
+				"camelcase": "4.1.0",
+				"postcss": "5.2.17",
+				"postcss-selector-parser": "2.2.3"
+			},
+			"licenseText": "MIT License\n\nCopyright (c) 2017 Edgar Zavala\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+			"_id": "@softmotions/postcss-typescript-css@0.2.2",
+			"dist": {
+				"shasum": "3c8192d3f86bafac40d938e78afaad58252f62cb",
+				"integrity": "sha512-UUTxEWEmrkOJJfzpSVtgMopfXF31mYaLZpvrPIQkp8NfYqOxXhxl9OkcJXey3a7wZaescOe6u4RfmULeQwsT8w==",
+				"tarball": "https://registry.npmjs.org/@softmotions/postcss-typescript-css/-/postcss-typescript-css-0.2.2.tgz",
+				"fileCount": 19,
+				"unpackedSize": 11204,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWmx8CRA9TVsSAnZWagAA4REP/iZH1yJzSSp9+eqwKyJM\nevRzaDvvlPR4Apbd/vwJKScBBZqLLcA7RdNEfhJ+i5Zm3ZhPs/wmoAWlnbRi\nYmpLEPnpNWwuk6uRRFjC3FO4PdW4kvKfQeArkZxcltJXHh3BiF0H3zNrJ8Vg\nPExT2ZlxaF3MuQiKkYzust8DDQR0skqJRrDeZr1OBRVrsKtP1xfEAb5p+c6T\nT8fT+q73BzCu5Zoq1oSZw0Ciu0mYmar4MXbuU2O8HtZtUj1mGjl0ryV/CEsC\nE6Bzho0vgIqp7Z39TqtCx9+8USPRuIWoqRJMpyHBDSgt0VtEeux96SexpsDs\nGIa3KBdo11P3pijqlDwOxSEdtcR9/Mtb4xTEeRf9qdkENV0mlFDHyZyFaToI\ncK1NyBVV7pG4k3AQZusnz1yPOnAA/zRU2y4aQicuI1r67gs6E0tx4o47Y7ez\nV4C/zbscEeegMfwDGgjxAXteNFV1N/zt09KSHQhjTRmuh/nnMQSvd3Gd7tAu\nLLlvTDtVrKXH903ifIL92+MzloMJEopZVJP0h9X6y+njKt8E9nnm6mVzjUyN\nWnNW24vc/40MpbHuZJEMXC1oxeTdhV8eRtP17WhzLXxaiROmIl09cS1/4ZzL\niKOMnUl0GefBlco/wkIbvJ6mVvpvlxfikjWgsZzdf5y+DQNgW4Mr3J2LcgBP\nctda\r\n=v5VO\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDHZdr2+Wda0o6P4QnELG3+ZboOQ7aYKeVCgkOPAsQZIQIhAOWy8XZFOxwVclqz0eRTdibxhR6C1dur2bUXKPJJl9Ts"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "adamansky",
+					"email": "adamansky@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "adamansky",
+				"email": "adamansky@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-typescript-css_0.2.2_1566207099917_0.7406471725015924"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.3": {
+			"name": "@softmotions/postcss-typescript-css",
+			"version": "0.2.3",
+			"description": "PostCSS plugin to create a typescript file by each CSS file",
+			"main": "dist/postcss-typescript-css",
+			"scripts": {
+				"clean": "rimraf dist coverage *.log",
+				"copyFakePostcssFile": "cpx \"src/spec/styles/*\" dist/spec/styles/",
+				"compile": "npm run clean && tsc",
+				"compile:watch": "tsc --watch",
+				"lint": "npm run tslint \"src/**/*.ts\"",
+				"test": "nyc ava",
+				"test:watch": "ava --watch",
+				"tslint": "tslint --project tsconfig.json",
+				"precommit": "npm test",
+				"pretest": "npm run lint && npm run clean && tsc && npm run copyFakePostcssFile",
+				"report-coverage": "codecov -f coverage/lcov.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:ezavile/postcss-typescript-css.git"
+			},
+			"author": {
+				"name": "Edgar Zavala",
+				"email": "ezavile@gmail.com"
+			},
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"typescript",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/ezavile/postcss-typescript-css/issues"
+			},
+			"homepage": "https://github.com/ezavile/postcss-typescript-css",
+			"ava": {
+				"files": [
+					"dist/spec/*.spec.js"
+				],
+				"source": [
+					"dist/**/*.js"
+				]
+			},
+			"nyc": {
+				"lines": 100,
+				"statements": 100,
+				"functions": 100,
+				"branches": 100,
+				"include": [
+					"dist/**/*.js"
+				],
+				"exclude": [
+					"dist/**/*.spec.js",
+					"dist/namespace/*.js"
+				],
+				"reporter": [
+					"lcov",
+					"text"
+				],
+				"cache": true,
+				"all": true,
+				"check-coverage": true
+			},
+			"devDependencies": {
+				"@types/core-js": "0.9.41",
+				"@types/node": "7.0.12",
+				"ava": "0.19.1",
+				"codecov": "2.1.0",
+				"core-js": "2.4.1",
+				"cpx": "1.5.0",
+				"husky": "0.13.3",
+				"nyc": "10.2.0",
+				"rimraf": "2.6.1",
+				"tslint": "5.1.0",
+				"typescript": "2.2.2"
+			},
+			"dependencies": {
+				"camelcase": "4.1.0",
+				"postcss": "5.2.17",
+				"postcss-selector-parser": "2.2.3"
+			},
+			"licenseText": "MIT License\n\nCopyright (c) 2017 Edgar Zavala\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+			"_id": "@softmotions/postcss-typescript-css@0.2.3",
+			"dist": {
+				"shasum": "4ff0ece9f0b12e7eab301e36d5f0aa9bab17a469",
+				"integrity": "sha512-rQrBISA/2XEf51EsAiORX3TsWPrJ4xGcLMf0O5dpzQ4dloRCq8iQXPoEnG7ynxcrV/549JDSqI8TTcFG5bFnIg==",
+				"tarball": "https://registry.npmjs.org/@softmotions/postcss-typescript-css/-/postcss-typescript-css-0.2.3.tgz",
+				"fileCount": 19,
+				"unpackedSize": 11088,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWm0cCRA9TVsSAnZWagAAKh4P/jv0ewcgL5Xk+e9PnQI+\n10tmaOVd7vSJSlzWV78HRtYCbp43MyJUMfjvKUa9QP5XNHatcx4wqwGq7A6N\nSNXj5Hr6vH9f7Q7CZ86bwiLbp1NjrKF4fxvotW7Rho2rBz9L6c2ImAHEL1qT\nzqpTMRnx4kzXbjKVze3/PCdO5Rq9VKupTXIh7W4RzUVHrta5toPghdV+zB41\nMc691EO82wxYwYNym3c1p/lmpq4gEmLhdPpyq2JJE1eP0t/CNKOE8/DSpRjN\nJuHQHkj8KkZO9Ej4vtJJ/GyBfDb1kB5POfC8j9wpl7ZQEppiLKNNm1f8Tr/z\nzePX9EL39FVQ2UHLQkNGTuowBTb9gv2donDgZFtpaooUGw1arm7HCGc4TuCs\nnQ2+AuQb9jPC0pKoLUue9FK6xD7UT4Q6dyBZk1nAAg4FYWnRWyD1ltiu+vEI\n6XwjJIasE0HJFyIUjEZByY4mMvD94CjPctQDYq+i9GsC4RbgNJYhln4Zu72W\nnfCiFOt6oT19NMVZntKIQyO5/31H+h21yS+ftTpKj3i4vXMrurHi3DxVGjFX\nS4YjvZz5V5KNkgr2df85m0s4LJThy0a2KJTFX+YdmacHosiHRPJRuohHarnu\nlHYcx7lT18pTY5Ykoe1AttCEvAU4tOd2rRQLSEM4v2cc3eompYjDIPvyn+zF\nFxmO\r\n=vRx/\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHSJTkyNZyGFGR6vWUXkdenz8dJEBK07ZMoJ7JuNzgFYAiEA7k9X8CRYIppAdOloTPisxcA5bOE18rO1C9k4T8RVSME="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "adamansky",
+					"email": "adamansky@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "adamansky",
+				"email": "adamansky@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-typescript-css_0.2.3_1566207259813_0.470174170202454"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.4": {
+			"name": "@softmotions/postcss-typescript-css",
+			"version": "0.2.4",
+			"description": "PostCSS plugin to create a typescript file by each CSS file",
+			"main": "dist/postcss-typescript-css",
+			"scripts": {
+				"clean": "rimraf dist coverage *.log",
+				"copyFakePostcssFile": "cpx \"src/spec/styles/*\" dist/spec/styles/",
+				"compile": "npm run clean && tsc",
+				"compile:watch": "tsc --watch",
+				"lint": "npm run tslint \"src/**/*.ts\"",
+				"test": "nyc ava",
+				"test:watch": "ava --watch",
+				"tslint": "tslint --project tsconfig.json",
+				"precommit": "npm test",
+				"pretest": "npm run lint && npm run clean && tsc && npm run copyFakePostcssFile",
+				"report-coverage": "codecov -f coverage/lcov.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:ezavile/postcss-typescript-css.git"
+			},
+			"author": {
+				"name": "Edgar Zavala",
+				"email": "ezavile@gmail.com"
+			},
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"typescript",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/ezavile/postcss-typescript-css/issues"
+			},
+			"homepage": "https://github.com/ezavile/postcss-typescript-css",
+			"ava": {
+				"files": [
+					"dist/spec/*.spec.js"
+				],
+				"source": [
+					"dist/**/*.js"
+				]
+			},
+			"nyc": {
+				"lines": 100,
+				"statements": 100,
+				"functions": 100,
+				"branches": 90,
+				"include": [
+					"dist/**/*.js"
+				],
+				"exclude": [
+					"dist/**/*.spec.js",
+					"dist/namespace/*.js"
+				],
+				"reporter": [
+					"lcov",
+					"text"
+				],
+				"cache": true,
+				"all": true,
+				"check-coverage": true
+			},
+			"devDependencies": {
+				"@types/core-js": "0.9.41",
+				"@types/node": "7.0.12",
+				"ava": "0.19.1",
+				"codecov": "2.1.0",
+				"core-js": "2.4.1",
+				"cpx": "1.5.0",
+				"husky": "0.13.3",
+				"nyc": "10.2.0",
+				"rimraf": "2.6.1",
+				"tslint": "5.1.0",
+				"typescript": "2.2.2"
+			},
+			"dependencies": {
+				"camelcase": "4.1.0",
+				"postcss": "5.2.17",
+				"postcss-selector-parser": "2.2.3"
+			},
+			"licenseText": "MIT License\n\nCopyright (c) 2017 Edgar Zavala\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+			"_id": "@softmotions/postcss-typescript-css@0.2.4",
+			"dist": {
+				"shasum": "6df50988b515badca63cda374d0ee5aa74d761f7",
+				"integrity": "sha512-iLfvJ0LnvSV8djXJWSFB+OWg+5DtQQvAnUM5cSmucdal3/NPyDqh1mQxnCHm/dxJjnRvvDEgZETWDjGRYU5v9w==",
+				"tarball": "https://registry.npmjs.org/@softmotions/postcss-typescript-css/-/postcss-typescript-css-0.2.4.tgz",
+				"fileCount": 19,
+				"unpackedSize": 11175,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWnaLCRA9TVsSAnZWagAAnQ0P/03x7FpYGs+817MSQ4TU\nL3NWBVycwv2B+TT0AHHsoxxDzabcFHuuNKD7xA2THf/2OZXC3gd+N7pC9JRl\nKouLElxHYwv0dY4NNCllw8uUnbMCtGgcCk93JQWiMxPGmAVAd/3KOeNgYB0Z\nbgVDoRvDhqJ3oNyj5v4Mat7/+cPW6iV9xRUFfAVSvgs+xkXsb3aTjcnGkJFG\nIEeK6INlruDClwGR4EAnmLrNgGSeLfK3G7YyVJcZ0V+yG4zjKhm+gsNZeMly\nVj9jtXAtLy791KANd2S8wSf+4PESspoNPfXd2/wzPHOwvN2LupSKLovbEJA6\n2S8yMIzysp1AsDtiGfBvzYzyINH8CVYyCE6Q41ll9OpMtC1tg9Eb0cL0Zr1f\ngPCr6jyjMm/MI2p9DGiDDwXciwqa+U3Tbr+VH5Yd5kfkmElk6ITQZCdcXKIg\nHR8g66ol0vjQm3T4rxHJqzFPtJAlv7/o5N6j3agaVYMqFfYVf3M5TfLd0epZ\npWz0+u0WEQOppICoUSy7py7TCxePAHmVoJLrRirJ3NdjRAJLaJ5O01F6+Yi4\n7Z3CWC6nOvdP4B/iQINjbMex/76LQaSBTHPce/mA9lHG5WBVz+dXWADrPCV1\nabTengcbjiIto2ybxOoKswQVadRVAPIleDZH6x7VSudTVxtUh+ogeJ+JZYeR\nxALF\r\n=4ReX\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEmTPPjTd3YFsPUov6KqzqrkRD6Z53sRLpC1rgyXfU4tAiEA46Z2G7rY8Max2bE8+ZGcN1yxd/irDOOqHbV7gDPE8Co="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "adamansky",
+					"email": "adamansky@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "adamansky",
+				"email": "adamansky@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-typescript-css_0.2.4_1566209675338_0.3643960276977922"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.5": {
+			"name": "@softmotions/postcss-typescript-css",
+			"version": "0.2.5",
+			"description": "PostCSS plugin to create a typescript file by each CSS file",
+			"main": "dist/postcss-typescript-css",
+			"scripts": {
+				"clean": "rimraf dist coverage *.log",
+				"copyFakePostcssFile": "cpx \"src/spec/styles/*\" dist/spec/styles/",
+				"compile": "npm run clean && tsc",
+				"compile:watch": "tsc --watch",
+				"lint": "npm run tslint \"src/**/*.ts\"",
+				"test": "nyc ava",
+				"test:watch": "ava --watch",
+				"tslint": "tslint --project tsconfig.json",
+				"precommit": "npm test",
+				"pretest": "npm run lint && npm run clean && tsc && npm run copyFakePostcssFile",
+				"report-coverage": "codecov -f coverage/lcov.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:ezavile/postcss-typescript-css.git"
+			},
+			"author": {
+				"name": "Edgar Zavala",
+				"email": "ezavile@gmail.com"
+			},
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"typescript",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/ezavile/postcss-typescript-css/issues"
+			},
+			"homepage": "https://github.com/ezavile/postcss-typescript-css",
+			"ava": {
+				"files": [
+					"dist/spec/*.spec.js"
+				],
+				"source": [
+					"dist/**/*.js"
+				]
+			},
+			"nyc": {
+				"lines": 100,
+				"statements": 100,
+				"functions": 100,
+				"branches": 90,
+				"include": [
+					"dist/**/*.js"
+				],
+				"exclude": [
+					"dist/**/*.spec.js",
+					"dist/namespace/*.js"
+				],
+				"reporter": [
+					"lcov",
+					"text"
+				],
+				"cache": true,
+				"all": true,
+				"check-coverage": true
+			},
+			"devDependencies": {
+				"@types/core-js": "0.9.41",
+				"@types/node": "7.0.12",
+				"ava": "0.19.1",
+				"codecov": "2.1.0",
+				"core-js": "2.4.1",
+				"cpx": "1.5.0",
+				"husky": "0.13.3",
+				"nyc": "10.2.0",
+				"rimraf": "2.6.1",
+				"tslint": "5.1.0",
+				"typescript": "2.2.2"
+			},
+			"dependencies": {
+				"camelcase": "4.1.0",
+				"postcss": "5.2.17",
+				"postcss-selector-parser": "2.2.3"
+			},
+			"licenseText": "MIT License\n\nCopyright (c) 2017 Edgar Zavala\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+			"_id": "@softmotions/postcss-typescript-css@0.2.5",
+			"dist": {
+				"shasum": "5078023e4bfba87e40b04b18c1fbad7133bda798",
+				"integrity": "sha512-axvsaEN9x+cG5dV+v0OLHfl3bJHaw0u6QmBPoXmGc/aL8Xkhj9Yk/BvG7RUDn5MUeDmkX/gzDcJpRGViLjPq+A==",
+				"tarball": "https://registry.npmjs.org/@softmotions/postcss-typescript-css/-/postcss-typescript-css-0.2.5.tgz",
+				"fileCount": 19,
+				"unpackedSize": 11171,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdW8nICRA9TVsSAnZWagAA68sP/R0ABgviT6x8QXXb81oh\nA/lC7/LTIsDPmG9mLvZfAVPYa4V19pAyf1MbIEt6uo2203Vxe50lMjbrh3ZD\nnzDt4SlGy3nwCBpohpmaA3v51NhjPGRlScIA+dfyn9fliQSVelrnkLunapP4\n7FCG3m63dVHeUzFvWU940v6FqOAdmx0lYSX9zq9LIlTGbtLOZf0HnIM8aiQM\nX0zwpZxJ2WFnhHPu9nZHv9lJLw86qhRgJ+sJvdP8XVMvZQQ2fk6PdMEWEcS6\ny6IlKg4h2RlWKSZOVzt+gHU/SOM3SZl4qeNqPeG+NzacVMsldZ9OMvGvKYcw\nB1uHMxWADHsFMgDkHjaIbwP3OAIaUn25sy3gaoNF73RL0lCHlnNwiYqdogSd\nseeCYJrx5ibgpxxc24CzjObllj3cfsbqfl4+tCFaLpwa09hbKYcdWZ2/tUhO\nSySR58BtfdWWfgUQZM85ph7Ep+RUp32uIunDFeLahzPUKCLKUjlcxbp30ovt\np0vh3ouwNoJ7nM5Id1GTqrfLnB2P0B88EPZ1VbaogXVvGaWEP2dhkFrij0y4\nBbSHEkY0J02xyxaWu1/JdgJ3E5aSvAI8UxvYZM5HMr95A1jNIYqfJdLr6O7I\naZYBib016nIo2d/UIZ7yQbJcP8RK5Qei12FTjOAGcO3p8dHAvISZ/6e+UsG5\ncnPq\r\n=Pq4I\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFEw7q+QBwvCP8JDIyQF3U5MmfuklC0WcZheNfBa9klhAiEA/2IFZvwD0hwJqFOCd+c4wc18lUhEe4lZMOeIpHSJrDM="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "adamansky",
+					"email": "adamansky@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "adamansky",
+				"email": "adamansky@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-typescript-css_0.2.5_1566296519646_0.7352350209006637"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.6": {
+			"name": "@softmotions/postcss-typescript-css",
+			"version": "0.2.6",
+			"description": "PostCSS plugin to create a typescript file by each CSS file",
+			"main": "dist/postcss-typescript-css",
+			"scripts": {
+				"clean": "rimraf dist coverage *.log",
+				"copyFakePostcssFile": "cpx \"src/spec/styles/*\" dist/spec/styles/",
+				"compile": "npm run clean && tsc",
+				"compile:watch": "tsc --watch",
+				"lint": "npm run tslint \"src/**/*.ts\"",
+				"test": "nyc ava",
+				"test:watch": "ava --watch",
+				"tslint": "tslint --project tsconfig.json",
+				"precommit": "npm test",
+				"pretest": "npm run lint && npm run clean && tsc && npm run copyFakePostcssFile",
+				"report-coverage": "codecov -f coverage/lcov.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:ezavile/postcss-typescript-css.git"
+			},
+			"author": {
+				"name": "Edgar Zavala",
+				"email": "ezavile@gmail.com"
+			},
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"typescript",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/ezavile/postcss-typescript-css/issues"
+			},
+			"homepage": "https://github.com/ezavile/postcss-typescript-css",
+			"ava": {
+				"files": [
+					"dist/spec/*.spec.js"
+				],
+				"source": [
+					"dist/**/*.js"
+				]
+			},
+			"nyc": {
+				"lines": 100,
+				"statements": 100,
+				"functions": 100,
+				"branches": 90,
+				"include": [
+					"dist/**/*.js"
+				],
+				"exclude": [
+					"dist/**/*.spec.js",
+					"dist/namespace/*.js"
+				],
+				"reporter": [
+					"lcov",
+					"text"
+				],
+				"cache": true,
+				"all": true,
+				"check-coverage": true
+			},
+			"devDependencies": {
+				"@types/core-js": "0.9.41",
+				"@types/node": "7.0.12",
+				"ava": "0.19.1",
+				"codecov": "2.1.0",
+				"core-js": "2.4.1",
+				"cpx": "1.5.0",
+				"husky": "0.13.3",
+				"nyc": "10.2.0",
+				"rimraf": "2.6.1",
+				"tslint": "5.1.0",
+				"typescript": "2.2.2"
+			},
+			"dependencies": {
+				"camelcase": "4.1.0",
+				"postcss": "5.2.17",
+				"postcss-selector-parser": "2.2.3"
+			},
+			"licenseText": "MIT License\n\nCopyright (c) 2017 Edgar Zavala\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+			"_id": "@softmotions/postcss-typescript-css@0.2.6",
+			"dist": {
+				"shasum": "79962284c02703007bb2d8d3e8d2a09370ad2204",
+				"integrity": "sha512-sIRSJhEFbq93CDzMNwF2M9QdPpr6mQMfdTvYGgG07CqGpjyMOez4OA8f/yE6EZxY9yyTBR61IDmPLcGGySiEqg==",
+				"tarball": "https://registry.npmjs.org/@softmotions/postcss-typescript-css/-/postcss-typescript-css-0.2.6.tgz",
+				"fileCount": 19,
+				"unpackedSize": 11062,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdXM3RCRA9TVsSAnZWagAAHcQP/36NJyeHJDugCEF0IuoO\npF6f4KPVUlVgFhYI9DaImTdm6uAESE1rC/EhnjutKv9V0Wk0gk7PXWsz1Rrw\njBiMUk6hD0ji/47wAT8avx7sr32zBwdmZasR+4NBcuJFPLdlvA5IwwNLN7Zg\nD2MChedN92/jKyuR2tZcXGHULGNaBcDnRyUBLZRJ1243oW7jPq36iV3n3sl3\nD5YC5Ktgs9Qow5/Gi5OfrYEZitjYrz0/gJt+c1zzzU8rXcO/Jezf8BjyoD80\nH2Zq4PResxoXZkuJd21x9wheAdRc+HPmLZ7HmYPv57BP5536bDhfti2w+w81\nRq2iZXG2QYddDc780Y4DpuAjieH0+9Wybnn7qss2AuYLP90u3ZDJV1KcvBb8\nux1KHyK/8DJh4DCt1gxOG02tZzlLANvfkMQjfd+97ufaKVecqI48cv8JNaC1\nxz8sDqocabSoFuvQ5qcUBCO34IjaB+el3OoKUwmeunCXbbCrTVHB99N2oBy1\nv2eGx7Pa0XsvOu5nPegBJT1j9ZXtcVQaoh21eHHZ4ZqbSgTp0QJtU3i7yX/v\nVoBIcPdlFkIX3hq0O2VaxsJ59bkRslBMKUSwilbdlxt9ttQCX/BSBDp9LmnN\nRZlBYLMsdZVQJOJLPjtbWsMHd1IxeJ16PKMr2FKsrE/xANDIuBAcpu3PU1j0\n9eTj\r\n=07IV\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDz28XEIxogfYCwSj3v7FQkooIs76TRvN07ZGg1a3SeCQIhAMzuID67vptHPAlDxkVlSQ03LJ4shAkgD1mep00waJ+x"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "adamansky",
+					"email": "adamansky@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "adamansky",
+				"email": "adamansky@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-typescript-css_0.2.6_1566363089281_0.79421970924867"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2019-08-19T08:48:12.174Z",
+		"0.2.1": "2019-08-19T08:48:12.388Z",
+		"modified": "2022-04-07T01:08:29.723Z",
+		"0.2.2": "2019-08-19T09:31:40.075Z",
+		"0.2.3": "2019-08-19T09:34:19.947Z",
+		"0.2.4": "2019-08-19T10:14:35.468Z",
+		"0.2.5": "2019-08-20T10:21:59.761Z",
+		"0.2.6": "2019-08-21T04:51:29.468Z"
+	},
+	"maintainers": [
+		{
+			"name": "adamansky",
+			"email": "adamansky@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin to create a typescript file by each CSS file",
+	"homepage": "https://github.com/ezavile/postcss-typescript-css",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"typescript",
+		"css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:ezavile/postcss-typescript-css.git"
+	},
+	"author": {
+		"name": "Edgar Zavala",
+		"email": "ezavile@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/ezavile/postcss-typescript-css/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-typescript-css\n\n[![Travis](https://img.shields.io/travis/ezavile/postcss-typescript-css.svg?style=flat-square)](https://travis-ci.org/ezavile/postcss-typescript-css)\n[![Codecov](https://img.shields.io/codecov/c/github/ezavile/postcss-typescript-css.svg?style=flat-square)](https://codecov.io/gh/ezavile/postcss-typescript-css)\n[![npm](https://img.shields.io/npm/v/postcss-typescript-css.svg?style=flat-square)](https://www.npmjs.com/package/postcss-typescript-css)\n[![MIT License](https://img.shields.io/npm/l/postcss-typescript-css.svg?style=flat-square)](http://opensource.org/licenses/MIT)\n\nA [PostCSS] plugin to create a TypeScript file by each CSS file.\n\n## Installation\n```\nnpm install postcss-typescript-css\n```\n\nWhat is this? For example, you have the following CSS file:\n\n**componentName.css**\n```css\n.ComponentName {\n   color: green;\n}\n.ComponentName-descendentName {\n   color: yellow;\n}\n.ComponentName--modifierName {\n   color: red;\n}\n```\n\nAnd the plugin will give you a TypeScript file in the same location where the CSS file is. This file generated has almost the same name, only it's added \"Style\" at the end of the original name of your CSS file, example:\n\n**componentNameStyle.ts**\n```javascript\nexport const componentNameStyle = {\n   componentName: 'ComponentName',\n   componentDescendentName: 'ComponentName-descendentName',\n   componentModifierName: 'ComponentName--modifierName',\n};\n```\nSo, you can import the TypeScript file\n\n**Note: you have to import first the componentName.css**\n```javascript\nimport './componentName.css';\nimport { componentNameStyle } from './componentNameStyle';\n\nconst element = document.createElement('div');\nelement.className = componentNameStyle.componentName;\n```\n## Usage\n```javascript\npostcss([\n   require('postcss-typescript-css')\n]);\n```\n**if you are using [postcss-modules] you need to do this:**\n\n```javascript\npostcss([\n   require('postcss-modules')({\n      getJSON: (cssFileName, json) => {\n         require('postcss-typescript-css')({\n            cssFileName: cssFileName,\n            content: json,\n         })();\n      }\n   })\n]);\n```\n## Options\n\n### Note: only use the options if you are using [postcss-modules]\n\n#### cssFileName\nType: string\n\n#### content\nType: object (JSON object)\n\n## Testing\nThis will build scripts, run tests and generate a code coverage report. Anything less than 100% coverage will throw an error.\n```javascript\nnpm test\n```\n## Example\nTake a look a this [repo]. Here you could see the plugin in action with webpack 2 and React with TypeScript and PostCSS.\n\nSee [PostCSS] docs for examples for your environment.\n\n## Thanks\nInspired by [postcss-generate-ts-hash], [postcss-modules] and [postcss-font-pack] to create the structure of the project\n\n## Contributing\n* ⇄ Pull requests and ★ Stars are always welcome.\n* For bugs and feature requests, please create an issue.\n* Pull requests must be accompanied by passing automated tests (`npm test`).\n\n[MIT License]\n\n[PostCSS]: https://github.com/postcss/postcss\n[postcss-modules]: https://github.com/css-modules/postcss-modules\n[repo]: https://github.com/ezavile/postcss-typescript-css-example\n[postcss-font-pack]: https://github.com/jedmao/postcss-font-pack\n[postcss-generate-ts-hash]: https://github.com/mohsen1/postcss-generate-ts-hash\n[MIT License]: https://github.com/ezavile/postcss-typescript-css/blob/master/LICENSE\n",
+	"readmeFilename": "README.md"
+}

@@ -1,0 +1,266 @@
+{
+	"_id": "postcss-rgba-css-variables",
+	"_rev": "1-b6e4c44a18ebe164f3d527372dd27ab7",
+	"name": "postcss-rgba-css-variables",
+	"dist-tags": {
+		"latest": "0.0.2"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-rgba-css-variables",
+			"description": "TODO: Add description for rgba-css-variables",
+			"version": "0.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-rgba-css-variables"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"rgba",
+				"css variable",
+				"css 变量"
+			],
+			"csstools": {
+				"cssdbId": "TODO",
+				"exportName": "postcssrgba-css-variables",
+				"humanReadableName": "PostCSS rgba-css-variables",
+				"specUrl": "#TODO"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rgba-css-variables#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"dependencies": {
+				"colord": "^2.9.3",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"gitHead": "c58936cd8f14d9e0db998fb5cc054de3d7969582",
+			"_id": "postcss-rgba-css-variables@0.0.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.3.0",
+			"dist": {
+				"integrity": "sha512-56MTFoeeHlFjLdsR9XoXFhmbbId8AgP+dMDg8hIdw3eRDN0fvwN7HOQBpkxLidAKR3BgYN2VjF08Y8UQO1nWHA==",
+				"shasum": "20ee26fb04f04b83b3e7281860923a05742a3caa",
+				"tarball": "https://registry.npmjs.org/postcss-rgba-css-variables/-/postcss-rgba-css-variables-0.0.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 20135,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD/JlzK0jUkCDJSBQeRiWEo59dF3R3oaIs50h7lvnUNywIhAP7QDmChFzUprRIBE06ZdN2p8H7qr80hbuvjYi6p/V7a"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjW05mACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo/GA//T2UVNtdbEnmD9Ot2AC5ubo2frAXJbVcUJY6bwPW0gwBLbfPc\r\nabk7G8PEm6+iN4K+f4Ze1vNmLgSaRzPc2Ncf99/vBf3ULHSSkMtDO6DpGrsi\r\nX1Fc3ENfvFPqtFUb45tXOFvLp4jO7MpunExJchcrSU2KxtgkmpWrI4tgk6QF\r\n3fW+34UJ4yrN7quFC2LKrl8Gr2zVd9Q2k1XVLEqB1EBAqkBvmhlCvYDa85qo\r\n+xuQHyqJANfKAXmE43MKuDst1torRzECznHztqDJxlX83u7+kM2Fg0yQrzfQ\r\ndLmTboR/kjMZd4SVtiN6ZVMMmEZzsQaS4Jdj4BSuw1njhDOFMRpCekQHB/jF\r\noOQU3Limr7Y1TtI+IndA784Zspi0HBK7WyVICAwE4Dbns9+VNX/ufsOoCC7W\r\n3JO6LqzYA8EOldcF9D0ysFJpM4tZpGPdFrLUpyjcuCmNwQVn0xBPgUn8FqdT\r\nWpwAderurB/u+LrDylOHqw5vSj8jwXMwTL9SpVsSqN1pxyFWj6lbVFIyZ4P7\r\nqwRnfJGpryoMpBlfpbZ5CrX3Tz4+u1w2yp9G9uFqHh6ni2zRADsmrHJOfmnH\r\nEbQG6/g9vJMpnNz66sO0yNifeGmT5VX3cfh+DExQ4HlUjrY9afWancFQIaXg\r\nsKw9V4stm3WGGZWqRaFPUxItBKQ+RuWGFEk=\r\n=PAcT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "dufemeng",
+				"email": "2314627598@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "dufemeng",
+					"email": "2314627598@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-rgba-css-variables_0.0.1_1666928230266_0.46274607861151074"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.2": {
+			"name": "postcss-rgba-css-variables",
+			"description": "TODO: Add description for rgba-css-variables",
+			"version": "0.0.2",
+			"contributors": [
+				{
+					"name": "dufemeng",
+					"email": "2314627598@qq.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-rgba-css-variables"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"rgba",
+				"css variable",
+				"css 变量"
+			],
+			"csstools": {
+				"cssdbId": "TODO",
+				"exportName": "postcssrgba-css-variables",
+				"humanReadableName": "PostCSS rgba-css-variables",
+				"specUrl": "#TODO"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rgba-css-variables#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"dependencies": {
+				"colord": "^2.9.3",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"gitHead": "fa1b1bfbd5397d430424cf272e0923dc83dc44b7",
+			"_id": "postcss-rgba-css-variables@0.0.2",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.3.0",
+			"dist": {
+				"integrity": "sha512-QczaED00gYr4qX/wR91ap/0nE6oCoIE7Aufb3myNPSvv4L0HDd+PXYx/z9gXtAjT8/6iy2ZVr5Tz6Ki/XmkScQ==",
+				"shasum": "5767e67da84a77b2575e85b75d5619f0782adee3",
+				"tarball": "https://registry.npmjs.org/postcss-rgba-css-variables/-/postcss-rgba-css-variables-0.0.2.tgz",
+				"fileCount": 12,
+				"unpackedSize": 20108,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHxHNeTDYWJwGNm7j1UkYBcoj3UZCuhBFprtvz0cYlTiAiAdAi+b+TrEgR3xTnizjClwIgH4/mX0xNallUbhguSoJg=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjX24CACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoHVA//VG4RuLkUCNcc4XjqJMA6FY6qGSPPtyq4IZ0oARQcjBzwjd/U\r\nVm/mbUW+nCsr14vwFFQ6lRFhm8p4tiaOKnR4/3TGKLhEgMaFiWdYcKuWMcCB\r\n8z2VKWWK984sCgewx/XTYqaoEUFx7r9KpKjCc6HdcUhdyTP4qXXYigb22tWz\r\n+ebwhEwPxrC+l8zcMbPAE3gM8RLSvDX03h+e8EnxLHRKKHwyzsI/hLp4MDz6\r\n3bqlGn8jPg3/yitoY4ObsRFV1QCVLbd/ma2ca1Khdu+/CxUf/Lz4ktMieTDq\r\n3KaRwyhl14kg0LgTq3HezHphj6QG1Smv4MSljuo/m8QyWXEGXGRdviF6QBrU\r\nAi2l96TCMQ9eDTwzTI5z+tkGoUHD6WKWVeJjqgfUoq+FLDcFzjq4GOA+ozlw\r\n0tYlSzgZNUPITTu404wIKvmI6JgpYfUVrfDtzotgKGKTxBJRoPmmcsqFmUkp\r\nMq6n1YvKRa2nHcmHyb0tmDd18u8bmOKmqlWI4VuL85XhhH7IlQvxP0qeuL5u\r\nANrl8hvde3dCU+6lua9WKHPtWQT4uRtMcJp+IIYBMAWSrZxx8BV3UvvS2LE7\r\nyi51baxVCwX43Na2Im14h/lUvCRyNcpcHYzrKcvxYbw4RQ5NnEZSvzFfSRY5\r\nirJl3Cyf8K7m6koLkSnRT02THVq3CYdekZU=\r\n=oHnG\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "dufemeng",
+				"email": "2314627598@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "dufemeng",
+					"email": "2314627598@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-rgba-css-variables_0.0.2_1667198466334_0.3031625705666614"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-10-28T03:37:10.266Z",
+		"0.0.1": "2022-10-28T03:37:10.402Z",
+		"modified": "2022-10-31T06:41:06.559Z",
+		"0.0.2": "2022-10-31T06:41:06.483Z"
+	},
+	"maintainers": [
+		{
+			"name": "dufemeng",
+			"email": "2314627598@qq.com"
+		}
+	],
+	"description": "TODO: Add description for rgba-css-variables",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rgba-css-variables#readme",
+	"keywords": [
+		"postcss-plugin",
+		"rgba",
+		"css variable",
+		"css 变量"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-rgba-css-variables"
+	},
+	"contributors": [
+		{
+			"name": "dufemeng",
+			"email": "2314627598@qq.com"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS rgba-css-variables [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[PostCSS rgba-css-variables] lets you easily support `css variable` when use `rgba`.\n\nIf you enter this,\n\n```pcss\n:root {\n\t--width: 100px;\n\t--color: rgb(255, 0, 0);\n\t--bg-color: #555;\n}\n\nhtml {\n\t--s-color: rgb(255, 255, 0);\n\t--s-bg-color: #999;\n\tcolor: rgba(0, 0, 0, 0.3);\n}\n\n.header {\n\twidth: var(--width);\n\theight: 80px;\n\tcolor: rgba(var(--color), 0.6);\n\tcolor: rgba(255, 0, 0, 0.6);\n\tbackground-color: rgba(var(--bg-color), 0.4);\n\tbackground-color: rgba(85, 85, 85, 0.4);\n}\n\n.footer {\n\t--s-color: #eee;\n\t--ccc-color: var(--bg-color);\n\t--s-bg-color: var(--ccc-color);\n\tcolor: rgba(var(--s-color), 0.3);\n\tcolor: rgba(238, 238, 238, 0.3);\n\tbackground-color: rgba(var(--s-bg-color), 0.7);\n\tbackground-color: rgba(85, 85, 85, 0.7);\n}\n\n.aaa {\n\tcolor: rgba(var(--color), 0.4);\n\tcolor: rgba(255, 0, 0, 0.4);\n}\n\n.bbb {\n\tcolor: rgba(var(--color, blue), 0.4);\n\tcolor: rgba(255, 0, 0, 0.4);\n}\n\n.ccc {\n\t--opacity: 0.5;\n\tcolor: rgba(var(--color), var(--opacity));\n}\n\n.ddd {\n\t--opacity: 0.5;\n\t--color-r: 255;\n\t--color-g: 0;\n\t--color-b: 0;\n\tcolor: rgba(var(--color-r), var(--color-g), var(--color-b), var(--opacity));\n}\n```\n\nthen you will get:\n\n```pcss\n:root {\n\t--width: 100px;\n\t--color: rgb(255, 0, 0);\n\t--bg-color: #555;\n}\n\nhtml {\n\t--s-color: rgb(255, 255, 0);\n\t--s-bg-color: #999;\n\tcolor: rgba(0, 0, 0, 0.3);\n}\n\n.header {\n\twidth: var(--width);\n\theight: 80px;\n\tcolor: rgba(var(--color), 0.6);\n\tcolor: rgba(255, 0, 0, 0.6);\n\tbackground-color: rgba(var(--bg-color), 0.4);\n\tbackground-color: rgba(85, 85, 85, 0.4);\n}\n\n.footer {\n\t--s-color: #eee;\n\t--ccc-color: var(--bg-color);\n\t--s-bg-color: var(--ccc-color);\n\tcolor: rgba(var(--s-color), 0.3);\n\tcolor: rgba(238, 238, 238, 0.3);\n\tbackground-color: rgba(var(--s-bg-color), 0.7);\n\tbackground-color: rgba(85, 85, 85, 0.7);\n}\n\n.aaa {\n\tcolor: rgba(var(--color), 0.4);\n\tcolor: rgba(255, 0, 0, 0.4);\n}\n\n.bbb {\n\tcolor: rgba(var(--color, blue), 0.4);\n\tcolor: rgba(255, 0, 0, 0.4);\n}\n\n.ccc {\n\t--opacity: 0.5;\n\tcolor: rgba(var(--color), var(--opacity));\n}\n\n.ddd {\n\t--opacity: 0.5;\n\t--color-r: 255;\n\t--color-g: 0;\n\t--color-b: 0;\n\tcolor: rgba(var(--color-r), var(--color-g), var(--color-b), var(--opacity));\n}\n```\n\n## Usage\n\nAdd [PostCSS rgba-css-variables] to your project:\n\n```bash\nnpm install postcss postcss-rgba-css-variables --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require(\"postcss\");\nconst postcssRgbaCssVariables = require(\"postcss-rgba-css-variables\");\n\npostcss([postcssRgbaCssVariables(/* pluginOptions */)]).process(\n\tYOUR_CSS /*, processOptions */\n);\n```\n\n## Options\n\n### mode\n\n- optional: \"replace-directly\" | \"replace-required\" | \"replace-all\"\n- default: \"replace-directly\"\n\n`replace-directly` will replace all css variables which used in rgba :\n\n```pcss\n:root {\n\t--color: #000;\n\t--default-color: #fff;\n}\n\ndiv {\n\tbackground-color: rgba(var(--color), 0.3);\n}\n\n/** will become */\n:root {\n\t--color: #000;\n\t--default-color: #fff;\n}\n\ndiv {\n\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n```\n\n`replace-required` will use `xxx-rgb` replace all css variables which used in rgba :\n\n```pcss\n:root {\n\t--color: #000;\n\t--default-color: #fff;\n}\n\ndiv {\n\tbackground-color: rgba(var(--color), 0.3);\n}\n\n/** will become */\n:root {\n\t--color: #000;\n\t--color-rgb: 0, 0, 0;\n\t--default-color: #fff;\n}\n\ndiv {\n\tbackground-color: rgba(var(--color-rgb), 0.3);\n}\n```\n\n`replace-all` will change all css variables whether it was used. This mode can be used when you want change css variables in browser.\n\n```pcss\n:root {\n\t--color: #000;\n\t--default-color: #fff;\n}\n\ndiv {\n\tbackground-color: rgba(var(--color), 0.3);\n}\n\n/** will become */\n:root {\n\t--color: #000;\n\t--color-rgb: 0, 0, 0;\n\t--default-color: #fff;\n\t--default-color-rgb: 255, 255, 255;\n}\n\ndiv {\n\tbackground-color: rgba(var(--color-rgb), 0.3);\n}\n```\n\n```js\nlet root = document.documentElement;\n\nroot.style.setProperty(\"--color\", \"red\");\nroot.style.setProperty(\"--color-rgb\", \"255, 0, 0\");\nroot.style.setProperty(\"--default-color\", \"green\");\nroot.style.setProperty(\"--default-color-rgb\", \"0, 255, 0\");\n```\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssRgbaCssVariables({ preserve: false });\n```\n\n```pcss\n:root {\n\t--color: #000;\n\t--default-color: #fff;\n}\n\ndiv {\n\tbackground-color: rgba(var(--color), 0.3);\n}\n\n/** will become */\n:root {\n\t--color: #000;\n\t--default-color: #fff;\n}\n\ndiv {\n\tbackground-color: rgba(var(--color), 0.3);\n\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#TODO\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-rgba-css-variables\n[gulp postcss]: https://github.com/postcss/gulp-postcss\n[grunt postcss]: https://github.com/nDmitry/grunt-postcss\n[postcss]: https://github.com/postcss/postcss\n[postcss loader]: https://github.com/postcss/postcss-loader\n[postcss rgba-css-variables]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rgba-css-variables\n[css specification]: #TODO\n",
+	"readmeFilename": "README.md"
+}

@@ -1,0 +1,129 @@
+{
+	"_id": "postcss-plugin-bem-escape-block-name-less-modifier",
+	"_rev": "2-af5e184aa1c91888852f597d2b1ea441",
+	"name": "postcss-plugin-bem-escape-block-name-less-modifier",
+	"description": "this PostCSS plugin fixes minor problems in modifier class without block name in BEM(exactly MindBEMding)",
+	"dist-tags": {
+		"latest": "0.1.1"
+	},
+	"versions": {
+		"0.1.1": {
+			"name": "postcss-plugin-bem-escape-block-name-less-modifier",
+			"version": "0.1.1",
+			"description": "this PostCSS plugin fixes minor problems in modifier class without block name in BEM(exactly MindBEMding)",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"bem"
+			],
+			"author": {
+				"name": "yoshidax"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier.git"
+			},
+			"bugs": {
+				"url": "https://github.com/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier/issues"
+			},
+			"homepage": "https://github.com/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier",
+			"main": "lib/index.js",
+			"files": [
+				"lib",
+				"!test"
+			],
+			"dependencies": {
+				"postcss": "^6.0.0"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.14.0",
+				"babel-jest": "^17.0.2",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-es2015-node4": "^2.1.0",
+				"babel-register": "^6.14.0",
+				"coveralls": "^2.11.15",
+				"eslint": "^3.4.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest-cli": "^17.0.3",
+				"npm-run-all": "^3.1.0",
+				"postcss-test-fixtures": "^0.2.3",
+				"rimraf": "^2.5.4"
+			},
+			"scripts": {
+				"prebuild": "rimraf lib",
+				"build": "babel src --out-dir lib",
+				"coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+				"lint": "eslint src/**/*.js",
+				"release:patch": "npm test && npm run build && npm version patch",
+				"release:minor": "npm test && npm run build && npm version minor",
+				"release:major": "npm test && npm run build && npm version major",
+				"release:quick": "npm test && npm run build && git add -A && git commit -m 'Quick release patch' && npm version patch",
+				"postversion": "git push && git push --tags && npm publish --access public",
+				"pretest": "rimraf coverage",
+				"test": "npm run lint && npm run build && jest --coverage"
+			},
+			"gitHead": "e6182fa6693158bb62bfbc2ac9273495cd0394c3",
+			"_id": "postcss-plugin-bem-escape-block-name-less-modifier@0.1.1",
+			"_shasum": "913382228eeeab14252b574b7ca8bb2a1fae8d5b",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.1",
+			"_npmUser": {
+				"name": "yoshidax",
+				"email": "takehiko.yoshida.z@gmail.com"
+			},
+			"dist": {
+				"shasum": "913382228eeeab14252b574b7ca8bb2a1fae8d5b",
+				"tarball": "https://registry.npmjs.org/postcss-plugin-bem-escape-block-name-less-modifier/-/postcss-plugin-bem-escape-block-name-less-modifier-0.1.1.tgz",
+				"integrity": "sha512-XXgvuH07q9JdbySa9Avy7Dqvzi6ELJZFYU+O6sdEe1wYMkItvIaKxy9cTBmY/WDRpDk7kWNy/Ch65wr53zPKYA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDe94NdlVl0X3ao7s6G5JcVBokdG2wjEjs6i+ASKzQ13gIgOViYSiTYMSZ+uDDIBcIR2zZoXIZ4Vn1xEfXK7FJrJ8Q="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "yoshidax",
+					"email": "takehiko.yoshida.z@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-plugin-bem-escape-block-name-less-modifier-0.1.1.tgz_1494249230988_0.72816679533571"
+			}
+		}
+	},
+	"readme": "# postcss-plugin-bem-escape-block-name-less-modifier [![Build Status][travis-image]][travis-url] [![Coverage percentage][coveralls-image]][coveralls-url]\n\nthis [PostCSS] plugin fixes minor problems in modifier class without block name in BEM(exactly MindBEMding).\n\n> this plugin was created to solve the problem of a specific context (block-name-less modifier), it is not designed to escape the css selector generically.\n\nthis [PostCSS] plugin will transform this:\n\n```css\n.blcok.--modifier-a.--modifier-b {\n    ...\n}\n```\n\nTo this:\n\n```css\n.blcok.\\--modifier-a.\\--modifier-b {\n    ...\n}\n```\n\n## installation\n\n```bash\nnpm i -D postcss-plugin-bem-escape-block-name-less-modifier\n```\n\n## usage\n\n```js\npostcss([ require('postcss-plugin-bem-escape-block-name-less-modifier') ])\n```\n\n## problem and solution\n\nin the specification of selector name of css, if there is a hyphen (-) first, it is supposed not to specify a hyphen successively.\n\na strict web browser about this specification will not recognize such a class name. (ie, old android browser, etc)\n\nso this plugin solves this problem by escaping the first letter of the class name in this pattern.\n\n## why use a modifier without a block name ?\n\nwhen css is written in MindBEMding, if the modifier gets complicated, your html will be very ugly.\n\n(the css file can be solved with a preprocessor like sass!)\n\n```html\n<div class=\"my-important-class  my-important-class--active  my-important-class--danger  my-important-class--strong\">\n```\n\nso i omit the modifier block name.\n\nwhen writing like this with sass...\n\n```scss\n.my-important-class {\n   &.--active {...}\n   &.--danger {...}\n   &.--strong {...}\n}\n/**\noutput:\n.my-important-class.--active { ... }\n.my-important-class.--danger { ... }\n.my-important-class.--strong { ... }\n**/\n```\n\nhtml will be so cute! It is!\n\n```html\n<div class = \"my-important-class  --active  --danger  --strong\">\n```\n\n\n[![NPM](https://nodei.co/npm/postcss-plugin-bem-escape-block-name-less-modifier.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/gitbook-plugin-search-languages/)\n\n[coveralls-image]: https://coveralls.io/repos/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier/badge.svg\n[coveralls-url]: https://coveralls.io/r/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier\n[travis-image]: https://travis-ci.org/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier.svg?branch=master\n[travis-url]: https://travis-ci.org/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier\n[PostCSS]: https://github.com/postcss/postcss\n",
+	"maintainers": [
+		{
+			"name": "yoshidax",
+			"email": "takehiko.yoshida.z@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:35:12.711Z",
+		"created": "2017-05-08T13:13:53.176Z",
+		"0.1.1": "2017-05-08T13:13:53.176Z"
+	},
+	"homepage": "https://github.com/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"bem"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier.git"
+	},
+	"author": {
+		"name": "yoshidax"
+	},
+	"bugs": {
+		"url": "https://github.com/yoshidax/postcss-plugin-bem-escape-block-name-less-modifier/issues"
+	},
+	"readmeFilename": "README.md"
+}

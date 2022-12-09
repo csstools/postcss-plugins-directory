@@ -1,0 +1,96 @@
+{
+	"_id": "postcss-tag-to-id",
+	"_rev": "2-1d5058903ce7f7065c2bb8fdbb14ab25",
+	"name": "postcss-tag-to-id",
+	"description": "tag to id",
+	"dist-tags": {
+		"latest": "0.1.7"
+	},
+	"versions": {
+		"0.1.7": {
+			"name": "postcss-tag-to-id",
+			"version": "0.1.7",
+			"description": "tag to id",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/vnjson/postcss-tag-to-id.git"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"tag-to-id"
+			],
+			"author": {
+				"name": "kserks"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/vnjson/postcss-tag-to-id/issues"
+			},
+			"homepage": "https://github.com/vnjson/postcss-tag-to-id#readme",
+			"gitHead": "a727903c8eda1ac08457fa8b37ede240bb118910",
+			"_id": "postcss-tag-to-id@0.1.7",
+			"_shasum": "ad084f91decd700870a8299b804d7be27796ebb2",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.9.0",
+			"_npmUser": {
+				"name": "kserks",
+				"email": "bakakasin@vivaldi.net"
+			},
+			"dist": {
+				"shasum": "ad084f91decd700870a8299b804d7be27796ebb2",
+				"tarball": "https://registry.npmjs.org/postcss-tag-to-id/-/postcss-tag-to-id-0.1.7.tgz",
+				"integrity": "sha512-VlQSugmeo4f9+DNdf47LnntJJzUtkry7VKs71LZSC1f3PoIVaOycpkP3XatqRYO8vFY9wxbZtHrJXj7FIr5mjQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCAMGh72S+B43G2BNNmoMQuviQH0izh87RmlvIBzViaawIgeis/5JFcww3lKQnjrjpeDkPB9kkjsnxO8fW4Fk6DqMs="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "kserks",
+					"email": "bakakasin@vivaldi.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-tag-to-id-0.1.7.tgz_1493608743323_0.25908858282491565"
+			}
+		}
+	},
+	"readme": "# postcss-tag-to-id\r\n> root tags to id\r\n\r\n## Install\r\n\r\n```bash\r\nnpm install --save postcss-tag-to-id\r\n```\r\n\r\n## Usage\r\n__`source.html`__\r\n```html\r\n  <about>\r\n    <h1 id=\"homepage\">About</h1>\r\n  </about>\r\n  <script type=\"text/javascript\">\r\n    vnjs.on('load',()=>{})\r\n  </script>\r\n  <game-over>\r\n    <h1 class='game-over'>Game Over</h1>\r\n  </game-over>\r\n  <style type=\"text/css\">\r\n    .game-over{}\r\n    #homepage{}\r\n    about{\r\n      color: cyan;\r\n    }\r\n    \r\n    game-over{\r\n      padding: 15px;\r\n    }\r\n  </style>\r\n```\r\n\r\n__`gulpfile.js`__\r\n```javascript\r\nconst\r\n  gulp                        = require('gulp'),\r\n  postcss                     = require('gulp-postcss'),\r\n  concat                      = require('gulp-concat');\r\n\r\n\r\ngulp.task('css', function () {\r\n   let plugins = [\r\n        require('postcss-tag-to-id')({prefix: \"#vnjson__\"})\r\n       \r\n    ];\r\n    gulp.src(['./src/screens/**/*.css'])\r\n      .pipe(postcss(plugins))\r\n      .pipe(concat('style.css'))\r\n      .pipe(gulp.dest('./dest'))\r\n\r\n});\r\n```\r\n\r\n__`output.css`__\r\n```css\r\n.game-over{}\r\n#homepage{}\r\n#vnjson__about{\r\n  color: cyan;\r\n}\r\n    \r\n#vnjson__game-over{\r\n  padding: 15px;\r\n}\r\n\r\n```\r\n## Options\r\n```js\r\n{\r\n  prefix: 'string'\r\n}\r\n\r\n```\r\n\r\n## LICENSE\r\n> MIT Lisense (MIT)",
+	"maintainers": [
+		{
+			"name": "kserks",
+			"email": "bakakasin@vivaldi.net"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T11:02:55.209Z",
+		"created": "2017-05-01T03:19:04.008Z",
+		"0.1.7": "2017-05-01T03:19:04.008Z"
+	},
+	"homepage": "https://github.com/vnjson/postcss-tag-to-id#readme",
+	"keywords": [
+		"postcss-plugin",
+		"tag-to-id"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnjson/postcss-tag-to-id.git"
+	},
+	"author": {
+		"name": "kserks"
+	},
+	"bugs": {
+		"url": "https://github.com/vnjson/postcss-tag-to-id/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

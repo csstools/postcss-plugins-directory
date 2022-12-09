@@ -1,0 +1,97 @@
+{
+	"_id": "css-utilify",
+	"_rev": "3-1e5e1c092e1890f37330b2137ef4fb15",
+	"name": "css-utilify",
+	"description": "Add `@base` annotations to the rules",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "css-utilify",
+			"version": "0.1.0",
+			"description": "Add `@base` annotations to the rules",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"bin": {
+				"css-utilify": "cli.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/morishitter/css-utilify/git"
+			},
+			"keywords": [
+				"css",
+				"atcss",
+				"utilify",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Masaaki Morishita"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"minimist": "^1.1.1",
+				"postcss": "^4.1.11"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0"
+			},
+			"gitHead": "264437242f6fb330c172d884f71847ce17019b86",
+			"_id": "css-utilify@0.1.0",
+			"_shasum": "88ff121b2b69642e4e3b23ab4a6c338539989698",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "morishitter",
+				"email": "ikasama3.0@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "morishitter",
+					"email": "ikasama3.0@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "88ff121b2b69642e4e3b23ab4a6c338539989698",
+				"tarball": "https://registry.npmjs.org/css-utilify/-/css-utilify-0.1.0.tgz",
+				"integrity": "sha512-qlY1EW+aqz5Nha94AlNciSc18O1lMzejXPGNRIWReHP9XzMGjNvVxgUmX2FhqS1WdxVMEMD+TB1D+qzNHDbQYg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDNiuMdSJX1tI6lMcYKoxlNG48k928AAZB2xW9RtPeSjQIhAO8fisJ+qmeYHTL7dJteIZ45WbFX4MW2tJ324/gB6F0L"
+					}
+				]
+			}
+		}
+	},
+	"readme": "# css-utilify [![Build Status](https://travis-ci.org/morishitter/css-utilify.svg)](https://travis-ci.org/morishitter/css-utilify)\n\nAdd `@base` annotations to the rules.\n\nUsing with [AtCSS](https://github.com/morishitter/atcss) or [postcss-include](https://github.com/morishitter/postcss-include).\n\n## Install\n\n```shell\n$ npm install css-utilify\n```\n\n## Usage\n\n### CLI\n\n```\n$ css-utilify input-file (output-file-name)\n```\n\nDefault `output-file-name` is `input-file.base.css`.\n\n### in PostCSS\n\n```js\nvar fs = require('fs')\nvar postcss = require('postcss')\nvar utilify = require('postcss-utilify')\n\nvar css = fs.readFileSync('input.css', 'utf-8')\n\nvar output = postcss(css)\n  .use(utilify)\n  .process(css)\n  .css\n```\n\nUsing this `input.css`:\n\n```css\n.fl {\n  float: left;\n}\n\n.pdt-10 {\n  padding-top: 10px;\n}\n```\n\nYou will get:\n\n```css\n.fl {\n  /* @base */\n  float: left;\n}\n\n.pdt-10 {\n  /* @base */\n  padding-top: 10px;\n}\n```\n\n## License\n\nThe MIT License (MIT)\n\nCopyright (c) 2015 Masaaki Morishita\n",
+	"maintainers": [
+		{
+			"name": "morishitter",
+			"email": "morishitter@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-14T04:56:32.560Z",
+		"created": "2015-05-18T05:09:35.495Z",
+		"0.1.0": "2015-05-18T05:09:35.495Z"
+	},
+	"keywords": [
+		"css",
+		"atcss",
+		"utilify",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/morishitter/css-utilify/git"
+	},
+	"author": {
+		"name": "Masaaki Morishita"
+	},
+	"license": "MIT",
+	"readmeFilename": "readme.markdown"
+}

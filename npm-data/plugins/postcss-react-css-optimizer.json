@@ -1,0 +1,129 @@
+{
+	"_id": "postcss-react-css-optimizer",
+	"_rev": "5-4692c1b94466f3b12cbbed11e9a944c4",
+	"name": "postcss-react-css-optimizer",
+	"description": "Optimization of CSS by React components",
+	"dist-tags": {
+		"latest": "0.0.2"
+	},
+	"versions": {
+		"0.0.2": {
+			"name": "postcss-react-css-optimizer",
+			"version": "0.0.2",
+			"description": "Optimization of CSS by React components",
+			"main": "dist/index.js",
+			"scripts": {
+				"build": "rm -rf dist; NODE_ENV=production babel src --out-dir dist",
+				"prepublish": "npm run build",
+				"test": "mocha test --recursive --compilers js:babel-register --require babel-polyfill",
+				"test:watch": "mocha test --recursive -w --compilers js:babel-register --require babel-polyfill"
+			},
+			"author": {
+				"name": "ori livni",
+				"url": "@oriSomething"
+			},
+			"license": "MIT",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"optimization",
+				"react"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/oriSomething/postcss-react-css-optimizer.git"
+			},
+			"dependencies": {
+				"esprima-fb": "^15001.1001.0-dev-harmony-fb",
+				"glob": "^6.0.4",
+				"jscodeshift": "^0.3.12",
+				"lodash": "^4.0.0",
+				"postcss-selector-parser": "^1.3.0",
+				"postcss": "^5.0.14",
+				"recast": "^0.11.0"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.4.0",
+				"babel-core": "^6.4.0",
+				"babel-eslint": "^5.0.0-beta6",
+				"babel-polyfill": "^6.3.14",
+				"babel-preset-es2015": "^6.3.13",
+				"babel-preset-react": "^6.3.13",
+				"babel-preset-stage-3": "^6.3.13",
+				"babel-regenerator-runtime": "^6.3.13",
+				"chai": "^3.4.1",
+				"eslint": "^1.10.3",
+				"eslint-plugin-markdown": "^1.0.0-beta.1",
+				"eslint-plugin-react": "^3.15.0",
+				"mocha": "^2.3.4",
+				"mock-fs": "^3.6.0"
+			},
+			"gitHead": "81b24607ee572bd4d6fe573f2f5c9b7feac904a2",
+			"bugs": {
+				"url": "https://github.com/oriSomething/postcss-react-css-optimizer/issues"
+			},
+			"homepage": "https://github.com/oriSomething/postcss-react-css-optimizer#readme",
+			"_id": "postcss-react-css-optimizer@0.0.2",
+			"_shasum": "46c052f59e955681a3b40b38bdc72e7f3cec53cb",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "orisomething",
+				"email": "ori@orisomething.com"
+			},
+			"dist": {
+				"shasum": "46c052f59e955681a3b40b38bdc72e7f3cec53cb",
+				"tarball": "https://registry.npmjs.org/postcss-react-css-optimizer/-/postcss-react-css-optimizer-0.0.2.tgz",
+				"integrity": "sha512-30LBaA01A34hVGDQ2o7Kucei8iyoN/vlnnoh5DgD3f02sfE6RRx/65vaVQFaFJZdOPnoWdyRFjQUHhG3VdrmNQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHPxdXAWGDPhxadkTk4tiL74w5Y0Bhp0N7ZjBuZuJ4T0AiA1tBsnAiI4VGIcyspRnN7g7+tdq4TC4giXbUW63jCPCg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "orisomething",
+					"email": "ori@orisomething.com"
+				}
+			]
+		}
+	},
+	"readme": "# React CSS Optimizer (PostCSS plugin)\n\n**It's still in experimental stage**\n\nRemove unused CSS classes by analyzing `React.Component`s JavaScript files.\nIt's also support the use of the module `classnames`.\n\n\n## But what about `CSS modules`?\n\n`CSS modules` is super cool! But I disagree about the way is solves the problem.\n\n1. `CSS modules` is more about preventing naming conflicts. While I prefer no uniqueness and more CSS classes shared between components (some references: [cssguidelines](http://cssguidelin.es/), [\"The Top 5 Mistakes of Massive CSS\"](https://www.youtube.com/watch?v=j6sAm7CLoCQ))\n2. I don't like the idea of importing CSS in my JavaScript. And then find myself having more complexity in JavaScript and both CSS\n3. it's difficult to set the order of the rules when you import both CSS both in CSS files and JavaScript files\n\n\n## Usage\n\nInstalling from CLI:\n```\n npm i --save-dev https://github.com/oriSomething/postcss-react-css-optimizer\n```\n\nUsing it PostCSS:\n```js\nconst postcss = require(\"postcss\");\nconst postcssReactCSSOptimizer = require(\"postcss-react-css-optimizer\");\n\npostcss([postcssReactCSSOptimizer({\n  files: \"react-component-file.js\"\n})]).process(/* ··· */);\n// ···\n```\n\n### Input:\n\n`component.js`:\n\n```js\nimport ReactDOM from \"react-dom\";\n\nexport default function SomeComponent() {\n  return <div class=\"will-exist\" />;\n}\n```\n\n`component.css`:\n```css\n.will-exist { ··· }\n\n.will-drop { ··· }\n```\n\n### Output:\n\n`component.css`:\n```css\n.will-exist { ··· }\n```\n\n\n## Roadmap\n\n- support pseudo and state selectors\n- support parent child relation CSS classes (example: `.parent .child` / `.parent > .child`)\n- show report of classes that have being dropped\n- support for more complex ways to extract CSS classes (example `.selector-*`. `*` is for everythig)\n- caching\n- non JSX support\n- maybe, changing the CSS tree and the JavaScript files, so many optimizations for CSS and CSS related in JavaScript files could be made\n- support of CSS classes with special characters (example `.😁`)\n",
+	"maintainers": [
+		{
+			"name": "orisomething",
+			"email": "ori@orisomething.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:43:30.853Z",
+		"created": "2016-01-25T09:18:42.877Z",
+		"0.0.1": "2016-01-25T09:18:42.877Z",
+		"0.0.2": "2016-01-25T09:34:34.623Z"
+	},
+	"homepage": "https://github.com/oriSomething/postcss-react-css-optimizer#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"optimization",
+		"react"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/oriSomething/postcss-react-css-optimizer.git"
+	},
+	"author": {
+		"name": "ori livni",
+		"url": "@oriSomething"
+	},
+	"bugs": {
+		"url": "https://github.com/oriSomething/postcss-react-css-optimizer/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

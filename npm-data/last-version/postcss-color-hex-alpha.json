@@ -1,0 +1,140 @@
+{
+	"name": "postcss-color-hex-alpha",
+	"description": "Use 4 & 8 character hex color notation in CSS",
+	"version": "8.0.4",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "Maxime Thirouin"
+		}
+	],
+	"license": "MIT",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-hex-alpha#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-color-hex-alpha"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"4-digit",
+		"8-digit",
+		"alpha",
+		"color",
+		"css",
+		"csswg",
+		"hex",
+		"postcss",
+		"postcss-plugin",
+		"spec",
+		"specification",
+		"transparency",
+		"transparent",
+		"w3c"
+	],
+	"csstools": {
+		"cssdbId": "hexadecimal-alpha-notation",
+		"exportName": "postcssColorHexAlpha",
+		"humanReadableName": "PostCSS Color Hex Alpha",
+		"specUrl": "https://www.w3.org/TR/css-color-4/#hex-notation"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "3e1e446c89bea2672c5c56f6bbf9c066c07179a4",
+	"_id": "postcss-color-hex-alpha@8.0.4",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-nLo2DCRC9eE4w2JmuKgVA3fGL3d01kGq752pVALF68qpGLmx2Qrk91QTKkdUqqp45T1K1XV8IhQpcu1hoAQflQ==",
+		"shasum": "c66e2980f2fbc1a63f5b079663340ce8b55f25a5",
+		"tarball": "https://registry.npmjs.org/postcss-color-hex-alpha/-/postcss-color-hex-alpha-8.0.4.tgz",
+		"fileCount": 7,
+		"unpackedSize": 10132,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQDlmbIbtU3KAejGMAT+4yX2IaHTwIQeT4F/WO7W2xfLAwIgGopkjwqzSqOZqu4c6Jn1EbxWtOS7nn4EDEHG6TyTM2c="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiovUuACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmovsA/9GFqOFStdjsz3k9VVCCAb7ZHFBkTj42fV6gI3b52BrmSifCUD\r\nm/SrIC4mbGmvBc8NQxHlQS8jFfc674eO2wl5hdkT3c4myhZeVNaGvmc/6MYi\r\nmZALzOkZqw+PV5rTuZKMVvSh856Bi72xnUxkJNG9How0S1YkB+QztanWX/v9\r\n2PDSTp+JI1PMDgnHwzwAxsShzVaHbbqUnmiIREONEBnFOH49Z9MprkFYGPBK\r\n9zxoN/JvjS0x9OsZJqmqdjpMoEV4KH3Lh8V1Z/lmrHKef8Fvuo8qizLe/H2y\r\nyU1lgJVHBXsce6RjfAm92bknLT/z3ZXiHHXK6BPWViTyS8l2dhuXimYaVbkH\r\nR9uuIX77ztDeeiYOy1RnxP/GiBvG2r18k4mtr8/JJW9U7BOklCj0bavh3tWc\r\nmv+Vj8hRO1xmd8077WYnesA8aB4aCTeykJ6wMM1zwfoPctGTu6Doy+g7LxxZ\r\n07/TKIyBBxNk5cknWR+YHTFHTb/wZyXLvGOLzvfeHjAb2o4PhpzYNab4vljh\r\nsuicAfVw5Cot8mpB7fXTg0RpnloeY9d8lIA0VKSKY89jKptWXZ7VPOJDER84\r\nKVLsvn/6BQMZey9KDpfbjqBopraylP91S7Yw1hnmOWeNWDsNL5XCTFT1iZv8\r\nbVopFoG07Wwk2F1N/w5XJ4zeuJ7XY64Z6Ao=\r\n=jf3K\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "moox",
+			"email": "npm@moox.io"
+		},
+		{
+			"name": "semigradsky",
+			"email": "semigradskyd@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-color-hex-alpha_8.0.4_1654846766642_0.7643128580728347"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-06-10T07:39:26.851Z"
+}

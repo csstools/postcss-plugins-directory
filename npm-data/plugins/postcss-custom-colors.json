@@ -1,0 +1,143 @@
+{
+	"_id": "postcss-custom-colors",
+	"_rev": "3-609ee97faa8b7f28942fd45f5d47c2ab",
+	"name": "postcss-custom-colors",
+	"description": "A PostCSS plugin to add color functions that reference hues and shades of your color palette.",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-custom-colors",
+			"version": "1.0.0",
+			"description": "A PostCSS plugin to add color functions that reference hues and shades of your color palette.",
+			"main": "lib/index.js",
+			"jsnext:main": "src/index.js",
+			"scripts": {
+				"lint": "eslint . --max-warnings 0",
+				"test": "NODE_PATH=./test:./src:$NODE_PATH mocha test/ --recursive --compilers js:babel-core/register --reporter spec --require babel-polyfill",
+				"test:cover": "NODE_PATH=./test:./src:$NODE_PATH babel-node $(npm bin)/isparta cover --reporter text --reporter html $(npm bin)/_mocha test/ -- --recursive --reporter spec",
+				"test:watch": "npm test -- --watch --reporter min",
+				"check": "npm run lint && npm run test",
+				"clean": "rimraf lib dist coverage",
+				"build": "npm run clean && babel src --out-dir lib",
+				"preversion": "npm run clean && npm run check",
+				"version": "npm run build",
+				"postversion": "git push && git push --tags && npm run clean",
+				"prepublish": "npm run clean && npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/lemonmade/postcss-custom-colors.git"
+			},
+			"author": {
+				"name": "Chris Sauve",
+				"email": "chrismsauve@gmail.com"
+			},
+			"license": "MIT",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"color",
+				"colour",
+				"function"
+			],
+			"babel": {
+				"presets": [
+					"shopify"
+				]
+			},
+			"eslintConfig": {
+				"extends": "plugin:shopify/esnext"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.6.5",
+				"babel-core": "^6.7.4",
+				"babel-eslint": "^6.0.0",
+				"babel-loader": "^6.2.4",
+				"babel-preset-shopify": "^10.1.0",
+				"chai": "^3.5.0",
+				"coveralls": "^2.11.9",
+				"eslint": "^2.5.3",
+				"eslint-plugin-shopify": "^10.8.0",
+				"isparta": "^4.0.0",
+				"mocha": "^2.4.5",
+				"rimraf": "^2.5.2",
+				"webpack": "^1.12.14"
+			},
+			"dependencies": {
+				"postcss": "^5.0.19"
+			},
+			"gitHead": "e471675a8c50435912337d656341c62e6588b444",
+			"bugs": {
+				"url": "https://github.com/lemonmade/postcss-custom-colors/issues"
+			},
+			"homepage": "https://github.com/lemonmade/postcss-custom-colors#readme",
+			"_id": "postcss-custom-colors@1.0.0",
+			"_shasum": "a83eadbaad0da9a81188ba8ffa149877bb818c46",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.7.0",
+			"_npmUser": {
+				"name": "lemonmade",
+				"email": "chrismsauve@gmail.com"
+			},
+			"dist": {
+				"shasum": "a83eadbaad0da9a81188ba8ffa149877bb818c46",
+				"tarball": "https://registry.npmjs.org/postcss-custom-colors/-/postcss-custom-colors-1.0.0.tgz",
+				"integrity": "sha512-UCN9DCGkz/Wv8odKcn0dSxnEhFNPkQ9KX1a+/KZJKn3PBVzBwKyFpntYPKWAWYXu0WvJdwkn0Rx7hwVcA7sA7w==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDb32Yp758gUotuimkZ+BaNTt+pAWdX7wHOqHjTIjH2rQIhAIhvtLHrmFA/HoSEPeiFJu7EzFC5zP+pUop3HD3tSKWI"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "lemonmade",
+					"email": "chrismsauve@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-custom-colors-1.0.0.tgz_1459344079784_0.163625001674518"
+			}
+		}
+	},
+	"readme": "# `postcss-custom-colors`\n\nA [PostCSS](https://github.com/postcss/postcss) plugin to add color functions that reference hues and shades of your color palette.\n\n[![Build status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Maintained][maintained-image]][maintained-url] [![NPM version][npm-image]][npm-url] [![Dependency Status][dependency-image]][dependency-url] [![Dev Dependency Status][devDependency-image]][devDependency-url] [![Code Climate][climate-image]][climate-url]\n\n## Installation\n\n```\nnpm install postcss-custom-colors\n```\n\n## Usage\n\nIn JavaScript, simply pass your named colors to this plugin when declaring it for use with PostCSS. Your colors can be simple strings, or can have nested colors beneath them (this is useful for declaring shades/ tints).\n\n```js\n// dependencies\nimport fs from 'fs';\nimport postcss from 'postcss';\nimport customColors from 'postcss-custom-colors';\n\n// css to be processed\nconst css = fs.readFileSync('input.css', 'utf8');\n\n// your colors\nconst colors = {\n  white: '#F2F5FF',\n  blue: {\n    light: '#A2CEFF',\n    base: '#5898FF',\n  },\n};\n\n// process css\nvar output = postcss()\n  .use(customColors(colors))\n  .process(css)\n  .css\n```\n\nAnd, in CSS, used the `color` function to reference your color palette. You can use the `shade` option to reference the nested shades, if provided (omitting a shade will default to using the `base` key of a nested color):\n\n```css\n.foo {\n  background: color(white);\n  border: 1px solid color(blue, shade: light);\n  color: color(blue); /* equivalent to color(blue, shade: base) */\n}\n```\n\nWhich will generate:\n\n```css\n.foo {\n  background: #F2F5FF;\n  border: 1px solid #A2CEFF;\n  color: #5898FF;\n}\n```\n\n### Options\n\nIn addition to the color palette passed to `custom-colors`, you can pass an options object that lets you customize the names of the function, modifier key, and default value key:\n\n```js\npostcss().use(\n  customColors(colors, {\n    // the actual function to look for; here, `colour(white)` becomes valid.\n    functionName: 'colour',\n\n    // the modifier key to use; here, `color(blue, value: light)` becomes valid.\n    shadeName: 'value',\n\n    // the base key name; here, `color(blue)` will refer to the light blue.\n    baseName: 'light',\n  })\n)\n```\n\n[travis-url]: https://travis-ci.org/lemonmade/postcss-custom-colors\n[travis-image]: https://travis-ci.org/lemonmade/postcss-custom-colors.svg?branch=master\n\n[coveralls-url]: https://coveralls.io/github/lemonmade/postcss-custom-colors?branch=master\n[coveralls-image]: https://coveralls.io/repos/lemonmade/postcss-custom-colors/badge.svg?branch=master&service=github\n\n[dependency-url]: https://david-dm.org/lemonmade/postcss-custom-colors\n[dependency-image]: https://david-dm.org/lemonmade/postcss-custom-colors.svg\n\n[devDependency-url]: https://david-dm.org/lemonmade/postcss-custom-colors#info=devDependencies\n[devDependency-image]: https://david-dm.org/lemonmade/postcss-custom-colors/dev-status.svg\n\n[npm-url]: https://npmjs.org/package/postcss-custom-colors\n[npm-image]: http://img.shields.io/npm/v/postcss-custom-colors.svg?style=flat-square\n\n[climate-url]: https://codeclimate.com/github/lemonmade/postcss-custom-colors\n[climate-image]: http://img.shields.io/codeclimate/github/lemonmade/postcss-custom-colors.svg?style=flat-square\n\n[maintained-url]: https://github.com/lemonmade/postcss-custom-colors/pulse\n[maintained-image]: http://img.shields.io/badge/status-maintained-brightgreen.svg?style=flat-square\n",
+	"maintainers": [
+		{
+			"name": "lemonmade",
+			"email": "chrismsauve@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:46:11.059Z",
+		"created": "2016-03-30T13:21:22.161Z",
+		"1.0.0": "2016-03-30T13:21:22.161Z"
+	},
+	"homepage": "https://github.com/lemonmade/postcss-custom-colors#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"color",
+		"colour",
+		"function"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/lemonmade/postcss-custom-colors.git"
+	},
+	"author": {
+		"name": "Chris Sauve",
+		"email": "chrismsauve@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/lemonmade/postcss-custom-colors/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

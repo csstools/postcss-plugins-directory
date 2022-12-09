@@ -1,0 +1,130 @@
+{
+	"_id": "pixrem-slevomat",
+	"_rev": "2-6546cbf97e5b2936a6af39628570d6b9",
+	"name": "pixrem-slevomat",
+	"description": "A CSS post-processor that generates pixel fallbacks for rem units.",
+	"dist-tags": {
+		"latest": "3.0.3"
+	},
+	"versions": {
+		"3.0.3": {
+			"name": "pixrem-slevomat",
+			"description": "A CSS post-processor that generates pixel fallbacks for rem units.",
+			"version": "3.0.3",
+			"homepage": "https://github.com/slevomat/node-pixrem",
+			"author": {
+				"name": "Rob Wierzbowski",
+				"email": "hello@robwierzbowski.com",
+				"url": "http://robwierzbowski.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/slevomat/node-pixrem.git"
+			},
+			"bugs": {
+				"url": "https://github.com/slevomat/node-pixrem/issues"
+			},
+			"licenses": [
+				{
+					"type": "BSD-new"
+				}
+			],
+			"main": "lib/pixrem.js",
+			"engines": {
+				"node": ">=0.10.0",
+				"npm": ">=1.2.10"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"browserslist": "^1.0.0",
+				"postcss": "^6.0.0",
+				"reduce-css-calc": "^1.2.7"
+			},
+			"devDependencies": {
+				"mocha": "^2.3.2"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"rem",
+				"parser",
+				"postproccessor",
+				"responsive"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "ISC",
+			"gitHead": "adfffd50e4f47edfb855100ea2f2e5ee708e2b2d",
+			"_id": "pixrem-slevomat@3.0.3",
+			"_shasum": "1430791da4bb156bfafe7d8109ccb4ea1102ee25",
+			"_from": ".",
+			"_npmVersion": "3.10.6",
+			"_nodeVersion": "7.8.0",
+			"_npmUser": {
+				"name": "slevomat",
+				"email": "admin@slevomat.cz"
+			},
+			"dist": {
+				"shasum": "1430791da4bb156bfafe7d8109ccb4ea1102ee25",
+				"tarball": "https://registry.npmjs.org/pixrem-slevomat/-/pixrem-slevomat-3.0.3.tgz",
+				"integrity": "sha512-ZeX1p6+dIkvSIDTFsD5gA9xi4rhXvNNB3WwqCnomI28I5sAxTF6bMEZOMX6gD4fN/qLpTDJLEBtWbnoDQIOgCw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDy4YQwmO0vIgSm6SCyBtMME4btIlVBNwSRa0m/Rz+1nwIgFRYWfcxgVhwzX7Od3Mc6LSmaxUpK5b8AmNyVEa27f/0="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "slevomat",
+					"email": "admin@slevomat.cz"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pixrem-slevomat-3.0.3.tgz_1497014783176_0.052266366546973586"
+			}
+		}
+	},
+	"readme": "# Pixrem\r\n\r\n[![Build Status](https://travis-ci.org/robwierzbowski/node-pixrem.png?branch=master)](https://travis-ci.org/robwierzbowski/node-pixrem)\r\n\r\n[PostCSS](https://github.com/ai/postcss) plugin that generates pixel fallbacks for rem units.\r\n\r\n## Installation\r\n\r\n`npm install --save pixrem`\r\n\r\n## Usage\r\n\r\nPixrem is a CSS post-processor that, given CSS and a root em value, returns CSS with pixel unit fallbacks or replacements. It's based on [browser data](http://caniuse.com/rem) so only needed fallbacks will be added. Basically, it's for IE8 or less, and for IE9 & IE10 in the `font` shorthand property and in pseudo-elements.\r\n\r\n### Example\r\n\r\n```js\r\n'use strict';\r\nvar fs      = require('fs');\r\nvar pixrem  = require('pixrem');\r\nvar postcss = require('postcss');\r\n\r\nvar css = fs.readFileSync('main.css', 'utf8');\r\nvar processedCss = postcss([pixrem]).process(css).css;\r\n\r\nfs.writeFile('main.with-fallbacks.css', processedCss, function (err) {\r\n  if (err) {\r\n    throw err;\r\n  }\r\n  console.log('IE8, you\\'re welcome.');\r\n});\r\n```\r\n\r\nPixrem takes this:\r\n\r\n```css\r\n.sky {\r\n  margin: 2.5rem 2px 3em 100%;\r\n  color: blue;\r\n}\r\n\r\n@media screen and (min-width: 20rem) {\r\n  .leaf {\r\n    margin-bottom: 1.333rem;\r\n    font-size: 1.5rem;\r\n  }\r\n}\r\n```\r\n\r\nAnd returns this:\r\n\r\n```css\r\n.sky {\r\n  margin: 80px 2px 3em 100%;\r\n  margin: 2.5rem 2px 3em 100%;\r\n  color: blue;\r\n}\r\n\r\n@media screen and (min-width: 20rem) {\r\n  .leaf {\r\n    margin-bottom: 1.333rem;\r\n    font-size: 1.5rem;\r\n  }\r\n}\r\n```\r\n\r\n### Options\r\n\r\nType: `Object | Null`\r\nDefault: `{rootValue: 16, replace: false, atrules: false, html: true, browsers: 'ie <= 8', unitPrecision: 3}`\r\n\r\n- `rootValue`     the root element font size. Can be `px`, `rem`, `em`, `%`, or unitless pixel value. Pixrem also tries to get the root font-size from CSS (`html` or `:root`) and overrides this option. Use `html` option to disable this behaviour.\r\n- `replace`       replaces rules containing `rem`s instead of adding fallbacks.\r\n- `atrules`       generates fallback in at-rules too (media-queries)\r\n- `html`          overrides root font-size from CSS `html {}` or `:root {}`\r\n- `browsers`      sets browser's range you want to target, based on [browserslist](https://github.com/ai/browserslist)\r\n- `unitPrecision` control the significant digits after the decimal point\r\n\r\n## Contribute\r\n\r\nReport bugs and feature proposals in the [Github issue tracker](https://github.com/robwierzbowski/node-pixrem/issues). Run tests with `npm test`. In lieu of a formal styleguide, take care to maintain the existing coding style.\r\n\r\n## License\r\n\r\n[MIT](http://en.wikipedia.org/wiki/MIT_License)\r\n\r\n\r\n[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/robwierzbowski/node-pixrem/trend.png)](https://bitdeli.com/free \"Bitdeli Badge\")\r\n\r\n",
+	"maintainers": [
+		{
+			"name": "slevomat",
+			"email": "admin@slevomat.cz"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T01:39:54.931Z",
+		"created": "2017-06-09T13:26:24.123Z",
+		"3.0.3": "2017-06-09T13:26:24.123Z"
+	},
+	"homepage": "https://github.com/slevomat/node-pixrem",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"rem",
+		"parser",
+		"postproccessor",
+		"responsive"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/slevomat/node-pixrem.git"
+	},
+	"author": {
+		"name": "Rob Wierzbowski",
+		"email": "hello@robwierzbowski.com",
+		"url": "http://robwierzbowski.com"
+	},
+	"bugs": {
+		"url": "https://github.com/slevomat/node-pixrem/issues"
+	},
+	"license": "ISC",
+	"readmeFilename": "README.md"
+}

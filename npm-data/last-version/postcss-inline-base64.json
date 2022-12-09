@@ -1,0 +1,111 @@
+{
+	"name": "postcss-inline-base64",
+	"version": "7.2.2",
+	"description": "PostCSS plugin for encode the file to base64",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"base64",
+		"file",
+		"inline",
+		"postcss-inline-base64"
+	],
+	"author": {
+		"name": "Thiago Lagden",
+		"email": "lagden@gmail.com"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/lagden/postcss-inline-base64",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lagden/postcss-inline-base64.git"
+	},
+	"bugs": {
+		"url": "https://github.com/lagden/postcss-inline-base64/issues"
+	},
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./src/plugin.js",
+			"require": "./dist/plugin-wrapper.cjs"
+		},
+		"./package.json": "./package.json"
+	},
+	"main": "./dist/plugin-wrapper.cjs",
+	"engines": {
+		"node": ">=14.17"
+	},
+	"scripts": {
+		"rm": "rm -rf dist",
+		"eslint": "eslint --config .eslintrc.yml --ext .js --ignore-path .gitignore .",
+		"pretest": "npm run eslint",
+		"test": "c8 --reporter=text --reporter=text-summary --reporter=lcov ava",
+		"prebuild": "npm test && npm run rm",
+		"esbuild": "node ./esbuild.config.js",
+		"postbuild": "npm run dist:pkg && npm run dist:wrapper",
+		"dist:pkg": "echo '{\"type\": \"commonjs\"}'> dist/package.json",
+		"dist:wrapper": "echo \"module.exports = require('./plugin.cjs').default\"> dist/plugin-wrapper.cjs",
+		"build": "npm run esbuild",
+		"snyk-protect": "snyk-protect",
+		"prepare": "npm run snyk-protect"
+	},
+	"dependencies": {
+		"debug": "4.3.4",
+		"file-type": "17.1.1",
+		"got": "12.0.3",
+		"is-svg": "4.3.2"
+	},
+	"devDependencies": {
+		"@babel/core": "7.17.9",
+		"@babel/eslint-parser": "7.17.0",
+		"@snyk/protect": "1.906.0",
+		"ava": "4.2.0",
+		"c8": "7.11.0",
+		"esbuild": "0.14.36",
+		"eslint": "8.13.0",
+		"eslint-config-xo": "0.40.0",
+		"eslint-plugin-unicorn": "42.0.0",
+		"postcss": "8.4.12"
+	},
+	"peerDependencies": {
+		"postcss": ">=8.0.0"
+	},
+	"snyk": true,
+	"babel": {},
+	"gitHead": "394c914a6b38c9723086389032f039c3a28e4222",
+	"_id": "postcss-inline-base64@7.2.2",
+	"_nodeVersion": "14.17.0",
+	"_npmVersion": "8.3.0",
+	"dist": {
+		"integrity": "sha512-kbl5Lkj9ZCvtuxsQQ76O+XDJuRSfUhBY9l/AvUr3HCzfbfmHFKDVQ4qgGYrzIsQaCQB+KnROPKHEibNN03TJSw==",
+		"shasum": "67f4fd9e733dbe5f4076d9ac364eaf8b06c1ff24",
+		"tarball": "https://registry.npmjs.org/postcss-inline-base64/-/postcss-inline-base64-7.2.2.tgz",
+		"fileCount": 12,
+		"unpackedSize": 1135472,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCGACRAJ+xBJ6l+IfKCl0+QTw8NwS0MkVDndj/zQIiNWQIgcLJsijP8BznIizUzowaUGmfzpSVLe4/peqBsHT8loBM="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiW45/ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpS9w/+J3zXwX5U1tA5XlUjNMXkIw9Iv+pDEKmv3QSdfYymNS9PvSzm\r\nMl1yrU2mecQ8Zo1LuWRsiwhQuFI0kJgXX0r8hK53xARkg5BaJ8lp5O8PTdTq\r\nEctvYcBYihrKbeSlKD2bc1cdjchhVGU7t9KzaUQcuOiTW0VWnU4od7izKtvh\r\nmBmjLFUkOqbIfyV6jZBfb7CSrRcB/Oz+Iv0R9Gih85VbfM1cmCikgREbqVh5\r\noY4vlTb8bu1xr2F0EFwqvuxgop4W437n6w/bqydF7TJz3MT02+HsTBZ/bid8\r\nike+WYl1mYYcJI7KpxBkSjCnUuAtAsvrkvolCsLcTjN45jBrsn+kAs0EiQfU\r\n+6T0FMkRVmzwHbuuVr5QFxqCfXEngKTJP1UV41guH5lcSHRmCEqva9jhVXTx\r\nVeMfUnmwZndtTrn7KcofwDoQVHH6umatS3PuDzXI0lN7dDbNeAcuwdjiFvFt\r\nVZ5H8BEjVZaUAHY8bxoyI9xH44TiA3MUiFXD4kWbWsfryf1qe8PgY9FMTolr\r\nfB+rbIbeGHvoc6gRhPlDIOQbk23AW8Nttd445AJOzg9FqNH4pIGkwbNuTysx\r\nS6PuEUComLRNj7IaikUIiIjKzQlx+XkqYv85/UgSoEXQcWK/5MxPM8ArKhoq\r\nez62xM1CbiSnoqeH+ffPxQmIHXGLQCaojbc=\r\n=/EO0\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "lagden",
+		"email": "lagden@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "lagden",
+			"email": "lagden@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-inline-base64_7.2.2_1650167422990_0.584338807954224"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-04-17T03:50:23.207Z"
+}

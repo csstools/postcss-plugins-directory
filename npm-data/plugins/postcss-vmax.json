@@ -1,0 +1,152 @@
+{
+	"_id": "postcss-vmax",
+	"_rev": "2-0c08c0aaf2d3241f726afc3addbf1397",
+	"name": "postcss-vmax",
+	"description": "Use vmax units in Edge and Internet Explorer",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-vmax",
+			"version": "1.0.0",
+			"description": "Use vmax units in Edge and Internet Explorer",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonathantneal/postcss-vmax.git"
+			},
+			"homepage": "https://github.com/jonathantneal/postcss-vmax#readme",
+			"bugs": {
+				"url": "https://github.com/jonathantneal/postcss-vmax/issues"
+			},
+			"main": "index.js",
+			"files": [
+				"index.js"
+			],
+			"scripts": {
+				"lint": "npm run lint:ec && npm run lint:js",
+				"lint:ec": "echint",
+				"lint:js": "eslint *.js --cache --ignore-pattern .gitignore",
+				"pre-commit": "echo 'Running pre-commit checks...' && exit 0",
+				"prepublish": "npm test",
+				"tape": "postcss-tape",
+				"test": "npm run lint && postcss-tape"
+			},
+			"engines": {
+				"node": ">=6.5.0"
+			},
+			"dependencies": {
+				"postcss": "^5.2.9"
+			},
+			"devDependencies": {
+				"echint": "^2.1.1",
+				"echint-config-dev": "1.0.0",
+				"eslint": "^3.13.1",
+				"eslint-config-dev": "1.0.0",
+				"postcss-tape": "1.3.0",
+				"pre-commit": "^1.2.2"
+			},
+			"echint": {
+				"extends": "dev"
+			},
+			"eslintConfig": {
+				"extends": "dev",
+				"parserOptions": {
+					"sourceType": "module"
+				}
+			},
+			"pre-commit": [
+				"pre-commit",
+				"test"
+			],
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"vmax",
+				"support",
+				"fallback",
+				"media",
+				"query",
+				"queries",
+				"edge",
+				"ie"
+			],
+			"gitHead": "8aaaf0699309ffe77acdadbb11df0235f0401dc9",
+			"_id": "postcss-vmax@1.0.0",
+			"_shasum": "e4870873309e135453ffac9f6f883e789226b068",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"dist": {
+				"shasum": "e4870873309e135453ffac9f6f883e789226b068",
+				"tarball": "https://registry.npmjs.org/postcss-vmax/-/postcss-vmax-1.0.0.tgz",
+				"integrity": "sha512-dsO3wmtiMDGMintIle6ljCAoHfhj8B++qGnfPb2fMuhjXLto7ATcUC667OyE0UhAA4I123uZwMGEbj9J52tGRQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDOU3PhkccItqUgw+9f/1MGZWM0xn4kx3ZG2HLahE07XAiBXNVIwwCiYgUDiMcicTpK8UBKUgzW9jGJh2yyalPJxiw=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-vmax-1.0.0.tgz_1484085206500_0.7559468830004334"
+			}
+		}
+	},
+	"readme": "# PostCSS VMax [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[![Licensing][lic-image]][lic-url]\n[![Changelog][log-image]][log-url]\n[![Gitter Chat][git-image]][git-url]\n\n[PostCSS VMax] lets you use `vmax` units in Edge and Internet Explorer.\n\n```css\n/* before */\n\n.example {\n\tfont-size: 1vmax;\n}\n\n/* after */\n\n@media (orientation: landscape) {\n\t.example {\n\t\tfont-size: 1vw;\n\t}\n}\n\n@media (orientation: portrait) {\n\t.example {\n\t\tfont-size: 1vh;\n\t}\n}\n\n.example {\n\tfont-size: 1vmax;\n}\n```\n\n## Usage\n\nAdd [PostCSS VMax] to your build tool:\n\n```bash\nnpm install postcss-vmax --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-vmax').process(YOUR_CSS, { /* options */ });\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [PostCSS VMax] as a PostCSS plugin:\n\n```js\npostcss([\n\trequire('postcss-vmax')({ /* options */ })\n]).process(YOUR_CSS, /* options */);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [PostCSS VMax] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n\treturn gulp.src('./src/*.css').pipe(\n\t\tpostcss([\n\t\t\trequire('postcss-vmax')({ /* options */ })\n\t\t])\n\t).pipe(\n\t\tgulp.dest('.')\n\t);\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [PostCSS VMax] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n\tpostcss: {\n\t\toptions: {\n\t\t\tuse: [\n\t\t\t\trequire('postcss-vmax')({ /* options */ })\n\t\t\t]\n\t\t},\n\t\tdist: {\n\t\t\tsrc: '*.css'\n\t\t}\n\t}\n});\n```\n\n[npm-url]: https://www.npmjs.com/package/postcss-vmax\n[npm-img]: https://img.shields.io/npm/v/postcss-vmax.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-vmax\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-vmax.svg\n[lic-url]: LICENSE.md\n[lic-image]: https://img.shields.io/npm/l/postcss-vmax.svg\n[log-url]: CHANGELOG.md\n[log-image]: https://img.shields.io/badge/changelog-md-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[git-image]: https://img.shields.io/badge/chat-gitter-blue.svg\n\n[PostCSS VMax]: https://github.com/jonathantneal/postcss-vmax\n[PostCSS]: https://github.com/postcss/postcss\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n",
+	"maintainers": [
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T11:11:37.398Z",
+		"created": "2017-01-10T21:53:28.445Z",
+		"1.0.0": "2017-01-10T21:53:28.445Z"
+	},
+	"homepage": "https://github.com/jonathantneal/postcss-vmax#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"vmax",
+		"support",
+		"fallback",
+		"media",
+		"query",
+		"queries",
+		"edge",
+		"ie"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonathantneal/postcss-vmax.git"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/jonathantneal/postcss-vmax/issues"
+	},
+	"license": "CC0-1.0",
+	"readmeFilename": "README.md"
+}

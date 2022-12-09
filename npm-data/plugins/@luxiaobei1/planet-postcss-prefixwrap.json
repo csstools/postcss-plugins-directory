@@ -1,0 +1,642 @@
+{
+	"_id": "@luxiaobei1/planet-postcss-prefixwrap",
+	"_rev": "6-57ee07c770ca6d8f95d655e79fb4eea4",
+	"name": "@luxiaobei1/planet-postcss-prefixwrap",
+	"dist-tags": {
+		"latest": "1.19.14"
+	},
+	"versions": {
+		"1.19.9": {
+			"name": "@luxiaobei1/planet-postcss-prefixwrap",
+			"version": "1.19.9",
+			"description": "A PostCSS plugin that is used to wrap css styles with a css selector to constrain their affect on parent elements in a page.",
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Tedman",
+				"url": "https://danieltedman.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/worktile/postcss-prefixwrap.git"
+			},
+			"homepage": "https://github.com/worktile/postcss-prefixwrap#readme",
+			"bugs": {
+				"url": "https://github.com/dbtedman/postcss-prefixwrap/issues"
+			},
+			"keywords": [
+				"css",
+				"javascript",
+				"nodejs",
+				"yarn",
+				"postcss",
+				"postcss-plugin",
+				"typescript"
+			],
+			"main": "./build/index.js",
+			"scripts": {
+				"build": "npm run clean && npm run build-only",
+				"build-only": "tsc --build ./tsconfig.json && rm -rf ./build/{**/*,*}.spec.js && rm -rf ./build/acceptance && rm -rf ./build/integration && npm run copy",
+				"clean": "rm -rf ./build/",
+				"copy": "cpx ./package.json build",
+				"format": "prettier './**/*.{md,yml,yaml,json,ts,js}' --write && yarn eslint --fix . --ext .js,.ts",
+				"lint": "prettier './**/*.{md,yml,yaml,json,ts,js}' --check && yarn eslint . --ext .js,.ts",
+				"test": "jest --coverage",
+				"pub-only": "cd build && npm publish --access=public",
+				"pub": "npm run build && npm run pub-only"
+			},
+			"peerDependencies": {
+				"postcss": "7.*.*|^8.1.0"
+			},
+			"devDependencies": {
+				"@babel/core": "7.11.6",
+				"@types/jest": "26.0.13",
+				"@types/node": "14.6.4",
+				"@typescript-eslint/eslint-plugin": "4.0.1",
+				"@typescript-eslint/parser": "4.0.1",
+				"codecov": "3.7.2",
+				"eslint": "7.8.1",
+				"eslint-config-prettier": "6.11.0",
+				"eslint-plugin-import": "2.22.0",
+				"eslint-plugin-jest": "24.0.0",
+				"eslint-plugin-promise": "4.2.1",
+				"eslint-plugin-security-node": "1.0.12",
+				"husky": "4.2.5",
+				"jest": "26.4.2",
+				"postcss": "8.1.0",
+				"postcss7": "npm:postcss@7.0.34",
+				"prettier": "2.1.1",
+				"ts-jest": "26.3.0",
+				"ts-node": "9.0.0",
+				"typescript": "4.0.2",
+				"cpx": "^1.5.0"
+			},
+			"_id": "@luxiaobei1/planet-postcss-prefixwrap@1.19.9",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-+rH43jxWA/pff8geDBKY4+yvO5iamtAL4s6dj1d2wowRIDVIjxB5yb5KFq28LPcfzC242Rkjj7wWiccpBSXL5w==",
+				"shasum": "256a6a956684268d1cecfc2f2dba212b461331d2",
+				"tarball": "https://registry.npmjs.org/@luxiaobei1/planet-postcss-prefixwrap/-/planet-postcss-prefixwrap-1.19.9.tgz",
+				"fileCount": 1,
+				"unpackedSize": 2157,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2YbxCRA9TVsSAnZWagAAOz4P/1cmlXNQvzGGRc5KN1SV\n8/4dOuIoC7WI288KQ26pBl2ieP8KGgbqKIj9LOrY3VKV+J3d9VyuTAxwCCMG\nI9OQjmtAtl4sZElTotX+nwOoYV06xEOQNiFwvOUyhz/MLGcaSct1UmVZnJXr\n4SP4tIVDBysbowltKreA5BgInmvRNfR3YOu2E/hwV04qkxQw1GkUz3HchS/Z\naBdJtBYMp9Z18y6qv1xfZzBJ3Tco6O/42uPOxIpnhHi95P6e252Cyro3fRub\n0+gvTQIygYAR8LJP8Qy7oRcq3149J0uruR7rM6cToeYqUOVUqjXSbhl0uVhb\n7vqo6on6Tf/1XFuIKBlR4r+G1YnL79EQ1cPA4oGXFmbbZAJku2rJK3ovgqBk\ncBKsMyCNs4AUOFlhbtEGUiNy+tGVGA+3EvXKpw9eNNeCXAoo3Ilsh+n5st4/\niIsbhzkyW15CW+MEXA3VSnhO96hSGXwiBJcdi7ZyZOcfGv/mO8AL5+j2HYEj\nqghCdqOyuO9daZIvbQZ5idLeaKm/tVgiuCcVivmjVT4gJzjaZL0SYzQLh+wb\nIeX64mD+mW2EQiFYm3+YyO/Psgvka3scYycfV9WEr8IujbNmqIsa4aVx/oJ8\n6S5ar76G9yI4i50XskuSoeC9qzeRQ9Rc0o/Gg8Xxg/P2EWzTKy06ih4PovR4\nZP7i\r\n=bJsq\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDuMmPY/BgCoM/mOO4Cu9GgZsMWW+JW1xGqW+qemU5t5wIgJJt2pMXmVm0MUT/c1v7qbbn+bWB8DNkePpQ4HS3soJM="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "xiaobei_lu",
+				"email": "2548259062@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "xiaobei_lu",
+					"email": "2548259062@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/planet-postcss-prefixwrap_1.19.9_1624868593075_0.8173055034194858"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.19.10": {
+			"name": "@luxiaobei1/planet-postcss-prefixwrap",
+			"version": "1.19.10",
+			"description": "A PostCSS plugin that is used to wrap css styles with a css selector to constrain their affect on parent elements in a page.",
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Tedman",
+				"url": "https://danieltedman.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/worktile/postcss-prefixwrap.git"
+			},
+			"homepage": "https://github.com/worktile/postcss-prefixwrap#readme",
+			"bugs": {
+				"url": "https://github.com/dbtedman/postcss-prefixwrap/issues"
+			},
+			"keywords": [
+				"css",
+				"javascript",
+				"nodejs",
+				"yarn",
+				"postcss",
+				"postcss-plugin",
+				"typescript"
+			],
+			"main": "./build/index.js",
+			"scripts": {
+				"build": "npm run clean && npm run build-only",
+				"build-only": "tsc --build ./tsconfig.json && rm -rf ./build/{**/*,*}.spec.js && rm -rf ./build/acceptance && rm -rf ./build/integration && npm run copy",
+				"clean": "rm -rf ./build/",
+				"copy": "cpx ./package.json build",
+				"format": "prettier './**/*.{md,yml,yaml,json,ts,js}' --write && yarn eslint --fix . --ext .js,.ts",
+				"lint": "prettier './**/*.{md,yml,yaml,json,ts,js}' --check && yarn eslint . --ext .js,.ts",
+				"test": "jest --coverage",
+				"pub-only": "cd build && npm publish --access=public",
+				"pub": "npm run build && npm run pub-only"
+			},
+			"peerDependencies": {
+				"postcss": "7.*.*|^8.1.0"
+			},
+			"devDependencies": {
+				"@babel/core": "7.11.6",
+				"@types/jest": "26.0.13",
+				"@types/node": "14.6.4",
+				"@typescript-eslint/eslint-plugin": "4.0.1",
+				"@typescript-eslint/parser": "4.0.1",
+				"codecov": "3.7.2",
+				"eslint": "7.8.1",
+				"eslint-config-prettier": "6.11.0",
+				"eslint-plugin-import": "2.22.0",
+				"eslint-plugin-jest": "24.0.0",
+				"eslint-plugin-promise": "4.2.1",
+				"eslint-plugin-security-node": "1.0.12",
+				"husky": "4.2.5",
+				"jest": "26.4.2",
+				"postcss": "8.1.0",
+				"postcss7": "npm:postcss@7.0.34",
+				"prettier": "2.1.1",
+				"ts-jest": "26.3.0",
+				"ts-node": "9.0.0",
+				"typescript": "4.0.2",
+				"cpx": "^1.5.0"
+			},
+			"_id": "@luxiaobei1/planet-postcss-prefixwrap@1.19.10",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-w6GKV8NvrvgC9XdntTFgLusqlM4hwI/auGgb3aknQ1DRrVUFtKId8B++ZoaOrI/7T/Pg+56ZuhQ/XUStS6p+oA==",
+				"shasum": "33d49d4fd072e76b8dc7a39912f31d7f2789ec37",
+				"tarball": "https://registry.npmjs.org/@luxiaobei1/planet-postcss-prefixwrap/-/planet-postcss-prefixwrap-1.19.10.tgz",
+				"fileCount": 1,
+				"unpackedSize": 2161,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2YfACRA9TVsSAnZWagAAvMMP+gJrXJKz1p34RAvMgIef\naFxuu3BCOx0t90lFeUq026DL34Dpxo2zMdNuWIyK0mXk5/VcDNGr55ZhJexc\n/5ZhBOblEHsPIK6MWkJ1p2Hm7gJRqyrtccsE4iFrh/KVn8yquGk3t8LWfcDX\nhoxhNX7E657aYd29cgRj4n4mLnwoPPZP3RQu+hJrRTHLydmOYjt2C/hppfpE\nha7+2WDvGNfXU9vIJv7wiOC5MLZpSZJTpzTNQUd8R6tpOheo4dK4QLlqC2Rz\nWcQ524J/7DnkyyxZfna/ZsTRYJEItDTRsbJcyh1jeAIZOsjJpr8oc0s/6+ol\n7goJtkWgoxtsSqpcLXFN6vWrgRZO07nuCYpgpYrDmaSzH02nRhd9SsWTZwHC\nThhXFAvAani+6A2eFDNKpMSeh/9tUhobfsktdB30vW4Recj960OjvqnrVZg6\neubmwVCLoHI5H3I0lFxzf8/JAeQ9bFXpS/S2+qYceCZQJ/rIl3oRsu6j/Irl\nXtUL41Zh/soA3/vSt2VsqCqi0vUFB/fM0bX6byIST86WZcw32ntdqSqmKhju\nmfrLUej+L2q67snjowRl7JbFruw4QD4LYoNkLWzrNDFj3osaXEF1tksQPkqu\njxcVgtmwUwus1TmtUuLyl3AgeiH1DriuOgpLUS0nirQ3H0STJfAniiPReV0D\nrxvW\r\n=bkoX\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD/kJ4129fWfPgU6gyw933hmuD9gZHi4QI6eo0Wup+KrgIhAMWvGGtWRR62u8haMik0qV9iUhkPl54GBeEIQJAT+K4c"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "xiaobei_lu",
+				"email": "2548259062@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "xiaobei_lu",
+					"email": "2548259062@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/planet-postcss-prefixwrap_1.19.10_1624868800052_0.8946466923753249"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.19.11": {
+			"name": "@luxiaobei1/planet-postcss-prefixwrap",
+			"version": "1.19.11",
+			"description": "A PostCSS plugin that is used to wrap css styles with a css selector to constrain their affect on parent elements in a page.",
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Tedman",
+				"url": "https://danieltedman.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/worktile/postcss-prefixwrap.git"
+			},
+			"homepage": "https://github.com/worktile/postcss-prefixwrap#readme",
+			"bugs": {
+				"url": "https://github.com/dbtedman/postcss-prefixwrap/issues"
+			},
+			"keywords": [
+				"css",
+				"javascript",
+				"nodejs",
+				"yarn",
+				"postcss",
+				"postcss-plugin",
+				"typescript"
+			],
+			"main": "./build/index.js",
+			"scripts": {
+				"build": "npm run clean && npm run build-only",
+				"build-only": "tsc --build ./tsconfig.json && rm -rf ./build/{**/*,*}.spec.js && rm -rf ./build/acceptance && rm -rf ./build/integration && npm run copy",
+				"clean": "rm -rf ./build/",
+				"copy": "cpx ./package.json build",
+				"format": "prettier './**/*.{md,yml,yaml,json,ts,js}' --write && yarn eslint --fix . --ext .js,.ts",
+				"lint": "prettier './**/*.{md,yml,yaml,json,ts,js}' --check && yarn eslint . --ext .js,.ts",
+				"test": "jest --coverage",
+				"pub-only": "cd build && npm publish --access=public",
+				"pub": "npm run build && npm run pub-only"
+			},
+			"peerDependencies": {
+				"postcss": "7.*.*|^8.1.0"
+			},
+			"devDependencies": {
+				"@babel/core": "7.11.6",
+				"@types/jest": "26.0.13",
+				"@types/node": "14.6.4",
+				"@typescript-eslint/eslint-plugin": "4.0.1",
+				"@typescript-eslint/parser": "4.0.1",
+				"codecov": "3.7.2",
+				"eslint": "7.8.1",
+				"eslint-config-prettier": "6.11.0",
+				"eslint-plugin-import": "2.22.0",
+				"eslint-plugin-jest": "24.0.0",
+				"eslint-plugin-promise": "4.2.1",
+				"eslint-plugin-security-node": "1.0.12",
+				"husky": "4.2.5",
+				"jest": "26.4.2",
+				"postcss": "8.1.0",
+				"postcss7": "npm:postcss@7.0.34",
+				"prettier": "2.1.1",
+				"ts-jest": "26.3.0",
+				"ts-node": "9.0.0",
+				"typescript": "4.0.2",
+				"cpx": "^1.5.0"
+			},
+			"_id": "@luxiaobei1/planet-postcss-prefixwrap@1.19.11",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-o1MFDX2+YylUHcHAc4v84dWrN8F9jK+0wMgDaS6q85OIWRxkKxD3n5WlTQvTTgDgA724gX1pS4fkY36aQ2+nwQ==",
+				"shasum": "018e85a7f17a5361433a8150ef34e2af11470646",
+				"tarball": "https://registry.npmjs.org/@luxiaobei1/planet-postcss-prefixwrap/-/planet-postcss-prefixwrap-1.19.11.tgz",
+				"fileCount": 1,
+				"unpackedSize": 2162,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2YhjCRA9TVsSAnZWagAAeDMQAJ/iud4vYAJiEieoZpmX\nH6pDSvISDmwiGmSQOT78O2MXLbGR6tplFt5RxDowxCBMHk4u8o4nh6GB+OHR\nlAnPvF5tt7cmdwYN/4dTEyxbmbJW9xngyRd0+Q/NmuuaWNOCR3pnZyALRz1i\ncqjs+Ery55a7/4tXMGrZhvhK4+MqyxxBD2VNhA1nEuESpm00hYyjJaVUJim3\nMRaXZXKjWzBUp7LzCk6MptA64LteDlW5E2zCeZb0meywoSSzvl1uSv8YCvng\nJLdaIMaqCBbrMPAWv85lGfm0lGqlCtrd1M8/MY0iqM+x7zit4GDeQadtE6Td\nkpQ2nytOtco45opZU4j7cpV/iDatB8lHJyz0UfI+GAw+lZJFemv4fn5qZdWZ\nsWFeyvBNlwAfTO1S/V18F7k5BusbAJegz5CtKGtcdmUfm1B6BcfNVTXeUlO/\noeT53GMy2sfkPaR3ENUdkLNm7wGWM7oOJ70NXatgFYP6kFVO4VZEK/dVR4w4\nn07NamO4g2gfmjwz5baXCvZGCm4YlbKz1lkANwvl0qHPANo3ecyUUxGue1FF\n+0rxB2CMXJvI/1Ve/YTJNmxOj8TfDmBp59gbazvU6pqmz6kk119wMu4wgZVL\nYShUO1KrnzeBHkiYMOqI/mtCrdXLOPj78u/ts9OeSWiYaDNR4CSNl27wQowA\nliRJ\r\n=ny9d\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDopaiKfCXK4TDWNFKm3AjiX/E0nI/01BInsIlt/eD7FQIgAyyoRRqmfqWnTGLgpLKxof8LJek4COphus60COVnWng="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "xiaobei_lu",
+				"email": "2548259062@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "xiaobei_lu",
+					"email": "2548259062@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/planet-postcss-prefixwrap_1.19.11_1624868963098_0.7819856157465765"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.19.12": {
+			"name": "@luxiaobei1/planet-postcss-prefixwrap",
+			"version": "1.19.12",
+			"description": "A PostCSS plugin that is used to wrap css styles with a css selector to constrain their affect on parent elements in a page.",
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Tedman",
+				"url": "https://danieltedman.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/worktile/postcss-prefixwrap.git"
+			},
+			"homepage": "https://github.com/worktile/postcss-prefixwrap#readme",
+			"bugs": {
+				"url": "https://github.com/dbtedman/postcss-prefixwrap/issues"
+			},
+			"keywords": [
+				"css",
+				"javascript",
+				"nodejs",
+				"yarn",
+				"postcss",
+				"postcss-plugin",
+				"typescript"
+			],
+			"main": "./build/index.js",
+			"scripts": {
+				"build": "npm run clean && npm run build-only",
+				"build-only": "tsc --build ./tsconfig.json && rm -rf ./build/{**/*,*}.spec.js && rm -rf ./build/acceptance && rm -rf ./build/integration && npm run copy",
+				"clean": "rm -rf ./build/",
+				"copy": "cpx ./package.json build",
+				"format": "prettier './**/*.{md,yml,yaml,json,ts,js}' --write && yarn eslint --fix . --ext .js,.ts",
+				"lint": "prettier './**/*.{md,yml,yaml,json,ts,js}' --check && yarn eslint . --ext .js,.ts",
+				"test": "jest --coverage",
+				"pub-only": "npm publish --access=public",
+				"pub": "npm run build && npm run pub-only"
+			},
+			"peerDependencies": {
+				"postcss": "7.*.*|^8.1.0"
+			},
+			"devDependencies": {
+				"@babel/core": "7.11.6",
+				"@types/jest": "26.0.13",
+				"@types/node": "14.6.4",
+				"@typescript-eslint/eslint-plugin": "4.0.1",
+				"@typescript-eslint/parser": "4.0.1",
+				"codecov": "3.7.2",
+				"eslint": "7.8.1",
+				"eslint-config-prettier": "6.11.0",
+				"eslint-plugin-import": "2.22.0",
+				"eslint-plugin-jest": "24.0.0",
+				"eslint-plugin-promise": "4.2.1",
+				"eslint-plugin-security-node": "1.0.12",
+				"husky": "4.2.5",
+				"jest": "26.4.2",
+				"postcss": "8.1.0",
+				"postcss7": "npm:postcss@7.0.34",
+				"prettier": "2.1.1",
+				"ts-jest": "26.3.0",
+				"ts-node": "9.0.0",
+				"typescript": "4.0.2",
+				"cpx": "^1.5.0"
+			},
+			"gitHead": "0df1b0840e5c978a98b717c6d2991d362430f1c8",
+			"_id": "@luxiaobei1/planet-postcss-prefixwrap@1.19.12",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-m/3qfJdkmtFPBD9xxrvzGKFh3kLm1U//Q5pC5I5d0lb8yOK+B7mtjtVYNDfdMOC7fDuKY5JA4z6B05J/JgZgog==",
+				"shasum": "26289027fdd89ed78ece69770699a56fb55ebf2a",
+				"tarball": "https://registry.npmjs.org/@luxiaobei1/planet-postcss-prefixwrap/-/planet-postcss-prefixwrap-1.19.12.tgz",
+				"fileCount": 7,
+				"unpackedSize": 18020,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2Yi5CRA9TVsSAnZWagAAStoP/2er7v9acldqruqTIemv\nYOufglHi+VM6+aqnwvbzCXfzJqpZ4yTrUTOWz9f89s/V/YXIzgAFc3Kb4hDs\n+of69Mcfq0khBqT++wULBpCIxV+kpG++nrvM5x1MhA00fywUbTibSQymh/9v\nMQ4UZKWby0Iz05NJ3xasHve4i0sc0X4LLGBlMbuPj4lfZRs6VTwQmJo0YzIU\nkQ9OeoqCF9j+PN1BiShP2U/PiFHga+NhhbNU5gs36hhL5AyUQXriMZAoa/Hh\n0KTm9XJ3sO4qLjch6Zh6UYjDUbGsA/6KTRmN8ZwJ3qcRQ2PkJeq0bfQWJDU/\na3K/UU3h7R7WZfZ7i3ZBxqWVgYwbuTjW8tw410Er/jk9jx4WCHXZ5GEew/5a\nlDtdZuoFW+QBruobn3g9HNDd1yufMEbwZCKZ69bVWMMyggenr5p/5dl0hdwC\nIClCKSCBIVaJ1j8QEFqGTFPUSrQJ58xIlsRjsIFZXITUlPzgr3qQe784zNPH\n1mS9FShwqLasi8Q9CuclSg8VqR88/lKc7t22I47iMtF62+pz4oIyMiOTIvYa\n7cSXtA79RKOuLKTK0GDKrebhNzCEUkEjyQ+xs3lSBNwEtEEVa6Qnu55R28m7\nZbD0EbPqzwf08maqIVyDw45BctBCaMjUohikjt92wss8reQaYYy8Fr1c+ZiZ\nl0Ua\r\n=Chf2\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEpfS4o1FRSSnMosoOkoreuAFkr0ypKvtDtXQUwgwVxpAiEA2SbhkAWp3FsXgn3xNI/SgPugb73F7F8Y4kpn1igRLUA="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "xiaobei_lu",
+				"email": "2548259062@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "xiaobei_lu",
+					"email": "2548259062@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/planet-postcss-prefixwrap_1.19.12_1624869048763_0.8456532957729961"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.19.13": {
+			"name": "@luxiaobei1/planet-postcss-prefixwrap",
+			"version": "1.19.13",
+			"description": "A PostCSS plugin that is used to wrap css styles with a css selector to constrain their affect on parent elements in a page.",
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Tedman",
+				"url": "https://danieltedman.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/worktile/postcss-prefixwrap.git"
+			},
+			"homepage": "https://github.com/worktile/postcss-prefixwrap#readme",
+			"bugs": {
+				"url": "https://github.com/dbtedman/postcss-prefixwrap/issues"
+			},
+			"keywords": [
+				"css",
+				"javascript",
+				"nodejs",
+				"yarn",
+				"postcss",
+				"postcss-plugin",
+				"typescript"
+			],
+			"main": "./build/index.js",
+			"scripts": {
+				"build": "npm run clean && npm run build-only",
+				"build-only": "tsc --build ./tsconfig.json && rm -rf ./build/{**/*,*}.spec.js && rm -rf ./build/acceptance && rm -rf ./build/integration && npm run copy",
+				"clean": "rm -rf ./build/",
+				"copy": "cpx ./package.json build",
+				"format": "prettier './**/*.{md,yml,yaml,json,ts,js}' --write && yarn eslint --fix . --ext .js,.ts",
+				"lint": "prettier './**/*.{md,yml,yaml,json,ts,js}' --check && yarn eslint . --ext .js,.ts",
+				"test": "jest --coverage",
+				"pub-only": "npm publish --access=public",
+				"pub": "npm run build && npm run pub-only"
+			},
+			"peerDependencies": {
+				"postcss": "7.*.*|^8.1.0"
+			},
+			"devDependencies": {
+				"@babel/core": "7.11.6",
+				"@types/jest": "26.0.13",
+				"@types/node": "14.6.4",
+				"@typescript-eslint/eslint-plugin": "4.0.1",
+				"@typescript-eslint/parser": "4.0.1",
+				"codecov": "3.7.2",
+				"eslint": "7.8.1",
+				"eslint-config-prettier": "6.11.0",
+				"eslint-plugin-import": "2.22.0",
+				"eslint-plugin-jest": "24.0.0",
+				"eslint-plugin-promise": "4.2.1",
+				"eslint-plugin-security-node": "1.0.12",
+				"husky": "4.2.5",
+				"jest": "26.4.2",
+				"postcss": "8.1.0",
+				"postcss7": "npm:postcss@7.0.34",
+				"prettier": "2.1.1",
+				"ts-jest": "26.3.0",
+				"ts-node": "9.0.0",
+				"typescript": "4.0.2",
+				"cpx": "^1.5.0"
+			},
+			"gitHead": "0df1b0840e5c978a98b717c6d2991d362430f1c8",
+			"_id": "@luxiaobei1/planet-postcss-prefixwrap@1.19.13",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-yqrzrnhm6OwWvne1yDuvlLVq3yDZJGxcWRCZxGaaBDQXGElbFdomcW3/icxW3JZs8v+/FjzedcYr6Mjv+3VJNw==",
+				"shasum": "bfde7c7db62ff136abfc2e9315eec49b8a847181",
+				"tarball": "https://registry.npmjs.org/@luxiaobei1/planet-postcss-prefixwrap/-/planet-postcss-prefixwrap-1.19.13.tgz",
+				"fileCount": 8,
+				"unpackedSize": 20162,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2Yj/CRA9TVsSAnZWagAAc6cQAJOp30MaKGCPRwAidCzi\nLXGZzDQSDHJp+faWBeKC6ssKnmyhNCz5+47YGEdh+PyXeEhHqjviBGxKF0dj\nCeDQEP1mqsKugTDawP3CiyjqV8HpYrdjeY4J2tYESEd7iIvNPeUnAiQMKXIZ\np8zlaBsVbhQN7OnWPWTxVudMzAizMrNl2lBMnt2jvz8zKJc1MqMmVSu4KRjK\nfwWkvnx/Ybl+uhNSgfsEipbM331Nll2hU8OadfmN2nMkT/C3NxgUylUFFcKO\na+2371Kb0VxyG8ol4eFUHxHwfNX88014+JbAhT2uSQY+x2Yfedy0hqssCGk6\n50YL6eKOeaq35XfUorutKqFHhH5Ze+ovfEZOnooYZk5ytwJ8mw27r23B44oT\nIBdM8e5Zpp3CoGYSLVot6CSGSBUf/IfLe5W7iRzd1n0HQ6nWz2F6DI2upbj4\nrkFjtzsMETdaODFlvizq/VdBA5SwilmdRYrxczlDqOSpSyCPW0fk13wAeYYn\nbOno5eZcOkO6t1DY9a6SL4CqSckk2n2kINfVzUx6Ei+NPCiSoJ3sGrbFXc70\ncbrD6N5tpDb9k2/YwBPIt0JWNye4iYZNYsaB56WxTwkYR0M0G2TaOfUe19Cz\nAZVZVjL/cB2xOldcyC5o/9kDnPRvN1IurJnBsl4p8eFiEL5IgodcCuXE2CpH\nMXfB\r\n=giZ6\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCW0KicbxoSETDr+5HJAaVpWpESpAcaDWS7Fbcmfsw4QAIhAKMjuclWmPgVIe7WYN9HOYOYgIsQK7sTHRY3LPW0zXIQ"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "xiaobei_lu",
+				"email": "2548259062@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "xiaobei_lu",
+					"email": "2548259062@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/planet-postcss-prefixwrap_1.19.13_1624869119460_0.7366832544236597"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.19.14": {
+			"name": "@luxiaobei1/planet-postcss-prefixwrap",
+			"version": "1.19.14",
+			"description": "A PostCSS plugin that is used to wrap css styles with a css selector to constrain their affect on parent elements in a page.",
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Tedman",
+				"url": "https://danieltedman.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/worktile/postcss-prefixwrap.git"
+			},
+			"homepage": "https://github.com/worktile/postcss-prefixwrap#readme",
+			"bugs": {
+				"url": "https://github.com/dbtedman/postcss-prefixwrap/issues"
+			},
+			"keywords": [
+				"css",
+				"javascript",
+				"nodejs",
+				"yarn",
+				"postcss",
+				"postcss-plugin",
+				"typescript"
+			],
+			"main": "./build/index.js",
+			"scripts": {
+				"build": "npm run clean && npm run build-only",
+				"build-only": "tsc --build ./tsconfig.json && rm -rf ./build/{**/*,*}.spec.js && rm -rf ./build/acceptance && rm -rf ./build/integration",
+				"clean": "rm -rf ./build/",
+				"copy": "cpx ./package.json build",
+				"format": "prettier './**/*.{md,yml,yaml,json,ts,js}' --write && yarn eslint --fix . --ext .js,.ts",
+				"lint": "prettier './**/*.{md,yml,yaml,json,ts,js}' --check && yarn eslint . --ext .js,.ts",
+				"test": "jest --coverage",
+				"pub-only": "npm publish --access=public",
+				"pub": "npm run build && npm run pub-only"
+			},
+			"peerDependencies": {
+				"postcss": "7.*.*|^8.1.0"
+			},
+			"devDependencies": {
+				"@babel/core": "7.11.6",
+				"@types/jest": "26.0.13",
+				"@types/node": "14.6.4",
+				"@typescript-eslint/eslint-plugin": "4.0.1",
+				"@typescript-eslint/parser": "4.0.1",
+				"codecov": "3.7.2",
+				"eslint": "7.8.1",
+				"eslint-config-prettier": "6.11.0",
+				"eslint-plugin-import": "2.22.0",
+				"eslint-plugin-jest": "24.0.0",
+				"eslint-plugin-promise": "4.2.1",
+				"eslint-plugin-security-node": "1.0.12",
+				"husky": "4.2.5",
+				"jest": "26.4.2",
+				"postcss": "8.1.0",
+				"postcss7": "npm:postcss@7.0.34",
+				"prettier": "2.1.1",
+				"ts-jest": "26.3.0",
+				"ts-node": "9.0.0",
+				"typescript": "4.0.2",
+				"cpx": "^1.5.0"
+			},
+			"gitHead": "0df1b0840e5c978a98b717c6d2991d362430f1c8",
+			"_id": "@luxiaobei1/planet-postcss-prefixwrap@1.19.14",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-Wgb18jwHpM6u7x5cYhsj7rwTqW6jkloiYs7zLCebdugp7HJHMDrHa0FnfsXCgahY6B5HOjNGlpnZ2WPgyHQlYA==",
+				"shasum": "cbdd761459bb8d9f2b0fcce4147fccba78cbcf2d",
+				"tarball": "https://registry.npmjs.org/@luxiaobei1/planet-postcss-prefixwrap/-/planet-postcss-prefixwrap-1.19.14.tgz",
+				"fileCount": 12,
+				"unpackedSize": 25753,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2YlTCRA9TVsSAnZWagAAccIP/0LWR0KqKiOPyUnlJIl3\nkJE34mWQ/61J0ho9uPK7O/tc/sXCESoToiRN5vp+tCx3lgc4pZtBQE5TVxgk\njaCo7O1dEd7hJQrlbjd+pG8N17uMllIAn1+qLraaFq3mi8sDtK+MiUMSwEK4\nz/ViP+iuECylT2Mdowk53MH5W5AZvk/GihVcCoffMo7lga+JO3d3u+7YBLB8\nt3zhWqFHahNbPWxt0VA6HLkTSvUur7jG9D/vZ9QW4H6dkm5v2WezqJCr+1uw\nS7FhIGggXh3wi7YpzpZVbf29JhS0LzuIelrZbJdRymemXk3y/Ry9fE29Zb9p\nSWTCGcVT26moP73E6uKhoKn71jK4KapnitPNxbU6tevGVOD3rkpBIXxgMxDF\nJZqPwBdZa+ar8XsgDqKrDbDfYXZfTWtcanjE9kmfu1UttruZE2cKNxQmSntY\nATFxWVsLR4uk3nE3u9B6kWDP9Au6yRxJiCy4xq/rEN2FBLHK+t0joMd5MTl/\n7ynnejQkYlJ1DS2q3tMv/hLJdPeqbcYoGOxV9L02zNS3eC9bAZ3Ej5LC3L/u\njeqWAzRGFzqEcqilhMHdDCauQ66/mIR2MswCHEmC4o8mQsD02dyU/QhUIl2n\n6fbE2ma57zv75UVN7EoMvL16+b5BMQTmJbwXuWk+azLf5hZ9sJn7L5ZXtVI+\nD9+D\r\n=X8OQ\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGmTMxwhJdDL/y5KwGT75HaQN5X3tXxBnkei2peembq6AiEAzWhwQY2IQUqbhoH44WWRk6f9zui08S2MCMKBv0zSOcs="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "xiaobei_lu",
+				"email": "2548259062@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "xiaobei_lu",
+					"email": "2548259062@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/planet-postcss-prefixwrap_1.19.14_1624869203190_0.8363664786161351"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2021-06-28T08:23:12.795Z",
+		"1.19.9": "2021-06-28T08:23:13.220Z",
+		"modified": "2022-04-06T02:52:40.726Z",
+		"1.19.10": "2021-06-28T08:26:40.179Z",
+		"1.19.11": "2021-06-28T08:29:23.409Z",
+		"1.19.12": "2021-06-28T08:30:49.080Z",
+		"1.19.13": "2021-06-28T08:31:59.576Z",
+		"1.19.14": "2021-06-28T08:33:23.329Z"
+	},
+	"maintainers": [
+		{
+			"name": "xiaobei_lu",
+			"email": "2548259062@qq.com"
+		}
+	],
+	"description": "A PostCSS plugin that is used to wrap css styles with a css selector to constrain their affect on parent elements in a page.",
+	"homepage": "https://github.com/worktile/postcss-prefixwrap#readme",
+	"keywords": [
+		"css",
+		"javascript",
+		"nodejs",
+		"yarn",
+		"postcss",
+		"postcss-plugin",
+		"typescript"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/worktile/postcss-prefixwrap.git"
+	},
+	"author": {
+		"name": "Daniel Tedman",
+		"url": "https://danieltedman.com"
+	},
+	"bugs": {
+		"url": "https://github.com/dbtedman/postcss-prefixwrap/issues"
+	},
+	"license": "MIT",
+	"readme": "# [PostCSS Prefix Wrap](https://danieltedman.com/my-work/postcss-prefixwrap)\n\n✅ Supports PostCSS v7 or v8\n\n[![CI Build Test](https://github.com/dbtedman/postcss-prefixwrap/workflows/build-test/badge.svg)](https://github.com/dbtedman/postcss-prefixwrap/actions?workflow=build-test)\n[![Test Code Coverage](https://codecov.io/gh/dbtedman/postcss-prefixwrap/branch/master/graph/badge.svg)](https://codecov.io/gh/dbtedman/postcss-prefixwrap)\n[![Package Downloads (Weekly)](https://badgen.net/npm/dw/postcss-prefixwrap?label=downloads&style=flat)](https://www.npmjs.com/package/postcss-prefixwrap)\n\nA [PostCSS](https://postcss.org) plugin which prepends a selector to CSS styles to constrain their effect on parent elements in a page.\n\n-   [How to use this plugin?](#how-to-use-this-plugin)\n-   [What options does it have?](#what-options-does-it-have)\n-   [How to contribute?](#how-to-contribute)\n-   [Is this project secure?](#is-this-project-secure)\n-   [How is the project structured?](#how-is-the-project-structured)\n-   [License](#license)\n\n## How to use this plugin?\n\n> These instructions are only for this plugin. See the [PostCSS](http://postcss.org) website for framework information.\n\n### Install\n\nUsing [Yarn](https://yarnpkg.com/en/package/postcss-prefixwrap)\n\n```bash\nyarn add postcss-prefixwrap --dev --exact\n```\n\nUsing [NPM](https://www.npmjs.com/package/postcss-prefixwrap)\n\n```bash\nnpm install postcss-prefixwrap --save-dev --save-exact\n```\n\n### Configure\n\nAdd to your [PostCSS](http://postcss.org) configuration.\n\n#### With Gulp\n\n```javascript\nconst Gulp = require(\"gulp\");\nconst PostCSS = require(\"gulp-postcss\");\nconst PrefixWrap = require(\"postcss-prefixwrap\");\n\nGulp.task(\"css\", () =>\n    Gulp.src(\"./src/*.css\")\n        .pipe(PostCSS([PrefixWrap(\".my-custom-wrap\")]))\n        .pipe(Gulp.dest(\"./dest\"))\n);\n```\n\n#### With WebPack\n\n```javascript\nconst PrefixWrap = require(\"postcss-prefixwrap\");\n\nmodule.exports = {\n    module: {\n        rules: [\n            {\n                test: /\\.css$/,\n                use: [\n                    \"style-loader\",\n                    { loader: \"css-loader\", options: { importLoaders: 1 } },\n                    {\n                        loader: \"postcss-loader\",\n                        options: {\n                            plugins: [PrefixWrap(\".my-custom-wrap\")],\n                        },\n                    },\n                ],\n            },\n        ],\n    },\n};\n```\n\n> Based on example from [https://webpack.js.org/loaders/postcss-loader/](https://webpack.js.org/loaders/postcss-loader/).\n\n### Container\n\nAdd the container to your markup.\n\n```html\n<div class=\"my-custom-wrap\"><!-- Your existing markup. --></div>\n```\n\n### View\n\nView your CSS, now prefix-wrapped.\n\n**Before**\n\n```css\np {\n    color: red;\n}\n\nbody {\n    font-size: 16px;\n}\n```\n\n**After**\n\n```css\n.my-custom-wrap p {\n    color: red;\n}\n\n.my-custom-wrap {\n    font-size: 16px;\n}\n```\n\n## What options does it have?\n\n-   [Minimal](#minimal)\n-   [Ignored Selectors](#ignored-selectors)\n-   [Prefix Root Tags](#prefix-root-tags)\n-   [File Whitelist](#file-whitelist)\n-   [File Blacklist](#file-blacklist)\n\n### Minimal\n\nThe minimal required configuration is the prefix selector, as shown in the above example.\n\n```javascript\nPrefixWrap(\".my-custom-wrap\");\n```\n\n### Ignored Selectors\n\nYou may want to exclude some selectors from being prefixed, this is enabled using the `ignoredSelectors` option.\n\n```javascript\nPrefixWrap(\".my-custom-wrap\", {\n    ignoredSelectors: [\":root\", \"#my-id\", /^\\.some-(.+)$/],\n});\n```\n\n### Prefix Root Tags\n\nYou may want root tags, like `body` and `html` to be converted to classes, then prefixed, this is enabled using the `prefixRootTags` option.\n\n```javascript\nPrefixWrap(\".my-container\", {\n    prefixRootTags: true,\n});\n```\n\nWith this option, a selector like `html` will be converted to `.my-container .html`, rather than the default `.my-container`.\n\n### File Whitelist\n\nIn certain scenarios, you may only want `PrefixWrap()` to wrap certain CSS files. This is done using the `whitelist` option.\n\n```javascript\nPrefixWrap(\".my-custom-wrap\", {\n    whitelist: [\"editor.css\"],\n});\n```\n\n### File Blacklist\n\nIn certain scenarios, you may want `PrefixWrap()` to exclude certain CSS files. This is done using the `blacklist` option.\n\n> If `whitelist` option is also included, `blacklist` will be ignored.\n\n```javascript\nPrefixWrap(\".my-custom-wrap\", {\n    blacklist: [\"colours.css\"],\n});\n```\n\n## How to contribute?\n\nRead our [Contributing Guide](CONTRIBUTING.md) to learn more about how to contribute to this project.\n\n## Is this project secure?\n\nRead our [Security Guide](SECURITY.md) to learn how security is considered during the development and operation of this plugin.\n\n## How is the project structured?\n\nRead our [Architecture Document](ARCHITECTURE.md) to learn how this project is structured.\n\n## License\n\nThe [MIT License](./LICENSE.md) is used by this project.\n",
+	"readmeFilename": "README.md"
+}

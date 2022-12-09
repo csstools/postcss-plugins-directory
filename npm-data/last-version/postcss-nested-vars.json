@@ -1,0 +1,108 @@
+{
+	"name": "postcss-nested-vars",
+	"version": "1.0.0",
+	"description": "PostCSS plugin for nested variables.",
+	"main": "dist/plugin.js",
+	"types": "dist/plugin.d.ts",
+	"scripts": {
+		"clean": "rimraf coverage dist *.log",
+		"codecov": "codecov -f coverage/lcov.info",
+		"compile": "tsc",
+		"compile:watch": "tsc --watch",
+		"prepublish": "npm test",
+		"pretest": "npm run tslint && npm run clean && npm run compile",
+		"test": "nyc ava",
+		"test:watch": "ava --watch",
+		"tslint": "tslint --project tsconfig.json",
+		"watch": "npm run test:watch"
+	},
+	"ava": {
+		"files": [
+			"dist/**/*.spec.js"
+		],
+		"source": [
+			"dist/**/*.js"
+		]
+	},
+	"nyc": {
+		"lines": 100,
+		"statements": 100,
+		"functions": 100,
+		"branches": 100,
+		"include": [
+			"dist/**/*.js"
+		],
+		"exclude": [
+			"dist/**/*.spec.js"
+		],
+		"reporter": [
+			"lcov",
+			"text"
+		],
+		"cache": true,
+		"all": true,
+		"check-coverage": true
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jedmao/postcss-nested-vars.git"
+	},
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"vars",
+		"nested",
+		"sass",
+		"scss"
+	],
+	"author": {
+		"name": "Jed Mao",
+		"email": "jedmao@outlook.com"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jedmao/postcss-nested-vars/issues"
+	},
+	"homepage": "https://github.com/jedmao/postcss-nested-vars#readme",
+	"dependencies": {
+		"postcss": "^6.0.14"
+	},
+	"devDependencies": {
+		"@types/node": "^8.0.47",
+		"ava": "^0.23.0",
+		"nyc": "^11.3.0",
+		"rimraf": "^2.6.2",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1"
+	},
+	"gitHead": "74f3d0894870db1e95694f01436cc0f3ba621b5c",
+	"_id": "postcss-nested-vars@1.0.0",
+	"_npmVersion": "5.3.0",
+	"_nodeVersion": "8.6.0",
+	"_npmUser": {
+		"name": "jedmao",
+		"email": "jedmao@outlook.com"
+	},
+	"dist": {
+		"integrity": "sha512-LQCWpUIkKV3uBzbrc4pHjpWvs+NEZT8LXhtu61pMh9eKlK4oDxG8fINxkkPfVCg+6b4KEVW8uOq0pDY4pTUorw==",
+		"shasum": "483df85642d2b74b049d661417475479f6230753",
+		"tarball": "https://registry.npmjs.org/postcss-nested-vars/-/postcss-nested-vars-1.0.0.tgz",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQCPn2kJ0Gy3LTVk8U3v3f7yYw9DPxrxRVBJsN6brBNaVAIhALM0iqwbwod9RgA7QQxZjdyY5ry9E6uk+/vlhLlfNxST"
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "jedmao",
+			"email": "jedmao@outlook.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-nested-vars-1.0.0.tgz_1509650050156_0.09341807966120541"
+	},
+	"_time": "2017-11-02T19:14:10.244Z"
+}

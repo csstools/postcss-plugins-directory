@@ -1,0 +1,113 @@
+{
+	"_id": "postcss-px2vw",
+	"_rev": "1-7b400fad28d1f89fc3c46d1fa46064bc",
+	"name": "postcss-px2vw",
+	"description": "A CSS post-processor that converts px to viewport units (vw, vh, vmin, vmax).",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-px2vw",
+			"description": "A CSS post-processor that converts px to viewport units (vw, vh, vmin, vmax).",
+			"version": "0.0.1",
+			"author": {
+				"name": "xiaoyang3874@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/xiaoyang3874/postcss-px2vw.git"
+			},
+			"homepage": "https://github.com/xiaoyang3874/postcss-px2vw",
+			"main": "index.js",
+			"keywords": [
+				"css",
+				"units",
+				"pixel",
+				"px",
+				"viewport",
+				"vw",
+				"vh",
+				"vmin",
+				"vmax",
+				"postcss",
+				"postcss-plugin"
+			],
+			"dependencies": {
+				"object-assign": "^4.0.1",
+				"postcss": "^5.0.2"
+			},
+			"gitHead": "b48fd40b1198a180bdd6db084f3f46879a4619e3",
+			"bugs": {
+				"url": "https://github.com/xiaoyang3874/postcss-px2vw/issues"
+			},
+			"_id": "postcss-px2vw@0.0.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.4.0",
+			"_npmUser": {
+				"name": "xiaoyang",
+				"email": "1158036408@qq.com"
+			},
+			"dist": {
+				"integrity": "sha512-4M6EPQ09SfP7UMFC2P55KD7A8jAw4CXmYFbeAPFn0e2qpC14FuMkV+vmZC+rleXkVRtYU/QYxhTHNLBljyY8+g==",
+				"shasum": "64e48c14aa2de202962ec5ba0a42f1a43fd1a96f",
+				"tarball": "https://registry.npmjs.org/postcss-px2vw/-/postcss-px2vw-0.0.1.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDvHnlxnlh1jHd5m8IJnxNXL4EnhURZRV0KNZPlPTJxyAiA9Jv4UeDWUfpXAXZneGnYlqkMlvGAF/1f3g56a4XzZhw=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "xiaoyang",
+					"email": "1158036408@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-px2vw-0.0.1.tgz_1517493664201_0.955747653497383"
+			}
+		}
+	},
+	"readme": "# postcss-px2vw\n\nA plugin for [PostCSS](https://github.com/ai/postcss) that generates viewport units (vw, vh, vmin, vmax) from pixel units.\n\n## Usage\n\nIf your project involves a fixed width, this script will help to convert pixels into viewport units.\n\n### Input/Output\n\n```css\n// input\n\n.class {\n  margin: -10px .5vh;\n  padding: 5vmin 9.5px 1px;\n  border: 3px solid black;\n  border-bottom-width: 1px;\n  font-size: 14px;  /*no*/\n  line-height: 20px;  /*no*/\n}\n\n.class2 {\n  border: 1px solid black;\n  margin-bottom: 1px;\n  font-size: 20px;\n  line-height: 30px;\n}\n\n@media (min-width: 750px) {\n  .class3 {\n    font-size: 16px;\n    line-height: 22px;\n  }\n}\n\n// output\n\n.class {\n  margin: -3.125vw .5vh;\n  padding: 5vmin 2.96875vw 1px;\n  border: 0.9375vw solid black;\n  border-bottom-width: 1px;\n  font-size: 14px;\n  line-height: 20px;\n}\n\n.class2 {\n  border: 1px solid black;\n  margin-bottom: 1px;\n  font-size: 6.25vw;\n  line-height: 9.375vw;\n}\n\n@media (min-width: 234.375vw) {\n  .class3 {\n    font-size: 5vw;\n    line-height: 6.875vw;\n  }\n}\n```\n\n### Example\n\n```js\n'use strict';\n\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxToViewport = require('..');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxToViewport(options)).process(css).css;\n\nfs.writeFile('main-viewport.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('File with viewport units written.');\n});\n```\n\n### Options\n\nDefault:\n```js\n{\n  viewportWidth: 750,\n  viewportHeight: 1334,\n  unitPrecision: 5,\n  viewportUnit: 'vw',\n  selectorBlackList: [],\n  minPixelValue: 1,\n  mediaQuery: false,\n  keepComment: 'no'\n}\n```\n- `viewportWidth` (Number) The width of the viewport.\n- `viewportHeight` (Number) The height of the viewport.\n- `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.\n- `viewportUnit` (String) Expected units.\n- `selectorBlackList` (Array) The selectors to ignore and leave as px.\n    - If value is string, it checks to see if selector contains the string.\n        - `['body']` will match `.body-class`\n    - If value is regexp, it checks to see if the selector matches the regexp.\n        - `[/^body$/]` will match `body` but not `.body`\n- `minPixelValue` (Number) Set the minimum pixel value to replace.\n- `mediaQuery` (Boolean) Allow px to be converted in media queries.\n- `keepComment` (String) no transform value comment (default: `no`)\n\n\n### Use with gulp-postcss\n\n```js\nvar gulp = require('gulp');\nvar postcss = require('gulp-postcss');\nvar pxtoviewport = require('postcss-px-to-viewport');\n\ngulp.task('css', function () {\n\n    var processors = [\n        pxtoviewport({\n            viewportWidth: 320,\n            viewportUnit: 'vmin'\n        })\n    ];\n\n    return gulp.src(['build/css/**/*.css'])\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('build/css'));\n});\n```\n",
+	"maintainers": [
+		{
+			"name": "xiaoyang",
+			"email": "1158036408@qq.com"
+		}
+	],
+	"time": {
+		"modified": "2022-05-13T06:38:58.039Z",
+		"created": "2018-02-01T14:01:05.235Z",
+		"0.0.1": "2018-02-01T14:01:05.235Z"
+	},
+	"homepage": "https://github.com/xiaoyang3874/postcss-px2vw",
+	"keywords": [
+		"css",
+		"units",
+		"pixel",
+		"px",
+		"viewport",
+		"vw",
+		"vh",
+		"vmin",
+		"vmax",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/xiaoyang3874/postcss-px2vw.git"
+	},
+	"author": {
+		"name": "xiaoyang3874@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/xiaoyang3874/postcss-px2vw/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

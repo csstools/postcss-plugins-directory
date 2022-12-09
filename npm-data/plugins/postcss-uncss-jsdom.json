@@ -1,0 +1,103 @@
+{
+	"_id": "postcss-uncss-jsdom",
+	"_rev": "2-6a65501fc53d8a08bb0668f17d32a7eb",
+	"name": "postcss-uncss-jsdom",
+	"description": "Use giakki/uncss jsdom branch as a postcss plugin",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-uncss-jsdom",
+			"version": "1.0.0",
+			"description": "Use giakki/uncss jsdom branch as a postcss plugin",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ressawyj/postcss-uncss-jsdom.git"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"uncss"
+			],
+			"author": {
+				"name": "Ryan Zimmerman",
+				"email": "opensrc@ryanzim.com",
+				"url": "http://ryanzim.com/"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ressawyj/postcss-uncss-jsdom/issues"
+			},
+			"homepage": "https://github.com/ressawyj/postcss-uncss-jsdom#readme",
+			"peerDependencies": {
+				"uncss-jsdom": "^1.0.0"
+			},
+			"gitHead": "0fd0bd5fd98dd0d74f42ae0e5cf7c18b0ae0a3bf",
+			"_id": "postcss-uncss-jsdom@1.0.0",
+			"_shasum": "a8a9d50a4efb9d347435304294316b91d7686cd5",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "ressawyj",
+				"email": "ressawyj@gmail.com"
+			},
+			"dist": {
+				"shasum": "a8a9d50a4efb9d347435304294316b91d7686cd5",
+				"tarball": "https://registry.npmjs.org/postcss-uncss-jsdom/-/postcss-uncss-jsdom-1.0.0.tgz",
+				"integrity": "sha512-O7+Ms2M+DCZXPNHzPSYfXwyjuhY4D2UQoeNx/iqEW04ZpDwqQQ25NeBGpcbNlGq7qPcumw8VsurZeswi6wdY/Q==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDGuWFBgLjTgyBV1MiYWyAsZVk8baWMoIhrmoFVDq5LyAIgPNorZxQyQ+5nVYnES6S0aA1fSdHM93p0rKpftHymcLM="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "ressawyj",
+					"email": "ressawyj@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-uncss-jsdom-1.0.0.tgz_1486032769342_0.962687456747517"
+			}
+		}
+	},
+	"readme": "# postcss-uncss\r\n[![npm](https://img.shields.io/npm/v/postcss-uncss-jsdom.svg?maxAge=2592000)](https://www.npmjs.com/package/postcss-uncss-jsdom)\r\n[![npm](https://img.shields.io/npm/l/postcss-uncss-jsdom.svg?maxAge=2592000)](https://github.com/ressawyj/postcss-uncss-jsdom/blob/master/LICENSE)\r\n\r\nUse [giakki/uncss](https://github.com/giakki/uncss) jsdom branch as a [PostCSS](https://github.com/postcss/postcss) plugin.\r\n\r\n## About\r\n\r\nUnCSS is a tool that removes unused CSS from your stylesheets. It works across multiple files and supports Javascript-injected CSS.\r\n\r\n### Example:\r\n\r\n**html:**\r\n```html\r\n<body>\r\n  <p class=\"red\">Hello World!</p>\r\n</body>\r\n```\r\n\r\n**css before:**\r\n```css\r\n.red {\r\n  color: red;\r\n}\r\n.blue {\r\n  color: blue;\r\n}\r\n```\r\n\r\n**css after:**\r\n```css\r\n.red {\r\n  color: red;\r\n}\r\n```\r\n\r\n### How?\r\n\r\nThe HTML files are loaded by [jsdom](https://github.com/tmpvar/jsdom) and JavaScript is executed. UnCSS filters out selectors that are not found in the HTML files.\r\n\r\nSee the [UnCSS](https://github.com/giakki/uncss) docs for more information.\r\n\r\n## Installation\r\n\r\npostcss-uncss-jsdom specifies UnCSS-jsdom as a [peerDependency](https://docs.npmjs.com/files/package.json#peerdependencies), so you will have to install UnCSS-jsdom as well.\r\n\r\n```bash\r\nnpm install postcss-uncss-jsdom uncss-jsdom\r\n```\r\n\r\npostcss-uncss-jsdom's MAJOR & MINOR version numbers correspond to UnCSS-jsdom's version numbers; however, the PATCH version number may differ.\r\n\r\n## Usage\r\n\r\n```js\r\npostcss([ require('postcss-uncss') ])\r\n```\r\n\r\nSee [PostCSS](https://github.com/postcss/postcss) docs for examples for your environment.\r\n\r\n## Options\r\n\r\n- **html** (Array): provide a list of html files to parse for selectors and elements. Usage of [globs](https://github.com/isaacs/node-glob) is allowed.\r\n\r\n- **ignore** (Array): provide a list of selectors that should not be removed by UnCSS. For example, styles added by user interaction with the page (hover, click), since those are not detectable by UnCSS yet. Both literal names and regex patterns are recognized. Otherwise, you can add a comment before specific selectors in your css:\r\n\r\n  ```css\r\n  /* uncss:ignore */\r\n  .selector1 {\r\n      /* this rule will be ignored */\r\n  }\r\n\r\n  .selector2 {\r\n      /* this will NOT be ignored */\r\n  }\r\n  ```\r\n\r\n### Example Configuration\r\n\r\n```js\r\n{\r\n  html: ['index.html', 'about.html', 'team/*.html'],\r\n  ignore: ['.fade']\r\n}\r\n```\r\n",
+	"maintainers": [
+		{
+			"name": "ressawyj",
+			"email": "ressawyj@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T11:06:49.490Z",
+		"created": "2017-02-02T10:52:51.147Z",
+		"1.0.0": "2017-02-02T10:52:51.147Z"
+	},
+	"homepage": "https://github.com/ressawyj/postcss-uncss-jsdom#readme",
+	"keywords": [
+		"postcss-plugin",
+		"uncss"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ressawyj/postcss-uncss-jsdom.git"
+	},
+	"author": {
+		"name": "Ryan Zimmerman",
+		"email": "opensrc@ryanzim.com",
+		"url": "http://ryanzim.com/"
+	},
+	"bugs": {
+		"url": "https://github.com/ressawyj/postcss-uncss-jsdom/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

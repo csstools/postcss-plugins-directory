@@ -1,0 +1,167 @@
+{
+	"_id": "@dguijs/postcss-rezimota",
+	"_rev": "2-0e84b534073b96c139d955042f90f735",
+	"name": "@dguijs/postcss-rezimota",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "@dguijs/postcss-rezimota",
+			"version": "0.1.0",
+			"description": "PostCSS plugin for generating CSS using ACSS classes",
+			"main": "dist/postcss-rezimota.cjs",
+			"module": "dist/postcss-rezimota.mjs",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"acss"
+			],
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"scripts": {
+				"lint": "eslint \"{src,tests}/**/*.js\"",
+				"build": "rlb",
+				"pretest": "npm run lint",
+				"test": "nyc mocha \"tests/**/*.js\" --timeout 15000 --require @babel/register",
+				"coverage": "nyc report --reporter=text-lcov > coverage.lcov",
+				"version": "npm test && npm run build && git add -f dist/",
+				"postversion": "git rm -r --cached dist/ && git commit -m \"chore(dist): clean after release [ci skip]\" && git push origin && git push origin --tags"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dGUIJS/postcss-rezimota.git"
+			},
+			"author": {
+				"name": "dGUIJS"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com//dGUIJS/postcss-rezimota/issues"
+			},
+			"homepage": "https://github.com//dGUIJS/postcss-rezimota#readme",
+			"peerDependencies": {
+				"postcss": "^8.0.2"
+			},
+			"devDependencies": {
+				"@babel/register": "^7.11.5",
+				"@comandeer/eslint-config": "^0.2.2",
+				"@comandeer/rollup-lib-bundler": "^0.11.0",
+				"chai": "^4.2.0",
+				"commitplease": "^3.2.0",
+				"cz-conventional-changelog": "^3.3.0",
+				"eslint": "^7.9.0",
+				"eslint-ci": "^1.0.0",
+				"husky": "^4.3.0",
+				"mocha": "^8.1.3",
+				"nyc": "^15.1.0",
+				"postcss": "^8.0.9",
+				"rimraf": "^3.0.2"
+			},
+			"config": {
+				"commitizen": {
+					"path": "./node_modules/cz-conventional-changelog"
+				}
+			},
+			"commitplease": {
+				"nohook": true,
+				"style": "angular",
+				"types": [
+					"feat",
+					"fix",
+					"docs",
+					"style",
+					"refactor",
+					"perf",
+					"test",
+					"build",
+					"ci",
+					"chore",
+					"revert"
+				],
+				"scope": "\\S+.*"
+			},
+			"nyc": {
+				"include": [
+					"src/**/*.js"
+				],
+				"exclude": [
+					"dist/**/*.js",
+					"tests/**/*.js"
+				]
+			},
+			"gitHead": "2619438d1731fd8887aabd0a28ac47a796a5c1f4",
+			"_id": "@dguijs/postcss-rezimota@0.1.0",
+			"_nodeVersion": "14.2.0",
+			"_npmVersion": "6.14.5",
+			"dist": {
+				"integrity": "sha512-OTwDIOGRjYEeFCR/dDCaMDXeLxOx8kp9XveUCyCZIXLgoUavd5tcH6/fysJuBRLs+vtUSMfJGcoZQO9wPUohEg==",
+				"shasum": "38e35a6a55dc5dd2d56fb32b316454603731f275",
+				"tarball": "https://registry.npmjs.org/@dguijs/postcss-rezimota/-/postcss-rezimota-0.1.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 33122,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfcm6GCRA9TVsSAnZWagAAHxEP/2Qt5FOBKL/wqNHHWE9R\n0vlPMTKuE2TIcAmk9yzGbDovZW3wykPQMqU1ISJ0UuKK9pzstw55oEUz1C3C\n20r5CxeT5ihVbRQEtpb2AZltlbKgRxTbsTqeWQQv8zdUboI2FgLyjDDm1Bgp\nn9Qufl9z1AQ1YevsFrBtKpf3pSzssZJ8ABNJgBgViUc6FJJXl2F89h2wpV/4\nkPogHi4U46TZ9V+VWw2DDjIdAmqs8RdSF4sLmNFdZG5rotq+gtQvsSvnfPC7\nUQG7pvbrGly0giAW5+7GU9+bYncZzEm+qKPKJ63Xq5OmFG4G8gDW/8gd8IgN\nkY3Ecdoc+YZJzbgbyixtTOUvNvhakyAzw98PQ1cZY8Klz/KUfz3ESe7DAdsb\nMeZs+2dZ+oQjmWxxDThfM9IY53iGCEfnUrvzQeKmVpuHEnvpZVt6GHkTtedP\nbaAdxdWKgzU6JWLxmHuUB9+Ug3xjLBVyRR4OL95LtNpTYvKmNFoZ54Z/GTS6\nwXWZ7DU/jIGbbJX+YLPvZCPn4LQS9v0pHf09A3vu8xDWzvnpN63sT0gk35s1\nGDPbyJ9oEFKCyZY81Pc4TjMbespa/+LULWX1uEVvebH2oxwOKKh+Sn5HH9DQ\n0F4uRYnXZDdukCTbNJ92RI5Zcu8MwNxfmYcMnlkANQDhI4AheKi6x98T0OsM\nhRMz\r\n=Jpwp\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDEhxOi98mdXbb8OUDuxNXTCGBv4fbQGEnSSwqhB24CogIhAIBPbscnirdMAJacjvwtPdnKnCJIFO4dkbC2//QukuKu"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "comandeer",
+					"email": "comandeer@comandeer.pl"
+				},
+				{
+					"name": "kacperkozak",
+					"email": "kacperkk@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "comandeer",
+				"email": "comandeer@comandeer.pl"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-rezimota_0.1.0_1601334917971_0.038126151134640685"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2020-09-28T23:15:17.772Z",
+		"0.1.0": "2020-09-28T23:15:18.139Z",
+		"modified": "2022-04-05T04:18:42.497Z"
+	},
+	"maintainers": [
+		{
+			"email": "comandeer@comandeer.pl",
+			"name": "comandeer"
+		}
+	],
+	"description": "PostCSS plugin for generating CSS using ACSS classes",
+	"homepage": "https://github.com//dGUIJS/postcss-rezimota#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"acss"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dGUIJS/postcss-rezimota.git"
+	},
+	"author": {
+		"name": "dGUIJS"
+	},
+	"bugs": {
+		"url": "https://github.com//dGUIJS/postcss-rezimota/issues"
+	},
+	"license": "MIT",
+	"readme": "# @dGUIJS/postcss-rezimota\n\n[![Build Status](https://github.com/dGUIJS/postcss-rezimota/workflows/CI/badge.svg)](https://github.com/dGUIJS/postcss-rezimota/actions) [![Dependency Status](https://david-dm.org/dGUIJS/postcss-rezimota.svg)](https://david-dm.org/dGUIJS/postcss-rezimota) [![devDependencies Status](https://david-dm.org/dGUIJS/postcss-rezimota/dev-status.svg)](https://david-dm.org/dGUIJS/postcss-rezimota?type=dev) [![codecov](https://codecov.io/gh/dGUIJS/postcss-rezimota/branch/master/graph/badge.svg)](https://codecov.io/gh/dGUIJS/postcss-rezimota) [![npm (scoped)](https://img.shields.io/npm/v/@dguijs/postcss-rezimota.svg)](https://npmjs.com/package/@dguijs/postcss-rezimota)\n\n[PostCSS](https://postcss.org/) plugin for generating your CSS using [ACSS](https://acss.io/) classes.\n\n## Example\n\nInput:\n\n```css\n.container {\n\t@Bgc(red);\n\tp: 20px;\n}\n```\n\nOutput:\n\n```css\n.container {\n\tbackground-color: red;\n\tpadding: 20px;\n}\n```\n\n## Installation\n\n```bash\nnpm install @dguijs/postcss-rezimota --save-dev\n```\n\n## Usage\n\nYou can use the plugin with [PostCSS CLI](https://github.com/postcss/postcss-cli).\n\n1. Install the plugin alongside `postcss-cli`:\n\n\t```bash\n\tnpm install postcss-cli @dguijs/postcss-rezimota --save-dev\n\t```\n\n2. Add script for compiling CSS to your `package.json`:\n\n\t```json\n\t\"scripts\": {\n\t\t\"build:css\": \"postcss input.css -u @dguijs/postcss-rezimota -o output.css\"\n\t}\n\t```\n\n3. Call `npm run build:css`.\n\n## Configuration\n\nNo configuration. Consider it a feature.\n\n## License\n\nSee [LICENSE](./LICENSE) file for details.\n",
+	"readmeFilename": "README.md"
+}

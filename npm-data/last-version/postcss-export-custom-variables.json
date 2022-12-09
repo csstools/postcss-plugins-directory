@@ -1,0 +1,98 @@
+{
+	"name": "postcss-export-custom-variables",
+	"version": "1.0.0",
+	"description": "Export custom media queries, custom properties, custom property sets, and custom selectors from CSS as JavaScript variables",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonathantneal/postcss-export-custom-variables.git"
+	},
+	"homepage": "https://github.com/jonathantneal/postcss-export-custom-variables#readme",
+	"bugs": {
+		"url": "https://github.com/jonathantneal/postcss-export-custom-variables/issues"
+	},
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"scripts": {
+		"clean": "git clean -X -d -f",
+		"prepublish": "npm test && npm run test:pre",
+		"postpublish": "npm run test:post",
+		"test": "echo 'Running tests...'; npm run test:js && npm run test:pre && npm run test:tape && npm run test:post",
+		"test:pre": "babel index.js --presets=env --out-file index.js --source-maps inline",
+		"test:pre-commit": "echo 'Running tests...'; npm run test:js && npm run test:tape",
+		"test:post": "git checkout index.js",
+		"test:js": "eslint *.js --cache --ignore-pattern .gitignore",
+		"test:tape": "postcss-tape"
+	},
+	"engines": {
+		"node": ">=4.0.0"
+	},
+	"dependencies": {
+		"postcss": "^6.0.1"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.24.1",
+		"babel-preset-env": "^1.4.0",
+		"eslint": "^3.19.0",
+		"eslint-config-dev": "2.0.0",
+		"postcss-tape": "2.0.1",
+		"pre-commit": "^1.2.2"
+	},
+	"eslintConfig": {
+		"extends": "dev"
+	},
+	"pre-commit": [
+		"test:pre-commit"
+	],
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"export",
+		"custom",
+		"custom variables",
+		"vars",
+		"variables",
+		"media",
+		"properties"
+	],
+	"gitHead": "ce15caa33e52cca56b0b95cebfc9f32f3a8e6923",
+	"_id": "postcss-export-custom-variables@1.0.0",
+	"_shasum": "8cee371f2b21769ed7f1a01cf89cfebd23d7a131",
+	"_from": ".",
+	"_npmVersion": "4.2.0",
+	"_nodeVersion": "7.10.0",
+	"_npmUser": {
+		"name": "jonathantneal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"dist": {
+		"shasum": "8cee371f2b21769ed7f1a01cf89cfebd23d7a131",
+		"tarball": "https://registry.npmjs.org/postcss-export-custom-variables/-/postcss-export-custom-variables-1.0.0.tgz",
+		"integrity": "sha512-86qxZUMGLEo1LUyBh0JJnwC1YeP1kNfKW7sCZZem7jliCbR9DbfEhfG1FLDkXYEdxycjJeHuK9ObXsLTLFs7jQ==",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIGmpUvCMspSqjkRNXv51Q2zs6GzhoRUepyAJW72ThkvKAiEA28RzobcX/bpKcdKlnxbsNpCC0jjH7kX0H7nnMXExJDE="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-export-custom-variables-1.0.0.tgz_1495305900601_0.2962726727128029"
+	},
+	"directories": {},
+	"_time": "2017-05-20T18:45:01.660Z"
+}

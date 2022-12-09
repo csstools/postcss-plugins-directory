@@ -1,0 +1,122 @@
+{
+	"_id": "postcss-ex-to-viewport",
+	"_rev": "2-e1001ac908157127453648897467d57c",
+	"name": "postcss-ex-to-viewport",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-ex-to-viewport",
+			"description": "A CSS post-processor that converts ex to viewport units (vw, vh, vmin, vmax).",
+			"version": "0.0.1",
+			"author": {
+				"name": "gukong",
+				"email": "1239242238@qq.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/gukong/postcss-ex-to-viewport.git"
+			},
+			"bugs": {
+				"url": "https://github.com/gukong/postcss-ex-to-viewport/issues"
+			},
+			"homepage": "https://github.com/evrone/postcss-ex-to-viewport",
+			"main": "index.js",
+			"keywords": [
+				"css",
+				"units",
+				"pixel",
+				"ex",
+				"viewport",
+				"vw",
+				"vh",
+				"vmin",
+				"vmax",
+				"postcss",
+				"postcss-plugin"
+			],
+			"dependencies": {
+				"object-assign": "^4.0.1",
+				"postcss": "^5.0.2"
+			},
+			"gitHead": "7f8170481a21852bd55539080e1c410250745859",
+			"_id": "postcss-ex-to-viewport@0.0.1",
+			"scripts": {},
+			"_shasum": "d97af85280c86ffb4f5dac3c3c6db9587393c233",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "7.8.0",
+			"_npmUser": {
+				"name": "natekong",
+				"email": "1239242238@qq.com"
+			},
+			"dist": {
+				"shasum": "d97af85280c86ffb4f5dac3c3c6db9587393c233",
+				"tarball": "https://registry.npmjs.org/postcss-ex-to-viewport/-/postcss-ex-to-viewport-0.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 8643,
+				"integrity": "sha512-13vFTAv3jcJD2ILjfUG8FQOaQVqYwcRF3jSwCXz736PoSexD4/+oqH2bBgKf/Xlpo0c7Fl8T2mQyCj8BUwf6YA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGCA40jItcn0x9XqxqrvEvqYqT3swUmOzV5DnVieaG+tAiAo9FbBvcyK+GEaPJJ/O6MXPoC1Yd0ox+qnCuqC3P/Lzw=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "natekong",
+					"email": "1239242238@qq.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-ex-to-viewport_0.0.1_1529684894716_0.25425995693669834"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-06-22T16:28:14.716Z",
+		"0.0.1": "2018-06-22T16:28:15.049Z",
+		"modified": "2022-06-24T09:54:05.251Z"
+	},
+	"maintainers": [
+		{
+			"name": "natekong",
+			"email": "1239242238@qq.com"
+		}
+	],
+	"description": "A CSS post-processor that converts ex to viewport units (vw, vh, vmin, vmax).",
+	"homepage": "https://github.com/evrone/postcss-ex-to-viewport",
+	"keywords": [
+		"css",
+		"units",
+		"pixel",
+		"ex",
+		"viewport",
+		"vw",
+		"vh",
+		"vmin",
+		"vmax",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/gukong/postcss-ex-to-viewport.git"
+	},
+	"author": {
+		"name": "gukong",
+		"email": "1239242238@qq.com"
+	},
+	"bugs": {
+		"url": "https://github.com/gukong/postcss-ex-to-viewport/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-px-to-viewport [![NPM version](https://badge.fury.io/js/postcss-px-to-viewport.svg)](http://badge.fury.io/js/postcss-px-to-viewport)\n\nA plugin for [PostCSS](https://github.com/ai/postcss) that generates viewport units (vw, vh, vmin, vmax) from pixel units.\n\n## Usage\n\nIf your project involves a fixed width, this script will help to convert pixels into viewport units.\n\n### Input/Output\n\n```css\n// input\n\n.class {\n  margin: -10px .5vh;\n  padding: 5vmin 9.5px 1px;\n  border: 3px solid black;\n  border-bottom-width: 1px;\n  font-size: 14px;\n  line-height: 20px;\n}\n\n.class2 {\n  border: 1px solid black;\n  margin-bottom: 1px;\n  font-size: 20px;\n  line-height: 30px;\n}\n\n@media (min-width: 750px) {\n  .class3 {\n    font-size: 16px;\n    line-height: 22px;\n  }\n}\n\n// output\n\n.class {\n  margin: -3.125vw .5vh;\n  padding: 5vmin 2.96875vw 1px;\n  border: 0.9375vw solid black;\n  border-bottom-width: 1px;\n  font-size: 4.375vw;\n  line-height: 6.25vw;\n}\n\n.class2 {\n  border: 1px solid black;\n  margin-bottom: 1px;\n  font-size: 6.25vw;\n  line-height: 9.375vw;\n}\n\n@media (min-width: 234.375vw) {\n  .class3 {\n    font-size: 5vw;\n    line-height: 6.875vw;\n  }\n}\n```\n\n### Example\n\n```js\n'use strict';\n\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxToViewport = require('..');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxToViewport(options)).process(css).css;\n\nfs.writeFile('main-viewport.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('File with viewport units written.');\n});\n```\n\n### Options\n\nDefault:\n```js\n{\n  viewportWidth: 320,\n  viewportHeight: 568,\n  unitPrecision: 5,\n  viewportUnit: 'vw',\n  selectorBlackList: [],\n  minPixelValue: 1,\n  mediaQuery: false\n}\n```\n- `viewportWidth` (Number) The width of the viewport.\n- `viewportHeight` (Number) The height of the viewport.\n- `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.\n- `viewportUnit` (String) Expected units.\n- `selectorBlackList` (Array) The selectors to ignore and leave as px.\n    - If value is string, it checks to see if selector contains the string.\n        - `['body']` will match `.body-class`\n    - If value is regexp, it checks to see if the selector matches the regexp.\n        - `[/^body$/]` will match `body` but not `.body`\n- `minPixelValue` (Number) Set the minimum pixel value to replace.\n- `mediaQuery` (Boolean) Allow px to be converted in media queries.\n\n\n### Use with gulp-postcss\n\n```js\nvar gulp = require('gulp');\nvar postcss = require('gulp-postcss');\nvar pxtoviewport = require('postcss-px-to-viewport');\n\ngulp.task('css', function () {\n\n    var processors = [\n        pxtoviewport({\n            viewportWidth: 320,\n            viewportUnit: 'vmin'\n        })\n    ];\n\n    return gulp.src(['build/css/**/*.css'])\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('build/css'));\n});\n```\n",
+	"readmeFilename": "README.md"
+}

@@ -1,0 +1,756 @@
+{
+	"_id": "@csstools/postcss-color-function",
+	"_rev": "6-0fcaa2458bd6a74eaf37796b2aff9044",
+	"name": "@csstools/postcss-color-function",
+	"dist-tags": {
+		"latest": "1.1.1"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-color-function",
+			"version": "1.0.0",
+			"description": "Use the color() function in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.0.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"postcss-lab-function": "^4.0.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"color",
+				"colors",
+				"rgb",
+				"rgba",
+				"color",
+				"display-p3",
+				"prophoto-rgb",
+				"xyz",
+				"rec2020",
+				"srgb-linear",
+				"design",
+				"syntax"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "c06775410d052c62b3c8a89ff45a481e48619f67",
+			"_id": "@csstools/postcss-color-function@1.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-Y+dC8oBG+F1nMXm0Yk8xlJK1fqyQKz0nLw+YXgSX+04lmkwOC35LExPcFAIM37V2k9azRzHTe8eLoFUU/FT2ng==",
+				"shasum": "28ed125d2d5f8eb9bda10e78250aedee4fa382f9",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-color-function/-/postcss-color-function-1.0.0.tgz",
+				"fileCount": 24,
+				"unpackedSize": 41828,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiANi6CRA9TVsSAnZWagAALGoP/0YG5MPczfhTtrCeoaa2\nJU67szIQ9zCzm4Xoygwp9oDmyCIXpTCx+0xUWsDTftH1JhYIWbar2u4hpMG3\nV/HAjv/MllHw3hDcCP1UgXgf37n3rPWOTR0ex64DfxpttkbVzrPb+2Ww/6++\nsLqDld4VmIqnyD2ukE2+NuwD+zml7wnLAmTJ+ldTQnBDpS2mUnoc0aJBROag\nMEelVh2jek28qJ2Mjf07m6WpteTL/Pv3pCT9a+jC8pIXDSUreTFuEZ2UCszo\nH/KeCe+mWbQR8PKEA76Aw60bvPKWTxOGU1dPDykgnd+6VDHxZCAoQvaf4+/w\ndfm92g54D3SUCzc6Cc2kbhtOPRWoGGY//FQXky3e7NxoxN8SDBcPrEspiBun\n4JeBYZMiqkCJicCLGgmM2hZOyQsLmwi5ncn1MjaLMgk+yykTbLOTqeAaFwbz\nyoBsEH2t2DN+NTcYanvs/QSsbl2qjoHiU17zXN49mHEyQJrNO3aevpUt4mch\n6ckiUnW/Jgh01IhiPBbQTdaXUfOTOlq7MjIXNr4TCsUvPLbyAiUTdDbQi6eu\n/+qlyvkLYYBgWreccIO/4bEc7gbVbuEwTY4qmHDiHLe5DCrYWSih1eIDSnQ/\nVJhhJulM3fZ2C+xF5IImIfZfac11stcC8Bdi9jaMcWI80y7hMMI/KX7vKPYs\nc7kz\r\n=jxoN\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICwQn3zXgInfty/+SdF4+F7keCYHPIGOEAeL3cA5oWJDAiEAkIggcXgoo1VZBbTEA1PHG7W2w1AnxC7rIQcWC3ui7Eg="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-function_1.0.0_1644222650156_0.7198970347061946"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-color-function",
+			"version": "1.0.1",
+			"description": "Use the color() function in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.0.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"postcss-lab-function": "^4.0.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"color",
+				"colors",
+				"rgb",
+				"rgba",
+				"color",
+				"display-p3",
+				"prophoto-rgb",
+				"xyz",
+				"rec2020",
+				"srgb-linear",
+				"design",
+				"syntax"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "3e1099161f501d54e1beacfeabcc5b7b58fbafe3",
+			"_id": "@csstools/postcss-color-function@1.0.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-2w0FAjlotLgpgiVxaXdkV0+BfYC/+F+AxH2EpjEjTLg8X5YTPh128t2yxgBVvbyfY4IyTD+POnXeBrZtJzZRZw==",
+				"shasum": "e3fae61f0eb4998a749828a7e7eae3eab9139917",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-color-function/-/postcss-color-function-1.0.1.tgz",
+				"fileCount": 24,
+				"unpackedSize": 42215,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiBnf1CRA9TVsSAnZWagAATdoP/j0ANLdVmUnBAmkvvUh3\neeYh0q4IWATLDromt24w9cDUl2wWliUgpepP/htHTecfZtS6mVvX7WJaDqDq\nsJ6gFS7DRdngZTf6tyF4RsOr2GpFFGD5Mm7PYeAkmLT128RpuPfzWVhvgg/0\nfxbNLp9Ozgg35UkVxKF3WaL2hMtveWA77ykxtclTR9S7VO47W3TXC3iZys6X\n+FZpmLoUDYjmGeUFaCnFrSnQHvo2Jy+U4BAal6RoTCGn6Yb/JRx0PpUyUJE7\nTF/xylPiKl2/k452qiDxAFyWrhDsfLA22i6/58M/005Qt4qa5iJTaxerCgm4\noF6LRFD5x11BZ7HgGNyLnbi4b3cQ9b1C51QNcYV/MLiZwKdhm08b0u+hvy44\nuFoPKGecHb38+aNjBmDq0mvyVWwYGUODiHQ6nkqbxzQrsB4F515ELADJ4/+Y\naNk7rRK0YGTDE4PKOgN5SiVFjgTinL86XgRWHFfAC47lMc809cqyoQEoHXtL\no6dhL1ki861AlxncXq8v4Dkt8RbcI2kZUTpGWtzMhh4sMg23FDTdPogXVn6J\nyf7E0WkJDMj348VVUJkhIQ29IVjDRz7VElc4+Kl2ZRaPY0JXCPCFevkY/vxR\n185xSYYu30TYDhkE2cPFJJESWwDAhWZYPkSBfZL1vFf1RprKRi2Uzco3HXBU\nWkD5\r\n=5aya\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGh7JIS7kfeH5kqFi547BURM9tQcvSOmXwBZHKD1pQ8yAiBaQZXkM7VtGkRdd5nwwEAWg/ylNZe6Np4KCK8wkSxsKA=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-function_1.0.1_1644591093205_0.0470339844954748"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.2": {
+			"name": "@csstools/postcss-color-function",
+			"version": "1.0.2",
+			"description": "Use the color() function in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"postcss-lab-function": "^4.0.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"color",
+				"colors",
+				"rgb",
+				"rgba",
+				"color",
+				"display-p3",
+				"prophoto-rgb",
+				"xyz",
+				"rec2020",
+				"srgb-linear",
+				"design",
+				"syntax"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "bd275c6e43c1f276c5afcdad6caae16078080585",
+			"_id": "@csstools/postcss-color-function@1.0.2",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-uayvFqfa0hITPwVduxRYNL9YBD/anTqula0tu2llalaxblEd7QPuETSN3gB5PvTYxSfd0d8kS4Fypgo5JaUJ6A==",
+				"shasum": "0843fe19be08eeb22e5d2242a6ac06f8b87b9ed2",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-color-function/-/postcss-color-function-1.0.2.tgz",
+				"fileCount": 24,
+				"unpackedSize": 42487,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiB8LMCRA9TVsSAnZWagAAr6AQAIF78147Tbs+qL9U2Zzu\nNeAeuPf+0lNd6PsrAtVey39ip7EHhDGTPhHAM63NBo5gu505sKA/RmlCDRZ7\n8v6o2HIIVA+C5uDiy7XG3PrHMmsNp8E48JaPCqU65xzMHwKazmA3aPFBpAYF\n1y+VOMhxQU9V7Yirdd7rAnnER6E4WJHe7OwIOeB/D8ZnHjaoSCat3FLUhGIt\nC8MlLvFnPpOt/fRnjP2iNAShxpkZeqZG3wqnojEy5G2SaaS2g0fdKxFI4Zrr\n5E6EPRJddvTpexjmjKS8XF7Wr9sFyBNHy/3vOS/nY+PP2eFvSMKVXRVnK8Mr\n4mTqGc8DLBoWzP8BYSwkbWNotUf2xDNRzvhmhsvGXwljpvdiFwE/l5QVjkVG\n1CKqeondKLCznKgsKwgaanHsAdgG8l+qefIUntx/cLdj0uj2l2CHMJfALJN5\nOwhOHg75ULTWXDshUiQ1dP0hXXedI4DZfDhn6mEIfXKuT/1bU5E/aa5rOhS3\no1UZPrjQ7NPiBTHYvfzJePXk7/q1dXV/Od8uJcNhzyaaiH727d8qsX9sLCOz\n9eDYWYdnkwpPt2/KICdJQPF5aU85FeOVlx2k8rcKUu4+wPCfw6R4HrlnDyA1\nlW9Q0eKOJoCTX7QQuHzPq9X0+Ewj6qRNUeh4fVVdxa7teH9zyN7Ow3bvYMH6\nUc9x\r\n=md8j\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIEphHOpgucrpvwjQnslSu83Difb+8UJd/p9kT7iIAAyJAiBbQPpHEdPwNALIS9go51DSXhN2w1L15p6YNXykH0acdw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-function_1.0.2_1644675788387_0.9183700112408242"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.3": {
+			"name": "@csstools/postcss-color-function",
+			"description": "Use the color() function in CSS",
+			"version": "1.0.3",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"postcss-lab-function": "^4.0.3"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"color",
+				"colors",
+				"css",
+				"design",
+				"display-p3",
+				"postcss",
+				"postcss-plugin",
+				"prophoto-rgb",
+				"rec2020",
+				"rgb",
+				"rgba",
+				"srgb-linear",
+				"syntax",
+				"xyz"
+			],
+			"csstools": {
+				"cssdbId": "color-function",
+				"exportName": "postcssColorFunction",
+				"humanReadableName": "PostCSS Color Function",
+				"specUrl": "https://www.w3.org/TR/css-color-4/#funcdef-color"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "45450b2038754c299311683ee2dc8a20cefa3c1d",
+			"_id": "@csstools/postcss-color-function@1.0.3",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-J26I69pT2B3MYiLY/uzCGKVJyMYVg9TCpXkWsRlt+Yfq+nELUEm72QXIMYXs4xA9cJA4Oqs2EylrfokKl3mJEQ==",
+				"shasum": "251c961a852c99e9aabdbbdbefd50e9a96e8a9ff",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-color-function/-/postcss-color-function-1.0.3.tgz",
+				"fileCount": 24,
+				"unpackedSize": 44204,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiJw69ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmplXQ/+JxHYo2Xf9q0T/9yB8h2NFpKwLftVjqG/6n4ggUNx1qQe3B1n\r\ncWvbyG9TgjpTdbcIhnYNDir8wjYQLmOrHkzmnP+7+vEGDU2VeODV/dFwZ//0\r\nstdiG0MFIMeTp0tvdVTAMrB2G4qcpepKG/HghD3doam3qiB23a4Jdi+H5XsL\r\nTNa/d9EhWtcXrpGMTFmrOUOjdTZVkEVqY1tjBjshNpREZ3M5qEvO0RBI2p+n\r\nQ54AjZ0tgloFbdWumdzEhWvCUqGAQsYt1IJfnuVmTIHwKNKtXhGp2+Lq1yW6\r\nY8xk3qfKR7umuJfJqOYmX+PbpoNx35DUiB/c+ycFtDWmMBLVpJe+jXoOUWG+\r\nF9f3NiuMLDN5YMtqM6OwqkypZB8AwNs2Kb8Sb75EzI03dBlsbhA0hdK11NPD\r\nehwiu6Oelii7W34zdknI2cs/EvcsdxaXhf70WyxiXN96mTj9oXQZTzR4a3U8\r\n5h5660i234x3Srzh6utN7ULEwEpoAJ9oh+R+mG7njkZMfJxrIdc1CNOcmWfa\r\n5zmn5smx3kkCI2VWERIexx8U/Vg5w+Wn7uDACkmVKC78aTbli1+m9q+6esvs\r\nNCx/MBI5rY/RSfz0HKYrBGzjRpEgqbm54RuKf/1XfihsT70hdx8uhnv/45N0\r\nonMM2L1e3Ntcq0TgRaX+UVZHjZnFixrfvvA=\r\n=qywB\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCHjk9GqVTHTrfS5FkIgYTU9/cSOP/lY7t6WEalRCc2JQIgDDUQq2EPrH9XQ8kJy+gxUC43KpNSveLR5yAhAbB4ne4="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-function_1.0.3_1646726845593_0.023955749990903774"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "@csstools/postcss-color-function",
+			"description": "Use the color() function in CSS",
+			"version": "1.1.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"postcss-lab-function": "^4.0.3"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"color",
+				"colors",
+				"css",
+				"design",
+				"display-p3",
+				"postcss",
+				"postcss-plugin",
+				"prophoto-rgb",
+				"rec2020",
+				"rgb",
+				"rgba",
+				"srgb-linear",
+				"syntax",
+				"xyz"
+			],
+			"csstools": {
+				"cssdbId": "color-function",
+				"exportName": "postcssColorFunction",
+				"humanReadableName": "PostCSS Color Function",
+				"specUrl": "https://www.w3.org/TR/css-color-4/#funcdef-color"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "70d976c8553a1b6c95817ffad43da3107680c59e",
+			"_id": "@csstools/postcss-color-function@1.1.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-5D5ND/mZWcQoSfYnSPsXtuiFxhzmhxt6pcjrFLJyldj+p0ZN2vvRpYNX+lahFTtMhAYOa2WmkdGINr0yP0CvGA==",
+				"shasum": "229966327747f58fbe586de35daa139db3ce1e5d",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-color-function/-/postcss-color-function-1.1.0.tgz",
+				"fileCount": 24,
+				"unpackedSize": 44282,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIAVbP8vYsW0uN3tNSXW7KqEG9aslMK4e6sXcPUGZleYAAiEAqmzgKefcPT72IlSDXt135g2waXPOYAmWKOsREHEmjvE="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiSoaqACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqPLA//cjOCajIMZNDGsafMEeATunxXTJvTjujGgekUze//e/EBnLoh\r\nmiHPvtl0vXBunLLwgNBxcGVzoDGfvBdpCXGrrRI7AhFZLn9GbmVhfb8cqboR\r\n4lWwkoVU/uIK5hhKnTDpbrBx39MKf9A6+bZY6WHTRY1WuZX/+FT0lBinffkV\r\nxmBqNiX8s1fOM560zAhSTYRRn2fCbzgS6NWi4E7WtvDkO+sqViy1/JbvxwAx\r\n06WSjzLKLCti/9ZdIAm2t2rpLl1fAlhhMzQYmM6tdApbHEUNXJPiAZHQ075y\r\nsJtPASf94gFtYBzUCAbbnEFqdB7oFxGIzKLJyUlnyzF6EH0L2YoO8dDF7ii7\r\nSyMJSnBJajBPXjlv+Yo6Yp5xiVWGn8o0Jlp4jdPGM+H4QTBRlgfjY7nCSY+0\r\nQUwfgv+HlDL3WFOHZlAQj+vX2t7EYI3xH8PwtpwSEjCtAmjrXfWaNF55mgLT\r\nxshFHAh4qFcAPskCzewPBYwqjnqk51tJjvASCJ2teET15eMHkP+t0WGBOxv5\r\nPQfeXTiFz8bSdxHBGgA330BelJ+rL3ilBFvvX5MBKim8JjU9HP4mBrMEbIzT\r\nTqpE/+sOUW28BUoT/ryDh8Laeuffmyhbdg6Qu8LicRpDDff35VrDEOUVV1Jz\r\nJSSu7JxmcKpkHnYp7eOIKDYiy80GgcTpL+4=\r\n=wTA7\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-function_1.1.0_1649051306035_0.7168035428083408"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.1": {
+			"name": "@csstools/postcss-color-function",
+			"description": "Use the color() function in CSS",
+			"version": "1.1.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"devDependencies": {
+				"postcss-lab-function": "^4.0.3"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"color",
+				"colors",
+				"css",
+				"design",
+				"display-p3",
+				"postcss",
+				"postcss-plugin",
+				"prophoto-rgb",
+				"rec2020",
+				"rgb",
+				"rgba",
+				"srgb-linear",
+				"syntax",
+				"xyz"
+			],
+			"csstools": {
+				"cssdbId": "color-function",
+				"exportName": "postcssColorFunction",
+				"humanReadableName": "PostCSS Color Function",
+				"specUrl": "https://www.w3.org/TR/css-color-4/#funcdef-color"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "45b2f3e6d61aa218ec988dbb6bd7b6b7bb0ef8b8",
+			"_id": "@csstools/postcss-color-function@1.1.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-Bc0f62WmHdtRDjf5f3e2STwRAl89N2CLb+9iAwzrv4L2hncrbDwnQD9PCq0gtAt7pOI2leIV08HIBUd4jxD8cw==",
+				"shasum": "2bd36ab34f82d0497cfacdc9b18d34b5e6f64b6b",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-color-function/-/postcss-color-function-1.1.1.tgz",
+				"fileCount": 24,
+				"unpackedSize": 44600,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIG3vg+5BgNhISJvYWR+TJa8bupc9PpmpkOwSG+AlDIc0AiBOzjLrEMnFDjr331J6PtJvoaSKBn387IKRPjzLZrpuzQ=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFecACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpG8A/9G+/FgfBDv+qxuWn4TeIrY4erl1jzWy9odiEPtHMmsKJjsBfH\r\ngC4r1iDwBzyuc6P5h2y3nAssyTd/T3mL2hRFEM2H4EGnNHLRfUrFK/NfW3gc\r\nrz2YXjk0DaOCwTLfcYluPvrjbhmOprFZ3mctE7IvMzFpOFd53AqtZW1aUO5f\r\nVJRKNjgmW9l45yoU4g0HRJ9KpANYkLPCXVZN88Iuq079bRQUkd+hy/XvACoh\r\n5YfDglysI9fAsHLRbvvNn2SpNDG/VgKHwiSxxVFGimA0zz046G5kplVwa+mF\r\nHuAQgIpt1o3lvaCE9fBfn4NebDQwCIRmvPaJFJz29GJWAYhAtwH1a1behAK9\r\n+s0JkJREf3cVWQD/1WuWfisa0qYAebdujRywLYBG3oU/ix5FljuiZ6E3Lo2C\r\n0vaGmhQHDVNcuPM6jnes5h3VgeS0Ou5745s0am1m+l/MNDnhQnPQn1vAAcd+\r\nw3Ll2gOxpvaat1bNeWSerseRnwASNMWdJPjrZOt9EoNR9xQrouSxiFlFUbh2\r\nNnWaw/HrZ4mt+TKgcPAhw1r5MnGOJHVSABuUU/2wUSYL1/s7EFMrrVUz+yx4\r\nZP/UIroi9U7YUzTedH2qXc3YdGLiQEL4cvY3SpHUptCbw4VSKZiTu2BFbMxN\r\nDGh2suSyKUbbCz5ODSzrR81kYvu10XnihsY=\r\n=HLaA\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-function_1.1.1_1657296796384_0.4136261569079067"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-02-07T08:30:50.063Z",
+		"1.0.0": "2022-02-07T08:30:50.318Z",
+		"modified": "2022-07-08T16:13:16.651Z",
+		"1.0.1": "2022-02-11T14:51:33.414Z",
+		"1.0.2": "2022-02-12T14:23:08.522Z",
+		"1.0.3": "2022-03-08T08:07:25.818Z",
+		"1.1.0": "2022-04-04T05:48:26.167Z",
+		"1.1.1": "2022-07-08T16:13:16.556Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Use the color() function in CSS",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+	"keywords": [
+		"color",
+		"color",
+		"colors",
+		"css",
+		"design",
+		"display-p3",
+		"postcss",
+		"postcss-plugin",
+		"prophoto-rgb",
+		"rec2020",
+		"rgb",
+		"rgba",
+		"srgb-linear",
+		"syntax",
+		"xyz"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-color-function"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS Color Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-color-function.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/color-function.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Color Function] lets you use the `color` function in\nCSS, following the [CSS Color] specification.\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n}\n```\n\n## Usage\n\nAdd [PostCSS Color Function] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-color-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssColorFunction = require('@csstools/postcss-color-function');\n\npostcss([\n\tpostcssColorFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Color Function] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssColorFunction({ preserve: true })\n```\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n}\n\n@supports (color: color(srgb 0 0 0)) {\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssColorFunction({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n```\n\n_Custom properties do not fallback to the previous declaration_\n\n## Supported Color Spaces\n\n```css\n.color-spaces {\n\tcolor: color(a98-rgb 0.803 0.484 0.944);\n\tcolor: color(display-p3 0.8434 0.509 0.934);\n\tcolor: color(prophoto-rgb 0.759 0.493 0.898);\n\tcolor: color(rec2020 0.772 0.491 0.920);\n\tcolor: color(srgb 0.897 0.488 0.959);\n\tcolor: color(srgb-linear 0.783 0.203 0.910);\n\tcolor: color(xyz 0.560 0.377 0.904);\n\tcolor: color(xyz-d50 0.550 0.375 0.680);\n\tcolor: color(xyz-d65 0.560 0.377 0.904);\n}\n```\n\n## Out of gamut colors\n\nDepending on the browser implementation out of gamut colors may be clipped, resulting in a different color.<br>\nFallback values generated by [PostCSS Color Function] are always mapped to a close alternative in sRGB.\n\nWhen setting `preserve` to `true` the original values will be used by some browsers and these may be clipped.<br>\nCertain browsers will have an incorrect color if this occurs.\n\nIf the plugin detects out of gamut colors it will emit a warning :\n\n> \"color(srgb-linear -0.01656 0.23079 0.25298)\" is out of gamut for \"srgb-linear\". When \"preserve: true\" is set this will lead to unexpected results in some browsers.\n\nTo resolve this warning pick a larger color space when declaring the original value.\n\n## Copyright : color conversions\n\nThis software or document includes material copied from or derived from https://github.com/w3c/csswg-drafts/tree/main/css-color-4. Copyright © 2022 W3C® (MIT, ERCIM, Keio, Beihang).\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#color-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-color-function\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Color Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function\n[CSS Color]: https://www.w3.org/TR/css-color-4/#funcdef-color\n",
+	"readmeFilename": "README.md"
+}

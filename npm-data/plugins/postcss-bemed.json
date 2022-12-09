@@ -1,0 +1,111 @@
+{
+	"_id": "postcss-bemed",
+	"_rev": "4-abb6b3fa5d94387a31ba27b0f7e3b3d6",
+	"name": "postcss-bemed",
+	"description": "PostCSS plugin for BEM class names",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-bemed",
+			"version": "1.0.0",
+			"description": "PostCSS plugin for BEM class names",
+			"main": "index.js",
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"engines": {
+				"node": ">= 4.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Ximik/postcss-bemed.git"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"bem"
+			],
+			"author": {
+				"name": "Alex Tsokurov"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/Ximik/postcss-bemed/issues"
+			},
+			"homepage": "https://github.com/Ximik/postcss-bemed#readme",
+			"devDependencies": {
+				"tap": "^9.0.3"
+			},
+			"dependencies": {
+				"bemed": "^1.0.0",
+				"postcss": "^5.2.11"
+			},
+			"gitHead": "086e056b18562e54e3986e8ca95babb64be3c61d",
+			"_id": "postcss-bemed@1.0.0",
+			"_shasum": "417b2e43bc85a8047095d91f296c6f9847ee2762",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "ximik",
+				"email": "me@ximik.net"
+			},
+			"dist": {
+				"shasum": "417b2e43bc85a8047095d91f296c6f9847ee2762",
+				"tarball": "https://registry.npmjs.org/postcss-bemed/-/postcss-bemed-1.0.0.tgz",
+				"integrity": "sha512-jpHR1/r5tZBssH2vT84YhKj2d+Hmi13ADcdlCm8K6jsaO60yN5bSbnMmsvLyJrEXDYMRKcep5hIV4McLUCu3xw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBFLF1OZHV2HUb/UeesKimd9lgigEhET+ojW3Zkqx25cAiEAnhflGgXAw0i8qmdKUYON4FKMAwuVxZpMdQl4nt1kzQo="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "ximik",
+					"email": "me@ximik.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-bemed-1.0.0.tgz_1485984040016_0.10071462392807007"
+			},
+			"directories": {}
+		}
+	},
+	"readme": "# postcss-bemed\n\n[![Build Status](https://travis-ci.org/Ximik/postcss-bemed.svg?branch=master)](https://travis-ci.org/Ximik/postcss-bemed)\n\n[PostCSS](https://github.com/postcss/postcss) plugin for [BEM](https://en.bem.info/) class names generation. Useful for creation of\nisolated class names without [css-modules](https://github.com/css-modules/css-modules) (e.g. if you have user themes support). Great for [React](https://github.com/facebook/react) applications in combination with [babel plugin](https://github.com/Ximik/babel-plugin-transform-jsx-bemed).\nCan be used with [postcss-autoreset](https://github.com/maximkoretskiy/postcss-autoreset) without extra configuration.\n\n## Usage\nJust require it as any other postcss plugin and use special AtRules.\n\n```js\npostcss([ require('postcss-bemed')])\n```\n\n**Input**\n```css\n@block MyBlock {\n  font-size: 20px;\n  @modifier fullsized {\n    width: 100%;\n    height: 100%;\n  }\n  @element text {\n    @modifier result {\n      @value ok {\n        color: green;\n      }\n      @value error {\n        color: red;\n      }\n    }\n    @modifier size {\n      box-sizing: border-box;\n      @value full {\n        width: 100%;\n      }\n      @value half {\n        width: 50%;\n      }\n    }\n  }\n}\n```\n\n**Output**\n```\n.MyBlock {\n  font-size: 20px\n}\n.MyBlock--fullsized {\n  width: 100%;\n  height: 100%\n}\n.MyBlock__text {}\n.MyBlock__text--result {}\n.MyBlock__text--result-ok {\n  color: green\n}\n.MyBlock__text--result-error {\n  color: red\n}\n.MyBlock__text--size {\n  box-sizing: border-box\n}\n.MyBlock__text--size-full {\n  width: 100%\n}\n.MyBlock__text--size-half {\n  width: 50%\n}\n\n```\n\n## Options\n\n### rules\n\nSet custom rule naming. Default is\n```js\nrules: {\n  block: 'block',\n  element: 'element',\n  modifier: 'modifier',\n  value: 'value'\n}\n```\n\n### separators\n\nSet custom bem separators. Default is\n```js\nseparators: {\n  element: '__',\n  modifier: '--',\n  value: '-'\n}\n```\n",
+	"maintainers": [
+		{
+			"email": "me@ximik.net",
+			"name": "ximik"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:31:22.828Z",
+		"created": "2017-02-01T21:20:41.943Z",
+		"1.0.0": "2017-02-01T21:20:41.943Z"
+	},
+	"homepage": "https://github.com/Ximik/postcss-bemed#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"bem"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Ximik/postcss-bemed.git"
+	},
+	"author": {
+		"name": "Alex Tsokurov"
+	},
+	"bugs": {
+		"url": "https://github.com/Ximik/postcss-bemed/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

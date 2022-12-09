@@ -1,0 +1,107 @@
+{
+	"name": "postcss-all-link-colors",
+	"version": "2.0.0",
+	"description": "PostCSS plugin to insert colors for all link-related pseudo-classes.",
+	"main": "dist/plugin.js",
+	"types": "dist/plugin.d.ts",
+	"scripts": {
+		"clean": "rimraf coverage dist *.log",
+		"codecov": "codecov -f coverage/lcov.info",
+		"compile": "tsc",
+		"compile:watch": "tsc --watch",
+		"prepublish": "npm test",
+		"pretest": "npm run tslint && npm run clean && npm run compile",
+		"test": "nyc ava",
+		"test:watch": "ava --watch",
+		"tslint": "tslint --project tsconfig.json",
+		"watch": "npm run test:watch"
+	},
+	"ava": {
+		"files": [
+			"dist/**/*.spec.js"
+		],
+		"source": [
+			"dist/**/*.js"
+		]
+	},
+	"nyc": {
+		"lines": 100,
+		"statements": 100,
+		"functions": 100,
+		"branches": 100,
+		"include": [
+			"dist/**/*.js"
+		],
+		"exclude": [
+			"dist/**/*.spec.js"
+		],
+		"reporter": [
+			"lcov",
+			"text"
+		],
+		"cache": true,
+		"all": true,
+		"check-coverage": true
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jedmao/postcss-all-link-colors.git"
+	},
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"link",
+		"colors",
+		"pseudo-classes"
+	],
+	"author": {
+		"name": "Jed Mao",
+		"email": "jedmao@outlook.com"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jedmao/postcss-all-link-colors/issues"
+	},
+	"homepage": "https://github.com/jedmao/postcss-all-link-colors#readme",
+	"dependencies": {
+		"postcss": "^6.0.13"
+	},
+	"devDependencies": {
+		"@types/node": "^8.0.47",
+		"ava": "^0.23.0",
+		"nyc": "^11.2.1",
+		"rimraf": "^2.6.2",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1"
+	},
+	"gitHead": "c833dd7e3888b61296580852180ec854a156c22a",
+	"_id": "postcss-all-link-colors@2.0.0",
+	"_npmVersion": "5.3.0",
+	"_nodeVersion": "8.6.0",
+	"_npmUser": {
+		"name": "jedmao",
+		"email": "jedmao@outlook.com"
+	},
+	"dist": {
+		"integrity": "sha512-bRwIScfQ01/gSUr1YU0FGOtCVCqVng0s0czw6ZZnL5I5MG+DFy+IjlROfabB0wqJ28mVM6ngFhN5vjiCbv3Mhg==",
+		"shasum": "556026327d6ce2e065602af8356e9082a3a02cf6",
+		"tarball": "https://registry.npmjs.org/postcss-all-link-colors/-/postcss-all-link-colors-2.0.0.tgz",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQCPwNxGxVsfOUHUpPDzTOD5dpv7zrTPHuLlkVeFIiYkwgIhAPA+8v1rY8uehE2yWy7tXhZxw8i7lUYx5V7g1gUKrJTG"
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "jedmao",
+			"email": "jedmao@outlook.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-all-link-colors-2.0.0.tgz_1509586913547_0.7668983591720462"
+	},
+	"_time": "2017-11-02T01:41:53.658Z"
+}

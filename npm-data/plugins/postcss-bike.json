@@ -1,0 +1,434 @@
+{
+	"_id": "postcss-bike",
+	"_rev": "10-16ba601045d414dca87582f928c17d04",
+	"name": "postcss-bike",
+	"time": {
+		"modified": "2022-05-13T06:05:32.722Z",
+		"created": "2017-10-11T20:41:14.818Z",
+		"1.0.0": "2017-10-11T20:41:14.818Z",
+		"1.0.1": "2017-10-11T20:59:14.634Z",
+		"1.0.2": "2017-10-11T21:24:20.833Z",
+		"1.0.3": "2017-10-12T11:02:39.804Z",
+		"1.0.5": "2017-10-16T08:55:52.977Z",
+		"1.0.6": "2018-03-06T10:14:45.578Z"
+	},
+	"maintainers": [
+		{
+			"email": "arttolstykh@gmail.com",
+			"name": "artem-tolstykh"
+		},
+		{
+			"email": "alex.hyrenko@gmail.com",
+			"name": "satanpit"
+		}
+	],
+	"dist-tags": {
+		"latest": "1.0.6"
+	},
+	"description": "PostCSS plugin for transformation of custom At-rules to BEM-like rules",
+	"readme": "# Bike plugin [![Build Status][travis-image]][travis-url] [![npm version][npm-image]][npm-url] [![Deps][deps-image]][deps-url]\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"http://postcss.github.io/postcss/logo-leftp.svg\">\n\n> This [PostCSS] plugin based on the idea of [posthtml-bike] by [Alex Khyrenko] and implements transformation of custom At-rules to BEM-like rules\n\n[PostCSS]: https://github.com/postcss/postcss\n[posthtml-bike]: https://github.com/Satanpit/posthtml-bike\n[Alex Khyrenko]: https://github.com/Satanpit\n\n## Install\n\n```\nnpm install --save-dev postcss-bike\n```\n\n## Usage\n\n```javascript\nconst { readFileSync } = require('fs');\nconst postcss = require('postcss');\nconst bike = require('postcss-bike');\n\nconst css = readFileSync('input.css');\n\npostcss([bike()]).process(css).then((res) => console.log(output.css));\n```\n\n## Example\n\n### Default\n\n```css\n@component example {\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: space-between;\n  background-color: #f5f5f5;\n  color: #333;\n\n  @mod theme[dark] {\n    background-color: #333;\n    color: #f5f5f5;\n\n    @elem header, footer {\n      background-color: #1b1b1b;\n      color: #fff;\n    }\n  }\n\n  @elem header {\n    flex: 0 0 50px;\n    background-color: #fff;\n    color: #000;\n  }\n\n  @elem main {\n    flex: 1 1 auto;\n\n    @mod hidden {\n      display: none;\n    }\n  }\n\n  @elem footer {\n    flex: 0 0 50px;\n    background-color: #fff;\n    color: #000;\n  }\n}\n```\n\nTransformed to:\n\n```css\n.example {\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: space-between;\n  background-color: #f5f5f5;\n  color: #333;\n}\n.example_theme_dark {\n  background-color: #333;\n  color: #f5f5f5;\n}\n.example_theme_dark .example__header,\n.example_theme_dark .example__footer {\n  background-color: #1b1b1b;\n  color: #fff;\n}\n.example__header {\n  flex: 0 0 50px;\n  background-color: #fff;\n  color: #000;\n}\n.example__main {\n  flex: 1 1 auto;\n}\n.example__main_hidden {\n  display: none;\n}\n.example__footer {\n  flex: 0 0 50px;\n  background-color: #fff;\n  color: #000;\n}\n```\n\n## Options\n\n### `component`\n\ntype: `String`  \ndefault: `{component: 'component'}`\n\nAllows to set custom name for component `@rule`.\n\n### `element`\n\ntype: `String`  \ndefault: `{element: 'elem'}`\n\nAllows to set custom name for element `@rule`.\n\n### `modifier`\n\ntype: `String`  \ndefault: `{modifier: 'mod'}`\n\nAllows to set custom name for modifier `@rule`.\n\n### `modifierRegExp`\n\ntype: `RegExp`  \ndefault: `{modifierRegExp: /(\\w+)\\[(\\w+)\\]/}`\n\nAllows to set custom regular expressions for modifier params. Where `$1` is Modifier Name and `$2` is Modifier Value. For \nchanging Modifier Value Separator, change default separator `\\[$2\\]`, which goes before and after `$2` (only this `[ ]` symbols).\n\n## Credits\n\n* [Alex Khyrenko](https://github.com/Satanpit)\n\n### License [MIT](LICENSE)\n\n[travis-url]: https://travis-ci.org/Bike-JS/postcss-bike\n[travis-image]: http://img.shields.io/travis/Bike-JS/postcss-bike.svg?style=flat-square\n\n[npm-url]: https://www.npmjs.org/package/postcss-bike\n[npm-image]: http://img.shields.io/npm/v/postcss-bike.svg?style=flat-square\n\n[deps-url]: https://david-dm.org/artem-tolstykh/postcss-bike\n[deps-image]: https://david-dm.org/artem-tolstykh/postcss-bike.svg?style=flat-square\n",
+	"versions": {
+		"1.0.2": {
+			"name": "postcss-bike",
+			"version": "1.0.2",
+			"description": "PostCSS plugin for transformation of custom At-rules to BEM-like rules",
+			"main": "dist/index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"author": {
+				"name": "Artem Tolstykh",
+				"email": "arttolstykh@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Artem Tolstykh",
+					"email": "arttolstykh@gmail.com"
+				},
+				{
+					"name": "Alex Khyrenko",
+					"email": "alex.hyrenko@gmail.com"
+				}
+			],
+			"license": "MIT",
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"dependencies": {
+				"postcss": "^6.0.12"
+			},
+			"devDependencies": {
+				"ava": "^0.22.0",
+				"babel-core": "^6.26.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-plugin-transform-object-rest-spread": "^6.26.0",
+				"babel-preset-env": "^1.6.0",
+				"del": "^3.0.0",
+				"gulp": "^3.9.1",
+				"gulp-ava": "^0.18.0",
+				"gulp-babel": "^7.0.0",
+				"gulp-postcss": "^7.0.0",
+				"path": "^0.12.7",
+				"run-sequence": "^2.2.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/artem-tolstykh/postcss-bike.git"
+			},
+			"keywords": [
+				"bem",
+				"bike",
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/artem-tolstykh/postcss-bike/issues"
+			},
+			"homepage": "https://github.com/artem-tolstykh/postcss-bike#readme",
+			"gitHead": "b6de193fe7539cd6c4ae63758af70f8f3695959f",
+			"_id": "postcss-bike@1.0.2",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.6.0",
+			"_npmUser": {
+				"name": "artem-tolstykh",
+				"email": "arttolstykh@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-C3Zup5eeO68gLPJlDBztCm4Yv9axqMtoLNmVyQVRrvqgK75fuWiG8kQR7wyPJCtnbFhwQBiuBxOdFTLtKEvAVg==",
+				"shasum": "8c9172c928c2012dd049c68aaac4c70aa491a97b",
+				"tarball": "https://registry.npmjs.org/postcss-bike/-/postcss-bike-1.0.2.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDEII3FWOmH7aHWKJb0pQxsKDIcJoGuRuUPXYwcRYQELAIgNBLz+8SoY8E0hU7v+cbwRrKZY+zV6+sUiWN18FSh9OA="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "artem-tolstykh",
+					"email": "arttolstykh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-bike-1.0.2.tgz_1507757059936_0.7961783269420266"
+			}
+		},
+		"1.0.3": {
+			"name": "postcss-bike",
+			"version": "1.0.3",
+			"description": "PostCSS plugin for transformation of custom At-rules to BEM-like rules",
+			"main": "dist/index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"author": {
+				"name": "Artem Tolstykh",
+				"email": "arttolstykh@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Artem Tolstykh",
+					"email": "arttolstykh@gmail.com"
+				},
+				{
+					"name": "Alex Khyrenko",
+					"email": "alex.hyrenko@gmail.com"
+				}
+			],
+			"license": "MIT",
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"dependencies": {
+				"postcss": "^6.0.12"
+			},
+			"devDependencies": {
+				"ava": "^0.22.0",
+				"babel-core": "^6.26.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-plugin-transform-object-rest-spread": "^6.26.0",
+				"babel-preset-env": "^1.6.0",
+				"del": "^3.0.0",
+				"gulp": "^3.9.1",
+				"gulp-ava": "^0.18.0",
+				"gulp-babel": "^7.0.0",
+				"gulp-postcss": "^7.0.0",
+				"path": "^0.12.7",
+				"run-sequence": "^2.2.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/artem-tolstykh/postcss-bike.git"
+			},
+			"keywords": [
+				"bem",
+				"bike",
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/artem-tolstykh/postcss-bike/issues"
+			},
+			"homepage": "https://github.com/artem-tolstykh/postcss-bike#readme",
+			"gitHead": "e5753d1dcef682ee044f99f88a0b48fdbac662bd",
+			"_id": "postcss-bike@1.0.3",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.6.0",
+			"_npmUser": {
+				"name": "artem-tolstykh",
+				"email": "arttolstykh@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-LqnYpekOlO48e4pZu7+k4ZrEmHJFEVX0XMriXG/d5OUGwxaX8PFYLMZw7hgDnTwKtWbHvGJvvlJUGQLsuQpraw==",
+				"shasum": "11579360cac5746d1199f41d5b076a2357889722",
+				"tarball": "https://registry.npmjs.org/postcss-bike/-/postcss-bike-1.0.3.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDAXnTPEnw0xTcMiP0fsoqYeTLzZ0dskKjxSJ1HcAznQwIgReIKlad8Y4eEXDVlrTCe5xc1OzQu1LcNmBUdPWQ9KA4="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "artem-tolstykh",
+					"email": "arttolstykh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-bike-1.0.3.tgz_1507806158765_0.21210281597450376"
+			}
+		},
+		"1.0.5": {
+			"name": "postcss-bike",
+			"version": "1.0.5",
+			"description": "PostCSS plugin for transformation of custom At-rules to BEM-like rules",
+			"main": "dist/index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"author": {
+				"name": "Artem Tolstykh",
+				"email": "arttolstykh@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Artem Tolstykh",
+					"email": "arttolstykh@gmail.com"
+				},
+				{
+					"name": "Alex Khyrenko",
+					"email": "alex.hyrenko@gmail.com"
+				}
+			],
+			"license": "MIT",
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"dependencies": {
+				"postcss": "^6.0.12"
+			},
+			"devDependencies": {
+				"ava": "^0.22.0",
+				"babel-core": "^6.26.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-plugin-transform-object-rest-spread": "^6.26.0",
+				"babel-preset-env": "^1.6.0",
+				"del": "^3.0.0",
+				"gulp": "^3.9.1",
+				"gulp-ava": "^0.18.0",
+				"gulp-babel": "^7.0.0",
+				"gulp-postcss": "^7.0.0",
+				"path": "^0.12.7",
+				"run-sequence": "^2.2.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/artem-tolstykh/postcss-bike.git"
+			},
+			"keywords": [
+				"bem",
+				"bike",
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/artem-tolstykh/postcss-bike/issues"
+			},
+			"homepage": "https://github.com/artem-tolstykh/postcss-bike#readme",
+			"gitHead": "b37d39ad3601724b114f4ef7c672651f16d00a5a",
+			"_id": "postcss-bike@1.0.5",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.6.0",
+			"_npmUser": {
+				"name": "artem-tolstykh",
+				"email": "arttolstykh@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-WXWctDa064Xomt0bnG5umlA172Av5inUXA9spsMwmvWuk5w/BjddlRj6MgnHmV18UR3OZ8XlgZabqPKBLrhhSQ==",
+				"shasum": "2301b9cbe31333cebea1d979605c06dca7715a0e",
+				"tarball": "https://registry.npmjs.org/postcss-bike/-/postcss-bike-1.0.5.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDOXTQ7GnqGyu6lspwjuIu/oHSEdoDOI13jnBBkVZZx3gIhAK1ymI0Ejd4Ci9WFZkCG04Qc07E76JwHgcrm0TvYRBgD"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "artem-tolstykh",
+					"email": "arttolstykh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-bike-1.0.5.tgz_1508144151831_0.7188442174810916"
+			}
+		},
+		"1.0.6": {
+			"name": "postcss-bike",
+			"version": "1.0.6",
+			"description": "PostCSS plugin for transformation of custom At-rules to BEM-like rules",
+			"main": "dist/index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"author": {
+				"name": "Artem Tolstykh",
+				"email": "arttolstykh@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Artem Tolstykh",
+					"email": "arttolstykh@gmail.com"
+				},
+				{
+					"name": "Alex Khyrenko",
+					"email": "alex.hyrenko@gmail.com"
+				}
+			],
+			"license": "MIT",
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"dependencies": {
+				"postcss": "^6.0.19"
+			},
+			"devDependencies": {
+				"ava": "^0.25.0",
+				"babel-core": "^6.26.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-plugin-transform-object-rest-spread": "^6.26.0",
+				"babel-preset-env": "^1.6.1",
+				"del": "^3.0.0",
+				"gulp": "^3.9.1",
+				"gulp-ava": "^0.18.0",
+				"gulp-babel": "^7.0.1",
+				"gulp-postcss": "^7.0.1",
+				"path": "^0.12.7",
+				"run-sequence": "^2.2.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/artem-tolstykh/postcss-bike.git"
+			},
+			"keywords": [
+				"bem",
+				"bike",
+				"postcss",
+				"postcss-plugin",
+				"css"
+			],
+			"bugs": {
+				"url": "https://github.com/artem-tolstykh/postcss-bike/issues"
+			},
+			"homepage": "https://github.com/artem-tolstykh/postcss-bike#readme",
+			"gitHead": "1e4223c120952de31c0b2e215b7f3d545900e854",
+			"_id": "postcss-bike@1.0.6",
+			"_npmVersion": "5.7.1",
+			"_nodeVersion": "9.3.0",
+			"_npmUser": {
+				"name": "artem-tolstykh",
+				"email": "arttolstykh@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-tnOqmZIVrkhYeYN5s5f/d9RhWqrsRLlRX3dbh21HhTUZQZfoNXHTLydgiwdig+iBhU7Y6T9AqJw7AiVzql4vtA==",
+				"shasum": "c36e8991538926817fbdc6c8dc44b45b1cfe3ab5",
+				"tarball": "https://registry.npmjs.org/postcss-bike/-/postcss-bike-1.0.6.tgz",
+				"fileCount": 18,
+				"unpackedSize": 80277,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIEl20F+vT5ubUzhn0K30pnjtgsBEFHSmJUcfdjvePVb5AiBsBmIIVf4AxMhgN61jk/R4oc0V9WySjNnmuRoJCNy9Ag=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"email": "arttolstykh@gmail.com",
+					"name": "artem-tolstykh"
+				},
+				{
+					"email": "alex.hyrenko@gmail.com",
+					"name": "satanpit"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-bike_1.0.6_1520331285468_0.01900793058077066"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"homepage": "https://github.com/artem-tolstykh/postcss-bike#readme",
+	"keywords": [
+		"bem",
+		"bike",
+		"postcss",
+		"postcss-plugin",
+		"css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/artem-tolstykh/postcss-bike.git"
+	},
+	"contributors": [
+		{
+			"name": "Artem Tolstykh",
+			"email": "arttolstykh@gmail.com"
+		},
+		{
+			"name": "Alex Khyrenko",
+			"email": "alex.hyrenko@gmail.com"
+		}
+	],
+	"author": {
+		"name": "Artem Tolstykh",
+		"email": "arttolstykh@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/artem-tolstykh/postcss-bike/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

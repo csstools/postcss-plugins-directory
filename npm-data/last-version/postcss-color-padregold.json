@@ -1,0 +1,103 @@
+{
+	"name": "postcss-color-padregold",
+	"description": "A PostCSS plugin for the Friar Faithful. Use the padregold color keyword in CSS.",
+	"version": "1.0.0",
+	"author": {
+		"name": "Chance Strickland",
+		"email": "hi@chance.dev"
+	},
+	"license": "CC0-1.0",
+	"scripts": {
+		"build": "rollup -c ./rollup.config.js",
+		"lint": "prettier --write . && eslint . --ext .ts",
+		"test": "node test/.tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:manual": "npm run build && postcss test/manual/styles.css --output test/manual/output.css"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.19.3",
+		"@babel/preset-env": "^7.19.4",
+		"@rollup/plugin-babel": "^6.0.0",
+		"@rollup/plugin-commonjs": "^23.0.1",
+		"@rollup/plugin-node-resolve": "^15.0.0",
+		"@rollup/plugin-typescript": "^9.0.1",
+		"@stryker-mutator/core": "^6.2.3",
+		"@typescript-eslint/eslint-plugin": "^5.40.1",
+		"eslint": "^8.25.0",
+		"glob": "^8.0.3",
+		"postcss": "^8.4.18",
+		"postcss-8.2": "npm:postcss@~8.2",
+		"postcss-cli": "^10.0.0",
+		"postcss-tape": "^6.0.1",
+		"prettier": "^2.7.1",
+		"rollup": "^2.78.1",
+		"rollup-plugin-terser": "^7.0.2",
+		"typescript": "^4.8.4"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"keywords": [
+		"padres",
+		"san diego",
+		"color",
+		"colors",
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"gold",
+		"rgb",
+		"syntax"
+	],
+	"gitHead": "3582ae6a932e799f55662fa0c00a36672d2ad4e7",
+	"_id": "postcss-color-padregold@1.0.0",
+	"_nodeVersion": "16.18.0",
+	"_npmVersion": "8.19.2",
+	"dist": {
+		"integrity": "sha512-8EORmvHnd7P5hKFoZ8uk5HOoPK5QQyJTGJEiBbh24ECdhDXYRvyzdwUA3hsc/l7wQEEI3s2vZjhbLnFH80lmcg==",
+		"shasum": "9cf36517dd0d197b553dd2dd62dbad7b92617b88",
+		"tarball": "https://registry.npmjs.org/postcss-color-padregold/-/postcss-color-padregold-1.0.0.tgz",
+		"fileCount": 6,
+		"unpackedSize": 10800,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQDfSqGT8NZ24/JQv1a4RJ4XBBvCu9Y35b9RnDAy1cGk1QIgLv19R3AF7xTUCopS97wIkzG3ijcl6nI08ydV5Ai1tH8="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjUeEXACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpT6A//bFSfdOOv5VO/cberbVJwweh/Y8BTMnz0mXaA/gM2nMbKK6iq\r\nPviUOLG3b61DifRw/tb1lG4t8c9CtidWrvqwOZ7xpvfjneepN6TCwBMmQpa5\r\nchGmz/ZiNGkz1yHUq5W9loRpfwQjT+TzPWUEMot6nJgsnMwc0fX+eyzzGWmy\r\nPJCv+BoP228Izkd64YItFUKHfN7LcQRLNWL7XwKI/jPWT7iOfMATIRi94kgR\r\n/DW9GCJiD4LyQSbE/lUIuxAzc/uUUNkhz5E0tz1bfllTE9IwzH9QUj64Gs9U\r\ne+50dykTtJ35JtvfFLcrXMp2oiyHuEF9c5fhuRM1dJIBwn1dVIy3MqUltIpq\r\nEujRGLujG+xfsxO0uBXzBxWFUHrTyGpRI2M2BRfSoylniJKMmRaVVA22nO+u\r\n6OCbqo5FiXjpNCjr3YaabOOuGPianNI3IxYCVm59zDgHvBLPdb0gu3dLPa9X\r\nRod9bRTm3mk8DcnbIqXfc7LFR+oAo1xKt91C39LoEWbY977WhHauGLQLwxiK\r\nn2U+CuwMFwSss7wqc5BIBiIFvoT2J+I4dlnVKUg+sQpRtsfaxi3R+/vTaqV0\r\nr8dqw/mQtL5FBbpwKMc+EHP8xJynJUNvIIYdKNrn8T9JjEhXHMe0kMvHmZHJ\r\nRNLi/YEtYzSzVJIR9J2f1e9FZX4pf24guuA=\r\n=rgA/\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "chancestrickland",
+		"email": "hi@chance.dev"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "chancestrickland",
+			"email": "hi@chance.dev"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-color-padregold_1.0.0_1666310423571_0.1740346610391028"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-10-21T00:00:23.772Z"
+}

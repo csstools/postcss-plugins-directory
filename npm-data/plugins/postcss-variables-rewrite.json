@@ -1,0 +1,113 @@
+{
+	"_id": "postcss-variables-rewrite",
+	"_rev": "2-75aa0a3a12787e1e33137ddd98451526",
+	"name": "postcss-variables-rewrite",
+	"description": "PostCSS plugin for rewriting the variables path in @import",
+	"dist-tags": {
+		"latest": "0.0.2"
+	},
+	"versions": {
+		"0.0.2": {
+			"name": "postcss-variables-rewrite",
+			"version": "0.0.2",
+			"description": "PostCSS plugin for rewriting the variables path in @import",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"scss",
+				"webpack",
+				"javascript"
+			],
+			"author": {
+				"name": "Dusan Radojevic",
+				"email": "dusan.radojevic@smava.de"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/radojesrb/postcss-variables-rewrite.git"
+			},
+			"bugs": {
+				"url": "https://github.com/radojesrb/postcss-variables-rewrite/issues"
+			},
+			"homepage": "https://github.com/radojesrb/postcss-variables-rewrite",
+			"dependencies": {
+				"postcss": "^6.0.1"
+			},
+			"devDependencies": {
+				"jest": "^20.0.0"
+			},
+			"scripts": {
+				"test": "jest *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"env": {
+					"jest": true
+				}
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2017 Dusan Radojevic <dusan.radojevic@smava.de>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-variables-rewrite@0.0.2",
+			"dist": {
+				"shasum": "f0d43d640613c595bd9ca73f6c0bd208014369e1",
+				"tarball": "https://registry.npmjs.org/postcss-variables-rewrite/-/postcss-variables-rewrite-0.0.2.tgz",
+				"integrity": "sha512-/cmHgbZKlr/eKn3B6urvd5Depjq6K6sxVqrmUIsU6PhiLEBpcft7d++0BH/w6Bb3dsZM+EbqARAxTmwuvBhCxg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDSU1gWg2262gsiWntLwdycrCFUdYGovIeN/4uPlk2IlQIhAKoZu+yYoKiHDqnB1Oi6YCFtnxvjX/L78NB3CorYJ1iA"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "develoger",
+					"email": "radojevic_dusan@yahoo.com"
+				}
+			],
+			"_npmUser": {
+				"name": "develoger",
+				"email": "radojevic_dusan@yahoo.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-variables-rewrite-0.0.2.tgz_1514539752266_0.601992605952546"
+			}
+		}
+	},
+	"readme": "# PostCSS Variables Rewrite [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin for rewriting the variables path in @import.\nIts main purpose is to provide theme support in the webpack build process.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/radojesrb/postcss-variables-rewrite.svg\n[ci]:      https://travis-ci.org/radojesrb/postcss-variables-rewrite\n\n### Why to use it\nImagine that you develop UI reusable component pattern library. You have centralized handling of the color palette but you need to have local mapping of that palette to the component styles. So that you have the possibility to do the following:\n\n**Button/css/Button.scss**\n```css\n@import './variables';\n\n.button--color-primary {\n  background-color: $primary;\n}\n```\n\n**Button/css/variables.scss**\n```css\n@import '~styles/colors/colors';\n\n$primary: $green;\n```\n\n**Button/css/variables.blue.scss**\n```css\n@import '~styles/colors/colors';\n\n$primary: $blue;\n```\n\nThis plugin will provide an easy way to rewrite the ```@import``` statement so that during the build process we can build separate bundles for each theme.\nScoping styles to component level is very important and handling theme in not direct way is even more important.\n\n## Usage\n\n```js\npostcss([ require('postcss-variables-rewrite')({\n  originalValue: './variables',\n  targetValue: './variables.blue'\n})])\n```\n\n**webpack**\n```js\n{\n  loader: 'postcss-loader',\n  options: {\n    ident: 'postcss',\n    plugins () {\n      return [\n        require('postcss-variables-rewrite')({\n          originalValue: './variables',\n          targetValue: './variables.blue'\n        })\n      ]\n    }\n  }\n}\n```\n\nWhere **targetValue** can be defined based on the env variable in our case:\n```yarn build --env.theme=blue```\n\nSee [PostCSS] docs for examples for your environment.\n",
+	"maintainers": [
+		{
+			"name": "develoger",
+			"email": "dusan.radojevic@smava.de"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T11:10:37.373Z",
+		"created": "2017-12-29T09:29:13.331Z",
+		"0.0.2": "2017-12-29T09:29:13.331Z"
+	},
+	"homepage": "https://github.com/radojesrb/postcss-variables-rewrite",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"scss",
+		"webpack",
+		"javascript"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/radojesrb/postcss-variables-rewrite.git"
+	},
+	"author": {
+		"name": "Dusan Radojevic",
+		"email": "dusan.radojevic@smava.de"
+	},
+	"bugs": {
+		"url": "https://github.com/radojesrb/postcss-variables-rewrite/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

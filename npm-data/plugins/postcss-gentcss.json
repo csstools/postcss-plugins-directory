@@ -1,0 +1,105 @@
+{
+	"_id": "postcss-gentcss",
+	"_rev": "3-45e7621ec1e9ff15d776e55bb693d5d2",
+	"name": "postcss-gentcss",
+	"description": "PostCSS plugin implementing gentcss",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-gentcss",
+			"version": "0.1.0",
+			"description": "PostCSS plugin implementing gentcss",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"gentcss"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/gentcss/postcss-gentcss.git"
+			},
+			"dependencies": {
+				"postcss": "^4.1.9"
+			},
+			"devDependencies": {
+				"chai": "^2.3.0",
+				"gulp": "^3.8.11",
+				"gulp-eslint": "^0.12.0",
+				"gulp-mocha": "^2.0.1",
+				"gulp-postcss": "^6.4.0",
+				"postcss-cssnext": "^2.10.0"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"gitHead": "2828319101bd8929820973680508745024d89f24",
+			"bugs": {
+				"url": "https://github.com/gentcss/postcss-gentcss/issues"
+			},
+			"homepage": "https://github.com/gentcss/postcss-gentcss#readme",
+			"_id": "postcss-gentcss@0.1.0",
+			"_shasum": "9ebb268a3d3632bcf7f8c954edb178335e8c00f2",
+			"_from": ".",
+			"_npmVersion": "4.0.3",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "sherry",
+				"email": "season.chen.i@foxmail.com"
+			},
+			"dist": {
+				"shasum": "9ebb268a3d3632bcf7f8c954edb178335e8c00f2",
+				"tarball": "https://registry.npmjs.org/postcss-gentcss/-/postcss-gentcss-0.1.0.tgz",
+				"integrity": "sha512-Jn7pXlvTqMOSs1fJUq5bArLh8J7YULGHRYkeOeELXAmryd6OeUilBAG7ArsXEWm74EmN8Bxy5grWfD+Pw3cZmw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIEJs6a3l3Mej1MeCHD7jiITZzEuk2oVmj30EJFr5LNr3AiBOUz0KLIOlECF3+ohBDv0aeRpeT6we3GKnGF4ixhUjAQ=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sherry",
+					"email": "season.chen.i@foxmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-gentcss-0.1.0.tgz_1491648390128_0.7056143789086491"
+			},
+			"directories": {}
+		}
+	},
+	"readme": "# gent-css\n\n> `gentcss`是一种类似`BEM`的css命名规范, `postcss-gentcss`是一个[postcss](https://github.com/postcss/postcss)插件，用来将css代码转换为`gentcss`规范。\n\n## gentcss命名规范\n\n> 命名分为四部分：组件、节点、角色、状态, 每部分都采用驼峰命名方式，只能包含字符数字。\n\n```css\n.libName-componentName-elementName {\n  /**/\n}\n\n.libName-componentName-elementName.libName-is-roleName {\n  /**/\n}\n\n.libName-componentName-elementName.libName-has-stateName {\n  /**/\n}\n```\n\n## 书写\n\n> 编写时，类名用两个中划线(`--`)分割，左边标识这个类名是`gentcss`的哪一种，右边标识对应的名字。\n\n- .comp--componentName: 组件\n- .elem--elementName: 节点，必须包含在组件内，为组件的直接子元素\n- .is--roleName: 角色\n- .has--stateName: 状态\n- .sel--componentName-elementName: 直接生产节点选择器，不用包含在组件内\n\n## 实例\n\n输入：\n```scss\n.comp--componentName {\n  background: #fff;\n\n  .elem--elementName {\n    line-height: 24px;\n\n    &.is--roleNameA {\n      background: red;\n    }\n\n    &.is--roleNameB {\n      background: blue;\n    }\n\n    &.has--stateName {\n      cursor: not-allowed;\n    }\n  }\n}\n\n.sel--componentName-elementName {\n  line-height: 24px;\n\n  &.has--stateName {\n    cursor: not-allowed;\n  }\n}\n```\n\n输出：\n```scss\n.gent-componentName {\n  background: #fff\n}\n\n.gent-componentName-elementName {\n  line-height: 24px;\n\n  &.gent-is-roleNameA {\n    background: red;\n  }\n\n  &.gent-is-roleNameB {\n    background: blue;\n  }\n\n  &.gent-has-stateName {\n    cursor: not-allowed;\n  }\n}\n\n.gent-componentName-elementName {\n  line-height: 24px;\n\n  &.gent-has-stateName {\n    cursor: not-allowed;\n  }\n}\n```\n\n## 配置\n\n```js\nvar gentcss = require('postcss-gentcss');\n\npostcss([\n  gentcss({\n    // 类库名称\n    libName: 'gent',\n\n    // 组件前缀\n    componentInputPrefix: 'comp--',\n\n    // 节点前缀\n    elementInputPrefix: 'elem--',\n\n    // 角色前缀\n    roleInputPrefix: 'is--',\n\n    // 状态前缀\n    stateInputPrefix: 'has--',\n\n    // 选择器前缀\n    selectorInputPrefix: 'sel--'\n  })\n])\n```\n",
+	"maintainers": [
+		{
+			"email": "season.chen.i@foxmail.com",
+			"name": "season.chen"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:03:11.427Z",
+		"created": "2017-04-08T10:46:30.448Z",
+		"0.1.0": "2017-04-08T10:46:30.448Z"
+	},
+	"homepage": "https://github.com/gentcss/postcss-gentcss#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"gentcss"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gentcss/postcss-gentcss.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gentcss/postcss-gentcss/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

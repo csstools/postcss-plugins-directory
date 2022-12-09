@@ -1,0 +1,170 @@
+{
+	"_id": "@csstools/postcss-nested-calc",
+	"name": "@csstools/postcss-nested-calc",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-nested-calc",
+			"description": "Use nested calc() expressions in CSS",
+			"version": "1.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-nested-calc"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"calc",
+				"css",
+				"math",
+				"nested",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"cssdbId": "nested-calc",
+				"exportName": "postcssNestedCalc",
+				"humanReadableName": "PostCSS Nested Calc",
+				"specUrl": "https://www.w3.org/TR/css-values/#calc-func"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "6af211351a0f5c363700dcdb2d3abe697c447783",
+			"_id": "@csstools/postcss-nested-calc@1.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-JCsQsw1wjYwv1bJmgjKSoZNvf7R6+wuHDAbi5f/7MbFhl2d/+v+TvBTU4BJH3G1X1H87dHl0mh6TfYogbT/dJQ==",
+				"shasum": "d7e9d1d0d3d15cf5ac891b16028af2a1044d0c26",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-nested-calc/-/postcss-nested-calc-1.0.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 13489,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD8Fq9swQTZ4J1UsBgoH8GAaZxEo5zX7jFm7LeQguiFDgIhAKjdCDRjEtFKv6nzNBvlAgf7yj2lKd8Hx1J1H0d4tA9G"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi+gSuACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrYJhAAn1bCz1aBbrNeMYWSNs4xDBTs+jClQzY4c1mG8/kZ+O7bWzGM\r\n4JsGmiEnU7//2RCXGcGANQKflcSjDm66k73D6xuHuDhxLpdfF4btHiHXs5b4\r\nEC9ZTLTgv9r/s5X0HoEIAK5AyChytWGyAWg28yZhlHsBwScg8C/6q73tDvkB\r\neuMt8EdokSr/5cSAfslH8SbS7lfL3ehg4RrgwUcPSTECu9pkfgkd5w0+NvOS\r\nfvM/QpyY6Dt4X6G8mJjbzzp5R+4qWKJWa+QNJUjiwpa0fC2icFz52TXoKAd9\r\neAEdA4qjxnzMbWh0SQcKAIwzJm9mMsfdFryCF/LkIKW3hw5oyWOYY8CQpMz/\r\n5/pI0aURpqqTAxFPlt0GHPkOC2kec4655NTGRjWT5qpxHOaVKBeMU3Lwd9K3\r\nHOdgoA7CFxbISdePKfGjQAjcrZy7imwopyDhO206gvKNiidjiJGMIbppSNvs\r\nuup1o6q/sqgttj4bc0TH7GD7MOvnLzH6A3n40ZiFgZKlq0dmTV9qpx+ZpbYs\r\nQFoxHF37wsM1o/zGoHRDCiLc8QQuaa5xkaBvaW0UR89az1j4oTeme8xOkaec\r\nZKs8ksIR1brmKL1lGJ8k8GDEegjcp5sVvnNt9t0ulg9dm88unD2SzYs//sRr\r\nSjpTDoRgMAFmRJt4OAr6xwyfjmYgEmKXvhc=\r\n=rxLZ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-nested-calc_1.0.0_1660552366680_0.9653951621152401"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-08-15T08:32:46.540Z",
+		"1.0.0": "2022-08-15T08:32:46.800Z",
+		"modified": "2022-08-15T08:32:46.990Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Use nested calc() expressions in CSS",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc#readme",
+	"keywords": [
+		"calc",
+		"css",
+		"math",
+		"nested",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-nested-calc"
+	},
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS Nested Calc [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-nested-calc.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/nested-calc.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Nested Calc] lets you use nested `calc()` expressions following the [CSS Values and Units 4 specification].\n\n```pcss\n.example {\n\torder: calc(1 + calc(2 * 2));\n}\n\n/* becomes */\n\n.example {\n\torder: calc(1 + (2 * 2));\n\torder: calc(1 + calc(2 * 2));\n}\n```\n\n## Usage\n\nAdd [PostCSS Nested Calc] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-nested-calc --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssNestedCalc = require('@csstools/postcss-nested-calc');\n\npostcss([\n\tpostcssNestedCalc(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Nested Calc] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default the original values are preserved.\n\n```js\npostcssNestedCalc({ preserve: false })\n```\n\n```pcss\n.example {\n\torder: calc(1 + calc(2 * 2));\n}\n\n/* becomes */\n\n.example {\n\torder: calc(1 + (2 * 2));\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#nested-calc\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-nested-calc\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Nested Calc]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc\n[CSS Values and Units 4 specification]: https://www.w3.org/TR/css-values/#calc-func\n",
+	"readmeFilename": "README.md"
+}

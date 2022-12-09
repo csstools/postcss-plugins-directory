@@ -1,0 +1,290 @@
+{
+	"_id": "laggard",
+	"_rev": "10-5e2b9e6b9ca5220db05efbcc1ea4f147",
+	"name": "laggard",
+	"time": {
+		"modified": "2022-06-19T10:22:28.164Z",
+		"created": "2014-04-05T16:25:31.595Z",
+		"1.0.0": "2014-04-05T16:25:31.595Z",
+		"0.1.0": "2015-10-14T03:42:57.213Z",
+		"2.0.0": "2017-08-01T21:05:38.492Z",
+		"2.0.1": "2017-08-01T21:17:50.444Z"
+	},
+	"maintainers": [
+		{
+			"name": "seaneking",
+			"email": "sean@simpla.io"
+		}
+	],
+	"dist-tags": {
+		"latest": "2.0.1"
+	},
+	"description": "Automatic CSS fallbacks for legacy browsers, built on PostCSS",
+	"readme": "# Laggard\n[![NPM version][npm-badge]][npm-url] [![Downloads][npm-downloads]][npm-url]  [![Build Status][travis-badge]][travis-url]\n\nLaggard automatically generates safe CSS fallbacks for legacy (<IE9) browsers. It's built on [PostCSS][postcss].\n\nLaggard does not transpile future CSS syntax. For that use [cssnext][cssnext]. Laggard also doesn't do destructive transforms that would require you to use a separate stylesheet for legacy browsers. If that's what you're after use [Oldie][oldie]. \n\nUse Laggard if you just want to easily improve legacy support with your current CSS code.\n\n### Contents\n\n- [Install](#install)\n- [Usage](#usage)\n- [Features](#features)\n  - [Opacity fallbacks](#opacity-fallbacks)\n  - [Rem unit fallbacks](#rem-unit-fallbacks)\n  - [Pseudo element conversions](#pseudo-element-conversions)\n  - [RGBA Hex fallbacks](#rgba-hex-fallbacks)\n  - [IE vmin to vm fallbacks](#ie-vmin-to-vm-fallbacks)\n  - [3D transform hack for will-change](#3d-transform-hack-for-will-change)\n- [Options](#options)\n\n## Install\n\nLaggard is available on NPM as `laggard`, install it with NPM or Yarn\n\n\n```sh\n$ yarn add laggard --dev\n```\n\n```sh\n$ npm i laggard --save-dev\n```\n\n## Usage\n\n###### Build tools\n\nUse Laggard as a PostCSS plugin in your build tool of choice.\n\n```js\nconst postcss = require('postcss');\nconst laggard = require('laggard');\n\npostcss([ laggard ])\n```\n\nSee [PostCSS][postcss] docs for examples for your particular environment.\n\n###### CLI\n\nProcess CSS directly on the command line\n\n```sh\n$ laggard src/style.css style.css [options]\n```\n\n###### Stylus\n\nLaggard can be used directly as a Stylus plugin with [PostStylus][poststylus]\n\n```js\nstylus(css).use(poststylus('laggard'))\n```\n\nSee the [PostStylus Docs][poststylus] for more examples for your environment.\n\n## Features\n\n#### Opacity fallbacks\n\n```css\n/* Before */\n.foo {\n  opacity: .5;\n}\n\n/* After */\n.foo {\n  opacity: .5;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)\";\n}\n```\n\n#### Rem unit fallbacks\n\n```css\nhtml {\n  font-size: 16px;\n}\n\n/* Before */\n.foo {\n  font-size: 2rem;\n}\n\n/* After */\n.foo {\n  font-size: 32px;\n  font-size: 2rem;\n}\n```\n\n#### Pseudo element conversions\n\n```css\n/* Before */\n.foo::before {\n  display: block;\n}\n\n/* After */\n.foo:before {\n  display: block;\n}\n```\n\n#### RGBA Hex fallbacks\n```css\n/* Before */\n.foo {\n  background: rgba(153, 221, 153, 0.8);\n}\n\n/* After */\n.foo {\n  background: #99DD99;\n  background: rgba(153, 221, 153, 0.8);\n}\n```\n\n#### IE vmin to vm fallbacks\n```css\n/* Before */\n.foo {\n  width: 50vmin;\n}\n\n/* After */\n.foo {\n  width: 50vm;\n  width: 50vmin;\n}\n```\n\n#### 3D transform hack for will-change\n```css\n/* Before */\n.foo {\n  will-change: transform;\n}\n\n/* After */\n.foo {\n  backface-visibility: hidden;\n  will-change: transform;\n}\n```\n\n## Options\n\nAll features in Laggard can be toggled on or off by passing options on initialization. By default all features are set to `true`.\n\nOption              | Type    | Default | Description                                                     \n------------------- | ------- | ------- | -----------                                                     \n`rgba`              | Boolean | `true`  | Whether to enable RGBA fallbacks\n`opacity`           | Boolean | `true`  | Whether to enable opacity fallbacks\n`pseudo`            | Boolean | `true`  | Whether to enable pseudo element conversion\n`vmin`              | Boolean | `true`  | Whether to enable to enable vmin fallbacks\n`pixrem`            | Boolean | `true`  | Whether to enable whether to enable rem fallbacks\n`willchange`        | Boolean | `true`  | Whether to enable native will-change fallbacks\n`reporter`          | Boolean | `false` | Whether to log errors from plugins\n\n```js\n// Set in build tool, etc.\n.laggard({\n  // options\n})\n```\n\n***\n\nMIT © [Sean King](https://twitter.com/seaneking)\n\n[npm-badge]: https://badge.fury.io/js/laggard.svg\n[npm-url]: https://npmjs.org/package/laggard\n[npm-downloads]: https://img.shields.io/npm/dm/laggard.svg\n[travis-badge]: https://travis-ci.org/seaneking/laggard.svg?branch=master\n[travis-url]: https://travis-ci.org/seaneking/laggard\n[postcss]: https://github.com/postcss/postcss\n[cssnext]: http://cssnext.io/\n[poststylus]: https://github.com/seaneking/poststylus\n[oldie]: https://github.com/jonathantneal/oldie\n",
+	"versions": {
+		"0.1.0": {
+			"name": "laggard",
+			"version": "0.1.0",
+			"description": "Automagical CSS fallbacks for legacy browsers, built on PostCSS",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"legacy"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/seaneking/laggard.git"
+			},
+			"author": {
+				"name": "Sean King",
+				"email": "sean@seanking.org"
+			},
+			"maintainers": [
+				{
+					"name": "seaneking",
+					"email": "sean@simpla.io"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/seaneking/laggard/issues"
+			},
+			"bin": {
+				"laggard": "./bin/cmd.js"
+			},
+			"engines": {
+				"node": ">= 0.12.0"
+			},
+			"homepage": "https://github.com/seaneking/laggard",
+			"dependencies": {
+				"minimist": "^1.2.0",
+				"pixrem": "^3.0.0",
+				"postcss": "^5.0.0",
+				"postcss-color-rgba-fallback": "^2.0.0",
+				"postcss-opacity": "^3.0.0",
+				"postcss-pseudoelements": "^3.0.0",
+				"postcss-reporter": "^1.2.1",
+				"postcss-vmin": "^2.0.0",
+				"postcss-will-change": "^1.0.0",
+				"read-file-stdin": "^0.2.0",
+				"write-file-stdout": "0.0.2"
+			},
+			"devDependencies": {
+				"gulp-eslint": "^0.12.0",
+				"gulp-mocha": "^2.0.1",
+				"chai": "^2.3.0",
+				"gulp": "^3.8.11"
+			},
+			"scripts": {
+				"test": "gulp check"
+			},
+			"gitHead": "0b642f9eab92697917b788855110dacb4164509a",
+			"_id": "laggard@0.1.0",
+			"_shasum": "2efd645f7f2d8f3d27ac808039ca86a8ee341075",
+			"_from": ".",
+			"_npmVersion": "2.13.0",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "seaneking",
+				"email": "sean@simpla.io"
+			},
+			"dist": {
+				"shasum": "2efd645f7f2d8f3d27ac808039ca86a8ee341075",
+				"tarball": "https://registry.npmjs.org/laggard/-/laggard-0.1.0.tgz",
+				"integrity": "sha512-Pwgo/g7jldq/HKdX8+xndCAYKjU7OA9piZg8JGEyWtg5zS2dMrvfqqlxlpTCJLDbNM3c63PmZN84jb9rM07Taw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCqd2eBZdwSdGl8QqwPmIl6RWsqDvJDVYlfG25xku+piAIhAPlCIAy4YbMTjj0YFsXZnvb4acVh6tTHwC0mbLzX3c36"
+					}
+				]
+			}
+		},
+		"2.0.0": {
+			"name": "laggard",
+			"version": "2.0.0",
+			"description": "Automatic CSS fallbacks for legacy browsers, built on PostCSS",
+			"scripts": {
+				"test": "mocha test --reporter nyan",
+				"posttest": "eslint ."
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"legacy"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/seaneking/laggard.git"
+			},
+			"author": {
+				"name": "Sean King",
+				"email": "sean@seanking.org"
+			},
+			"maintainers": [
+				{
+					"name": "seaneking",
+					"email": "sean@simpla.io"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/seaneking/laggard/issues"
+			},
+			"bin": {
+				"laggard": "./bin/cmd.js"
+			},
+			"engines": {
+				"node": ">= 4"
+			},
+			"homepage": "https://github.com/seaneking/laggard",
+			"dependencies": {
+				"minimist": "^1.2.0",
+				"pixrem": "^4.0.1",
+				"postcss": "^6.0.8",
+				"postcss-color-rgba-fallback": "^3.0.0",
+				"postcss-opacity": "^5.0.0",
+				"postcss-pseudoelements": "^5.0.0",
+				"postcss-reporter": "^5.0.0",
+				"postcss-vmin": "^3.0.0",
+				"postcss-will-change": "^2.0.0",
+				"read-file-stdin": "^0.2.0",
+				"write-file-stdout": "0.0.2"
+			},
+			"devDependencies": {
+				"chai": "^4.1.0",
+				"eslint": "^4.3.0",
+				"mocha": "^3.5.0"
+			},
+			"gitHead": "a2d1f346731d9112064a74c3e3f0b83457b7ffb1",
+			"_id": "laggard@2.0.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "seaneking",
+				"email": "sean@simpla.io"
+			},
+			"dist": {
+				"integrity": "sha512-WIDnaqfLdWlirkOw+4ahynQP+I0DX/33gDwekUobXvwKmTKv60MnlibEnwZLcGW7SNKNnMQdpCV86W/U/7zTyg==",
+				"shasum": "296403cbf693a24a98c16be0d95b47cb7968bd3f",
+				"tarball": "https://registry.npmjs.org/laggard/-/laggard-2.0.0.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC9DXnLiRV1tvS3XBIKjjmsl9SYCg58Tt5bWaHswcUVlAIhAMWnBesCdO7O8a7dp4srifEc4c84cyXMv8w6bda5/EZp"
+					}
+				]
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/laggard-2.0.0.tgz_1501621537451_0.3829695882741362"
+			}
+		},
+		"2.0.1": {
+			"name": "laggard",
+			"version": "2.0.1",
+			"description": "Automatic CSS fallbacks for legacy browsers, built on PostCSS",
+			"scripts": {
+				"test": "mocha test --reporter nyan",
+				"posttest": "eslint ."
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"legacy"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/seaneking/laggard.git"
+			},
+			"author": {
+				"name": "Sean King",
+				"email": "sean@seanking.org"
+			},
+			"maintainers": [
+				{
+					"name": "seaneking",
+					"email": "sean@simpla.io"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/seaneking/laggard/issues"
+			},
+			"bin": {
+				"laggard": "./bin/cmd.js"
+			},
+			"engines": {
+				"node": ">= 4"
+			},
+			"homepage": "https://github.com/seaneking/laggard",
+			"dependencies": {
+				"minimist": "^1.2.0",
+				"pixrem": "^4.0.1",
+				"postcss": "^6.0.8",
+				"postcss-color-rgba-fallback": "^3.0.0",
+				"postcss-opacity": "^5.0.0",
+				"postcss-pseudoelements": "^5.0.0",
+				"postcss-reporter": "^5.0.0",
+				"postcss-vmin": "^3.0.0",
+				"postcss-will-change": "^2.0.0",
+				"read-file-stdin": "^0.2.0",
+				"write-file-stdout": "0.0.2"
+			},
+			"devDependencies": {
+				"chai": "^4.1.0",
+				"eslint": "^4.3.0",
+				"mocha": "^3.5.0"
+			},
+			"gitHead": "aca8b78a97619e8bc769e46fac406b270fae0c0f",
+			"_id": "laggard@2.0.1",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "seaneking",
+				"email": "sean@simpla.io"
+			},
+			"dist": {
+				"integrity": "sha512-XCUGeE3r3VWxM8CV9aw+GjG3v3vTInyCf3p9YUo1SCTkM4N93/JaRH/4Lpz0hDZnaEQsArtAbp+rYic3PdTpbg==",
+				"shasum": "b34e87a5687788b9537e34c1b0560fed8f8c0cd9",
+				"tarball": "https://registry.npmjs.org/laggard/-/laggard-2.0.1.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDIVxAfYss63RAjgSyaLs7y5BoDxRCTB5++2HvBYtFtQgIhAL1qDW1l+0THMXT2dl/oGW+sNpjKAt0SNyS0V4ToQhGQ"
+					}
+				]
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/laggard-2.0.1.tgz_1501622269429_0.4941347651183605"
+			}
+		}
+	},
+	"homepage": "https://github.com/seaneking/laggard",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"legacy"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/seaneking/laggard.git"
+	},
+	"author": {
+		"name": "Sean King",
+		"email": "sean@seanking.org"
+	},
+	"bugs": {
+		"url": "https://github.com/seaneking/laggard/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"lmhs": true
+	}
+}

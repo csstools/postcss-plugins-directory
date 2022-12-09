@@ -1,0 +1,114 @@
+{
+	"author": {
+		"name": "Alexandr Antonov"
+	},
+	"name": "postcss-bgimage",
+	"version": "2.1.3",
+	"description": "Plugin for PoscCSS to remove or keep only images by url() to optimize page loading",
+	"main": "./dist/index.js",
+	"engines": {
+		"node": ">=4.0.0"
+	},
+	"scripts": {
+		"build": "NODE_ENV=production rollup -c",
+		"lint:js": "npx eslint ./src",
+		"test": "mocha --require @babel/register test/*.js test/**/*.js",
+		"ci": "npm run test && npm run lint:js",
+		"test:watch": "npm run test -- --watch",
+		"prebuild": "rm -rf dist",
+		"prepublishOnly": "npm run build && git push && git push --tags",
+		"preversion": "npm run lint:js && npm test"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": "npm run ci"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ahtohbi4/postcss-bgimage.git"
+	},
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"optimization",
+		"background",
+		"background-image",
+		"css"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ahtohbi4/postcss-bgimage/issues"
+	},
+	"homepage": "https://github.com/ahtohbi4/postcss-bgimage#readme",
+	"dependencies": {
+		"css-color-list": "0.0.2",
+		"postcss": "^7.0.26"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.4",
+		"@babel/preset-env": "^7.8.4",
+		"@babel/register": "^7.8.3",
+		"babel-eslint": "^10.0.3",
+		"eslint": "^6.8.0",
+		"eslint-config-airbnb-base": "^14.0.0",
+		"eslint-plugin-import": "^2.20.1",
+		"expect": "^25.1.0",
+		"husky": "^4.2.3",
+		"lint-staged": "^10.0.7",
+		"mocha": "^7.0.1",
+		"rollup": "^1.31.1",
+		"rollup-plugin-babel": "^4.3.3",
+		"rollup-plugin-commonjs": "^10.1.0"
+	},
+	"babel": {
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"targets": {
+						"node": "current"
+					}
+				}
+			]
+		]
+	},
+	"gitHead": "e6ddd153ef61e13a967778c91f44a1956263b465",
+	"_id": "postcss-bgimage@2.1.3",
+	"_nodeVersion": "11.13.0",
+	"_npmVersion": "6.9.0",
+	"dist": {
+		"integrity": "sha512-WhUyB93qm5oHezketG88lUcaX60iwrMtfYeVPoCkN/bTzwXP1Sl0SfCYKJUeKxUoVX5pIqCbhdk1mGcAWVsh6g==",
+		"shasum": "ccc9df08321f9c3b0d03a41d31f3ad1154735636",
+		"tarball": "https://registry.npmjs.org/postcss-bgimage/-/postcss-bgimage-2.1.3.tgz",
+		"fileCount": 6,
+		"unpackedSize": 29720,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeUFr7CRA9TVsSAnZWagAAvGsP/jDfBzO2tuML7jco0OYU\nIcrWNqYfogEmbYVjdrOfm79IZnIbNXHr+MFaGTjCmbw+BI8YNJctXLZzubx9\nl5iJIXvKILGV0M68NdwMKPBL3L2WsRUQ+A9DTN5mo2pcq4m6lIsaVpg/ccux\nsSzdLDNx+YFXPgRzvIjzWKdlcZ5PhwziwOa3ZDeax7Dwf+RpQjqFAHtDaTdv\nk4jvRw4bd4NnoMvtXzxuoLdDUBIjDhHUINJ0xH+SEiNDm3zgz49xUY7tPrbB\nx/eWtqmqnN91zzrY+p5PEaeZWIaSTRwRoS3qLCJXDciCfQxRxQPZk639RLNT\nHWIQBv0jF457w+9cJb/v/XhbA+sILxouh8NmAua19RvbFuogbxkYYr1saoC2\nUqdcftvdHmDu0ZD3XT2T/ufUbTSXtmEEeYbdS2yVW8p5bGqi8DuEC7wU4QQI\n59hKY7hNyiH34JXmB0yZyBZ6kMATwUMOSIHhA7UzAzK8GLLlX1AaeBIcMSTD\nxqL3IWqXrnZgc/wfbyemVrQ42pVr8I/WUAneGDQCC4BsUZJc9Yc3fD7z7Es0\nMgu6Z8FJ1s2HDw3EE2nIC8vcPZJEFXk6Tees3IMKs85dixPciqwlxg2i3+4F\n4j7UV6/f8PmGFYWarcQLjoSF6dqgjVetgdzSJGYt9hAWis4OQxXJnycfq8gN\n9eTp\r\n=oVRq\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCID+hxBnEaD0W3ELVQfavOqXC5XHcJD81pHl8wYBJMv5NAiEAz8deTUFQSeQAIGAjlJFTlwcMHJ0HfOzHNkKebHwMJug="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "ahtohbi4",
+			"email": "alexandr-post@yandex.ru"
+		}
+	],
+	"_npmUser": {
+		"name": "ahtohbi4",
+		"email": "alexandr-post@yandex.ru"
+	},
+	"directories": {},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-bgimage_2.1.3_1582324475415_0.2953128061456305"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2020-02-21T22:34:35.542Z"
+}

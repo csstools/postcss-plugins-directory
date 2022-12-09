@@ -1,0 +1,755 @@
+{
+	"_id": "postcss-scrollbar",
+	"_rev": "7-e4f731c1d9f15a9b052bd28d50e02e66",
+	"name": "postcss-scrollbar",
+	"dist-tags": {
+		"latest": "0.5.1"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-scrollbar",
+			"version": "0.1.0",
+			"description": "PostCSS plugin enabling custom properties sets references",
+			"keywords": [
+				"css",
+				"scrollbar",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Pascal Duez",
+				"url": "https://github.com/pascalduez"
+			},
+			"homepage": "https://github.com/pascalduez/postcss-scrollbar",
+			"bugs": {
+				"url": "https://github.com/pascalduez/postcss-scrollbar/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/pascalduez/postcss-scrollbar.git"
+			},
+			"license": "Unlicense",
+			"scripts": {
+				"lint": "eslint src/ test/",
+				"typecheck": "flow check src/",
+				"typecheck:coverage": "flow-coverage-report -t text -t html -i 'src/**/*.js'",
+				"validate": "run-s lint typecheck",
+				"test": "jest",
+				"test:cover": "run-s 'test -- --coverage'",
+				"test:cover:browse": "run-s test:cover && opn coverage/lcov-report/index.html",
+				"test:ci": "run-s lint test:cover",
+				"develop": "babel-node develop/",
+				"clean": "rm -rf dist/",
+				"build:js": "babel src/ -d dist/",
+				"build": "run-s clean build:*"
+			},
+			"jest": {
+				"testEnvironment": "node",
+				"collectCoverageFrom": [
+					"src/*.js"
+				]
+			},
+			"dependencies": {
+				"postcss": "^7.0.7"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0",
+				"@babel/core": "^7.0.0",
+				"@babel/node": "^7.0.0",
+				"@babel/plugin-proposal-class-properties": "^7.0.0",
+				"@babel/preset-env": "^7.0.0",
+				"@babel/preset-flow": "^7.0.0",
+				"babel-core": "^7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.4.2",
+				"common-tags": "^1.4.0",
+				"eslint": "^5.10.0",
+				"eslint-config-airbnb-base": "^13.1.0",
+				"eslint-plugin-flowtype": "^3.2.0",
+				"eslint-plugin-import": "^2.2.0",
+				"eslint-plugin-jest": "^22.1.2",
+				"flow-bin": "^0.89.0",
+				"flow-coverage-report": "^0.6.1",
+				"jest-cli": "^23.6.0",
+				"npm-run-all": "^4.0.2",
+				"opn-cli": "^4.0.0",
+				"postcss-reporter": "^6.0.0"
+			},
+			"_id": "postcss-scrollbar@0.1.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "pascalduez",
+				"email": "public@pascalduez.me"
+			},
+			"dist": {
+				"integrity": "sha512-hakeQpq1C7WR0mSndcO2Hk9JpTl4wPHL2/TKruCNNhwjFT0lX1DwIywcF1GZ3hdbAsbzIjkSUmVCV95cxsdGEA==",
+				"shasum": "7555cf82116bc5132485acf6ecc5ebf6db08cc14",
+				"tarball": "https://registry.npmjs.org/postcss-scrollbar/-/postcss-scrollbar-0.1.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 6319,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcG2fACRA9TVsSAnZWagAA4cEQAIwRxxhc8umBJ5drTko5\nN+9nj3B9Xv4/jca28ZNROLgbp6zRaWiWMlpTcc3noj4K9ep9XtRQ8XEjCy7Y\njtwz+stiOSQbyrlcp2I1niZSIPFKHvgb9TaP8I+oUwePDu+T8i7YUMnJT2mv\nKRhqopclACaKgiyFM6uZUNTKcXvJ+YD5m7J3CIeb2kPVjletZa9lt5142d0o\n9t0vdxrV2pmiPo2iPYwHjARra82A/K62Oh4EM2uWCH8RqO92qKawNY+Vkv0O\nTN/Glby0lT52jn6YDGuTTzFfJjQGTpBdzfynC3Ln3LGCcOorhn/Nmqipp6eM\nX0omGX1iLFmxZdPYimtfRSXb7NRsPYMCmQCpJLcaji+tiWHgnO+XRbUdWLcf\nb0lyDWRqH30A0LIVIbA5t8KLCopSPg7XF3msWELfGf44fD2IcFR4YDLIKR8L\nOv7qbHu2t0CdW9QVWFAqrWPupI47jvQosZ/RQ8N35J4n2HObZ0XRCD5b4+GZ\n4O29zWctchrAMmY4rrgxGVt6Wwq+w8Yt2yCdyKZe6nCKnsuDcILe41jsFyGJ\nM7tzoNNx7G08ZMZfrYi6NIT2plz7VMdtwXIKEha9l4UNoMSHbZ01ZFFM17Wm\nmuYAMrL52boS+dJJOkgSOTqHOJZPdwNQ7xzHZrfNf4sPQI4vIzV6c8pV2sDo\nLDUF\r\n=9bqx\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBkYE89HUMwV/NgodOiOgTCOBBZfn113IfWvdt2Ake6xAiEAvFqySbdyCaCKvOKO7c0gfwyzbW+V2fiZATGAZTBjREU="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "pascalduez",
+					"email": "public@pascalduez.me"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-scrollbar_0.1.0_1545299903901_0.0009723477124090607"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.0": {
+			"name": "postcss-scrollbar",
+			"version": "0.2.0",
+			"description": "PostCSS plugin enabling custom scrollbars",
+			"keywords": [
+				"css",
+				"scrollbar",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Pascal Duez",
+				"url": "https://github.com/pascalduez"
+			},
+			"homepage": "https://github.com/pascalduez/postcss-scrollbar",
+			"bugs": {
+				"url": "https://github.com/pascalduez/postcss-scrollbar/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/pascalduez/postcss-scrollbar.git"
+			},
+			"license": "Unlicense",
+			"main": "dist/index.js",
+			"scripts": {
+				"lint": "eslint src/ test/",
+				"validate": "run-s lint",
+				"test": "jest",
+				"test:ci": "run-s validate test",
+				"develop": "babel-node develop/",
+				"prebuild": "rm -rf dist/",
+				"build": "babel src/ -d dist/",
+				"prepare": "run-s build",
+				"prepublishOnly": "run-s validate test"
+			},
+			"dependencies": {
+				"postcss": "^7.0.7",
+				"postcss-selector-parser": "^5.0.0",
+				"postcss-value-parser": "^3.3.1"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0",
+				"@babel/core": "^7.0.0",
+				"@babel/node": "^7.0.0",
+				"@babel/plugin-proposal-do-expressions": "^7.2.0",
+				"@babel/preset-env": "^7.0.0",
+				"babel-core": "^7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.4.2",
+				"common-tags": "^1.8.0",
+				"eslint": "^5.11.1",
+				"eslint-config-airbnb-base": "^13.1.0",
+				"eslint-config-prettier": "^3.3.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-import": "^2.2.0",
+				"eslint-plugin-jest": "^22.1.2",
+				"jest-cli": "^23.6.0",
+				"npm-run-all": "^4.0.2",
+				"postcss-reporter": "^6.0.0",
+				"prettier": "^1.15.3"
+			},
+			"gitHead": "0ddcb66268ccb6f5404b9ff093271c743b907a28",
+			"_id": "postcss-scrollbar@0.2.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "11.5.0",
+			"_npmUser": {
+				"name": "pascalduez",
+				"email": "public@pascalduez.me"
+			},
+			"dist": {
+				"integrity": "sha512-Nd0qsnBMyxpHxdq6xj/nAh86GrlOb2f5IioSobydwity1krwxHcqHxX2XOvrmubaDhjNYH/C1R45aEJ629kMFA==",
+				"shasum": "b628087d916a6bfc6180c947a53041b7d81a957b",
+				"tarball": "https://registry.npmjs.org/postcss-scrollbar/-/postcss-scrollbar-0.2.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 10216,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcJLl+CRA9TVsSAnZWagAAKvUP/3bQ60rnU0UufJq+SP2G\nX0HVBH9/xEbdZ1UD3Tx5J2VNb3Ilh1A+7pEL/Smev5/Djy0MdFck27vhIgRA\nF+Td42WzeVp4hbMlWWm2VC+isKm4UBiQxljV4ssRIAPoxCMp7H+MFIy0rBUr\nTcFy3AFgj4XjZy8VQeociErxn7JNcUMsXrRvove8OXXS8H0LJP82QYZVNo3D\n7H/GqrFtW2qabYhIl2+QQtewgF5AgBJJdw8Jfu3TGJDAafZby3nVDHd9PntV\ntVWE0/DkvEezVNJtCVIz2AlM1uu/gKHp2K+ttOVBXyP9TLLB51p5cVWCZnSh\nacpP2tUd6Qz4DOItyFwnZsUi6a4hOG3H1xYMpNL0jxHZ+vNRuqR5HKRNuIeN\nWbROE4FEQjkSBwchz50RvXFI9dyjM2YhuNoRYBhQyDLQbk18dtfYacD2kou1\n/E9g9o8TWsCN80D0fEKAGiwHTeCoYxLze75/9FnmuGD3lFKg3UsGh9YcvS4M\nWawcGF624CPkNDfq+wD2M8OhrTcfGsWjlfhyyqdqTwuuGrMi5Rfwgqr0FZ46\nFsKypUvoZGXL0PZX4Skmev0sBHrRAzxJBPSaix2wS0JcypW8z56y13gGtJuw\nHvSY81mr8xh9sZAKWdbh9Dl0iyV0VW44TY+3BuX9TmWuD1XWYfe9+D0h2Dsv\nz5HM\r\n=p8Y7\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCPcdC2L44ctPkmtDRd0BQxfhA+FWz+E+DFRnL0jNbX2gIgYYwssztOZlj9mQVjyrsAaZFZigH7gBA+oGUkxEdaGIQ="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "pascalduez",
+					"email": "public@pascalduez.me"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-scrollbar_0.2.0_1545910654010_0.9842683210580732"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.1": {
+			"name": "postcss-scrollbar",
+			"version": "0.2.1",
+			"description": "PostCSS plugin enabling custom scrollbars",
+			"keywords": [
+				"css",
+				"scrollbar",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Pascal Duez",
+				"url": "https://github.com/pascalduez"
+			},
+			"homepage": "https://github.com/pascalduez/postcss-scrollbar",
+			"bugs": {
+				"url": "https://github.com/pascalduez/postcss-scrollbar/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/pascalduez/postcss-scrollbar.git"
+			},
+			"license": "Unlicense",
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"scripts": {
+				"lint": "eslint src/ test/",
+				"validate": "run-s lint",
+				"test": "jest",
+				"test:ci": "run-s validate test",
+				"develop": "babel-node develop/",
+				"prebuild": "rm -rf dist/",
+				"build": "rollup -c",
+				"prepare": "run-s build",
+				"prepublishOnly": "run-s validate test"
+			},
+			"dependencies": {
+				"postcss": "^7.0.7",
+				"postcss-selector-parser": "^5.0.0",
+				"postcss-value-parser": "^3.3.1"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0",
+				"@babel/core": "^7.0.0",
+				"@babel/node": "^7.0.0",
+				"@babel/plugin-proposal-do-expressions": "^7.2.0",
+				"@babel/preset-env": "^7.0.0",
+				"babel-core": "^7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.4.2",
+				"common-tags": "^1.8.0",
+				"eslint": "^5.11.1",
+				"eslint-config-airbnb-base": "^13.1.0",
+				"eslint-config-prettier": "^3.3.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-import": "^2.2.0",
+				"eslint-plugin-jest": "^22.1.2",
+				"jest-cli": "^23.6.0",
+				"npm-run-all": "^4.0.2",
+				"postcss-reporter": "^6.0.0",
+				"prettier": "^1.15.3",
+				"rollup": "^1.1.0",
+				"rollup-plugin-babel": "^4.3.0",
+				"rollup-plugin-json": "^3.1.0"
+			},
+			"gitHead": "a296a61c161e2e72da12515e2cb88eb9fcee9a5c",
+			"_id": "postcss-scrollbar@0.2.1",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "11.6.0",
+			"_npmUser": {
+				"name": "pascalduez",
+				"email": "public@pascalduez.me"
+			},
+			"dist": {
+				"integrity": "sha512-hh6ua6PlU2rzIZlvvWjvQ0xbTiQmcm3m2Fzui29IbnadUarR4GZKdERqdhUip9Bdohti5nTI6dDmDriAySPeUg==",
+				"shasum": "6968da55c6c51c15ef4c84a5bdbb205310c59417",
+				"tarball": "https://registry.npmjs.org/postcss-scrollbar/-/postcss-scrollbar-0.2.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 14140,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcOd36CRA9TVsSAnZWagAAxs4P/26Rx0CNPQcxNdP99kE9\nC7p2lPnK4l2gMM4cZZZHMLK8M3ojTD2pZsidotBsQPwp87/XscMkm/1LRO9+\ninePDqJSX/wY5T27KAfPqVlxTpLMKzmLUyCeaZuK8MyFY5UjHystlVFnYCnR\noMMNRKn4tgKHmztwc12SBao00/VeEIGYI/znRK8Jp2ZhARuD0vS0LdipHhiN\nVZ1dFa4wEFN4DrbdM2XXocUQZxbWuKNUF0qr8bm6aG4mXQb99ufsfeAnnk1O\n5EvuLxWJz/l0xPOGoRNSI716GILOncoqEYX18vmOo5bF1XivGSB3BaLORxLc\nXPTJcx5QUxTWwCP6d/Es8WuwJZBiPYWnXuaErRvIHZvEUOJAMB/t/3AxLxBh\nDwL2+DnwoDOiNeA65+3J9Lj6SgVLIGR6G3J08nxRImvyzsOKVlPMbmNI/cin\njRiftvWXlhHDAxz3L1Dm3XvuHWPBmEMLCkfbIkXxyVVWs+Y8Vcq+KYbKfJkd\neyVGxam8MPoWhFn9fty5uc/mafeXjctG34KYzQl44A2WF5ZiKJE2y6h3Aaeb\niAey0S3h6EVzRcwpZ7feK0KfPGnFrb3aH5/qSq6tQL2gvs7vY8N9U6oJ2PaM\n1Tnn+pk+3H1GwTxetvFSU0CGf6tb2mMIAgl/hs2pheOcickTkfY4vqKrdJaQ\nBsPi\r\n=nlxH\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEE7lgLM7zxkrDwkh9wmdcwyOUlb+PuFJxhgiEJjGZL8AiEAt0wAtrow7wgbihvuwZKYo9KUgDgMLKzuZVMlraujVpc="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "pascalduez",
+					"email": "public@pascalduez.me"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-scrollbar_0.2.1_1547296250055_0.8657868052415141"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.0": {
+			"name": "postcss-scrollbar",
+			"version": "0.3.0",
+			"description": "PostCSS plugin enabling custom scrollbars",
+			"keywords": [
+				"css",
+				"scrollbar",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Pascal Duez",
+				"url": "https://github.com/pascalduez"
+			},
+			"homepage": "https://github.com/pascalduez/postcss-scrollbar",
+			"bugs": {
+				"url": "https://github.com/pascalduez/postcss-scrollbar/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/pascalduez/postcss-scrollbar.git"
+			},
+			"license": "Unlicense",
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"scripts": {
+				"lint": "eslint src/ test/",
+				"validate": "run-s lint",
+				"test": "jest",
+				"test:ci": "run-s validate test",
+				"develop": "babel-node develop/",
+				"prebuild": "rm -rf dist/",
+				"build": "rollup -c",
+				"prepare": "run-s build",
+				"prepublishOnly": "run-s validate test"
+			},
+			"dependencies": {
+				"postcss": "^7.0.14",
+				"postcss-selector-parser": "^5.0.0",
+				"postcss-value-parser": "^3.3.1"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0",
+				"@babel/core": "^7.0.0",
+				"@babel/node": "^7.0.0",
+				"@babel/plugin-proposal-do-expressions": "^7.2.0",
+				"@babel/preset-env": "^7.3.1",
+				"babel-eslint": "^10.0.1",
+				"common-tags": "^1.8.0",
+				"eslint": "^5.12.1",
+				"eslint-config-airbnb-base": "^13.1.0",
+				"eslint-config-prettier": "^4.0.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-import": "^2.15.0",
+				"eslint-plugin-jest": "^22.1.3",
+				"jest": "^24.0.0",
+				"npm-run-all": "^4.0.2",
+				"postcss-reporter": "^6.0.1",
+				"prettier": "^1.16.1",
+				"rollup": "^1.1.2",
+				"rollup-plugin-babel": "^4.3.2",
+				"rollup-plugin-json": "^3.1.0"
+			},
+			"gitHead": "79e3e26eef9165adbb6046986f5f8a182d31bb0f",
+			"_id": "postcss-scrollbar@0.3.0",
+			"_nodeVersion": "11.8.0",
+			"_npmVersion": "6.7.0",
+			"dist": {
+				"integrity": "sha512-eoyc1lMOKr/hidOnUZTFxwrn0FqLFQ47wSn5eE9jUYpBXb2MZGSKEBNyqBErcTjT+9+W6aKZ3hhjPNjdVH+wDQ==",
+				"shasum": "3f7e6800a5c43adc5c7d45c9b9603e2610ca6124",
+				"tarball": "https://registry.npmjs.org/postcss-scrollbar/-/postcss-scrollbar-0.3.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 14847,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcTZLUCRA9TVsSAnZWagAAUjcQAJxjG2jC0TA+wXnYPHkd\n9fG9Sd8Mq8MVotQDR9F3uPSjHXgOuWwSvqz5gy28w+KIjPo9V0rIMgRFgkp1\nGQq3brKiB0hlTVb6U9XSheMqrxlXjMzXQd1b4aZ9crVWxzwmRa5cnp7Rvt+q\n4ryAb8kPJQ4LkSShf5ZgPcV/tSK0J4fC+ygIEKuvtkvBmb8fl5RD2kqBUnSF\n74NKI5sZycAm4vHv82wvvDzYf5QU8LcyRhIA0Mgq14FPYXcsh+/QP1HFKP55\nfIokMtfwpG1MDAhKTS7PlP+9SiGCbPRnRzjfWRfm0jRomMeFbw3TUccYInBC\n2/q/zlPFhQsX+tR+A32X+8IAQGMMzzQVianP92KT6njUEXxEQh7riewIVlaf\n8vy92EKTngaif3w1ilpY45zA0xOiZHf3W87XR3c9/9d6+lfBzB4ZnOAq0/ib\nWwBHDzWy9YHwKO5YU1OX4bT+fzXpxCKT+US94t4DCN3g0HgMnc1ISBzdaso1\n3WPc/38LmdeKNRajbmomc8IRfuZUhWOkkYlX4UBUQm/N2eUe5XYLocKvxgMf\n9GA2ERB3626K+rltsJxWfCQ0GBoePmzVBh8fntfv9V3r//LJfBDPMcigPSRb\nujU9xjnE+yYkqPXOuM7ACLurkni5Te4vGmv8GTLjC+ZAv1+qk+G+uQcrtVk4\nft8u\r\n=n+vd\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIB0qtok/057zrRUB4Zwt8DcyWafNhyezFa6sUQrglTMkAiAsVrSeQF8UVdGaOymIqRQGY/3Lv7dyyvh+ukmM5MZCXw=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "pascalduez",
+					"email": "public@pascalduez.me"
+				}
+			],
+			"_npmUser": {
+				"name": "pascalduez",
+				"email": "public@pascalduez.me"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-scrollbar_0.3.0_1548587732038_0.2682309580495943"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.4.0": {
+			"name": "postcss-scrollbar",
+			"version": "0.4.0",
+			"description": "PostCSS plugin enabling custom scrollbars",
+			"keywords": [
+				"css",
+				"scrollbar",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Pascal Duez",
+				"url": "https://github.com/pascalduez"
+			},
+			"homepage": "https://github.com/pascalduez/postcss-scrollbar",
+			"bugs": {
+				"url": "https://github.com/pascalduez/postcss-scrollbar/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/pascalduez/postcss-scrollbar.git"
+			},
+			"license": "Unlicense",
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"scripts": {
+				"lint": "eslint src/ test/",
+				"validate": "run-s lint",
+				"test": "jest",
+				"test:ci": "run-s validate test",
+				"develop": "babel-node develop/",
+				"prebuild": "rm -rf dist/",
+				"build": "rollup -c",
+				"prepare": "run-s build",
+				"prepublishOnly": "run-s validate test"
+			},
+			"dependencies": {
+				"postcss": "^7.0.27",
+				"postcss-selector-parser": "^6.0.9",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.17.6",
+				"@babel/core": "^7.17.5",
+				"@babel/eslint-parser": "^7.17.0",
+				"@babel/node": "^7.16.8",
+				"@babel/plugin-proposal-do-expressions": "^7.16.7",
+				"@babel/preset-env": "^7.16.11",
+				"babel-eslint": "^10.1.0",
+				"common-tags": "^1.8.2",
+				"eslint": "^8.9.0",
+				"eslint-config-airbnb-base": "^15.0.0",
+				"eslint-config-prettier": "^8.4.0",
+				"eslint-plugin-babel": "^5.3.1",
+				"eslint-plugin-import": "^2.25.4",
+				"eslint-plugin-jest": "^26.1.1",
+				"is-ci": "^3.0.1",
+				"jest": "^27.5.1",
+				"npm-run-all": "^4.0.2",
+				"postcss-reporter": "^6.0.1",
+				"prettier": "^2.5.1",
+				"rollup": "^2.68.0",
+				"rollup-plugin-babel": "^4.4.0",
+				"rollup-plugin-json": "^4.0.0"
+			},
+			"gitHead": "16d454534cbb2f7e0dcb32fdfa7bc001aeb15289",
+			"_id": "postcss-scrollbar@0.4.0",
+			"_nodeVersion": "14.17.3",
+			"_npmVersion": "6.14.13",
+			"dist": {
+				"integrity": "sha512-JwmToeg5aOoc/ITaNxWdU/8f3jNq6G08PqxOy3jwujathrEYJrHym/0rnD9WkiDiUhKHpvyZIQTsT6UVh7sbqg==",
+				"shasum": "a42b501f9a9b4b80bd30349979cf4ea0425ffdbf",
+				"tarball": "https://registry.npmjs.org/postcss-scrollbar/-/postcss-scrollbar-0.4.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 16775,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiGTwhACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpC1w//eebUtEJOa7MwyrhsYEKfU0j2Yw1PLH31Bs2JTt4k/hUQvDw6\r\nf6OfgqsMRU2qqLmR85GiW9/vS33ZZfaoavdaeTvwjO+DK5TMVici4qo0g9s1\r\njRE96H1Fa24/dO5sU/kpxNZP74Xzeh0vCjUmkCBZaaMvo1u+/H02Gbaz+6+W\r\ny4kI8DqE8VD/RG3iKx2/cBQZ8xOicFJXnpHvPrOAfXpa24DaqpKzYEPp27G3\r\nszd2cnvQV2moB0Q4IrWDq5dW/dcJzaec8xTnsAGAOfZVuhQq7MbT/xx0m3cN\r\naa6rd7/WZCtrxDQa6kA8Bxp/+4hg0UNUS4GFm2buUJNdXC/EsgWwZOK6QQpG\r\nsRp/8NrrIkxiqt40aAz4adufmx4u7KDuFukhlgoenpeSv4nUDy5Y51OG33sy\r\nKF6ykISToSkCKX+Z6JpZWBJgTb6woeL56tHMyjd5KIrBEvNDrzqGXcDKTJzS\r\n6N4Vk70jqjuLO8sPLtrKersWnGj+Ph9RBA79N1lgc5TnzLlcyxUZEFSfR+Hm\r\nKOZJtG/cfzdh2T2eIeHBMFrvRFhLVkx5cHYsycJaff/3skB+bptA45YhC7/L\r\nrENrxQ5WS49qq2tcxqh5BCDQ8AFMXglwGmrZY/5dVXHQZ+1fczNHlmGljY9B\r\nOzV8gfQLUJuaD4KljDSEYTBDzK3nQGBVva4=\r\n=ybvZ\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDEKbXMmObKGbQXJgUoZD2p8Ufw2nWLLt8MFyL08fRCQQIhAMi2Q9EExvRUxxIHyuZp5QiCCTfmh7ta39mCHlp6fEbm"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "pascalduez",
+				"email": "public@pascalduez.me"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "pascalduez",
+					"email": "public@pascalduez.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-scrollbar_0.4.0_1645820961109_0.8581667237219337"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.0": {
+			"name": "postcss-scrollbar",
+			"version": "0.5.0",
+			"description": "PostCSS plugin enabling custom scrollbars",
+			"keywords": [
+				"css",
+				"scrollbar",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Pascal Duez",
+				"url": "https://github.com/pascalduez"
+			},
+			"homepage": "https://github.com/pascalduez/postcss-scrollbar",
+			"bugs": {
+				"url": "https://github.com/pascalduez/postcss-scrollbar/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/pascalduez/postcss-scrollbar.git"
+			},
+			"license": "Unlicense",
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"scripts": {
+				"lint:js": "eslint src/ test/",
+				"lint": "run-s lint:*",
+				"format:check": "prettier -l '{src,test}/**/*.{js,css}'",
+				"format:write": "prettier --write '{src,test}/**/*.{js,css}'",
+				"validate": "run-s lint format:check",
+				"test": "jest",
+				"test:ci": "run-s 'test --coverage'",
+				"develop": "babel-node develop/",
+				"prebuild": "rm -rf dist/",
+				"build": "rollup -c",
+				"prepare": "run-s build",
+				"prepublishOnly": "run-s validate test"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.9",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.17.6",
+				"@babel/core": "^7.17.5",
+				"@babel/eslint-parser": "^7.17.0",
+				"@babel/node": "^7.16.8",
+				"@babel/plugin-proposal-do-expressions": "^7.16.7",
+				"@babel/preset-env": "^7.16.11",
+				"babel-eslint": "^10.1.0",
+				"common-tags": "^1.8.2",
+				"eslint": "^8.9.0",
+				"eslint-config-airbnb-base": "^15.0.0",
+				"eslint-config-prettier": "^8.4.0",
+				"eslint-plugin-babel": "^5.3.1",
+				"eslint-plugin-import": "^2.25.4",
+				"eslint-plugin-jest": "^26.1.1",
+				"jest": "^27.5.1",
+				"npm-run-all": "^4.0.2",
+				"postcss": "^8.4.7",
+				"postcss-reporter": "^6.0.1",
+				"prettier": "^2.5.1",
+				"rollup": "^2.68.0",
+				"rollup-plugin-babel": "^4.4.0",
+				"rollup-plugin-json": "^4.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"gitHead": "221d12c0cafe382197fe318bd087b7892c5151aa",
+			"_id": "postcss-scrollbar@0.5.0",
+			"_nodeVersion": "14.17.3",
+			"_npmVersion": "6.14.13",
+			"dist": {
+				"integrity": "sha512-gvRENxOrvsQSugbVXfiG7j6YDJ+zbvxeTfsEX9yPBOxgRSYEypURgJVwnxJj23f//TQuGCJgBSU3o1fPyAjQSA==",
+				"shasum": "b95302cbcc83892451e36df1d72487a416234523",
+				"tarball": "https://registry.npmjs.org/postcss-scrollbar/-/postcss-scrollbar-0.5.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 14544,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiHmz5ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo9NhAAliKprLslcGg/4Uo8Z1IchkMoUrvJBFkksPt6G8TwC9lJvIuk\r\nLH4A+UsJYsAbUvpK3FJGBX/i/RwY29dskFs/YWGalauc++lrA5K7vvkeiL75\r\nnVnImNqGYn0Jy+P95uXkbezrcqXOP/BO3Phhik7tzsN3SMwAhADLCAZgZhKI\r\n57NuLsBCXkbgagx1pbklPVG6JqrJV19L8xoZmCW8lGs5g0T4vcxr+50Gp1dB\r\nQoEVPxVAH0ACpeHsBifrPW9X65Z7unzIpMvtogriCEbS2xfNZFprDJS9hw//\r\nbePUy3JloCu3cFkxuzwKCMC1ullOrmxr7qDcVfc02zXW4krcIrSGlx80dmg8\r\n7cmvusBBMuzgUPBSCqSS0V0bE0klzOA0UylGGmVbvwXrc/x9Q22YbG3k6CEB\r\nGwlYCEItX8ayho1sge1WzP3MUZHU3CyBGS4lSpYXQ13HPwgG+PKkYC0yXKdI\r\nHvkaiR1H4RCPg/nJRfxnolou8O0Cuo98JjkKq1yFSbnZgcQ397RgI0CFBG5w\r\nSm0oBPQZN9qhsa0jacotM3EddxaNSQpuQei4g6XmkhUe2P7lfQZiVWVV2z2e\r\nGoWDQRrQ0khScPKHIUB3e2r0+RZh+33fhgyG7aVaLIaEgTqacF87FqXPiV8S\r\nmUWnK8mOFBs48z27vUDzNOtAE93A4yb31VU=\r\n=XyZi\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIA0c+huZ1N6DNt1i/ZhshBN8zJUdwWpj4x4pMNrBPc4UAiEAxWyXojj72NQRcBWvMIDHulsSNl+IWIZ2GOMRmwwi/z4="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "pascalduez",
+				"email": "public@pascalduez.me"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "pascalduez",
+					"email": "public@pascalduez.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-scrollbar_0.5.0_1646161145081_0.6826157466115785"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.1": {
+			"name": "postcss-scrollbar",
+			"version": "0.5.1",
+			"description": "PostCSS plugin enabling custom scrollbars",
+			"keywords": [
+				"css",
+				"scrollbar",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Pascal Duez",
+				"url": "https://github.com/pascalduez"
+			},
+			"homepage": "https://github.com/pascalduez/postcss-scrollbar",
+			"bugs": {
+				"url": "https://github.com/pascalduez/postcss-scrollbar/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/pascalduez/postcss-scrollbar.git"
+			},
+			"license": "Unlicense",
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"scripts": {
+				"lint:js": "eslint src/ test/",
+				"lint": "run-s lint:*",
+				"format:check": "prettier -l '{src,test}/**/*.{js,css}'",
+				"format:write": "prettier --write '{src,test}/**/*.{js,css}'",
+				"validate": "run-s lint format:check",
+				"test": "jest",
+				"test:ci": "run-s 'test --coverage'",
+				"develop": "babel-node develop/",
+				"prebuild": "rm -rf dist/",
+				"build": "rollup -c",
+				"prepare": "run-s build",
+				"prepublishOnly": "run-s validate test"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.17.10",
+				"@babel/core": "^7.18.5",
+				"@babel/eslint-parser": "^7.18.2",
+				"@babel/node": "^7.18.5",
+				"@babel/plugin-proposal-do-expressions": "^7.16.7",
+				"@babel/preset-env": "^7.18.2",
+				"babel-eslint": "^10.1.0",
+				"common-tags": "^1.8.2",
+				"eslint": "^8.18.0",
+				"eslint-config-airbnb-base": "^15.0.0",
+				"eslint-config-prettier": "^8.5.0",
+				"eslint-plugin-import": "^2.26.0",
+				"eslint-plugin-jest": "^26.5.3",
+				"jest": "^28.1.1",
+				"npm-run-all": "^4.0.2",
+				"postcss": "^8.4.14",
+				"postcss-reporter": "^6.0.1",
+				"prettier": "^2.7.1",
+				"rollup": "^2.75.7",
+				"rollup-plugin-babel": "^4.4.0",
+				"rollup-plugin-json": "^4.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"gitHead": "95dc7527db73b2cfa9539034ac2e7d8dde0df982",
+			"_id": "postcss-scrollbar@0.5.1",
+			"_nodeVersion": "14.17.3",
+			"_npmVersion": "6.14.13",
+			"dist": {
+				"integrity": "sha512-OPvwloab5juU3z5MOCRrYHRGAnDei8ObDIDBWpRfMt0zHptceOWWJUaaG+rodUJ4ItI+6fdaGs8uw77lCWqdbQ==",
+				"shasum": "7b5f2555ec5c9915b75ac6b88b2f9992b63a1326",
+				"tarball": "https://registry.npmjs.org/postcss-scrollbar/-/postcss-scrollbar-0.5.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 15213,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCQ7vA5zDh/PBnTeyQeCu1SzvSaPrhLYiYnhxdumttUYQIgFZ8AiaEkDMZsU4pCZi8pYW4c6dpBDGl8s8UWBz0JgB4="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJisbvoACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmompQ/9FFgZ3+7SVVt6xtz21/b+JEpQhqTh1L8nB6y47Vn15u6q9V94\r\npsArL1xjO1lcwGFlflH+tNYL3PbOqDD3slFyGYDRbdpV1hsyY/RsrJvYfDS5\r\nd6vuftANG0GDwHyL0jRK/cvlmkA8nyTM8b+s0ERCjsqFEcDW9/NgCUht5iIQ\r\nqeyc0OjX0B/EZeNcYI5zAkcJjuHHYaCIuhUKVWOhUw1uCbEw2NuSOGbN2iQ8\r\n+kqbxu3KyaIO5X7f5qJhM4qJ1V+EWZdQnURnaYJ2zcH/5r4Qw+1lcsq3oohn\r\njg1vZzofkPTI5SHF1zcpuWYqUV/ODGTVe81UjA5uFxwPAfne2KOr74YEjkUq\r\nFKjOkYT881+uTz1gFWP1D/2aWATMpqlu0mwS/jAbFzsGmGfH10yBa63EJyIJ\r\nJ3YkD94QI7pHusq5a+FjbZwynu7fpUnmr19GWDhCFIwY2AE/KsQme3rOyYIS\r\nbsn0Jy4j9Um4yKBLN7U+qE8YHe9iNiO1nKqInVX35jx+Vx2D4Ws2IxnLkeBB\r\npHjw8oGXHYCPtN1gRmfCU7glKA8rJnFSvd8HFkOPWoSvCJJuGm35j/668yVH\r\nofZVRW7TDqrTN6YSZ7HsCLYaRCr2ZyLA48jrFstcEEiPxfQ2evHtrGYnLgwW\r\nGbIXoL110EeRlqh49zAnLK597U4kP4FnGGM=\r\n=NH81\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "pascalduez",
+				"email": "public@pascalduez.me"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "pascalduez",
+					"email": "public@pascalduez.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-scrollbar_0.5.1_1655815144288_0.6079181715824746"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-12-20T09:58:23.900Z",
+		"0.1.0": "2018-12-20T09:58:24.012Z",
+		"modified": "2022-06-21T12:39:04.528Z",
+		"0.2.0": "2018-12-27T11:37:34.164Z",
+		"0.2.1": "2019-01-12T12:30:50.342Z",
+		"0.3.0": "2019-01-27T11:15:32.119Z",
+		"0.4.0": "2022-02-25T20:29:21.264Z",
+		"0.5.0": "2022-03-01T18:59:05.220Z",
+		"0.5.1": "2022-06-21T12:39:04.436Z"
+	},
+	"maintainers": [
+		{
+			"name": "pascalduez",
+			"email": "public@pascalduez.me"
+		}
+	],
+	"description": "PostCSS plugin enabling custom scrollbars",
+	"homepage": "https://github.com/pascalduez/postcss-scrollbar",
+	"keywords": [
+		"css",
+		"scrollbar",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/pascalduez/postcss-scrollbar.git"
+	},
+	"author": {
+		"name": "Pascal Duez",
+		"url": "https://github.com/pascalduez"
+	},
+	"bugs": {
+		"url": "https://github.com/pascalduez/postcss-scrollbar/issues"
+	},
+	"license": "Unlicense",
+	"readme": "# postcss-scrollbar\n\n[![npm version][npm-image]][npm-url]\n[![CI Status][ci-image]][ci-url]\n[![Coverage Status][codecov-image]][codecov-url]\n\n> [PostCSS] plugin enabling custom scrollbars\n\nSpec : https://drafts.csswg.org/css-scrollbars-1  \nBrowser support: https://caniuse.com/#feat=css-scrollbar  \nDocs: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars\n\n## Installation\n\n```\nnpm install postcss postcss-scrollbar --save-dev\n```\n\nor\n\n```\nyarn add postcss postcss-scrollbar --save-dev\n```\n\n## Usage\n\n```js\nconst fs = require('fs');\nconst postcss = require('postcss');\nconst scrollbar = require('postcss-scrollbar');\n\nlet input = fs.readFileSync('input.css', 'utf8');\n\npostcss()\n  .use(scrollbar)\n  .process(input)\n  .then(result => {\n    fs.writeFileSync('output.css', result.css);\n  });\n```\n\n## Examples\n\n```css\n/* input */\n.scrollable {\n  scrollbar-color: rebeccapurple green;\n  scrollbar-width: thin;\n}\n```\n\n```css\n/* output */\n.scrollable::-webkit-scrollbar-thumb {\n  background-color: rebeccapurple;\n}\n.scrollable::-webkit-scrollbar-track {\n  background-color: green;\n}\n.scrollable::-webkit-scrollbar-corner {\n  background-color: green;\n}\n.scrollable::-webkit-scrollbar {\n  width: 8px;\n  height: 8px;\n}\n.scrollable {\n  -ms-overflow-style: auto;\n  scrollbar-color: rebeccapurple green;\n  scrollbar-width: thin;\n}\n```\n\n```css\n/* input */\n.scrollable {\n  scrollbar-width: none;\n}\n```\n\n```css\n/* output */\n.scrollable::-webkit-scrollbar {\n  width: 0;\n  height: 0;\n}\n.scrollable {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n```\n\n## options\n\n### `width`\n\ntype: `String`  \ndefault: `8px`  \nAllows for setting the webkit fallbacks `width` and `height`.\n\n### `edgeAutohide`\n\ntype: `Boolean`  \ndefault: `false`  \nAllows for setting the scrollbar behaviour for the Edge Browser.  \n`-ms-overflow-style: -ms-autohiding-scrollbar;`  \nEdge doesn't support scrollbar styling.  \nSee https://developer.mozilla.org/fr/docs/Web/CSS/-ms-overflow-style\n\n## Credits\n\n- [Pascal Duez](https://github.com/pascalduez)\n\n## Licence\n\npostcss-scrollbar is [unlicensed](http://unlicense.org/).\n\n[postcss]: https://github.com/postcss/postcss\n[npm-url]: https://www.npmjs.org/package/postcss-scrollbar\n[npm-image]: http://img.shields.io/npm/v/postcss-scrollbar.svg?style=flat-square\n[ci-url]: https://github.com/pascalduez/postcss-scrollbar/actions/workflows/ci.yml\n[ci-image]: https://img.shields.io/github/workflow/status/pascalduez/postcss-scrollbar/CI?style=flat-square\n[codecov-url]: https://codecov.io/gh/pascalduez/postcss-scrollbar\n[codecov-image]: https://img.shields.io/codecov/c/github/pascalduez/postcss-scrollbar.svg?style=flat-square\n[license-image]: http://img.shields.io/npm/l/postcss-scrollbar.svg?style=flat-square\n[license-url]: UNLICENSE\n\n\n\n",
+	"readmeFilename": "README.md"
+}

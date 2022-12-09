@@ -1,0 +1,110 @@
+{
+	"_id": "postcss-filter-mq",
+	"_rev": "5-55c9eebf3ca4c7ec328bd1efe0352f2b",
+	"name": "postcss-filter-mq",
+	"description": "Filter all matching or non-matching media queries",
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"versions": {
+		"1.0.1": {
+			"name": "postcss-filter-mq",
+			"author": {
+				"name": "Simon Goellner"
+			},
+			"version": "1.0.1",
+			"description": "Filter all matching or non-matching media queries",
+			"license": "MIT",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/**/*.js && eslint **/*.js"
+			},
+			"keywords": [
+				"css",
+				"post",
+				"postcss",
+				"postcss-plugin",
+				"filter",
+				"regex",
+				"match",
+				"media",
+				"query",
+				"queries",
+				"mq"
+			],
+			"dependencies": {
+				"postcss": "^5.0.13",
+				"underscore": "^1.8.3"
+			},
+			"devDependencies": {
+				"eslint": "^1.10.3",
+				"gulp": "^3.9.0",
+				"gulp-postcss": "^6.0.1",
+				"gulp-rename": "^1.2.2",
+				"mocha": "^2.3.4",
+				"should": "^8.0.2"
+			},
+			"gitHead": "7f81f79077fa1652b180b0b0466d1e831894c010",
+			"_id": "postcss-filter-mq@1.0.1",
+			"_shasum": "4c1cd7f988cadb4ccb3fafd173d4cc857e769f35",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "simeydotme",
+				"email": "simey.me@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "simeydotme",
+					"email": "simey.me@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "4c1cd7f988cadb4ccb3fafd173d4cc857e769f35",
+				"tarball": "https://registry.npmjs.org/postcss-filter-mq/-/postcss-filter-mq-1.0.1.tgz",
+				"integrity": "sha512-zshs+cwnRxGMOnDSb2IZgVvBHwHV9aEiV/HkuSfBySKMtZwdHGix0fS3lsbdAgDL2/nMIbzA63/Vc2ec3niWYw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCagwDKw7YskKFgUdLiy910VTpMIhy1cXRg4zh0m3DDoQIgfXZRB11zJq77YLTO5Pogh6HAxc3eNZUd5HAblBAkKkQ="
+					}
+				]
+			}
+		}
+	},
+	"readme": "# PostCSS Filter Media Queries\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"http://postcss.github.io/postcss/logo-leftp.png\">\n\n> Return a __filtered sub-set of css media queries__, useful for creating stylesheets\n> for specific media queries (print, desktop, mobile).\n\nFor use with [__PostCSS__](https://github.com/postcss/postcss/) or [__gulp-postcss__](https://github.com/postcss/gulp-postcss).\n\n---\n[![ will it build!? ](https://travis-ci.org/simeydotme/postcss-filter-mq.svg?branch=master)](https://travis-ci.org/simeydotme/postcss-filter-mq) [![ dependencies ](https://david-dm.org/simeydotme/postcss-filter-mq.svg)](https://david-dm.org/simeydotme/postcss-filter-mq)\n\n## Why?\n\nYour mobile users __shouldn't have to download extraneous css__. It's\na waste of their bandwidth. Use this PostCSS plugin to __make your page load faster__ for them,\nand decrease their frustration. Also ease your bandwidth.\n\nAssuming a mobile-first coding style, turn code like this:\n```css\n/* main.css */\n.container { background: turquoise; }\n\n@media screen and (min-width: 40em) {\n    .container { background: grey; }\n}\n\n@media screen and (min-width: 64em) {\n    .container { background: white; }\n}\n```\n\nin to code like this:\n\n```css\n/* mobile-and-up.css\n    - serve to all users */\n\n.container { background: turquoise; }\n```\n\n```css\n/* desktop.css\n    - serve to desktop users only */\n\n@media screen and (min-width: 40em) {\n    .container { background: grey; }\n}\n@media screen and (min-width: 64em) {\n    .container { background: white; }\n}\n```\n\nor ideally *if your server can detect mobile devices*, this:\n```css\n/* mobile-only.css\n    - serve to mobile users only */\n\n.container { background: turquoise; }\n```\n\n```css\n/* all.css\n    - serve to desktop users only */\n\n.container { background: turquoise; }\n\n@media screen and (min-width: 40em) {\n    .container { background: grey; }\n}\n\n@media screen and (min-width: 64em) {\n    .container { background: white; }\n}\n```\n\n## How?\n### PostCSS\n\nInstall `postcss` and `postcss-filter-mq` to your project;\n\n```bash\n$ npm install --save-dev postcss postcss-filter-mq\n```\n\nGiven that you\n[have followed the steps to get PostCSS running](https://github.com/postcss/postcss/#js-api)\nin your javascript environment, you should have a file that looks\nsomewhat similar to this:\n\n```js\nvar postcss = require(\"postcss\"),\n    filtermq = require(\"postcss-filter-mq\");\n\npostcss([ filtermq ])\n    .process(css, { from: \"src/input.css\", to: \"dist/output.css\" })\n    .then(function (result) {\n        fs.writeFileSync(\"dist/output.css\", result.css);\n        if ( result.map ) fs.writeFileSync(\"dist/output.css.map\", result.map);\n    });\n```\n\ndepending on your needs and file-structure, there will be differences ofcourse.\n*Please refer to https://github.com/postcss/postcss/#js-api for any help getting\nPostCSS running in your Node env.*\n\n### Gulp\n\nInstall `gulp-postcss` and `postcss-filter-mq` to your project:\n\n```bash\n$ npm install --save-dev gulp-postcss postcss-filter-mq\n```\n\nThen create a task to filter your media queries:\n\n```js\nvar gulp = require(\"gulp\"),\n    rename = require(\"gulp-rename\"),\n    postcss = require(\"gulp-postcss\"),\n    filtermq = require(\"postcss-filter-mq\");\n\ngulp.task( \"css:mq\", function () {\n\n    gulp.src(\"src/input.css\")\n        .pipe( postcss([ filtermq ]) )\n        .pipe( rename( \"output.css\" ) )\n        .pipe( gulp.dest(\"dist/\") );\n\n});\n```\n\n### Grunt\n\nIt's also possible to use with Grunt, but you'll have to [figure that\nout using the guide on their Github repo](https://github.com/nDmitry/grunt-postcss).\n\n\n\n\n\n\n\n\n## Options\n\nBy default `postcss-filter-mq` will __filter all media queries__,\nthis is not usually very useful, and so you'll want to pass options\nfor __controlling which media queries are filtered__ and how.\n\nThe default, configurable options are:\n```js\nvar options = {\n    regex: /.*/i,           // decides the queries to filter\n    invert: false,          // inverts the regex filter result\n    keepBaseRules: false    // keep the non-media css rules\n};\n\n/*\n * then use in your environment like:\n *     postcss([ filtermq( options ) ])\n */\n```\n\n\n\n\n\n\n\n\n\n## Examples\nCheck out [the OPTIONS.md file](docs/OPTIONS.md) for a more in-depth look at how the options work,\nor [refer to the EXAMPLES.md file](docs/EXAMPLES.md) for advanced examples on how to use this\nplugin.\n\n\n\n## Changelog\nPlease [refer to the release page](https://github.com/simeydotme/postcss-filter-mq/releases) for\nthe full release history / changelog.\n\n\n\n## License\nPlease [refer to the LICENSE file](LICENSE.md) for distribution info.\n",
+	"maintainers": [
+		{
+			"name": "simeydotme",
+			"email": "simey.me@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:56:29.277Z",
+		"created": "2015-12-28T15:31:14.708Z",
+		"1.0.1": "2015-12-28T15:31:14.708Z"
+	},
+	"keywords": [
+		"css",
+		"post",
+		"postcss",
+		"postcss-plugin",
+		"filter",
+		"regex",
+		"match",
+		"media",
+		"query",
+		"queries",
+		"mq"
+	],
+	"author": {
+		"name": "Simon Goellner"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"stephenway": true,
+		"lsnk": true
+	}
+}

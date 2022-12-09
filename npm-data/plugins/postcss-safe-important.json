@@ -1,0 +1,567 @@
+{
+	"_id": "postcss-safe-important",
+	"_rev": "16-42deeb026a04c907ccbb69bcfcd18cac",
+	"name": "postcss-safe-important",
+	"time": {
+		"modified": "2022-06-24T10:50:00.972Z",
+		"created": "2015-12-13T13:14:37.092Z",
+		"0.0.1": "2015-12-13T13:14:37.092Z",
+		"1.0.0": "2015-12-13T17:44:35.354Z",
+		"1.0.1": "2015-12-14T08:30:55.498Z",
+		"1.0.2": "2015-12-15T07:23:42.323Z",
+		"1.0.3": "2015-12-15T07:28:33.369Z",
+		"1.0.4": "2015-12-17T03:52:34.983Z",
+		"1.0.6": "2017-09-21T15:37:06.198Z",
+		"1.1.0": "2017-11-18T11:54:27.924Z",
+		"1.2.0": "2019-09-30T15:36:08.718Z",
+		"1.2.1": "2021-02-23T14:27:51.826Z"
+	},
+	"maintainers": [
+		{
+			"name": "straybugs",
+			"email": "straybugs@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "1.2.1"
+	},
+	"description": "PostCSS plugin that adds !important to style declarations safely",
+	"readme": "# PostCSS Safe Important\n\n[![Build Status][ci-img]][ci]\n[![Npm Downloads Total][dt-img]][npm]\n![Node Version][node-img]\n[![Npm][npm-img]][npm]\n\n[PostCSS] plugin that adds `!important` to style declarations safely.\n\n[PostCSS]:  https://github.com/postcss/postcss\n[ci-img]:   https://travis-ci.org/crimx/postcss-safe-important.svg\n[ci]:       https://travis-ci.org/crimx/postcss-safe-important\n[npm-img]:  https://img.shields.io/npm/v/postcss-safe-important.svg\n[npm]:      https://www.npmjs.com/package/postcss-safe-important\n[dt-img]:   https://img.shields.io/npm/dt/postcss-safe-important.svg\n[node-img]: https://img.shields.io/npm/dm/postcss-safe-important.svg\n\n## Why would I need it?\n\n> It's 2019 and you should probably look at shadow dom and web components first.\n\nQuoted from [Cleanslate](http://cleanslatecss.com/#Why-would-I-need-it)\n\n> When there are existing CSS styles on a page, and you want to prevent those styles cascading into some part of the page. This is not a stylesheet to use when developing your own website (for that, try [Eric Meyer’s classic “Reset CSS”](http://meyerweb.com/eric/tools/css/reset/) or the [“HTML5 Doctors’ adaptation”](http://html5doctor.com/html-5-reset-stylesheet).\n>\n> The stylesheet can be useful when distributing content (e.g. a widget, or syndicated news) to third-party websites. The CSS rules in the host site may be unknown and unpredictable, or may change in future without notice, or there may be so many websites you need to distribute to that it is impractical to write specific CSS that overrides the styles in each one. In such situations, the Cleanslate stylesheet will aggressively reset your portion of the content (and nothing else) back to some reasonable default values that you can then build from.\n>\n> ### Why not just use an iframe?\n>\n> Third-party content is often distributed in iframes. Because JavaScript within an iframe can be prevented from accessing the host page, iframes are particularly useful when the host site has security concerns and does not explicitly trust the third-party content.\n>\n> However, iframes have some drawbacks:\n>\n> - You cannot display content outside of the box of the iframe.\n> - It is tricky to resize the iframe to match the size of its contents.\n> - Your content will be unable to interact with the host page, even if it is trusted.\n> - Search engines like Google will not see the content on the host page. Content that is syndicated from a partner website can avoid this by being directly included in the host page.\n\n\nWhether you work with extreme CSS reset stylesheet like Cleanslate or simply just want to give maximum weight for all your declarations, don't do it manually! Use [postcss-safe-important] to keep your source styles clean and portable.\n\n## Safe?\n\nAdding `!important` to every declarations might break your style. For example, [declarations in a keyframe that are qualified with `!important` are ignored](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes#!important_in_a_keyframe).\n\n[postcss-safe-important] will skip [unnecessary declarations](#default-exclusions). You can also set your own exclusions through options or comments (see examples below).\n\n[postcss-safe-important]: https://github.com/Crimx/postcss-safe-important\n\n\n```css\n/* Input example */\n.foo {\n    width: 100px;\n    color: #000; /* no !important */ }\n\n.bar {\n    /* no important */\n    color: ##fff;\n    width: 100px; }\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px !important;\n    color: #000; }\n\n.bar {\n    color: ##fff;\n    width: 100px; }\n```\n\n## Usage\n\n```\n$ npm install postcss-safe-important --save-dev\n```\n\n```js\nvar safeImportant = require('postcss-safe-important');\n\npostcss([ safeImportant({\n    // options\n    selectors: '#bar', // you can pass a string\n    decls: ['height', 'width'], // or iterable\n    atrules: () => 'media', // even a function\n    paths: p => p.startsWith(path.resolve(__dirname, '../node_modules')), // rule out paths\n    keepcomments: false // all the `no important` comments will be erased\n}) ]);\n```\n\n## Comments\n\nYou can use either `/* no !important */` or `/* no important */` to indicate no changing.\n\nIf the comment is right inside a rule(be the first child node of the rule), the whole rule will not change.\n\n```css\n/* Input example */\n.foo {\n    /* no important */\n    width: 100px;\n    color: #000; }\n\n.bar { /* no !important */\n    width: 100px;\n    color: #000; }\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px;\n    color: #000; }\n\n.bar {\n    width: 100px;\n    color: #000; }\n```\n\nIf the comment is right behind(or below) a declaration, then only the declaration will remain the same.\n\n```css\n/* Input example */\n.foo {\n    width: 100px;\n    color: #000; /* no important */}\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px !important;\n    color: #000; }\n```\n\n## Options\n\n### Exclusions\n\n- `selectors`: excluded selectors\n- `decls`: excluded declarations\n- `atrules`: excluded atrules(e.g. `@font-face`)\n\nYou can pass either a **string**, an **iterable**, or a **function** that returns string/array.\n\n### Excluded paths\n\n- `paths`: a string(exact match), a RegExp(`test` is called) or a function that returns truthy or falsy value.\n\nIf you want styles in node_modules left untouched, let's say your postcss config file is at project root:\n\n```js\nvar safeImportant = require('postcss-safe-important');\nvar path = require('path')\n\npostcss([ safeImportant({\n    paths: p => p.startsWith(path.resolve(__dirname, './node_modules'))\n}) ]);\n```\n\n### Keep `/* no important */` comments\n\n- `keepcomments`: **bool**, default `false`.\n\n### Clear Default Declarations\n\n- `clearDefaultDecls`: **bool**, default `false`.\n\n## Default Exclusions\n\n### Atrules\n\n- keyframes\n- font-face\n\n### Declarations\n\n- animation\n- animation-name\n- animation-duration\n- animation-timing-function\n- animation-delay\n- animation-iteration-count\n- animation-direction\n- animation-fill-mode\n- animation-play-state\n\n## [Change Log](CHANGELOG.md)\n\nSee [PostCSS] docs for examples for your environment.\n\n## [License](LICENSE)\n\nMIT\n",
+	"versions": {
+		"1.0.2": {
+			"name": "postcss-safe-important",
+			"version": "1.0.2",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "StrayBugs",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"dependencies": {
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.7.0",
+				"eslint": "^1.10.2"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"gitHead": "6ecfd3084d7286d48dfd517a16b257012e28a5e9",
+			"_id": "postcss-safe-important@1.0.2",
+			"_shasum": "8ab5a3f02d6f2aa28e092203a82f149977dcf992",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "5.2.0",
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"dist": {
+				"shasum": "8ab5a3f02d6f2aa28e092203a82f149977dcf992",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-1.0.2.tgz",
+				"integrity": "sha512-ERaU35Clz4ajeoqyTj1uIwVFQSWzYjs9owCEt/GGKOdjfvpmZWs09oKKGIy2b3HsxWsG46vWxXhaOwfdbna/zg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIERVdQQ7OvPGImWmDLE8SjZJnoslu4xbQCplM1+5STUjAiB+M0DKANvIUs17pmu2F47PuPMJaKomvnuHzZZBneVDTg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "postcss-safe-important",
+			"version": "1.0.3",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "StrayBugs",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"dependencies": {
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.7.0",
+				"eslint": "^1.10.2"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"gitHead": "6ecfd3084d7286d48dfd517a16b257012e28a5e9",
+			"_id": "postcss-safe-important@1.0.3",
+			"_shasum": "e01ea0d7957946439262ef2313be7e4ed108d733",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "5.2.0",
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"dist": {
+				"shasum": "e01ea0d7957946439262ef2313be7e4ed108d733",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-1.0.3.tgz",
+				"integrity": "sha512-S+Q+l02jwia7jirPHjntlk3b0zmn+/9E1QY/osO42XSc9w6u429D2JGH6W0khHu4ZRxZsgpMcUiRi5l2m3c0rQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDyUriq0mAiFlesoLuDd0uF4lJEIE1e1KKNegHTZQczwwIhAPHQO12r2B+T2lI8fQIWUwp8Q+L070g5PNIPbBpaR6Qe"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "postcss-safe-important",
+			"version": "1.0.4",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "StrayBugs",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"dependencies": {
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.7.0",
+				"eslint": "^1.10.2"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"gitHead": "3fc9fd6b713b546efd44864db9892a90f34d6774",
+			"_id": "postcss-safe-important@1.0.4",
+			"_shasum": "7faf89afe6630023e5fab2f267113db69ef3874d",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "5.2.0",
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"dist": {
+				"shasum": "7faf89afe6630023e5fab2f267113db69ef3874d",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-1.0.4.tgz",
+				"integrity": "sha512-S3QqSUNjCEXUW4JM1P8/kHenP4SIpvFuu3Qwlri2DP1jKpL8jIQYiZ92TJc4DEGzJPXgwbxGBROjGLjkXA36Kw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDu2ZALYAW1ST//tM7BbSWopjZ8FpoJMsPHmk06QaAq9AiAVRYgpgqhL4CRIpvLcDqeMEQfsNQR69bSGs7pD9bzfcQ=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.6": {
+			"name": "postcss-safe-important",
+			"version": "1.0.6",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "StrayBugs",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"dependencies": {
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.17.0",
+				"eslint": "^1.10.2"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"gitHead": "e1eb9457988f911951ee1d78e0930b2e31c2bb20",
+			"_id": "postcss-safe-important@1.0.6",
+			"_shasum": "a3ac624f3651c8c241dc7e37ee0bd88465505c85",
+			"_from": ".",
+			"_npmVersion": "4.6.1",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"dist": {
+				"shasum": "a3ac624f3651c8c241dc7e37ee0bd88465505c85",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-1.0.6.tgz",
+				"integrity": "sha512-zZhoaQsf9WDGFS/YwV1Vd6HQiu4PfWm83AB76RdvtVrdbBG+SEabOpuf23/1uexdGHJfhfDnhuzW0c7Veg5SkQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFhXPtFn+xeCSnURGI3jbqXYEqqE/o6GPVvGt128tonMAiBS4voT6PfR0PfNicuY9NKH0GPKy3bgArr4U8SwjPk5Ng=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-safe-important-1.0.6.tgz_1506008226089_0.0002507884055376053"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "postcss-safe-important",
+			"version": "1.1.0",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "StrayBugs",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"dependencies": {
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.17.0",
+				"eslint": "^1.10.2"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"gitHead": "8dff3ca8dd01ec1a804d5f9b32ab84c63c925987",
+			"_id": "postcss-safe-important@1.1.0",
+			"_shasum": "6ac6841b0a42ba3634167c589b107a54dc03203f",
+			"_from": ".",
+			"_npmVersion": "4.6.1",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"dist": {
+				"shasum": "6ac6841b0a42ba3634167c589b107a54dc03203f",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-1.1.0.tgz",
+				"integrity": "sha512-/oWZV3T/mcTbxQRPAZKkO/fq+Ef8B02bKOic+/uMDMKGXYsoKwk8X8K55fyIiQFQSkn4+HmKFqMhaTAR4hrF7g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD6+30iEJQKkFOYaYIvt0+leu0I4CssNa4x2sy8c5Q6XgIhAJ9ozQdcmjoyqibaJrpdE0zdCCWofQTpKrR8dLqtm429"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-safe-important-1.1.0.tgz_1511006067652_0.6934486406389624"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "postcss-safe-important",
+			"version": "1.2.0",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "StrayBugs",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"dependencies": {
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.17.0",
+				"eslint": "^1.10.2"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"gitHead": "aeaeade6799c5b4dffd9ad84f99df49ed0e4a122",
+			"_id": "postcss-safe-important@1.2.0",
+			"_nodeVersion": "12.9.1",
+			"_npmVersion": "6.11.2",
+			"dist": {
+				"integrity": "sha512-hPE4Z+B0J4zkvl6LulAXoLucmORibtC4DQyNAipHCe7WfcRrhbO36d8f1W4XR/4dpjwhwKON8NShPru04gV3Pw==",
+				"shasum": "62b70fa05f4317f4fa638a077a8160cb5dcf38e5",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-1.2.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 17592,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdkiDpCRA9TVsSAnZWagAAtfYP/3NUBimP4zO3L48Qb47E\noOLRSmoA6J67J6H3AuKeReRgDdZBJz6uu8l/aOb2D0c+qaLYg910czmTwf8i\neZ+cpHaxElg3EAOmeR29GfdGGvSox8rFCbjd/jvQGQFrPHrMJz2+6ErFrvEO\nrUKOJD3JKYQlCoaUPaoXSINasNLsGe+GEsxsBb+Zm5GiVYS27NrkW/ujb0Ad\nRnkG6BAtkJeVO0lFLegA8lVPPYo3pv8DSsEQXrOwQvYdpUWxkkgsyLcCaTsd\npddKA/FAfaqweGN3OedrHDGo/zrm9YqNaNeaiHLe/kE7qmSsHr50gczXet8v\na19l+gkba8Y810uXXmLR6Yf3fiyk6lT7LmmbVS72gl9BVJ+tfHds8pKlaYru\nD/7Q6AJ5vHcvfkd9NoAmRXkzzmYDitPWi6CEY1tBUzOEehiGY0Qg/fCk6SHC\ngdKyXAem6WMnlJqM6wTFAx4Li/8czXDuzqNkH+ayqg3ztZE92XAdlf/wtN6a\niEL3W7uAmIudYOtmvBEwh9rMJaLqvJAA8IvkJIyZn4eMw7P4hNAga+zAJZmu\nBvVJEckzB8BLXEaJvKGrSWHo78rQe3HfXlUFfoT1Z6xSBmO0H60uxLFYSKwi\nJf9u6bIkMCqhHSKAPr6PxMbUgrYilGyY7uirrnRpAPc1FCZkN8fQrMFi55n+\nQtb4\r\n=vmF+\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCXRIE5wvU6+8hcmUXTDgd1z9hFUy57fjVU/boZmNN3aAIhAMW26h7OEhzVe062PiHh+mqpXHVVCsv0JBbAdJ99+3iC"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-safe-important_1.2.0_1569857768522_0.7931396047682133"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.2.1": {
+			"name": "postcss-safe-important",
+			"version": "1.2.1",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "StrayBugs",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"dependencies": {
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.17.0",
+				"eslint": "^1.10.2"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"gitHead": "6e819e3ed48c243ff4636d106c5650c1bdb81b0c",
+			"_id": "postcss-safe-important@1.2.1",
+			"_nodeVersion": "14.15.0",
+			"_npmVersion": "6.14.8",
+			"dist": {
+				"integrity": "sha512-aDsibkGSaAL8yTqwK6dK9DBtXFJmbctvuz10Ony0lYJ8SIkk4Rs3Im9rg+yu7DVzFKYGfy/LT49CsKV7T9jNaw==",
+				"shasum": "27bb2b24fe92d914ada4c65a24d03e38a7bbbeb6",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-1.2.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 17592,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgNRDoCRA9TVsSAnZWagAAzksP/0KJ4BAQqqaZemMeyvSS\nO1ryA8VeLogXd2JoJlUmnAlHOxldi3lhGSEJDZMnw0Ez50+q+qAxFq3ca1bG\n4CRDvmzuFhiXGdNAo6baEFBs+5uZubVUThPuR65UORbD+Ees2BTvjYVQhwYh\nrEssyoJKepR4nvVGihW/xT9EZAosOZoKl5V4QOM5BF1zeqinHd6KRkjhhGna\n4p3BFjy+kL59gOUl828KRqQqIoH7RLr7hphZ7q10XafGgd3hrjHvJgcJD7lR\nS8ric59WxDo0zbN5CWHFSz/dakHF6ZdXqWiIAYNBph9sohfcyFRtY8VE01uq\nENkfq7g2FTb9pCWcD5JyvVpSAqwmUDcS5HuEYNWua9DZ/R33MGxu1Ueb5rzX\nxkn5TvJaMTqziWciazv4LSXzkymYgytufujeKveMKZo+xnysStzHksREvtDI\n3DufHaEqRiPorMQfXiD5vn6V0/JLW8khJClaNhPsAEoJVP7L4dLsUy3aOSc7\n6ehIZeN1vOU/MpVUA7RWwykTPyqjb/+JESKa65MEcxmyTlRWqowF3q7ez4rw\nt4Y59iTGdwSdiK5xwKYqHmGT/+2hNyfW12Ad+Jsm1DmbWy7i1F6J3hCG9w2z\nSmJzDJHKPJTf0yALOEp1m1vjc+EFcAUQsDbKTGvX7V57+0HKEjtCBPBGlt/O\n+Rz+\r\n=+hH0\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCuK0Xy6An7SXCp39RRgUtipOvKYzwp43kcH4a63eOqJgIhAMrKjfzG3YlPKY+bURGZsaWmBTljw3j+7cQF+Cy/xPKZ"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-safe-important_1.2.1_1614090471446_0.8517849160421465"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"homepage": "https://github.com/Crimx/postcss-safe-important",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"important",
+		"cleanslate",
+		"declaration",
+		"gulp",
+		"grunt",
+		"weight"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/crimx/postcss-safe-important.git"
+	},
+	"author": {
+		"name": "StrayBugs",
+		"email": "straybugs@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/Crimx/postcss-safe-important/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

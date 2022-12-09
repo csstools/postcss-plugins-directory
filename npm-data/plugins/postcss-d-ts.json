@@ -1,0 +1,873 @@
+{
+	"_id": "postcss-d-ts",
+	"_rev": "6-7a6a17dc9b8e4be6ad3a9d0a1cc742d3",
+	"name": "postcss-d-ts",
+	"dist-tags": {
+		"latest": "1.2.0"
+	},
+	"versions": {
+		"0.14.0": {
+			"name": "postcss-d-ts",
+			"version": "0.14.0",
+			"description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+			"homepage": "https://github.com/askirmas/postcss-d-ts#readme",
+			"keywords": [
+				"css",
+				"d.ts",
+				"css-modules",
+				"postcss-plugin",
+				"typescript",
+				"declare",
+				"declarations",
+				"sass"
+			],
+			"author": {
+				"name": "Andrii Kirmas",
+				"email": "kirmas@phystech.edu",
+				"url": "https://about.me/kirmas"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/askirmas/postcss-d-ts.git"
+			},
+			"scripts": {
+				"setup": "git config include.path ../.gitconfig && git-hooks-wrapper init",
+				"dev": "npm run jest -- --watch --coverage=false",
+				"test": "npm run build",
+				"build": "npm run compile",
+				"prebuild": "find . -type f -iname '*.css.d.ts' -exec rm {} \\; && npm run t",
+				"postbuild": "npm run spec && npm run docs",
+				"compile": "tsc --project tsconfig.compile.json",
+				"precompile": "rm -rf docs dist && mkdir docs",
+				"postcompile": "./postcompile.sh",
+				"spec": "cd __recipes__ && npm run build",
+				"t": "npm run t/utils && npm run t/func && npm run t/tsc",
+				"t/utils": "npm run jest -- --config jest.config.utils.json",
+				"t/func": "npm run jest --",
+				"t/tsc": "cd __unit__ && tsc && cd ../__func__ && tsc",
+				"jest": "jest --runInBand",
+				"docs": "cd dist && find . -type f -iname '*.json' -exec cp {} ../docs/ \\;",
+				"dev:n3": "cd __recipes__ && npm run dev:n3",
+				"dev:n5": "cd __recipes__ && npm run dev:n5",
+				"np": "np",
+				"-eslint": "eslint --fix ."
+			},
+			"devDependencies": {
+				"@logux/eslint-config": "^44.1.0",
+				"@types/globby": "^9.1.0",
+				"@types/jest": "^26.0.20",
+				"@types/react": "^16.9.46",
+				"eslint": "^7.19.0",
+				"eslint-config-postcss": "^4.0.0",
+				"eslint-config-standard": "^16.0.2",
+				"eslint-plugin-es5": "^1.5.0",
+				"eslint-plugin-import": "^2.22.1",
+				"eslint-plugin-jest": "^24.1.3",
+				"eslint-plugin-node": "^11.1.0",
+				"eslint-plugin-prefer-let": "^1.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-security": "^1.4.0",
+				"eslint-plugin-standard": "^5.0.0",
+				"eslint-plugin-unicorn": "^27.0.0",
+				"git-hooks-wrapper": "^0.7.1",
+				"globby": "^11.0.2",
+				"jest": "^26.6.3",
+				"np": "^6.3.2",
+				"postcss": "^7.0.35",
+				"postcss8": "npm:postcss@^8.2.8",
+				"tailwindcss2": "npm:tailwindcss@^2.0.3",
+				"ts-jest": "^26.5.0",
+				"typescript": "^4.1.3"
+			},
+			"peerDependencies": {
+				"postcss": ">=7",
+				"react-classnaming": "*"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/askirmas/postcss-d-ts/labels/bug"
+			},
+			"main": "dist/index.js",
+			"types": "dist/",
+			"publishConfig": {
+				"access": "public"
+			},
+			"np": {
+				"yarn": false,
+				"branch": "master",
+				"2fa": false
+			},
+			"dependencies": {},
+			"gitHead": "df98644d26881ff4ddea34a9d82a84188fa12fd5",
+			"_id": "postcss-d-ts@0.14.0",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-n3hppJrSNW46xOvvDNPCQ8SyurGNG4S4YxIIqByvgPkVGPhlUrAq3zOrXkSSgHRHEKOmBW4P1nCRxXYVUpQEcA==",
+				"shasum": "c770eb4093de291612155c92379487632e356773",
+				"tarball": "https://registry.npmjs.org/postcss-d-ts/-/postcss-d-ts-0.14.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 22802,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgTwejCRA9TVsSAnZWagAA7QQP/3Oecq1k4IdDe+gDL572\nOk1AgOpN7vNhph/pFn0V8xiusIBe+l6MJth0agpM+DFXoudKchpoO2L+n9xd\nL9LdP4XI72PecmLiYLNxkz+JG8EB5mq4FuiuorsiYJJC7v/B+WXK/zNyQ79t\n7Zx9YFjYNgNxjB7JncwZ0EKykh1X6vPw2KL24aAMarrxodW9c6omdmLCPRhr\nlhWowLtW59qmjkMRW4srz1ian1XHPtcwntXXDfdSju+5EvJ97pre9JrWcSXN\nB8zCan8BkpL8frnb02TZBlOpHSn+M9wYq+ITxUJeOtg/tPbbY9TLUJXT1n1x\nm9YUR0ZOpkWoVMZUMvcl5aFjp2TkzVaA+XYEXjw5nricBUn6Uhdp0A5nUmit\nshFX3hDIgWa8bkGHGaR2/ZvrsgbmUh9sJxwrxj9bVCbzbQ70NojElUXNEEF/\n3pO6ie8G6+TU1hPVqCR+fiUtHBXwfS+OiFecreykzlz5X6obyKxtJieLPBvF\ncWK76SIKVo8hZcGDvs2jXTWyms9LnxLNldus6CbhO4V1G2i2HcXPES/jemce\nilAEHM0zOnbNbjSeGiBTVTyrnQ1dYJe8/pd0OTbnz/M7lx7L+Nq1UrN9++GL\ns9xH4HfMw/oCD4MjQaxNP8zUBgaBn1Rev+B94Zs1JWmsB3RaEuH6Pb3tW7+H\nZ7GF\r\n=TMvV\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDYfQ3xoz+powNxVPVo7wI2VnBpJ24k5JHhsrWAcrz9qgIgZlLen1do8q5LWf94R8nKEkyp3QDUoRn8GVMsxF6ed7c="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "kirmas",
+				"email": "kirmas@phystech.edu"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "kirmas",
+					"email": "kirmas@phystech.edu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-d-ts_0.14.0_1615792035077_0.047604424568286285"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.15.0": {
+			"name": "postcss-d-ts",
+			"version": "0.15.0",
+			"description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+			"homepage": "https://github.com/askirmas/postcss-d-ts#readme",
+			"keywords": [
+				"css",
+				"d.ts",
+				"css-modules",
+				"postcss-plugin",
+				"typescript",
+				"declare",
+				"declarations",
+				"sass"
+			],
+			"author": {
+				"name": "Andrii Kirmas",
+				"email": "kirmas@phystech.edu",
+				"url": "https://about.me/kirmas"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/askirmas/postcss-d-ts.git"
+			},
+			"scripts": {
+				"setup": "git config include.path ../.gitconfig && git-hooks-wrapper init",
+				"dev": "npm run jest -- --watch --coverage=false",
+				"test": "npm run build",
+				"build": "npm run compile",
+				"prebuild": "find . -type f -iname '*.css.d.ts' -exec rm {} \\; && npm run t",
+				"postbuild": "npm run spec && npm run docs",
+				"compile": "tsc --project tsconfig.compile.json",
+				"precompile": "rm -rf docs dist && mkdir docs",
+				"postcompile": "./postcompile.sh",
+				"spec": "cd __recipes__ && npm run build",
+				"t": "npm run t/utils && npm run t/func && npm run t/tsc",
+				"t/utils": "npm run jest -- --config jest.config.utils.json",
+				"t/func": "npm run jest --",
+				"t/tsc": "cd __unit__ && tsc && cd ../__func__ && tsc",
+				"jest": "jest --runInBand",
+				"docs": "cd dist && find . -type f -iname '*.json' -exec cp {} ../docs/ \\;",
+				"dev:n3": "cd __recipes__ && npm run dev:n3",
+				"dev:n5": "cd __recipes__ && npm run dev:n5",
+				"np": "np",
+				"-eslint": "eslint --fix ."
+			},
+			"devDependencies": {
+				"@logux/eslint-config": "^44.1.0",
+				"@types/globby": "^9.1.0",
+				"@types/jest": "^26.0.20",
+				"@types/react": "^16.9.46",
+				"eslint": "^7.19.0",
+				"eslint-config-postcss": "^4.0.0",
+				"eslint-config-standard": "^16.0.2",
+				"eslint-plugin-es5": "^1.5.0",
+				"eslint-plugin-import": "^2.22.1",
+				"eslint-plugin-jest": "^24.1.3",
+				"eslint-plugin-node": "^11.1.0",
+				"eslint-plugin-prefer-let": "^1.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-security": "^1.4.0",
+				"eslint-plugin-standard": "^5.0.0",
+				"eslint-plugin-unicorn": "^27.0.0",
+				"git-hooks-wrapper": "^0.7.1",
+				"globby": "^11.0.2",
+				"jest": "^26.6.3",
+				"np": "^6.3.2",
+				"postcss": "^7.0.35",
+				"postcss8": "npm:postcss@^8.2.8",
+				"tailwindcss2": "npm:tailwindcss@^2.0.3",
+				"ts-jest": "^26.5.0",
+				"typescript": "^4.1.3"
+			},
+			"peerDependencies": {
+				"postcss": ">=7",
+				"react-classnaming": "*"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/askirmas/postcss-d-ts/labels/bug"
+			},
+			"main": "dist/index.js",
+			"types": "dist/",
+			"publishConfig": {
+				"access": "public"
+			},
+			"np": {
+				"yarn": false,
+				"branch": "master",
+				"2fa": false
+			},
+			"dependencies": {},
+			"icon": "https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.svg",
+			"gitHead": "1be1f693469eda3683858ac2fc3afe4229e748b4",
+			"_id": "postcss-d-ts@0.15.0",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-WBw2u805R9oy1/NDns/5xUtryZF6CMWf2zThiHJKimdFIgodxX1E+o4urImS+nYwMzSJSk6/vfY3GBfiEgSBnA==",
+				"shasum": "d318ed608bfc212c7616f839ea631fccb5493a8c",
+				"tarball": "https://registry.npmjs.org/postcss-d-ts/-/postcss-d-ts-0.15.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 28708,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgT3H/CRA9TVsSAnZWagAAGiAP/i44FsRUU63Vp4k1iVQJ\nJztBN7rdH78HsYk4MJBjKGFHnlQS4bgCJKgQGf9IOC468yu8uudAZMwOH5E7\nxv+qOjCTm+pn4GDcU7EiZr1oFyt6X+9Og+n4AvwLlgHP8+HhRzawjzz8lidF\nBtSykyhnCSw1krDwACKrgAqhbm1CEbBCYrUXNsUhsrRmC8RA6vZqInmTjw1G\nG8GiUZf9KJ7k53oCMKMs/ponM9BsRgbHQgyYsYEBh5TGy6tQcV0rS72lScla\n5rmSIbCVXdZXZze9PKrYW+F+Uei/Q3bPYLkPJwTpfRdahu2LkuVIFXPHbJCK\n/n/MCTWG+iYWLHTPyR5uiiYOpsEcV1Z9fBLV25Iv2OxdVEGwjMYlroRfwdaT\nzWV1ZfqyeNMeasjTI4nskXPGdQsG3Q8FqGsjF4stdHwzJ5wpZ11lPabPZvYu\ndVfRPpZfQM4lZRSPw1Hn4lDl3cuCLMRux8T8ZI6rV2qSHzJO0W8z+HABiLIp\nOnKFnGErLYD2staKYO2PVn1doBMJSR2woc2MFxr70qyWtiErJBXppkPZ3XXD\n2UZVSR7APzOB0hEG6iAcnlboR6Jm3squHFEOb3ppkXeSSDBDRkESfCbrJzRC\nF57lx+64kX9NPZsmmeBvws0Kt4+16UtFxV+r1HGGYZi8iTc+X9XzBChyuX5m\nBKLk\r\n=GFDF\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCF5H8az39MzMoEW6vp/wf0Y+aF37mq0g1PCixbN18oCgIgHkc1sDOumU/D24fJ/cZug1cPiqu6UKV7Jg3dWnJTKP8="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "kirmas",
+				"email": "kirmas@phystech.edu"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "kirmas",
+					"email": "kirmas@phystech.edu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-d-ts_0.15.0_1615819262757_0.25211807687448995"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.16.0": {
+			"name": "postcss-d-ts",
+			"version": "0.16.0",
+			"description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+			"homepage": "https://github.com/askirmas/postcss-d-ts#readme",
+			"keywords": [
+				"css",
+				"d.ts",
+				"css-modules",
+				"postcss-plugin",
+				"typescript",
+				"declare",
+				"declarations",
+				"sass"
+			],
+			"author": {
+				"name": "Andrii Kirmas",
+				"email": "kirmas@phystech.edu",
+				"url": "https://about.me/kirmas"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/askirmas/postcss-d-ts.git"
+			},
+			"scripts": {
+				"setup": "git config include.path ../.gitconfig && git-hooks-wrapper init",
+				"dev": "npm run jest -- --watch --coverage=false",
+				"test": "npm run build",
+				"build": "npm run compile",
+				"prebuild": "npm run t",
+				"postbuild": "npm run spec && npm run docs",
+				"compile": "tsc --project tsconfig.compile.json",
+				"precompile": "rm -rf docs dist unpacked && mkdir docs",
+				"postcompile": "./postcompile.sh",
+				"spec": "cd __recipes__ && npm run build",
+				"t": "npm run t/utils && npm run t/func && npm run t/tsc",
+				"t/utils": "npm run jest -- --config jest.config.utils.json",
+				"t/func": "npm run jest --",
+				"t/tsc": "cd __unit__ && tsc && cd ../__func__ && tsc",
+				"jest": "jest --runInBand --detectOpenHandles",
+				"docs": "cd dist && find . -type f -iname '*.json' -exec cp {} ../docs/ \\;",
+				"dev:n3": "cd __recipes__ && npm run dev:n3",
+				"dev:n5": "cd __recipes__ && npm run dev:n5",
+				"np": "np",
+				"-eslint": "eslint --fix .",
+				"ci": "npm ci --prefer-offline --no-audit --silent --quiet --no-progress",
+				"postci": "cd __recipes__ && npm run ci"
+			},
+			"devDependencies": {
+				"@logux/eslint-config": "^44.1.0",
+				"@types/globby": "^9.1.0",
+				"@types/jest": "^26.0.20",
+				"@types/react": "^16.9.46",
+				"bootstrap3": "npm:bootstrap@^3.4.1",
+				"bootstrap4": "npm:bootstrap@^4.6.0",
+				"eslint": "^7.19.0",
+				"eslint-config-postcss": "^4.0.0",
+				"eslint-config-standard": "^16.0.2",
+				"eslint-plugin-es5": "^1.5.0",
+				"eslint-plugin-import": "^2.22.1",
+				"eslint-plugin-jest": "^24.1.3",
+				"eslint-plugin-node": "^11.1.0",
+				"eslint-plugin-prefer-let": "^1.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-security": "^1.4.0",
+				"eslint-plugin-standard": "^5.0.0",
+				"eslint-plugin-unicorn": "^27.0.0",
+				"git-hooks-wrapper": "^0.7.1",
+				"globby": "^11.0.2",
+				"jest": "^26.6.3",
+				"material10": "npm:material-components-web@^10.0.0",
+				"np": "^6.3.2",
+				"postcss": "^7.0.35",
+				"postcss8": "npm:postcss@^8.2.8",
+				"ts-jest": "^26.5.0",
+				"typescript": "^4.1.3"
+			},
+			"peerDependencies": {
+				"postcss": ">=7",
+				"react-classnaming": "*"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/askirmas/postcss-d-ts/labels/bug"
+			},
+			"main": "dist/index.js",
+			"types": "dist/",
+			"publishConfig": {
+				"access": "public"
+			},
+			"np": {
+				"yarn": false,
+				"branch": "master",
+				"2fa": false
+			},
+			"dependencies": {},
+			"gitHead": "e7b455b2f224593fc490c25e8668397fc9927ccc",
+			"_id": "postcss-d-ts@0.16.0",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-sMU26pdH46s6wc3F8ObCQsrMtwwDc1N4PV8hW5fm6xnp+knV33Uu4pLJ2sBlPcEByBBqEHpTTOwm+UbKNMFp6g==",
+				"shasum": "2a215b9beaf828f688de1c95eed1e73005428774",
+				"tarball": "https://registry.npmjs.org/postcss-d-ts/-/postcss-d-ts-0.16.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 26217,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgUzAbCRA9TVsSAnZWagAAhz0P/RtITlg9cEmcimJuSafD\nRiuBXzFzqxyMKo1O7+JVXOLnLBKIlwelcJ9rzr+IIlOZ+Dcy1ktmt3dEzSRs\nlc6g1Zm/XOGcbEVuGUcYN05s3663shhb3xkBvJBDKCKUuD0ajDdv96Ntwpnq\nkqa661BJycmWoEHKQZAEYbhgkOmSAYqL7sJfW5PLBYkIQgQ6tIVaTwPm24aK\n+FNgfBB9E8SZ4tRLu9i9nJNuRmGWCVaep/r4UAz/HVdozxEHOtIAZ8HHnddr\nBSkGpnBeNsh0f7pJ8my93L6gFO/YcjuN8G9MpPx3FR4uP+gQ8Fu9MZWTTYDh\ntKe6YkMVtBxLC7XLIDGDBu1VkhN8rAJofOVZl5DUE7CpHV/KpREAP4vj3FPO\ndOAXvm7FexDy7/o2Lob3wLcpjnj/KFI/ziKEAWsOREv5SjStMwHMPD2LZf6X\n1N05M7qd+X71wKqmqqMkuzkFJqN0bDso18UBQLXo04TokWWS/kglvX1jZGZ8\nuvlFHTi9tAg8qU/+3LA1nYRIl92mYwLdJ6Gbr0GZKPAUT1MzuWGh1mPXaRVo\na2DId3BiWzJ6zMxA2EPKfldOTqnAUMxbrao+ZUDH5vyVUbnaZ0UJwH9tXpjd\nk92OO9Mph6t1hQyHiYz2Xx6W5Z6GyuawjI/7yNugpk7iSbI/kgzGaO99mwXI\n3o7H\r\n=A2Js\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD3vmQlAC340c0W1ySqE/Rq/kxwk5OV3br26un6adtzyAIhAMwvU4SpDcb+d3UhI0IM8L5OlVbULqVAvcgL7jT5uz7k"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "kirmas",
+				"email": "kirmas@phystech.edu"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "kirmas",
+					"email": "kirmas@phystech.edu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-d-ts_0.16.0_1616064539208_0.6069391301600373"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0": {
+			"name": "postcss-d-ts",
+			"version": "1.0.0",
+			"description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+			"homepage": "https://github.com/askirmas/postcss-d-ts#readme",
+			"keywords": [
+				"css",
+				"d.ts",
+				"css-modules",
+				"postcss-plugin",
+				"typescript",
+				"declare",
+				"declarations",
+				"sass"
+			],
+			"author": {
+				"name": "Andrii Kirmas",
+				"email": "kirmas@phystech.edu",
+				"url": "https://about.me/kirmas"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/askirmas/postcss-d-ts.git"
+			},
+			"scripts": {
+				"setup": "git config include.path ../.gitconfig && git-hooks-wrapper init",
+				"dev": "npm run jest -- --watch --coverage=false",
+				"test": "npm run build",
+				"build": "npm run compile",
+				"prebuild": "npm run t",
+				"postbuild": "npm run spec && npm run docs",
+				"compile": "tsc --project tsconfig.compile.json",
+				"precompile": "rm -rf docs dist unpacked && mkdir docs",
+				"postcompile": "./postcompile.sh",
+				"spec": "cd __recipes__ && npm run build",
+				"t": "npm run t/utils && npm run t/func && npm run t/tsc",
+				"t/utils": "npm run jest -- --config jest.config.utils.json",
+				"t/func": "npm run jest --",
+				"t/tsc": "cd __unit__ && tsc && cd ../__func__ && tsc",
+				"jest": "jest --runInBand --detectOpenHandles",
+				"docs": "cd dist && find . -type f -iname '*.json' -exec cp {} ../docs/ \\;",
+				"dev:n3": "cd __recipes__ && npm run dev:n3",
+				"dev:n5": "cd __recipes__ && npm run dev:n5",
+				"np": "np",
+				"eslint": "eslint --fix .",
+				"ci": "npm ci --prefer-offline --no-audit --silent --quiet --no-progress",
+				"postci": "cd __recipes__ && npm run ci"
+			},
+			"devDependencies": {
+				"@logux/eslint-config": "^44.1.0",
+				"@mysticatea/eslint-plugin": "^13.0.0",
+				"@types/globby": "^9.1.0",
+				"@types/jest": "^26.0.20",
+				"@types/react": "^16.9.46",
+				"@typescript-eslint/eslint-plugin": "^4.18.0",
+				"bootstrap3": "npm:bootstrap@^3.4.1",
+				"bootstrap4": "npm:bootstrap@^4.6.0",
+				"eslint": "^7.22.0",
+				"eslint-config-standard": "^16.0.2",
+				"eslint-plugin-import": "^2.22.1",
+				"eslint-plugin-jest": "^24.3.2",
+				"eslint-plugin-no-use-extend-native": "^0.5.0",
+				"eslint-plugin-node": "^11.1.0",
+				"eslint-plugin-optimize-regex": "^1.2.0",
+				"eslint-plugin-prefer-let": "^1.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-react": "^7.22.0",
+				"eslint-plugin-security": "^1.4.0",
+				"eslint-plugin-sonarjs": "^0.6.0",
+				"eslint-plugin-standard": "^5.0.0",
+				"eslint-plugin-unicorn": "^27.0.0",
+				"git-hooks-wrapper": "^0.7.1",
+				"globby": "^11.0.2",
+				"jest": "^26.6.3",
+				"material10": "npm:material-components-web@^10.0.0",
+				"np": "^6.3.2",
+				"postcss": "^7.0.35",
+				"postcss8": "npm:postcss@^8.2.8",
+				"ts-jest": "^26.5.0",
+				"typescript": "^4.1.3"
+			},
+			"peerDependencies": {
+				"postcss": ">=7",
+				"react-classnaming": "*"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/askirmas/postcss-d-ts/labels/bug"
+			},
+			"main": "dist/index.js",
+			"types": "dist/",
+			"publishConfig": {
+				"access": "public"
+			},
+			"np": {
+				"yarn": false,
+				"branch": "master",
+				"2fa": false
+			},
+			"dependencies": {},
+			"gitHead": "aed48d8f9d67f2cff2659c3f0884ca06bb8dc229",
+			"_id": "postcss-d-ts@1.0.0",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-F79I+X0Qgxkzjq8ssvwZbVaTPod50IRsKRsLszZfngdYXg4JMKPcjbyqzay3NfWrDZsaFpIQlfOcFrTDX/JMxw==",
+				"shasum": "ab35ffb0ac2b47a19e7b4bc4a398936a845ca744",
+				"tarball": "https://registry.npmjs.org/postcss-d-ts/-/postcss-d-ts-1.0.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 27706,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgU8spCRA9TVsSAnZWagAA6FMP/2XEUe4bs0/uRwRZ0Hc6\nBJzd0l2iYMnB98dMN239wGwtClW0MO/v13cBO0pPxmLRX7i2m9oOGHun5BuZ\nqcDdZmr6wuj3Nx2Oj84zZ4PLB4wc0ptVnnIkotLocIAicNpa8ghgcyi6Qn99\nmC602oNM8aLnpA42BrjZYV2VTuHo2PVZg/Bf9BgdtcmB9eWZanW2NVb/vp3M\ntqVNJxby+B0DYm0gvonnMgaaivXo6pseEiXp9WrFmHhgk5jybsCz1D06YRh9\nfZM4Ha9PzzDUxQ6ibeJzU4UcdYcFQmQJNKzkQc9c1XIAvbQYltiNDMoeNU1o\nFLj2HJALPIoOUUzKVMRJ2xxL85KUkRwH+uWHhWzhhX7bjVAYhTx36U2l7G+k\nNpD0qpVxzgT3ukwtey7MSPS6iu7FIcyghHEnsvQ+YhENhDvKA5Y91RJ/zOgR\n5pmtwjqBCc/GU+esh+eo2bRYtFjoTfG0qe9bRn/qzpv3NiBwWtueZjtT0TUj\nRxEjJ5JFU5v/u9GJu7mV//s88kOvUDdPWf8OnKPh8ae7wWFQULMSe1D5WpbZ\n00tExk1LjouAol0ugKdS1sBIWm4RV8aGeUb+2xnNKShgL9sameKM0Z09oUTS\nPupebwIRULm3jMdPpy109FN37pxGkAmMyTv9PfF+WFouKHX2ULObJYCDCQKb\nSWyb\r\n=Vdj/\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCQk5YNBGDnWjf1z54UaXKY1A5RZcwLYiuF7naffn7UDwIhAKuFILYk6TxMqKlJ/R34HVfs6qOZdXeatXEmGxYzDNHN"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "kirmas",
+				"email": "kirmas@phystech.edu"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "kirmas",
+					"email": "kirmas@phystech.edu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-d-ts_1.0.0_1616104233171_0.5042749252423531"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "postcss-d-ts",
+			"version": "1.1.0",
+			"description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+			"homepage": "https://github.com/askirmas/postcss-d-ts#readme",
+			"keywords": [
+				"css",
+				"d.ts",
+				"css-modules",
+				"postcss-plugin",
+				"typescript",
+				"declare",
+				"declarations",
+				"sass"
+			],
+			"author": {
+				"name": "Andrii Kirmas",
+				"email": "kirmas@phystech.edu",
+				"url": "https://about.me/kirmas"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/askirmas/postcss-d-ts.git"
+			},
+			"scripts": {
+				"setup": "git config include.path ../.gitconfig && git-hooks-wrapper init",
+				"dev": "npm run jest -- --watch --coverage=false",
+				"test": "npm run build",
+				"build": "npm run compile",
+				"prebuild": "npm run t",
+				"postbuild": "npm run spec && npm run docs",
+				"compile": "tsc --project tsconfig.compile.json",
+				"precompile": "rm -rf docs dist unpacked && mkdir docs",
+				"postcompile": "./postcompile.sh",
+				"spec": "cd __recipes__ && npm run build",
+				"t": "npm run t/utils && npm run t/func && npm run t/tsc",
+				"t/utils": "npm run jest -- --config jest.config.utils.json",
+				"t/func": "npm run jest --",
+				"t/tsc": "cd __unit__ && tsc && cd ../__func__ && tsc",
+				"jest": "jest --runInBand --detectOpenHandles",
+				"docs": "cd dist && find . -type f -iname '*.json' -exec cp {} ../docs/ \\;",
+				"dev:n3": "cd __recipes__ && npm run dev:n3",
+				"dev:n5": "cd __recipes__ && npm run dev:n5",
+				"np": "np",
+				"eslint": "eslint --fix .",
+				"ci": "npm ci --prefer-offline --no-audit --silent --quiet --no-progress",
+				"postci": "cd __recipes__ && npm run ci"
+			},
+			"devDependencies": {
+				"@logux/eslint-config": "^44.1.0",
+				"@mysticatea/eslint-plugin": "^13.0.0",
+				"@types/globby": "^9.1.0",
+				"@types/jest": "^26.0.20",
+				"@types/react": "^16.9.46",
+				"@typescript-eslint/eslint-plugin": "^4.18.0",
+				"bootstrap3": "npm:bootstrap@^3.4.1",
+				"bootstrap4": "npm:bootstrap@^4.6.0",
+				"eslint": "^7.22.0",
+				"eslint-config-standard": "^16.0.2",
+				"eslint-plugin-import": "^2.22.1",
+				"eslint-plugin-jest": "^24.3.2",
+				"eslint-plugin-no-use-extend-native": "^0.5.0",
+				"eslint-plugin-node": "^11.1.0",
+				"eslint-plugin-optimize-regex": "^1.2.0",
+				"eslint-plugin-prefer-let": "^1.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-react": "^7.22.0",
+				"eslint-plugin-security": "^1.4.0",
+				"eslint-plugin-sonarjs": "^0.6.0",
+				"eslint-plugin-standard": "^5.0.0",
+				"eslint-plugin-unicorn": "^27.0.0",
+				"git-hooks-wrapper": "^0.7.1",
+				"globby": "^11.0.2",
+				"jest": "^26.6.3",
+				"material10": "npm:material-components-web@^10.0.0",
+				"np": "^6.3.2",
+				"npm-run-all": "^4.1.5",
+				"postcss": "^7.0.35",
+				"postcss8": "npm:postcss@^8.2.8",
+				"ts-jest": "^26.5.0",
+				"typescript": "^4.1.3"
+			},
+			"peerDependencies": {
+				"postcss": ">=7",
+				"react-classnaming": "*"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/askirmas/postcss-d-ts/labels/bug"
+			},
+			"main": "dist/index.js",
+			"types": "dist/",
+			"publishConfig": {
+				"access": "public"
+			},
+			"np": {
+				"yarn": false,
+				"branch": "master",
+				"2fa": false
+			},
+			"dependencies": {},
+			"gitHead": "ade2f5c3046c826710860dce61a6c164ba0a2109",
+			"_id": "postcss-d-ts@1.1.0",
+			"_nodeVersion": "12.20.2",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-4rcTUYvaZTKq3b/4sHNE21MkvA/nbamecY3in73b7UQ2HwfckyFQZONp9RCfov9axJWpSyLDyfIXnjDKBTd4/Q==",
+				"shasum": "3070972c619899b81a6b0d6b54382062042f88a1",
+				"tarball": "https://registry.npmjs.org/postcss-d-ts/-/postcss-d-ts-1.1.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 28337,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgjZWtCRA9TVsSAnZWagAA1lMP/29V2sLdhfT1krix13Kx\nqB98tmn8Zw1zAWiqTqyg12kx3HVISVuRrPEcXZ8z0YufJwCpN6O31Pg3sady\nY0SxRIJInk7bWIBml5TKCuAuBXr20T2hGfoowbDVaMfQFqda/AGmZC1PjMwz\nwa9jJaKRfnYbhVBRfxz8ZxaHxAZ24WA6JLGeRUWQTglXc4BHag/Qlg61b+wi\n55FeQXOrNgWg+rnyQyEE95wZkUuCJ42aWtPMc1MLd+8e+x6m/D36Ejwxoulk\n4gv9lcv9oQuEPDAkbrZfBnnwhC/ZE4u3xg2c8mHM4HdNB81Jhq3+OYi5pKI+\nITlNYrRORbtkTXu+VYS0wtnIuBZmXtf6w3qpJT6g8mTSzsaOAYs9bU6IqToI\n4kSdfFsqRovivRsGKdL7xSfkf/NNAKGg07oDe26/aybfQeGC/ZYttajYdE2T\n5v/Bz9pUE7N5FdWqxhHmMqN59CMNIWaPH97GLbEVIx8SmNLXUqq8UPi8djHd\n1aDbi703XMlDWS9SwGZB+OwcIZ/s1b0lT3RcSzhcO83rDxGyF90qK0k9RAKe\nd3EZL8dqOjqgPy3MYewkm0rbVcisAKkykLxh/6ywLeSCUiDoLOlwaClrpnUS\nH3+DAy3rW+o+2dFJyawhs6Gmat0dQO9NHhZwcS9+4dGISrgz9X95Aicy6sSj\nfgSo\r\n=f24v\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDi7IT9emZrl5JYBW5rzr149DFNbMFVvn37/WIo9jTlVQIgfyg2VmTvvP09QhCPT161wQPyRwJQA3FgpSqRxCUMYqE="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "kirmas",
+				"email": "kirmas@phystech.edu"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "kirmas",
+					"email": "kirmas@phystech.edu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-d-ts_1.1.0_1619891628862_0.7600849958628315"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.2.0": {
+			"name": "postcss-d-ts",
+			"version": "1.2.0",
+			"description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+			"homepage": "https://github.com/askirmas/postcss-d-ts#readme",
+			"keywords": [
+				"css",
+				"d.ts",
+				"css-modules",
+				"postcss-plugin",
+				"typescript",
+				"declare",
+				"declarations",
+				"sass"
+			],
+			"author": {
+				"name": "Andrii Kirmas",
+				"email": "kirmas@phystech.edu",
+				"url": "https://about.me/kirmas"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/askirmas/postcss-d-ts.git"
+			},
+			"scripts": {
+				"setup": "git config include.path ../.gitconfig && git-hooks-wrapper init",
+				"dev": "npm run jest -- --watch --coverage=false",
+				"test": "npm run build",
+				"build": "npm run compile",
+				"prebuild": "npm run t",
+				"postbuild": "npm run spec && npm run docs",
+				"compile": "tsc --project tsconfig.compile.json",
+				"precompile": "rm -rf docs dist unpacked && mkdir docs",
+				"postcompile": "./postcompile.sh",
+				"spec": "cd __recipes__ && npm run build",
+				"t": "npm run t/utils && npm run t/func && npm run t/tsc",
+				"t/utils": "npm run jest -- --config jest.config.utils.json",
+				"t/func": "npm run jest --",
+				"t/tsc": "cd __unit__ && tsc && cd ../__func__ && tsc",
+				"jest": "jest --runInBand --detectOpenHandles",
+				"docs": "cd dist && find . -type f -iname '*.json' -exec cp {} ../docs/ \\;",
+				"dev:n3": "cd __recipes__ && npm run dev:n3",
+				"dev:n5": "cd __recipes__ && npm run dev:n5",
+				"np": "np",
+				"eslint": "eslint --fix .",
+				"ci": "npm ci --prefer-offline --no-audit --silent --quiet --no-progress",
+				"postci": "cd __recipes__ && npm run ci"
+			},
+			"devDependencies": {
+				"@logux/eslint-config": "^44.1.0",
+				"@mysticatea/eslint-plugin": "^13.0.0",
+				"@types/globby": "^9.1.0",
+				"@types/jest": "^26.0.20",
+				"@types/react": "^16.9.46",
+				"@typescript-eslint/eslint-plugin": "^4.18.0",
+				"bootstrap3": "npm:bootstrap@^3.4.1",
+				"bootstrap4": "npm:bootstrap@^4.6.0",
+				"eslint": "^7.22.0",
+				"eslint-config-standard": "^16.0.2",
+				"eslint-plugin-import": "^2.22.1",
+				"eslint-plugin-jest": "^24.3.2",
+				"eslint-plugin-no-use-extend-native": "^0.5.0",
+				"eslint-plugin-node": "^11.1.0",
+				"eslint-plugin-optimize-regex": "^1.2.0",
+				"eslint-plugin-prefer-let": "^1.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-react": "^7.22.0",
+				"eslint-plugin-security": "^1.4.0",
+				"eslint-plugin-sonarjs": "^0.6.0",
+				"eslint-plugin-standard": "^5.0.0",
+				"eslint-plugin-unicorn": "^27.0.0",
+				"git-hooks-wrapper": "^0.7.1",
+				"globby": "^11.0.2",
+				"jest": "^26.6.3",
+				"material10": "npm:material-components-web@^10.0.0",
+				"np": "^6.3.2",
+				"npm-run-all": "^4.1.5",
+				"postcss": "^7.0.35",
+				"postcss8": "npm:postcss@^8.2.8",
+				"ts-jest": "^26.5.0",
+				"typescript": "^4.1.3"
+			},
+			"peerDependencies": {
+				"postcss": ">=7",
+				"react-classnaming": "*"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/askirmas/postcss-d-ts/labels/bug"
+			},
+			"main": "dist/index.js",
+			"types": "dist/",
+			"publishConfig": {
+				"access": "public"
+			},
+			"np": {
+				"yarn": false,
+				"branch": "master",
+				"2fa": false
+			},
+			"dependencies": {},
+			"gitHead": "bc62ea5d9a5dd4f178c3aa86bb436321c8d01f84",
+			"_id": "postcss-d-ts@1.2.0",
+			"_nodeVersion": "12.20.2",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-tDobGnUFkarZ/kUSX99OBgulRunJcSFZrARUzzzn7nynrjAZF3mAdP+E6Ql/YDd9e8uwzGknt+F+TxRdZGCRCg==",
+				"shasum": "de1732a214d2110c7bdc1b3d725cc3dbaeb17e32",
+				"tarball": "https://registry.npmjs.org/postcss-d-ts/-/postcss-d-ts-1.2.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 28547,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgtJDNCRA9TVsSAnZWagAAFDEP/0egwYfDdHFMI/0RXkTz\nx2EUSe7RQGtpRlHMwe7SfOlxWghBfEnNHPmUWz/D4k9ELp590J0jBtoniYYf\n520K2suLgpWQEWu2AS5vWD0Opio31ebZRBabSM85+0NR0o4/x6pBbqFQeJdV\nsY+fHkGCkB0awY5a4xjkWb4Aoc0ugmPLSMUfAZi4ID+yFEbh07ZvJSE+T8qP\nN+r9uM97EYWerdIOakYldur/gazAu+hxss4bBuH+76usPmY9r+b8GK0Rt1J3\nyPCV1fbQVdh+er0nEgeN5n4LPFGSsxnna3mhuZVCyGEvVgnhkgWUMhdSEMDm\nxtvkqrNYPs/P8ngdiHr9uWFO8xWjA8QLfmqMXk7eR5M960fyLfpENqSQRnP5\ntmd/CbkUtiq1x6px8solUIvhibYqHGPVbY/MIADaGWQfptIXnXeq5AQM3Mjb\nPkIdZWo3IwXTRzt2S5pFxC5zeuamYmQjjaGTuNBowoESnNrFiXwTCjXQUSqx\ngSw+6rWtYBdWz4Q4OUa2RN7oFanUXUeg21l95qOL1LYG0ny0gn4u/3q8Sqnf\nzfFmUCx81YoPXkqpECM1DzPf9A73DzYiD0WYPAGPZmn4lyFFAy/CRKICSW3d\nus6PwL+Xipy9fffbKoRHZtI9FXf2qS0pjiJb5zT3pW+jN2qvKfZxbNYqZPYl\nUXhU\r\n=EA+/\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC8y7yPoq9N+RgjM2Q7Gj2DGTRcNOTzh9jBzJoASx2vNwIgQaTGbTXvWCeDrnlUZLAy25ZXdYJTC1kkmn5ZxcLIvcc="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "kirmas",
+				"email": "kirmas@phystech.edu"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "kirmas",
+					"email": "kirmas@phystech.edu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-d-ts_1.2.0_1622446285170_0.009215218033321593"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2021-03-15T07:07:15.038Z",
+		"0.14.0": "2021-03-15T07:07:15.220Z",
+		"modified": "2022-05-13T06:12:24.472Z",
+		"0.15.0": "2021-03-15T14:41:02.923Z",
+		"0.16.0": "2021-03-18T10:48:59.355Z",
+		"1.0.0": "2021-03-18T21:50:33.302Z",
+		"1.1.0": "2021-05-01T17:53:48.993Z",
+		"1.2.0": "2021-05-31T07:31:25.291Z"
+	},
+	"maintainers": [
+		{
+			"name": "kirmas",
+			"email": "kirmas@phystech.edu"
+		}
+	],
+	"description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+	"homepage": "https://github.com/askirmas/postcss-d-ts#readme",
+	"keywords": [
+		"css",
+		"d.ts",
+		"css-modules",
+		"postcss-plugin",
+		"typescript",
+		"declare",
+		"declarations",
+		"sass"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/askirmas/postcss-d-ts.git"
+	},
+	"author": {
+		"name": "Andrii Kirmas",
+		"email": "kirmas@phystech.edu",
+		"url": "https://about.me/kirmas"
+	},
+	"bugs": {
+		"url": "https://github.com/askirmas/postcss-d-ts/labels/bug"
+	},
+	"license": "MIT",
+	"readme": "# [postcss-d-ts](https://github.com/askirmas/postcss-d-ts) [<img src=\"https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.svg\" alt=\"logo\" height=\"51px\" align=\"right\" />](https://github.com/askirmas/postcss-d-ts)\n\n[PostCSS] plugin to generate [`.d.ts`] of all used CSS classes and ids in imported stylesheets\n\n[![build@ci](https://github.com/askirmas/postcss-d-ts/workflows/build/badge.svg)](https://github.com/askirmas/postcss-d-ts/actions)\n[![codecov](https://codecov.io/gh/askirmas/postcss-d-ts/branch/master/graph/badge.svg?token=TFJ9TMJ3YJ)](https://codecov.io/gh/askirmas/postcss-d-ts)\n[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=askirmas_postcss-d-ts&metric=alert_status)](https://sonarcloud.io/dashboard?id=askirmas_postcss-d-ts)\n[![Maintainability](https://api.codeclimate.com/v1/badges/f6a1ef03e39733e2827c/maintainability)](https://codeclimate.com/github/askirmas/postcss-d-ts/maintainability)\n[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/askirmas/postcss-d-ts/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/askirmas/postcss-d-ts/?branch=master)\n[![DeepScan grade](https://deepscan.io/api/teams/13158/projects/16299/branches/346523/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=13158&pid=16299&bid=346523)\n[![CodeFactor](https://www.codefactor.io/repository/github/askirmas/postcss-d-ts/badge)](https://www.codefactor.io/repository/github/askirmas/postcss-d-ts)\n\n[![dependencies Status](https://status.david-dm.org/gh/askirmas/postcss-d-ts.svg)](https://david-dm.org/askirmas/postcss-d-ts)\n[![version](https://img.shields.io/npm/v/postcss-d-ts)](https://www.npmjs.com/package/postcss-d-ts)\n[![license](https://img.shields.io/npm/l/postcss-d-ts)](https://github.com/askirmas/postcss-d-ts/blob/master/LICENSE)\n\n<p align=\"center\"><a href=\"https://github.com/askirmas/postcss-d-ts/blob/master/images/postcss-d-ts.gif\"><img src=\"https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.gif\"/></a></p>\n\n## Goal\n\nProvide [contract](https://en.wikipedia.org/wiki/Design_by_contract) between JS and CSS.\n\n## Installation and setup\n\n```bash\nnpm install postcss-d-ts\n```\n\n```diff\n// postcss.config.js\nmodule.exports = {\n\tplugins: [\n\t  \"postcss-preset-env\",\n  \t...\n+\t  \"postcss-d-ts\"  // or \"postcss-d-ts/dist/7\" for postcss v7\n\t]\n}\n```\n\nCheck [postcss#usage](https://github.com/postcss/postcss#Usage) for details.\n\n## Features\n\n### Languages <img src=\"https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.frameworks.gif\" width=\"50%\" align=\"right\"/>\n\nLanguage agnostic because of PostCss philosophy\n\n<br clear=\"all\"/>\n\n### CSS libraries/frameworks\n\nIn [./\\_\\_typing\\_\\_/](https://github.com/askirmas/postcss-d-ts/blob/master/__typing__/) results of applying to some popular libraries: [bootstrap v3](https://github.com/askirmas/postcss-d-ts/blob/master/__typing__/bootstrap3.SHOULD.d.ts), [bootstrap v4](https://github.com/askirmas/postcss-d-ts/blob/master/__typing__/bootstrap4.SHOULD.d.ts), [material v10](https://github.com/askirmas/postcss-d-ts/blob/master/__typing__/material10.SHOULD.d.ts), [tailwind v2](https://github.com/askirmas/postcss-d-ts/commit/9514c9e62539127ffd9eaf85fb014efe2daec793#diff-f4d033574661830df6b3d15cfd8d47b76c2ed02cc525b1934242dcff8fc816c0).\n\n## Applyment <img src=\"https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.full.gif\" width=\"50%\" align=\"right\"/>\n\nCSS content:\n\n```css\n/* some.css or some.module.css */\n.class1 { ... }\n.class2 { ... }\n```\n\nGenerated declaration from template (i.e. default *[./src/\\_css-template.d.ts](https://github.com/askirmas/postcss-d-ts/blob/master/src/_css-template.d.ts)*):\n\n```typescript\ndeclare const identifiersMap: CssIdentifiersMap\n\nexport default identifiersMap\n\nexport type CssIdentifiersMap = {\n  \"class1\": string|undefined\n  \"class2\": string|undefined\n}\n```\n\nThus, in Component (i.e. React): *[./\\_\\_recipes\\_\\_/pages/module.tsx](https://github.com/askirmas/postcss-d-ts/blob/master/__recipes__/pages/module.tsx)*\n\n```tsx\nimport moduleClasses from \"./some.module.css\"\n\nconst {\n  class1,\n  class2,\n  //@ts-expect-error - we have only .class1 and .class2\n  class3\n} = moduleClasses\n\nconst Component = () => <div className={`${class1} ${class2}`}/>\n```\n\nor  *[./\\_\\_recipes\\_\\_/pages/button.tsx](https://github.com/askirmas/postcss-d-ts/blob/master/__recipes__/pages/button.tsx)*\n\n```tsx\n// Ordinary CSS\nimport type { CssIdentifiersMap } from \"./some.css\"\n// I.e. with help of https://www.npmjs.com/package/react-classnaming\nimport classNaming from \"react-classnaming\"\n\nconst {\n  class1,\n  class2,\n  //@ts-expect-error - we have only .class1 and .class2\n  class3\n} = {} as CssIdentifiersMap\n\nconst classNames = classNaming()\n\nconst Component() => <div {...classNames({class1, class2})} />\n```\n\n> [`npm install react-classnaming`](https://github.com/askirmas/react-classnaming)\n\n## Options\n\n### `template: string`\n\nLocal path to a custom template for declarations generating.\n\n- Default: *[./src/\\_css-template.d.ts](https://github.com/askirmas/postcss-d-ts/blob/master/src/_css-template.d.ts)*\n\n```typescript\ndeclare const identifiersMap: CssIdentifiersMap\n\nexport default identifiersMap\n\nexport type CssIdentifiersMap = {\n  \"__identifier__\": string|undefined\n}\n```\n\n- Example: *[./\\_\\_func\\_\\_/template--custom\\_path/template.d.ts](https://github.com/askirmas/postcss-d-ts/blob/master/__func__/template--custom_path/)*\n\n```typescript\nimport type { CSSProperties } from \"react\";\ninterface Styled {\n  __identifier__: Record<string, CSSProperties>;\n}\ndeclare const styled: Styled;\nexport default styled;\nexport declare const __identifier__: CSSProperties;\n```\n\n### `identifierKeyword: string`\nThe word in `d.ts` template to be replaced with CSS classes, ids, etc.\n\n```diff\n// postcss.config.js\nmodule.exports = {\n  plugins: {\n    \"postcss-d-ts\": {\n+     identifierKeyword: \"data\"\n    }\n  }\n}\n```\n\n```diff\n// _css-template.d.ts\nexport type CssIdentifiersMap = {\n-  \"__identifier__\": string|undefined\n+  \"data\": string|undefined\n}\n```\n\n### `checkMode: boolean `\n\nThrow an error instead of declaration file rewrite. By default, this mode is on for `NODE_ENV === 'production'`\n\n### Other options\n\nFull list in different formats\n\n- [JSON schema](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings): [./\\_\\_recipes\\_\\_/next\\_9/postcss.config.json](https://github.com/askirmas/postcss-d-ts/blob/299955b1335037b759dd2a0960db9df2816bd326/__recipes__/next_9/postcss.config.json):\n  - https://askirmas.github.io/postcss-d-ts/schema.json\n  - *<u>./node_modules/postcss-d-ts/dist/schema.json</u>*\n  - For all config file replace `schema.json` with `postconfig.schema.json`\n\n- TypeScript\n\n```typescript\nimport { Options } from \"postcss-d-ts/dist/options.types\"\n```\n\n- JSDoc: [./\\_\\_recipes\\_\\_/next\\_10/postcss.config.js](https://github.com/askirmas/postcss-d-ts/blob/master/__recipes__/next_10/postcss.config.js)\n\n```javascript\n/** @type {{\n *  plugins: Array<\n*    [\"postcss-d-ts\", import(\"postcss-d-ts/dist/options.types\").Options]\n *  >\n * }}\n */\nmodule.exports = {\n  plugins: [\n    [\"postcss-d-ts\", {}]\n  ]\n}\n```\n\n## Additional notes\n\n### CLI\n\nSimply install [`postcss-cli`] and add it to `npm scripts` with desired options: [example@cra](https://github.com/askirmas/postcss-d-ts/blob/f9f07f009a02db69d9332bdd029a95420ce1a6d9/__recipes__/create-react-app/package.json#L23) and another:\n\n```json\n// package.json\n{\n  \"scripts\": {\n    \"postcss-d-ts\": \"postcss --use postcss-d-ts styles/index.css --watch > /dev/null\"\n  }\n}\n```\n\n### With `create-react-app`\n\nYou need to launch [postcss] as a separate process.  See commit https://github.com/askirmas/postcss-d-ts/commit/f9f07f009a02db69d9332bdd029a95420ce1a6d9 as an additional option how to establish\n\n[postcss]: https://github.com/postcss/postcss\n\n[postcss]: https://github.com/postcss/postcss\n[`postcss`]: https://github.com/postcss/postcss-cli\n[`postcss-cli`]: https://www.npmjs.com/package/postcss-cli\n[`.d.ts`]: https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html\n",
+	"readmeFilename": "README.md"
+}

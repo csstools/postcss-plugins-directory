@@ -1,0 +1,111 @@
+{
+	"_id": "postcss-chinese-stylesheets",
+	"_rev": "3-b91afb576a40744b68c856fbeb179841",
+	"name": "postcss-chinese-stylesheets",
+	"description": "PostCSS plugin PostCSS plugin for writing chinese Style Sheets",
+	"dist-tags": {
+		"latest": "1.0.2"
+	},
+	"versions": {
+		"1.0.2": {
+			"name": "postcss-chinese-stylesheets",
+			"version": "1.0.2",
+			"description": "PostCSS plugin PostCSS plugin for writing chinese Style Sheets",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"chinese"
+			],
+			"author": {
+				"name": "zhouwenbin",
+				"email": "zwb86@qq.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zhouwenbin/postcss-chinese-stylesheets.git"
+			},
+			"bugs": {
+				"url": "https://github.com/zhouwenbin/postcss-chinese-stylesheets/issues"
+			},
+			"homepage": "https://github.com/zhouwenbin/postcss-chinese-stylesheets",
+			"dependencies": {
+				"lodash": "^3.10.1",
+				"postcss": "^5.0.2",
+				"chinese-css-properties": "^1.0.2",
+				"chinese-css-values": "^1.0.3"
+			},
+			"devDependencies": {
+				"chai": "^3.2.0",
+				"gulp": "^3.9.0",
+				"gulp-eslint": "^1.0.0",
+				"gulp-mocha": "^2.1.3"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"gitHead": "b76c0d95fb82b0461090fbf791afe0f1d2c5df0e",
+			"_id": "postcss-chinese-stylesheets@1.0.2",
+			"_shasum": "318bb48221b9b6e5aa8f2ecc91c7e45878a59e84",
+			"_from": ".",
+			"_npmVersion": "2.14.2",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "zhouwenbin",
+				"email": "zwb86@qq.com"
+			},
+			"maintainers": [
+				{
+					"name": "zhouwenbin",
+					"email": "zwb86@qq.com"
+				}
+			],
+			"dist": {
+				"shasum": "318bb48221b9b6e5aa8f2ecc91c7e45878a59e84",
+				"tarball": "https://registry.npmjs.org/postcss-chinese-stylesheets/-/postcss-chinese-stylesheets-1.0.2.tgz",
+				"integrity": "sha512-zuvjVoTzlE70EvJkqdDYET/WDbOVGFeq49gynwHldLDEh3sKhSwPq1QB5ok5krh07vSXUN6BWMTUfL230cRLDA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEfYEj5PE+YucgTyn8jXuSahXYzAMd7jy4ELqvLqnjwPAiEA/A4ocPABU2DkVEjv3C/CTCppu/rs5EB+WLcB0hvES9I="
+					}
+				]
+			},
+			"directories": {},
+			"_resolved": "https://registry.npmjs.org/postcss-chinese-stylesheets/-/postcss-chinese-stylesheets-1.0.2.tgz"
+		}
+	},
+	"readme": "# <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/800px-Flag_of_the_People%27s_Republic_of_China.svg.png\" alt=\"china\" height=\"32px\" width=\"auto\"> PostCSS chinese Stylesheets [![Build Status][ci-img]][ci]\n\n> [PostCSS] plugin for writing chinese Style Sheets.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/zhouwenbin/postcss-chinese-stylesheets.svg\n[ci]:      https://travis-ci.org/zhouwenbin/postcss-chinese-stylesheets\n[chinese Values]:      https://github.com/zhouwenbin/chinese-css-values\n\n## Installation\n\n```console\n$ npm install postcss-chinese-stylesheets --save-dev\n```\n\n### Quick Start\n\n```js\n// Dependencies\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar cncss = require('postcss-chinese-stylesheets');\n\n// CSS to be processed\nvar css = fs.readFileSync('input.css', 'utf8');\n\n// Process our chinese stylesheets css using postcss-chinese-stylesheets\nvar output = postcss()\n  .use(cncss())\n  .process(css)\n  .css\n\nconsole.log('\\n===>Output CSS:\\n', output);\n```\n\nOr just:\n\n```js\nvar output = postcss(cncss())\n  .process(css)\n  .css\n```\n\n\n### chinese syntax\n\n```css\n.foo {\n    定位: 相对;\n    背景颜色: 三文鱼;\n    背景图片: 无;\n    字体家族: Helvetica, Arial;\n    颜色: 白;\n    行高: 1.68;\n    字母间距: 2px;\n    浮动: 左;\n    显示: 无;\n    层级: 1000 !重要;\n}\n```\n\n### CSS output\n\n```css\n.foo {\n    position: relative;\n    background-color: salmon;\n    background-image: none;\n    font-family: Helvetica, Arial;\n    color: white;\n    line-height: 1.68;\n    letter-spacing: 2px;\n    float: left;\n    display: none;\n    z-index: 1000 !important;\n}\n```\n\n#### [Here you can see the full list of chinese CSS Properties](https://github.com/zhouwenbin/chinese-css-properties)\n\n#### [Here you can see the full list of chinese CSS Values](https://github.com/zhouwenbin/chinese-css-values)\n\n## Usage\n\n### Gulp\n\n```js\nvar gulp = require('gulp');\nvar rename = require('gulp-rename');\nvar postcss = require('gulp-postcss');\nvar cncss = require('postcss-chinese-stylesheets')\nvar autoprefixer = require('autoprefixer-core')\n\ngulp.task('default', function () {\n    var processors = [\n        autoprefixer({ browsers: ['> 0%'] }), //Other plugin\n        cncss()\n    ];\n    gulp.src('src/*.css')\n        .pipe(postcss(processors))\n        .pipe(rename('gulp.css'))\n        .pipe(gulp.dest('build'))\n});\ngulp.watch('src/*.css', ['default']);\n```\n\n### Grunt\n\n```js\nmodule.exports = function(grunt) {\n  grunt.initConfig({\n    pkg: grunt.file.readJSON('package.json'),\n    postcss: {\n      options: {\n        processors: [\n          require('autoprefixer-core')({ browsers: ['> 0%'] }).postcss, //Other plugin\n          require('postcss-chinese-stylesheets')(),\n        ]\n      },\n      dist: {\n        src: ['src/*.css'],\n        dest: 'build/grunt.css'\n      }\n    }\n  });\n\n  grunt.loadNpmTasks('grunt-contrib-uglify');\n  grunt.loadNpmTasks('grunt-postcss');\n\n  grunt.registerTask('default', ['postcss']);\n}\n```\n\n---\n\n## Contributing\n\nFork, work on a branch, install dependencies & run tests before submitting a PR.\n\n```console\n$ git clone https://github.com/YOU/postcss-chinese-stylesheets.git\n$ git checkout -b patch-1\n$ npm install\n$ npm test\n```\n\n## [Changelog](CHANGELOG.md)\n\n## [License](LICENSE)\n\n## thanks [postcss-swedish-stylesheets](https://github.com/johnie/postcss-swedish-stylesheets)\n\n",
+	"maintainers": [
+		{
+			"name": "zhouwenbin",
+			"email": "zwb86@qq.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:35:16.862Z",
+		"created": "2015-11-24T02:27:17.576Z",
+		"1.0.2": "2015-11-24T02:27:17.576Z"
+	},
+	"homepage": "https://github.com/zhouwenbin/postcss-chinese-stylesheets",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"chinese"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/zhouwenbin/postcss-chinese-stylesheets.git"
+	},
+	"author": {
+		"name": "zhouwenbin",
+		"email": "zwb86@qq.com"
+	},
+	"bugs": {
+		"url": "https://github.com/zhouwenbin/postcss-chinese-stylesheets/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

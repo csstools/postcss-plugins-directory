@@ -1,0 +1,180 @@
+{
+	"name": "postcss-envariables",
+	"version": "1.0.0",
+	"description": "PostCss plugin to use environment variables in CSS",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/scrum/postcss-envariables.git"
+	},
+	"homepage": "https://scrum/postcss-envariables#readme",
+	"author": {
+		"name": "Ivan Demidov",
+		"email": "Scrum@list.ru",
+		"url": "https://twitter.com/Scrum_"
+	},
+	"main": "lib/index.js",
+	"engines": {
+		"node": ">=6"
+	},
+	"scripts": {
+		"version": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+		"prepare": "npm run build",
+		"build": "rimraf lib && babel src -d lib",
+		"test": "nyc ava"
+	},
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"plugins",
+		"env",
+		"environment",
+		"variables"
+	],
+	"dependencies": {
+		"get-value": "^3.0.1",
+		"postcss": "^7.0.14"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.3.1",
+		"@babel/register": "^7.0.0",
+		"@commitlint/cli": "^7.4.0",
+		"@commitlint/config-angular": "^7.3.1",
+		"ava": "*",
+		"babel-eslint": "^10.0.1",
+		"babel-plugin-add-module-exports": "^1.0.0",
+		"babel-preset-minify": "^0.5.0",
+		"clinton": "^0.14.0",
+		"conventional-changelog-cli": "^2.0.11",
+		"coveralls": "^3.0.2",
+		"eslint": "^5.12.1",
+		"eslint-config-xo": "^0.26.0",
+		"eslint-plugin-ava": "^5.1.1",
+		"eslint-plugin-babel": "^5.3.0",
+		"eslint-plugin-dependencies": "^2.4.0",
+		"eslint-plugin-html": "^5.0.0",
+		"eslint-plugin-markdown": "^1.0.0",
+		"eslint-plugin-unicorn": "^7.1.0",
+		"husky": "^1.3.1",
+		"lint-staged": "^8.1.1",
+		"nyc": "^13.1.0",
+		"postcss-css-variables": "^0.11.0",
+		"rimraf": "^2.6.3"
+	},
+	"husky": {
+		"hooks": {
+			"pre-push": "npm t",
+			"pre-commit": "clinton && lint-staged",
+			"commit-msg": "commitlint --extends=@commitlint/config-angular -e"
+		}
+	},
+	"lint-staged": {
+		"{src,test}/**/*.js": "eslint",
+		"*.md": "eslint"
+	},
+	"ava": {
+		"require": [
+			"@babel/register"
+		]
+	},
+	"babel": {
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"targets": {
+						"node": 6
+					}
+				}
+			],
+			[
+				"minify",
+				{
+					"removeUndefined": false,
+					"mangle": false
+				}
+			]
+		],
+		"plugins": [
+			"add-module-exports"
+		]
+	},
+	"eslintConfig": {
+		"parser": "babel-eslint",
+		"plugins": [
+			"dependencies",
+			"html",
+			"unicorn",
+			"babel",
+			"markdown"
+		],
+		"extends": [
+			"plugin:unicorn/recommended",
+			"xo"
+		],
+		"rules": {
+			"indent": [
+				2,
+				4,
+				{
+					"SwitchCase": 1
+				}
+			],
+			"capitalized-comments": "off"
+		}
+	},
+	"clinton": {
+		"ignores": [
+			"test/**",
+			"tmp/**",
+			"lib/**",
+			"*.{html,jpg}"
+		],
+		"rules": {
+			"pkg-main": [
+				"off"
+			],
+			"xo": [
+				"off"
+			]
+		}
+	},
+	"gitHead": "2289bf6d7b4c39c1c0a3ee7e45864a578b0cf46b",
+	"_id": "postcss-envariables@1.0.0",
+	"_npmVersion": "6.4.1",
+	"_nodeVersion": "10.9.0",
+	"_npmUser": {
+		"name": "scrum",
+		"email": "scrum@list.ru"
+	},
+	"dist": {
+		"integrity": "sha512-0rDIQ85q0lUQiDyXLlxujAAxjGOPwvbhYsbadnwUvbt/BSqGe2mJDDNaRTBHTXbql1B+4ULo9gD9lFFroUQ6JQ==",
+		"shasum": "d928455bc1452caf7cb79ade9b2c1a45a4cae740",
+		"tarball": "https://registry.npmjs.org/postcss-envariables/-/postcss-envariables-1.0.0.tgz",
+		"fileCount": 5,
+		"unpackedSize": 8878,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcUG7UCRA9TVsSAnZWagAAME4P/RdN5rPFUk5r3SBVxc2p\nu9kNX6rD1XcC5vbmEeqk8M5vuCw27LYIzvssrtCeHglReIFTKbvDDhx0dJfl\niKLKv/waDnk9joQbStHt3Kqqcxj3MuS37fERyYOhKnzvsSUqdyOwi4psXkkX\nUKzATQ0aK64wfOlmVUI4piaGkQ13PqoDLphichsy1+v+1yYlZSQWKs/khBCP\nhigTxpAHUjaZT8AGRw256gGYHZqINxLe77stI2iafjFPjuVIkMI1vm34Z/bM\naBEXycPE6uxqbELfhwW8zbxpRHhADSLv2hHbo+rHDUadOONtNW3dqx66hkQD\nm4HCbWvCcf0mnPX2nhHa9HJ7C79lsBRv55GGMCbJN03tlzGrbAR4ZTPkj+AW\nu7yvUxptB/fWzI5oUidBbjmkE8q9jZOh7H2wggJ0N73MGZhfyZlXrty4E5L+\n5ceDO5LDW9yhd8yFyPFG9I344Xt+D8JhMjAWUrnPIQiDj0acRf+1JHvF6+tn\nhhWVku3wfy1xqNufxRjJV61UuDR5OF+4UVZIR0PsfFJSjYFcFfJoNhpigiSM\nXvezD9GfZofncWonKWVrcWFLBVhMiS2xOgFAhqU0CD2gU2Mg2oi2vUuAkHJo\n7PACbnkIL0wHhIQuMlGeZ/UOnABkt7ML0s1zX0ftnA8RJ6VNMoqBNqg88rAQ\nAwlG\r\n=LpQY\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQCHDxtY+SxRJlAL4TB2MFvnEFjmCp9EC/gpl7+p79xFPQIhANQFqSvfpFVrVWQ2AfUOb/DDdI9JzaVJkrGGpdZSi7eH"
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "scrum",
+			"email": "scrum@list.ru"
+		}
+	],
+	"directories": {},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-envariables_1.0.0_1548775124034_0.32915214043950125"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2019-01-29T15:18:44.137Z"
+}

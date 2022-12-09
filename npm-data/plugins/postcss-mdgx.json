@@ -1,0 +1,110 @@
+{
+	"_id": "postcss-mdgx",
+	"_rev": "1-3bc949b269bc011e38ec322632a3e210",
+	"name": "postcss-mdgx",
+	"description": "PostCSS plugin to generate a style guide automatically",
+	"dist-tags": {
+		"latest": "0.14.0"
+	},
+	"versions": {
+		"0.14.0": {
+			"name": "postcss-mdgx",
+			"version": "0.14.0",
+			"description": "PostCSS plugin to generate a style guide automatically",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/charlespeters/postcss-mdgx.git"
+			},
+			"keywords": [
+				"style-guide",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Masaaki Morishita"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"clipboardy": "^1.1.4",
+				"css-annotation": "^0.6.0",
+				"css-annotation-block": "^0.1.0",
+				"cssnano": "^3.0.1",
+				"ejs": "^2.5.7",
+				"highlight.js": "^8.5.0",
+				"is-color": "^0.2.0",
+				"marked": "^0.3.3",
+				"mkdirp": "^0.5.1",
+				"postcss": "^6.0.10",
+				"psg-theme-default": "^1.0.0"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0"
+			},
+			"gitHead": "6d301cf687e92c88e333062fe8d588696376d1ed",
+			"bugs": {
+				"url": "https://github.com/charlespeters/postcss-mdgx/issues"
+			},
+			"homepage": "https://github.com/charlespeters/postcss-mdgx#readme",
+			"_id": "postcss-mdgx@0.14.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.3.0",
+			"_npmUser": {
+				"name": "charlespeters",
+				"email": "charlespeters42@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-e1DRC0VVD2J7dCItWiq2YvQhZVv6bXWN9uepgmpAwl1KsUbse2wmPaOhtjZJUi6GLUJH5VUl/EN/Ern3d1OAqw==",
+				"shasum": "55cc6e1795d863492fc1eab7f03c4f15685578f0",
+				"tarball": "https://registry.npmjs.org/postcss-mdgx/-/postcss-mdgx-0.14.0.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFNKB0DBxJ5Fg9yV71iZWWuMp5CHbOkfTKL0VL6sKKyuAiAHb6/dKzjoSpQaR84iYJ108PuRvL0A4RLj6xZAXcVU5A=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "charlespeters",
+					"email": "charlespeters42@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-mdgx-0.14.0.tgz_1504413665203_0.860655089141801"
+			}
+		}
+	},
+	"readme": "# postcss-mdgx\n[PostCSS](https://github.com/postcss/postcss) plugin to generate a style guide automatically.CSS comments will be parsed through Markdown and displayed in a generated HTML document.\n\n\n**This is a fork of [postcss-style-guide](https://github.com/morishitter/postcss-style-guide)**\n\n\n## Install\n\n```shell\n$ npm install postcss-mdgx\n```\n\n## Example\n\nNode.js:\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar styleguide = require('postcss-mdgx');\nvar input = fs.readFileSync('input.css', 'utf8');\n\nvar output = postcss([\n  styleguide\n]).process(input)\n.then(function (reuslt) {\n  var output = fs.readFileSync('styleGuide/index.html', 'utf8');\n  console.log('output:', output);\n});\n```\n\nin [Gulp](https://github.com/gulpjs/gulp):\n\n```js\nvar gulp = require('gulp')\n\ngulp.task('build:css', function () {\n    var concat = require('gulp-concat')\n    var postcss = require('gulp-postcss')\n    var autoprefixer = require('autoprefixer')\n    var customProperties = require('postcss-custom-properties')\n    var Import = require('postcss-import')\n    var styleGuide = require('postcss-mdgx')\n    var nano = require('cssnano')\n\n    return gulp.src('./app.css')\n        .pipe(postcss([\n            Import,\n            customProperties({ preserve: true }),\n            autoprefixer,\n            styleGuide({\n                project: 'Project name',\n                dest: 'styleguide/index.html',\n                showCode: false,\n                themePath: '../'\n            }),\n            nano\n        ]))\n        .pipe(concat('app.min.css'))\n        .pipe(gulp.dest('dist/css'))\n})\n```\n\nWe can generate color palette from CSS Custom Properties with `@start color` and `@end color` annotations.\n\n`app.css`:\n\n```css\n@import \"color\";\n@import \"button\";\n```\n\n`color.css`:\n\n```css\n@import \"button\";\n/* @start color */\n:root {\n    --red: #e23B00;\n    --blue: #3f526b;\n    --black: #000;\n    --background: #faf8f5;\n}\n/* @end color */\n```\n\npostcss-mdgx generate style guide from CSS comments that have special annotation(`@styleguide`).\n\n`@title`: set component name\n\n`button.css`:\n\n```css\n/*\n@styleguide\n\n@title Button\n\nUse the button classes on and `<a>`, `<button>`, `<input>` elements.\n\n<button class=\"button button--large button--red\">Red Button</button>\n\n    <button class=\"button button--large button--red\">Red Button</button>\n\n<button class=\"button button--large button--blue\">Red Button</button>\n\n    <button class=\"button button--large button--blue\">Red Button</button>\n*/\n.button {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 6px;\n    cursor: pointer;\n}\n\n.button--large {\n    width: 140px;\n    height: 40px;\n    font-size: 14px;\n}\n\n.button--red {\n    color: #fff;\n    background-color: var(--red);\n}\n\n.button--blue {\n    color: #fff;\n    background-color: var(--blue);\n}\n```\n\nYou will get `styleguide/index.html` for the style guide.\n\n![Default style guide design](./style-guide-default.png)\n\n\n## Options\n\n- `options.src`: The path to the source CSS file.\n- `options.dest`: The path to style guide file. (default: `styleguide/index.html`)\n- `options.project`: Project name. (default: `Style Guide`)\n- `options.showCode`: The flag to show CSS code (default: `true`)\n- `options.theme`: Theme name. (default: `psg-theme-default`)\n- `options.themePath`: The path to theme file. (default: `node_modules/psg-theme-default`)\n\n## Themes\n\nYou can select a theme of style guide with `options.theme`.\nAnd you can also create original themes.\nWhen you create themes, please read [theme guideline](https://github.com/morishitter/postcss-mdgx/blob/master/docs/theme-guideline.md)\n\nAll of postcss-mdgx themes that can be used are [here](https://www.npmjs.com/search?q=psg-theme).\n\n### Themes list\n\n- [default](https://github.com/morishitter/psg-theme-default)\n- [sassline](https://github.com/sotayamashita/psg-theme-sassline)\n- [1column](https://github.com/seka/psg-theme-1column)\n- [forest](https://github.com/morishitter/psg-theme-forest)\n\n### How to develop postcss-mdgx theme\n\n- [Yeoman Generator](https://github.com/sotayamashita/generator-psg-theme)\n\n## License\n\nThe MIT License (MIT)\n\nCopyright (c) 2015 Masaaki Morishita\n",
+	"maintainers": [
+		{
+			"name": "charlespeters",
+			"email": "charlespeters42@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-05-13T06:26:37.924Z",
+		"created": "2017-09-03T04:41:05.425Z",
+		"0.14.0": "2017-09-03T04:41:05.425Z"
+	},
+	"homepage": "https://github.com/charlespeters/postcss-mdgx#readme",
+	"keywords": [
+		"style-guide",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/charlespeters/postcss-mdgx.git"
+	},
+	"author": {
+		"name": "Masaaki Morishita"
+	},
+	"bugs": {
+		"url": "https://github.com/charlespeters/postcss-mdgx/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

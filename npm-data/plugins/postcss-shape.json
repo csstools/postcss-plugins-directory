@@ -1,0 +1,116 @@
+{
+	"_id": "postcss-shape",
+	"_rev": "4-72f8a9cc5542c89a4b2e4f4969fd28f1",
+	"name": "postcss-shape",
+	"description": "draw some basic shape with css",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-shape",
+			"version": "0.0.1",
+			"description": "draw some basic shape with css",
+			"main": "index.js",
+			"scripts": {
+				"lint": "eslint . && jscs .",
+				"test": "tape test.js | tap-spec"
+			},
+			"dependencies": {
+				"postcss": "^5.0.19"
+			},
+			"devDependencies": {
+				"eslint": "^2.3.0",
+				"jscs": "^2.11.0",
+				"tap-spec": "^4.1.1",
+				"tape": "^4.5.0"
+			},
+			"engines": {
+				"node": ">=0.12.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/baiyaaaaa/postcss-shape.git"
+			},
+			"bugs": {
+				"url": "https://github.com/baiyaaaaa/postcss-shape/issues"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"shape"
+			],
+			"author": {
+				"name": "https://github.com/baiyaaaaa"
+			},
+			"license": "MIT",
+			"gitHead": "90f1e85579bbc543df135f19e5b6242da10d30d6",
+			"homepage": "https://github.com/baiyaaaaa/postcss-shape#readme",
+			"_id": "postcss-shape@0.0.1",
+			"_shasum": "a3747b1c1e006a1b18c071ff0e980632e8a0be85",
+			"_from": ".",
+			"_npmVersion": "3.7.3",
+			"_nodeVersion": "5.9.1",
+			"_npmUser": {
+				"name": "baiyaaaaa",
+				"email": "286030975@qq.com"
+			},
+			"dist": {
+				"shasum": "a3747b1c1e006a1b18c071ff0e980632e8a0be85",
+				"tarball": "https://registry.npmjs.org/postcss-shape/-/postcss-shape-0.0.1.tgz",
+				"integrity": "sha512-xXyBKZGdzkW1yOWJiumZbxJEk3zRoekV6GeKwGhsoS2c/mHCiRiLUj9UHW7N1TpL46U17dSeT8P/NiGpCIYecA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHmofZNbGvFpjondQEpMKxFo23dP2yurqzGA1E3PgKCgAiAozktTlY+lnAJG7QytbJCWebTtUvJc8gQvRnqcOteO/Q=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "baiyaaaaa",
+					"email": "286030975@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-shape-0.0.1.tgz_1461313751153_0.9079184934962541"
+			}
+		}
+	},
+	"readme": "# PostCSS Shape [![Build Status][travis-img]][travis]\n\n[PostCSS] plugin to draw basic shape with specified syntax in css rule.\n\n## Syntax\n\n###rect\n`rect: [width] [height] [background-color]`\n\n```css\n/* before */\n.rect-a {\n  rect: 30px 50px #ff0;\n}\n.rect-b {\n  rect: 30px * #ff0;\n}\n\n/* after */\n.rect-a {\n  width: 30px;\n  height: 50px;\n  background-color: #ff0;\n}\n.rect-b {\n  width: 30px;\n  background-color: #ff0;\n}\n```\n\n###circle\n`circle: [diameter] [background-color]`\n\n```css\n/* before */\n.circle-a {\n  circle: 50px #ff0;\n}\n.circle-b {\n  circle: 50px *;\n}\n\n/* after */\n.circle-a {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  background-color: #ff0;\n}\n.circle-b {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n```\n\n###triangle\n`triangle: [size] [direction] [color]`\n\n```css\n/* before */\n.triangle-a {\n  triangle: 5px top #ff0;\n}\n\n/* after */\n.triangle-a {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  border: solid transparent;\n  border-width: 5px;\n  border-bottom-color: #ff0;\n}\n```\n\n*can not ignore any value in triangle*\n\n## Usage\n\nAdd [Postcss Shape] to your build tool:\n\n```bash\nnpm install postcss-shape --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-shape').process(YOUR_CSS, { /* options */ });\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [Postcss Shape] as a PostCSS plugin:\n\n```js\npostcss([\n  require('postcss-shape')({ /* options */ })\n]).process(YOUR_CSS, /* options */);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [Postcss Shape] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n  return gulp.src('./src/*.css').pipe(\n    postcss([\n      require('postcss-shape')({ /* options */ })\n    ])\n  ).pipe(\n    gulp.dest('.')\n  );\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [Postcss Shape] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n  postcss: {\n    options: {\n      use: [\n        require('postcss-shape')({ /* options */ })\n      ]\n    },\n    dist: {\n      src: '*.css'\n    }\n  }\n});\n```\n\n[PostCSS]: https://github.com/postcss/postcss\n[Postcss Shape]: https://github.com/baiyaaaaa/postcss-shape\n[travis-img]:  https://travis-ci.org/baiyaaaaa/postcss-shape.svg\n[travis]:      https://travis-ci.org/baiyaaaaa/postcss-shape\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n",
+	"maintainers": [
+		{
+			"name": "baiyaaaaa",
+			"email": "286030975@qq.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:54:07.046Z",
+		"created": "2016-04-22T08:29:11.646Z",
+		"0.0.1": "2016-04-22T08:29:11.646Z"
+	},
+	"homepage": "https://github.com/baiyaaaaa/postcss-shape#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"shape"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/baiyaaaaa/postcss-shape.git"
+	},
+	"author": {
+		"name": "https://github.com/baiyaaaaa"
+	},
+	"bugs": {
+		"url": "https://github.com/baiyaaaaa/postcss-shape/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"rubiadias": true
+	}
+}

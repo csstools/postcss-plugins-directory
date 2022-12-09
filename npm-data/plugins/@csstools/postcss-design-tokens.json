@@ -1,0 +1,512 @@
+{
+	"_id": "@csstools/postcss-design-tokens",
+	"_rev": "3-bfaf3a021658db8f688630092e54f308",
+	"name": "@csstools/postcss-design-tokens",
+	"dist-tags": {
+		"latest": "1.2.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-design-tokens",
+			"description": "Use design tokens in your CSS",
+			"version": "1.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"postcss-import": "^14.1.0",
+				"style-dictionary-design-tokens-example": "^1.0.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-design-tokens#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-design-tokens"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"design-tokens",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"exportName": "postcssDesignTokens",
+				"humanReadableName": "PostCSS Design Tokens"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "63004a3027af020ef00ca66ff95c63ccb70879c4",
+			"_id": "@csstools/postcss-design-tokens@1.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-MJk+TB+ZBzXEl+pHcnn4p3rFUemGqxzRhgFsnpEUimHaBu/Dap7MMa2mEH7s98whmFNUGAq0CDV5KvXMTl51Kg==",
+				"shasum": "cf7ffa7993132c95f47664dab93461af8e02c669",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-design-tokens/-/postcss-design-tokens-1.0.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 35121,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDKymyY9ipvhT1TFeeXUruLfBpjvWYPBtDRFHTNErxphAIgK+7OmoI3GnmcMGizU5gpRx3ExIjwy4TCBMogErwgReY="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiix2sACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqpUxAAi23APrUSlV3sDeoODBzR2MYvVvYnSxB86kavbaE/btzwXdxa\r\nNeIliu8mhcsPbTq3iggDlQ7w4aiC359hypoL01iTLZsS7ZVjHvJxPJp3NjrG\r\nWkvIbzKM/49DbwdN4ojGk0e/ToUC7w34Yr7aozw572BqclZzGIbpDfPIgbkT\r\nmSl0auLXmq8JRvhe6L2qfhwb8043NOsNeHecXEGY5gVYHMhYvKthAWeiE3uf\r\niRAY+lQmK1cIOWvqzXFwlmAqUxLsE063qyb1HlMyVbw41FKz9gJKZy4EwigO\r\nixI37AFyyi2bhvueGEFem7TFsiDcQpFzrxLD8WaqbX3rDsNy95yg06B8Zxvx\r\nMjuY2Ko/N43Jpg38ylCdbTJhYbRpNO7xDINkd5pbm/OkgV+R51opQqS1hYCY\r\nnkYklYDb01sxKsFJpNpoz1TXZn3fwzo0LUW8Loiya2gi07I+bSaR0MP0Cs16\r\nGvqv6bOIcjU3ce5prkJoyqjeNXGqy4IRgrQqZBPciD40M5mOAGeHihlu1+FU\r\naVzR2qgL5yJJoFK2GJFi8Hg0Z8o5Nov8CscBwn9VUgp7pJ/TBT1PjZNFQ1D9\r\nlrtjiOCSN9bpg6Br1DpHQ1kGzMtQufFGWzBRYAzmO1m47qX2KLkiFZNt3521\r\nceIO+6ZDx2cUMZGAX9o4/1gVrCIOMgba4no=\r\n=71gi\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-design-tokens_1.0.0_1653284268575_0.49875817911823606"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "@csstools/postcss-design-tokens",
+			"description": "Use design tokens in your CSS",
+			"version": "1.1.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"devDependencies": {
+				"postcss-import": "^14.1.0",
+				"style-dictionary-design-tokens-example": "^1.0.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-design-tokens#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-design-tokens"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"design-tokens",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"exportName": "postcssDesignTokens",
+				"humanReadableName": "PostCSS Design Tokens"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "092c464bb6099cca7ae4d0a8cb000c4136924ae1",
+			"_id": "@csstools/postcss-design-tokens@1.1.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-r6V7QTMwP4y/DXERA9F9SGt2M1zX6RyCNt3KNjclZLCmjZGR42byf0t61d1sUQ7B2ClZ2xvF06jNhWOh2c8F9Q==",
+				"shasum": "d67cbb1d06f24c2f46995698ee170381195e077d",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-design-tokens/-/postcss-design-tokens-1.1.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 37303,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAn8WCgSsKcCOoo9okTJ8lGBFk5vvUovt4avqJ0JSdtEAiBX45ArxtsYTgisX2tNia6bKj+FvTDLnSBY0NuEXIMn6Q=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi6J1XACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpp+Q/8D+QiA2Pljl6hR9MOecyf7XPxJv8BiMpgIKp0OrXSgsaeXT8T\r\n3MGLn0fuyomy6hQVAbHQrDUHxAMYPSJ770pLKQ7HhOhdXDqb4DyXL3uozwV4\r\nhbAWaW6u6gT3d7tBBpPrrDabotxOjKVXD6ht0fMyBIoKTVbXu+QMC/Qlz3lX\r\nUFOWMgqnAlAerSNtWXI6uno2iZjAoRJB9Kcs5KxrM8JPaewH5oTInOYDYMSJ\r\nq7QNzkC5mIHgbBgvdR3nO1o67ZscdAsTWddQkBe39a1hUble9wgzVjbwNSDt\r\n/WZAvQJBT2myPvUfy6g8lSiv9sxihDPlIFqAxQ44PkyPclRIcmDXgbvTVT5J\r\n3Z9gMXeOBOMIpDoPNgcAgw3QsWwOe15l1wEmVwZXr3EiZAj8EnfzLjaoc+FZ\r\nCoeULlP43CBA85Oom/zeT0FyVDGje2ldumxMsioFOamAdAdGVe6BbvKFj5vh\r\nx7S5Q98a82RfyU/LGeM4qDriFXaFF5M0n2y2y+pesBy0ZO6LMFpBGpBfHaey\r\nxJ/xXOC9mKmzHngt452cB1vz0jbUF540RxyIFbA9G2sEj8VsuipF7sk/Q/yG\r\nHyWQA5XZUDdNx8ZcL8/wYIBOVR8Jr/Dr2jNulHYqALJs+n4D89JyeEXL5Pib\r\n21eupd6vbEgQQZHcTLmKzQyHrF3N4qhIFlc=\r\n=9ypI\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-design-tokens_1.1.0_1659411799132_0.21250265413732716"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.1": {
+			"name": "@csstools/postcss-design-tokens",
+			"description": "Use design tokens in your CSS",
+			"version": "1.1.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"devDependencies": {
+				"postcss-import": "^14.1.0",
+				"style-dictionary-design-tokens-example": "^1.0.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-design-tokens#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-design-tokens"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"design-tokens",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"exportName": "postcssDesignTokens",
+				"humanReadableName": "PostCSS Design Tokens"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "510c7b4782848377faa4ad7e5bff6c1a3ed13069",
+			"_id": "@csstools/postcss-design-tokens@1.1.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-Ka2AltyKYAIfAhE/Oh5p8GaFf1USbE9GP0T2sUanB160Ac8UpcXE/wFqCqv5hD0fE4IanJ65ppzu4ImGvk8JnA==",
+				"shasum": "08adde936db0da84deb3438cd43850ad1b863feb",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-design-tokens/-/postcss-design-tokens-1.1.1.tgz",
+				"fileCount": 18,
+				"unpackedSize": 37744,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDm/Sb9Z7kkPFwksbWlI9IuKv7xWHftREEUALVmvifFZAIhAI49f3+PqjxtHZ+8yYe7IJo8U5Ob0lSrmuMfx+/i+Izk"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjBTzGACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqPPw/+Jj3XblXEqY8qj86KcuuXOTm++ds+lky1zZT3JWBru40f8Rjd\r\noxyXaVLoF0DIXAz8FsLKm8JuMS7+gtVogkSdSFKDaaNMstlbMMoGNFRMzNbG\r\n7oTlshL6PtKkcG4vx2ezUi1jL9Vca5D8ZtkKdb7ike54tL4xGeSM34e2PB4V\r\nK/HbJm5tZbLTSPz176ijuRMzJ2vZbabRaAddM4R6C5xt4sewRnYJXeQodeHb\r\nMECxoxJNrydtULHNjYt94anOUaDcSmkrq/+0dmuK5WPyLTbhBvKp3+wZcgWq\r\n5JV12QFoEruTLLmDngqAaoQkS6IVVR3LTYlxpkLl0VnW9yh4oVQcYELaSn22\r\nRdiYR5GsHqq4aiZpzVTep3mVrGayAr9Twd9wW9PJ3BZDyuW2BRCwvkXtC8mO\r\nEZ3zLJ8f5AC3UEcBaopOi1/K1Pe0cZ17aKL3GNYDruckNwG0VKtAe2hKeaky\r\nt3SdgmJbelI2WGQV+58qVowGccEEIFRwGOJZdfzOlLDfdrCWlA3u4ahomHg3\r\nwypb+ymDxIjeT2CHP2+ygE73iwHnIdNOkmKFgNifHL7O1c0sEGC1pDzk480J\r\nNO7eOrf9R3LvK6qsXvCfa3vw+U6IysxEInXqsOKD8UTP/CQ+6f1uhP8uuM73\r\nIwl0rN7JmlE36nCTsGIrQJ/WiEpku/4oCnc=\r\n=VNpd\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-design-tokens_1.1.1_1661287622745_0.09362092867925464"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.2.0": {
+			"name": "@csstools/postcss-design-tokens",
+			"description": "Use design tokens in your CSS",
+			"version": "1.2.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"devDependencies": {
+				"postcss-import": "^15.0.0",
+				"style-dictionary-design-tokens-example": "^1.1.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-design-tokens#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-design-tokens"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"design-tokens",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"exportName": "postcssDesignTokens",
+				"humanReadableName": "PostCSS Design Tokens"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "acc82cf1c2d15f3dc242a7f60514841043ccb0c9",
+			"_id": "@csstools/postcss-design-tokens@1.2.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-XNIhRcAnfjLbm4omphcpTGBlmquyGTiKJgZU7EKfqBo6GXlQIlqTK8ylVe941WIm/e5TzYoqK9Wj1IB7yu5rzQ==",
+				"shasum": "e16047bad336c3dfefc0ff1c8266a8b286de41cd",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-design-tokens/-/postcss-design-tokens-1.2.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 40037,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGvUw+kNIresxtd3UDGxJS6m1s2kVmthgIkNybN5+fxVAiEA2NyxSGma90Esc1qbZm614AXuiwmCuB3p6PuZfvn/gHw="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjGDMIACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqDABAAl+TOn1sWdzeyxBELmCLDv8v3+g9hrJCPR4iGmJ17x8kquHTm\r\nlRr0itCuEuSdhaqifnXtpOCWruPZr6Y9vcH1nLn/X/TjUzZNtIJWF8G3NSda\r\nj7i12ESZUbLNHTwEurKz6sC9X6xhSslQs+B72f96F0EaueeZMXbEnwCz1T3q\r\nbH/AJDj5auoeYF2FPd4rFKQWL+fLD+2HLWReJl4+NgnEHyW3QuA/HRFCD5Fb\r\n+CLEvSmwic2hJcvY65FlVrNGAMJyl1rmh0VBv6QsKeH0OHsAs9TaAzZ0aOe9\r\n+ze4sEWa+kfW165yA/jH9mRUpP3AwosKuppohiJogXaV19UPxidt3v1ePkxi\r\nCzOKobMB3B42EAOq/scAqdCD6LZ/MHJ4nbredntCM84YYX+5Wt4/+1AU4jhZ\r\nc7Oopz3jE58JM6jo+NCI81GSAbrYk6m1L8nM9Gv6wvRWYt7jNTRLo11/d6R+\r\n6HfpjEE4LUM2XBh9Kg+KwkuPGVyCc2rCwTL2STmfCiWwj7SAMGUH04Da6osY\r\nd7ah9GYthie5HeFHqgAToWa8Z/4yRl01Ega/7zG4ahJ7Ikf9bt1oHMYgpSRO\r\nKPk6sqAdlGvjpBh6iWW9YhtgveCiauKXG51xuGHAY5Nnurqpeh4mY781cz2T\r\niLFpGGslJ9C+P4RRGyfr+a8T6leD5eF5THM=\r\n=YBEI\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-design-tokens_1.2.0_1662530311756_0.1003566891100458"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-05-23T05:37:48.480Z",
+		"1.0.0": "2022-05-23T05:37:48.727Z",
+		"modified": "2022-09-07T05:58:32.097Z",
+		"1.1.0": "2022-08-02T03:43:19.360Z",
+		"1.1.1": "2022-08-23T20:47:02.943Z",
+		"1.2.0": "2022-09-07T05:58:31.979Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Use design tokens in your CSS",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-design-tokens#readme",
+	"keywords": [
+		"design-tokens",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-design-tokens"
+	},
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS Design Tokens [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-design-tokens.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Design Tokens] lets you use design tokens in your CSS source files.\n\n```json\n{\n\t\"color\": {\n\t\t\"background\": {\n\t\t\t\"primary\": { \"value\": \"#fff\" }\n\t\t}\n\t},\n\t\"size\": {\n\t\t\"spacing\": {\n\t\t\t\"small\": { \"value\": \"16px\" }\n\t\t}\n\t}\n}\n```\n\n```pcss\n@design-tokens url('./tokens.json') format('style-dictionary3');\n\n.foo {\n\tcolor: design-token('color.background.primary');\n\tpadding-top: design-token('size.spacing.small');\n\tpadding-left: design-token('size.spacing.small' to px);\n\tpadding-bottom: design-token('size.spacing.small' to rem);\n}\n\n/* becomes */\n\n.foo {\n\tcolor: #fff;\n\tpadding-top: 16px;\n\tpadding-left: 16px;\n\tpadding-bottom: 1rem;\n}\n```\n\n## Usage\n\nAdd [PostCSS Design Tokens] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-design-tokens --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssDesignTokens = require('@csstools/postcss-design-tokens');\n\npostcss([\n\tpostcssDesignTokens(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Design Tokens] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Formats\n\nAt this time there is no standardized format for design tokens.\nAlthough there is an ongoing effort to create this, we feel it is still too early to adopt this.\n\nFor the moment we only support [Style Dictionary](https://amzn.github.io/style-dictionary/#/).\nUse `style-dictionary3` in `@design-tokens` rules to pick this format.\n\n## Options\n\n### is\n\nThe `is` option determines which design tokens are used.\nThis allows you to generate multiple themed stylesheets.\n\nBy default only `@design-tokens` without any `when('foo')` conditions are used.\n\n#### Example usage\n\n**For these two token files :**\n\n```json\n{\n\t\"color\": {\n\t\t\"background\": {\n\t\t\t\"primary\": { \"value\": \"#fff\" }\n\t\t}\n\t}\n}\n```\n\n```json\n{\n\t\"color\": {\n\t\t\"background\": {\n\t\t\t\"primary\": { \"value\": \"#000\" }\n\t\t}\n\t}\n}\n```\n\n**And this CSS :**\n\n```pcss\n@design-tokens url('./tokens-light.json') format('style-dictionary3');\n@design-tokens url('./tokens-dark.json') when('dark') format('style-dictionary3');\n\n.foo {\n\tcolor: design-token('color.background.primary');\n}\n```\n\n**You can configure :**\n\n##### No `is` option.\n\n```js\npostcssDesignTokens()\n```\n\n```pcss\n@design-tokens url('./tokens-light.json') format('style-dictionary3');\n@design-tokens url('./tokens-dark.json') when('dark') format('style-dictionary3');\n\n.foo {\n\tcolor: design-token('color.background.primary');\n}\n\n/* becomes */\n\n.foo {\n\tcolor: #fff;\n}\n```\n\n##### `is` option set to 'dark'.\n\n```js\npostcssDesignTokens({ is: ['dark'] })\n```\n\n```pcss\n@design-tokens url('./tokens-light.json') format('style-dictionary3');\n@design-tokens url('./tokens-dark.json') when('dark') format('style-dictionary3');\n\n.foo {\n\tcolor: design-token('color.background.primary');\n}\n\n/* becomes */\n\n.foo {\n\tcolor: #000;\n}\n```\n\n### unitsAndValues\n\nThe `unitsAndValues` option allows you to control some aspects of how design values are converted to CSS.\n`rem` <-> `px` for example can only be calculated when we know the root font size.\n\n#### rootFontSize\n\ndefaults to `16`\n\n```js\npostcssDesignTokens({\n\tunitsAndValues: {\n\t\trootFontSize: 20,\n\t},\n})\n```\n\n```pcss\n@design-tokens url('./tokens.json') format('style-dictionary3');\n\n.foo {\n\tcolor: design-token('color.background.primary');\n\tpadding-top: design-token('size.spacing.small');\n\tpadding-left: design-token('size.spacing.small' to px);\n\tpadding-bottom: design-token('size.spacing.small' to rem);\n}\n\n/* becomes */\n\n.foo {\n\tcolor: #fff;\n\tpadding-top: 16px;\n\tpadding-left: 16px;\n\tpadding-bottom: 0.8rem;\n}\n```\n\n### Customize function and at rule names\n\n#### importAtRuleName\n\nThe `importAtRuleName` option allows you to set a custom alias for `@design-tokens`.\n\n```js\npostcssDesignTokens({ importAtRuleName: 'tokens' })\n```\n\n```pcss\n@tokens url('./tokens.json') format('style-dictionary3');\n\n.foo {\n\tcolor: design-token('color.background.primary');\n\tpadding-top: design-token('size.spacing.small');\n\tpadding-left: design-token('size.spacing.small' to px);\n\tpadding-bottom: design-token('size.spacing.small' to rem);\n}\n\n/* becomes */\n\n.foo {\n\tcolor: #fff;\n\tpadding-top: 16px;\n\tpadding-left: 16px;\n\tpadding-bottom: 1rem;\n}\n```\n\n#### valueFunctionName\n\nThe `valueFunctionName` option allows you to set a custom alias for `design-token`.\n\n```js\npostcssDesignTokens({ valueFunctionName: 'token' })\n```\n\n```pcss\n@design-tokens url('./tokens.json') format('style-dictionary3');\n\n.foo {\n\tcolor: token('color.background.primary');\n\tpadding-top: token('size.spacing.small');\n\tpadding-left: token('size.spacing.small' to px);\n\tpadding-bottom: token('size.spacing.small' to rem);\n}\n\n/* becomes */\n\n.foo {\n\tcolor: #fff;\n\tpadding-top: 16px;\n\tpadding-left: 16px;\n\tpadding-bottom: 1rem;\n}\n```\n\n## Syntax\n\n[PostCSS Design Tokens] is non-standard and is not part of any official CSS Specification.\n\n### Editor support\n\nThis is all very new and we hope that one day design tokens will become first class citizens in editors and other tools.\nUntil then we will do our best to provide extensions.\nThese will have rough edges but should illustrate were we want to go.\n\n| editor | plugin |\n| --- | --- |\n| VSCode | [CSSTools Design Tokens](https://marketplace.visualstudio.com/items?itemName=RomainMenke.csstools-design-tokens) |\n\n### `@design-tokens` rule\n\nThe `@design-tokens` rule is used to import design tokens from a JSON file into your CSS.\n\n```pcss\n@design-tokens url('./tokens.json') format('style-dictionary3');\n```\n\n```pcss\n@design-tokens url('./tokens.json') format('style-dictionary3');\n@design-tokens url('./tokens-dark-mode.json') format('style-dictionary3') when('dark');\n```\n\nYou can also import tokens from an `npm` pacakge:\n\n```pcss\n@design-tokens url('node_modules://my-npm-package/tokens.json') format('style-dictionary3');\n@design-tokens url('node_modules://my-npm-package/tokens-dark-mode.json') format('style-dictionary3') when('dark');\n```\n\n```\n@design-tokens [ <url> | <string> ]\n               [ when(<theme-condition>*) ]?\n               format(<format-name>);\n\n<theme-condition> = <string>\n\n<format-name> = [ 'style-dictionary3' ]\n```\n\nAll `@design-tokens` rules in a document are evaluated in order of appearance.\nIf a token with the same path and name already exists it will be overridden.\n\nAll `@design-tokens` rules are evaluated before any `design-token()` functions.\n\n`@design-tokens` rules can be conditional through `when` conditions. Multiple values can be specified in `when`.<br>\nMultiple conditions always have an `AND` relationship.\n\n> ```css\n> /* only evaluated when tooling receives 'blue' and 'muted' as arguments */\n> @design-tokens url('./tokens.json') format('style-dictionary3') when('blue' 'muted');\n> ```\n\n`@design-tokens` rules can never be made conditional through `@supports`, `@media` or other conditional rules.\n\n> ```css\n> @media (min-width: 500px) {\n>   @design-tokens url('./tokens.json') format('style-dictionary3'); /* always evaluated */\n> }\n> ```\n\nAny form of nesting is meaningless, `@design-tokens` will always be evaluated as if they were declared at the top level.\n\n\n### `design-token()` function\n\nThe `design-token()` function takes a token path and returns the token value.\n\n```pcss\n.foo {\n\tcolor: design-token('color.background.primary');\n}\n```\n\n```\ndesign-token() = design-token( <token-path> [ to <unit> ]? )\n\n<token-path> = <string>\n<unit> = [ px | rem | ... ]\n```\n\nThe plugin can convert `px` to `rem` and `rem` to `px` via the [`unitsandvalues`](#unitsandvalues) plugin options.\nWhen a design token is unit-less any `unit` can be assigned with `to`.\n\n## Further reading\n\n- [Why we think PostCSS Design Tokens is needed]\n- [About Design Tokens (Adobe Spectrum)]\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-design-tokens\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Design Tokens]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-design-tokens\n[Why we think PostCSS Design Tokens is needed]: https://github.com/csstools/postcss-plugins/wiki/Why-we-think-PostCSS-Design-Tokens-is-needed\n[About Design Tokens (Adobe Spectrum)]: https://spectrum.adobe.com/page/design-tokens/\n",
+	"readmeFilename": "README.md"
+}

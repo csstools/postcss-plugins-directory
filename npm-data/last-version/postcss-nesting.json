@@ -1,0 +1,122 @@
+{
+	"name": "postcss-nesting",
+	"description": "Nest rules inside each other in CSS",
+	"version": "10.2.0",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"jsdelivr": "dist/index.mjs",
+	"unpkg": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/selector-specificity": "^2.0.0",
+		"postcss-selector-parser": "^6.0.10"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:deno": "deno run --unstable --allow-env --allow-read test/deno/test.js",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-nesting"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"atrules",
+		"child",
+		"children",
+		"css",
+		"cssnext",
+		"csswg",
+		"nested",
+		"nestings",
+		"postcss",
+		"postcss-plugin",
+		"rules",
+		"selectors",
+		"specifications",
+		"specs",
+		"syntax",
+		"w3c"
+	],
+	"csstools": {
+		"exportName": "postcssNesting",
+		"humanReadableName": "PostCSS Nesting"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "6ba4152098969f3f6259424b8704839974639f8f",
+	"_id": "postcss-nesting@10.2.0",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-EwMkYchxiDiKUhlJGzWsD9b2zvq/r2SSubcRrgP+jujMXFzqvANLt16lJANC+5uZ6hjI7lpRmI6O8JIl+8l1KA==",
+		"shasum": "0b12ce0db8edfd2d8ae0aaf86427370b898890be",
+		"tarball": "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-10.2.0.tgz",
+		"fileCount": 24,
+		"unpackedSize": 27912,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIHa4aPmJbRDdefcnMN5ULeCuxvJLROSAXEy7vQsSG5ptAiByrGDrKTWXAvvqAuW45BWIKug0uy4pPK6AS5ELbwUGig=="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjIhbcACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoRyA/+Lqz7UoYYr3yalexG6KHFCGbGZObSKr98n8+pnANgkJ6k6NXC\r\nUgfxpacARRBkjEnEq5NWfQrFuuudgEf92POJo/rZGT2hfwYyfOqLUaBVIVpV\r\ntee0SFhGmI2Uli6A6za0hSwo4cLTramCe95Clx0emXy8fSt+F0ZFtpsDV4tv\r\nbzH5RhpYW0O5MMjZUKcjq4xeJSVzTH1/eeMH0Qveaoo4w8TE3Bvx41wdjoMy\r\nRQgzxrtSpi6ZScejyYIkA/vZy3MoFj/S4oLv3DpVEsvKiVBlBnFGjIuKzOTW\r\n+3ZxjxFMF28tO6yBgLaaV9iYGxrACr2d1mwWCU6gH8TvQuY7FcKRWxbaHQ6c\r\nOCVAp28hqyrSoWiQD3y92vnMaYWDLXeWbJt/47QScHi7BzxQdFdh779qGL85\r\ns7gzBWY2qucsQuP2PZnPjvmYtwBdyJCQO5kc9aXiG9feQIXcBC3t5WZrsuOs\r\nZWowF8vaF8CiiO88xsa4BkWrF92kUC9jj5j+R3lq15OSRC0ktOzKG/5OjnFo\r\nS2vq1x5LLLkps4VlO5hBLDgq6kR/qRlU/AMpWBkAUNMixBaqU7gxEaFRpbtE\r\nrWHo0myoBZt9xL0PUR2eEY+xe3K0ueDcHtPKcqn3fy5ykxJyX6mOZuiBQm5p\r\nTYDE4B9Uf439yqrJpTpRTOj4XR1Z0pAUmIM=\r\n=hqGV\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-nesting_10.2.0_1663178459826_0.9238171414644092"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-09-14T18:01:00.057Z"
+}

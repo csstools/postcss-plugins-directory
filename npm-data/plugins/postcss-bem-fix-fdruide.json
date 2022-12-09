@@ -1,0 +1,108 @@
+{
+	"_id": "postcss-bem-fix-fdruide",
+	"_rev": "1-0423365f3c1f6ae2cd1850a464e32e94",
+	"name": "postcss-bem-fix-fdruide",
+	"description": "PostCSS plugin implementing BEM as at-rules",
+	"dist-tags": {
+		"latest": "1.0.2"
+	},
+	"versions": {
+		"1.0.2": {
+			"name": "postcss-bem-fix-fdruide",
+			"version": "1.0.2",
+			"description": "PostCSS plugin implementing BEM as at-rules",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"bem"
+			],
+			"author": {
+				"name": "Malte-Maurice Dreyer",
+				"email": "dreyer.maltem+dev@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/fdruide/postcss-bem-fix.git"
+			},
+			"dependencies": {
+				"postcss": "^6.0.8"
+			},
+			"devDependencies": {
+				"gulp-eslint": "^0.12.0",
+				"gulp-mocha": "^2.0.1",
+				"chai": "^2.3.0",
+				"gulp": "^3.8.11"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"gitHead": "ee183997b8932d058b15904339c8b1ed58049e4e",
+			"bugs": {
+				"url": "https://github.com/fdruide/postcss-bem-fix/issues"
+			},
+			"homepage": "https://github.com/fdruide/postcss-bem-fix#readme",
+			"_id": "postcss-bem-fix-fdruide@1.0.2",
+			"_npmVersion": "5.4.1",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "fdruide",
+				"email": "flemieux@druide.com"
+			},
+			"dist": {
+				"integrity": "sha512-thkl//AdgyoSqZG3K6dQuO3dKltdmNo0y87sH3x8GvblhKIAOoxIrfEZfuTW4tcCvfhu/EDEnZChrUjgo/tXyw==",
+				"shasum": "78f6438836f9f4c4d0164ad6012fc4a3641893cd",
+				"tarball": "https://registry.npmjs.org/postcss-bem-fix-fdruide/-/postcss-bem-fix-fdruide-1.0.2.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQChEUsmpXHzaVKeR3acsXchMCLoqqqEIqnQ1s9P5/ePfgIhAL9L7fFs3ccF9ITmAjgwsJhYo/UMcexeKGC5+70DtsbG"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "fdruide",
+					"email": "flemieux@druide.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-bem-fix-fdruide-1.0.2.tgz_1513724020007_0.4673742866143584"
+			}
+		}
+	},
+	"readme": "# PostCSS Bem [![Build Status][ci-img]][ci]\r\n\r\n[PostCSS] plugin implementing BEM as at-rules. Fix for postcss v6.\r\n\r\n[PostCSS]: https://github.com/postcss/postcss\r\n[ci-img]:  https://travis-ci.org/fdruide/postcss-bem-fix.svg\r\n[ci]:      https://travis-ci.org/fdruide/postcss-bem-fix\r\n\r\n```css\r\n@utility utilityName {\r\n    color: green;\r\n}\r\n\r\n@utility utilityName small {\r\n    color: blue;\r\n}\r\n\r\n@component ComponentName {\r\n    color: cyan;\r\n\r\n    @modifier modifierName {\r\n        color: yellow;\r\n    }\r\n\r\n    @descendent descendentName {\r\n        color: navy;\r\n    }\r\n\r\n    @when stateName {\r\n        color: crimson;\r\n    }\r\n}\r\n\r\n@component-namespace nmsp {\r\n    @component ComponentName {\r\n        color: red;\r\n    }\r\n}\r\n```\r\n\r\n```css\r\n.u-utilityName {\r\n    color: green;\r\n}\r\n\r\n.u-sm-utilityName {\r\n    color: blue;\r\n}\r\n\r\n.ComponentName {\r\n    color: cyan;\r\n}\r\n\r\n.ComponentName--modifierName {\r\n    color: yellow;\r\n}\r\n\r\n.ComponentName-descendentName {\r\n    color: navy;\r\n}\r\n\r\n.ComponentName.is-stateName {\r\n    color: crimson;\r\n}\r\n\r\n.nmsp-ComponentName {\r\n    color: red;\r\n}\r\n```\r\n\r\n**With shortcuts**\r\n```css\r\n@b nav { /* b is for block */\r\n    @e item { /* e is for element */\r\n        display: inline-block;\r\n    }\r\n    @m placement_header {\r\n        background-color: red;\r\n    }\r\n}\r\n```\r\n\r\n```css\r\n.nav {}\r\n.nav__item {\r\n    display: inline-block\r\n}\r\n.nav_placement_header {\r\n    background-color: red\r\n}\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\npostcss([ require('postcss-bem-fix')({\r\n    defaultNamespace: undefined, // default namespace to use, none by default\r\n    style: 'suit', // suit or bem, suit by default,\r\n    separators: {\r\n        descendent: '__' // overwrite any default separator for chosen style\r\n    },\r\n    shortcuts: {\r\n        utility: 'util' //override at-rule name\r\n    }\r\n}) ])\r\n```\r\n\r\nSee [PostCSS] docs for examples for your environment.\r\n",
+	"maintainers": [
+		{
+			"name": "fdruide",
+			"email": "flemieux@druide.com"
+		}
+	],
+	"time": {
+		"modified": "2022-05-13T06:05:13.069Z",
+		"created": "2017-12-19T22:53:40.108Z",
+		"1.0.2": "2017-12-19T22:53:40.108Z"
+	},
+	"homepage": "https://github.com/fdruide/postcss-bem-fix#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"bem"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fdruide/postcss-bem-fix.git"
+	},
+	"author": {
+		"name": "Malte-Maurice Dreyer",
+		"email": "dreyer.maltem+dev@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/fdruide/postcss-bem-fix/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

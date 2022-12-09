@@ -1,0 +1,588 @@
+{
+	"name": "autoprefixer-ie9-flex",
+	"version": "7.1.3",
+	"description": "Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website,fix IE9",
+	"keywords": [
+		"autoprefixer",
+		"css",
+		"prefix",
+		"postcss",
+		"postcss-plugin",
+		"IE9"
+	],
+	"author": "",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/postcss/autoprefixer.git"
+	},
+	"dependencies": {
+		"browserslist": "^2.1.5",
+		"caniuse-lite": "^1.0.30000697",
+		"normalize-range": "^0.1.2",
+		"num2fraction": "^1.2.2",
+		"postcss": "^6.0.6",
+		"postcss-value-parser": "^3.2.3"
+	},
+	"devDependencies": {
+		"babel-eslint": "^7.2.3",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"babel-preset-env": "^1.6.0",
+		"babelify": "^7.3.0",
+		"browserify": "^14.4.0",
+		"eslint": "^4.1.1",
+		"eslint-config-postcss": "^2.0.2",
+		"fs-extra": "^3.0.1",
+		"gulp": "^3.9.1",
+		"gulp-babel": "^6.1.2",
+		"gulp-coffee": "^2.3.4",
+		"gulp-json-editor": "^2.2.1",
+		"gulp-replace": "^0.6.1",
+		"jest": "^20.0.4",
+		"lint-staged": "^4.0.1",
+		"pre-commit": "^1.2.2",
+		"size-limit": "^0.5.0",
+		"vinyl-source-stream": "^1.1.0",
+		"babel-register": "^6.24.0"
+	},
+	"scripts": {
+		"lint-staged": "lint-staged",
+		"lint": "eslint *.js lib/*.js data/*.js test/*.js",
+		"size": "size-limit --babili 250KB build/lib/autoprefixer.js",
+		"test": "jest && npm run lint && gulp && npm run size"
+	},
+	"lint-staged": {
+		"*.js": "eslint"
+	},
+	"pre-commit": [
+		"lint-staged"
+	],
+	"eslintConfig": {
+		"extends": "eslint-config-postcss",
+		"parser": "babel-eslint",
+		"rules": {
+			"complexity": "off",
+			"camelcase": "off"
+		},
+		"env": {
+			"jest": true
+		}
+	},
+	"babel": {
+		"presets": [
+			[
+				"env",
+				{
+					"targets": {
+						"browsers": "last 1 version",
+						"node": 4
+					},
+					"loose": true
+				}
+			]
+		],
+		"plugins": [
+			[
+				"transform-class-properties",
+				{
+					"spec": true
+				}
+			]
+		]
+	},
+	"main": "lib/autoprefixer",
+	"contributors": [
+		{
+			"name": "Aaron",
+			"email": "me@aaron.md"
+		},
+		{
+			"name": "Adam Lynch",
+			"email": "contact@adamlynch.ie"
+		},
+		{
+			"name": "Adonis K",
+			"email": "aklp08@gmail.com"
+		},
+		{
+			"name": "Adriaan",
+			"email": "https://github.com/harianus"
+		},
+		{
+			"name": "Aleksei Androsov",
+			"email": "aandrosov@yandex-team.ru"
+		},
+		{
+			"name": "Aleksey Shvayka",
+			"email": "shvaikalesh@gmail.com"
+		},
+		{
+			"name": "Aleks Hudochenkov",
+			"email": "aleks@hudochenkov.com"
+		},
+		{
+			"name": "Alexey Plutalov",
+			"email": "demiazz.py@gmail.com"
+		},
+		{
+			"name": "Anders Olsen Sandvik",
+			"email": "https://github.com/Andersos"
+		},
+		{
+			"name": "Andreas Lind",
+			"email": "andreas@one.com"
+		},
+		{
+			"name": "Andrew Rhoads"
+		},
+		{
+			"name": "Andrey Deryabin",
+			"email": "deriabin@gmail.com"
+		},
+		{
+			"name": "Andrey Sitnik",
+			"email": "andrey@sitnik.ru"
+		},
+		{
+			"name": "Andrey Taritsyn",
+			"email": "taritsyn@gmail.com"
+		},
+		{
+			"name": "Andy Trevorah",
+			"email": "a.trevorah@gmail.com"
+		},
+		{
+			"name": "Anton Khlynovskiy",
+			"email": "subzey@gmail.com"
+		},
+		{
+			"name": "aruseni",
+			"email": "aruseni.magiku@gmail.com"
+		},
+		{
+			"name": "Ben Briggs",
+			"email": "beneb.info@gmail.com"
+		},
+		{
+			"name": "bernig",
+			"email": "https://github.com/bernig"
+		},
+		{
+			"name": "Bogdan Chadkin",
+			"email": "trysound@yandex.ru"
+		},
+		{
+			"name": "brainopia",
+			"email": "brainopia@evilmartians.com"
+		},
+		{
+			"name": "Brandon Mathis",
+			"email": "brandon@imathis.com"
+		},
+		{
+			"name": "Chad von Nau",
+			"email": "chad@vonnau.com"
+		},
+		{
+			"name": "Chi Vinh Le",
+			"email": "vinh@wikiwi.io"
+		},
+		{
+			"name": "Cory House",
+			"email": "housecor@gmail.com"
+		},
+		{
+			"name": "Cory Simmons",
+			"email": "cory@mojotech.com"
+		},
+		{
+			"name": "Craig Martin",
+			"email": "https://github.com/craigmichaelmartin"
+		},
+		{
+			"name": "Damon",
+			"email": "motoxer4533@gmail.com"
+		},
+		{
+			"name": "Daniel Garcia-Carrillo",
+			"email": "garciacarrillo.daniel@gmail.com"
+		},
+		{
+			"name": "Daniel Tschinder",
+			"email": "daniel@tschinder.de"
+		},
+		{
+			"name": "David Pike",
+			"email": "david@evolution7.com.au"
+		},
+		{
+			"name": "Denis Sokolov",
+			"email": "denis@sokolov.cc"
+		},
+		{
+			"name": "Dominik Porada",
+			"email": "dominik@porada.co"
+		},
+		{
+			"name": "Dominik Schilling",
+			"email": "dominikschilling+git@gmail.com"
+		},
+		{
+			"name": "dotch",
+			"email": "ch.weiss@hotmail.de"
+		},
+		{
+			"name": "Dmitry Semigradsky",
+			"email": "semigradskyd@gmail.com"
+		},
+		{
+			"name": "Efremov Alexey",
+			"email": "lexich121@gmail.com"
+		},
+		{
+			"name": "eitanr",
+			"email": "eitanr@wix.com"
+		},
+		{
+			"name": "Erik Sundahl",
+			"email": "esundahl@gmail.com"
+		},
+		{
+			"name": "Eugene Datsky",
+			"email": "eugene@datsky.ru"
+		},
+		{
+			"name": "Evilebot Tnawi",
+			"email": "sheo13666q@gmail.com"
+		},
+		{
+			"name": "Forrest York",
+			"email": "https://github.com/badisa"
+		},
+		{
+			"name": "Google Inc."
+		},
+		{
+			"name": "Gregory Eremin",
+			"email": "magnolia_fan@me.com"
+		},
+		{
+			"name": "GU Yiling",
+			"email": "justice360@gmail.com"
+		},
+		{
+			"name": "Hallvord R. M. Steen",
+			"email": "hallvord@hallvord.com"
+		},
+		{
+			"name": "heady",
+			"email": "https://github.com/heady"
+		},
+		{
+			"name": "Iain Beeston",
+			"email": "iain.beeston@gmail.com"
+		},
+		{
+			"name": "Igor Adamenko",
+			"email": "https://github.com/igoradamenko"
+		},
+		{
+			"name": "Jack Moore",
+			"email": "hello@jacklmoore.com"
+		},
+		{
+			"name": "Jason Kuhrt",
+			"email": "jasonkuhrt@me.com"
+		},
+		{
+			"name": "Jeff Escalante",
+			"email": "hello@jenius.me"
+		},
+		{
+			"name": "Johannes J. Schmidt",
+			"email": "schmidt@netzmerk.com"
+		},
+		{
+			"name": "John Kreitlow",
+			"email": "jkreitlow@deepfocus.net"
+		},
+		{
+			"name": "Jonathan Ong",
+			"email": "jonathanrichardong@gmail.com"
+		},
+		{
+			"name": "Josh Gillies",
+			"email": "github@joshgilli.es"
+		},
+		{
+			"name": "jvdanilo",
+			"email": "jvdanilo@gmail.com"
+		},
+		{
+			"name": "Kieran",
+			"email": "Kieranju@gmail.com"
+		},
+		{
+			"name": "Kir Shatrov",
+			"email": "shatrov@me.com"
+		},
+		{
+			"name": "kizu",
+			"email": "kizmarh@gmail.com"
+		},
+		{
+			"name": "Leonya Khachaturov",
+			"email": "leonidkhachaturov@gmail.com"
+		},
+		{
+			"name": "Lovchikov Anton",
+			"email": "besyanya@yandex.ru"
+		},
+		{
+			"name": "L.T",
+			"email": "ec.huyinghuan@gmail.com"
+		},
+		{
+			"name": "Luciano Battagliero",
+			"email": "lucianobattagliero+git@gmail.com"
+		},
+		{
+			"name": "Luke Page",
+			"email": "luke.a.page@gmail.com"
+		},
+		{
+			"name": "martco",
+			"email": "martco@gmail.com"
+		},
+		{
+			"name": "Matt Smith",
+			"email": "runner_28@hotmail.com"
+		},
+		{
+			"name": "Maxime Thirouin",
+			"email": "m@moox.io"
+		},
+		{
+			"name": "Max Mechanic",
+			"email": "max@philo.com"
+		},
+		{
+			"name": "Michael Beil",
+			"email": "michaelbeil@me.com"
+		},
+		{
+			"name": "Michael Scott Hertzberg",
+			"email": "mshertzberg@gmail.com"
+		},
+		{
+			"name": "Michał Gołębiowski",
+			"email": "m.goleb@gmail.com"
+		},
+		{
+			"name": "Mikael Jorhult",
+			"email": "mikael@jorhult.se"
+		},
+		{
+			"name": "Morton Fox",
+			"email": "github@qslw.com"
+		},
+		{
+			"name": "mvasilkov",
+			"email": "mvasilkov@gmail.com"
+		},
+		{
+			"name": "Nick Howes",
+			"email": "nick@nickhowes.co.uk"
+		},
+		{
+			"name": "Nick Schonning",
+			"email": "nschonni@gmail.com"
+		},
+		{
+			"name": "nickspielgist",
+			"email": "dev@nickspiel.me"
+		},
+		{
+			"name": "Niels Dequeker",
+			"email": "niels.dequeker@gmail.com"
+		},
+		{
+			"name": "Nikolay Burlov",
+			"email": "kohgpat@gmail.com"
+		},
+		{
+			"name": "Paul Statezny",
+			"email": "Paulstatezny@gmail.com"
+		},
+		{
+			"name": "Peter Zotov",
+			"email": "whitequark@whitequark.org"
+		},
+		{
+			"name": "Rafael Silva",
+			"email": "rafael@rafaelsilva.net"
+		},
+		{
+			"name": "Ray Lehnhoff",
+			"email": "raymond.lehnhoff@gmail.com"
+		},
+		{
+			"name": "ReadmeCritic",
+			"email": "frankensteinbot@gmail.com"
+		},
+		{
+			"name": "Reinaldo Schiehll",
+			"email": "rn.schiehll@gmail.com"
+		},
+		{
+			"name": "René Stalder",
+			"email": "rene@whatwedo.ch"
+		},
+		{
+			"name": "Richard Wang",
+			"email": "richardwa@google.com"
+		},
+		{
+			"name": "Rob Howell",
+			"email": "rob@robhowell.com"
+		},
+		{
+			"name": "Roland Warmerdam",
+			"email": "rowno@webspirited.com"
+		},
+		{
+			"name": "Sasha Koss",
+			"email": "koss@nocorp.me"
+		},
+		{
+			"name": "Sean Anderson",
+			"email": "Sean.Palmer.Anderson@gmail.com"
+		},
+		{
+			"name": "Sergey Belov",
+			"email": "peimei@ya.ru"
+		},
+		{
+			"name": "Sergey Leschina",
+			"email": "mail@putnik.ws"
+		},
+		{
+			"name": "sethjgore",
+			"email": "sethjgore@gmail.com"
+		},
+		{
+			"name": "Šime Vidas",
+			"email": "sime.vidas@gmail.com"
+		},
+		{
+			"name": "Simon Lydell",
+			"email": "simon.lydell@gmail.com"
+		},
+		{
+			"name": "Sindre Sorhus",
+			"email": "sindresorhus@gmail.com"
+		},
+		{
+			"name": "Stephen Edgar",
+			"email": "stephen@netweb.com.au"
+		},
+		{
+			"name": "Steve Mao",
+			"email": "https://github.com/stevemao"
+		},
+		{
+			"name": "Stig Otnes Kolstad",
+			"email": "stig@stigok.net"
+		},
+		{
+			"name": "Subash Pathak",
+			"email": "sbspk@msn.com"
+		},
+		{
+			"name": "sunhao",
+			"email": "sunhao_1988@msn.cn"
+		},
+		{
+			"name": "tomdavenport",
+			"email": "playmusic@me.com"
+		},
+		{
+			"name": "Tony Ganch",
+			"email": "tonyganch@gmail.com"
+		},
+		{
+			"name": "Vegard Andreas Larsen",
+			"email": "vegard@xaltra.net"
+		},
+		{
+			"name": "Vera Surkova",
+			"email": "vera@surkova.se"
+		},
+		{
+			"name": "Vincent De Oliveira",
+			"email": "vincent@iamvdo.me"
+		},
+		{
+			"name": "Vishnu Ravi",
+			"email": "vishnu@vishnu.io"
+		},
+		{
+			"name": "Vladimir Pouzanov",
+			"email": "farcaller@gmail.com"
+		},
+		{
+			"name": "vladkens",
+			"email": "vladkens@yandex.ru"
+		},
+		{
+			"name": "Даниил Пронин",
+			"email": "mail@grawl.ru"
+		},
+		{
+			"name": "一丝",
+			"email": "jie.lijie@alibaba-inc.com"
+		},
+		{
+			"name": "刘祺",
+			"email": "gucong@gmail.com"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/postcss/autoprefixer/issues"
+	},
+	"homepage": "https://github.com/postcss/autoprefixer#readme",
+	"_id": "autoprefixer-ie9-flex@7.1.3",
+	"_nodeVersion": "14.13.1",
+	"_npmVersion": "6.14.8",
+	"dist": {
+		"integrity": "sha512-cWessj5nSFVb5ixwfmrAIhdAk0qkEfg7wOjPQlwdFxzY1MXG/lNyDByHhKSt5rTAMBTKCqtdi6Kj2B2xHuYY7g==",
+		"shasum": "b75b68e912ca361d3dd490e7280bd288fbeb68e4",
+		"tarball": "https://registry.npmjs.org/autoprefixer-ie9-flex/-/autoprefixer-ie9-flex-7.1.3.tgz",
+		"fileCount": 66,
+		"unpackedSize": 274622,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2kD2CRA9TVsSAnZWagAAUEEP+gMBB/mARR0p1mUrYIyN\n27Qyypp55AlZH8Mf5BInoEbsc4qJwlTgoFzhQkY5yZ9VTQKYhHks5mEEBZju\naAxBQ0pYSb/n4QLD9LmIWPlDfzwGP1KlcgQBVgb0fOw+VGKPw4BufAEfIbsU\ncqUrP/C7TFkz0oZLLIbSOxUrWqDWR4Vwlyk5t8b0SBlnPFaKrzJO9dovcomK\nC4VmYcUofBpxGdOJR5qewUGRANPvYKbklcnBhyfEGSokkjeu7GprX7x0JoXX\nRsozAwt+0JQe3HAMck9jGuwMGBjUHzgqC9r6j2+D1hCeOYgEDMfTB5HI5VO2\nxfgqx7Vmmu0faP66qS4aED9QASgzLxERdZ63oQ3fiM8yeRbfSwcKXCH3qBDn\nNXCKvSzYbQ4I63NAtOGww2XxobxESIqrq9f7fcqoKQr25PvMmhvhewpPpdwy\njotMg/Z854o+39phq6XxNHFNS8aT2B0mMvIuAHtd+K/BSYbhX3hLluriJQrA\nuJG5W7BVgXQKCCzBjYR1obhjCXBml3Vl5NnKGGZoVUactld5f7nm6gSLSAy1\na/5x1HvpzvwX2arSlaeOS8kBNayvKIq7KLp6gPrtq+J/gxKMMsvBoAhm0sFD\nBmk9GTM8CnQOnLprP0Y+Nd2pU2snnwmSM9JIxACTc+to7sxboZJ3sS2Hpu8P\nUXBp\r\n=45d3\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQDXOIXikw3ie0O2mJbsnYCzerbkLTFmsWUeCo4TB253QwIgPmDUX6RxVcSW8/vdobDCiVrnHoIVX581roP0Ejt18MA="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "maozhi0720",
+		"email": "maozhijob@163.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "maozhi0720",
+			"email": "maozhijob@163.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/autoprefixer-ie9-flex_7.1.3_1634800565239_0.994544335573958"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2021-10-21T07:16:05.443Z"
+}

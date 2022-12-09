@@ -1,0 +1,113 @@
+{
+	"_id": "postcss-deps",
+	"_rev": "3-c28440bc9a3908d8573b60ced4137cac",
+	"name": "postcss-deps",
+	"description": "Detect the css dependency graph",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-deps",
+			"version": "0.0.1",
+			"description": "Detect the css dependency graph",
+			"main": "index.js",
+			"scripts": {
+				"test": "eslint . && tap test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zoubin/postcss-deps.git"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"deps",
+				"css",
+				"dependency",
+				"graph"
+			],
+			"author": {
+				"name": "zoubin"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/zoubin/postcss-deps/issues"
+			},
+			"homepage": "https://github.com/zoubin/postcss-deps#readme",
+			"devDependencies": {
+				"eslint": "^1.5.1",
+				"postcss-import": "^7.0.0",
+				"tap": "^1.4.1"
+			},
+			"dependencies": {
+				"custom-resolve": "^0.2.1",
+				"getp": "^1.1.0",
+				"nub": "^1.0.0",
+				"postcss": "^5.0.8",
+				"slide": "^1.1.6",
+				"util-mix": "^3.0.1"
+			},
+			"gitHead": "7a3a4a3719351ba4d8d191b43ed65c404211bbb1",
+			"_id": "postcss-deps@0.0.1",
+			"_shasum": "6242df9006c709914428e18333650b936d24bb78",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "2.5.0",
+			"_npmUser": {
+				"name": "zoubin",
+				"email": "zoubin04@gmail.com"
+			},
+			"dist": {
+				"shasum": "6242df9006c709914428e18333650b936d24bb78",
+				"tarball": "https://registry.npmjs.org/postcss-deps/-/postcss-deps-0.0.1.tgz",
+				"integrity": "sha512-ROPVQtIgCMRc8PSRDrLcHnJ4XlTEw6GPzTIhQGzbvQUqpG9Tn6RZJ1QVT63Uo5u+yShCfDEClwi84WeFfSn1Kw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDl1woI19vD9I7F7wqYlm5x3ylBoEh8RwkC9Nq/SYkWSAIhAJ1h03+nE9RhipFZON1HlQlJuu8S+65L9RY7vLFusHvx"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "zoubin",
+					"email": "zoubin04@gmail.com"
+				}
+			]
+		}
+	},
+	"readme": "# postcss-deps\nDetect the css dependency graph.\n\nUse `@deps \"module\"` to indicate the dependency relationship.\n\n## Example\n\nInput:\n```\n⌘ tree example/fixtures\nexample/fixtures\n├── entry.css\n├── entry.expected.css\n├── node_modules\n│   ├── @style -> ../style_modules\n│   └── reset\n│       └── index.css\n└── style_modules\n    ├── base\n    │   ├── base.css\n    │   └── package.json\n    ├── colors\n    │   └── index.css\n    └── deps\n        ├── deps.css\n        └── index.css\n```\n\nentry.css:\n\n```css\n@deps \"reset\";\n@deps \"@style/base\";\n@import \"@style/deps\";\na {\n  color: green;\n}\n\n```\n\ndeps.css:\n\n```css\n@deps \"../colors\";\na {\n  color: red;\n}\n\n```\n\nexample/deps.js:\n\n```javascript\nvar postcss = require('postcss');\nvar atImport = require('postcss-import');\nvar atDeps = require('..');\nvar path = require('path');\nvar fs = require('fs');\n\nvar fixtures = path.resolve.bind(path, __dirname, 'fixtures');\nvar src = fixtures('entry.css');\nvar contents = fs.readFileSync(src, 'utf8');\npostcss(\n  atImport(),\n  atDeps({\n    onDeps: function (deps) {\n      log('Deps Detected:', deps);\n    },\n  })\n)\n.process(contents, { from: src })\n.then(function (result) {\n  log('Original:', contents);\n  log('Compiled:', result.css);\n})\n.catch(function (err) {\n  console.log(err);\n});\n\nfunction log(str, c) {\n  console.log('\\n');\n  console.log(str);\n  console.log('-'.repeat(str.length));\n  console.log(c);\n}\n\n```\n\noutput:\n\n```\n⌘ node example/deps.js\n\n\nDeps Detected:\n--------------\n[ '/Users/zoubin/usr/src/zoubin/postcss-deps/test/fixtures/node_modules/reset/index.css',\n  '/Users/zoubin/usr/src/zoubin/postcss-deps/test/fixtures/style_modules/base/base.css',\n  '/Users/zoubin/usr/src/zoubin/postcss-deps/test/fixtures/style_modules/colors/index.css' ]\n\n\nOriginal:\n---------\n@deps \"reset\";\n@deps \"@style/base\";\n@import \"@style/deps\";\na {\n  color: green;\n}\n\n\n\n\nCompiled:\n---------\na {\n  color: red;\n}\na {\n  color: green;\n}\n\n```\n\n",
+	"maintainers": [
+		{
+			"name": "zoubin",
+			"email": "zoubin04@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:48:47.104Z",
+		"created": "2015-09-26T07:33:48.289Z",
+		"0.0.1": "2015-09-26T07:33:48.289Z"
+	},
+	"homepage": "https://github.com/zoubin/postcss-deps#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"deps",
+		"css",
+		"dependency",
+		"graph"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/zoubin/postcss-deps.git"
+	},
+	"author": {
+		"name": "zoubin"
+	},
+	"bugs": {
+		"url": "https://github.com/zoubin/postcss-deps/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

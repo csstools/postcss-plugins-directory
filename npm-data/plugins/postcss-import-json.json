@@ -1,0 +1,139 @@
+{
+	"_id": "postcss-import-json",
+	"_rev": "1-6e1987dabd35ef0ad1215c8447f253f4",
+	"name": "postcss-import-json",
+	"description": "PostCSS plugin to import variables from JSON file",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-import-json",
+			"version": "1.0.0",
+			"description": "PostCSS plugin to import variables from JSON file",
+			"author": {
+				"name": "Andrey Avol Volynkin",
+				"email": "code@m18.ru"
+			},
+			"license": "MIT",
+			"homepage": "https://github.com/m18ru/postcss-import-json#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/m18ru/postcss-import-json.git"
+			},
+			"bugs": {
+				"url": "https://github.com/m18ru/postcss-import-json/issues"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"import",
+				"json",
+				"partial",
+				"import-json",
+				"variables",
+				"variable"
+			],
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"engines": {
+				"node": ">=6"
+			},
+			"scripts": {
+				"test": "npm run lint && npm run test:main",
+				"test:main": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha --compilers ts:ts-node/register",
+				"lint:scripts-project": "tslint -c tslint-type-check.json -p tsconfig.json --type-check",
+				"lint:scripts-other": "tslint \"{*.js,src/*.d.ts,test/*.ts}\"",
+				"lint": "npm run lint:scripts-project && npm run lint:scripts-other",
+				"clean": "rimraf lib",
+				"build": "tsc",
+				"prepublishOnly": "npm run test",
+				"prepare": "npm run clean && npm run build"
+			},
+			"dependencies": {
+				"postcss": "^6.0.11",
+				"ts-fs": "^0.1.0"
+			},
+			"devDependencies": {
+				"@types/chai": "^4.0.4",
+				"@types/mocha": "^2.2.43",
+				"@types/node": "^8.0.28",
+				"chai": "^4.1.2",
+				"cross-env": "^5.0.5",
+				"mocha": "^3.5.3",
+				"rimraf": "^2.6.2",
+				"ts-node": "^3.3.0",
+				"tslint": "^5.7.0",
+				"tslint-config-m18": "^1.6.2",
+				"typescript": "^2.5.2"
+			},
+			"gitHead": "b4987e815531cca84590a53fa631e7524a3d5556",
+			"_id": "postcss-import-json@1.0.0",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.5.0",
+			"_npmUser": {
+				"name": "avol",
+				"email": "mail.avol@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-zg/hlq0y5Gc1LGCxmlAxK67AowtPWfw7UDnVBiS/7rC4mNM2VTVOXGlnlUjGpaMNu/M80uB4b7d2IaEtuVn0Cg==",
+				"shasum": "3a0c1640732d08fde6bf8800f9b1c8f8d947d92a",
+				"tarball": "https://registry.npmjs.org/postcss-import-json/-/postcss-import-json-1.0.0.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHw4muEUZ30BQ5JrtPIoR5Cq8jhECqguaLNODYd87tOtAiEA0LexIiWWYuivp7+ulEkNJCzXXxy4J4e8d/n1cGypoXs="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "avol",
+					"email": "mail.avol@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-import-json-1.0.0.tgz_1506072618034_0.25020499690435827"
+			}
+		}
+	},
+	"readme": "[![NPM][npm]][npm-url]\n[![Dependencies][deps]][deps-url]\n[![DevDependencies][deps-dev]][deps-dev-url]\n[![Tests][build]][build-url]\n\n# postcss-import-json\n\n[PostCSS] plugin to import variables from JSON file.\n\nTo import variables you should specify names to get from JSON. This allows you\nto better control the origin of variables.\n\nIn import rule variable can be renamed with `as NEW_NAME` syntax. You can also\nspecify individual variable prefix, instead of global, using `prefix PREFIX`.\nBoth directives are optional.\n\n## Syntax\n\n```\n@import-json <string> (<variable-declaration>#);\n\nwhere\n<variable-declaration> = <json-name> [ as <css-name> ] [ prefix <css-prefix> ]\n\nwhere\n<json-name>, <css-name>, <css-prefix> is identifiers and should not be a string.\n```\n\n## Example\n\n```css\ndiv\n{\n\t@import-json \"./imports/colors.json\" (fg as text prefix --, bg);\n}\n```\n\nOutput:\n\n```css\ndiv\n{\n\t--text: black;\n\t$bg: white;\n}\n```\n\nYou can find more examples in [tests](test/).\n\n## Install\n\n```\nnpm install --save-dev postcss-import-json\n```\n\n## Usage\n\nIt’s asynchronous plugin, so use should youse promises or async/await.\n\nSource file path is required to resolve relative paths. If this path is not\nspecified, `root` option is used (`process.cwd()` by default).\n\nIn this example used custom resolver to process paths, started from `~/`, as\nrelative to `__dirname`.\n\n```js\nconst postcss = require( 'postcss' );\nconst importJson = require( 'postcss-import-json' ).default;\n\nconst css = '@import-json \"~/fixtures/imports/colors.json\" (fg, bg);';\nconst options = {\n\tresolve: ( path ) => (\n\t\t/^~\\//.test( path )\n\t\t? resolve( __dirname, path.substr( 2 ) )\n\t\t: path\n\t),\n};\n\npostcss( [globalVars( options )] )\n\t.process(\n\t\tcss,\n\t\t{from: '/tmp/test.css'},\n\t)\n\t.then(\n\t\t( result ) =>\n\t\t{\n\t\t\tconsole.log( result.css ); // => '$fg: black;\\n$bg: white;'\n\t\t},\n\t);\n```\n\n## Options\n\n### `prefix`\n\nType: `string`  \nDefault: `'$'`\n\nDefault variable prefix. Used when variable has no individual prefix.\n\n### `root`\n\nType: `string`\nDefault: `process.cwd()`\n\nThe root directory where to resolve path. Used to resolve relative paths when\npath of source file is not specified.\n\n### `resolve`\n\nType: `( uri: string, basedir: string, options: PluginOptions ): string | Promise<string>`\nDefault: `undefined`\n\nCustom path resolver. Relative path can be returned to continue processing with\ndefault resolver.\n\nFunction arguments:\n\n* `uri` — URI from import rule (original path).\n* `basedir` — Base directory for current import.\n* `options` — Plugin options.\n\n## Change Log\n\n[View changelog](CHANGELOG.md).\n\n## License\n\n[MIT](LICENSE).\n\n[npm]: https://img.shields.io/npm/v/postcss-import-json.svg\n[npm-url]: https://npmjs.com/package/postcss-import-json\n\n[deps]: https://img.shields.io/david/m18ru/postcss-import-json.svg\n[deps-url]: https://david-dm.org/m18ru/postcss-import-json\n\n[deps-dev]: https://img.shields.io/david/dev/m18ru/postcss-import-json.svg\n[deps-dev-url]: https://david-dm.org/m18ru/postcss-import-json?type=dev\n\n[build]: https://img.shields.io/travis/m18ru/postcss-import-json.svg\n[build-url]: https://travis-ci.org/m18ru/postcss-import-json\n\n[PostCSS]: https://github.com/postcss/postcss\n",
+	"maintainers": [
+		{
+			"name": "avol",
+			"email": "mail.avol@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-05-13T06:22:34.672Z",
+		"created": "2017-09-22T09:30:18.992Z",
+		"1.0.0": "2017-09-22T09:30:18.992Z"
+	},
+	"homepage": "https://github.com/m18ru/postcss-import-json#readme",
+	"keywords": [
+		"postcss-plugin",
+		"postcss",
+		"css",
+		"import",
+		"json",
+		"partial",
+		"import-json",
+		"variables",
+		"variable"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/m18ru/postcss-import-json.git"
+	},
+	"author": {
+		"name": "Andrey Avol Volynkin",
+		"email": "code@m18.ru"
+	},
+	"bugs": {
+		"url": "https://github.com/m18ru/postcss-import-json/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

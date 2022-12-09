@@ -1,0 +1,141 @@
+{
+	"_id": "postcss-import-object",
+	"_rev": "3-f13a7ed0fe70b1b38fea71b3497ae2fc",
+	"name": "postcss-import-object",
+	"description": "If you pass an object as an argument, a new ROOT selector will be created and injected into it.",
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-import-object",
+			"version": "1.0.0",
+			"description": "If you pass an object as an argument, a new ROOT selector will be created and injected into it.",
+			"main": "index.js",
+			"scripts": {
+				"test": "ava"
+			},
+			"author": {
+				"name": "usagi-f"
+			},
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin"
+			],
+			"dependencies": {
+				"postcss": "^6.0.6"
+			},
+			"devDependencies": {
+				"ava": "^0.20.0"
+			},
+			"gitHead": "1b87d1a3de965624e91089dbf5a1567130a7781b",
+			"_id": "postcss-import-object@1.0.0",
+			"_shasum": "e09c6297b61f2b032c30c0f23bc5bafd6d61d714",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.4",
+			"_npmUser": {
+				"name": "usagi-f",
+				"email": "usagi.f@gmail.com"
+			},
+			"dist": {
+				"shasum": "e09c6297b61f2b032c30c0f23bc5bafd6d61d714",
+				"tarball": "https://registry.npmjs.org/postcss-import-object/-/postcss-import-object-1.0.0.tgz",
+				"integrity": "sha512-mliMIG3p3Q5Zj/qLooXNdcgNcEHU78MfEqdaUSCVA9xwOb6j2VJSesTtvc8Gpk7oWaGoQjpvs1zBjPRwoBMr0g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDNPVIg54fI7TqY0eoCkd6on2JdvTBI1tBOeM9+DHMv1wIgAabqxLB6t85pDdwze9OcwUCMK/L8fKov1lzdyPrqdt0="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "usagi-f",
+					"email": "usagi.f@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-import-object-1.0.0.tgz_1499686302453_0.62923499988392"
+			}
+		},
+		"1.0.1": {
+			"name": "postcss-import-object",
+			"version": "1.0.1",
+			"main": "index.js",
+			"scripts": {
+				"test": "ava"
+			},
+			"author": {
+				"name": "usagi-f"
+			},
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin"
+			],
+			"dependencies": {
+				"postcss": "^6.0.6"
+			},
+			"devDependencies": {
+				"ava": "^0.20.0"
+			},
+			"gitHead": "ef6ade4a1b1f833125478da1af1cee8bf49f1de0",
+			"description": "If you pass an object as an argument, a new ROOT selector will be created and injected into it.",
+			"_id": "postcss-import-object@1.0.1",
+			"_shasum": "9cae577d0b135e2e16fafec25a9acee698837f8f",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.4",
+			"_npmUser": {
+				"name": "usagi-f",
+				"email": "usagi.f@gmail.com"
+			},
+			"dist": {
+				"shasum": "9cae577d0b135e2e16fafec25a9acee698837f8f",
+				"tarball": "https://registry.npmjs.org/postcss-import-object/-/postcss-import-object-1.0.1.tgz",
+				"integrity": "sha512-zj3D20CT4rm26cDn0+8hhehpP/7qDZ8uo/kB0rw8kg/NnyScEEA0E/uwEW7cyd+ZKJyyWrlX/OeO6TRcQ7ysvg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIEiTKgEzlOrh15am29q1Ypk0dr5zkgdAcF/ycbS4/EaCAiBZyvFoZ2sqEV+BRbXKYlEMrGP2xNsVMAlYqew/aVIJ9g=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "usagi-f",
+					"email": "usagi.f@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-import-object-1.0.1.tgz_1499686595492_0.9587332445662469"
+			}
+		}
+	},
+	"readme": "# postcss-import-object\n\nIf you pass an object as an argument, a new ROOT selector will be created and injected into it.\n\nThis makes it possible to manage variables with JavaScript when using CSS Variables.\n\nFor example Immutable.js makes it easier to inject external objects into the CSS.\n\n## Installation\n\n```bash\nnpm install postcss-import-object --save-dev\n```\n\n```bash\nyarn add postcss-import-object --dev\n```\n\n## Usage\n\n```javascript\nvar importObject = require('postcss-import-object')\n\npostcss([importObject({\n        '--foo': 'bar',\n        '--baz': 'foobar'\n    })])\n    .process(input)\n    .then(result => {\n        // argument object is injected into a :root.\n        // :root {\n        //     --foo: bar;\n        //     --baz: foobar;\n        // }\n    })\n```\n\n## License\n\nMIT",
+	"maintainers": [
+		{
+			"name": "usagi-f",
+			"email": "usagi.f@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:10:36.296Z",
+		"created": "2017-07-10T11:31:42.544Z",
+		"1.0.0": "2017-07-10T11:31:42.544Z",
+		"1.0.1": "2017-07-10T11:36:35.660Z"
+	},
+	"keywords": [
+		"postcss",
+		"postcss-plugin"
+	],
+	"author": {
+		"name": "usagi-f"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

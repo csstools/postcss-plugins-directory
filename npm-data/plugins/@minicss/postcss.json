@@ -1,0 +1,640 @@
+{
+	"_id": "@minicss/postcss",
+	"_rev": "4-23520cc04fa7194bb6386beaa68346b9",
+	"name": "@minicss/postcss",
+	"dist-tags": {
+		"latest": "1.0.0-alpha.5"
+	},
+	"versions": {
+		"1.0.0-alpha.1": {
+			"name": "@minicss/postcss",
+			"version": "1.0.0-alpha.1",
+			"description": "MiniCSS PostCSS Plugin",
+			"license": "MIT",
+			"author": {
+				"name": "Ardalan Amini",
+				"email": "ardalanamini22@gmail.com",
+				"url": "https://ardalanamini.com/"
+			},
+			"homepage": "https://github.com/minicss/postcss#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/minicss/postcss.git"
+			},
+			"bugs": {
+				"url": "https://github.com/minicss/postcss/issues"
+			},
+			"keywords": [
+				"min",
+				"mini",
+				"minify",
+				"css",
+				"minicss",
+				"postcss",
+				"plugin"
+			],
+			"sideEffects": false,
+			"main": "build/cjs/index.cjs.js",
+			"types": "build/cjs/index.cjs.d.ts",
+			"module": "build/esm/index.esm.js",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./build/esm/index.esm.d.ts",
+						"default": "./build/esm/index.esm.js"
+					},
+					"default": {
+						"types": "./build/cjs/index.cjs.d.ts",
+						"default": "./build/cjs/index.cjs.js"
+					}
+				},
+				"./package.json": "./package.json"
+			},
+			"scripts": {
+				"build": "scripts/pre-build.sh && npm run build:cjs && npm run build:esm && scripts/post-build.sh",
+				"build:cjs": "tsc",
+				"build:cjs:watch": "npm run build:cjs -- --watch",
+				"build:esm": "tsc -p tsconfig.esm.json",
+				"build:esm:watch": "npm run build:esm -- --watch",
+				"lint": "eslint src __tests__ scripts",
+				"lint:fix": "npm run lint -- --fix",
+				"docs": "typedoc",
+				"benchmark": "ts-node scripts/benchmark.ts",
+				"test": "node --no-compilation-cache --expose-gc node_modules/jest/bin/jest --logHeapUsage",
+				"test:coverage": "npm test -- --coverage",
+				"test:ci": "npm run test:coverage -- --ci --verbose --no-cache"
+			},
+			"peerDependencies": {
+				"@minicss/core": "^1.0.0-alpha.1",
+				"postcss": "^8.4.14"
+			},
+			"devDependencies": {
+				"@minicss/core": "^1.0.0-alpha.1",
+				"@types/jest": "^28.1.6",
+				"@types/node": "^18.0.6",
+				"@typescript-eslint/eslint-plugin": "^5.30.7",
+				"@typescript-eslint/parser": "^5.30.7",
+				"eslint": "^8.20.0",
+				"eslint-config-noir": "^1.2.1",
+				"eslint-import-resolver-typescript": "^3.3.0",
+				"eslint-plugin-import": "^2.26.0",
+				"jest": "^28.1.3",
+				"postcss": "^8.4.14",
+				"table": "^6.8.0",
+				"ts-jest": "^28.0.7",
+				"ts-node": "^10.9.1",
+				"typedoc": "^0.23.8",
+				"typescript": "^4.7.4"
+			},
+			"gitHead": "b733eb53aa18bf9d0f450ee0363b388ec450eaaa",
+			"_id": "@minicss/postcss@1.0.0-alpha.1",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-R+Hgwc/6mMZgEBvjnrUtvWeSWQw+uKxZCkCpwZIQ9N3zkzeyJMMJeIIdIP7HB6hiDb28vuPEw0wAXLEBJWTovQ==",
+				"shasum": "93b21dd7b351889fbc45999db5b3b65b66ff5e47",
+				"tarball": "https://registry.npmjs.org/@minicss/postcss/-/postcss-1.0.0-alpha.1.tgz",
+				"fileCount": 55,
+				"unpackedSize": 2105428,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCP8NapOnAiIB5w7htYyG8x1Ip4Gr4YsAuG5DJF7IJfVgIhAI6KYmbi+el+nFMXVCo3Dfsm7JBpnitBB8lkTOoitgOW"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi2ZFgACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmorOg//fibPypRA8QkusoSsDv5couRl442GcGIofLVdwyD5xX3r1Q+J\r\n3IDYaUBFmdAOuO+cGG4hvXxBSFC5OianKFzILXkdOBijowk+eEHF0Fiq7pzF\r\nB3jHmN/epUfqZNItwQLv37Q+si9xSJg9JFKsngJB14NWleg2C2SxWCUacfsJ\r\n9fOOpFdYk/Yv6va7oo9W9lv/nMg371Zipz0pdtUQMjakrVezKt1f3NjatfQO\r\ncMsAW1ITMSqG88Q8D7tnAsalnAKdEt8qMehsYXeH1h/jqUKuOYeKwY8Anz/k\r\nGVF2LePtHy6LaYPvoKjfqB3r1KGqbZi5oLmXLCaOE+K1oTcVrJyISv8VnwsD\r\ngcpNIQ65jZmcMxIiZQA+GgT3LONs08tZaEr3JuOXi8eP+Kz8onF0+Ijrvd/8\r\n5zZ27AIVAldgO2ymVjQMg6y6s0oqRtpMU4952nmdUpNsI5H5aExFgTKhPjnY\r\nInONO1MKBvIw5bZcSdynIxbofiAMFlZMaJcoWTE8jkTBa6xmKz6MppB15IQW\r\nAmuhokXGemH59N7orxoy9kznPsarav8AU6pgC9eqDzyxYGUJPSM3GDAAIki7\r\nisdvZwHq8MpAAn47XfGcHtsknmbGzlzd/mHI3Xm3sUWHXjGhCpLzWgIRH/HS\r\ni+sgFcOvxBwnbwAMvyxeKd6Z4M1/8nO7pdE=\r\n=cPDg\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "ardalanamini",
+				"email": "ardalanamini22@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ardalanamini",
+					"email": "ardalanamini22@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss_1.0.0-alpha.1_1658425696068_0.13749293119603556"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0-alpha.2": {
+			"name": "@minicss/postcss",
+			"version": "1.0.0-alpha.2",
+			"description": "MiniCSS PostCSS Plugin",
+			"license": "MIT",
+			"author": {
+				"name": "Ardalan Amini",
+				"email": "ardalanamini22@gmail.com",
+				"url": "https://ardalanamini.com/"
+			},
+			"homepage": "https://github.com/minicss/postcss#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/minicss/postcss.git"
+			},
+			"bugs": {
+				"url": "https://github.com/minicss/postcss/issues"
+			},
+			"keywords": [
+				"min",
+				"mini",
+				"minify",
+				"css",
+				"minicss",
+				"postcss",
+				"plugin",
+				"postcss-plugin"
+			],
+			"sideEffects": false,
+			"main": "build/cjs/index.cjs.js",
+			"types": "build/cjs/index.cjs.d.ts",
+			"module": "build/esm/index.esm.js",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./build/esm/index.esm.d.ts",
+						"default": "./build/esm/index.esm.js"
+					},
+					"default": {
+						"types": "./build/cjs/index.cjs.d.ts",
+						"default": "./build/cjs/index.cjs.js"
+					}
+				},
+				"./package.json": "./package.json"
+			},
+			"scripts": {
+				"build": "scripts/pre-build.sh && npm run build:cjs && npm run build:esm && scripts/post-build.sh",
+				"build:cjs": "tsc",
+				"build:cjs:watch": "npm run build:cjs -- --watch",
+				"build:esm": "tsc -p tsconfig.esm.json",
+				"build:esm:watch": "npm run build:esm -- --watch",
+				"lint": "eslint src __tests__ scripts",
+				"lint:fix": "npm run lint -- --fix",
+				"docs": "typedoc",
+				"benchmark": "ts-node scripts/benchmark.ts",
+				"test": "node --no-compilation-cache --expose-gc node_modules/jest/bin/jest --logHeapUsage",
+				"test:coverage": "npm test -- --coverage",
+				"test:ci": "npm run test:coverage -- --ci --verbose --no-cache"
+			},
+			"peerDependencies": {
+				"@minicss/core": "^1.0.0-alpha.2",
+				"postcss": "^8.4.14"
+			},
+			"devDependencies": {
+				"@minicss/core": "^1.0.0-alpha.2",
+				"@types/jest": "^28.1.6",
+				"@types/node": "^18.0.6",
+				"@typescript-eslint/eslint-plugin": "^5.30.7",
+				"@typescript-eslint/parser": "^5.30.7",
+				"eslint": "^8.20.0",
+				"eslint-config-noir": "^1.2.1",
+				"eslint-import-resolver-typescript": "^3.3.0",
+				"eslint-plugin-import": "^2.26.0",
+				"jest": "^28.1.3",
+				"postcss": "^8.4.14",
+				"table": "^6.8.0",
+				"ts-jest": "^28.0.7",
+				"ts-node": "^10.9.1",
+				"typedoc": "^0.23.8",
+				"typescript": "^4.7.4"
+			},
+			"gitHead": "401b08984c5378d1569ac20747864501888c61a3",
+			"_id": "@minicss/postcss@1.0.0-alpha.2",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-+og91WVeSIDsIzIRzqNylQsFjByLKh/FDCFjTG/Wd4qfBss2GhcFnOuxspdrGKJriPpCEWLNhn0D5YOqkXF2pA==",
+				"shasum": "f75a4bde35824696cc320d4aaea424465efefca1",
+				"tarball": "https://registry.npmjs.org/@minicss/postcss/-/postcss-1.0.0-alpha.2.tgz",
+				"fileCount": 55,
+				"unpackedSize": 2119087,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDEU9GFJK8gnNoOoDe3ajKuJ/0wP6sUwv4PlHUHcvCACwIgdumPx7vQjN4/RuW4QSPJ6dtRpv/uo3ZlysfxtMo+xM4="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi2gizACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqvvg//dQlB9YMi1LBguWeXmoHTYSZRtuqrFS9u4F+D7vcQhIR0JHfo\r\nPsS5L+hCdOnNJrm0+Y76lowd0+bOZS5v64Im3MHAVOiNmZWC73ECU1w4/s5I\r\nzsWjIIQersO2H5Tif21863wTHi2MsYHgH4RA16foZrPOiMWpQdNSFR01UBjF\r\njLK6jNChAqVnED121QDstithwe8oKePkj9sjWVtQpF++SWUj9Zo4x9uaGps+\r\nymgVc5bzBJTTCCBdpKqLmrFwO8XrR1wT7VVOSgw3qYQ2FTURVA479YV692RR\r\nA1ysBIXF1aN/3k+bs8JffiUgIV9KWuOWJ348mhH8PI++ixWTKaiD/dcUk+cT\r\n9ukClxAcF9VQ8CStdAEd0PbMdhEkJm6nJAoin4sIF+odq/ASsBtv+qQX/RCX\r\nA25hCSRVjIi8yy9LnpzCLv5GPoijcILtB+UyJj7Duh492k9HnHtJoq7FMOoP\r\nmxIBjESY3jV5ILahtHroUpEWCVXelj6zfqgsNPS9MfdGi1ixFko41u5c70Oi\r\nbcsHaMF50baSksrczb1w0SWZlrCvsfStrc2HWzfigLpB5WZhn46azPNYYJAN\r\n4zbPJ6iWYlXKSi50a3hLNjjVLsbN1kp/18FBDhSI+5NJGHKQv+M8iE/RbGuR\r\nrXsNj4U+UpDqnti5B+hWqJoDBaWo4ZZGi0c=\r\n=l5QC\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "ardalanamini",
+				"email": "ardalanamini22@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ardalanamini",
+					"email": "ardalanamini22@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss_1.0.0-alpha.2_1658456243564_0.0997571463631004"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0-alpha.3": {
+			"name": "@minicss/postcss",
+			"version": "1.0.0-alpha.3",
+			"description": "MiniCSS PostCSS Plugin",
+			"license": "MIT",
+			"author": {
+				"name": "Ardalan Amini",
+				"email": "ardalanamini22@gmail.com",
+				"url": "https://ardalanamini.com/"
+			},
+			"homepage": "https://github.com/minicss/postcss#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/minicss/postcss.git"
+			},
+			"bugs": {
+				"url": "https://github.com/minicss/postcss/issues"
+			},
+			"keywords": [
+				"min",
+				"mini",
+				"minify",
+				"css",
+				"minicss",
+				"postcss",
+				"plugin",
+				"postcss-plugin"
+			],
+			"sideEffects": false,
+			"engines": {
+				"node": ">= 16.0.0"
+			},
+			"main": "build/cjs/index.cjs.js",
+			"types": "build/cjs/index.cjs.d.ts",
+			"module": "build/esm/index.esm.js",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./build/esm/index.esm.d.ts",
+						"default": "./build/esm/index.esm.js"
+					},
+					"default": {
+						"types": "./build/cjs/index.cjs.d.ts",
+						"default": "./build/cjs/index.cjs.js"
+					}
+				},
+				"./package.json": "./package.json"
+			},
+			"scripts": {
+				"build": "scripts/pre-build.sh && npm run build:cjs && npm run build:esm && scripts/post-build.sh",
+				"build:cjs": "tsc",
+				"build:cjs:watch": "npm run build:cjs -- --watch",
+				"build:esm": "tsc -p tsconfig.esm.json",
+				"build:esm:watch": "npm run build:esm -- --watch",
+				"lint": "eslint src __tests__ scripts",
+				"lint:fix": "npm run lint -- --fix",
+				"docs": "typedoc",
+				"benchmark": "ts-node scripts/benchmark.ts",
+				"test": "node --no-compilation-cache --expose-gc node_modules/jest/bin/jest --logHeapUsage",
+				"test:coverage": "npm test -- --coverage",
+				"test:ci": "npm run test:coverage -- --ci --verbose --no-cache"
+			},
+			"peerDependencies": {
+				"@minicss/core": "^1.0.0-alpha.3",
+				"postcss": "^8.4.14"
+			},
+			"devDependencies": {
+				"@minicss/core": "^1.0.0-alpha.3",
+				"@types/jest": "^28.1.6",
+				"@types/node": "^18.0.6",
+				"@typescript-eslint/eslint-plugin": "^5.30.7",
+				"@typescript-eslint/parser": "^5.30.7",
+				"eslint": "^8.20.0",
+				"eslint-config-noir": "^1.2.1",
+				"eslint-import-resolver-typescript": "^3.3.0",
+				"eslint-plugin-import": "^2.26.0",
+				"jest": "^28.1.3",
+				"postcss": "^8.4.14",
+				"table": "^6.8.0",
+				"ts-jest": "^28.0.7",
+				"ts-node": "^10.9.1",
+				"typedoc": "^0.23.8",
+				"typescript": "^4.7.4"
+			},
+			"gitHead": "65b7d8fc388d2322406201748dbb7906f8b0130d",
+			"_id": "@minicss/postcss@1.0.0-alpha.3",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-mNl1NKxwb5DYQbhRHwsuX+dvFUaKpL6DRbaabh2UgCq+WV8DWYXH8iXRay+/jcp0/zJro1iUUtUyshv/a9W2Ig==",
+				"shasum": "3bbcf7e1f7749cc176ff52c7818df62fe6f512eb",
+				"tarball": "https://registry.npmjs.org/@minicss/postcss/-/postcss-1.0.0-alpha.3.tgz",
+				"fileCount": 55,
+				"unpackedSize": 2137767,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDsVEwAIM1R2feA8CrpMJp20WJlRmLDptEkvSpquhzVVQIgLqeSMMY1vdfpzLGXIpUdN/JCsDmYVUNPzsOERakbTB8="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi3pBFACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpUqBAAnKh8/9P4DMQjfL4meGaGX5iQNmHfym4J7pYU+h4OTOlj2LEv\r\nOAO5azdQtAP/hnl/am8omjHiV0WvMfYuhker4d03uYZ9WfdhOrHlAagUlxkb\r\n14sNVCD2aRZAnO6AyCk/4A5PPGugMwj28orLph9RmQMiAw0p3d+qnzfy7epT\r\nBbIE1SQBOX9uvSYInxqb2ynMySfoapwGngpHwS/+xqP6iAKniMCG4YnExIkM\r\nBffrHBQIeI2OUfpw0dspzNeQg+Vhsx8y2uxSvn1LoyFfnVyexu53AMcOCJ8Y\r\nZ5YkPRMmAaz9xp7ACPa9Td9owRhgpT9XNkC7409LjcPhLKjtJoRCTdcy5ST0\r\nkVaXfRPA90z/KF3eSJfA4M7R33U5HaEJc6EPWi2wko3EeC67qykCILXnc4cy\r\nsgqLUPQkM4uauG2dztUJ5P+kVrgpwqW/Hf3kN9BaVMzPXtv6DIxX6LWTsaZB\r\nXTF+9VhfS52FTviaviQFR2iuxVe4merRhad8EjG2y3Z8bQfiiZ4EbDKiiTjk\r\nvM+k4WoBl0JF+/8N+zKUVKlWsHI8uDlqIncrEKtLpYZvDxSvFwJO3v9aoRgU\r\nKIUpX4br2IhuY863QkLOnSVv6HfYWuOGSiMI6okpJb0ArGq5o3o3cUhNysOx\r\nBvt/Tm89lSe4nKwC1HeQJ7gA4qFCslU7tnQ=\r\n=aMdy\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "ardalanamini",
+				"email": "ardalanamini22@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ardalanamini",
+					"email": "ardalanamini22@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss_1.0.0-alpha.3_1658753093583_0.029235663065943163"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0-alpha.4": {
+			"name": "@minicss/postcss",
+			"version": "1.0.0-alpha.4",
+			"description": "MiniCSS PostCSS Plugin",
+			"license": "MIT",
+			"author": {
+				"name": "Ardalan Amini",
+				"email": "ardalanamini22@gmail.com",
+				"url": "https://ardalanamini.com/"
+			},
+			"homepage": "https://github.com/minicss/postcss#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/minicss/postcss.git"
+			},
+			"bugs": {
+				"url": "https://github.com/minicss/postcss/issues"
+			},
+			"keywords": [
+				"min",
+				"mini",
+				"minify",
+				"css",
+				"minicss",
+				"postcss",
+				"plugin",
+				"postcss-plugin"
+			],
+			"sideEffects": false,
+			"engines": {
+				"node": ">= 16.0.0"
+			},
+			"main": "build/cjs/index.cjs.js",
+			"types": "build/cjs/index.cjs.d.ts",
+			"module": "build/esm/index.esm.js",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./build/esm/index.esm.d.ts",
+						"default": "./build/esm/index.esm.js"
+					},
+					"default": {
+						"types": "./build/cjs/index.cjs.d.ts",
+						"default": "./build/cjs/index.cjs.js"
+					}
+				},
+				"./package.json": "./package.json"
+			},
+			"scripts": {
+				"build": "scripts/pre-build.sh && npm run build:cjs && npm run build:esm && scripts/post-build.sh",
+				"build:cjs": "tsc",
+				"build:cjs:watch": "npm run build:cjs -- --watch",
+				"build:esm": "tsc -p tsconfig.esm.json",
+				"build:esm:watch": "npm run build:esm -- --watch",
+				"lint": "eslint src __tests__ scripts",
+				"lint:fix": "npm run lint -- --fix",
+				"docs": "typedoc",
+				"benchmark": "ts-node scripts/benchmark.ts",
+				"test": "node --no-compilation-cache --expose-gc node_modules/jest/bin/jest --logHeapUsage",
+				"test:coverage": "npm test -- --coverage",
+				"test:ci": "npm run test:coverage -- --ci --verbose --no-cache"
+			},
+			"peerDependencies": {
+				"@minicss/core": "^1.0.0-alpha.4",
+				"postcss": "^8.4.16"
+			},
+			"devDependencies": {
+				"@minicss/core": "^1.0.0-alpha.4",
+				"@types/jest": "^28.1.7",
+				"@types/node": "^18.7.8",
+				"@typescript-eslint/eslint-plugin": "^5.33.1",
+				"@typescript-eslint/parser": "^5.33.1",
+				"eslint": "^8.22.0",
+				"eslint-config-noir": "^1.3.0",
+				"eslint-import-resolver-typescript": "^3.4.2",
+				"eslint-plugin-import": "^2.26.0",
+				"jest": "^28.1.3",
+				"postcss": "^8.4.16",
+				"table": "^6.8.0",
+				"ts-jest": "^28.0.8",
+				"ts-node": "^10.9.1",
+				"typedoc": "^0.23.10",
+				"typescript": "^4.7.4"
+			},
+			"gitHead": "0aed8cf0e5745b01735c08be8d17f5a5465f372c",
+			"_id": "@minicss/postcss@1.0.0-alpha.4",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-E9hx/8qzT1pX5mICsxYF1Lw/hqzUrE3bIQdH2g0DvdDM7H/rtMRrnzp+S4VjBE6OBHeoVDfCTkNcBas8rKSMiw==",
+				"shasum": "3dc64858684387f5b0dd41034a88e78184c4f4be",
+				"tarball": "https://registry.npmjs.org/@minicss/postcss/-/postcss-1.0.0-alpha.4.tgz",
+				"fileCount": 29,
+				"unpackedSize": 58425,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC2v4A/5sP6EccKvh+V3umUOu4EGyxuP6mju67q1Ibo5gIgUILi9+O6LoFdL0qyCFxRSoM+obdLs2VTG04mHKDvb70="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjAi+nACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmow7g//aPkcIjZ+2mzzWDL1lSkxD/Wayjb3nTHo1Cy3Ro8Ui1zsx5V7\r\nUtTaR7fOivUfa2JUPxIqcUsqEVlXud7aAB0grhjSas9Xp6U8qFCqVUTHSo27\r\nreMffpm80JJ7lMGd6w97RbhUNceq7MpwgeX1/9Efuqpqv5cIx9eINxT1bWJa\r\n/tHU9weoUjnbJDlK122BTH9VPqaU5lPN5xbFPlQREr4csQHSEYucZPQPjiaz\r\nVueI+wGHVciEVhNNq3xdC5qM9k1+lDV6RfMndRvkJHjoA5LCAIRRiez5FyJS\r\n8XsOcI+2BN1GJ15Tm/giRcvHeaZKqtC3umyv0KWeQB8hNlZOcflprrENJZpk\r\nTceCy1H0xBo3pHCcKPJBIMCoOlbe9EAeMwTl7rj/dVBpsNIGs81ELRPjTRZA\r\n+2aZbhp2X6gdnPdqFNFfA0SazuDoYkpLu9JrI1PnuXJ8QGUpyX9CyBea7XjO\r\nwoo0hsYrv+nf/NYz972W5d3ktl8aa6YQ6DHsavDbU4m8dlNPwN0r5OITX0P8\r\nolJxvCYCgwjJJ4huuMmMf9rzi2kRC9xNJk8s4KhqVtqobueLmKh4WjLotzjm\r\nc4Us9DJ8NZYWMSdSuLVFTz/nVcwBYY6rrQU8ea4rIf3Tip76i+D8XdaaH3th\r\nT8AO2raCYRoGvDkLO6NYuPzm/ou7JicNWMU=\r\n=cpZL\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "ardalanamini",
+				"email": "ardalanamini22@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ardalanamini",
+					"email": "ardalanamini22@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss_1.0.0-alpha.4_1661087655135_0.1632428512925277"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0-alpha.5": {
+			"name": "@minicss/postcss",
+			"version": "1.0.0-alpha.5",
+			"description": "MiniCSS PostCSS Plugin",
+			"license": "MIT",
+			"author": {
+				"name": "Ardalan Amini",
+				"email": "ardalanamini22@gmail.com",
+				"url": "https://ardalanamini.com/"
+			},
+			"homepage": "https://github.com/minicss/postcss#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/minicss/postcss.git"
+			},
+			"bugs": {
+				"url": "https://github.com/minicss/postcss/issues"
+			},
+			"keywords": [
+				"min",
+				"mini",
+				"minify",
+				"css",
+				"minicss",
+				"postcss",
+				"plugin",
+				"postcss-plugin"
+			],
+			"sideEffects": false,
+			"engines": {
+				"node": ">= 16.0.0"
+			},
+			"main": "build/cjs/index.cjs.js",
+			"types": "build/cjs/index.cjs.d.ts",
+			"module": "build/esm/index.esm.js",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./build/esm/index.esm.d.ts",
+						"default": "./build/esm/index.esm.js"
+					},
+					"default": {
+						"types": "./build/cjs/index.cjs.d.ts",
+						"default": "./build/cjs/index.cjs.js"
+					}
+				},
+				"./package.json": "./package.json"
+			},
+			"scripts": {
+				"build": "scripts/pre-build.sh && npm run build:cjs && npm run build:esm && scripts/post-build.sh",
+				"build:cjs": "tsc",
+				"build:cjs:watch": "npm run build:cjs -- --watch",
+				"build:esm": "tsc -p tsconfig.esm.json",
+				"build:esm:watch": "npm run build:esm -- --watch",
+				"lint": "eslint src __tests__ scripts",
+				"lint:fix": "npm run lint -- --fix",
+				"docs": "typedoc",
+				"benchmark": "ts-node scripts/benchmark.ts",
+				"test": "node --no-compilation-cache --expose-gc node_modules/jest/bin/jest --logHeapUsage",
+				"test:coverage": "npm test -- --coverage",
+				"test:ci": "npm run test:coverage -- --ci --verbose --no-cache"
+			},
+			"peerDependencies": {
+				"@minicss/core": "^1.0.0-alpha.4",
+				"postcss": "^8.4.16"
+			},
+			"devDependencies": {
+				"@minicss/core": "^1.0.0-alpha.4",
+				"@types/jest": "^28.1.7",
+				"@types/node": "^18.7.8",
+				"@typescript-eslint/eslint-plugin": "^5.33.1",
+				"@typescript-eslint/parser": "^5.33.1",
+				"eslint": "^8.22.0",
+				"eslint-config-noir": "^1.3.0",
+				"eslint-import-resolver-typescript": "^3.4.2",
+				"eslint-plugin-import": "^2.26.0",
+				"jest": "^28.1.3",
+				"postcss": "^8.4.16",
+				"table": "^6.8.0",
+				"ts-jest": "^28.0.8",
+				"ts-node": "^10.9.1",
+				"typedoc": "^0.23.10",
+				"typescript": "^4.7.4"
+			},
+			"gitHead": "c06f611e03865b5272342b4b26d8861feb3951a8",
+			"_id": "@minicss/postcss@1.0.0-alpha.5",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-XceR9LiDuNq7zwr1M+OP/cu57hdKh7ZRT53Z1UomEGFweq7KpmRJAvMovQF55jCPzUBWJIxDCAo8uwNnP7j/VQ==",
+				"shasum": "fca2c5a8dbe68181e97813bcfe2927101e86abc0",
+				"tarball": "https://registry.npmjs.org/@minicss/postcss/-/postcss-1.0.0-alpha.5.tgz",
+				"fileCount": 29,
+				"unpackedSize": 58565,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCT6yCrqTLor9qESq2O1Kn1kyv8ODgSVu7zfpTrvCC6RQIgQqeAvwOXqPrKVsFud2URsSHJVa/t///3FVThKI0TM9o="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjAjQ4ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrsUA/8D+JpAwNx9XT+gMt/sU6jWLWjisFF7XYmn2MAlmbmPR7vvLu/\r\nKVjc/FdFdaJ6W8ticEyMhCDISoeSMfEYmvX22AV7wzK0wo3cYP8KelLhDNDe\r\nATpL88h85rhAewTlCVf6j6pnDC6f+pKkJEsIuyh4JDIHjMXcPr4kk3R1d7l6\r\nEJF/g2tsiNBLQg8R+MAtrDmRzeG2K8LO4vvZG3/QlYfO/GNU/OeMYzKqo17U\r\noOwIV799EO5h44onSwY8hcgPugfVtvEirggEozvYkLTtIHOzM6ilLmCFk1No\r\nFlAtvKHcDcPGeqb92KAkL/kcEeeIkkyurZ36Bu4xB6hSkn4juc5nO3m+RHVf\r\nqWyjNTcXzzowajzN44dvPtxVW9+zsf5p2gcAkdzCYu5rXwMxquTJbLX8oFQz\r\nyHNVg/V6vThhtdXXAvwdib+iicjAov5Jgr4or5PmZXsF3f7nhwvoqjoiQhWw\r\nv/A/elGXyJ64Ek0wtKH0Rqa2a7Ni4W88ZE4TuRLXmiU3pd66BUw76dbQfeyR\r\nOV4sO4XKGxJ+49toD90BTghVFfubRFS3fi2Nsf7SJ3vUhvvlntQhP+DjGfzV\r\nZQaYQoL5xjNAOO4qw+ALQkqkcPAKXFV4GIYkldtnFK/9HarhpzJSI2HGscgt\r\nyWu9tiMRamDNvaMbQTENOpS6Hm+kXF+Jhms=\r\n=JPO4\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "ardalanamini",
+				"email": "ardalanamini22@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ardalanamini",
+					"email": "ardalanamini22@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss_1.0.0-alpha.5_1661088824268_0.6225946188278946"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-07-21T17:48:15.983Z",
+		"1.0.0-alpha.1": "2022-07-21T17:48:16.397Z",
+		"modified": "2022-08-21T13:33:44.551Z",
+		"1.0.0-alpha.2": "2022-07-22T02:17:23.810Z",
+		"1.0.0-alpha.3": "2022-07-25T12:44:53.816Z",
+		"1.0.0-alpha.4": "2022-08-21T13:14:15.295Z",
+		"1.0.0-alpha.5": "2022-08-21T13:33:44.466Z"
+	},
+	"maintainers": [
+		{
+			"name": "ardalanamini",
+			"email": "ardalanamini22@gmail.com"
+		}
+	],
+	"description": "MiniCSS PostCSS Plugin",
+	"homepage": "https://github.com/minicss/postcss#readme",
+	"keywords": [
+		"min",
+		"mini",
+		"minify",
+		"css",
+		"minicss",
+		"postcss",
+		"plugin",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/minicss/postcss.git"
+	},
+	"author": {
+		"name": "Ardalan Amini",
+		"email": "ardalanamini22@gmail.com",
+		"url": "https://ardalanamini.com/"
+	},
+	"bugs": {
+		"url": "https://github.com/minicss/postcss/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss\n\nMiniCSS PostCSS Plugin\n\n[![Test](https://github.com/minicss/postcss/actions/workflows/test.yml/badge.svg)](https://github.com/minicss/postcss/actions/workflows/test.yml)\n[![Coverage](https://codecov.io/gh/minicss/postcss/branch/main/graph/badge.svg?token=66XL2V4MY9)](https://codecov.io/gh/minicss/postcss)\n[![License](https://img.shields.io/github/license/minicss/postcss.svg)](https://github.com/minicss/postcss/blob/main/LICENSE)\n[![NPM Version](https://img.shields.io/npm/v/@minicss/postcss.svg)](https://www.npmjs.com/package/@minicss/postcss)\n[![NPM Monthly Downloads](https://img.shields.io/npm/dm/@minicss/postcss.svg)](https://www.npmjs.com/package/@minicss/postcss)\n[![NPM Total Downloads](https://img.shields.io/npm/dt/@minicss/postcss.svg)](https://www.npmjs.com/package/@minicss/postcss)\n[![Built with TypeScript](https://img.shields.io/npm/types/prototyped.js.svg)](https://www.typescriptlang.org)\n[![Tested With Jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://jestjs.io)\n[![Open GitHub Issues](https://img.shields.io/github/issues-raw/minicss/postcss.svg)](https://github.com/minicss/postcss/issues)\n[![Open GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/minicss/postcss)](https://github.com/minicss/postcss/pulls)\n[![Github Stars](https://img.shields.io/github/stars/minicss/postcss.svg?style=social&label=Stars)](https://github.com/minicss/postcss)\n[![Github Forks](https://img.shields.io/github/forks/minicss/postcss.svg?style=social&label=Fork)](https://github.com/minicss/postcss)\n\n## Table of Content\n\n- [Installation](#installation)\n- [Usage](#usage)\n  - [Options](#options)\n- [Benchmarks](#benchmarks)\n- [Versioning](#versioning)\n- [Authors](#authors)\n- [License](#license)\n\n## Installation\n\n```shell\nnpm i @minicss/postcss\n```\n\n## Usage\n\nCreate the `postcss.config.js` file:\n\n```javascript\nmodule.exports = {\n  plugins: {\n    \"@minicss/postcss\": {},\n  },\n};\n```\n\n### Options\n\n|     Name      |  Type   | Default |                                                                                                               Description                                                                                                               |\n|:-------------:|:-------:|:-------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|\n|    classes    | boolean | `true`  |                                                                                                  Should the plugin rename css classes                                                                                                   |\n|      ids      | boolean | `true`  |                                                                                                    Should the plugin rename css ids                                                                                                     |\n|   keyframes   | boolean | `true`  | Should the plugin rename css keyframes & animation names (in case of css `animation`, name should be either first parameter or last parameter if it starts with duration (a digit). if the name is a css variable then this won't work) |\n|   variables   | boolean | `true`  |                                                                                                 Should the plugin rename css variables                                                                                                  |\n| outputMapFile | string  |    -    |                                                                                       Where to write the output map to be used outside the plugin                                                                                       |\n\n> `*` means the options is required.\n\n## Benchmarks\n\nFirst build the project:\n\n```shell\nnpm run build\n```\n\nThen run the command below:\n\n```shell\nnpm run benchmark\n```\n\n## Versioning\n\nWe use [SemVer](http://semver.org) for versioning.\nFor the versions available, see the [releases on this repository](https://github.com/minicss/postcss/releases).\n\n## Authors\n\n- **Ardalan Amini** - _Core Maintainer_ - [@ardalanamini](https://github.com/ardalanamini)\n\nSee also the list of [contributors](https://github.com/minicss/postcss/contributors) who participated in this project.\n\n## License\n\nThis project is licensed under the MIT License - see the [LICENSE](https://github.com/minicss/postcss/blob/main/LICENSE) file for details.\n",
+	"readmeFilename": "README.md"
+}

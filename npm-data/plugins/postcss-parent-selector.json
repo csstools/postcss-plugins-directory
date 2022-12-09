@@ -1,0 +1,115 @@
+{
+	"_id": "postcss-parent-selector",
+	"_rev": "4-1e8c18959984b58d5cfd14fe3b67b711",
+	"name": "postcss-parent-selector",
+	"description": "PostCSS plugin for adding a parent selector to all rules in a css file.",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-parent-selector",
+			"version": "1.0.0",
+			"description": "PostCSS plugin for adding a parent selector to all rules in a css file.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"parent class"
+			],
+			"author": {
+				"name": "Dominick Washburn",
+				"email": "domwashburn@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/domwashburn/postcss-parent-selector.git"
+			},
+			"bugs": {
+				"url": "https://github.com/domwashburn/postcss-parent-selector/issues"
+			},
+			"homepage": "https://github.com/domwashburn/postcss-parent-selector",
+			"dependencies": {
+				"postcss": "^5.2.5"
+			},
+			"devDependencies": {
+				"ava": "^0.16.0",
+				"eslint": "^3.9.0",
+				"eslint-config-postcss": "^2.0.2"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5"
+			},
+			"gitHead": "1dae2fd3df8de4164a8739d43da623bc9a9aa809",
+			"_id": "postcss-parent-selector@1.0.0",
+			"_shasum": "eefe506f82a29343dd67eca6141bf4aa562e88a6",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.1",
+			"_npmUser": {
+				"name": "domwashburn",
+				"email": "domwashburn@gmail.com"
+			},
+			"dist": {
+				"shasum": "eefe506f82a29343dd67eca6141bf4aa562e88a6",
+				"tarball": "https://registry.npmjs.org/postcss-parent-selector/-/postcss-parent-selector-1.0.0.tgz",
+				"integrity": "sha512-otXGcFhUNUbNbr7GneKvFM+sPgmAJ0qDUDJdDq3u9uGwri8RG5kZKR6WPAuAMv3KnmkARGxqy4axGlVvsVVgxA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCICzuZoIKfSpsOcMN0z86Ct3KAS1LWZb1VFYf4GWY6i6TAiA/H327Q/WQs/592PW8Agx1rVme3Jssx1y4WANthp5Agg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "domwashburn",
+					"email": "domwashburn@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-parent-selector-1.0.0.tgz_1480715936192_0.808421584777534"
+			}
+		}
+	},
+	"readme": "# postcss-parent-selector [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin for adding a parent selector to all rules in a CSS file.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/domwashburn/postcss-parent-selector.svg\n[ci]:      https://travis-ci.org/domwashburn/postcss-parent-selector\n\n## Example\n\n**Options:**\n\n```js\n{selector: '.parent'}\n```\n\n**Input CSS:**\n\n```css\n.foo {\n    /* Input example */\n}\n\n\n.foo .bar,\ndiv.foo .bar {\n    /* Input example */\n}\n```\n**Output CSS:**\n\n```css\n.parent .foo {\n    /* Input example */\n}\n\n\n.parent .foo .bar,\n.parent div.foo .bar {\n    /* Input example */\n}\n```\n## Options\nThe `selector` option takes a string value that should be placed at the beginning of each selector, including selector lists separated by commas.\n\n```js\n// class\n{selector: '.parent-class'}\n\n// id\n{selector: '#parent-id'}\n\n// element\n{selector: 'div.parent-class'}\n```\n\n\n\n## Usage\n```js\npostcss([ require('postcss-parent-selector') ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n### Gulp.js _( with babel )_\n\n```js\nimport gulp from 'gulp';\nimport plumber from 'gulp-plumber';\nimport sass from 'gulp-sass';\nimport postcss from 'gulp-postcss';\nimport parentSelector from 'postcss-parent-selector';\n\ngulp.task('styles', () => {\n\n     // array containing postcss plugins\n    var processors = [\n        parentSelector({selector: '.parent'})\n    ];\n\n    // source compiled css or scss files\n    return gulp.src('./path/to/*.scss')\n        .pipe(plumber())\n        // scss compiling\n        .pipe(sass.sync({\n            outputStyle: 'expanded',\n            precision: 10,\n            includePaths: ['.']\n        }).on('error', sass.logError))\n        // postcss processes the compiled css\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('./path/to/dest'))\n        .pipe(reload({ stream: true }));\n});\n```\n",
+	"maintainers": [
+		{
+			"name": "domwashburn",
+			"email": "domwashburn@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:33:18.683Z",
+		"created": "2016-12-02T21:58:58.137Z",
+		"1.0.0": "2016-12-02T21:58:58.137Z"
+	},
+	"homepage": "https://github.com/domwashburn/postcss-parent-selector",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"parent class"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/domwashburn/postcss-parent-selector.git"
+	},
+	"author": {
+		"name": "Dominick Washburn",
+		"email": "domwashburn@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/domwashburn/postcss-parent-selector/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"domwashburn": true
+	}
+}

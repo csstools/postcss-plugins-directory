@@ -1,0 +1,110 @@
+{
+	"name": "@csstools/postcss-unset-value",
+	"description": "Use the unset keyword in CSS.",
+	"version": "1.0.2",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-unset-value#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-unset-value"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"inherit",
+		"initial",
+		"postcss-plugin",
+		"unset"
+	],
+	"csstools": {
+		"exportName": "postcssUnsetValue",
+		"humanReadableName": "PostCSS Unset Value"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "36c6c133b799feb19ec93fe098d539f49a2b700c",
+	"_id": "@csstools/postcss-unset-value@1.0.2",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-c8J4roPBILnelAsdLr4XOAR/GsTm0GJi4XpcfvoWk3U6KiTCqiFYc63KhRMQQX35jYMp4Ao8Ij9+IZRgMfJp1g==",
+		"shasum": "c99bb70e2cdc7312948d1eb41df2412330b81f77",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-unset-value/-/postcss-unset-value-1.0.2.tgz",
+		"fileCount": 8,
+		"unpackedSize": 26640,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQCohtbT3cb4bSvFENS7gbse2nOjLNB6HytGglFCEurQlwIhAOTDuxxBCtRhh3YW31CSUfK7TmyGA463smd1cZDgZVst"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGTVACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqv4A//XqwxTDk73D4yLPlrpLPhTJtYZkyDOdSpREEHvCVTKPLYHtaG\r\nda0A+xzFpDKomqqYNFn49JsVL6ahSk/fH5YTIse44K6/HtvyBeZHN5xy9HYO\r\nJrMIovxi4E+EMtHIsnvkykZOhHQ4ewA1+JbUkDsT6O4VzHR7ube9OWK4nECw\r\nDEygEKI9ri1u1pWU5yrjISHWjl8f/qjdGVl5FEUi0psl36Pw++T+d8pO29tv\r\n2179HnHgiBAlbiSAhYW1AGjc9Chc7guBq3vAuT5vtjI1i+oIB8Y8ckWxb28o\r\ntq6OXiMZWdjnHaVSwIFz38f4HDYLziFkPbedQjyDQ+VJj7GUPojE/Z5vMjpv\r\nhvEQS5IclSbET63AvUTHfx/Kgdg+bF2I0gxC9zJMbHPAaCDPowy8U9LI1xPh\r\nJaRx/hDRG6xdzqN1u9B54LLlhrWp16/pxOU/3YwgxRXrStBR+oZjQN7u2g87\r\nMTKCdi9/8an7ReMHau5WU9pudOVQTjuGk/1Hmn+7LyvHOBy1ICYSuE53Kmj+\r\nX6N5XhuPSnxgnMPf1VllqbPA9XWDD7bHjaqWEVJ/sZo0JoA7GzZFiLngZhy5\r\nb4bzsf9UQ76PRIAglhG0PZ/WxWUaBAx1KoFjLtldCTAvcLUgZPKdu2cVJ202\r\nl6NmUNX9oLJ/Ff5efWavxm31g6pGeU48ObA=\r\n=aSSy\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-unset-value_1.0.2_1657300181186_0.1668266281931634"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-07-08T17:09:41.343Z"
+}

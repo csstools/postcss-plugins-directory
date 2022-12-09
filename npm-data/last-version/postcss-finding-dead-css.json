@@ -1,0 +1,89 @@
+{
+	"name": "postcss-finding-dead-css",
+	"version": "1.0.0",
+	"main": "finding-dead-css.js",
+	"description": "PostCSS plugin that help identifying the dead code",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/retyui/postcss-finding-dead-css.git"
+	},
+	"author": {
+		"name": "retyui",
+		"email": "vamnemne@gmail.com"
+	},
+	"license": "MIT",
+	"files": [
+		"lib",
+		"lib-old"
+	],
+	"scripts": {
+		"babel:modern": "cross-env BABEL_ENV=modern babel src --out-dir lib",
+		"babel:old": "cross-env BABEL_ENV=old babel src --out-dir lib-old",
+		"clean": "rimraf ./test/test.js ./lib ./lib-old",
+		"compile": "npm-run-all --parallel babel:*",
+		"prepare": "npm-run-all clean prettier compile",
+		"prettier": "prettier --use-tabs --write ./src/*.js",
+		"static": "static ./test/public"
+	},
+	"peerDependencies": {
+		"postcss": "6.x"
+	},
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"optimize",
+		"unused",
+		"rules",
+		"selector",
+		"CSS"
+	],
+	"devDependencies": {
+		"babel-cli": "^6.24.1",
+		"babel-plugin-add-module-exports": "^0.2.1",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-env": "^1.5.2",
+		"browser-sync": "^2.23.6",
+		"cross-env": "^5.1.3",
+		"npm-run-all": "^4.1.2",
+		"postcss": "^6.0.16",
+		"prettier": "^1.10.2",
+		"rimraf": "^2.6.2"
+	},
+	"engines": {
+		"node": ">= 4.2"
+	},
+	"gitHead": "64cc7ec2de760500398ea7fc836701dbe841fc7f",
+	"bugs": {
+		"url": "https://github.com/retyui/postcss-finding-dead-css/issues"
+	},
+	"homepage": "https://github.com/retyui/postcss-finding-dead-css#readme",
+	"_id": "postcss-finding-dead-css@1.0.0",
+	"_npmVersion": "5.5.1",
+	"_nodeVersion": "8.9.1",
+	"_npmUser": {
+		"name": "retyui",
+		"email": "vamnemne@gmail.com"
+	},
+	"dist": {
+		"integrity": "sha512-Xb6os73T54TZEdy0az9gp21keKewqDHdaRUr6ezlSnuuMhylBqfI2GxY1oY6KEbijQpse+HArZhekf+/jrTARQ==",
+		"shasum": "82e8320cd33718ecbae665845331d90c4a8cfb0b",
+		"tarball": "https://registry.npmjs.org/postcss-finding-dead-css/-/postcss-finding-dead-css-1.0.0.tgz",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIFYa9oMMMYN+ljbCM4D414SemjYl6DjoCK2yrQgOGuN7AiAxLr7nreuQgtfD0/4udj/Cw2DAA3ocfuGlx0tyoCDCuA=="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "retyui",
+			"email": "vamnemne@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-finding-dead-css-1.0.0.tgz_1516924556354_0.30301096360199153"
+	},
+	"_time": "2018-01-25T23:55:56.477Z"
+}

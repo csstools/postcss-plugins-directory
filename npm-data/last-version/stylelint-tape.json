@@ -1,0 +1,123 @@
+{
+	"name": "stylelint-tape",
+	"version": "3.0.0",
+	"description": "Test stylelint plugins",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/stylelint-tape.git"
+	},
+	"homepage": "https://github.com/csstools/stylelint-tape#readme",
+	"bugs": {
+		"url": "https://github.com/csstools/stylelint-tape/issues"
+	},
+	"main": "index.js",
+	"module": "index.mjs",
+	"exports": {
+		".": {
+			"require": "./index.js",
+			"import": "./index.mjs"
+		}
+	},
+	"bin": {
+		"stylelint-tape": "cli.js"
+	},
+	"scripts": {
+		"build": "npm run build:api && npm run build:cli",
+		"build:api": "cross-env NODE_ENV=api rollup --config --silent",
+		"build:cli": "cross-env NODE_ENV=cli rollup --config --silent",
+		"posttest:cli": "npm unlink stylelint-tape",
+		"prepublishOnly": "npm run test:js && npm run test:node && npm run build:cli",
+		"pretest:cli": "npm run build:cli && npm link",
+		"pretest:node": "npm run build:api",
+		"test": "npm run test:js && npm run test:node && npm run test:cli",
+		"test:js": "eslint lib/*.js --cache --ignore-path .gitignore --quiet",
+		"test:node": "node test/test.js",
+		"test:cli": "stylelint-tape --cwd ./test"
+	},
+	"engines": {
+		"node": ">=8.0.0"
+	},
+	"dependencies": {
+		"log-update": "^4"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.18.5",
+		"@babel/plugin-syntax-dynamic-import": "^7.8.3",
+		"@babel/preset-env": "^7.18.2",
+		"babel-eslint": "^10.0.1",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.18.0",
+		"eslint-config-dev": "^3.1.0",
+		"pre-commit": "^1.2.2",
+		"rollup": "^2.75.7",
+		"rollup-plugin-babel": "^4.3.2",
+		"stylelint": "^14.9.1"
+	},
+	"peerDependencies": {
+		"stylelint": ">= 10"
+	},
+	"eslintConfig": {
+		"root": true,
+		"extends": [
+			"eslint-config-dev"
+		],
+		"ignorePatterns": "dist",
+		"env": {
+			"browser": true,
+			"es6": true,
+			"node": true
+		},
+		"parserOptions": {
+			"ecmaVersion": 2018,
+			"impliedStrict": true,
+			"sourceType": "module"
+		}
+	},
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"test",
+		"tool"
+	],
+	"gitHead": "773547aca7accc101128b2fedc9b924da89673cc",
+	"_id": "stylelint-tape@3.0.0",
+	"_nodeVersion": "18.4.0",
+	"_npmVersion": "8.12.1",
+	"dist": {
+		"integrity": "sha512-PjnPAQ2Gw+CuuYgxk3v4CEQzo/6uMZ4PJyhOYuhiuy2MC7KFs3f6E9VrNVRsAmxo0gFFZ8Kjpcd/nXibfTEFOg==",
+		"shasum": "5f7ca5bdba3fa76ad822044c576721f68b14fa75",
+		"tarball": "https://registry.npmjs.org/stylelint-tape/-/stylelint-tape-3.0.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 55187,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDrCc/WU8l73V0OXbvE6vZnz95Blg0l2DZ8VRu4WzrxwAIhAIyjVwNAJZ0U83LAqFLpZncioHKW1eGBKQInSX4irBqJ"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJisxHQACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoQoA/+Ns5Cks2orPidk2py08EPDA00DKxLO3d6qpwxs2Bg0LFb93jx\r\nMuybnas1uATllor8TEGNNHqPCsEGmNXaqKoIxbV3nPrGKUNrAeQBH/nkoaw2\r\nCzRu/yydEPbE+QH+1YFjrTobUaAlKZArtohiWTJOk/KrXkKFFWUKabQ9cHC3\r\n55iaWKBpICUadDX/T8GvRFPLvI+eLFGeuvPDqWwoU1Bd1JKFPZTPqQ9rdgsn\r\n18GrmoH4F501KOGa2wTHD0HbIYbTRgQ7cy+P/vnBRsxPpP+Go/RkZddJXGmv\r\nOo6VlRxT5bdjPNH1/h5BHQ3lnJ38jfqLj9SCFw15fPituB2wv9pVpIORhjxb\r\ndjIFdK31C20+5l6MZWTUysGYFdF6x6rXwpc+/dThKBHLcxzAi1Tlmt7qsXQr\r\nfAYmh/3lZnfJC2C2Po70BH0/T0zGsKkMa1Du5agX4P48pD5G+7RcWCbOGKMa\r\nK9bsVhzKSpP78BlxKXvrt9YqHoseTms/XblsRoD3Yqe1C8HZJ0ysUtxpuGQ5\r\nMFsWpZEfECFBlymw6EY3CMbR9PZoNI2QKRidDHEQ5LeXDvCQeSp3td7+Sk/3\r\nNPF+8K/JKme60aabpRmQJ8Mk5QUVjzdR2/RQvmHlf6WUG77s3pM/ClZVFQLI\r\nifhwiiB3YJ22FTEE4CM7N0x85d0D1ezqyCM=\r\n=WfZi\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "jonathantneal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/stylelint-tape_3.0.0_1655902672806_0.6098508160918625"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-06-22T12:57:52.965Z"
+}

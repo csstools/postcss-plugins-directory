@@ -1,0 +1,134 @@
+{
+	"_id": "postcss-finding-dead-css",
+	"_rev": "1-c14afcf25fbb5f674be9b53a8094cb96",
+	"name": "postcss-finding-dead-css",
+	"description": "PostCSS plugin that help identifying the dead code",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-finding-dead-css",
+			"version": "1.0.0",
+			"main": "finding-dead-css.js",
+			"description": "PostCSS plugin that help identifying the dead code",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/retyui/postcss-finding-dead-css.git"
+			},
+			"author": {
+				"name": "retyui",
+				"email": "vamnemne@gmail.com"
+			},
+			"license": "MIT",
+			"files": [
+				"lib",
+				"lib-old"
+			],
+			"scripts": {
+				"babel:modern": "cross-env BABEL_ENV=modern babel src --out-dir lib",
+				"babel:old": "cross-env BABEL_ENV=old babel src --out-dir lib-old",
+				"clean": "rimraf ./test/test.js ./lib ./lib-old",
+				"compile": "npm-run-all --parallel babel:*",
+				"prepare": "npm-run-all clean prettier compile",
+				"prettier": "prettier --use-tabs --write ./src/*.js",
+				"static": "static ./test/public"
+			},
+			"peerDependencies": {
+				"postcss": "6.x"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"optimize",
+				"unused",
+				"rules",
+				"selector",
+				"CSS"
+			],
+			"devDependencies": {
+				"babel-cli": "^6.24.1",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-plugin-transform-object-rest-spread": "^6.26.0",
+				"babel-preset-env": "^1.5.2",
+				"browser-sync": "^2.23.6",
+				"cross-env": "^5.1.3",
+				"npm-run-all": "^4.1.2",
+				"postcss": "^6.0.16",
+				"prettier": "^1.10.2",
+				"rimraf": "^2.6.2"
+			},
+			"engines": {
+				"node": ">= 4.2"
+			},
+			"gitHead": "64cc7ec2de760500398ea7fc836701dbe841fc7f",
+			"bugs": {
+				"url": "https://github.com/retyui/postcss-finding-dead-css/issues"
+			},
+			"homepage": "https://github.com/retyui/postcss-finding-dead-css#readme",
+			"_id": "postcss-finding-dead-css@1.0.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "retyui",
+				"email": "vamnemne@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Xb6os73T54TZEdy0az9gp21keKewqDHdaRUr6ezlSnuuMhylBqfI2GxY1oY6KEbijQpse+HArZhekf+/jrTARQ==",
+				"shasum": "82e8320cd33718ecbae665845331d90c4a8cfb0b",
+				"tarball": "https://registry.npmjs.org/postcss-finding-dead-css/-/postcss-finding-dead-css-1.0.0.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFYa9oMMMYN+ljbCM4D414SemjYl6DjoCK2yrQgOGuN7AiAxLr7nreuQgtfD0/4udj/Cw2DAA3ocfuGlx0tyoCDCuA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "retyui",
+					"email": "vamnemne@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-finding-dead-css-1.0.0.tgz_1516924556354_0.30301096360199153"
+			}
+		}
+	},
+	"readme": "# postcss-finding-dead-css\n\n![postcss-finding-dead-css](https://raw.githubusercontent.com/retyui/postcss-finding-dead-css/master/logo.png)\n\n[![npm](https://img.shields.io/npm/v/postcss-finding-dead-css.svg)](https://www.npmjs.com/package/postcss-finding-dead-css)\n[![David](https://img.shields.io/david/retyui/postcss-finding-dead-css.svg)](https://david-dm.org/retyui/postcss-finding-dead-css)\n\nPostCSS plugin that help identifying the dead code. [Idea](https://csswizardry.com/2018/01/finding-dead-css/). Only my plugin uses only the css border-image property.\n\n\n## Install\n\n```bash\n# the plugin\nyarn add -D postcss-finding-dead-css\n#or npm install --save-dev postcss-finding-dead-css\n```\n\n## Input:\n\n```css\nbody {\n  margin: 0;\n}\n\n.alredy-use-border-image {\n  border-image: linear-gradient(red, yellow) 10;\n}\n```\n\n## Output:\n\n```css\nbody {\n  margin: 0;\n  border-image-source: url('/cssdead?data=%7B%22selector%22:%22body%22,%22startLine%22:1,%22startColumn%22:1%7D&file=/home/mur/github/postcss-finding-dead-css/example/readme/input.css');\n}\n\n.alredy-use-border-image {\n  border-image: linear-gradient(red, yellow) 10;\n}\n```\n\n## Usage ([examples](https://github.com/retyui/postcss-finding-dead-css/tree/master/example/))\n\n```js\n// Node.js 8.x\nconst { readFileSync, writeFileSync } = require(\"fs\");\nconst { resolve } = require(\"path\");\nconst postcss = require(\"postcss\");\nconst postcssDeadCss = require(\"postcss-finding-dead-css\");\nconst [from, to] = [\"./input.css\", \"./output.css\"].map(f =>\n  resolve(__dirname, f)\n);\nconst CSS = readFileSync(from);\nconst PLUGINS = [\n  postcssDeadCss({\n    // deadApiUrl: \"http://my-analytic.server.com/cssdead\", // default '/cssdead'\n    // url({selector, startLine, startColumn, file}) { // custom url\n    //   return encodeURI(\n    //     `${this.deadApiUrl}?data=${JSON.stringify({\n    //       selector,\n    //       startLine,\n    //       startColumn\n    //     })}&file=${file}`\n    //   );\n    // }\n  })\n];\n\n(async () => {\n  try {\n    const { css, messages } = await postcss(PLUGINS).process(CSS, { from, to });\n    messages\n      .filter(({ type }) => type === \"warning\")\n      .map(msg => console.log(msg.toString()));\n    console.log(css);\n    writeFileSync(to, css);\n  } catch (e) {\n    console.error(e);\n  }\n})();\n```\n\n## Options\n### `deadApiUrl` , type: `String`, required: `false`\ndefault: `'/cssdead'`\n\nUrl to back-end api, I send two parametrs `type` and `file`\n\n`type` - has json `{ selector, startLine, startColumn }`\n\n`file` - path to source css file\n\n### `url` , type: `Function`, required: `false`\n\nThis function help you customize url generation\n\n\n## [Middleware](https://github.com/retyui/postcss-finding-dead-css/tree/master/src/middleware.js)\n\n### Usage ([example](https://github.com/retyui/postcss-finding-dead-css/tree/master/example/browser-sync/server.js))\n\n```js\n// Node.js 8.x\n// example get middlewares:\nconst {getMiddleware} = require('postcss-finding-dead-css');\nconst {middlewareCheckDead, middlewareStat} = getMiddleware(options);\n\n// Express.js\nconst app = express();\n\napp.get(options.deadApiUrl, middlewareCheckDead);\n```\n\n### Options\n\n```js\n{\n  deadApiUrl: '/custom/path',      // defualt: '/cssdead'\n  statApiUrl: '/custom/path/stat'  // defualt: '/getStat'\n}\n```",
+	"maintainers": [
+		{
+			"name": "retyui",
+			"email": "vamnemne@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-05-13T06:16:49.725Z",
+		"created": "2018-01-25T23:55:56.477Z",
+		"1.0.0": "2018-01-25T23:55:56.477Z"
+	},
+	"homepage": "https://github.com/retyui/postcss-finding-dead-css#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"optimize",
+		"unused",
+		"rules",
+		"selector",
+		"CSS"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/retyui/postcss-finding-dead-css.git"
+	},
+	"author": {
+		"name": "retyui",
+		"email": "vamnemne@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/retyui/postcss-finding-dead-css/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

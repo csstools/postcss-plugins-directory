@@ -1,0 +1,116 @@
+{
+	"name": "postcss-double-position-gradients",
+	"description": "Use double-position gradients in CSS",
+	"version": "3.1.2",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-double-position-gradients#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-double-position-gradients"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"color",
+		"conic",
+		"css",
+		"double",
+		"gradients",
+		"linear",
+		"position",
+		"postcss",
+		"postcss-plugin",
+		"radial",
+		"repeating",
+		"stop",
+		"syntax"
+	],
+	"csstools": {
+		"exportName": "postcssDoublePositionGradients",
+		"humanReadableName": "PostCSS Double Position Gradients"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "9f61ec5a8f4579f51ddc42c5a3cc59a4ffaadff2",
+	"_id": "postcss-double-position-gradients@3.1.2",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-GX+FuE/uBR6eskOK+4vkXgT6pDkexLokPaz/AbJna9s5Kzp/yl488pKPjhy0obB475ovfT1Wv8ho7U/cHNaRgQ==",
+		"shasum": "b96318fdb477be95997e86edd29c6e3557a49b91",
+		"tarball": "https://registry.npmjs.org/postcss-double-position-gradients/-/postcss-double-position-gradients-3.1.2.tgz",
+		"fileCount": 9,
+		"unpackedSize": 19772,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIFMT0ZKtF+gWOHL6GwWLVuRae8+/3R65F+OMT5kC2aNwAiEA0Wn5CI9Rt3xeJW17E7iMAInmOW2yfrCLc3T2583mOBI="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFkNACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrYkRAAgJTXZxOd9MswHB8g8HhCVf8zMy5DgphhH+qR0ySY2we5PxZG\r\nupzH38DChGN3U12ocpscObFBfzhIYxyJGpe2Whi2Nuna88Q8GdGFWkthAo9v\r\nfHv7y+ut8dSHmB994itJkz0HR1OG75e6gyABlp6HZzpCx4w5Qtxpm9G6/RIJ\r\nDM1yOw58gzZxy6VZO831JvHiONo4s+6UvtNS8aeyEESbuyGDEp0WYQroSpkP\r\nytwEmG6ZGoCiJfOYpaNfzuLV9Fa4V3hPV+nGILrqna/hbU5qkCmZwpRkn3r2\r\nnv5WLg/Ubppm2f7jeRAtY4Cc6PTREURAALPuUmoxRhI9yiXfehU3N+yAtpJo\r\nAwgLHNAgUAhPS2WvSs68A/FuL2mD3A6YrqJQKZuXQvh6aMGWtYkF4BjG2WLU\r\nZ8+aOTMUGE1cVP9c52kNA0BCyfNaAJdQ4wkxS7fNtfy5WST2TOejZSo5o+s2\r\nHcIUC+E++uEWQi2P/uLdPofIMqDHAFiBpbUXxR81178kpPGRXAjwKjdP1nI/\r\nqNFnHqDcNLj7lL80ayeDI2skeGTrPldQqOa+Lqqqr4pdDKAnxLd9LCqWtkuZ\r\nAQUvS5Z6PzjjJayDuCxbAegpoLFmu+FlF6ZUeMl7uiyvJZac0mEhheIMLoZ/\r\n8Y0Y3LG6ySUDkF1QZD1U+EESqBhyvPFzNos=\r\n=dvH5\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-double-position-gradients_3.1.2_1657297165819_0.7755989655458748"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-07-08T16:19:25.961Z"
+}

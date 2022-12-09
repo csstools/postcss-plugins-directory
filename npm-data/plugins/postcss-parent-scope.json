@@ -1,0 +1,98 @@
+{
+	"_id": "postcss-parent-scope",
+	"_rev": "1-77a41bae0bda5ac70320003e29c88068",
+	"name": "postcss-parent-scope",
+	"description": "postcss pluging for scoping CSS using a parent class",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-parent-scope",
+			"version": "0.1.0",
+			"description": "postcss pluging for scoping CSS using a parent class",
+			"files": [
+				"index.js"
+			],
+			"dependencies": {
+				"postcss": "^5.0.4"
+			},
+			"devDependencies": {
+				"mocha": "^2.0.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/josestbernard/postcss-parent-scope.git"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin"
+			],
+			"gitHead": "19a1d7cedbb7926c5e87bd56c3f4e3637771ca5c",
+			"bugs": {
+				"url": "https://github.com/josestbernard/postcss-parent-scope/issues"
+			},
+			"homepage": "https://github.com/josestbernard/postcss-parent-scope#readme",
+			"_id": "postcss-parent-scope@0.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "josestbernard",
+				"email": "josebernard@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-QMIaRT4cRSCGPx0YNB7ugmhvZH0FFQu/m0be7230hSsV0fvjMmyy2f8beiLKcIpv/LsNHtuZVBaiDFZdEPTamw==",
+				"shasum": "0665b66ea21a653e9eda75751367ea39d98e734d",
+				"tarball": "https://registry.npmjs.org/postcss-parent-scope/-/postcss-parent-scope-0.1.0.tgz",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDOdn4E97U9Dje/9tmqnMFPqOnSicuQeXFizh6oGz4VgwIgCSjNeJTeGUFYbpvg2+pnyj4zO363miis1Xv8XBBvM34="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "josestbernard",
+					"email": "josebernard@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-parent-scope-0.1.0.tgz_1515142571237_0.990448831114918"
+			}
+		}
+	},
+	"readme": "# postcss-parent-scope\n\nA [PostCSS](https://github.com/postcss/postcss) plugin to scope CSS with a parent class.\n\nwrap\n__Example input__\n\n```css\n.Component { /* ... */ }\n.Component--modifier { /* ... */ }\n.Component-descendent { /* ... */ }\n.Component1, .Component2 { /* ... */ }\n```\n\n__Example output__\n`parentScope('parent-wrapper')`\n```css\n.parent-wrapper .Component { /* ... */ }\n.parent-wrapper .Component--modifier { /* ... */ }\n.parent-wrapper .Component-descendent { /* ... */ }\n.parent-wrapper .Component1, .parent-wrapper .Component2 { /* ... */ }\n\n```\n\n\n## Installation\n\n```\nnpm install postcss-parent-scope\n```\n\n## Usage\n\n```javascript\nvar fs        = require('fs');\nvar postcss   = require('postcss');\nvar parentScope = require('postcss-parent-scope');\n\nvar css = fs.readFileSync('css/my-file.css', 'utf8').toString();\nvar out = postcss()\n          .use(parentScope('parent-class'))\n          .process(css);\n```\n\n### Using the `ignore` option\n\n```javascript\nvar fs        = require('fs');\nvar postcss   = require('postcss');\nvar parentScope = require('postcss-parent-scope');\n\nvar css = fs.readFileSync('css/my-file.css', 'utf8').toString();\nvar out = postcss()\n          .use(parentScope('parent-class', { ignore: [/ng-/, 'some-class-to-ignore']}))\n          .process(css);\n```\n\n## License\n\nMIT\n\n* Based on [postcss-class-prefix](https://github.com/thompsongl/postcss-class-prefix)\n",
+	"maintainers": [
+		{
+			"name": "josestbernard",
+			"email": "josebernard@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-05-13T06:32:31.873Z",
+		"created": "2018-01-05T08:56:12.495Z",
+		"0.1.0": "2018-01-05T08:56:12.495Z"
+	},
+	"homepage": "https://github.com/josestbernard/postcss-parent-scope#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/josestbernard/postcss-parent-scope.git"
+	},
+	"bugs": {
+		"url": "https://github.com/josestbernard/postcss-parent-scope/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

@@ -1,0 +1,602 @@
+{
+	"_id": "@ackl/postcss-logical",
+	"_rev": "4-71f2813b9dfd52fbaf26cd84675c3de0",
+	"name": "@ackl/postcss-logical",
+	"dist-tags": {
+		"latest": "5.0.3"
+	},
+	"versions": {
+		"5.0.0": {
+			"name": "@ackl/postcss-logical",
+			"version": "5.0.0",
+			"description": "Use logical properties and values in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Andrew Low",
+					"email": "contact@ackl.me"
+				}
+			],
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ackl/postcss-logical.git"
+			},
+			"homepage": "https://github.com/ackl/postcss-logical#readme",
+			"bugs": {
+				"url": "https://github.com/ackl/postcss-logical/issues"
+			},
+			"main": "index.cjs.js",
+			"module": "index.esm.mjs",
+			"scripts": {
+				"build": "rollup --config .rollup.js --silent",
+				"prepublishOnly": "npm test",
+				"pretest:tape": "npm run build",
+				"prepare": "npm run build",
+				"test": "npm run test:js && npm run test:tape",
+				"test:js": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+				"test:tape": "postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.13.8",
+				"@babel/preset-env": "^7.13.9",
+				"@rollup/plugin-babel": "^5.3.0",
+				"babel-eslint": "^10.0.1",
+				"eslint": "^7.21.0",
+				"postcss": "^8.2.7",
+				"postcss-tape": "^6.0.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.40.0"
+			},
+			"eslintConfig": {
+				"env": {
+					"browser": true,
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint",
+				"parserOptions": {
+					"ecmaVersion": 2018,
+					"impliedStrict": true,
+					"sourceType": "module"
+				},
+				"root": true
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"logical",
+				"flow",
+				"relative",
+				"property",
+				"properties",
+				"values",
+				"ltr",
+				"rtl",
+				"dir",
+				"directions",
+				"directional",
+				"inline",
+				"block",
+				"start",
+				"end",
+				"align",
+				"border",
+				"clear",
+				"float",
+				"margin",
+				"padding",
+				"size",
+				"text"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"dependencies": {},
+			"gitHead": "81b6331ceadbc3828fbce31f590aafc18ceae367",
+			"_id": "@ackl/postcss-logical@5.0.0",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-aYa0da0qlWBNU41Z6QZb6/nkY4AeYUYehjB+rxXioXbOV6GpRKOANt4Y7tGsuKheG7FqVd/ZHIQv1NeyuAnpWQ==",
+				"shasum": "8f7d81fc263856592794eb5739310cc0de7aaa4d",
+				"tarball": "https://registry.npmjs.org/@ackl/postcss-logical/-/postcss-logical-5.0.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 168258,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg0FWtCRA9TVsSAnZWagAA6KYP/3aJGlTUiSulL6GmA5mz\n/VAGgJNOFd9t+fqM2IRT/kigpxgxJOdW4rilsF3L/9QtW/mKj1R/hUlPogGb\nV90RSnndJtwLwjw7yIsdENy9WsjSOeaFKiCCO9mYQESoNGJd/4JbB2zpd40N\nCYWfai6bvV5UDvb7FMSwsc57aH9TALvtrYTBiUW5iogsweawgoYqPlLpRAks\nvLkOmQCAva2MIjEU4ZzaaKBgvQluTcInfN3lWsVWFbZKJW0ZZ+lypympbnOT\nXlcUPo98gx3OPfqg01ezZkMkxK96/RiW99xL5KIgNSy9IsGsYDedWd85TvHQ\nyK+GokflmNhp62Npw37tge5Dna/GQROBnClK4GhKRPyJbcOQbQri2DX8VQjw\nE3cDKxkWHkgI6CgVE+Ig87CpZyvu/ibNVQLPPLzqmvl3BIg6Ba91gBzd4UoQ\n9eo3xH0B1UcVi7mFW+X1pkjLyBLFUe2RLJzhdp+/S5GNJkaAeGrJWaYW0Skh\nZb34TUt2/RhDbh42YcAHK55x9qd7/GYVYc9GcgrPC0vWB0hU74qKuj5sMyHx\nCABGDoeSo4i/wvcuXwmuk5Red+nu36pv/6XCZ8BGDXECpWzQ4Ybn0Kz4DJS4\noHwGYKp0o0eEVn5OfYHeNn5urj6y8PLPpCgdCVokhyshqvUAzQABkFKWeHFu\n73Ez\r\n=5QAy\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDB6hQq4zOlEeFBYRZgJZkc8i0t7yfRbNGykalaH1MG0AIhAPuDWGbU2jW+4ePqdULSJ30RvaepEXl2q8rgo+oUIgLF"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ackl",
+				"email": "contact@ackl.me"
+			},
+			"maintainers": [
+				{
+					"name": "ackl",
+					"email": "contact@ackl.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical_5.0.0_1624266157203_0.31627610324356503"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.1": {
+			"name": "@ackl/postcss-logical",
+			"version": "5.0.1",
+			"description": "Use logical properties and values in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Andrew Low",
+					"email": "contact@ackl.me"
+				}
+			],
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ackl/postcss-logical.git"
+			},
+			"homepage": "https://github.com/ackl/postcss-logical#readme",
+			"bugs": {
+				"url": "https://github.com/ackl/postcss-logical/issues"
+			},
+			"main": "index.cjs.js",
+			"module": "index.esm.mjs",
+			"scripts": {
+				"build": "rollup --config .rollup.js --silent",
+				"prepublishOnly": "npm test",
+				"pretest:tape": "npm run build",
+				"prepare": "npm run build",
+				"test": "npm run test:js && npm run test:tape",
+				"test:js": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+				"test:tape": "postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.13.8",
+				"@babel/preset-env": "^7.13.9",
+				"@rollup/plugin-babel": "^5.3.0",
+				"babel-eslint": "^10.0.1",
+				"eslint": "^7.21.0",
+				"postcss": "^8.2.7",
+				"postcss-tape": "^6.0.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.40.0"
+			},
+			"eslintConfig": {
+				"env": {
+					"browser": true,
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint",
+				"parserOptions": {
+					"ecmaVersion": 2018,
+					"impliedStrict": true,
+					"sourceType": "module"
+				},
+				"root": true
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"logical",
+				"flow",
+				"relative",
+				"property",
+				"properties",
+				"values",
+				"ltr",
+				"rtl",
+				"dir",
+				"directions",
+				"directional",
+				"inline",
+				"block",
+				"start",
+				"end",
+				"align",
+				"border",
+				"clear",
+				"float",
+				"margin",
+				"padding",
+				"size",
+				"text"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"dependencies": {},
+			"gitHead": "b0dec37dd332f514127c4f897dd8805667c118f2",
+			"_id": "@ackl/postcss-logical@5.0.1",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-Kz3ZVcJNEh+e3fU+CxmDhbNWVMQB+9vumjq/gse3NNrso9zmDhJqY2EZrm7f5b68iGkBg/VK9LyNKTvmfSetZw==",
+				"shasum": "0647f6f185de3708ce222e15543f569f6b6b9a55",
+				"tarball": "https://registry.npmjs.org/@ackl/postcss-logical/-/postcss-logical-5.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 169473,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg0zZCCRA9TVsSAnZWagAAg+kP/3p3KfJrj+D+VWruwYlY\ndUXFOWDt2JoDdtA9nF83iv1WiyWS6SAixQW7vwmjJswiEio7VCt4w0CXmqIV\nsUrfCq5MeanYYmynh9xiI20tZKRiZEKQqdIlbq5W7CMk/UtQrnKQt422ylfP\nMI/QviPsaYCcAVumg7fsaoOmbfjy1lq9FjK3o7M5nJQQTA26wvmDybxpCLd8\nMohDKFILRvCl/8uq9ii7ov/dNVKRlmeM8y9jpZ3ElhLZA+VQCc01lqsSN4Qn\n9J1ftR2LN0vewwfIsaijZlW0UjhzauRFINoYz6khg7N0jfF15zDNLzFny1AR\nbTvGWfnzCZmmN3KHTlDKllr83ywDEVE1pxCVCymUT/gnvg5DH751FAqJ57Hd\n9VT3X9YvXE/T3PqtWRydEC0YKsxtuQlpskhDPNTgDOR+JS72Q6HTOVRpr7fr\nVu11k3Rhac0OHThr+nFtHwRHs809FwG5PVWtUFL+rT3nQKkaTouyvZrdQuq9\nt3YE/zod40LDTdRYBODILeXgvbSf7B1747bcLMgFj1Swg5yLnvL0Mx8eTqvK\nceD6rF5dyfgKrzJYvvb/ZSVC7/z+UuaSyKhj6EiPY5ga4IL0J3Zn6yn6n0/V\n3Y4bKA8TdV0EKsAQz66OHErzgnjYeaIqpTt74zAvVtPWIYZO4qNK72vIznO8\nhsJX\r\n=yvRC\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDo276KyKE0a3uJtyZTD1EZb4Q3Mq229VnSDb65HnBbZwIhAJucBCKGUBfOKcbrREgUH/A2SWy1MqJ+yKjl+Rjb8v1B"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ackl",
+				"email": "contact@ackl.me"
+			},
+			"maintainers": [
+				{
+					"name": "ackl",
+					"email": "contact@ackl.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical_5.0.1_1624454721927_0.06432833218313672"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.2": {
+			"name": "@ackl/postcss-logical",
+			"version": "5.0.2",
+			"description": "Use logical properties and values in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Andrew Low",
+					"email": "contact@ackl.me"
+				}
+			],
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ackl/postcss-logical.git"
+			},
+			"homepage": "https://github.com/ackl/postcss-logical#readme",
+			"bugs": {
+				"url": "https://github.com/ackl/postcss-logical/issues"
+			},
+			"main": "index.cjs.js",
+			"module": "index.esm.mjs",
+			"scripts": {
+				"build": "rollup --config .rollup.js --silent",
+				"prepublishOnly": "npm test",
+				"pretest:tape": "npm run build",
+				"prepare": "npm run build",
+				"test": "npm run test:js && npm run test:tape",
+				"test:js": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+				"test:tape": "postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.13.8",
+				"@babel/preset-env": "^7.13.9",
+				"@rollup/plugin-babel": "^5.3.0",
+				"babel-eslint": "^10.0.1",
+				"eslint": "^7.21.0",
+				"postcss": "^8.2.7",
+				"postcss-tape": "^6.0.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.40.0"
+			},
+			"eslintConfig": {
+				"env": {
+					"browser": true,
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint",
+				"parserOptions": {
+					"ecmaVersion": 2018,
+					"impliedStrict": true,
+					"sourceType": "module"
+				},
+				"root": true
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"logical",
+				"flow",
+				"relative",
+				"property",
+				"properties",
+				"values",
+				"ltr",
+				"rtl",
+				"dir",
+				"directions",
+				"directional",
+				"inline",
+				"block",
+				"start",
+				"end",
+				"align",
+				"border",
+				"clear",
+				"float",
+				"margin",
+				"padding",
+				"size",
+				"text"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"dependencies": {},
+			"gitHead": "70b7392ea034a11396867ec39249fd872105534a",
+			"_id": "@ackl/postcss-logical@5.0.2",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-s6PmJy2V0HL72VEXN04Es291T9APddXcbk66JDbfZIKkny703YE/W7JDq2zAuUd56quukL43U7PSR+Iy5RPReg==",
+				"shasum": "c28e1869f6db4891ba81cc0483cc3073b4b35d3c",
+				"tarball": "https://registry.npmjs.org/@ackl/postcss-logical/-/postcss-logical-5.0.2.tgz",
+				"fileCount": 8,
+				"unpackedSize": 169795,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg4rz7CRA9TVsSAnZWagAA/LgP/0S/fdBfuoW5Hu5KoFMP\nsPN7nuSBGbUZav3RiNQVxmnu+jpaKBX4AZpmvmcvlAXXGWXk2mrPZHAej2oi\nRLHbmG4GkxX790qqVNFBbkE7aE+VldqRqpX3qlwhClPS8KPdVjGE6u/DGtii\nrNRo3oPWPHEjka8Bf/CAGDh2D6JHuPbjuSFXA+7USdvDf1ogBdeRtbJoEnb5\nJbUOg+5fdChhR1ke1DMVm3KhH4jHSH7kuUpX/ulMEpC6S5ZLoVJvs8pMSI1I\nuDyOM8AlExfnoctX7fBjZdTAU50naBHwQVh9kNQyO0DmAlJfOBiEjvxVoIhj\nUYMDVFcL+bslLJ5Ei1HFp13tfHDDU+9UFS8GrDeTpmlSZmFBRnp2MMhqXDqf\nlRT3ktSmU3FWw7pH+wA0QAwUPyUWXasOuir9ZtjJ0TzfMekikXdP9ePHU5A1\n6lj+O++SmmTVB0wPKHdS61IpNmH77beBNMbZ4nyBLHG9XNy4IMcZ04AoTawX\nTyciOYjaZZI8c4KMVBBSveKTpq/yB467h6ORtUYjpJOW6YQ6UKY95jdMGTcJ\nBytjvnIaA18vy7Oy22RYpsj4xBRVqqBGBAEbs8TVVPmnaIiOOXoGOaVk2pDv\nGt3IDOiBJ4Pgfb6OQ1RzdyPy0WRFjJZ+t39UOURTq6AgCrusmXj+/zD2Vigv\nfOJQ\r\n=XtSN\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCMac+cNgdx8IWCfvIVrQ3RU8udtusDivUZwfiE/7yqfQIhAO1/B1gyh0yfLVHueunyXUDeVJWqAScJAgrUwPuSd3TT"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ackl",
+				"email": "contact@ackl.me"
+			},
+			"maintainers": [
+				{
+					"name": "ackl",
+					"email": "contact@ackl.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical_5.0.2_1625472250832_0.8525254036022072"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.3": {
+			"name": "@ackl/postcss-logical",
+			"version": "5.0.3",
+			"description": "Use logical properties and values in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Andrew Low",
+					"email": "contact@ackl.me"
+				}
+			],
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ackl/postcss-logical.git"
+			},
+			"homepage": "https://github.com/ackl/postcss-logical#readme",
+			"bugs": {
+				"url": "https://github.com/ackl/postcss-logical/issues"
+			},
+			"main": "index.cjs.js",
+			"module": "index.esm.mjs",
+			"scripts": {
+				"build": "rollup --config .rollup.js --silent",
+				"prepublishOnly": "npm test",
+				"pretest:tape": "npm run build",
+				"prepare": "npm run build",
+				"test": "npm run test:js && npm run test:tape",
+				"test:js": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+				"test:tape": "postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.13.8",
+				"@babel/preset-env": "^7.13.9",
+				"@rollup/plugin-babel": "^5.3.0",
+				"babel-eslint": "^10.0.1",
+				"eslint": "^7.21.0",
+				"postcss": "^8.2.7",
+				"postcss-tape": "^6.0.0",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.40.0"
+			},
+			"eslintConfig": {
+				"env": {
+					"browser": true,
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint",
+				"parserOptions": {
+					"ecmaVersion": 2018,
+					"impliedStrict": true,
+					"sourceType": "module"
+				},
+				"root": true
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"logical",
+				"flow",
+				"relative",
+				"property",
+				"properties",
+				"values",
+				"ltr",
+				"rtl",
+				"dir",
+				"directions",
+				"directional",
+				"inline",
+				"block",
+				"start",
+				"end",
+				"align",
+				"border",
+				"clear",
+				"float",
+				"margin",
+				"padding",
+				"size",
+				"text"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"dependencies": {},
+			"gitHead": "ca0629534d7f7d2a9725bca7523df1210a4c2541",
+			"_id": "@ackl/postcss-logical@5.0.3",
+			"_nodeVersion": "14.16.0",
+			"_npmVersion": "6.14.11",
+			"dist": {
+				"integrity": "sha512-6kETzp0L+5b+ZU9WtWYb3AkRAYd2aiUphbVOrA30PLL+xg+Gr/zJFgz1xGAfVF/J/xnOJLFfwIP/BPvFE2oMmg==",
+				"shasum": "73c79a98668e2561c57c9acf24d2c4e0c8318cad",
+				"tarball": "https://registry.npmjs.org/@ackl/postcss-logical/-/postcss-logical-5.0.3.tgz",
+				"fileCount": 8,
+				"unpackedSize": 171315,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhEnIECRA9TVsSAnZWagAAjgQP/0dJzDj+oslabe4oR67U\n5h55KcamurbqG1tObhvWS0Qd+dvaj5LyJUpv40HJTIRaoir5CylpGy4txxrb\n/doeY+zrhS0bOump/jzzszTejD0Nl9dL04D+WnISCJqU6m6qu/YxD9jRjxyv\n8H9dS0nYblkFMGmfY09xoH65ahXkjo0H3w454QPJdjCKaZA7RifVOBPBLx3i\nXftDWeo+bpJEkDaflQdshrvXTWw8GIXFlJx1yNX1+qYsRgKLGNOs8ZtrF3tX\n2+PxrkmbpyJNiRlE3pIuGAdTScLZx3qoSs5Kh4wJ3rG47W2Tb7D93cYvS9vR\ni3UjKJFbunZ0P/CeOllnLi+aSfts15tmcC/fpDZHa7crVUpH8fdxyef0TyDQ\nmce6TJ936zMlWkI/PBJYL70aorSyKa3iNyhvc/Oov5kruyrJ9/EFiZ5PVCfe\ntDexwq/uSMRQiDljw2W5or09Tf8fGn4CI5IIIj8cvy6S9hqrQykUrqzBF6IB\nDi53Grq2WC5kFo5fOnOIM73gEcyJtTvQbfdqjtTMpRqbL43vDwYrStKs2pu5\nDCnLOR1y4DgWIJsj6o3Wk4ZK6ptLomOx7YmoS7xLJVt9UeFeMej0eIgc3LKe\nu0Txrhv6/P3R+Pi/XMuykaud59XL2VKIlRl26wC0mKLTFJys76MGPFjWeFn/\nJygl\r\n=FWHE\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHM9HsgpNkubu1olOB0s56SeJKfuV7UoNux2p/XCbJQ2AiEA4RRjXU2I/LCkp/itJhzXxKFSUIUp6lOBIafBtWaDhco="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ackl",
+				"email": "contact@ackl.me"
+			},
+			"maintainers": [
+				{
+					"name": "ackl",
+					"email": "contact@ackl.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical_5.0.3_1628598788156_0.821062879467092"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2021-06-21T09:02:37.161Z",
+		"5.0.0": "2021-06-21T09:02:37.359Z",
+		"modified": "2022-04-04T11:11:40.559Z",
+		"5.0.1": "2021-06-23T13:25:22.066Z",
+		"5.0.2": "2021-07-05T08:04:11.002Z",
+		"5.0.3": "2021-08-10T12:33:08.342Z"
+	},
+	"maintainers": [
+		{
+			"name": "ackl",
+			"email": "contact@ackl.me"
+		}
+	],
+	"description": "Use logical properties and values in CSS",
+	"homepage": "https://github.com/ackl/postcss-logical#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"logical",
+		"flow",
+		"relative",
+		"property",
+		"properties",
+		"values",
+		"ltr",
+		"rtl",
+		"dir",
+		"directions",
+		"directional",
+		"inline",
+		"block",
+		"start",
+		"end",
+		"align",
+		"border",
+		"clear",
+		"float",
+		"margin",
+		"padding",
+		"size",
+		"text"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ackl/postcss-logical.git"
+	},
+	"contributors": [
+		{
+			"name": "Andrew Low",
+			"email": "contact@ackl.me"
+		}
+	],
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/ackl/postcss-logical/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": ":warning: This postcss-logical fork has been modified to to work with stylis type pre-processor syntax in jsx files and postcss8\nYou are probably looking for the original from [csstools](https://github.com/csstools/postcss-logical)\n\n# PostCSS Logical Properties and Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![CSS Standard Status][css-img]][css-url]\n[![Build Status][cli-img]][cli-url]\n[![Support Chat][git-img]][git-url]\n\n[PostCSS Logical Properties and Values] lets you use logical, rather than\nphysical, direction and dimension mappings in CSS, following the\n[CSS Logical Properties and Values] specification.\n\n[!['Can I use' table](https://caniuse.bitsofco.de/image/css-logical-props.png)](https://caniuse.com/#feat=css-logical-props)\n\n```pcss\n.banner {\n  color: #222222;\n  inset: logical 0 5px 10px;\n  padding-inline: 20px 40px;\n  resize: block;\n  transition: color 200ms;\n}\n\n/* becomes */\n\n.banner:dir(ltr) {\n  padding-left: 20px;\n  padding-right: 40px;\n}\n\n.banner:dir(rtl) {\n  padding-right: 20px;\n  padding-left: 40px;\n}\n\n.banner {\n  resize: vertical;\n  transition: color 200ms;\n}\n\n/* or, when used with { dir: 'ltr' } */\n\n.banner {\n  color: #222222;\n  top: 0;\n  left: 5px;\n  bottom: 10px;\n  right: 5px;\n  padding-left: 20px;\n  padding-right: 40px;\n  resize: vertical;\n  transition: color 200ms;\n}\n\n/* or, when used with { preserve: true } */\n\n.banner:dir(ltr) {\n  padding-left: 20px;\n  padding-right: 40px;\n}\n\n.banner:dir(rtl) {\n  padding-right: 20px;\n  padding-left: 40px;\n}\n\n.banner {\n  color: #222222;\n  top: 0;\n  left: 5px;\n  bottom: 10px;\n  right: 5px;\n  inset: logical 0 5px 10px;\n  padding-inline: 20px 40px;\n  resize: block;\n  resize: vertical;\n  transition: color 200ms;\n}\n```\n\nThese shorthand properties set values for physical properties by default.\nSpecifying the `logical` keyboard at the beginning of the property value will\ntransform the flow-relative values afterward into both physical LTR and RTL\nproperties:\n\n#### Logical Borders\n\n- `border`, `border-block`, `border-block-start`, `border-block-end`,\n  `border-inline`, `border-inline-start`, `border-inline-end`, `border-start`,\n  `border-end`, `border-color`, `border-block-color`,\n  `border-block-start-color`, `border-block-end-color`, `border-inline-color`,\n  `border-inline-start-color`, `border-inline-end-color`, `border-start-color`,\n  `border-end-color`, `border-style`, `border-block-style`,\n  `border-block-start-style`, `border-block-end-style`, `border-inline-style`,\n  `border-inline-start-style`, `border-inline-end-style`, `border-start-style`,\n  `border-end-style`, `border-width`, `border-block-width`,\n  `border-block-start-width`, `border-block-end-width`, `border-inline-width`,\n  `border-inline-start-width`, `border-inline-end-width`, `border-start-width`,\n  `border-end-width`, `border-start-start-radius`, `border-start-end-radius`,\n  `border-end-start-radius`, `border-end-end-radius`\n\n#### Logical Offsets\n\n- `inset`, `inset-block`, `inset-block-start`, `inset-block-end`,\n  `inset-inline`, `inset-inline-start`, `inset-inline-end`, `inset-start`,\n  `inset-end`\n\n#### Logical Margins\n\n- `margin`, `margin-block`, `margin-block-start`, `margin-block-end`,\n  `margin-inline`, `margin-inline-start`, `margin-inline-end`, `margin-start`,\n  `margin-end`\n\n#### Logical Paddings\n\n- `padding`, `padding-block`, `padding-block-start`, `padding-block-end`,\n  `padding-inline`, `padding-inline-start`, `padding-inline-end`,\n  `padding-start`, `padding-end`\n\n#### Logical Sizes\n\n- `block-size`, `max-block-size`, `min-block-size`, `inline-size`, `max-inline-size`, `min-inline-size`\n\n#### Flow-Relative Values\n\n- `clear: inline-start`, `clear: inline-end`, `float: inline-start`,\n  `float: inline-end`, `text-align: start`, `text-align: end`\n\n---\n\nBy default, [PostCSS Logical Properties and Values] creates fallback selectors\nwhich require at least one `[dir]` attribute in your HTML. If you don’t have\nany `[dir]` attributes, consider using the following JavaScript:\n\n```js\n// force at least one dir attribute (this can run at any time)\ndocument.documentElement.dir = document.documentElement.dir || \"ltr\";\n```\n\nOtherwise, consider using the `dir` option to transform all logical properties\nand values to a specific direction.\n\n```js\nrequire(\"postcss-logical\")({\n  dir: \"ltr\",\n});\n```\n\n## Usage\n\nAdd [PostCSS Logical Properties and Values] to your project:\n\n```bash\nnpm install postcss-logical --save-dev\n```\n\nUse [PostCSS Logical Properties and Values] to process your CSS:\n\n```js\nconst postcssLogical = require(\"postcss-logical\");\n\npostcssLogical.process(YOUR_CSS /*, processOptions, pluginOptions */);\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require(\"postcss\");\nconst postcssLogical = require(\"postcss-logical\");\n\npostcss([postcssLogical(/* pluginOptions */)]).process(\n  YOUR_CSS /*, processOptions */\n);\n```\n\n[PostCSS Logical Properties and Values] runs in all Node environments, with\nspecial instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| ----------------------- | ------------------------------------- | ----------------------------- | ----------------------------------------------- | ----------------------- | ------------------------- |\n\n## Options\n\n### dir\n\nThe `dir` option determines how directional fallbacks should be added to CSS.\nBy default, fallbacks replace the logical declaration with nested `:dir`\npseudo-classes. If `dir` is defined as `ltr` or `rtl` then only the left or\nright directional fallbacks will replace the logical declarations. If\n`preserve` is defined as `true`, then the `dir` option will be ignored.\n\n### preserve\n\nThe `preserve` option determines whether directional fallbacks should be added\nbefore logical declarations without replacing them. By default, directional\nfallbacks replace logical declaration. If `preserve` is defined as `true`, then\nthe `dir` option will be ignored.\n\n[css-img]: https://cssdb.org/badge/logical-properties-and-values.svg\n[css-url]: https://cssdb.org/#logical-properties-and-values\n[cli-img]: https://img.shields.io/travis/csstools/postcss-logical/master.svg\n[cli-url]: https://travis-ci.org/csstools/postcss-logical\n[git-img]: https://img.shields.io/badge/support-chat-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[npm-img]: https://img.shields.io/npm/v/postcss-logical.svg\n[npm-url]: https://www.npmjs.com/package/postcss-logical\n[css logical properties and values]: https://drafts.csswg.org/css-logical/\n[gulp postcss]: https://github.com/postcss/gulp-postcss\n[grunt postcss]: https://github.com/nDmitry/grunt-postcss\n[postcss]: https://github.com/postcss/postcss\n[postcss loader]: https://github.com/postcss/postcss-loader\n[postcss logical properties and values]: https://github.com/csstools/postcss-logical\n",
+	"readmeFilename": "README.md"
+}

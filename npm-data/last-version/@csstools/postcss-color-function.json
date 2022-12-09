@@ -1,0 +1,123 @@
+{
+	"name": "@csstools/postcss-color-function",
+	"description": "Use the color() function in CSS",
+	"version": "1.1.1",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"devDependencies": {
+		"postcss-lab-function": "^4.0.3"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-color-function"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"color",
+		"color",
+		"colors",
+		"css",
+		"design",
+		"display-p3",
+		"postcss",
+		"postcss-plugin",
+		"prophoto-rgb",
+		"rec2020",
+		"rgb",
+		"rgba",
+		"srgb-linear",
+		"syntax",
+		"xyz"
+	],
+	"csstools": {
+		"cssdbId": "color-function",
+		"exportName": "postcssColorFunction",
+		"humanReadableName": "PostCSS Color Function",
+		"specUrl": "https://www.w3.org/TR/css-color-4/#funcdef-color"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "45b2f3e6d61aa218ec988dbb6bd7b6b7bb0ef8b8",
+	"_id": "@csstools/postcss-color-function@1.1.1",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-Bc0f62WmHdtRDjf5f3e2STwRAl89N2CLb+9iAwzrv4L2hncrbDwnQD9PCq0gtAt7pOI2leIV08HIBUd4jxD8cw==",
+		"shasum": "2bd36ab34f82d0497cfacdc9b18d34b5e6f64b6b",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-color-function/-/postcss-color-function-1.1.1.tgz",
+		"fileCount": 24,
+		"unpackedSize": 44600,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIG3vg+5BgNhISJvYWR+TJa8bupc9PpmpkOwSG+AlDIc0AiBOzjLrEMnFDjr331J6PtJvoaSKBn387IKRPjzLZrpuzQ=="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFecACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpG8A/9G+/FgfBDv+qxuWn4TeIrY4erl1jzWy9odiEPtHMmsKJjsBfH\r\ngC4r1iDwBzyuc6P5h2y3nAssyTd/T3mL2hRFEM2H4EGnNHLRfUrFK/NfW3gc\r\nrz2YXjk0DaOCwTLfcYluPvrjbhmOprFZ3mctE7IvMzFpOFd53AqtZW1aUO5f\r\nVJRKNjgmW9l45yoU4g0HRJ9KpANYkLPCXVZN88Iuq079bRQUkd+hy/XvACoh\r\n5YfDglysI9fAsHLRbvvNn2SpNDG/VgKHwiSxxVFGimA0zz046G5kplVwa+mF\r\nHuAQgIpt1o3lvaCE9fBfn4NebDQwCIRmvPaJFJz29GJWAYhAtwH1a1behAK9\r\n+s0JkJREf3cVWQD/1WuWfisa0qYAebdujRywLYBG3oU/ix5FljuiZ6E3Lo2C\r\n0vaGmhQHDVNcuPM6jnes5h3VgeS0Ou5745s0am1m+l/MNDnhQnPQn1vAAcd+\r\nw3Ll2gOxpvaat1bNeWSerseRnwASNMWdJPjrZOt9EoNR9xQrouSxiFlFUbh2\r\nNnWaw/HrZ4mt+TKgcPAhw1r5MnGOJHVSABuUU/2wUSYL1/s7EFMrrVUz+yx4\r\nZP/UIroi9U7YUzTedH2qXc3YdGLiQEL4cvY3SpHUptCbw4VSKZiTu2BFbMxN\r\nDGh2suSyKUbbCz5ODSzrR81kYvu10XnihsY=\r\n=HLaA\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-color-function_1.1.1_1657296796384_0.4136261569079067"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-07-08T16:13:16.556Z"
+}

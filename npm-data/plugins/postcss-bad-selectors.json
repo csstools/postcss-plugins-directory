@@ -1,0 +1,240 @@
+{
+	"_id": "postcss-bad-selectors",
+	"_rev": "7-6a8741b891cf63864c1de9347a7a3a73",
+	"name": "postcss-bad-selectors",
+	"time": {
+		"modified": "2022-06-24T09:30:16.782Z",
+		"created": "2015-06-09T12:36:31.327Z",
+		"1.0.0": "2015-06-09T12:36:31.327Z",
+		"1.0.1": "2015-06-09T12:45:56.875Z",
+		"1.0.2": "2015-06-22T08:02:11.447Z",
+		"1.0.3": "2015-06-22T08:03:29.107Z"
+	},
+	"maintainers": [
+		{
+			"name": "2create_studio",
+			"email": "bitbucket.2create@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "1.0.3"
+	},
+	"description": "Checks selectors according to the CSS standards of 2create.",
+	"readme": "# postcss-bad-selectors [![Build Status](https://travis-ci.org/2createStudio/postcss-bad-selectors.svg?branch=master)](https://travis-ci.org/2createStudio/postcss-bad-selectors) [![npm version](https://badge.fury.io/js/postcss-bad-selectors.svg)](http://badge.fury.io/js/postcss-bad-selectors)\n\n> [PostCSS](https://github.com/postcss/postcss) plugin that slaps you, if you write wrong selectors.\n\n## Install\n\n```\nnpm install postcss-bad-selectors\n```\n\n## Example\n\n```javascript\nvar path    = require('path');\nvar postcss = require('postcss');\nvar bad     = require('postcss-bad-selectors');\n\npostcss([bad(getToken)])\n\t.process(css, { from: './css/_module.logo.css' })\n\t.catch(function(err) {\n\t\tconsole.log(err); // Wrong selector error\n\t})\n\n\nfunction getToken(file) {\n\tvar file        = path.basename(file);\n\tvar prefixRegex = /^_module/gi;\n\tvar token       = null;\n\n\tif (prefixRegex.test(file)) {\n\t\ttoken = file.replace(prefixRegex, '');\n\t\ttoken = path.basename(token, '.css');\n\t}\n\n\treturn token; // 'Valid CSS selector e.g. _module.logo.css => .logo'\n}\n```\n\n**Note:** `getToken` can return `String` or `RegExp`.\n\n## Input\n```css\n.logo {}\n.wrapper .logo-blue {}\n```\n\n## Output\n```\npostcss-bad-selectors: /Users/john/Server/project/css/_module.logo.css:8:2: Wrong selector\n@media (max-width: 767px) {\n\t.logo,\n ^\n\t.wrapper .logo-blue {}\n```\n\n## Contributing\n\nPull requests are welcome.\n\n## License\nMIT © 2createStudio\n",
+	"versions": {
+		"1.0.1": {
+			"name": "postcss-bad-selectors",
+			"version": "1.0.1",
+			"description": "Checks selectors according to the CSS standards of 2create.",
+			"main": "lib/index.js",
+			"keywords": [
+				"css",
+				"bad",
+				"selectors",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-bad-selectors"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"lodash": "^3.9.3"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "36c41202eb8dfb00fb70d5290ff8fb5530f72a71",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-bad-selectors/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-bad-selectors",
+			"_id": "postcss-bad-selectors@1.0.1",
+			"_shasum": "2f4a87dca4a792584884db331acc406248e6776c",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "2f4a87dca4a792584884db331acc406248e6776c",
+				"tarball": "https://registry.npmjs.org/postcss-bad-selectors/-/postcss-bad-selectors-1.0.1.tgz",
+				"integrity": "sha512-rA1JPCFpw/JRoQEBVCdpmZAQnRksGTt3q96MfXdTvoE5gJpw4sGg7M1hBplLo92uuzpZxrgfkMjmNYrmWKURnQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDzRDYCaWl69NXBbsNdSbXRSh4m4nuZqLW/9Lu4A6sDagIhAN8rsDVj56DY9D/Hv/Ers6dha2oS0CDOnVEyVh1Vdseo"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.2": {
+			"name": "postcss-bad-selectors",
+			"version": "1.0.2",
+			"description": "Checks selectors according to the CSS standards of 2create.",
+			"main": "lib/index.js",
+			"keywords": [
+				"css",
+				"bad",
+				"selectors",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createStudio/postcss-bad-selectors.git"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"lodash": "^3.9.3"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "e2924ad6680a4c871dd6877cbee8d6fdef8ef02d",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-bad-selectors/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-bad-selectors#readme",
+			"_id": "postcss-bad-selectors@1.0.2",
+			"_shasum": "2b29f9468396b11ceb58eecb0e336abb2e026d6b",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2b29f9468396b11ceb58eecb0e336abb2e026d6b",
+				"tarball": "https://registry.npmjs.org/postcss-bad-selectors/-/postcss-bad-selectors-1.0.2.tgz",
+				"integrity": "sha512-0Bjrxr8zDr9h4+22Jh5JsvZyySSGUO9EAj25KYXUs5+xgh3w5+en1h4LrsL+ZAhSYL6sEIKq7Is/bn5VcnTpJw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDwW78VJdJbWQVgEtkswH2zhbqVpHJxQ3uwf42yeAdAuwIhAOjYP7+isCuf3PPUdce8vNU0Nj+iLWmmiUcDG1w/rAUq"
+					}
+				]
+			}
+		},
+		"1.0.3": {
+			"name": "postcss-bad-selectors",
+			"version": "1.0.3",
+			"description": "Checks selectors according to the CSS standards of 2create.",
+			"main": "lib/index.js",
+			"keywords": [
+				"css",
+				"bad",
+				"selectors",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-bad-selectors"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"lodash": "^3.9.3"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {},
+			"gitHead": "9c5cf7f32d21fd0cd172785a92db714457feb076",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-bad-selectors/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-bad-selectors",
+			"_id": "postcss-bad-selectors@1.0.3",
+			"_shasum": "3e1a745bd0e15c28b4847f56582947d11588ab96",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "3e1a745bd0e15c28b4847f56582947d11588ab96",
+				"tarball": "https://registry.npmjs.org/postcss-bad-selectors/-/postcss-bad-selectors-1.0.3.tgz",
+				"integrity": "sha512-aGggDAiXyfBMDmaGg/y1Nw4txgD0mZkgVJayU3kjfKktszz57CIKGw9aFNoQHk9zlCCV16toNlymPKNst+617A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGbAJ9H+BVRlv4dAa0HhBJ2ZrXXHKk79Q7kBvWj3aZJCAiAecV/32CDxdUnRgFJvfW80w0DX2P/jcGciNWrVj+pSaA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		}
+	},
+	"homepage": "https://github.com/2createStudio/postcss-bad-selectors",
+	"keywords": [
+		"css",
+		"bad",
+		"selectors",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/2createStudio/postcss-bad-selectors"
+	},
+	"author": {
+		"name": "2createStudio",
+		"url": "https://github.com/2createStudio"
+	},
+	"bugs": {
+		"url": "https://github.com/2createStudio/postcss-bad-selectors/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

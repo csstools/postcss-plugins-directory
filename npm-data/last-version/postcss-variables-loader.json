@@ -1,0 +1,110 @@
+{
+	"version": "6.0.0",
+	"name": "postcss-variables-loader",
+	"description": "Share variables between CSS and JS with Webpack + HMR",
+	"main": "lib/index.js",
+	"keywords": [
+		"css2js",
+		"css4",
+		"cssnext",
+		"postcss",
+		"postcss-plugin",
+		"webpack",
+		"webpack-loader"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/coobaha/postcss-variables-loader.git"
+	},
+	"scripts": {
+		"build": "babel -d ./ ./src",
+		"coverage": "nyc --reporter=lcov --reporter=text --reporter=html npm test",
+		"coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+		"lint": "eslint src test",
+		"test": "ava -T 7s test/index.js",
+		"validate": "npm run lint && npm test",
+		"prepare": "npm run build && npm run validate"
+	},
+	"author": {
+		"name": "Alexander Ryzhikov",
+		"email": "coobaha@gmail.com",
+		"url": "https://github.com/coobaha"
+	},
+	"ava": {
+		"babel": true,
+		"require": [
+			"@babel/register"
+		]
+	},
+	"pre-commit": [
+		"validate"
+	],
+	"dependencies": {
+		"loader-utils": "^1.2.3",
+		"lodash": "^4.17.15",
+		"postcss": "^6.0.8",
+		"postcss-cssnext": "^3.0.2",
+		"postcss-import": "^10.0.0"
+	},
+	"devDependencies": {
+		"@ava/babel": "^1.0.1",
+		"@babel/cli": "^7.0.0",
+		"@babel/core": "^7.8.4",
+		"@babel/preset-env": "^7.8.4",
+		"@babel/register": "^7.8.3",
+		"ava": "^3.3.0",
+		"babel-eslint": "^10.0.3",
+		"babel-loader": "^8.0.6",
+		"babel-plugin-add-module-exports": "^1.0.2",
+		"coveralls": "^3.0.9",
+		"eslint": "^4.2.0",
+		"eslint-config-standard": "^6.2.0",
+		"eslint-plugin-promise": "^3.3.0",
+		"eslint-plugin-standard": "^2.0.1",
+		"memory-fs": "^0.5.0",
+		"nyc": "^14.1.1",
+		"pre-commit": "^1.1.3",
+		"webpack": "^4.41.6",
+		"webpack-to-memory": "^1.0.0"
+	},
+	"gitHead": "b20ffcef553a3a3dbf1a90da317b5d48b75126cf",
+	"bugs": {
+		"url": "https://github.com/coobaha/postcss-variables-loader/issues"
+	},
+	"homepage": "https://github.com/coobaha/postcss-variables-loader#readme",
+	"_id": "postcss-variables-loader@6.0.0",
+	"_nodeVersion": "12.14.1",
+	"_npmVersion": "6.13.4",
+	"dist": {
+		"integrity": "sha512-UEiHSMsjKV0Vbkf08xIbsOr+ucT9/RiWjh+Nw76AzDWoTzYvCb+qxEVeixXn76iittDPH6tChiyMhx3JQnuuHg==",
+		"shasum": "919613b27b51bf2e7ca902da77c684f70fa29ca9",
+		"tarball": "https://registry.npmjs.org/postcss-variables-loader/-/postcss-variables-loader-6.0.0.tgz",
+		"fileCount": 4,
+		"unpackedSize": 12182,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeQscfCRA9TVsSAnZWagAAa5gP/1Fchf9lWI9cLIUU9mZh\n2GwWAUizPikmQNx5S9YkmL/1K43AMe6mSUiqQ6a1dLnfCUHF7iXdpA1ypRIS\nQqyCJboHRkBre2R153+dSGSEd36MvtJuJ9yn21Hgwu6Otu7qT2hcSnTfFeTr\nX/Bl+oiChT8dFJPQ5WsjbwQQqblVUmaW2M9W9VGyILK8DSxY6ifWnsvZOnPx\nR+9aC53PdNjkwDWXk2tKUp6SfOBODyiRglOPznP0BN7+YbJyPC9Sxka1/OZU\ndmA5AkwjnCK0ITBEvZ8wElqBLAIe08CsN7wgQ81k9K0kXrFF239164bnmk8h\nE4ldzZJ+G18/gxvcOr9lXRBu6NqL4KmI3mCX8fCtXRrvhxCnVACGVT8Vfz6l\nKxiXPXc0XmN4hwgGd1f1oOBy9jfXUuraoAGgS7wJfs+yA/w77/le+/NwVE8E\nmVBZcMVJUVeWfkkbISqlPvi94ejh+ApAPD01EcnQzy+BVoVp5m/N8LK/AUeX\nw/ieWCCjtkXkQ/6yp8KpuOtoq6srV8Q32qvr12cWhNSeWFk2apebiVXr6yIF\nW+t8x4xFvF+1bzYurSH+3RJxVgHA7JB8QWOV55z5UU8xDIEjPtz7Ad2S++FJ\nutxQe2ezFMD9t76kdy60v1TKx98BQt2W2K60oHoCibt3Av/u6eJtu/0tVw2h\n5Ke9\r\n=yENp\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIAFlvfy/tpNaoLtz9bKo0NyrhDyGFhBIwpz2PAVuZYnbAiA0kTl/Eybb18j2UsZajnD1qFnCnfjySM4z/41OE2un+w=="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "coobaha",
+			"email": "coobaha@gmail.com"
+		}
+	],
+	"_npmUser": {
+		"name": "coobaha",
+		"email": "coobaha@gmail.com"
+	},
+	"directories": {},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-variables-loader_6.0.0_1581434654932_0.7637421378051645"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2020-02-11T15:24:15.117Z"
+}

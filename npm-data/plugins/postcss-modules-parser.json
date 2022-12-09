@@ -1,0 +1,269 @@
+{
+	"_id": "postcss-modules-parser",
+	"_rev": "8-1d24c29ff3de18a06a193a8ad7a4b72c",
+	"name": "postcss-modules-parser",
+	"time": {
+		"modified": "2022-06-24T10:25:54.571Z",
+		"created": "2015-11-03T22:43:49.215Z",
+		"1.0.0": "2015-11-03T22:43:49.215Z",
+		"1.0.1": "2015-11-03T22:53:46.255Z",
+		"1.1.0": "2015-11-24T22:19:13.805Z",
+		"1.1.1": "2017-05-26T14:06:51.671Z"
+	},
+	"maintainers": [
+		{
+			"email": "iamhoneyboy@gmail.com",
+			"name": "sullenor"
+		},
+		{
+			"email": "sheo13666q@gmail.com",
+			"name": "evilebottnawi"
+		}
+	],
+	"dist-tags": {
+		"latest": "1.1.1"
+	},
+	"description": "A CSS Modules parser to extract tokens from the css file",
+	"readme": "postcss-modules-parser\n======================\n\nA CSS Modules parser to extract tokens from the css file. Provides opportunity to process multiple files. Supports both synchronous and asynchronous file loaders.\n\n## API\n\nIn order to use it you should provide a `fetch` function which should load contents of files and process it with the PostCSS instance. `fetch` function should return tokens or promise object which will resolve into tokens.\n\n```javascript\nvar Parser = require('postcss-modules-parser');\n\n/**\n * @param  {string} to   Path to the new file. Could be any.\n * @param  {string} from Path to the source file. Should be absolute.\n * @return {object}      Tokens\n */\nfunction fetch(to, from) {\n  // load content\n  return instance.process(css, {from: filename}).root.tokens;\n}\n\nnew Parser({fetch: fetch});\n```\n\nSee the examples:\n- asynchronous loader: [test/helper/async-loader.js](https://github.com/css-modules/postcss-modules-parser/blob/master/test/helper/async-loader.js)\n- synchronous loader: [test/helper/sync-loader.js](https://github.com/css-modules/postcss-modules-parser/blob/master/test/helper/sync-loader.js)\n",
+	"versions": {
+		"1.0.1": {
+			"name": "postcss-modules-parser",
+			"version": "1.0.1",
+			"description": "A CSS Modules parser to extract tokens from the css file",
+			"main": "index.js",
+			"scripts": {
+				"compile": "babel src --out-dir lib",
+				"prepublish": "in-publish && npm run -s compile || in-install",
+				"test": "mocha --compilers js:babel-core/register"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/css-modules/postcss-modules-parser.git"
+			},
+			"keywords": [
+				"css-modules",
+				"postcss",
+				"css",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Alexey Litvinov"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/css-modules/postcss-modules-parser/issues"
+			},
+			"homepage": "https://github.com/css-modules/postcss-modules-parser#readme",
+			"dependencies": {
+				"icss-replace-symbols": "^1.0.2",
+				"lodash.foreach": "^3.0.3",
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.0.15",
+				"babel-core": "^6.0.17",
+				"babel-preset-es2015": "^6.0.15",
+				"in-publish": "^2.0.0",
+				"mocha": "^2.3.3"
+			},
+			"gitHead": "7ef5eff936294616f4150c009abc87c167dd5427",
+			"_id": "postcss-modules-parser@1.0.1",
+			"_shasum": "4becd349a28d82321b257c724a4d2343415c51a9",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "sullenor",
+				"email": "iamhoneyboy@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "sullenor",
+					"email": "iamhoneyboy@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "4becd349a28d82321b257c724a4d2343415c51a9",
+				"tarball": "https://registry.npmjs.org/postcss-modules-parser/-/postcss-modules-parser-1.0.1.tgz",
+				"integrity": "sha512-CK3Uh40bGCBqYOpTdkARazxIZgQ7TTzTZ2WZhM4SB6OINshoNMRg5mc44GlFp9Zc0qGDdd/VqMD4xOqjMqMcaw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDfRa5Xlo1KDWZnTriVEDBpLApkLAekoCOZo6AjG0rFJQIgFqEaQZMnSg5P2NhOaRIoqiHLsrMoRNVpaW/euE+J0ws="
+					}
+				]
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "postcss-modules-parser",
+			"version": "1.1.0",
+			"description": "A CSS Modules parser to extract tokens from the css file",
+			"main": "index.js",
+			"scripts": {
+				"compile": "babel src --out-dir lib",
+				"prepublish": "in-publish && npm run -s compile || in-install",
+				"test": "mocha --compilers js:babel-core/register"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/css-modules/postcss-modules-parser.git"
+			},
+			"keywords": [
+				"css-modules",
+				"postcss",
+				"css",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Alexey Litvinov"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/css-modules/postcss-modules-parser/issues"
+			},
+			"homepage": "https://github.com/css-modules/postcss-modules-parser#readme",
+			"dependencies": {
+				"icss-replace-symbols": "^1.0.2",
+				"lodash.foreach": "^3.0.3",
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.0.15",
+				"babel-core": "^6.0.17",
+				"babel-preset-es2015": "^6.0.15",
+				"in-publish": "^2.0.0",
+				"mocha": "^2.3.3"
+			},
+			"gitHead": "661de61367f779083ff32a301efdf0822d662424",
+			"_id": "postcss-modules-parser@1.1.0",
+			"_shasum": "1797f0e5ca129bbe6120c9d3babd328e8bc7748d",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "sullenor",
+				"email": "iamhoneyboy@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "sullenor",
+					"email": "iamhoneyboy@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "1797f0e5ca129bbe6120c9d3babd328e8bc7748d",
+				"tarball": "https://registry.npmjs.org/postcss-modules-parser/-/postcss-modules-parser-1.1.0.tgz",
+				"integrity": "sha512-wShEmJm2dOtscqB0S4l876W1rL4vDYNn1dsxRV7rwQ7Eh3yOJa7W2G2mYnXZs4vLvRhsMhkd2eIjQA2FmO4MFA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCZ0ozjc3wZbxQztpOjhqv8X1ynGboOEbB1+MkmUIZbyAIhAKxEbfVJtjQFpRrk5c5uU8/92amfFJ43XbcGn6u8iLjV"
+					}
+				]
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "postcss-modules-parser",
+			"version": "1.1.1",
+			"description": "A CSS Modules parser to extract tokens from the css file",
+			"main": "index.js",
+			"scripts": {
+				"compile": "babel src --out-dir lib",
+				"prepublish": "in-publish && npm run -s compile || in-install",
+				"test": "mocha --compilers js:babel-core/register"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/css-modules/postcss-icss.git"
+			},
+			"keywords": [
+				"css-modules",
+				"postcss",
+				"css",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Alexey Litvinov"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/css-modules/postcss-icss/issues"
+			},
+			"homepage": "https://github.com/css-modules/postcss-icss#readme",
+			"dependencies": {
+				"icss-replace-symbols": "^1.0.2",
+				"lodash.foreach": "^3.0.3",
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.0.15",
+				"babel-core": "^6.0.17",
+				"babel-preset-es2015": "^6.0.15",
+				"in-publish": "^2.0.0",
+				"mocha": "^2.3.3"
+			},
+			"gitHead": "3c6f005488605734d68dbe93971bf0a0adabae35",
+			"_id": "postcss-modules-parser@1.1.1",
+			"_shasum": "95f71ad7916f0f39207bb81c401336c8d245738c",
+			"_from": ".",
+			"_npmVersion": "4.1.2",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "sullenor",
+				"email": "iamhoneyboy@gmail.com"
+			},
+			"dist": {
+				"shasum": "95f71ad7916f0f39207bb81c401336c8d245738c",
+				"tarball": "https://registry.npmjs.org/postcss-modules-parser/-/postcss-modules-parser-1.1.1.tgz",
+				"integrity": "sha512-UQbh3X/SIEOVtZWllzYm+gb+v3TukgMZJK9cUtb3kFwzWkgYQVb/N0zTUNOrodIVXox9wo7yuzmaOMJKYYndtA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGgALM47LaZvBUo6TOFj24CJHRuI8ZSNukw/SjBY1C4BAiAhzRUcqapxXox8tYJZP+u+wcdKprv8zy/5341R9cgbjQ=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sullenor",
+					"email": "iamhoneyboy@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-modules-parser-1.1.1.tgz_1495807610692_0.27346705715171993"
+			},
+			"directories": {}
+		}
+	},
+	"homepage": "https://github.com/css-modules/postcss-icss#readme",
+	"keywords": [
+		"css-modules",
+		"postcss",
+		"css",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/css-modules/postcss-icss.git"
+	},
+	"author": {
+		"name": "Alexey Litvinov"
+	},
+	"bugs": {
+		"url": "https://github.com/css-modules/postcss-icss/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "readme.md"
+}

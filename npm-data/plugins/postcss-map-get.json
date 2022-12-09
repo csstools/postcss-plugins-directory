@@ -1,0 +1,1755 @@
+{
+	"_id": "postcss-map-get",
+	"_rev": "13-8bce85dd9392169e5156b00754c92c6a",
+	"name": "postcss-map-get",
+	"dist-tags": {
+		"latest": "0.3.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-map-get",
+			"version": "0.1.0",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/gitscrum/postcss-map-get.git"
+			},
+			"homepage": "http://gitscrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"prepush": "npm t",
+				"precommit": "clinton && lint-staged",
+				"commitmsg": "commitlint --extends=@commitlint/config-angular -e",
+				"postpublish": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava"
+			},
+			"files": [
+				"lib/"
+			],
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.0.0-beta.40",
+				"postcss": "^6.0.16"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0-beta.40",
+				"@babel/core": "^7.0.0-beta.40",
+				"@babel/plugin-transform-runtime": "^7.0.0-beta.40",
+				"@babel/preset-env": "^7.0.0-beta.40",
+				"@babel/register": "^7.0.0-beta.40",
+				"@commitlint/cli": "^6.0.2",
+				"@commitlint/config-angular": "^6.0.2",
+				"ava": "*",
+				"babel-eslint": "^8.2.1",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-minify": "^0.3.0",
+				"clinton": "^0.13.0",
+				"conventional-changelog-cli": "^1.3.1",
+				"coveralls": "^3.0.0",
+				"eslint": "^4.15.0",
+				"eslint-config-xo": "^0.20.1",
+				"eslint-config-xo-space": "^0.18.0",
+				"eslint-formatter-pretty": "^1.1.0",
+				"eslint-plugin-ava": "^4.0.1",
+				"eslint-plugin-babel": "^4.0.1",
+				"eslint-plugin-html": "^4.0.1",
+				"eslint-plugin-markdown": "^1.0.0-beta.7",
+				"eslint-plugin-unicorn": "^4.0.2",
+				"husky": "^0.14.3",
+				"lint-staged": "^7.0.0",
+				"nyc": "^11.5.0",
+				"rimraf": "^2.6.1"
+			},
+			"lint-staged": {
+				"{src,test}/**/*.js": "eslint",
+				"*.md": "eslint"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"babel": {
+				"presets": [
+					[
+						"@babel/preset-env",
+						{
+							"targets": {
+								"node": 4
+							}
+						}
+					],
+					[
+						"minify",
+						{
+							"removeUndefined": false,
+							"mangle": false
+						}
+					]
+				],
+				"plugins": [
+					"@babel/plugin-transform-runtime",
+					"add-module-exports"
+				]
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"plugins": [
+					"html",
+					"unicorn",
+					"babel",
+					"markdown"
+				],
+				"extends": [
+					"plugin:unicorn/recommended",
+					"xo",
+					"xo-space"
+				],
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"clinton": {
+				"ignores": [
+					"test/**",
+					"tmp/**",
+					"lib/**",
+					"*.{html,jpg}"
+				],
+				"rules": {
+					"pkg-main": [
+						"off"
+					],
+					"xo": [
+						"off"
+					]
+				}
+			},
+			"gitHead": "c977a42286712e05778a229a370f62a96ac7dc77",
+			"_id": "postcss-map-get@0.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.5.0",
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"dist": {
+				"integrity": "sha512-AJipsI91r1MKnB2ewu+/FISi71jo/gE4BxheSMA6B6AA+xB1ZQj34s4rCpG4XFqz/84PeFFiUmcjHGSltQ4cyg==",
+				"shasum": "f1cd8a0793bca5271d1e02c01e191c04e732209c",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.1.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 7896,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHI6FTRT6Q09NUQ+YCCw92uj0V12IYd0iVg8892FTKD8AiEAj/ukJ2sTOOUThywAIY3YP4sdDdQALp2SGUfb/EFGB5o="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.1.0_1519652522409_0.22078771312009593"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.0": {
+			"name": "postcss-map-get",
+			"version": "0.2.0",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/gitscrum/postcss-map-get.git"
+			},
+			"homepage": "http://gitscrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"prepush": "npm t",
+				"precommit": "clinton && lint-staged",
+				"commitmsg": "commitlint --extends=@commitlint/config-angular -e",
+				"postpublish": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava"
+			},
+			"files": [
+				"lib/"
+			],
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.0.0-beta.40",
+				"postcss": "^6.0.16"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0-beta.40",
+				"@babel/core": "^7.0.0-beta.40",
+				"@babel/plugin-transform-runtime": "^7.0.0-beta.40",
+				"@babel/preset-env": "^7.0.0-beta.40",
+				"@babel/register": "^7.0.0-beta.40",
+				"@commitlint/cli": "^6.0.2",
+				"@commitlint/config-angular": "^6.0.2",
+				"ava": "*",
+				"babel-eslint": "^8.2.1",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-minify": "^0.3.0",
+				"clinton": "^0.13.0",
+				"conventional-changelog-cli": "^1.3.1",
+				"coveralls": "^3.0.0",
+				"eslint": "^4.15.0",
+				"eslint-config-xo": "^0.20.1",
+				"eslint-config-xo-space": "^0.18.0",
+				"eslint-formatter-pretty": "^1.1.0",
+				"eslint-plugin-ava": "^4.0.1",
+				"eslint-plugin-babel": "^4.0.1",
+				"eslint-plugin-html": "^4.0.1",
+				"eslint-plugin-markdown": "^1.0.0-beta.7",
+				"eslint-plugin-unicorn": "^4.0.2",
+				"husky": "^0.14.3",
+				"lint-staged": "^7.0.0",
+				"nyc": "^11.5.0",
+				"rimraf": "^2.6.1"
+			},
+			"lint-staged": {
+				"{src,test}/**/*.js": "eslint",
+				"*.md": "eslint"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"babel": {
+				"presets": [
+					[
+						"@babel/preset-env",
+						{
+							"targets": {
+								"node": 4
+							}
+						}
+					],
+					[
+						"minify",
+						{
+							"removeUndefined": false,
+							"mangle": false
+						}
+					]
+				],
+				"plugins": [
+					"@babel/plugin-transform-runtime",
+					"add-module-exports"
+				]
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"plugins": [
+					"html",
+					"unicorn",
+					"babel",
+					"markdown"
+				],
+				"extends": [
+					"plugin:unicorn/recommended",
+					"xo",
+					"xo-space"
+				],
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"clinton": {
+				"ignores": [
+					"test/**",
+					"tmp/**",
+					"lib/**",
+					"*.{html,jpg}"
+				],
+				"rules": {
+					"pkg-main": [
+						"off"
+					],
+					"xo": [
+						"off"
+					]
+				}
+			},
+			"gitHead": "fba79c6d7fd17b90a8a937a2c7fc953fdccc5b63",
+			"_id": "postcss-map-get@0.2.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.6.1",
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"dist": {
+				"integrity": "sha512-4Nxc6PAzKoKoOpmFRFI/Kl1XWHfs2d3Cbdzd1REbi/xnxWHVyzPoKEzmYL3pB+M4nPrFR2ac4bg2UPNSyEh0Xg==",
+				"shasum": "8fdf923f9c7ddf392ab06885a689be78a741c6b6",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8892,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIAiM40GkKRB4AHM9GQexxTqAvmGIdeJUviwRp6Rg1WuQAiEA5ncT5OHMrzJjl5MPEM/eJuASDNZl9ucWA9n7zRt4p0E="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.0_1519657200638_0.935955441965185"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.1": {
+			"name": "postcss-map-get",
+			"version": "0.2.1",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/gitscrum/postcss-map-get.git"
+			},
+			"homepage": "http://gitscrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"prepush": "npm t",
+				"precommit": "clinton && lint-staged",
+				"commitmsg": "commitlint --extends=@commitlint/config-angular -e",
+				"postpublish": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava"
+			},
+			"files": [
+				"lib/"
+			],
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.0.0-beta.40",
+				"postcss": "^6.0.16"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0-beta.40",
+				"@babel/core": "^7.0.0-beta.40",
+				"@babel/plugin-transform-runtime": "^7.0.0-beta.40",
+				"@babel/preset-env": "^7.0.0-beta.40",
+				"@babel/register": "^7.0.0-beta.40",
+				"@commitlint/cli": "^6.0.2",
+				"@commitlint/config-angular": "^6.0.2",
+				"ava": "*",
+				"babel-eslint": "^8.2.1",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-minify": "^0.3.0",
+				"clinton": "^0.13.0",
+				"conventional-changelog-cli": "^1.3.1",
+				"coveralls": "^3.0.0",
+				"eslint": "^4.15.0",
+				"eslint-config-xo": "^0.20.1",
+				"eslint-config-xo-space": "^0.18.0",
+				"eslint-formatter-pretty": "^1.1.0",
+				"eslint-plugin-ava": "^4.0.1",
+				"eslint-plugin-babel": "^4.0.1",
+				"eslint-plugin-html": "^4.0.1",
+				"eslint-plugin-markdown": "^1.0.0-beta.7",
+				"eslint-plugin-unicorn": "^4.0.2",
+				"husky": "^0.14.3",
+				"lint-staged": "^7.0.0",
+				"nyc": "^11.5.0",
+				"rimraf": "^2.6.1"
+			},
+			"lint-staged": {
+				"{src,test}/**/*.js": "eslint",
+				"*.md": "eslint"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"babel": {
+				"presets": [
+					[
+						"@babel/preset-env",
+						{
+							"targets": {
+								"node": 4
+							}
+						}
+					],
+					[
+						"minify",
+						{
+							"removeUndefined": false,
+							"mangle": false
+						}
+					]
+				],
+				"plugins": [
+					"@babel/plugin-transform-runtime",
+					"add-module-exports"
+				]
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"plugins": [
+					"html",
+					"unicorn",
+					"babel",
+					"markdown"
+				],
+				"extends": [
+					"plugin:unicorn/recommended",
+					"xo",
+					"xo-space"
+				],
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"clinton": {
+				"ignores": [
+					"test/**",
+					"tmp/**",
+					"lib/**",
+					"*.{html,jpg}"
+				],
+				"rules": {
+					"pkg-main": [
+						"off"
+					],
+					"xo": [
+						"off"
+					]
+				}
+			},
+			"gitHead": "c69484bf2eb1f3b6ea8f1000d6c55170bc92bd4c",
+			"_id": "postcss-map-get@0.2.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.6.1",
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"dist": {
+				"integrity": "sha512-vjN/cKaYr5bTaf+oKhrcC+TnxPnzQl2IQLootvK1/ZGi58OWChVAUkSwPhabDy3z1lSegwnO5vNvSP30K8K6Kg==",
+				"shasum": "9dd1e9b2f42b9bdc1428725001968156b84f66e5",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.1.tgz",
+				"fileCount": 5,
+				"unpackedSize": 9450,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBGgeLFUcGt5hPdBchBphtBjs8BhLiseXWe5le4mzv8gAiBmAFSgoV+bexNjhA0lgrAICNSCOiVraFYhyu9YTY6ySQ=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.1_1519658352922_0.8607889523031729"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.2": {
+			"name": "postcss-map-get",
+			"version": "0.2.2",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/gitscrum/postcss-map-get.git"
+			},
+			"homepage": "http://gitscrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"prepush": "npm t",
+				"precommit": "clinton && lint-staged",
+				"commitmsg": "commitlint --extends=@commitlint/config-angular -e",
+				"postpublish": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava"
+			},
+			"files": [
+				"lib/"
+			],
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.0.0-beta.40",
+				"postcss": "^6.0.16"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0-beta.40",
+				"@babel/core": "^7.0.0-beta.40",
+				"@babel/plugin-transform-runtime": "^7.0.0-beta.40",
+				"@babel/preset-env": "^7.0.0-beta.40",
+				"@babel/register": "^7.0.0-beta.40",
+				"@commitlint/cli": "^6.0.2",
+				"@commitlint/config-angular": "^6.0.2",
+				"ava": "*",
+				"babel-eslint": "^8.2.1",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-minify": "^0.3.0",
+				"clinton": "^0.13.0",
+				"conventional-changelog-cli": "^1.3.1",
+				"coveralls": "^3.0.0",
+				"eslint": "^4.15.0",
+				"eslint-config-xo": "^0.20.1",
+				"eslint-config-xo-space": "^0.18.0",
+				"eslint-formatter-pretty": "^1.1.0",
+				"eslint-plugin-ava": "^4.0.1",
+				"eslint-plugin-babel": "^4.0.1",
+				"eslint-plugin-html": "^4.0.1",
+				"eslint-plugin-markdown": "^1.0.0-beta.7",
+				"eslint-plugin-unicorn": "^4.0.2",
+				"husky": "^0.14.3",
+				"lint-staged": "^7.0.0",
+				"nyc": "^11.5.0",
+				"rimraf": "^2.6.1"
+			},
+			"lint-staged": {
+				"{src,test}/**/*.js": "eslint",
+				"*.md": "eslint"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"babel": {
+				"presets": [
+					[
+						"@babel/preset-env",
+						{
+							"targets": {
+								"node": 4
+							}
+						}
+					],
+					[
+						"minify",
+						{
+							"removeUndefined": false,
+							"mangle": false
+						}
+					]
+				],
+				"plugins": [
+					"@babel/plugin-transform-runtime",
+					"add-module-exports"
+				]
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"plugins": [
+					"html",
+					"unicorn",
+					"babel",
+					"markdown"
+				],
+				"extends": [
+					"plugin:unicorn/recommended",
+					"xo",
+					"xo-space"
+				],
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"clinton": {
+				"ignores": [
+					"test/**",
+					"tmp/**",
+					"lib/**",
+					"*.{html,jpg}"
+				],
+				"rules": {
+					"pkg-main": [
+						"off"
+					],
+					"xo": [
+						"off"
+					]
+				}
+			},
+			"gitHead": "7aac3ab7b1aa73ceb94ce279e23b0a0945ff4d5a",
+			"_id": "postcss-map-get@0.2.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.6.1",
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"dist": {
+				"integrity": "sha512-Oi9oI+vsOGBp70kzqXM3zshV8I2maprO3RDXvbILvMtI9a2g66uEjSyQjxcyFVC61IBHEeOsoD7EFsmJPA/+/g==",
+				"shasum": "2fe5a2acc0ea8a031bb5284bfe0030dacf234afb",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.2.tgz",
+				"fileCount": 8,
+				"unpackedSize": 11206,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDOtprPZIatCRy5k1tiuIyAs45JtiYdu4SkUTmHJzugVwIhAP7rJbiijGHnJl1XuuPSrPQvrjJgQwnT4ZJvDZas7OYT"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.2_1519723777435_0.407275308537856"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.3": {
+			"name": "postcss-map-get",
+			"version": "0.2.3",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Scrum/postcss-map-get.git"
+			},
+			"homepage": "http://scrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=6"
+			},
+			"scripts": {
+				"prepush": "npm t",
+				"precommit": "clinton && lint-staged",
+				"commitmsg": "commitlint --extends=@commitlint/config-angular -e",
+				"postpublish": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava"
+			},
+			"files": [
+				"lib/"
+			],
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.0.0-rc.1",
+				"postcss": "^7.0.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.0.0-rc.1",
+				"@babel/core": "^7.0.0-rc.1",
+				"@babel/plugin-transform-runtime": "^7.0.0-rc.1",
+				"@babel/preset-env": "^7.0.0-rc.1",
+				"@babel/register": "^7.0.0-rc.1",
+				"@commitlint/cli": "^7.0.0",
+				"@commitlint/config-angular": "^7.0.1",
+				"ava": "*",
+				"babel-eslint": "^8.2.6",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-minify": "^0.4.3",
+				"clinton": "^0.14.0",
+				"conventional-changelog-cli": "^2.0.1",
+				"coveralls": "^3.0.2",
+				"eslint": "^5.3.0",
+				"eslint-config-xo": "^0.24.1",
+				"eslint-config-xo-space": "^0.20.0",
+				"eslint-formatter-pretty": "^1.1.0",
+				"eslint-plugin-ava": "^5.1.0",
+				"eslint-plugin-babel": "^5.1.0",
+				"eslint-plugin-html": "^4.0.5",
+				"eslint-plugin-markdown": "^1.0.0-beta.7",
+				"eslint-plugin-unicorn": "^5.0.0",
+				"husky": "^0.14.3",
+				"lint-staged": "^7.2.2",
+				"nyc": "^12.0.2",
+				"rimraf": "^2.6.1"
+			},
+			"lint-staged": {
+				"{src,test}/**/*.js": "eslint --fix",
+				"*.md": "eslint --fix"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"babel": {
+				"presets": [
+					[
+						"@babel/preset-env",
+						{
+							"targets": {
+								"node": 4
+							}
+						}
+					],
+					[
+						"minify",
+						{
+							"removeUndefined": false,
+							"mangle": false
+						}
+					]
+				],
+				"plugins": [
+					"@babel/plugin-transform-runtime",
+					"add-module-exports"
+				]
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"plugins": [
+					"html",
+					"unicorn",
+					"babel",
+					"markdown"
+				],
+				"extends": [
+					"plugin:unicorn/recommended",
+					"xo",
+					"xo-space"
+				],
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"clinton": {
+				"ignores": [
+					"test/**",
+					"tmp/**",
+					"lib/**",
+					"*.{html,jpg}"
+				],
+				"rules": {
+					"pkg-main": [
+						"off"
+					],
+					"xo": [
+						"off"
+					]
+				}
+			},
+			"gitHead": "988cc97645e8bb5f90f68caed426e4580d0e9c26",
+			"_id": "postcss-map-get@0.2.3",
+			"_npmVersion": "6.3.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"dist": {
+				"integrity": "sha512-f38qdJ8B1atJJR1PTwkElAnMht5NNt3RbfW6/kKUPijsQCBQWMWpz/2UVJpAy0Yx+joav8osiZuAJnIeiI0P4Q==",
+				"shasum": "af8e8a618928576e94ff7dc6f3b02f63586aaa5b",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.3.tgz",
+				"fileCount": 8,
+				"unpackedSize": 11524,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbc+ROCRA9TVsSAnZWagAAcjoP/3x3z7YO0q1VQXIM0zpB\n2+4S+jU6lDyZVx7FWL1XhTTcifJi4NOS0MT69NTaJaAUZKHdnEjYfvcGRIys\nErIeOkr16uvUHHOckAwHYIAjaPtgbWAA4V2br29oaNa/gS0YPjCZG5LrDWqX\n49pH1zp5/NK17oMz+TKyGz/gcPOL3xW9mNhYeoGvWVo0u8eh7IG0BzB+OeNc\nFjyx3fivhZHl1BknYL3913FIpvqgpBgk4lRMST9K4CNtVAvxp03v+y1XGVUl\nqDMxrWVz5kqgAqVWcRB050iJCsyuzZM5ljZTfjskZK+98byDi7fBVjr5kItW\nVeRRH0zhNiwNjpE5+BGf9Q3HpDIo6jiz/mveIiwT6HDHH9PrTGRsmg0PF8te\nKLbPJqcj4jeU72kaKjw0OJ7Pw3THFImaJqDcVsk6r9XwYDV5bvVp//Ob/jkE\naFxQb1zmIvJWhVX8WkMWU8cC2EwoMc9Dc1ikNzuAIEi2UatI7j0Uh79IsdXy\ng3Sb8JvidO6HTrQLu6Zz1chPWjqUBim+DWH3ymmwtfnBVbGY37FCadxQqeZ/\nGM+iuF1LrtAweGP1ue76N9DTOO3aPcn7+tZNq34P9rzkP8p6FB0iSUResctz\nsWrBQMD9/JgfCi03A2xEuacD2Y73CKQ1xOF8KjmvCA6QASh4YqC74yaQ8iTj\n/r9+\r\n=Z4eS\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC4+YWihKVd0jaQ//KAWR4dI9rh5GuKfJeGAUMl0USo2wIhAMr/flnG78L3BqBA1qIWOMqPDWYVW+Q+fEcUzPWlchrh"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.3_1534321742647_0.17103448514613406"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.4": {
+			"name": "postcss-map-get",
+			"version": "0.2.4",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Scrum/postcss-map-get.git"
+			},
+			"homepage": "http://scrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=8"
+			},
+			"scripts": {
+				"prepush": "npm t",
+				"precommit": "clinton && lint-staged",
+				"commitmsg": "commitlint --extends=@commitlint/config-angular -e",
+				"postpublish": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.7.2",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.7.0",
+				"@babel/core": "^7.7.2",
+				"@babel/plugin-transform-runtime": "^7.6.2",
+				"@babel/preset-env": "^7.7.1",
+				"@babel/register": "^7.7.0",
+				"@commitlint/cli": "^8.2.0",
+				"@commitlint/config-angular": "^8.2.0",
+				"ava": "*",
+				"babel-eslint": "^10.0.3",
+				"babel-plugin-add-module-exports": "^1.0.2",
+				"babel-preset-minify": "^0.5.1",
+				"clinton": "^0.14.0",
+				"conventional-changelog-cli": "^2.0.25",
+				"coveralls": "^3.0.7",
+				"eslint": "^6.6.0",
+				"eslint-config-xo": "^0.27.2",
+				"eslint-config-xo-space": "^0.21.0",
+				"eslint-formatter-pretty": "^2.1.1",
+				"eslint-plugin-ava": "^9.0.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-html": "^6.0.0",
+				"eslint-plugin-markdown": "^1.0.1",
+				"eslint-plugin-unicorn": "^12.1.0",
+				"husky": "^3.0.9",
+				"lint-staged": "^9.4.2",
+				"nyc": "^14.1.1",
+				"rimraf": "^3.0.0"
+			},
+			"lint-staged": {
+				"{src,test}/**/*.js": "eslint --fix",
+				"*.md": "eslint --fix"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"babel": {
+				"presets": [
+					[
+						"@babel/preset-env",
+						{
+							"targets": {
+								"node": 4
+							}
+						}
+					],
+					[
+						"minify",
+						{
+							"removeUndefined": false,
+							"mangle": false
+						}
+					]
+				],
+				"plugins": [
+					"@babel/plugin-transform-runtime",
+					"add-module-exports"
+				]
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"plugins": [
+					"html",
+					"unicorn",
+					"babel",
+					"markdown"
+				],
+				"extends": [
+					"plugin:unicorn/recommended",
+					"xo",
+					"xo-space"
+				],
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"clinton": {
+				"ignores": [
+					"test/**",
+					"tmp/**",
+					"lib/**",
+					"*.{html,jpg}"
+				],
+				"rules": {
+					"pkg-main": [
+						"off"
+					],
+					"xo": [
+						"off"
+					]
+				}
+			},
+			"gitHead": "ea63fb5ef1756900377795fb1efc2a287d376fe1",
+			"_id": "postcss-map-get@0.2.4",
+			"_nodeVersion": "12.13.0",
+			"_npmVersion": "6.12.0",
+			"dist": {
+				"integrity": "sha512-mOdgYkx3bT1aqlW5+m0s1gLw+0c/RFts4IS/dFGnj0GO5Nf84NGg9ewpuV+lR9PmYQcTpIXv+MVOlXtakAcqPA==",
+				"shasum": "de12e2a546807a16a671f4caeb11e1ea578f28a2",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.4.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12374,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdw8zXCRA9TVsSAnZWagAAviUQAJ5Bo33JI8qOD+UlEETX\nG7ITIL9AyOFNEHlJpXeAMarIpxujLaihSHcJPpaRQIcbg3Pv7qP+j90hZtgb\nP+9wXYAJOVFTIESZlYuYlbQ4bJh7qLigzooGYm8mUmlEwmcp4xZzXh7WrvC/\nj7+lrqdDxScEMVTs2OyHbrN/5bfg96KDUb2hWMiR22sLSY0ths4Msen+D+eo\n0ASEvGKfrG6Co4bM1SGW3dHpc8m9+BMpqvvLxKqDWxEnV0MfpStNGXel3wj8\nG0TAm8GzL+kDRXxfFySDMM2CfMBI2q/DI4V9nnl9B3WtRyhysT6UKog6lpA6\n1Rj8qIatuvaTSRwet7RtPH0xmiUbFSx2gAO3VdopyLfN08OaLj4fJUO7Q2NY\nEjlUyoiKB5Y+J1N2TLy2cEeEEI/DD4nFi1E+c7MnSkAeLt2ZV13eZWgr5hyb\nqKwvXb4RoIeZQl7wTz/JydHIsdj0RNSUbf87Mhwg3XpWYlBHWwQu1e4A9q3I\nAEdtzchVHHpvyK8ss3O4JIOYuO3JJgqcxE3exbZwFamoLlAtZUd0R6O88mQg\nFxCcXdyshzuA3l2sb2aK3smuvbHeomaUtUvEkZgUPzi7MovTzffnO6Agw/6v\nPJhWcP6NuGwCRDKOGmUrvu714Pd6PCbVUkNzJfseY+JE0OaVet2DNhLpXzjX\nXIbc\r\n=R6n9\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC9b7HgbzG5kWh4OP0Cp/07XTUwa06F3ZolIoaRN6AJrwIhAL0/7UMaXQ1IeQ2L3WMo9Z08l5YUFsXkcaHPMweATNge"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.4_1573113047316_0.4816529852667226"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.5": {
+			"name": "postcss-map-get",
+			"version": "0.2.5",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Scrum/postcss-map-get.git"
+			},
+			"homepage": "http://scrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=8"
+			},
+			"scripts": {
+				"version": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.7.2",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.7.0",
+				"@babel/core": "^7.7.2",
+				"@babel/plugin-transform-runtime": "^7.6.2",
+				"@babel/preset-env": "^7.7.1",
+				"@babel/register": "^7.7.0",
+				"@commitlint/cli": "^8.2.0",
+				"@commitlint/config-angular": "^8.2.0",
+				"ava": "*",
+				"babel-eslint": "^10.0.3",
+				"babel-plugin-add-module-exports": "^1.0.2",
+				"babel-preset-minify": "^0.5.1",
+				"clinton": "^0.14.0",
+				"conventional-changelog-cli": "^2.0.25",
+				"coveralls": "^3.0.7",
+				"eslint": "^6.6.0",
+				"eslint-config-xo": "^0.27.2",
+				"eslint-config-xo-space": "^0.21.0",
+				"eslint-formatter-pretty": "^2.1.1",
+				"eslint-plugin-ava": "^9.0.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-html": "^6.0.0",
+				"eslint-plugin-markdown": "^1.0.1",
+				"eslint-plugin-unicorn": "^12.1.0",
+				"husky": "^3.0.9",
+				"lint-staged": "^9.4.2",
+				"nyc": "^14.1.1",
+				"rimraf": "^3.0.0"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"gitHead": "67eee034ea09839034498a549a9d9101cb9fcbf9",
+			"_id": "postcss-map-get@0.2.5",
+			"_nodeVersion": "12.13.0",
+			"_npmVersion": "6.12.0",
+			"dist": {
+				"integrity": "sha512-DGdlmDlkhGn2Zxv52YDB0s4F4JrSakD50RlXPewzSsce6sKXblBaicp1wI70sMD4B34wPO4529kf1p0ZhBpyMg==",
+				"shasum": "75dc3325edee9d896dc91a8393ef029243e8a557",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.5.tgz",
+				"fileCount": 7,
+				"unpackedSize": 11494,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdw9FhCRA9TVsSAnZWagAAdlQQAI461zjEEzIjA2SE6Tt5\npFxxvIkU58tCeOV96w5odXKGDysvSz5Lpy9ADPxXY2j+wjUFXWtPD5/z3TVI\nlICrm5K7T0cAT8DZFTa6jic509ErBT4X4fjNpopIP14Gebiex1Xp5FztwkiA\nsTYsqs5iTswR1oZWrXThNQWedSj20EXqW29lrgDNLM8ffKvImEMRwE/DE+O7\nw5oO89C6wQvU1oju3veO/4DN8ZIqn9lVVsADIk0OMR5mG97Lmgvk87W6nQOh\nsJUlYt+o7uJcGZBvTu7d+6tKPjUwOrHJCBxZOx64dBaZnreDw615VvwxJynf\nsF538j3DkXcwvRpwfrZJfXr907pzmLFPInSwTziNZ7R8r/qNY2bHzjCWWyfR\nXccHRKM1Zj0DTq59W26EK2R6jOV4Tj8xO1fwFsDcyekJj0Ro5KfiSur2Jcng\ntktmk8hx76o1xOWeMuGpdyKenO4XZ1NR0gd9f0bDTlsg5gMBI1UEpMm2/cnF\n8DR9JGPiEwjeDBxrOp1bTaOfSqhopvShkgL6yPJwKR8n8e78/pRMHZqujzLh\n1WyvlntkWLYEFNnmoiyZ4WWWSF8QTfQilT6u22xWK2Vr5BYzE2RHgqXGAUSR\nYE/Egh6z4HDljbM2Q0fDDpT6mK4GsVbdW2XMl4wt/L6pi3Sv/Df8w+DR/uEh\neu84\r\n=xA7D\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCXpfQCLm08P8WHA1lRDLQTyk05pkSD9peGNhlvyHju1wIhANuBNubxqL0E6GmSqaAEDWJRite9VQH2dDj1RGptbWGH"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.5_1573114209289_0.6453502930599169"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.6": {
+			"name": "postcss-map-get",
+			"version": "0.2.6",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Scrum/postcss-map-get.git"
+			},
+			"homepage": "http://scrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=8"
+			},
+			"scripts": {
+				"version": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava",
+				"coverage": "nyc --reporter=lcov --reporter=text-summary ava"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.7.2",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.7.0",
+				"@babel/core": "^7.7.2",
+				"@babel/plugin-transform-runtime": "^7.6.2",
+				"@babel/preset-env": "^7.7.1",
+				"@babel/register": "^7.7.0",
+				"@commitlint/cli": "^8.2.0",
+				"@commitlint/config-angular": "^8.2.0",
+				"ava": "*",
+				"babel-eslint": "^10.0.3",
+				"babel-preset-minify": "^0.5.1",
+				"clinton": "^0.14.0",
+				"conventional-changelog-cli": "^2.0.27",
+				"coveralls": "^3.0.7",
+				"eslint": "^6.6.0",
+				"eslint-config-xo": "^0.27.2",
+				"eslint-config-xo-space": "^0.21.0",
+				"eslint-formatter-pretty": "^3.0.0",
+				"eslint-plugin-ava": "^9.0.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-html": "^6.0.0",
+				"eslint-plugin-markdown": "^1.0.1",
+				"eslint-plugin-unicorn": "^12.1.0",
+				"husky": "^3.0.9",
+				"lint-staged": "^9.4.3",
+				"nyc": "^14.1.1",
+				"rimraf": "^3.0.0"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"gitHead": "f7bef298fec65af48c35f1838ebfccf97fcf7789",
+			"_id": "postcss-map-get@0.2.6",
+			"_nodeVersion": "12.13.0",
+			"_npmVersion": "6.12.0",
+			"dist": {
+				"integrity": "sha512-uEZDerXuqDRhYAIkBh/Dcw9EUDfuRQAbp2ZEcDPZtL3/5aOw0Jm/2IAPThFTHDJ7a2qpLGag071adOpqtBcTCg==",
+				"shasum": "891b7b070e3aba4095729674d76e7b16737b8799",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.6.tgz",
+				"fileCount": 8,
+				"unpackedSize": 14962,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJd0j2wCRA9TVsSAnZWagAA6dkP+QHXV0Tic5aLuPg42WUW\nNj36hhtyJYtl3br5qDLGUS58fg6LJUQY+sPJV6ayOQ6THKeDmHRFfgVhacu9\nNEvxy2uy9/XfeFNs2F2/6c3cm4Ca3RmkH3DONhXGDmb7gp6kpMSwtW4+XcI2\nFAe0Walu/jtgQxqmr2sc0KRGgmOMfps1fV8y56RCuAX40v9nKrM2qzquaJxu\np5WL3/9oscKXwLNolzc378uZGM4pL+LsJPBQ6nAOFS1gw+TY6tVwWZxxX0Gs\nfr+Wxj3D4AHs+krQJNYcYm3IsnvmpsL1N2xo9Tvka48BLYGeXUix1ngzlELu\n83qReRbkbWZlJfQ39kHMJ6YKXFyqOY/KerItulg3OC9sZJc4EhXeMFLw7OV+\nW3dH4w6TQeYu9MWj122vVAqLD7vf/QOzqu5PVGbCBk2I/7SLw2eSDy+KhlMJ\nenj8sjkX4zk0K3uK/XSV5x0MU9JGqEALF8fIM3hx7imyDpqaumXEmCQmf78+\nsm0TwcZGZJYPg6ggbooG3timjrSNd80lOrj4NE9xHpgilXl7OAsPoJBQ54xM\nzVzSvOCH7si2VAjgmrC3VN3AJpu7giBs94Eu80NcbavnmcZxQRP5yb8mf7Nb\nbJAEczf0CVYMi7auDy4HWEd8/H4OGLfkwKywlmsVAqsprUvEu5unR7dEU7ig\nR97K\r\n=gJI3\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC7H7GQ4dw3HAZY+dhqzmHiIsThrV0TZGsBT842ENkv5QIgKmRmz/d7O2to5fuFxZVln1F7nNdRjHXSvF0xcFLlPAc="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.6_1574059439867_0.9806504379895391"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.7": {
+			"name": "postcss-map-get",
+			"version": "0.2.7",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Scrum/postcss-map-get.git"
+			},
+			"homepage": "http://scrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=8"
+			},
+			"scripts": {
+				"version": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava",
+				"coverage": "nyc --reporter=lcov --reporter=text-summary ava"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.7.2",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.7.0",
+				"@babel/core": "^7.7.2",
+				"@babel/plugin-transform-runtime": "^7.6.2",
+				"@babel/preset-env": "^7.7.1",
+				"@babel/register": "^7.7.0",
+				"@commitlint/cli": "^8.2.0",
+				"@commitlint/config-angular": "^8.2.0",
+				"ava": "*",
+				"babel-eslint": "^10.0.3",
+				"babel-preset-minify": "^0.5.1",
+				"clinton": "^0.14.0",
+				"conventional-changelog-cli": "^2.0.27",
+				"coveralls": "^3.0.7",
+				"eslint": "^6.6.0",
+				"eslint-config-xo": "^0.27.2",
+				"eslint-config-xo-space": "^0.21.0",
+				"eslint-formatter-pretty": "^3.0.0",
+				"eslint-plugin-ava": "^9.0.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-html": "^6.0.0",
+				"eslint-plugin-markdown": "^1.0.1",
+				"eslint-plugin-unicorn": "^12.1.0",
+				"husky": "^3.0.9",
+				"lint-staged": "^9.4.3",
+				"nyc": "^14.1.1",
+				"rimraf": "^3.0.0"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"gitHead": "a1945e8d7bdf2148cdd787a022c789fea3eb25b3",
+			"_id": "postcss-map-get@0.2.7",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.13.0",
+			"_npmUser": {
+				"name": "marcalexiei",
+				"email": "marco.pasqualetti@live.com"
+			},
+			"dist": {
+				"integrity": "sha512-f4FqdgSEqM89nBiydJoxtLWQpKU1IZ1rZ4hZlk9MbFBknGgu25ktj/g1v6mSkaKV2r12GP7u6Sh91SlNb3UIzg==",
+				"shasum": "08f00faa0f9c8778f6bd92a9c8d2c6c9d89bdb58",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.7.tgz",
+				"fileCount": 8,
+				"unpackedSize": 16380,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJd24o1CRA9TVsSAnZWagAA4HsQAJgeKZMgvi60UKloDyj4\n2lAJYtR72VuL1w6plZgghMp0ShWGF6Fofk8/QVqTf8SLKBMDqpccMg2Rt8MH\nW5tUt0eoEdYrNm9u+p+1ZOZrkB6HrOFB9HCCaA/YiIOTCmkc9ve+WW+s1u6U\n4LgnytF5r96z5YsKNy6eOvzGoCEKU6AOWZaaEztJ3V6vy9ftX2lPmWoZqQSa\nxydUM7EM9CcpRyNTDqkvE8Ce1JmVYHyPCBPkSL/IX3i4S98hg6yyxH9uMhVl\n4hf5zrgCpKzL12dUSOx6n2FCrwrCUsXCL0P55ukIb/9NOH5q6/gEGIFQmFXd\n2sMLS5wXnRS6L1d6s0jQArU1lhvRpun+xp/oUYIiEhHA4qVb+thGRIVy4gBY\nlgnHREGSg0EIQ4Js2976+4Q9qsqv+o6ROKYe9nx2FWeADloK5Bf/qGE5fKCw\nVtAryVuSzdw3z73Y8lfk43VCNBt3kCRfLUAKneDhpirctaBKbDVGXG6qHO5h\noqu95gvnluImoPFHAQNMJPpApdBg1zZLeuj1jGGKyEoliKuZFOhVVqBP6bQX\nxP0cxGcngyPS/HQjEBOjzncRoEbtj+YeuTn+f25IdPDYrKbR8NQE+dyZGxk2\nwt24n179oD5E0XNov3ubro1eeBIVetpZcdtiNlh42yV5a+2KAMLGRKTUBiE/\nSGta\r\n=k91E\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEX8GvVht6t7fH9GexrIfsqp2L9PB90IzVHCzXvglKPYAiEA90XOm/5a1+SC2C5lTODS5vsctC0bYknmE+Q9si7MHVo="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.7_1574668853260_0.2603127017042248"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.8": {
+			"name": "postcss-map-get",
+			"version": "0.2.8",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Scrum/postcss-map-get.git"
+			},
+			"homepage": "http://scrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=8"
+			},
+			"scripts": {
+				"version": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava",
+				"coverage": "nyc --reporter=lcov --reporter=text-summary ava"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.7.2",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.7.0",
+				"@babel/core": "^7.7.2",
+				"@babel/plugin-transform-runtime": "^7.6.2",
+				"@babel/preset-env": "^7.7.1",
+				"@babel/register": "^7.7.0",
+				"@commitlint/cli": "^8.2.0",
+				"@commitlint/config-angular": "^8.2.0",
+				"ava": "*",
+				"babel-eslint": "^10.0.3",
+				"babel-plugin-add-module-exports": "^1.0.2",
+				"babel-preset-minify": "^0.5.1",
+				"clinton": "^0.14.0",
+				"conventional-changelog-cli": "^2.0.27",
+				"coveralls": "^3.0.7",
+				"eslint": "^6.6.0",
+				"eslint-config-xo": "^0.27.2",
+				"eslint-config-xo-space": "^0.21.0",
+				"eslint-formatter-pretty": "^3.0.0",
+				"eslint-plugin-ava": "^9.0.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-html": "^6.0.0",
+				"eslint-plugin-markdown": "^1.0.1",
+				"eslint-plugin-unicorn": "^12.1.0",
+				"husky": "^3.0.9",
+				"lint-staged": "^9.4.3",
+				"nyc": "^14.1.1",
+				"rimraf": "^3.0.0"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"gitHead": "caae3a5671b3f5a8c25734ffd960f564d9fc48c0",
+			"_id": "postcss-map-get@0.2.8",
+			"_nodeVersion": "10.10.0",
+			"_npmVersion": "6.13.1",
+			"dist": {
+				"integrity": "sha512-UjEXL2DvGI8h6DAXJQ5iiSwKxsecz9Sxgcr5WKsLrK8SUzU/ZFxpYiP3nbYqUfx8ShRRy6H2aWuN+loNtfmARg==",
+				"shasum": "03f7b5217ea50aab9bb354a849128a441c604ac5",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.8.tgz",
+				"fileCount": 8,
+				"unpackedSize": 16927,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJd27GaCRA9TVsSAnZWagAAoUgP/RJc1sddUWgukZo7oN0R\nstoWWTqe79VxyUUb7GBgdLDzRtg9tisn3lR6z2gmuzRYGXuaHDO+v2zp9+yM\n5k4GzN5SmERq7xbRwyFSmgCrE+4l192RYWhm8lo1qokVQ25OU/pqi2Ss8AdY\nD4rn3NR0DuhnA/PCwYQ5/25OJp4Zq+O1cWurPSvHecgbiMItbS6snAfi+o/D\nVVlts03A8MuD8nXZ9ERofTuGDrNh+T5s5M4EX6DaDWRJpJi20vjH04JxisOX\nD1sPpriAVNWNKnQGhT9Ka37683JsNkSLLQ774G9HOYBCwz6ODUCJzcb6CCKm\nY/bxwOPrLJzpeD1wx9+pGMcBtPM8wmDGmwi+DfTlR52YRjnbW904UiaTnn5i\n+N33hg39zJzYTrE38+CIWdps4+dJaCookd0Hlfe0KlI/GlMQlbsLS2n2m/sd\n/0kyQj3yc3RZ4xomR7GO3S/RfVr3635a5jtt8vHYOdlfNTy2Myh1KLTbEuiY\nziMcnQEwgzVNlA0m/qfHDDjk3K8yfHMV44FZyV/Naa9sVQ6ESBQltDU3SWGI\nVsaYxeg0wuCeaRuPkqBOFHXvDWsxwdoqQFfjwPCkxBuRl+ZtdWFAwOhGjm0S\nqt8JCaDp/c3X2Lo3+chrPI80raTSziTkTIwJ8s5EOkzwfaA+hLH4KMSNQfjx\nhR2t\r\n=aIMU\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCTdhopAt7iqAcEVYac51hUFea6MRSwxpAw6gg3blR1rAIgVzt9sw5ccAjiArYNO7k0BzAiYzs9OYEHuy4ccn2tcy8="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"_npmUser": {
+				"name": "marcalexiei",
+				"email": "marco.pasqualetti@live.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.8_1574678938570_0.13917053273532476"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.9": {
+			"name": "postcss-map-get",
+			"version": "0.2.9",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Scrum/postcss-map-get.git"
+			},
+			"homepage": "http://scrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=8"
+			},
+			"scripts": {
+				"version": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava",
+				"coverage": "nyc --reporter=lcov --reporter=text-summary ava"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.7.2",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.7.0",
+				"@babel/core": "^7.7.2",
+				"@babel/plugin-transform-runtime": "^7.6.2",
+				"@babel/preset-env": "^7.7.1",
+				"@babel/register": "^7.7.0",
+				"@commitlint/cli": "^8.2.0",
+				"@commitlint/config-angular": "^8.2.0",
+				"ava": "*",
+				"babel-eslint": "^10.0.3",
+				"babel-plugin-add-module-exports": "^1.0.2",
+				"babel-preset-minify": "^0.5.1",
+				"clinton": "^0.14.0",
+				"conventional-changelog-cli": "^2.0.27",
+				"coveralls": "^3.0.7",
+				"eslint": "^6.6.0",
+				"eslint-config-xo": "^0.27.2",
+				"eslint-config-xo-space": "^0.21.0",
+				"eslint-formatter-pretty": "^3.0.0",
+				"eslint-plugin-ava": "^9.0.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-html": "^6.0.0",
+				"eslint-plugin-markdown": "^1.0.1",
+				"eslint-plugin-unicorn": "^12.1.0",
+				"husky": "^3.0.9",
+				"lint-staged": "^9.4.3",
+				"nyc": "^14.1.1",
+				"rimraf": "^3.0.0"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"gitHead": "efede300707f86b30478ace234899ce7d58b5160",
+			"_id": "postcss-map-get@0.2.9",
+			"_nodeVersion": "10.10.0",
+			"_npmVersion": "6.13.1",
+			"dist": {
+				"integrity": "sha512-Uv1NKAXCFEg4tdo5VtHmsCkAUz7QsTbNsjKVDuMwYZF4SmUh1+5KBL2weY4STLtP2heZtAPbG5U81qK3lk1u5g==",
+				"shasum": "d04e632c081fc11462e6a4fe3bbc74522c035456",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.2.9.tgz",
+				"fileCount": 8,
+				"unpackedSize": 17339,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJd7Kj+CRA9TVsSAnZWagAAl3oP/0U10rJoIVBUGv30S/W8\nDW6lARugX6fR2YB4z7z7jFbB/A7N59amiXWROyxuIG7T2x8TOpXyHTm7yAgR\nsx3houzZ84m+ulpIKogo8OIwx+GP9aMV0wSkQJN9tc1qmxpvUT7cdCak2uzW\nS6h7unh6c/0sce2j4VgZXUe6zgYL/e66tfrOa3ppoBwvkmzT9D7J4AijRWSb\nHMYiaKP/bUXel16uERh/YPNyBXDf6uyDpFl+w2hAt1o5lBs69j9FccJxyI0E\nsknTJPWUP/rZmryoyXU4rGie6J0hLhMl/qFYA7r5dzbWjt2zeYcq4WN9zTmZ\nwbzIh+7BDKsryDRNlDI5/CC2N4h9W+SOWmETO7Vm7Zwbpc1IxMr/pQjTFJpq\nT3WPEy2OGBkO3DqIwXi3K8DELu+mIxTKplxAwK6oJ5+aRoqk2dO8moM7vwWo\ngqF9UG9+34fRE4wIxlH9o1wqIN+7+g+CY5aozu/n9OEvdW0ml5CeqdevYf4v\nK/qoN6rOVAe5BSRD3X+NSOr69BxoBNgz/Qahg7WRI/tuR2OrOuO5KkzR+FnM\n9/6a0FjVNKLwiNawJl9jYOPjlVgJY3taXPiLS2LkP2SSYnLkxkC5WJL0KFwL\nhl1CcBcoKHw2ww6PxL+LSH3uJE+/q7LgQCSiQIxfmbzIm2EUDBEz9YpNScFo\n+UYz\r\n=LwOQ\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCVeHR33/vwwkNN42/6lEyfH2zq2PhaMg/t9F+69pEbHAIhALELaOLyD+jrc/FKdiiYLLTFUM0QiTrGwcP6qMa0Zop7"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				}
+			],
+			"_npmUser": {
+				"name": "marcalexiei",
+				"email": "marco.pasqualetti@live.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.2.9_1575790845515_0.053448790031852766"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.0": {
+			"name": "postcss-map-get",
+			"version": "0.3.0",
+			"description": "PostCSS plugin for sass-like Map Function",
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Scrum/postcss-map-get.git"
+			},
+			"homepage": "http://scrum/postcss-map-get#readme",
+			"author": {
+				"name": "Ivan Demidov",
+				"email": "Scrum@list.ru",
+				"url": "https://twitter.com/Scrum_"
+			},
+			"main": "lib/index.js",
+			"engines": {
+				"node": ">=8"
+			},
+			"scripts": {
+				"version": "conventional-changelog -i changelog.md -s -r 0 && git commit -am \"build: update changelog\"",
+				"prepare": "npm run build",
+				"build": "rimraf lib && babel src -d lib",
+				"test": "nyc ava",
+				"coverage": "nyc --reporter=lcov --reporter=text-summary ava"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"plugins",
+				"map",
+				"sass",
+				"getter",
+				"property"
+			],
+			"dependencies": {
+				"@babel/runtime": "^7.7.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.12.13",
+				"@babel/core": "^7.7.2",
+				"@babel/plugin-transform-runtime": "^7.6.2",
+				"@babel/preset-env": "^7.7.1",
+				"@babel/register": "^7.7.0",
+				"@commitlint/cli": "^8.2.0",
+				"@commitlint/config-angular": "^8.2.0",
+				"ava": "*",
+				"babel-eslint": "^10.0.3",
+				"babel-plugin-add-module-exports": "^1.0.2",
+				"babel-preset-minify": "^0.5.1",
+				"clinton": "^0.14.0",
+				"conventional-changelog-cli": "^2.0.27",
+				"coveralls": "^3.0.7",
+				"eslint": "^6.6.0",
+				"eslint-config-xo": "^0.27.2",
+				"eslint-config-xo-space": "^0.22.0",
+				"eslint-formatter-pretty": "^3.0.0",
+				"eslint-plugin-ava": "^9.0.0",
+				"eslint-plugin-babel": "^5.3.0",
+				"eslint-plugin-html": "^6.0.0",
+				"eslint-plugin-markdown": "^1.0.1",
+				"eslint-plugin-unicorn": "^12.1.0",
+				"husky": "^3.0.9",
+				"lint-staged": "^9.4.3",
+				"nyc": "^14.1.1",
+				"postcss": "^8.2.5",
+				"rimraf": "^3.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2.5"
+			},
+			"ava": {
+				"require": [
+					"@babel/register"
+				]
+			},
+			"gitHead": "c0ee8907763702b64f85360a67bc48d0ae03efb6",
+			"_id": "postcss-map-get@0.3.0",
+			"_nodeVersion": "14.15.4",
+			"_npmVersion": "6.14.10",
+			"dist": {
+				"integrity": "sha512-P+GDhe2IwYkNU5Rd/4iy5G5xQq1IEvCc9xyaVl3MTvntltMLofvSxwuWu1QviKtDqWpMF2mllc6xkCyhyXovrw==",
+				"shasum": "c6e08a625470b54ba0b62df4504660edf0fa08b5",
+				"tarball": "https://registry.npmjs.org/postcss-map-get/-/postcss-map-get-0.3.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 16454,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgI/BTCRA9TVsSAnZWagAA5OQP/10Tlx7MesUGluLhkh6K\niNX2ZWw5hZUT6qMU2TthDnObK60R34Zu1kMOWRT2SJ1x8cfSAhC/Of/SjoKU\nA5XZC2KdqRXsopaR6VUAifdTzi88y8O12TAbA9unXAOooCewjRko+Uf46iMt\nIDR3QSISSF9AAVAwX8RnVYqQ4y27pYyd2vqHYtDNty+O9ht0hpg859PVXoAw\nI+GJutZmr4QXo4iqbkgp2aUr2bLtQ3saV7Gbci0H+EIXr4DMWjBEEsNVn2kh\nYCv8EibSo6+gLUBHenLU8tKiem0n+wogt3xcrsNzatqL/SGECm3jKvIEd9mn\nHoLQwUQsDJev1H64sXghI7cx/0TXlm8YfkXOtuCXJbm3bAUBTnXJ2Tdw0S7j\n6wv2Y1YG1lh6tblDEbZsDSlwgjmt+3ofl+F7vGeH5KHP58vtsR8r/NrTWqAk\nXfaF1c9ut9riRgYePGjITALSTtXH0CHC74UA5rh2DBNoRg2Alv0ntBkRwsHe\nFqalwiBtSc9QlmpQEevJk7IvCyG0HEo99K3CKH149XWdq7Va2P1SuKDuBkiX\nrs7s3rhPZeSuzwJl4KxLqrvZ9rowSetjFMVRxyHxn4AlN3/tjax1oL/dPbco\n7NM3znB9MnLzqQH5p6xCgOvRqfj5yMt3XJ9M9/6E2Du55N5rOhPfIrcq0XPY\nmjMl\r\n=Zwgw\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHZkDX3ckJZz4PMlut2bOyJUi0LxSWdOEJR37kxn12zxAiA781YM+Sd2DW/EiFfZAaPAR0Mow7hoSjdSeyW8uqwTDg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "scrum",
+				"email": "scrum@list.ru"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "scrum",
+					"email": "scrum@list.ru"
+				},
+				{
+					"name": "marcalexiei",
+					"email": "marco.pasqualetti@live.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-map-get_0.3.0_1612968019005_0.7171532935296976"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-02-26T13:42:02.408Z",
+		"0.1.0": "2018-02-26T13:42:03.249Z",
+		"modified": "2022-05-13T06:26:18.350Z",
+		"0.2.0": "2018-02-26T15:00:00.749Z",
+		"0.2.1": "2018-02-26T15:19:12.986Z",
+		"0.2.2": "2018-02-27T09:29:37.492Z",
+		"0.2.3": "2018-08-15T08:29:02.766Z",
+		"0.2.4": "2019-11-07T07:50:47.473Z",
+		"0.2.5": "2019-11-07T08:10:09.438Z",
+		"0.2.6": "2019-11-18T06:44:00.010Z",
+		"0.2.7": "2019-11-25T08:00:53.433Z",
+		"0.2.8": "2019-11-25T10:48:58.695Z",
+		"0.2.9": "2019-12-08T07:40:45.669Z",
+		"0.3.0": "2021-02-10T14:40:19.166Z"
+	},
+	"maintainers": [
+		{
+			"name": "scrum",
+			"email": "scrum@list.ru"
+		},
+		{
+			"name": "marcalexiei",
+			"email": "marco.pasqualetti@live.com"
+		}
+	],
+	"description": "PostCSS plugin for sass-like Map Function",
+	"homepage": "http://scrum/postcss-map-get#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"plugins",
+		"map",
+		"sass",
+		"getter",
+		"property"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Scrum/postcss-map-get.git"
+	},
+	"author": {
+		"name": "Ivan Demidov",
+		"email": "Scrum@list.ru",
+		"url": "https://twitter.com/Scrum_"
+	},
+	"license": "MIT",
+	"readme": "# postcss-map-get <a href=\"https://github.com/postcss/postcss\"><img align=\"left\" height=\"49\" title=\"PostCSS\" src=\"http://postcss.github.io/postcss/logo.svg\"></a>\n\n> [PostCSS](https://github.com/postcss/postcss) plugin to transform SASS Function [map-get](http://sass-lang.com/documentation/Sass/Script/Functions.html#map_get-instance_method).  \n\n[![Travis Build Status](https://img.shields.io/travis/Scrum/postcss-map-get/master.svg?style=flat-square&label=unix)](https://travis-ci.org/Scrum/postcss-map-get)[![node](https://img.shields.io/node/v/postcss-map-get.svg?maxAge=2592000&style=flat-square)]()[![npm version](https://img.shields.io/npm/v/postcss-map-get.svg?style=flat-square)](https://www.npmjs.com/package/postcss-map-get)[![Dependency Status](https://david-dm.org/scrum/postcss-map-get.svg?style=flat-square)](https://david-dm.org/scrum/postcss-map-get)[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square)](https://github.com/sindresorhus/xo)[![Coveralls status](https://img.shields.io/coveralls/Scrum/postcss-map-get.svg?style=flat-square)](https://coveralls.io/r/Scrum/postcss-map-get)\n\n[![npm downloads](https://img.shields.io/npm/dm/postcss-map-get.svg?style=flat-square)](https://www.npmjs.com/package/postcss-map-get)[![npm](https://img.shields.io/npm/dt/postcss-map-get.svg?style=flat-square)](https://www.npmjs.com/package/postcss-map-get)\n\n## Why?\n\nAdds the ability to use sass like Map Function [map-get](http://sass-lang.com/documentation/Sass/Script/Functions.html#map_get-instance_method).  \n\n## Install\n\n```bash\n$ npm install postcss postcss-map-get\n```\n\n> **Note:** This project is compatible with node v8+\n\n## Usage\n\n```js\n// Dependencies\nimport fs from 'fs';\nimport postcss from 'postcss';\nimport mapGet from 'postcss-map-get';\n\n// CSS to be processed\nvar css = fs.readFileSync('css/input.css', 'utf8');\n\n// Process CSS\nvar output = postcss()\n  .use(mapGet())\n  .process(css, {\n    from: 'css/input.css'\n  })\n  .css;\n\nconsole.log(output);\n```\n\n> Returns the value in a map associated with the given key. If the map doesn't have such a key, returns null.\n\n## Example\n\n*input.css*\n\n```css\nbody {\n  background: map-get((\n    body: #fff,\n    main-red: #c53831,\n    link-blue: #0592fb\n  ) !default, body);\n\n  min-width: map-get((\n    xxs: 0,\n    xs: 576px,\n    sm: 768px,\n    md: 992px,\n    lg: 1280px,\n    xl: 1360px,\n    xxl: 1600px\n  ) !default, lg);\n\n  max-width: 100%;\n}\n```\n\n*output.css*\n\n```css\nbody {\n  background: #fff;\n\n  min-width: 1280px;\n\n  max-width: 100%;\n}\n```\n",
+	"readmeFilename": "readme.md"
+}

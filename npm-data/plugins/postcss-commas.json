@@ -1,0 +1,126 @@
+{
+	"_id": "postcss-commas",
+	"_rev": "3-e11272c78dfaf3d9caa36d36a96aa672",
+	"name": "postcss-commas",
+	"description": "Declare multiple, comma-separated properties",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-commas",
+			"version": "1.0.0",
+			"description": "Declare multiple, comma-separated properties",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"commas",
+				"multiples",
+				"separated",
+				"declarations",
+				"property",
+				"properties"
+			],
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonathantneal/postcss-commas.git"
+			},
+			"homepage": "https://github.com/jonathantneal/postcss-commas#readme",
+			"bugs": {
+				"url": "https://github.com/jonathantneal/postcss-commas/issues"
+			},
+			"dependencies": {
+				"postcss": "^5.0.14"
+			},
+			"devDependencies": {
+				"eslint": "^1.10.3",
+				"jscs": "^2.8.0",
+				"tap-spec": "^4.1.1",
+				"tape": "^4.4.0"
+			},
+			"scripts": {
+				"lint": "eslint . && jscs .",
+				"tape": "tape test.js | tap-spec",
+				"test": "npm run lint && npm run tape"
+			},
+			"engines": {
+				"iojs": ">=2.0.0",
+				"node": ">=0.12.0"
+			},
+			"gitHead": "1a24f41b21d43950c6b60fa75d17f1fcce494f51",
+			"_id": "postcss-commas@1.0.0",
+			"_shasum": "0c00431af3f9ea7a9bc9311c0bf9f2431bc2de05",
+			"_from": ".",
+			"_npmVersion": "3.7.5",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"dist": {
+				"shasum": "0c00431af3f9ea7a9bc9311c0bf9f2431bc2de05",
+				"tarball": "https://registry.npmjs.org/postcss-commas/-/postcss-commas-1.0.0.tgz",
+				"integrity": "sha512-r8cudO8HEjPFIIh46Y9hGVEf9SNad7Hmtu2rqlZYwDvjywtuh97ZSOiJetmtfiY4/vi16pO6pp1zi1VuhIwQSg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFF9v4AzsAeaQ7ItdapipBsw4s7dwsLt25IgB8CYyiw9AiBqF5oxILlq4nmmC1VzCQstjCY9dOCnu5216U5xt0UcVA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-commas-1.0.0.tgz_1461808095314_0.02168489806354046"
+			}
+		}
+	},
+	"readme": "# PostCSS Commas\n\n<a href=\"https://github.com/postcss/postcss\"><img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"80\" height=\"80\" align=\"right\"></a>\n\n[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]\n\n[PostCSS Commas] allows you to declare multiple, comma-separated properties in CSS.\n\n```css\n/* before */\n\n.foo {\n\tposition: absolute;\n\ttop, left: 0;\n\tmargin, padding: 1em;\n}\n\n/* after */\n\n.foo {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tmargin: 1em;\n\tpadding: 1em;\n}\n```\n\n## Usage\n\nAdd [PostCSS Commas] to your build tool:\n\n```bash\nnpm install postcss-commas --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-commas').process(YOUR_CSS);\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [PostCSS Commas] as a PostCSS plugin:\n\n```js\npostcss([\n\trequire('postcss-commas')()\n]).process(YOUR_CSS);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [PostCSS Commas] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n\treturn gulp.src('./src/*.css').pipe(\n\t\tpostcss([\n\t\t\trequire('postcss-commas')()\n\t\t])\n\t).pipe(\n\t\tgulp.dest('.')\n\t);\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [PostCSS Commas] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n\tpostcss: {\n\t\toptions: {\n\t\t\tuse: [\n\t\t\t\trequire('postcss-commas')()\n\t\t\t]\n\t\t},\n\t\tdist: {\n\t\t\tsrc: '*.css'\n\t\t}\n\t}\n});\n```\n\n[ci]:      https://travis-ci.org/jonathantneal/postcss-commas\n[ci-img]:  https://img.shields.io/travis/jonathantneal/postcss-commas.svg\n[npm]:     https://www.npmjs.com/package/postcss-commas\n[npm-img]: https://img.shields.io/npm/v/postcss-commas.svg\n\n[Gulp PostCSS]:  https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]:       https://github.com/postcss/postcss\n\n[PostCSS Commas]: https://github.com/jonathantneal/postcss-commas\n",
+	"maintainers": [
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:41:28.950Z",
+		"created": "2016-04-28T01:48:17.628Z",
+		"1.0.0": "2016-04-28T01:48:17.628Z"
+	},
+	"homepage": "https://github.com/jonathantneal/postcss-commas#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"commas",
+		"multiples",
+		"separated",
+		"declarations",
+		"property",
+		"properties"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonathantneal/postcss-commas.git"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/jonathantneal/postcss-commas/issues"
+	},
+	"license": "CC0-1.0",
+	"readmeFilename": "README.md"
+}

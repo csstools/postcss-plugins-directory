@@ -1,0 +1,780 @@
+{
+	"_id": "postcss-react-bender",
+	"_rev": "6-a073628253779d326c9a48de5aaeee49",
+	"name": "postcss-react-bender",
+	"dist-tags": {
+		"latest": "0.2.3"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-react-bender",
+			"version": "0.1.0",
+			"description": "PostCSS plugin to process react-bender styling features with scss-like syntax.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"react",
+				"react-native",
+				"scss",
+				"jss",
+				"css-in-js"
+			],
+			"author": {
+				"name": "Ömer Düzyol",
+				"email": "omer@duzyol.net"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/omerduzyol/postcss-react-bender.git"
+			},
+			"bugs": {
+				"url": "https://github.com/omerduzyol/postcss-react-bender/issues"
+			},
+			"homepage": "https://github.com/omerduzyol/postcss-react-bender",
+			"main": "index.cjs.js",
+			"module": "index.es.mjs",
+			"dependencies": {
+				"css-to-react-native": "^2.2.2",
+				"lodash": "^4.17.11",
+				"postcss": "^6.0.16",
+				"postcss-conditionals": "^2.1.0",
+				"postcss-define-property": "^0.5.0",
+				"postcss-for": "^2.1.1",
+				"postcss-import": "^12.0.0",
+				"postcss-nested-vars": "^1.0.0",
+				"prop-types": "^15.6.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"babel-core": "7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.6.0",
+				"eslint": "^5.7.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^22.4.2",
+				"postcss-scss": "^2.0.0",
+				"prettier": "^1.14.3",
+				"rollup": "^0.66.6",
+				"rollup-plugin-babel": "^4.0.3"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn test",
+				"lint:prettier-quite": "prettier 'lib/*.js' 'tests/*.js' --write",
+				"lint:prettier": "yarn prettier-quite --list-different",
+				"lint:js": "eslint tests/*.js lib/*.js --cache --ignore-path .gitignore --quiet",
+				"lint": "yarn lint:js && yarn lint:prettier-quite",
+				"test": "jest",
+				"test:watch": "jest --watchAll",
+				"test:debug": "yarn pretest && node --inspect-brk node_modules/.bin/jest --runInBand",
+				"rollup": "rollup -c .rollup.js --silent",
+				"pretest": "yarn lint && yarn rollup"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"env": {
+					"es6": true,
+					"node": true,
+					"jest": true
+				},
+				"extends": "eslint:recommended",
+				"parserOptions": {
+					"sourceType": "module"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint",
+					"prettier --write",
+					"git add"
+				]
+			},
+			"gitHead": "6305be2463fbdbce13921d946c889d9eaa736a7c",
+			"_id": "postcss-react-bender@0.1.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.6.0",
+			"_npmUser": {
+				"name": "omerduzyol",
+				"email": "omer@duzyol.net"
+			},
+			"dist": {
+				"integrity": "sha512-rMtoxsPrf7tYiFw3TA23JKDiCk5KI8nqzKhhYJ/kGk53vObJAII5zN/XPAIm0toH9XwEFn/QB/w6yqrm8/Op0w==",
+				"shasum": "f5958d2c473c95e0af569bb8ee400b7351f1d3f4",
+				"tarball": "https://registry.npmjs.org/postcss-react-bender/-/postcss-react-bender-0.1.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 225198,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcEXErCRA9TVsSAnZWagAAAUIP/2Kg9L6YvixTQc6ieMEK\n4QcbYDJ7uQBhvfGZPZwhSHTyJXYF/E3aFpyFf1nhvs3S5kxLif2A1ab3zAIt\nfg/90JoB1Yp3v5IpAWijzGtM464wf0RYAZqHcMV6tXHXqz4v/PPK3FVZPSTq\nsfEmoRJYUwrZCKeEPQxrnTaVmCHs+1KaUdcPNpJVVFSitSzCcFBNquiBIRK8\nuFtRaZjMHlbExXVaIrMg1G2V8yGHWMrUwIwfwKjSKEX8rgGPSSNwZoYZQXi7\niZwG+l5e2TzS55TAsWr8kdbldKl0/J2H6jbFt7uRn3mddTbwodvQGYaL5T4t\nHnVXrYDzxaGnUo/dhlm1/DZCZGOf9EH/jgsp3oloqGJQ8qjTNRudanTHzAnr\nN9ShY3ymxAarw5cfEGUi/U1KweVtblJLLu/tPQUk2o8yod4JX3hknP88QuG+\ncNTIHDZIQtBm4hyxlBSOIzTY/ujBbICgR7MPWFdJt8D3b8SppTM/76PMcpxp\n6p0U8IZRoS/34Bgkqu548NxZdJ7EH2Vfc+6QgzICxO6Xs62rDQtry5M8I5rk\nk7AYfcb2SL1oajszlt02M2idIBavSQog+pQxwVrjvOpHbYhHknDYldrlA6QZ\nhlwXrF/S27Hqb/axIUaryKQ0Srwtw5Iha0FqvWqIwAp36RvA5zvwCtild/GI\nkkd3\r\n=rJHW\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGyEpGnYbSDMM9xhiZE34yhx9xtz3GEkOowAGI5lPa9mAiBZ9m48C/7JSevjZnvX+dmq2h5s6U6kwyUz5vVwdHNtng=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "omerduzyol",
+					"email": "omer@duzyol.net"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-react-bender_0.1.0_1544646954792_0.8769061685614448"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.1.1": {
+			"name": "postcss-react-bender",
+			"version": "0.1.1",
+			"description": "PostCSS plugin to process react-bender styling features with scss-like syntax.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"react",
+				"react-native",
+				"scss",
+				"jss",
+				"css-in-js"
+			],
+			"author": {
+				"name": "Ömer Düzyol",
+				"email": "omer@duzyol.net"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/omerduzyol/postcss-react-bender.git"
+			},
+			"bugs": {
+				"url": "https://github.com/omerduzyol/postcss-react-bender/issues"
+			},
+			"homepage": "https://github.com/omerduzyol/postcss-react-bender",
+			"main": "index.cjs.js",
+			"module": "index.es.mjs",
+			"dependencies": {
+				"css-to-react-native": "^2.2.2",
+				"lodash": "^4.17.11",
+				"postcss": "^6.0.16",
+				"postcss-conditionals": "^2.1.0",
+				"postcss-define-property": "^0.5.0",
+				"postcss-for": "^2.1.1",
+				"postcss-import": "^12.0.0",
+				"postcss-nested-vars": "^1.0.0",
+				"prop-types": "^15.6.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"babel-core": "7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.6.0",
+				"eslint": "^5.7.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^22.4.2",
+				"postcss-scss": "^2.0.0",
+				"prettier": "^1.14.3",
+				"rollup": "^0.66.6",
+				"rollup-plugin-babel": "^4.0.3"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn test",
+				"lint:prettier-quite": "prettier 'lib/*.js' 'tests/*.js' --write",
+				"lint:prettier": "yarn prettier-quite --list-different",
+				"lint:js": "eslint tests/*.js lib/*.js --cache --ignore-path .gitignore --quiet",
+				"lint": "yarn lint:js && yarn lint:prettier-quite",
+				"test": "jest",
+				"test:watch": "jest --watchAll",
+				"test:debug": "yarn pretest && node --inspect-brk node_modules/.bin/jest --runInBand",
+				"rollup": "rollup -c .rollup.js --silent",
+				"pretest": "yarn lint && yarn rollup"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"env": {
+					"es6": true,
+					"node": true,
+					"jest": true
+				},
+				"extends": "eslint:recommended",
+				"parserOptions": {
+					"sourceType": "module"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint",
+					"prettier --write",
+					"git add"
+				]
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2018 Ömer Düzyol <omer@duzyol.net>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-react-bender@0.1.1",
+			"dist": {
+				"shasum": "5ab76b453f7c76a9d9df804c34d32e675c3ffff3",
+				"integrity": "sha512-R3PvCs+u63TpqUotCDPB3LzYSQKPrzYywPKa9yDWb4y6JdhKkyHc6RM2z7aSDgk+jNvUaUdvMVA/vLw1cTUZ5Q==",
+				"tarball": "https://registry.npmjs.org/postcss-react-bender/-/postcss-react-bender-0.1.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 225938,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcFR3BCRA9TVsSAnZWagAAU5kP/1ZG66iN4YR3FUlUu+yk\nDw2h8QIRKFA3VerE1OyY/pyuAHZe9PHqmk34nXyEs5ecLabhVJxsoCs1V2+v\nwuPf29Omqna52KmfLvAQJghTMtk9sAhVrUubBUnAhWzJ7emt6BgiuNWa1bug\nMYX2M2ELSnka4EmUiLpI6kLNK3sx0shPwNBjpWmopLrD/vZ3JIgMej6h4URO\nO030fVej1vXvncHek0Gl0/C+noPptJumqQheNxsKCQqSz9K4hjGpFGZQMNGL\nudiqY//vEp5Kx4rvWnu+oBhlJ9Z+Xy2ygtWfkT0/Pd1E0Bmlay+bPKCuBElp\nx1xyNcyVn1jyhikAAgcNhNsggsGqIVQFJolNaSwaYfwg0DYYoz7CUZ+5YQTO\nUY8xRrM1i9u6uDa44oUXRQ7FSJu7OLcLtPDNzkvBQODKrBzsyqMmAH2LB/3S\n326XH/DE9Xg3c1YNwlqldyibyR3xioJF+Vpa+7I5cp7VsmuvRlm6vnCfKnFP\ntmLG0qMeLxkBvmw45w7YjOtUIpWM7DJ9NnBz+ZiM2w/EsGW+tY71poNUNd9R\nL75VogAJZwRMjpJZ47pI7QCgGMg1OYdkoipD4uvMcYqbNq6lTY6huMfrQ5n2\nKstpSGlVfIEobNZbPtiRPyODactM2xHeFbrcTJfOfVHB6DSbpqaKtC09WmnH\nRUim\r\n=QVxk\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCnAzLDadGxbkiWBWSSAdwdLGlYlPRqki8tPQhJipNYRAIhAMMQGnxLIm9fGsbobdVC3ba7XUiERkxaBaXxzW8yyZrJ"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "omerduzyol",
+					"email": "omer@duzyol.net"
+				}
+			],
+			"_npmUser": {
+				"name": "omerduzyol",
+				"email": "omer@duzyol.net"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-react-bender_0.1.1_1544887742489_0.5997326707924868"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.0": {
+			"name": "postcss-react-bender",
+			"version": "0.2.0",
+			"description": "PostCSS plugin to process react-bender styling features with scss-like syntax.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"react",
+				"react-native",
+				"scss",
+				"jss",
+				"css-in-js"
+			],
+			"author": {
+				"name": "Ömer Düzyol",
+				"email": "omer@duzyol.net"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/creaworks-labs/postcss-react-bender.git"
+			},
+			"bugs": {
+				"url": "https://github.com/creaworks-labs/postcss-react-bender/issues"
+			},
+			"homepage": "https://github.com/creaworks-labs/postcss-react-bender",
+			"main": "index.cjs.js",
+			"module": "index.es.mjs",
+			"dependencies": {
+				"css-to-react-native": "^2.2.2",
+				"lodash": "^4.17.11",
+				"postcss": "^6.0.16",
+				"postcss-conditionals": "^2.1.0",
+				"postcss-define-property": "^0.5.0",
+				"postcss-for": "^2.1.1",
+				"postcss-import": "^12.0.0",
+				"postcss-nested-vars": "^1.0.0",
+				"prop-types": "^15.6.2",
+				"fbjs": "^0.8.5",
+				"loader-utils": "^1.1.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"babel-core": "7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.6.0",
+				"eslint": "^5.7.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^22.4.2",
+				"postcss-scss": "^2.0.0",
+				"prettier": "^1.14.3",
+				"rollup": "^0.66.6",
+				"rollup-plugin-babel": "^4.0.3"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn test",
+				"lint:prettier-quite": "prettier 'lib/*.js' 'tests/*.js' --write",
+				"lint:prettier": "yarn prettier-quite --list-different",
+				"lint:js": "eslint tests/*.js lib/*.js --cache --ignore-path .gitignore --quiet",
+				"lint": "yarn lint:js && yarn lint:prettier-quite",
+				"test": "jest",
+				"test:watch": "jest --watchAll",
+				"test:debug": "yarn rollup && node --inspect-brk node_modules/.bin/jest --runInBand",
+				"debug": "yarn rollup && jest --runInBand --no-cache",
+				"rollup": "rollup -c .rollup.js --silent",
+				"pretest": "yarn lint && yarn rollup"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"env": {
+					"es6": true,
+					"node": true,
+					"jest": true
+				},
+				"extends": "eslint:recommended",
+				"parserOptions": {
+					"sourceType": "module"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint",
+					"prettier --write",
+					"git add"
+				]
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2018 Ömer Düzyol <omer@duzyol.net>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-react-bender@0.2.0",
+			"dist": {
+				"shasum": "a8ac5898bf01efac8b974de47ec8e774fbc43904",
+				"integrity": "sha512-MVtHjYK5lmusD5t36LKC8amVwEj4gJYXN5qSdEeUiPSOfCANp1w+ZF49hXI/f+atXH5rSji8Td2jNk/wIav8PA==",
+				"tarball": "https://registry.npmjs.org/postcss-react-bender/-/postcss-react-bender-0.2.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 292414,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJciC7+CRA9TVsSAnZWagAAwV0P/3xfUVm+80sxTCOIumEt\nwF+b6twB4up85S5o11sRGGFPdR256cp+7BMdDGi6fV8pMcUPDhheRkdM/GHG\nz3YelmVs32KT+xZtlha+XfmAEAdiKvOxsA5Lo2pnxHN9XomaK8abMG4eQgxC\nPeB2KTzWJD+f0IBK6Z+PgMMrSXljJJ1NKOtx7k5RlwiwJQOSu+RGPxyan7Za\nQREhCIgmPgCgo/fX5I0DbfX8ycfgac5VQzzjhOzBt9WuKqMXwu/Rw7Dz7fUr\nG8Bvxl0yUzBrqVSfe/UYNSi9B7GgFfiZi37YGV9O70e10d27Efyo8X4Pe1Ua\n29fG+tYDexZ7RfwvxceEXAvYSKpLbmrQGHMDwQpvI3drADCDA/EEHSQpXwyn\nwydTYDEU9mm9Wlj2mMkfI7OnY1Rc7W5RIIOFfvM67u37STmNT+0ydXVwaKI2\nZrAuq9H01HyUABppZ0NwrQtMg06/1/kYHlHsnLr8KsEnWrbWmQl88iZdZ7dd\nVLyNH0z3Bi1fP5Ds2CSDzom8SaSn1tl4OII/azhcbHQFiKPVccNLnD8yY7sY\nOO1FycgH7GFDzwrsXe+Rzt9utIXbcCfl0xdQqSvT6jFAKpth+O7PeoBUmMCf\nyy9aNTz/yhT9MoOi+Q/hhsW0nW6a8vC9unAbfOOgf7/c1baJ61GYsPvQbR8p\nFlF3\r\n=Bpze\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIA1wrEj5V0xf/ZT4zM3zcQ4+KoIgRrIoTPuyh3wIkmF9AiEA1QgS36s9ciie9PjvBIgMbCtmERRoaa9rrdgZvxCOto0="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "omerduzyol",
+					"email": "omer@duzyol.net"
+				}
+			],
+			"_npmUser": {
+				"name": "omerduzyol",
+				"email": "omer@duzyol.net"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-react-bender_0.2.0_1552428797465_0.6484013824241541"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.1": {
+			"name": "postcss-react-bender",
+			"version": "0.2.1",
+			"description": "PostCSS plugin to process react-bender styling features with scss-like syntax.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"react",
+				"react-native",
+				"scss",
+				"jss",
+				"css-in-js"
+			],
+			"author": {
+				"name": "Ömer Düzyol",
+				"email": "omer@duzyol.net"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/creaworks-labs/postcss-react-bender.git"
+			},
+			"bugs": {
+				"url": "https://github.com/creaworks-labs/postcss-react-bender/issues"
+			},
+			"homepage": "https://github.com/creaworks-labs/postcss-react-bender",
+			"main": "index.cjs.js",
+			"module": "index.es.mjs",
+			"dependencies": {
+				"css-to-react-native": "^2.2.2",
+				"fbjs": "^0.8.5",
+				"loader-utils": "^1.1.0",
+				"lodash": "^4.17.11",
+				"postcss": "^6.0.16",
+				"postcss-conditionals": "^2.1.0",
+				"postcss-define-property": "^0.5.0",
+				"postcss-for": "^2.1.1",
+				"postcss-import": "^12.0.0",
+				"postcss-nested-vars": "^1.0.0",
+				"prop-types": "^15.6.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"babel-core": "7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.6.0",
+				"eslint": "^5.7.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^22.4.2",
+				"postcss-scss": "^2.0.0",
+				"prettier": "^1.14.3",
+				"rollup": "^0.66.6",
+				"rollup-plugin-babel": "^4.0.3"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn test",
+				"lint:prettier-quite": "prettier 'lib/*.js' 'tests/*.js' --write",
+				"lint:prettier": "yarn prettier-quite --list-different",
+				"lint:js": "eslint tests/*.js lib/*.js --cache --ignore-path .gitignore --quiet",
+				"lint": "yarn lint:js && yarn lint:prettier-quite",
+				"test": "jest",
+				"test:watch": "jest --watchAll",
+				"test:debug": "yarn rollup && node --inspect-brk node_modules/.bin/jest --runInBand",
+				"debug": "yarn rollup && jest --runInBand --no-cache",
+				"rollup": "rollup -c .rollup.js --silent",
+				"pretest": "yarn lint && yarn rollup"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"env": {
+					"es6": true,
+					"node": true,
+					"jest": true
+				},
+				"extends": "eslint:recommended",
+				"parserOptions": {
+					"sourceType": "module"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint",
+					"prettier --write",
+					"git add"
+				]
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2018 Ömer Düzyol <omer@duzyol.net>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-react-bender@0.2.1",
+			"dist": {
+				"shasum": "225355871ce97f29ba9b5fdac2f18b430266400a",
+				"integrity": "sha512-qqRC8czBfA4qQAKd6kJhDlfjRHlUzuiJsF/o13KpC0um/zRCjYXvN6iXy5BbSmGAISaZ4Ei38guwUAAra3TWkw==",
+				"tarball": "https://registry.npmjs.org/postcss-react-bender/-/postcss-react-bender-0.2.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 292484,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcqPDnCRA9TVsSAnZWagAAUoMP/jvDHu5ZvKVOwsrpn4/g\nB0Brp2fen08VhV86/IifEW/8bQ5BLIYxHiCKqd41IujJGZlU2Zpex4x9ivvj\nO7u/RwdzKVunHO1Pk0S6OLbIjnAfjY0CpRQ5pdODE5/EdhJ2hpk+Z00h7hxQ\n8RiMfW9aL7lDbPID1q5YcHZr6rqVG18uMpi+d9oPkMbmFS4aP+XaPnrP5H0G\nHvFv90ssY6eNeUdTKQaDmStPScDpTIQ/7nk4iv7NyJmdcLBslEUT9WR2djkB\netwv4fULY4hEXI0hNC+8cqHAXq0ulALSVuKc7SZINul4OG4jWm+Ya3KxNXHC\nwCnWUEnjgL0ONq5a58cKhpZ9rc3Irt6kCyhRxjbaKBZ211sVZb6VEG4KJH4R\nn85uzAMnn+xbkHHrEVr6VWYDDX5HBz5MvYISZeRdLXbBI5v8sua1DjVlv75T\nuQN955936BorRxfDnV2Mj3BNIB8SQORxc2b1nGA4X2L+EoNgD+0HxYfRfIPv\nWEU0uvA6lKgtq9Jz4pGYFhPe5DlJRiBQubMaboTzTWg5CZb+ianlzDOQ5+eH\neWXvBYwH/CSVB/vNSz7LUW7hlxu5BNuZrxi5X0WlczINTWODTq62lU3vTIw2\njze59v459CJ/pm1UsNdVGKZkc5CIzwSE5L6Goh8CaK+YK6gJNMVMosQFmj/b\n3Fbd\r\n=ZMXM\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAaTCgOhS95swTVy0J+uzcExORSxXfpDFPhMcXrk/ynAAiBIfC4z7ukBWiw29uasZTaPaWXcYLXpavuejWtR8MrODg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "omerduzyol",
+					"email": "omer@duzyol.net"
+				}
+			],
+			"_npmUser": {
+				"name": "omerduzyol",
+				"email": "omer@duzyol.net"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-react-bender_0.2.1_1554575590628_0.19373663382777395"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.2": {
+			"name": "postcss-react-bender",
+			"version": "0.2.2",
+			"description": "PostCSS plugin to process react-bender styling features with scss-like syntax.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"react",
+				"react-native",
+				"scss",
+				"jss",
+				"css-in-js"
+			],
+			"author": {
+				"name": "Ömer Düzyol",
+				"email": "omer@duzyol.net"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/creaworks-labs/postcss-react-bender.git"
+			},
+			"bugs": {
+				"url": "https://github.com/creaworks-labs/postcss-react-bender/issues"
+			},
+			"homepage": "https://github.com/creaworks-labs/postcss-react-bender",
+			"main": "index.cjs.js",
+			"module": "index.es.mjs",
+			"dependencies": {
+				"css-to-react-native": "^2.2.2",
+				"fbjs": "^0.8.5",
+				"loader-utils": "^1.1.0",
+				"lodash": "^4.17.11",
+				"postcss": "^6.0.16",
+				"postcss-conditionals": "^2.1.0",
+				"postcss-define-property": "^0.5.0",
+				"postcss-for": "^2.1.1",
+				"postcss-import": "^12.0.0",
+				"postcss-nested-vars": "^1.0.0",
+				"prop-types": "^15.6.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"babel-core": "7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.6.0",
+				"eslint": "^5.7.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^22.4.2",
+				"postcss-scss": "^2.0.0",
+				"prettier": "^1.14.3",
+				"rollup": "^0.66.6",
+				"rollup-plugin-babel": "^4.0.3"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn test",
+				"lint:prettier-quite": "prettier 'lib/*.js' 'tests/*.js' --write",
+				"lint:prettier": "yarn prettier-quite --list-different",
+				"lint:js": "eslint tests/*.js lib/*.js --cache --ignore-path .gitignore --quiet",
+				"lint": "yarn lint:js && yarn lint:prettier-quite",
+				"test": "jest",
+				"test:watch": "jest --watchAll",
+				"test:debug": "yarn rollup && node --inspect-brk node_modules/.bin/jest --runInBand",
+				"debug": "yarn rollup && jest --runInBand --no-cache",
+				"rollup": "rollup -c .rollup.js --silent",
+				"pretest": "yarn lint && yarn rollup"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"env": {
+					"es6": true,
+					"node": true,
+					"jest": true
+				},
+				"extends": "eslint:recommended",
+				"parserOptions": {
+					"sourceType": "module"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint",
+					"prettier --write",
+					"git add"
+				]
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2018 Ömer Düzyol <omer@duzyol.net>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-react-bender@0.2.2",
+			"dist": {
+				"shasum": "d7ce3ef85c339be310c99ff9588e8268562af0e0",
+				"integrity": "sha512-U9TXRqZBoOhBZ9jXNe3VhONTEeMHMlafXU939fs9ML7qmp6iQ2htjUru+qKaPrPQRwCAiZHt9ALii6pdOaWz6A==",
+				"tarball": "https://registry.npmjs.org/postcss-react-bender/-/postcss-react-bender-0.2.2.tgz",
+				"fileCount": 8,
+				"unpackedSize": 292538,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcqREFCRA9TVsSAnZWagAAGWwP/0QucY2bbZW/QT2DBgem\nWiNx5HFbVDfm5dukx9cZRAnl9NJ9PgVvTXynB5qAv3fYkwfB3R9hQ1RzJsfn\n3xIaBdMX8l5GHEcJG75VBdNLmOpRHc3h8978asg3w594LQhieP+sxnJbL8pO\nvgchkuMB1W2B9hEuJGJRhjjp4YC4Q6iuULll9Ekhx08bbdhUR8Vxk/hHQrOA\njVgsni/sV5f5VmN/YtIO+7300XwtjFd9z3jMt0nF5yY0Q+tMilMGLK/K3O/8\n2nF9jk0wTRsIdd9Tp047OkrV4jq56pCDRM8eAELpfa2NWZVlX8+8ijzw/N29\nHiRib0aXCbbSUl98UaAHKg5DYe4xmmoJzfGwu+SEVQ1Vmc3X5vkgKld916BK\nI1g0o1zsQJGRYyP9/eEjykWkAUSvxmL8oWjLvfylQYmrO0HTxxGiQ50DgYv5\nhIb+Aa3YeM6jkoUCtEvMvVN6kXyKIBkad7yIR2lgFjDUledR+d5lE/v5n4Up\n5vRHVofm0CZ2jIaA9wIVp8/u9pRgOju0PCsywW1u3+BWYvz5Rqd+VIqWeHio\nNaFDFklZYnEY3Li7jpDcMqV/bW0VaC9Y2r21XQa3y8c6OrL8XHkw79kCEDLz\nuB2gnHMUcu3YcO5wMWDDHSkKxmRQDfBR9ZoyLcaHDz9wNG++Fi/YH1NvMtat\nPJON\r\n=JF1q\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHAyKQpGkRy4xu/UbnanNKMb9lmj1iVx8CaxinINuNGuAiEA1zsdzMEPcjJMCktDxngu7/ukjkIWIXR2SRSV5qdGVD0="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "omerduzyol",
+					"email": "omer@duzyol.net"
+				}
+			],
+			"_npmUser": {
+				"name": "omerduzyol",
+				"email": "omer@duzyol.net"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-react-bender_0.2.2_1554583812715_0.08983362050847665"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.3": {
+			"name": "postcss-react-bender",
+			"version": "0.2.3",
+			"description": "PostCSS plugin to process react-bender styling features with scss-like syntax.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"react",
+				"react-native",
+				"scss",
+				"jss",
+				"css-in-js"
+			],
+			"author": {
+				"name": "Ömer Düzyol",
+				"email": "omer@duzyol.net"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/creaworks-labs/postcss-react-bender.git"
+			},
+			"bugs": {
+				"url": "https://github.com/creaworks-labs/postcss-react-bender/issues"
+			},
+			"homepage": "https://github.com/creaworks-labs/postcss-react-bender",
+			"main": "index.cjs.js",
+			"module": "index.es.mjs",
+			"dependencies": {
+				"css-to-react-native": "^2.2.2",
+				"fbjs": "^0.8.5",
+				"loader-utils": "^1.1.0",
+				"lodash": "^4.17.11",
+				"postcss": "^6.0.16",
+				"postcss-conditionals": "^2.1.0",
+				"postcss-define-property": "^0.5.0",
+				"postcss-for": "^2.1.1",
+				"postcss-import": "^12.0.0",
+				"postcss-nested-vars": "^1.0.0",
+				"prop-types": "^15.6.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"babel-core": "7.0.0-bridge.0",
+				"babel-eslint": "^10.0.1",
+				"babel-jest": "^23.6.0",
+				"eslint": "^5.7.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^22.4.2",
+				"postcss-scss": "^2.0.0",
+				"prettier": "^1.14.3",
+				"rollup": "^0.66.6",
+				"rollup-plugin-babel": "^4.0.3"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn test",
+				"lint:prettier-quite": "prettier 'lib/*.js' 'tests/*.js' --write",
+				"lint:prettier": "yarn prettier-quite --list-different",
+				"lint:js": "eslint tests/*.js lib/*.js --cache --ignore-path .gitignore --quiet",
+				"lint": "yarn lint:js && yarn lint:prettier-quite",
+				"test": "jest",
+				"test:watch": "jest --watchAll",
+				"test:debug": "yarn rollup && node --inspect-brk node_modules/.bin/jest --runInBand",
+				"debug": "yarn rollup && jest --runInBand --no-cache",
+				"rollup": "rollup -c .rollup.js --silent",
+				"pretest": "yarn lint && yarn rollup"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"env": {
+					"es6": true,
+					"node": true,
+					"jest": true
+				},
+				"extends": "eslint:recommended",
+				"parserOptions": {
+					"sourceType": "module"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint",
+					"prettier --write",
+					"git add"
+				]
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2018 Ömer Düzyol <omer@duzyol.net>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-react-bender@0.2.3",
+			"dist": {
+				"shasum": "8ddda0954335c14c3dc400d941750da91d6062e3",
+				"integrity": "sha512-nSvMZ5UyDGZ3oFAUrc2vTAF88w3V+iaeGSc3QC+Uyaju0jUl3zIS2NiMm74jLry29AstI7vrKJzVIEjad5RnBQ==",
+				"tarball": "https://registry.npmjs.org/postcss-react-bender/-/postcss-react-bender-0.2.3.tgz",
+				"fileCount": 8,
+				"unpackedSize": 292616,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcqRLvCRA9TVsSAnZWagAAekoP+wYSa7QuLjWmuPbodJlX\nBFgMHAvE4z0IPIdq6znC61ohfH26eDahHizgqTyS4hNrTDf42uCKEj4L/3hG\n1klNV9+Ke1d4QMwtJEP5Jfd7Fy+KThsnVttUEW9r4IDI+Blv9eJ25gny3Lr0\nl3nXAmCC4b9ltEOXWmubzWahJhrtleYheujf1J9i4bI/VFQilXVSzE4tYKIv\nrkj6BETXeRnhn1Hs7EnndaBFTqocaVEycLf/2+UaEbxqH3AMFvrXtLzZTBAL\nhzH+iodLn0gHtQzueKJ5EvMNaoF8COQuNASNFt8rhLz8DYEXM3PhYEK7ZIXi\nbuiFmWPhVKsZMOe4udVyrhBiOhFMS2u1k5oOzrnhzwcQFGK68G1H93RV8jqg\nVG93iR7uzidP2I4KzHzW9ZfopEx/3AsfW0VXe8AM3JhHVFNcPBudLWEAWz1X\nSIcsi+i6lcwJVdu5h0vBHBom0Fb6sWpBQ5OGSqEhAMQT03hWr2EDufLDLO+M\nnU4mV804sKNyo7bfilcKKhCtvG6Cr25nTgHsyBW/wyzDGAzso+4a4WwWR1tq\nTH3la9RYu+Smgz/DBRAJO9xSXDKlNpfGTnwVzmalKL1Q3JDFApBAzdxNbulB\nSbMBmKR40bgpNeCzKFOP+k1QMF7eEEh4Qco2mcjXiQYfXUtS8P5FFUAt9ApO\nBp2h\r\n=1zAO\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQD1sblY/1CD92yiwdiZgPj7TknNHh44BhO0tBuREXYkMgIgTShKIiHQlXspvycWxcqo6axL/z3FRfQmDbyfclR4+4w="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "omerduzyol",
+					"email": "omer@duzyol.net"
+				}
+			],
+			"_npmUser": {
+				"name": "omerduzyol",
+				"email": "omer@duzyol.net"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-react-bender_0.2.3_1554584303139_0.49340694608086166"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-12-12T20:35:54.791Z",
+		"0.1.0": "2018-12-12T20:35:54.995Z",
+		"modified": "2022-05-13T06:40:29.231Z",
+		"0.1.1": "2018-12-15T15:29:05.179Z",
+		"0.2.0": "2019-03-12T22:13:17.632Z",
+		"0.2.1": "2019-04-06T18:33:10.781Z",
+		"0.2.2": "2019-04-06T20:50:12.852Z",
+		"0.2.3": "2019-04-06T20:58:23.288Z"
+	},
+	"maintainers": [
+		{
+			"name": "omerduzyol",
+			"email": "omer@duzyol.net"
+		}
+	],
+	"description": "PostCSS plugin to process react-bender styling features with scss-like syntax.",
+	"homepage": "https://github.com/creaworks-labs/postcss-react-bender",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"react",
+		"react-native",
+		"scss",
+		"jss",
+		"css-in-js"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/creaworks-labs/postcss-react-bender.git"
+	},
+	"author": {
+		"name": "Ömer Düzyol",
+		"email": "omer@duzyol.net"
+	},
+	"bugs": {
+		"url": "https://github.com/creaworks-labs/postcss-react-bender/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS React Bender [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin to process react-bender styling features with scss like syntax..\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/omerduzyol/postcss-react-bender.svg\n[ci]:      https://travis-ci.org/omerduzyol/postcss-react-bender\n\n### Input Style\n\n```css\n#Screen {\n  font-size: 25;\n\n  .square {\n    margin-top: 10px;\n    width: 25;\n    height: 55;\n    background-color: 'yellow';\n    align-items: 'center';\n    justify-content: 'center';\n  }\n\n  #View {\n    width: 100;\n    height: 50;\n    background-color: 'red';\n  }\n\n  #Text.underline {\n    text-decoration: underline;\n    font-size: 20px;\n  }\n}\n\n#Text {\n  .underline {\n    text-decoration: underline;\n  }\n}\n```\n\n### Output Bender\n```json\n{\n  \"Screen\": {\n    \".square\": {\n      \"alignItems\": \"center\",\n      \"backgroundColor\": \"yellow\",\n      \"height\": 55,\n      \"justifyContent\": \"center\",\n      \"marginTop\": \"10pt\",\n      \"width\": 25,\n    },\n    \"Text.underline\": {\n      \"fontSize\": 20,\n      \"textDecorationColor\": \"black\",\n      \"textDecorationLine\": \"underline\",\n      \"textDecorationStyle\": \"solid\",\n    },\n    \"View\": {\n      \"backgroundColor\": \"red\",\n      \"height\": 50,\n      \"width\": 100,\n    },\n    \"fontSize\": 25,\n  },\n  \"Text\": {\n    \".underline\": {\n      \"textDecorationColor\": \"black\",\n      \"textDecorationLine\": \"underline\",\n      \"textDecorationStyle\": \"solid\",\n    },\n  },\n}\n```\n\n## General Usage\n\n```js\npostcss([ require('postcss-react-bender') ])\n    .process(srcFile)\n    .then(result => {\n        console.log('Transformed', result.bender)\n    })\n```\n\n## ReactNative Usage\nPlease refer to transformer options *react-bender* repository.\n\nSee [PostCSS] docs for examples for your environment.\n",
+	"readmeFilename": "README.md"
+}

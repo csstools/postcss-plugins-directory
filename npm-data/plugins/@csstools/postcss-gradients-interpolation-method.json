@@ -1,0 +1,278 @@
+{
+	"_id": "@csstools/postcss-gradients-interpolation-method",
+	"_rev": "2-fb0db1986b20bd690cc44fa75a050ff2",
+	"name": "@csstools/postcss-gradients-interpolation-method",
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-gradients-interpolation-method",
+			"description": "Use interpolation methods in CSS gradient functions",
+			"version": "1.0.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-gradients-interpolation-method"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"conic",
+				"css",
+				"gradients",
+				"interpolation",
+				"linear",
+				"postcss",
+				"postcss-plugin",
+				"radial",
+				"repeating",
+				"syntax"
+			],
+			"csstools": {
+				"cssdbId": "TODO",
+				"exportName": "postcssGradientsInterpolationMethod",
+				"humanReadableName": "PostCSS Gradients Interpolation Method",
+				"specUrl": "https://drafts.csswg.org/css-images-4/#linear-gradients"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "27749d3193b455cff13811c1d0593c28c12f5d2a",
+			"_id": "@csstools/postcss-gradients-interpolation-method@1.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-XIyCJpnvSPH0C+yeBUwSjiD6LTWJBlK5lhrp1++cg0RPTqN58igZDiEQ8CwT9vkNktq0afFpBmWPcIFi1iSNdA==",
+				"shasum": "06f19cf658b932712fde43a32beea13a5e92b3d7",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-1.0.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 27310,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiIoE8ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqAEQ//RiIh52ecno9MQui3eBVCTyNEBgAZCaUNP6TP4yUOrFSEUZhz\r\ngmnME06xYrXP6Eyo5Pf87gTWZWgppD/4IJ+46bV7JqCq21z8cxgZ42X8hFd5\r\nH1rhjnAzOJSd+Jafsd62BwKW/QldVSFm/r7WSHneDMAEQ4V1fF/O5JJtVD+b\r\n2sLN57xDrlQ6muSLvHHPTcqTc39+A6cdvVgrllUrIhZ73mGNIuQxFqtaBZsm\r\nlcKC6DaOYWPL/Gef5QyhlyUtpdACg6K6Yoi4BoBjNw5Lq7hhQ2Tftpr3Flop\r\nre1+fqPiVzXtC+y+wszzdH5nKWnYIBqv1FZkda2ZQCMrUMO6tnYFbFPkpzFL\r\nJOspDdAW1DXYagqmaCgc7ptnYSkVdh2ZwiuhtS6ct4Pha0eWPGr4t8yNiyh/\r\nfwj/JnZKNZy14hUENjgW33WbqSz/o9wXGMUUhmDurKvw2SsFuUYUEYPzjrED\r\n9mzZNS2Hb5ovBDeLdX5BObUDEd5u9xNnA/qm38+cKK30HGx/Yr9oZeft1p9q\r\nBZ9+kAWfs7ol8kiV1e+fywrw6AF93WCV/uUupZdf2ccItStQPIQcPZWGidN7\r\nwWZ1i2gTm68pfxMTabTZKLRTv03oNBHgpWx3tpfvC3MxLX59uCj9iLlRGGCD\r\nt+R0J8r3SbScTGYFHM9EWgYRKkF38dK7IL8=\r\n=XfkB\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQChqo5vZCo5m1LQqwiDYqWIhoCaV5yjI/AD33pJ8IHx6AIgKpi3BTViPvh1HH7+UmVO6lTe+xk/3Eaj94Dg4lB+7IY="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-gradients-interpolation-method_1.0.0_1646428476258_0.8715733301338691"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-gradients-interpolation-method",
+			"description": "Use interpolation methods in CSS gradient functions",
+			"version": "1.0.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-gradients-interpolation-method"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"conic",
+				"css",
+				"gradients",
+				"interpolation",
+				"linear",
+				"postcss",
+				"postcss-plugin",
+				"radial",
+				"repeating",
+				"syntax"
+			],
+			"csstools": {
+				"cssdbId": "TODO",
+				"exportName": "postcssGradientsInterpolationMethod",
+				"humanReadableName": "PostCSS Gradients Interpolation Method",
+				"specUrl": "https://drafts.csswg.org/css-images-4/#linear-gradients"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "faf9d8efd5a7dcce873ddb22353f20704f756008",
+			"_id": "@csstools/postcss-gradients-interpolation-method@1.0.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-le4FeJof419FFTocPtKWwuviose/S4Dq2QCIUwxDO8JVliYfhQN2QaXLbOZCWB2+QGpFCxWv/yHRDhRXxisooA==",
+				"shasum": "b02430214dc32a1d84555ed8555b02df165774dd",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-1.0.1.tgz",
+				"fileCount": 10,
+				"unpackedSize": 27354,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiJecwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqoKBAAikGG1FlPNCErYbijflYpcgUL14tO8LVqh75kEIes5JBhODG8\r\nRGzOruWkA4adg0RQmOsML/vLYTN7OO0Az6l92ue0JLHGFwj2LKl7CkN6tHlU\r\nX7iPkKJiNX1YB6mOID+dwf4thRBXM9uIKwIlGoF8how+eoRiPTr7UeUcJj3l\r\nwmYuukgS3ZEBNAV1jzWpxoxg9aNOW1/BoRk8578b9J2gRnIUiC2sFwP1zIMa\r\njrSM8Pg65zdrJyFtU7eK2i49ntd+X/1LUeYkuayVhAioe/WbHhyzEEEsvnAo\r\nGJMsli/p1M9PtmiYpbF6/WlF/YwRLJvttlBXfr9l08IvmbiKqanYwI8t5Zb2\r\n+uenD3bUWx3u7KMObdWIW5RJLPNkGlxXlDwFkbGz4tiUBu0J0OUhXSkuit9P\r\nSoHtVPy5Hkm0ZWLYEweBYruegez+x82ETPRbiUt624+N95Ha+izJfB292HCw\r\nuLW/mzrjmCD/43GZRr1TN6MDlIB7fY6hhU02O76Az5w5Mjk5Vqz6UzmZp3KE\r\nbbGuhMUsxXHNyyCAKd//dEZNXApbQQX8RoFXaXouud/VRiSBtpmegzYkv6cB\r\nvdiA0K/khDHeUtMsnjChSTcRIM122ZZdqDxXXPKYu7iFrPqCMINnCiYU7rYJ\r\nLQENUPbbQlYjzClgteTfjOQ/0zmFtew4p20=\r\n=4+St\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDTgkLRTrp16AzGd6CTf7r2ZEEtlExHJN4Fzl9rbdFdFQIhAKmVuyNsxdyHWoESpAsJeZegmavhv4X9ICsBD+N1o1AE"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-gradients-interpolation-method_1.0.1_1646651184222_0.22299026138886435"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-03-04T21:14:36.197Z",
+		"1.0.0": "2022-03-04T21:14:36.602Z",
+		"modified": "2022-04-05T02:03:35.416Z",
+		"1.0.1": "2022-03-07T11:06:24.369Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Use interpolation methods in CSS gradient functions",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method#readme",
+	"keywords": [
+		"color",
+		"conic",
+		"css",
+		"gradients",
+		"interpolation",
+		"linear",
+		"postcss",
+		"postcss-plugin",
+		"radial",
+		"repeating",
+		"syntax"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-gradients-interpolation-method"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS Gradients Interpolation Method [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-gradients-interpolation-method.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/TODO.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Gradients Interpolation Method] lets you use different interpolation methods in CSS gradient functions following [CSS Specification].\n\n```pcss\n.oklch {\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n\n/* becomes */\n\n.oklch {\n\tbackground: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n}\n\n@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) {\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n}\n```\n\n## Warnings\n\n⚠️ This plugin assumes you have a separate plugin to transform `color-mix()` to something older browsers can understand.\n\n⚠️ Color stops with only a color and Interpolation hints are not supported.\nWe can not statically check if a certain value is a single color or an interpolation hint.\n\nThese are equivalent in PostCSS :\n\n```pcss\n\t--red: red;\n\t/* Color stop variable */\n\tbackground-image: linear-gradient(90deg, black, var(--red), blue);\n\n\t--perc-10: 10%;\n\t/* Interpolation hint */\n\tbackground-image: linear-gradient(90deg, black, var(--perc-10), blue);\n```\n\n## Usage\n\nAdd [PostCSS Gradients Interpolation Method] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-gradients-interpolation-method --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGradientsInterpolationMethod = require('@csstools/postcss-gradients-interpolation-method');\n\npostcss([\n\tpostcssGradientsInterpolationMethod(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gradients Interpolation Method] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssGradientsInterpolationMethod({ preserve: true })\n```\n\n```pcss\n.oklch {\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n\n/* becomes */\n\n.oklch {\n\tbackground: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n}\n\n@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) {\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssGradientsInterpolationMethod({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n.oklch {\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n\n/* becomes */\n\n.oklch {\n\tbackground: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n```\n\n_Custom properties do not fallback to the previous declaration_\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#TODO\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-gradients-interpolation-method\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Gradients Interpolation Method]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method\n[CSS Specification]: https://drafts.csswg.org/css-images-4/#linear-gradients\n",
+	"readmeFilename": "README.md"
+}

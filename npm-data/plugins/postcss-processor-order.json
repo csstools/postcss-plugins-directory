@@ -1,0 +1,220 @@
+{
+	"_id": "postcss-processor-order",
+	"_rev": "8-bb1587e4caf4c2588910945f2af8177c",
+	"name": "postcss-processor-order",
+	"time": {
+		"modified": "2022-06-24T10:39:24.767Z",
+		"created": "2016-10-21T09:52:11.775Z",
+		"0.0.0": "2016-10-21T09:52:11.775Z",
+		"0.1.0": "2016-10-21T09:52:58.564Z",
+		"0.1.1": "2016-10-24T09:51:41.471Z"
+	},
+	"maintainers": [
+		{
+			"name": "vitaliyr",
+			"email": "vit@ribachenko.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "0.1.1"
+	},
+	"description": "PostCSS plugin for sorting processors passed to postcss",
+	"readme": "# PostCSS Processor Order [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin for sorting processors passed to postcss.\n\nBecause you really want to forget about plugins priority and add processors in any order.\nYou want to write CSS but not think how to built your preprocessor from the bricks.\nThe only requirement that this plugin should be first processor passed to PostCSS.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/VitaliyR/postcss-processor-order.svg\n[ci]:      https://travis-ci.org/VitaliyR/postcss-processor-order\n\n```js\n/* Input example */\nrequire('postcss-processor-order')(),\nrequire('postcss-each')(),\nrequire('postcss-inline-svg')(),\nrequire('stylelint')(),\nrequire('postcss-nested')(),\nrequire('postcss-partial-import')(),\nrequire('postcss-svgo')(),\n```\n\n```js\n/* Output example */\nrequire('postcss-processor-order')(),\nrequire('postcss-partial-import')(),\nrequire('postcss-each')(),\nrequire('postcss-nested')(),\nrequire('postcss-inline-svg')(),\nrequire('postcss-svgo')(),\nrequire('stylelint')()\n\n```\n\n## Install\n```bash\nnpm i postcss-processor-order --save\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-processor-order')(opts) ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n## Options\n\n* `order` *{Array}* priority of plugins. By default it uses params from `config.js`\n\n## Contributing\n\nThere are a lot of PostCSS plugins and, I'm sure, you even not aware about half of them.\nI'm extending this priority list with plugins when I reach them in my code.\n\nSo, if you faster than me, please, send me your PR with modified version of `config.js` where you add new plugins.\n\nDon't forget to run `npm test` before commit.\n",
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-processor-order",
+			"version": "0.1.0",
+			"description": "PostCSS plugin for sorting processors passed to postcss",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-order",
+				"postcss-sort-processors"
+			],
+			"author": {
+				"name": "Vitaliy Ribachenko",
+				"email": "vit@ribachenko.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/vitaliyr/postcss-processor-order.git"
+			},
+			"bugs": {
+				"url": "https://github.com/VitaliyR/postcss-processor-order/issues"
+			},
+			"homepage": "https://github.com/VitaliyR/postcss-processor-order",
+			"dependencies": {
+				"postcss": "^5.2.0"
+			},
+			"devDependencies": {
+				"ava": "^0.16.0",
+				"eslint": "^3.4.0",
+				"eslint-config-postcss": "^2.0.2"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"rules": {
+					"indent": [
+						"error",
+						2
+					],
+					"space-before-function-paren": [
+						"error",
+						"never"
+					],
+					"max-len": [
+						"error",
+						100
+					],
+					"no-bitwise": [
+						0
+					]
+				}
+			},
+			"gitHead": "dd6f0f38763d81921a59c6a5d5f77f5da79373b3",
+			"_id": "postcss-processor-order@0.1.0",
+			"_shasum": "f6ef5a0ae06e58aeabf11b8df657d3d7b9a96910",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "vitaliyr",
+				"email": "vit@ribachenko.com"
+			},
+			"dist": {
+				"shasum": "f6ef5a0ae06e58aeabf11b8df657d3d7b9a96910",
+				"tarball": "https://registry.npmjs.org/postcss-processor-order/-/postcss-processor-order-0.1.0.tgz",
+				"integrity": "sha512-ZQvIwJqoE3JJ1g+II2LU17sy14tGva0aStjT2FHuWg6X0PeUSGxky3n07ZaeUHxQzf58jML+LNFFn+Fb8l+nBw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDOOuPrzunFK3Uvn3TlZrGt6PmtSbDwEi7xwcS365D/twIgX13rbPS7hqPDSXqJpEaO6fw6p3JDXMh6GjBLXrZk708="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "vitaliyr",
+					"email": "vit@ribachenko.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-processor-order-0.1.0.tgz_1477043577610_0.19510661042295396"
+			}
+		},
+		"0.1.1": {
+			"name": "postcss-processor-order",
+			"version": "0.1.1",
+			"description": "PostCSS plugin for sorting processors passed to postcss",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-order",
+				"postcss-sort-processors"
+			],
+			"author": {
+				"name": "Vitaliy Ribachenko",
+				"email": "vit@ribachenko.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/vitaliyr/postcss-processor-order.git"
+			},
+			"bugs": {
+				"url": "https://github.com/VitaliyR/postcss-processor-order/issues"
+			},
+			"homepage": "https://github.com/VitaliyR/postcss-processor-order",
+			"dependencies": {
+				"postcss": "^5.2.0"
+			},
+			"devDependencies": {
+				"ava": "^0.16.0",
+				"eslint": "^3.4.0",
+				"eslint-config-postcss": "^2.0.2"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"rules": {
+					"indent": [
+						"error",
+						2
+					],
+					"space-before-function-paren": [
+						"error",
+						"never"
+					],
+					"max-len": [
+						"error",
+						100
+					],
+					"no-bitwise": [
+						0
+					]
+				}
+			},
+			"gitHead": "3b6c70be5454831847163c248d778dad410c75b5",
+			"_id": "postcss-processor-order@0.1.1",
+			"_shasum": "bdd760a43da14c193797121bffb12afa0bff039c",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "vitaliyr",
+				"email": "vit@ribachenko.com"
+			},
+			"dist": {
+				"shasum": "bdd760a43da14c193797121bffb12afa0bff039c",
+				"tarball": "https://registry.npmjs.org/postcss-processor-order/-/postcss-processor-order-0.1.1.tgz",
+				"integrity": "sha512-4gNiMT2nAtZMqH6J6j+bZvPBnTRV5POXJ9CrKD0AWXO1thRBKt5zvz8E0nibGv3UpV5Fu9jGGUc7uUeiyuH08A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGWRU+vjFt0/XTRJl6QxNjb3qOJ05WT3mhDZyaEG7u8/AiBj/y/c9qIpizGWuZSAx2WzeXfC5nSQfNFFSReyJnF6/A=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "vitaliyr",
+					"email": "vit@ribachenko.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-processor-order-0.1.1.tgz_1477302700049_0.014121491927653551"
+			}
+		}
+	},
+	"homepage": "https://github.com/VitaliyR/postcss-processor-order",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss-order",
+		"postcss-sort-processors"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vitaliyr/postcss-processor-order.git"
+	},
+	"author": {
+		"name": "Vitaliy Ribachenko",
+		"email": "vit@ribachenko.com"
+	},
+	"bugs": {
+		"url": "https://github.com/VitaliyR/postcss-processor-order/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

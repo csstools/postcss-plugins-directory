@@ -1,0 +1,133 @@
+{
+	"name": "postcss-unicode-characters",
+	"version": "1.0.1",
+	"description": "An easier way to write unicode-range descriptors.",
+	"main": "dist/index.js",
+	"scripts": {
+		"contributorAdd": "all-contributors add",
+		"contributorGenerate": "all-contributors generate",
+		"pretest": "eslint src",
+		"prepublish": "del-cli dist && cross-env BABEL_ENV=publish babel src --out-dir dist --ignore /__tests__/",
+		"report": "nyc report --reporter=html",
+		"test": "cross-env BABEL_ENV=test BABEL_DISABLE_CACHE=1 nyc --check-coverage --lines 100 ava"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"files": [
+		"dist",
+		"LICENSE-MIT"
+	],
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"unicode",
+		"unicode range",
+		"syntax sugar",
+		"sugar"
+	],
+	"homepage": "https://github.com/ben-eb/postcss-unicode-characters",
+	"author": {
+		"name": "Ben Briggs",
+		"email": "beneb.info@gmail.com",
+		"url": "http://beneb.info"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ben-eb/postcss-unicode-characters.git"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"postcss": "^5.2.5",
+		"postcss-value-parser": "^3.3.0",
+		"unicode": "^9.0.0",
+		"unicode-range-json": "^1.0.0",
+		"uniqs": "^2.0.0"
+	},
+	"devDependencies": {
+		"all-contributors-cli": "^4.0.0",
+		"ava": "^0.17.0",
+		"babel-cli": "^6.5.1",
+		"babel-core": "^6.5.1",
+		"babel-plugin-istanbul": "^1.0.3",
+		"babel-preset-es2015": "^6.9.0",
+		"babel-preset-stage-0": "^6.5.0",
+		"babel-register": "^6.7.2",
+		"cross-env": "^4.0.0",
+		"del-cli": "^0.2.0",
+		"eslint": "^3.0.0",
+		"eslint-config-cssnano": "^3.0.0",
+		"eslint-plugin-babel": "^3.3.0",
+		"eslint-plugin-import": "^1.12.0",
+		"nyc": "^10.0.0"
+	},
+	"nyc": {
+		"include": [
+			"src/**/*.js"
+		],
+		"exclude": [
+			"**/__tests__"
+		],
+		"sourceMap": false,
+		"instrument": false
+	},
+	"ava": {
+		"babel": "inherit",
+		"require": "babel-register"
+	},
+	"eslintConfig": {
+		"extends": "cssnano"
+	},
+	"babel": {
+		"presets": [
+			"es2015",
+			"stage-0"
+		],
+		"env": {
+			"development": {
+				"sourceMaps": "inline"
+			},
+			"test": {
+				"plugins": [
+					"istanbul"
+				]
+			}
+		}
+	},
+	"gitHead": "e822f9ebb26f491ef0c5fbf70d6bb6c583102523",
+	"bugs": {
+		"url": "https://github.com/ben-eb/postcss-unicode-characters/issues"
+	},
+	"_id": "postcss-unicode-characters@1.0.1",
+	"_shasum": "f9635a795835a5787dbdebd5716c58e816e90c37",
+	"_from": ".",
+	"_npmVersion": "3.10.8",
+	"_nodeVersion": "6.9.1",
+	"_npmUser": {
+		"name": "beneb",
+		"email": "beneb.info@gmail.com"
+	},
+	"dist": {
+		"shasum": "f9635a795835a5787dbdebd5716c58e816e90c37",
+		"tarball": "https://registry.npmjs.org/postcss-unicode-characters/-/postcss-unicode-characters-1.0.1.tgz",
+		"integrity": "sha512-dI9TuuoC+YyJgd3iNIrvoZTFsE4599ZEUzQzSO4cWrguQIWZtbZNnesDJDp7dBYdWLCa8AFNnULm4AkGIoOW4Q==",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCwc/KMYVIP7mISCru7MJ2xCp2scF2v4IcIFglRPgDqXQIgVcRlYHrDT2zgMA6G0ia4VTRgCWISjQscdjC1kuvyqoY="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "beneb",
+			"email": "beneb.info@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "packages-18-east.internal.npmjs.com",
+		"tmp": "tmp/postcss-unicode-characters-1.0.1.tgz_1493403296487_0.8866269348654896"
+	},
+	"_time": "2017-04-28T18:14:57.058Z"
+}

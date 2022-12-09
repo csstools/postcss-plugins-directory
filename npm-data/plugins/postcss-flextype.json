@@ -1,0 +1,118 @@
+{
+	"_id": "postcss-flextype",
+	"_rev": "2-c8d68c89d549b5512c949f6339e901cc",
+	"name": "postcss-flextype",
+	"description": "PostCSS plugin that converts --flextype CSS variables into ::before pseudo content for use with flextype.js.",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-flextype",
+			"version": "1.0.0",
+			"description": "PostCSS plugin that converts --flextype CSS variables into ::before pseudo content for use with flextype.js.",
+			"main": "dist/postcss-flextype.js",
+			"scripts": {
+				"lint": "eslint src",
+				"test": "faucet ./test/*.js",
+				"preversion": "del-cli dist && babel src --out-dir dist"
+			},
+			"files": [
+				"dist"
+			],
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"flextype"
+			],
+			"author": {
+				"name": "Nick Bosman",
+				"email": "autopaideia@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/autopaideia/postcss-flextype.git"
+			},
+			"bugs": {
+				"url": "https://github.com/autopaideia/postcss-flextype/issues"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^5.2.15"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.23.0",
+				"babel-preset-env": "^1.2.0",
+				"del-cli": "^0.2.1",
+				"eslint": "^3.17.0",
+				"eslint-config-airbnb-base": "^11.1.1",
+				"eslint-plugin-import": "^2.2.0",
+				"faucet": "0.0.1",
+				"tape": "^4.6.3"
+			},
+			"gitHead": "a16dc1e9b6fece7383383675504936487c609a0a",
+			"homepage": "https://github.com/autopaideia/postcss-flextype#readme",
+			"_id": "postcss-flextype@1.0.0",
+			"_shasum": "201c78cee18cadfa8a76d4322181e43fbd7c3010",
+			"_from": ".",
+			"_npmVersion": "4.3.0",
+			"_nodeVersion": "6.6.0",
+			"_npmUser": {
+				"name": "autopaideia",
+				"email": "autopaideia@gmail.com"
+			},
+			"dist": {
+				"shasum": "201c78cee18cadfa8a76d4322181e43fbd7c3010",
+				"tarball": "https://registry.npmjs.org/postcss-flextype/-/postcss-flextype-1.0.0.tgz",
+				"integrity": "sha512-ndZU3ILWsFrtwy2j64eSczNXC/DxMmSMcdQBRVemk55dEWUNux1FSGoBVnUGA1VpJd4WJyaGeY9aYKVbbhLrjw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCQCCs9pYn3PijaNrqHwwG1yKVCxT11RmZ2s+U7z6op2QIgP+1RwwUJ7JOiXnbJmz7Oohxl68sI9tzvzh8TxiCQQFU="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "autopaideia",
+					"email": "autopaideia@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-flextype-1.0.0.tgz_1488933124022_0.47945236996747553"
+			}
+		}
+	},
+	"readme": "# postcss-flextype\n\n[PostCSS](https://github.com/postcss/postcss) plugin for use with [flextype](https://github.com/autopaideia/flextype) that converts `--flextype` declarations into hidden `::before` pseudo-content to work with browsers that don't yet support CSS variables.\n\n## Example\n\n### Input:\n\n```css\n.foo {\n  --flextype: 5%;\n}\n.bar {\n  --flextype: '{\"100\": 12, \"500+\": 18}';\n}\n```\n\n### Output:\n\n```css\n.foo::before {\n  content: '5%';\n  display: none;\n}\n.bar::before {\n  content: '{\"100\": 12, \"500+\": 18}';\n  display: none;\n}\n```\n\n## Install\n\n```bash\nnpm i -S postcss-flextype\n```\n\n## Usage\n\n```javascript\nconst postcss = require('postcss');\nconst flextype = require('postcss-flextype');\n\npostcss([flextype]);\n```\n\n### Options\n\n#### `replace` (type: `Boolean`, default: `true`)\n\nIf set to `false` postcss-flextype will leave the `--flextype` declarations in your CSS in addition to adding them as `::before` content.\n",
+	"maintainers": [
+		{
+			"name": "autopaideia",
+			"email": "autopaideia@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:58:35.305Z",
+		"created": "2017-03-08T00:32:04.666Z",
+		"1.0.0": "2017-03-08T00:32:04.666Z"
+	},
+	"homepage": "https://github.com/autopaideia/postcss-flextype#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"flextype"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/autopaideia/postcss-flextype.git"
+	},
+	"author": {
+		"name": "Nick Bosman",
+		"email": "autopaideia@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/autopaideia/postcss-flextype/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

@@ -1,0 +1,113 @@
+{
+	"_id": "mogu-postcss-bem",
+	"_rev": "4-8be77732bbceb69cdf4fada034925cbb",
+	"name": "mogu-postcss-bem",
+	"time": {
+		"modified": "2022-06-20T04:31:11.909Z",
+		"created": "2018-01-05T14:29:20.352Z",
+		"1.0.4": "2018-01-05T14:29:20.352Z",
+		"0.1.0": "2018-01-05T14:31:48.097Z"
+	},
+	"maintainers": [
+		{
+			"name": "wuwenbin",
+			"email": "bin2302@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"description": "PostCSS plugin implementing BEM as at-rules",
+	"readme": "# PostCSS Bem [![Build Status][ci-img]][ci]\n\n修改自 [saladcss-bem](https://github.com/saladcss/saladcss-bem)，在 postcss-bem 上扩展了一些功能，如 shortcuts\n\n[PostCSS] plugin implementing BEM as at-rules.\n\n**注意**：css 样式命名推荐用class，并且全部使用小写，无必要则不使用 ID选择器\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/ileri/postcss-bem.svg\n[ci]:      https://travis-ci.org/ileri/postcss-bem\n\n## 一些说明\n\npostcss-bem 默认是 suit 模式（在BEM模式中没有@utility和@when语法，它们不会编译成任何东西，所以在BEM中不要使用Utility或State。）\n\n### @utility\n\n- Utilities是用来处理结构和位置方面的样式，组件中也可以用这种方式来写。常常在驼峰命名前加一个u-前缀。例如.u-clearFix。\n\n### @component 缩写 @b [block]\n\nSUIT中的Components就相当于BEM中的Block。组件的命名方式常常使用pascal命名，也更适合SUIT，使它们更容易识别。例如.SearcForm。\n\n- @descendent 缩写 @e [element]\n  - SUIT中的Descendants相当于BEM中的Element。它使用破折号-和驼峰命名结合在一起来。例如.searchform--heading，. searchform--textfield\n- @modifier 缩写 @m\n  - SUIT中的Modifier和BEM中的一样，但SUIT对他们的角色控制的更为严格。SUIT中的Modifier只用于组件(Components)上，不用于Dedicated上。它也不能用于表示状态(State)变化，就算要用于状态的变化，SUIT也有自己一套专用的命名约定。\n  - Modifier都用两个破折号--来连接，例如：searchform--advanced。\n- @when\n  - State是用来反映组件更改的状态。通过不同的修饰词，反映出组件修改后的基本外观。如果有必要，State也可以应用于Descendent中。\n  - State一般都在驼峰命名前添加is-前缀。如：.searchform.is-invalid。\n\n### @component-namespace\n\n组件可以在命名前加一个nmsp-这样的命名空间，用来防止类名的冲突。比如.mine-searchform。\n\n## 示例\n\ninput:\n\n```css\n@utility utilityName {\n  color: green;\n}\n\n@utility utilityName small {\n  color: blue;\n}\n\n@component componentName {\n  color: cyan;\n\n  @modifier modifierName {\n    color: yellow;\n  }\n\n  @descendent descendentName {\n    color: navy;\n  }\n\n  @when stateName {\n    color: crimson;\n  }\n}\n\n@component-namespace nmsp {\n  @component componentName {\n    color: red;\n  }\n}\n```\n\nyou will get:\n\n```css\n.u-utilityName {\n  color: green;\n}\n\n.u-sm-utilityName {\n  color: blue;\n}\n\n.componentName {\n  color: cyan;\n}\n\n.componentName--modifierName {\n  color: yellow;\n}\n\n.componentName-descendentName {\n  color: navy;\n}\n\n.componentName.is-stateName {\n  color: crimson;\n}\n\n.nmsp-componentName {\n  color: red;\n}\n```\n\n**With shortcuts** 使用快捷键\n\n```css\n@b nav { /* b is for block */\n  @e item { /* e is for element */\n    display: inline-block;\n  }\n  @m placement_header { /* m is for modifier */\n    background-color: red;\n  }\n}\n```\n\n```css\n.nav {}\n.nav__item {\n  display: inline-block\n}\n.nav_placement_header {\n  background-color: red\n}\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-bem')({\n  defaultNamespace: undefined, // default namespace to use, none by default\n  style: 'suit', // suit or bem, suit by default,\n  separators: {\n    descendent: '__' // overwrite any default separator for chosen style\n  },\n  shortcuts: {\n    utility: 'util' //override at-rule name\n  }\n}) ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n",
+	"versions": {
+		"0.1.0": {
+			"name": "mogu-postcss-bem",
+			"version": "0.1.0",
+			"description": "PostCSS plugin implementing BEM as at-rules",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"bem",
+				"suit"
+			],
+			"author": {
+				"name": "Malte-Maurice Dreyer",
+				"email": "dreyer.maltem+dev@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/webcoding/postcss-bem.git"
+			},
+			"dependencies": {
+				"postcss": "^6.0.15"
+			},
+			"devDependencies": {
+				"gulp-eslint": "^0.12.0",
+				"gulp-mocha": "^2.0.1",
+				"chai": "^2.3.0",
+				"gulp": "^3.8.11"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"gitHead": "93e1d3d8e8645f2d90df748d6e98d2f214be02be",
+			"bugs": {
+				"url": "https://github.com/webcoding/postcss-bem/issues"
+			},
+			"homepage": "https://github.com/webcoding/postcss-bem#readme",
+			"_id": "mogu-postcss-bem@0.1.0",
+			"_shasum": "dade9a0856157194bb6395d376364a27f6dd32db",
+			"_from": ".",
+			"_npmVersion": "4.6.1",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "wuwenbin",
+				"email": "bin2302@gmail.com"
+			},
+			"dist": {
+				"shasum": "dade9a0856157194bb6395d376364a27f6dd32db",
+				"tarball": "https://registry.npmjs.org/mogu-postcss-bem/-/mogu-postcss-bem-0.1.0.tgz",
+				"integrity": "sha512-7MJZbI+/vRAJpVlXAqwmQRjAepG/nWIyUDIflBQ8F5tD4q5eKTWNfuj2g6KaSat9j4VzSo7Lvn8CeXgetQM94A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCNDHatRiqZ6b8WiMYFYODiM6QVmEtf4xZS/GO5dkFg+wIhANFfX++7eDEU3GmNqDUeLkcekw/t11qs1kTEV+wDaqSf"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "wuwenbin",
+					"email": "bin2302@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/mogu-postcss-bem-0.1.0.tgz_1515162707732_0.39093528082594275"
+			}
+		}
+	},
+	"homepage": "https://github.com/webcoding/postcss-bem#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"bem",
+		"suit"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/webcoding/postcss-bem.git"
+	},
+	"author": {
+		"name": "Malte-Maurice Dreyer",
+		"email": "dreyer.maltem+dev@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/webcoding/postcss-bem/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

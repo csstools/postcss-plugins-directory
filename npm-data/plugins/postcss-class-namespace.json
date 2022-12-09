@@ -1,0 +1,150 @@
+{
+	"_id": "postcss-class-namespace",
+	"_rev": "2-c02a603bcb340580c426636756309651",
+	"name": "postcss-class-namespace",
+	"description": "PostCSS plugin that appends a class namespace to a selector",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-class-namespace",
+			"description": "PostCSS plugin that appends a class namespace to a selector",
+			"version": "0.1.0",
+			"author": {
+				"name": "Jason Laster",
+				"email": "jason.laster.11@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/jasonlaster/postcss-class-namespace/issues"
+			},
+			"dependencies": {
+				"lodash": "^4.13.1",
+				"postcss": "^5.0.10"
+			},
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-core": "^6.7.4",
+				"babel-plugin-syntax-async-functions": "^6.5.0",
+				"babel-plugin-transform-async-to-generator": "^6.5.0",
+				"babel-plugin-transform-es2015-destructuring": "^6.9.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
+				"babel-plugin-transform-es2015-parameters": "^6.6.4",
+				"babel-plugin-transform-es2015-spread": "^6.8.0",
+				"babel-plugin-transform-function-bind": "^6.5.2",
+				"babel-plugin-transform-object-assign": "^6.5.0",
+				"babel-plugin-transform-object-rest-spread": "^6.6.4",
+				"babel-plugin-transform-remove-console": "^6.5.0",
+				"babel-plugin-transform-runtime": "^6.6.0",
+				"babel-register": "^6.7.2",
+				"babel-runtime": "^6.5.0",
+				"babel-template": "^6.7.0",
+				"babel-types": "^6.7.2",
+				"gulp": "^3.9.1",
+				"gulp-babel": "^6.1.2",
+				"gulp-plumber": "^1.1.0",
+				"gulp-rename": "^1.2.2",
+				"xo": "^0.16.0"
+			},
+			"homepage": "https://github.com/jasonlaster/postcss-class-namespace#readme",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/jasonlaster/postcss-class-namespace.git"
+			},
+			"scripts": {
+				"prepublish": "npm run build",
+				"build": "gulp babel",
+				"start": "gulp watch",
+				"test": "xo && ava"
+			},
+			"ava": {
+				"files": [
+					"test/**/*.js"
+				],
+				"require": [
+					"babel-register"
+				],
+				"babel": "inherit"
+			},
+			"xo": {
+				"env": [
+					"node"
+				],
+				"esnext": true,
+				"space": 2,
+				"ignores": [
+					"build/**"
+				]
+			},
+			"gitHead": "330d328289f4003b69aee5a69e986889045fabee",
+			"_id": "postcss-class-namespace@0.1.0",
+			"_shasum": "b5f7be4373c0d1458760b60cab838ca6212362ca",
+			"_from": ".",
+			"_npmVersion": "4.1.2",
+			"_nodeVersion": "7.7.2",
+			"_npmUser": {
+				"name": "jasonlaster11",
+				"email": "jason.laster.11@gmail.com"
+			},
+			"dist": {
+				"shasum": "b5f7be4373c0d1458760b60cab838ca6212362ca",
+				"tarball": "https://registry.npmjs.org/postcss-class-namespace/-/postcss-class-namespace-0.1.0.tgz",
+				"integrity": "sha512-m/I+o1pM5Hsiy2Ngsq5anYCcIBY30UgQUfdnEziklG5hNDZK51BR5W2XjA9vCH2ljX9qo2GSpHUwZirrlAB7Xw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIG9VVSb4xay7xXS/WQn1F511zv0VjTJjKSW1kcvDB5BSAiBmO2NROGguxof6+DAldnr11Aqj2Y5xlCN6G9QLiK+CmA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jasonlaster11",
+					"email": "jason.laster.11@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-class-namespace-0.1.0.tgz_1504305606282_0.3225600947625935"
+			}
+		}
+	},
+	"readme": "# postcss-class-namespace\n\n[![npm version](https://badge.fury.io/js/postcss-class-namespace.svg)](https://badge.fury.io/js/postcss-class-namespace)\n\n<p><img width=\"20\" src=\"https://camo.githubusercontent.com/2ec260a9d4d3dcc109be800af0b29a8471ad5967/687474703a2f2f706f73746373732e6769746875622e696f2f706f73746373732f6c6f676f2e737667\"> <a href=\"https://github.com/postcss/postcss\">PostCSS</a> plugin that prefix a namespace to a selector</p>\n\n---\n\n## Install\n\n```\nnpm i postcss-class-namespace\n```\n\n## Usage\n\nWrite `@namespace` atrule to your css file.\n(e.g. input.css)\n```css\n.outside {}\n\n@namespace block;\n\n.box {}\n\n.inner .target {}\n.inner .not-target {}\n.inner .ignore-1 {}\n.inner .ignore-2,\n.inner .target {}\n\n&:hover {}\n[href^=\"https\"][target=\"_blank\"] {}\n\n@media screen and (min-width: 768px) {\n  #media {}\n  #media #inner,\n  .media .inner.box {}\n}\n\n```\n\nUse this plugin in PostCSS\n(e.g.)\n```javascript\nconst fs = require('fs');\nconst postcss = require('postcss');\nconst namespace = require('postcss-class-namespace');\n\nconst css = fs.readFileSync('./sample.css', 'utf-8');\n\n// or postcss([namespace.bem])\npostcss([namespace({token: '__'})])\n  .process(css)\n  .then(result => console.log(result.css));\n\n```\n\nWill get `output` like following CSS\n\n```css\n.outside {}\n\n.block .box {}\n\n.block .inner .target {}\n.block .inner .not-target {}\n.block .inner .ignore-1 {}\n.block .inner .ignore-2,\n.block .inner .target {}\n\n.block &:hover {}\n.block [href^=\"https\"][target=\"_blank\"] {}\n\n@media screen and (min-width: 768px) {\n  .block #media {}\n  .block #media #inner,\n  .block .media .inner.box {}\n}\n```\n",
+	"maintainers": [
+		{
+			"name": "jasonlaster11",
+			"email": "jason.laster.11@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:35:40.884Z",
+		"created": "2017-09-01T22:40:07.412Z",
+		"0.1.0": "2017-09-01T22:40:07.412Z"
+	},
+	"homepage": "https://github.com/jasonlaster/postcss-class-namespace#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/jasonlaster/postcss-class-namespace.git"
+	},
+	"author": {
+		"name": "Jason Laster",
+		"email": "jason.laster.11@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/jasonlaster/postcss-class-namespace/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

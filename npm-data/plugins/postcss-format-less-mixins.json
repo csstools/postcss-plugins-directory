@@ -1,0 +1,124 @@
+{
+	"_id": "postcss-format-less-mixins",
+	"_rev": "2-9f2396b4c28e531bc67be6d612d49274",
+	"name": "postcss-format-less-mixins",
+	"description": "PostCSS plugin to format Less mixin calls where Stylefmt fails",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-format-less-mixins",
+			"version": "1.0.0",
+			"description": "PostCSS plugin to format Less mixin calls where Stylefmt fails",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"style",
+				"coding style",
+				"mixins",
+				"less",
+				"mixin"
+			],
+			"author": {
+				"name": "Jonathan Pacheco",
+				"email": "jonathan@lifeblue.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/frontendauteur/postcss-format-less-mixins.git"
+			},
+			"bugs": {
+				"url": "https://github.com/frontendauteur/postcss-format-less-mixins/issues"
+			},
+			"homepage": "https://github.com/frontendauteur/postcss-format-less-mixins",
+			"dependencies": {
+				"postcss": "^6.0.1",
+				"postcss-less": "^1.1.0"
+			},
+			"devDependencies": {
+				"eslint": "^3.19.0",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^20.0.0"
+			},
+			"scripts": {
+				"test": "jest && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"env": {
+					"jest": true
+				}
+			},
+			"gitHead": "568c7d51aca242f7c2329a73be98f1836acee5b5",
+			"_id": "postcss-format-less-mixins@1.0.0",
+			"_shasum": "2ce97a4fd3a31ce43efd49bf3c1de8ff2d847b02",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "frontendauteur",
+				"email": "jonathan@lifeblue.com"
+			},
+			"dist": {
+				"shasum": "2ce97a4fd3a31ce43efd49bf3c1de8ff2d847b02",
+				"tarball": "https://registry.npmjs.org/postcss-format-less-mixins/-/postcss-format-less-mixins-1.0.0.tgz",
+				"integrity": "sha512-9g+T0Y3dCxZ4kShytbl80a3JmBmH7L5yGSsNIddnO6Yg9kY+CP8B1Vip2+DZE/KlEzkwEw3p6ZZ+CLL1N5lRLQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBvJVC4d1JiG/IAvGXII28x4OkfCmn17mVqBdA2FuzPmAiBGeAx0mKF/dZ+ANn2yL7qqcp7UIvHQ3afr4S4acfIBUw=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "frontendauteur",
+					"email": "jonathan@lifeblue.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-format-less-mixins-1.0.0.tgz_1504289593816_0.8983490851242095"
+			}
+		}
+	},
+	"readme": "# PostCSS Format Less Mixins [![Build Status][ci-img]][ci]\r\n\r\n[PostCSS] plugin to format Less mixin calls where [stylefmt] fails.\r\n\r\n[stylefmt]: https://github.com/morishitter/stylefmt\r\n[PostCSS]:  https://github.com/postcss/postcss\r\n[ci-img]:   https://travis-ci.org/frontendauteur/postcss-format-less-mixins.svg\r\n[ci]:       https://travis-ci.org/frontendauteur/postcss-format-less-mixins\r\n\r\n## Installation\r\n\r\n```js\r\nnpm install postcss-format-less-mixins\r\n```\r\n\r\n## Example\r\n\r\n```less\r\n/* Input Example */\r\n.a {\r\n\r\n    .myMixin()\r\n    ;\r\n}\r\n.b {\r\n    background: rebeccapurple;\r\n\r\n    .myMixin()\r\n    ;\r\n}\r\n.c {\r\n    .myOtherMixin()\r\n    ;\r\n\r\n    .myMixin()\r\n    ;\r\n}\r\n.d {\r\n\r\n    .myOtherMixin()\r\n    ;\r\n\r\n    .myMixin()\r\n    ;\r\n}\r\n.e {\r\n    background: rebeccapurple;\r\n\r\n    .f {\r\n        background: transparent;\r\n\r\n        .myMixin()\r\n        ;\r\n    }\r\n}\r\n```\r\n\r\n```less\r\n/* Output Example */\r\n.a {\r\n    .myMixin();\r\n}\r\n.b {\r\n    background: rebeccapurple;\r\n    .myMixin();\r\n}\r\n.c {\r\n    .myOtherMixin();\r\n    .myMixin();\r\n}\r\n.d {\r\n    .myOtherMixin();\r\n    .myMixin();\r\n}\r\n.e {\r\n    background: rebeccapurple;\r\n\r\n    .f {\r\n        background: transparent;\r\n        .myMixin();\r\n    }\r\n}\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\npostcss([\r\n    require('postcss-format-less-mixins')\r\n]).process(YOUR_LESS, {\r\n    syntax: require('postcss-less')\r\n})\r\n```\r\n\r\nUse Stylefmt **before** using this plugin.",
+	"maintainers": [
+		{
+			"name": "frontendauteur",
+			"email": "jonathan@lifeblue.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:01:59.402Z",
+		"created": "2017-09-01T18:13:14.728Z",
+		"1.0.0": "2017-09-01T18:13:14.728Z"
+	},
+	"homepage": "https://github.com/frontendauteur/postcss-format-less-mixins",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"style",
+		"coding style",
+		"mixins",
+		"less",
+		"mixin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/frontendauteur/postcss-format-less-mixins.git"
+	},
+	"author": {
+		"name": "Jonathan Pacheco",
+		"email": "jonathan@lifeblue.com"
+	},
+	"bugs": {
+		"url": "https://github.com/frontendauteur/postcss-format-less-mixins/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

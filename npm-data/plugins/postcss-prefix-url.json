@@ -1,0 +1,112 @@
+{
+	"_id": "postcss-prefix-url",
+	"_rev": "3-e49e372f1cd60e7af493d0f6d72e4c62",
+	"name": "postcss-prefix-url",
+	"description": "Prefix URLs with CDN",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-prefix-url",
+			"version": "1.0.0",
+			"description": "Prefix URLs with CDN",
+			"main": "index.js",
+			"scripts": {
+				"test": "ava test"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"cdn",
+				"prefix",
+				"url"
+			],
+			"author": {
+				"name": "Kevin Smithson",
+				"email": "smitt04@gmail.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/smitt04/postcss-prefix-url.git",
+				"type": "git"
+			},
+			"license": "ISC",
+			"dependencies": {
+				"consistent": "^1.1.0",
+				"postcss": "^5.2.15",
+				"postcss-functions": "^2.1.1"
+			},
+			"devDependencies": {
+				"ava": "^0.18.2"
+			},
+			"gitHead": "526bdad84e15e19932a95bf6e77be8e351a71888",
+			"bugs": {
+				"url": "https://github.com/smitt04/postcss-prefix-url/issues"
+			},
+			"homepage": "https://github.com/smitt04/postcss-prefix-url#readme",
+			"_id": "postcss-prefix-url@1.0.0",
+			"_shasum": "05abbb0513e731cb32e04e781b2df35b9d9ab766",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "ksmithson",
+				"email": "ksmithson@pocketly.com"
+			},
+			"dist": {
+				"shasum": "05abbb0513e731cb32e04e781b2df35b9d9ab766",
+				"tarball": "https://registry.npmjs.org/postcss-prefix-url/-/postcss-prefix-url-1.0.0.tgz",
+				"integrity": "sha512-gbnWfKtJEnDfC10CnK43b/MPb4iBmcXkrPV8SrAKylDu8zL9PbpbPYtFwzjQiSgbE3dKHneWXYkYixtOJXpLEg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCS10wILWzLCTo6lLbS8ENe4tZ8epvq/qkcD2SzYjPHTgIgBf0lMUDRArhwCGJbipjtWrflQh3ud1g9dXWubzqMCdg="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "ksmithson",
+					"email": "ksmithson@pocketly.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-prefix-url-1.0.0.tgz_1488588332904_0.2615905301645398"
+			}
+		}
+	},
+	"readme": "# postcss-prefix-url\n\n> [PostCSS](https://github.com/postcss/postcss) plugin to prefix your urls\n\n## Installation\n\n```\nnpm i postcss-prefix-url\n\nor\n\nyarn add postcss-prefix-url\n```\n\n### Options\n\n| Option | Type | Description |\n| ------ | ---- | ----------- |\n| prefix | Array or String | The strings or string to prefix your url paths with |\n| [useUrl = false] | Boolean | If set to TRUE then the `url()`'s will also be prefixed, otherwise ignores them |\n| [exclude] | Regex | Exclude url paths matching this regex |\n\n### Examples\n\nInput\n```css\nbody {\n  background: cdn('/test.png');\n}\n\n.testAbsolute {\n  background: cdn(http://absolute.com/test1.png); /* Ignore absolute urls */\n}\n\n.withUrl {\n  background: url(/testUrl.png);\n}\n\n.testExclude {\n  background: cdn(/exclude-this/test1.png); /* Exclude this url */\n}\n```\n\nOutput\n```css\nbody {\n  background: url(https://img1.example.com/test.png);\n}\n\n.testAbsolute {\n  background: url(http://absolute.com/test1.png);\n}\n\n.withUrl {\n  background: url(https://img1.example.com/testUrl.png);\n}\n\n.testExclude {\n  background: url(/exclude-this/test1.png);\n}\n```",
+	"maintainers": [
+		{
+			"email": "smitt04@gmail.com",
+			"name": "ksmithson"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:37:54.730Z",
+		"created": "2017-03-04T00:45:35.056Z",
+		"1.0.0": "2017-03-04T00:45:35.056Z"
+	},
+	"homepage": "https://github.com/smitt04/postcss-prefix-url#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"cdn",
+		"prefix",
+		"url"
+	],
+	"repository": {
+		"url": "git+https://github.com/smitt04/postcss-prefix-url.git",
+		"type": "git"
+	},
+	"author": {
+		"name": "Kevin Smithson",
+		"email": "smitt04@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/smitt04/postcss-prefix-url/issues"
+	},
+	"license": "ISC",
+	"readmeFilename": "README.md"
+}

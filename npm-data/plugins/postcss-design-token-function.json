@@ -1,0 +1,143 @@
+{
+	"_id": "postcss-design-token-function",
+	"_rev": "3-3052cf07b2c7cfecc4c3765dcf051a26",
+	"name": "postcss-design-token-function",
+	"description": "A PostCSS plugin to add custom functions for accessing your design tokens.",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-design-token-function",
+			"version": "1.0.0",
+			"description": "A PostCSS plugin to add custom functions for accessing your design tokens.",
+			"main": "lib/index.js",
+			"jsnext:main": "src/index.js",
+			"scripts": {
+				"lint": "eslint . --max-warnings 0",
+				"test": "NODE_PATH=./test:./src:$NODE_PATH mocha test/ --recursive --compilers js:babel-core/register --reporter spec --require babel-polyfill",
+				"test:cover": "NODE_PATH=./test:./src:$NODE_PATH babel-node $(npm bin)/isparta cover --reporter text --reporter html $(npm bin)/_mocha test/ -- --recursive --reporter spec",
+				"test:watch": "npm test -- --watch --reporter min",
+				"check": "npm run lint && npm run test",
+				"clean": "rimraf lib dist coverage",
+				"build": "npm run clean && babel src --out-dir lib",
+				"preversion": "npm run clean && npm run check",
+				"version": "npm run build",
+				"postversion": "git push && git push --tags && npm run clean",
+				"prepublish": "npm run clean && npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/lemonmade/postcss-design-token-function.git"
+			},
+			"author": {
+				"name": "Chris Sauve",
+				"email": "chrismsauve@gmail.com"
+			},
+			"license": "MIT",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"color",
+				"colour",
+				"function"
+			],
+			"babel": {
+				"presets": [
+					"shopify"
+				]
+			},
+			"eslintConfig": {
+				"extends": "plugin:shopify/esnext"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.6.5",
+				"babel-core": "^6.7.4",
+				"babel-eslint": "^6.0.0",
+				"babel-loader": "^6.2.4",
+				"babel-preset-shopify": "^10.1.0",
+				"chai": "^3.5.0",
+				"coveralls": "^2.11.9",
+				"eslint": "^2.5.3",
+				"eslint-plugin-shopify": "^10.8.0",
+				"isparta": "^4.0.0",
+				"mocha": "^2.4.5",
+				"rimraf": "^2.5.2",
+				"webpack": "^1.12.14"
+			},
+			"dependencies": {
+				"postcss": "^5.0.19"
+			},
+			"gitHead": "e0cb6d2b8b0bb7a2554329424591479ac3650753",
+			"bugs": {
+				"url": "https://github.com/lemonmade/postcss-design-token-function/issues"
+			},
+			"homepage": "https://github.com/lemonmade/postcss-design-token-function#readme",
+			"_id": "postcss-design-token-function@1.0.0",
+			"_shasum": "b50896cf83ad4db068d0800b1ff07f2f8f371eb6",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.7.0",
+			"_npmUser": {
+				"name": "lemonmade",
+				"email": "chrismsauve@gmail.com"
+			},
+			"dist": {
+				"shasum": "b50896cf83ad4db068d0800b1ff07f2f8f371eb6",
+				"tarball": "https://registry.npmjs.org/postcss-design-token-function/-/postcss-design-token-function-1.0.0.tgz",
+				"integrity": "sha512-I1ef7ywU+vHuqlEe2z9AiZ2hnXOvmbFW7PXN8/xdYfegwvVYfRsABQFppwrqJ3wYgv7DyhQAlEqg0yBoeyg15A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC0fFtUzkDsyLWwOT+EDeVlD9hDNbpQTaY1iL/jK6VIfAIgEtjdBYgTUPK4mT5hpoEtBjIsBhfLG/5EV2O7x8/9kBI="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "lemonmade",
+					"email": "chrismsauve@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-design-token-function-1.0.0.tgz_1466619988550_0.9206471506040543"
+			}
+		}
+	},
+	"readme": "# `postcss-design-token-function`\n\nA [PostCSS](https://github.com/postcss/postcss) to add custom functions for accessing your design tokens.\n\n[![Build status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Maintained][maintained-image]][maintained-url] [![NPM version][npm-image]][npm-url] [![Dependency Status][dependency-image]][dependency-url] [![Dev Dependency Status][devDependency-image]][devDependency-url] [![Code Climate][climate-image]][climate-url]\n\n## Installation\n\n```\nnpm install postcss-design-token-function\n```\n\n## Usage\n\nIn JavaScript, simply pass an object with your design token information along with the name of the function by which you will retrieve that data in your CSS. Values can be simple strings or nested objects, which are useful for cases where you have naturally nested design details (e.g., values for your color palette).\n\n```js\n// dependencies\nimport fs from 'fs';\nimport postcss from 'postcss';\nimport designTokenFunction from 'postcss-design-token-function';\n\n// css to be processed\nconst css = fs.readFileSync('input.css', 'utf8');\n\n// your colors\nconst colors = {\n  white: '#F2F5FF',\n  blue: {\n    light: '#A2CEFF',\n    base: '#5898FF',\n  },\n};\n\n// process css\nvar output = postcss()\n  .use(designTokenFunction({\n    name: 'color',\n    data: colors,\n  }))\n  .process(css)\n  .css\n```\n\nAnd, in CSS, used the `color` function to reference your color palette. You can use the `shade` option to reference the nested shades, if provided (omitting a shade will default to using the `base` key of a nested color):\n\n```css\n.foo {\n  background: color(white);\n  border: 1px solid color(blue, shade: light);\n  color: color(blue, base);\n}\n```\n\nWhich will generate:\n\n```css\n.foo {\n  background: #F2F5FF;\n  border: 1px solid #A2CEFF;\n  color: #5898FF;\n}\n```\n\n### Options\n\nThe following is a complete list of the possible options you can pass this plugin:\n\n```js\npostcss().use(\n  designTokenFunction({\n    // the actual function to look for; here, `colour(white)` becomes valid.\n    name: 'colour',\n\n    // The design token data to reference in your function calls. Must be an object,\n    // optionally with multiple levels of nested objects.\n    data: {},\n\n    // the key to look for at any level of nesting when no variation is provided\n    // (and one is needed; that is, there is a nested object in your design tokens).\n    // By default, this plugin will look for a 'base' key.\n    base: 'default',\n  })\n)\n```\n\nNote that you can generate functions for different design tokens by executing this plugin multiple times with each token's data provided in turn.\n\n[travis-url]: https://travis-ci.org/lemonmade/postcss-design-token-function\n[travis-image]: https://travis-ci.org/lemonmade/postcss-design-token-function.svg?branch=master\n\n[coveralls-url]: https://coveralls.io/github/lemonmade/postcss-design-token-function?branch=master\n[coveralls-image]: https://coveralls.io/repos/lemonmade/postcss-design-token-function/badge.svg?branch=master&service=github\n\n[dependency-url]: https://david-dm.org/lemonmade/postcss-design-token-function\n[dependency-image]: https://david-dm.org/lemonmade/postcss-design-token-function.svg\n\n[devDependency-url]: https://david-dm.org/lemonmade/postcss-design-token-function#info=devDependencies\n[devDependency-image]: https://david-dm.org/lemonmade/postcss-design-token-function/dev-status.svg\n\n[npm-url]: https://npmjs.org/package/postcss-design-token-function\n[npm-image]: http://img.shields.io/npm/v/postcss-design-token-function.svg?style=flat-square\n\n[climate-url]: https://codeclimate.com/github/lemonmade/postcss-design-token-function\n[climate-image]: http://img.shields.io/codeclimate/github/lemonmade/postcss-design-token-function.svg?style=flat-square\n\n[maintained-url]: https://github.com/lemonmade/postcss-design-token-function/pulse\n[maintained-image]: http://img.shields.io/badge/status-maintained-brightgreen.svg?style=flat-square\n",
+	"maintainers": [
+		{
+			"name": "lemonmade",
+			"email": "chrismsauve@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:48:59.116Z",
+		"created": "2016-06-22T18:26:30.507Z",
+		"1.0.0": "2016-06-22T18:26:30.507Z"
+	},
+	"homepage": "https://github.com/lemonmade/postcss-design-token-function#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"color",
+		"colour",
+		"function"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/lemonmade/postcss-design-token-function.git"
+	},
+	"author": {
+		"name": "Chris Sauve",
+		"email": "chrismsauve@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/lemonmade/postcss-design-token-function/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

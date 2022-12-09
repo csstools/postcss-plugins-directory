@@ -1,0 +1,584 @@
+{
+	"_id": "postcss-normalize-next",
+	"_rev": "5-9a75c6e0d19eceaa8cce8ddd5fecb92f",
+	"name": "postcss-normalize-next",
+	"dist-tags": {
+		"latest": "10.0.2"
+	},
+	"versions": {
+		"9.0.0": {
+			"name": "postcss-normalize-next",
+			"version": "9.0.0",
+			"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-normalize.git"
+			},
+			"homepage": "https://github.com/csstools/postcss-normalize-next#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-normalize-next/issues"
+			},
+			"main": "dist/index.cjs.js",
+			"module": "dist/index.esm.mjs",
+			"scripts": {
+				"build": "npx rollup -c .rollup.js",
+				"build:watch": "npx rollup -c .rollup.js --watch",
+				"lint": "npx eslint --cache src",
+				"lint:fix": "npx eslint --cache --fix",
+				"pretest": "npm install && npm run build",
+				"test": "npm run lint && npm run tape",
+				"tape": "npx postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"dependencies": {
+				"@csstools/normalize.css": "10.1.0",
+				"postcss-browser-comments": "^3.0.0",
+				"sanitize.css": "11.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.9.0",
+				"@babel/plugin-syntax-import-meta": "^7.8.3",
+				"@babel/preset-env": "^7.9.5",
+				"babel-eslint": "^10.1.0",
+				"browserslist": "^4.16.3",
+				"eslint": "^6.8.0",
+				"postcss": "^8.2.8",
+				"postcss-import": "^12.0.1",
+				"postcss-tape": "^6.0.1",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.6.0",
+				"rollup-plugin-babel": "^4.4.0"
+			},
+			"peerDependencies": {
+				"browserslist": "^4.16.3",
+				"postcss": "^8.2.8"
+			},
+			"babel": {
+				"plugins": [
+					"@babel/plugin-syntax-import-meta"
+				],
+				"presets": [
+					[
+						"@babel/env",
+						{
+							"targets": "maintained node versions"
+						}
+					]
+				]
+			},
+			"eslintConfig": {
+				"env": {
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint"
+			},
+			"rollup": {
+				"input": "src/index.js",
+				"plugins": [
+					"rollup-plugin-babel"
+				],
+				"output": [
+					{
+						"file": "dist/index.cjs.js",
+						"format": "cjs"
+					},
+					{
+						"file": "dist/index.esm.js",
+						"format": "esm"
+					}
+				]
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"normalizes",
+				"browsers",
+				"fixes"
+			],
+			"gitHead": "4b5afc2997fa06e114458e7f62585cc505213aab",
+			"_id": "postcss-normalize-next@9.0.0",
+			"_nodeVersion": "14.15.4",
+			"_npmVersion": "7.6.2",
+			"dist": {
+				"integrity": "sha512-1ZM9krP2pTnPY1aEqIAHCkuxdxcf6mnZL0aW+B5ibMo9q6OnbIOAHOvYkBF/u99DGZoNnfndk9nogdAaXSw+Ag==",
+				"shasum": "140def94c672dab4f21d6bf105484ed66ac972c1",
+				"tarball": "https://registry.npmjs.org/postcss-normalize-next/-/postcss-normalize-next-9.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 16584,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgiTtZCRA9TVsSAnZWagAAcqwP/j5AID5cjlA3dP9Kz30J\nXFjjO+FvDaYMCKo/Qaiq+SDqOZTAvtUg7mt1F6AEOV6nJu/8NQjSNR6S7W3G\nzrAlxxlwN9uH+1bGpIRLsWNJdk3csfeFVueKb4WdDhOYvMM+vT2raSDAwQKp\nYnZ510HQlkYUN98f279p6r3GT1D6k2ad+mCZLFDn92J7gX45AnUcqBjmTp8v\nzjhemFgwY46Y9uQhXPkrSoIw/g+BGriptJ0uaHdIV4rgb+S9ZqokXxfEie3D\nagxFkNAwZ29S1CRQ89UDZI96i8eYyiZD/3CIt87p3CPhORA4h16Vda54ISLC\nBaRrV9m+Nqh6HJFtQyLDK5ypGjA3xGAe9m9UTRQnAPRcXwI5TY6gm21QQe+U\nKCgdbAxIiZcMCMOkiSml9EzyccXtBpAdvdrO3wBdct4dQaD4GngMNdTA2CJ/\nnhbGzWUiFbTOJrix+70pBI2JwkMZYZv+Q57yWusglGXxKUcGeRLzxYKtCVtN\n9QBhmd3VsGNrMQQ9BcFfTaVjbZqlxhovoOtboYyOzmy0n59MrUuzvKWSAtWo\n2d3opusnQvr3lJvW02S5DSfvytxgxNkghwukz6hribP5noaaztGt3swV1fcn\ntYH1A5Q9uoHrNaO+s/VHXK4GHQ4jH+VFwSAxXOwGo+vc1TQJDKOSTYKXvUoa\nerbd\r\n=thHq\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFmB6U+f4DduH0DyLQIht6pHxOst46SU8UhbIp5Kq+exAiEApG85Wm+74MoX91ZwdK4/wvp3c5RaTyZ57oYhFbl5t+8="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ratsupremacy",
+				"email": "jc@blit.cc"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ratsupremacy",
+					"email": "jc@blit.cc"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-normalize-next_9.0.0_1619606360639_0.36724256780600184"
+			},
+			"_hasShrinkwrap": false
+		},
+		"10.0.0": {
+			"name": "postcss-normalize-next",
+			"version": "10.0.0",
+			"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-normalize.git"
+			},
+			"homepage": "https://github.com/csstools/postcss-normalize-next#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-normalize-next/issues"
+			},
+			"main": "dist/index.cjs.js",
+			"module": "dist/index.esm.mjs",
+			"scripts": {
+				"build": "npx rollup -c .rollup.js",
+				"build:watch": "npx rollup -c .rollup.js --watch",
+				"lint": "npx eslint --cache src",
+				"lint:fix": "npx eslint --cache --fix",
+				"pretest": "npm install && npm run build",
+				"test": "npm run lint && npm run tape",
+				"tape": "npx postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"dependencies": {
+				"@csstools/normalize.css": "10.1.0",
+				"postcss-browser-comments-next": "^8.0.0",
+				"sanitize.css": "11.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.9.0",
+				"@babel/plugin-syntax-import-meta": "^7.8.3",
+				"@babel/preset-env": "^7.9.5",
+				"babel-eslint": "^10.1.0",
+				"browserslist": "^4.16.3",
+				"eslint": "^6.8.0",
+				"postcss": "^8.2.8",
+				"postcss-import": "^12.0.1",
+				"postcss-tape": "^6.0.1",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.6.0",
+				"rollup-plugin-babel": "^4.4.0"
+			},
+			"peerDependencies": {
+				"browserslist": "^4.16.3",
+				"postcss": "^8.2.8"
+			},
+			"babel": {
+				"plugins": [
+					"@babel/plugin-syntax-import-meta"
+				],
+				"presets": [
+					[
+						"@babel/env",
+						{
+							"targets": "maintained node versions"
+						}
+					]
+				]
+			},
+			"eslintConfig": {
+				"env": {
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint"
+			},
+			"rollup": {
+				"input": "src/index.js",
+				"plugins": [
+					"rollup-plugin-babel"
+				],
+				"output": [
+					{
+						"file": "dist/index.cjs.js",
+						"format": "cjs"
+					},
+					{
+						"file": "dist/index.esm.js",
+						"format": "esm"
+					}
+				]
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"normalizes",
+				"browsers",
+				"fixes"
+			],
+			"gitHead": "820fd1d0b7544f411d1a83ea853a9551a93cdbc5",
+			"_id": "postcss-normalize-next@10.0.0",
+			"_nodeVersion": "14.15.4",
+			"_npmVersion": "7.6.2",
+			"dist": {
+				"integrity": "sha512-ccLmAqcbBTxxk/DvGr7Se7R00pPQaYbbNnMy01E1n+3q2eqyoNw6WEKVxqLwj6r5bdMWSE7tHcBzxSHn0+4BBQ==",
+				"shasum": "920c8fd8cc758cf6f98b8373ad42f5f0f5274d3e",
+				"tarball": "https://registry.npmjs.org/postcss-normalize-next/-/postcss-normalize-next-10.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 31681,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgiTwTCRA9TVsSAnZWagAABk8P/j97Zer7IBOxPpgNY09K\nAXRd00YZBFbqdMZQnV2392RVTtA5YlW/dSQCoKwmTwyU0E2XirUx47pGXrIh\nr9Dv/isR+bbnfkfxC8G2gLWUTc4Rb07hjGhJ+vQkFuR8tp1IzjBdO2H/qa8r\nySNHpOOecYFLgvZW4QzO9jmqGNyxT2LuA8RXYXfG+amhOM9IwXiai7YU+vy1\n3faKaCRPoJdqNtktjSW1VGTc2HFGnNVgMKKnh7gZsALmDD9Otv5LwmpFYnUa\nYMZh7n0uK4+h7+nSbkvi0mZrwRiUiDaXWzrz1vA2fcYjAeNzBJzrAsa/15n0\nrGI6Vx6om7KKyI8u+22SgX5YLxz/4rzW4J24aU7GY/Zqq/3WHGWz795qaTFf\nbHyJwdJJJMF5EGbnkknkgWEfvF4VexN9ujG3UpIiiJxkYscSROIXHzD2yqKU\nBmum2crZpWKwT8vO8b1TwBqGuLEqEk0mJzJcy0eX9WhqjdzpPxlumSaVRrph\nF4rmMUYPfhJ2f7VwC3oJEcuNmetPZQCv1Y4rzjttZ+2b4Kt4h+QbEuscMj0m\noTN/TYI+ocqFjzV7Ie5/YrJhgpl+nIGDAHbNHjkoOfQWQH7JKXQRKuL5/qyP\nWQu7NtS2wnEESkxxmuyUs2Xs1hpRpp6qNJ9UDMqJKdNVHVQAyF70bqPZ8RFY\nz4v7\r\n=zmYj\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCcv6s/CIBo3kwWKLTOx7zxKnAVG5RtxJLvDNomtxE7rQIgHVle51ekTeoLjihWomxISh7uXgGpaZjVODom/Due/MQ="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ratsupremacy",
+				"email": "jc@blit.cc"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ratsupremacy",
+					"email": "jc@blit.cc"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-normalize-next_10.0.0_1619606547252_0.09069364476672503"
+			},
+			"_hasShrinkwrap": false
+		},
+		"10.0.1": {
+			"name": "postcss-normalize-next",
+			"version": "10.0.1",
+			"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-normalize.git"
+			},
+			"homepage": "https://github.com/radiosilence/postcss-normalize-next#readme",
+			"bugs": {
+				"url": "https://github.com/radiosilence/postcss-normalize-next/issues"
+			},
+			"main": "dist/index.cjs.js",
+			"module": "dist/index.esm.mjs",
+			"scripts": {
+				"build": "npx rollup -c .rollup.js",
+				"build:watch": "npx rollup -c .rollup.js --watch",
+				"lint": "npx eslint --cache src",
+				"lint:fix": "npx eslint --cache --fix",
+				"pretest": "npm install && npm run build",
+				"test": "npm run lint && npm run tape",
+				"tape": "npx postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"dependencies": {
+				"@csstools/normalize.css": "10.1.0",
+				"postcss-browser-comments-next": "^8.0.0",
+				"sanitize.css": "11.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.9.0",
+				"@babel/plugin-syntax-import-meta": "^7.8.3",
+				"@babel/preset-env": "^7.9.5",
+				"babel-eslint": "^10.1.0",
+				"browserslist": "^4.16.3",
+				"eslint": "^6.8.0",
+				"postcss": "^8.2.8",
+				"postcss-import": "^12.0.1",
+				"postcss-tape": "^6.0.1",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.6.0",
+				"rollup-plugin-babel": "^4.4.0"
+			},
+			"peerDependencies": {
+				"browserslist": "^4.16.3",
+				"postcss": "^8.2.8"
+			},
+			"babel": {
+				"plugins": [
+					"@babel/plugin-syntax-import-meta"
+				],
+				"presets": [
+					[
+						"@babel/env",
+						{
+							"targets": "maintained node versions"
+						}
+					]
+				]
+			},
+			"eslintConfig": {
+				"env": {
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint"
+			},
+			"rollup": {
+				"input": "src/index.js",
+				"plugins": [
+					"rollup-plugin-babel"
+				],
+				"output": [
+					{
+						"file": "dist/index.cjs.js",
+						"format": "cjs"
+					},
+					{
+						"file": "dist/index.esm.js",
+						"format": "esm"
+					}
+				]
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"normalizes",
+				"browsers",
+				"fixes"
+			],
+			"gitHead": "b05aed9c736a5e726e0e60b5fe5ca149a840b8da",
+			"_id": "postcss-normalize-next@10.0.1",
+			"_nodeVersion": "14.15.4",
+			"_npmVersion": "7.6.2",
+			"dist": {
+				"integrity": "sha512-z6r7f9PtCcrfciZHsouK1L0/2wTzWQpgfwcm1d7eDtBLnfNJwl8Esu0UhTcQBxibimHXaUUGNFkjX/CSM0n/ig==",
+				"shasum": "fc437dd7a543b8ffc5feaf4a4016b27803ffd5d0",
+				"tarball": "https://registry.npmjs.org/postcss-normalize-next/-/postcss-normalize-next-10.0.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 31694,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgiT+PCRA9TVsSAnZWagAAIiQP/jA+XZYxMQBRISbHeHUz\n+soJts4jyX8bPVlGMqggSmEfU8Gai5GQ6p08I4acDadMyj2Fp6q+GcISGuNS\n9ma0+/9QS81IWhIcGEkDykjkqn4Ojrpp0qNEDnqOJxRDY/hA1YAlZX2W4FaA\nhi9SSbzeeAiT+gNxMrShvqVW3sK2LfMIiCGvJ4ZCVwLk/Y91NBTh3CdcZ2wB\nQB+bZnDYSY7CzkhsYTDgItQpDy9Adwi2tqbUDFsmk/Bmc0evFHHY6zjYMiyn\nG71M4hIAwUaXWFnY8t8XhSMsK44tFbf+zq6v4zSn1KwwjEbk/s8qMJ6x5c7z\n7u/E8FyJSnNG+o04lEA8mK0e55xPIjrf6gDmO98XgzLm1QiNXN+xecTF1Lyc\nzsdHITPou/FoEOKnrNIrm6mb9/hrmT1bJeUR8qFNajHzOmo95QRAXShx2OMu\nsL3VTrpYMpHJ0mLoc06vZBd9NBzrKSpVh0KYThHGGeixu3ifu3v32/nSO4Ek\nlRW9QTRrwhdEdqgwEzpr3XHX2JdESJBzlcaancMfEzZNNQ7245y9P+npv/9Z\nuGZM7wzyl/GRcocnrii8L4iO7bq59vn3XhYzYZ6kZm+i6XypCMKgDyeD2L5H\nWAd2KdpeOxSbi4tXZvbhakHE0PD+7X/3Bp8M2k4u4MCSvcPbrqc6F3N9pC+n\nFWCB\r\n=4IUM\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIEnp9o7AqncxjhaCIlgZ/DM5IvhQ7i318Pf5PJZDk3yXAiABTK77k/j7H+6FCCnyWSpeug/snerw6H/vrbtyy4Ns0g=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ratsupremacy",
+				"email": "jc@blit.cc"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ratsupremacy",
+					"email": "jc@blit.cc"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-normalize-next_10.0.1_1619607439398_0.03906702817826835"
+			},
+			"_hasShrinkwrap": false
+		},
+		"10.0.2": {
+			"name": "postcss-normalize-next",
+			"version": "10.0.2",
+			"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/radiosilence/postcss-normalize.git"
+			},
+			"homepage": "https://github.com/radiosilence/postcss-normalize-next#readme",
+			"bugs": {
+				"url": "https://github.com/radiosilence/postcss-normalize-next/issues"
+			},
+			"main": "dist/index.cjs.js",
+			"module": "dist/index.esm.mjs",
+			"scripts": {
+				"build": "npx rollup -c .rollup.js",
+				"build:watch": "npx rollup -c .rollup.js --watch",
+				"lint": "npx eslint --cache src",
+				"lint:fix": "npx eslint --cache --fix",
+				"pretest": "npm install && npm run build",
+				"test": "npm run lint && npm run tape",
+				"tape": "npx postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"dependencies": {
+				"@csstools/normalize.css": "10.1.0",
+				"postcss-browser-comments-next": "^8.0.0",
+				"sanitize.css": "11.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.9.0",
+				"@babel/plugin-syntax-import-meta": "^7.8.3",
+				"@babel/preset-env": "^7.9.5",
+				"babel-eslint": "^10.1.0",
+				"browserslist": "^4.16.3",
+				"eslint": "^6.8.0",
+				"postcss": "^8.2.8",
+				"postcss-import": "^12.0.1",
+				"postcss-tape": "^6.0.1",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.6.0",
+				"rollup-plugin-babel": "^4.4.0"
+			},
+			"peerDependencies": {
+				"browserslist": "^4.16.3",
+				"postcss": "^8.2.8"
+			},
+			"babel": {
+				"plugins": [
+					"@babel/plugin-syntax-import-meta"
+				],
+				"presets": [
+					[
+						"@babel/env",
+						{
+							"targets": "maintained node versions"
+						}
+					]
+				]
+			},
+			"eslintConfig": {
+				"env": {
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint"
+			},
+			"rollup": {
+				"input": "src/index.js",
+				"plugins": [
+					"rollup-plugin-babel"
+				],
+				"output": [
+					{
+						"file": "dist/index.cjs.js",
+						"format": "cjs"
+					},
+					{
+						"file": "dist/index.esm.js",
+						"format": "esm"
+					}
+				]
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"normalizes",
+				"browsers",
+				"fixes"
+			],
+			"gitHead": "bc9eac75ad68433d409b191c27613ac00201e822",
+			"_id": "postcss-normalize-next@10.0.2",
+			"_nodeVersion": "14.15.4",
+			"_npmVersion": "7.6.2",
+			"dist": {
+				"integrity": "sha512-ZM5EHRcrPbQ7eMOTsvhDIPwv3s4RHbspqjaE4WayJWObKNj4dQIAhyolh5Oiysprc4V9/Rjt6kxnPEi/VzBn9g==",
+				"shasum": "88bfdba53c14a79466ddaca6e0c3ceb1f8eeb2de",
+				"tarball": "https://registry.npmjs.org/postcss-normalize-next/-/postcss-normalize-next-10.0.2.tgz",
+				"fileCount": 6,
+				"unpackedSize": 31698,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgiT/JCRA9TVsSAnZWagAAzg0P/0gKAhFkNK+V/Wwv0LEt\nrm5gvNjutrzQL2/bFMiOI0PFf/zuaXslqQoMFXJe/Qy71wV1pqcTEAs6z93k\nfixQ2jMp2uQWjwZs6sBSTMowAFOJuWkuWtpyzZVQpu/zeicN06+y70iqdELK\ncltPHsq2adE5+B/TiwbV0vrFZ1sIqIZQ2k2u5b5Dw8R97QlIOE/LoItbnFMu\nn0Ai0/8hWiVllIZH+E2umnxmEnk65RqG3G/9sSViS6eKPxESWVJEvUzJ5xMO\nkijdk3YXZXMiuGU2jML72xQJX11rDhtEk2ZTuSbBEt6OlFEY/j1izINiC7Xn\nut8VKMwQO9/YWZ2y16GRhw2zZkw+lonIkwA93EQf0azEB4bWg3EXfp8Frg6c\nIogoFC5HmsAUXODsa/Hk0gYva1f726siaM9ELhSKzGx3c93g711c3/DFdR/2\nB44TRkvByaaROIAEEm77mwiFKFeHyxqjRn82objqajQjYqPpXw2lc3R88/3N\nQsKlBtP4NLT/HEI1/gxONmV8z/hGypOII5Essdg1RTpoTHdEN5ppgPgKV2+k\nLb5e/dUH0nxPAefeqJ0SL8Y1YmF5DHE2l8+jfn1zFHAPW25kUYK/YTlxHbB7\nEW1P0t3q/m1E3HKwLz3oG4L0+hGf27EUKvvrxlb4hdRA07BetwO4jPFm5Db9\nrF4h\r\n=HVYm\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDE07EpNK1IOa/UI4eRjhnJ2e2geCnCfOd1OsYFNajfcQIgO/unkQ4/66TLxb9ZF7chPX4hIJPhxqDK7HpvsLFVOME="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ratsupremacy",
+				"email": "jc@blit.cc"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ratsupremacy",
+					"email": "jc@blit.cc"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-normalize-next_10.0.2_1619607497359_0.7644087985067323"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2021-04-28T10:39:20.638Z",
+		"9.0.0": "2021-04-28T10:39:20.772Z",
+		"modified": "2022-05-13T06:31:03.648Z",
+		"10.0.0": "2021-04-28T10:42:27.449Z",
+		"10.0.1": "2021-04-28T10:57:19.551Z",
+		"10.0.2": "2021-04-28T10:58:17.527Z"
+	},
+	"maintainers": [
+		{
+			"email": "jc@blit.cc",
+			"name": "crack_squirrels"
+		}
+	],
+	"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
+	"homepage": "https://github.com/radiosilence/postcss-normalize-next#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"normalizes",
+		"browsers",
+		"fixes"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/radiosilence/postcss-normalize.git"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/radiosilence/postcss-normalize-next/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "**[Forked from https://github.com/csstools/postcss-normalize](https://github.com/csstools/postcss-normalize)**\n\nPackages has been forked to use [devpeerapong](https://github.com/devpeerapong/)'s PostCSS 8 compatibility updates.\n\n\n# PostCSS Normalize Next [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-normalize.svg\" height=\"20\">][npm-url]\n[<img alt=\"build status\" src=\"https://img.shields.io/travis/csstools/postcss-normalize/master.svg\" height=\"20\">][cli-url]\n[<img alt=\"support chat\" src=\"https://img.shields.io/badge/support-chat-blue.svg\" height=\"20\">][git-url]\n\n[PostCSS Normalize] lets you use the parts of [normalize.css] or [sanitize.css]\nthat you need from your [browserslist].\n\n```css\n@import \"normalize.css\";\n```\n\n```css\n@import \"sanitize.css\";\n```\n\n**PostCSS Normalize** uses a non-opinionated version of [normalize.css], but\nan opinionated version may also be used.\n\n```css\n@import \"normalize.css/opinionated.css\";\n```\n\n### Examples\n\nHere is a sample of what **normalize.css** looks like when the **browserslist**\nis `ie >= 9`:\n\n```css\n/**\n * Add the correct display in IE 9-.\n */\n\naudio,\nvideo {\n  display: inline-block;\n}\n\n/**\n * Remove the border on images inside links in IE 10-.\n */\n\nimg {\n  border-style: none;\n}\n```\n\nAnd here is the same sample when the **browserslist** is `ie >= 10`:\n\n```css\n/**\n * Remove the border on images inside links in IE 10-.\n */\n\nimg {\n  border-style: none;\n}\n```\n\n## Usage\n\nAdd [PostCSS Normalize] to your project:\n\n```bash\nnpm install postcss-normalize --save-dev\n```\n\nAdd a [browserslist] entry in `package.json`:\n\n```json\n{\n  \"browserslist\": \"last 2 versions\"\n}\n```\n\nUse **PostCSS Normalize** to process your CSS:\n\n```js\nconst postcssNormalize = require('postcss-normalize')\n\npostcssNormalize.process(YOUR_CSS /*, processOptions, pluginOptions */)\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss')\nconst postcssNormalize = require('postcss-normalize')\n\npostcss([\n  postcssNormalize(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */)\n```\n\n**PostCSS Normalize** runs in all Node environments, with special instructions\nfor:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## PostCSS Import Usage\n\n**PostCSS Normalize** includes a `postcssImport` function to configure\n[PostCSS Import] and allow you to continue using the `@import` syntax.\n\n```js\nconst postcss = require('postcss')\nconst postcssImport = require('postcss-import')\nconst postcssNormalize = require('postcss-normalize')\n\npostcss([\n  postcssImport(\n    postcssNormalize(\n      /* pluginOptions (for PostCSS Normalize) */\n    ).postcssImport(\n      /* pluginOptions (for PostCSS Import) */\n    )\n  )\n]) // now you can use @import \"normalize.css\", etc. again\n```\n\nAlternatively, use `@import-normalize` or `@import-sanitize` to avoid conflicts\nwith `@import` transforms.\n\n```pcss\n@import-normalize;\n```\n\n```pcss\n@import-normalize \"opinionated.css\";\n```\n\n```pcss\n@import-sanitize;\n```\n\n## Options\n\n### allowDuplicates\n\nThe `allowDuplicates` option determines whether multiple, duplicate insertions\nof CSS libraries are allowed. By default, duplicate libraries are omitted.\n\n```js\npostcssNormalize({ allowDuplicates: true })\n```\n\n### forceImport\n\nThe `forceImport` option defines CSS libraries that will be inserted at the\nbeginning of the CSS file. Unless overriden by `allowDuplicates`, duplicate\nCSS libraries would still be omitted.\n\n```js\npostcssNormalize({ forceImport: true })\n```\n\nSpecific CSS libraries may be defined.\n\n```js\npostcssNormalize({\n  forceImport: 'sanitize.css'\n})\n```\n\n### browsers\n\nThe `browsers` option defines an override of the project’s **browserslist** for\n**PostCSS Normalize**. This option should be avoided in leui of a browserslist\nfile.\n\n```js\npostcssNormalize({ browsers: 'last 2 versions' })\n```\n\n## CSS Libraries\n\n**PostCSS Normalize** can include [normalize.css] or [sanitize.css] and\nconfigure either with the following combinations:\n\n```css\n@import \"normalize\"; /* also, @import \"normalize.css\" */\n@import \"normalize/opinionated\"; /* also, @import \"normalize.css/opinionated.css\", @import \"normalize.css/*\" */\n@import \"sanitize\"; /* also, @import \"sanitize.css\" */\n@import \"sanitize/forms\"; /* also, @import \"sanitize.css/forms.css\" */\n@import \"sanitize/typography\"; /* also, @import \"sanitize.css/typography.css\" */\n@import \"sanitize/page\"; /* also, @import \"sanitize.css/page.css\" */\n@import \"sanitize/*\"; /* also, @import \"sanitize.css/*\" (sanitize + all additions) */\n```\n\n[cli-img]: https://img.shields.io/travis/csstools/postcss-normalize/master.svg\n[cli-url]: https://travis-ci.org/csstools/postcss-normalize\n[git-img]: https://img.shields.io/badge/support-chat-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[npm-img]: https://img.shields.io/npm/v/postcss-normalize.svg\n[npm-url]: https://www.npmjs.com/package/postcss-normalize\n\n[browserslist]: http://browserl.ist/\n[CSS Libraries]: #css-libraries\n[normalize.css]: https://github.com/csstools/normalize.css\n[Options]: #options\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Import]: https://github.com/postcss/postcss-import\n[PostCSS Import Usage]: #postcss-import-usage\n[PostCSS Normalize]: https://github.com/csstools/postcss-normalize\n[sanitize.css]: https://github.com/csstools/sanitize.css\n",
+	"readmeFilename": "README.md"
+}

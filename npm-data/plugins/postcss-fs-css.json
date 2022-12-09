@@ -1,0 +1,105 @@
+{
+	"_id": "postcss-fs-css",
+	"_rev": "2-93cbcb66885da0b2697e73e28fdc86db",
+	"name": "postcss-fs-css",
+	"description": "A postcss-plugin for transforming your CSS to FirstSpirit compatible CSS",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-fs-css",
+			"version": "1.0.0",
+			"description": "A postcss-plugin for transforming your CSS to FirstSpirit compatible CSS",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test/test.js && node test/test-map.js && node test/test-cache.js && node test/test-abs.js && node test/test-map-extended.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mariusbuescher/postcss-fs-css.git"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"FirstSpirit"
+			],
+			"author": {
+				"name": "Marius Büscher",
+				"email": "marius.buescher@denkwerk.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mariusbuescher/postcss-fs-css/issues"
+			},
+			"homepage": "https://github.com/mariusbuescher/postcss-fs-css",
+			"dependencies": {
+				"postcss": ">=5.0.21"
+			},
+			"gitHead": "adc5509b33df9d29dda2e19b0189cc000228b396",
+			"_id": "postcss-fs-css@1.0.0",
+			"_shasum": "28bdd59fff668b73a458dd4410d90875f602c8b0",
+			"_from": ".",
+			"_npmVersion": "2.1.8",
+			"_nodeVersion": "4.8.1",
+			"_npmUser": {
+				"name": "mariusb",
+				"email": "marius.buescher@gmx.de"
+			},
+			"maintainers": [
+				{
+					"name": "mariusb",
+					"email": "marius.buescher@gmx.de"
+				}
+			],
+			"dist": {
+				"shasum": "28bdd59fff668b73a458dd4410d90875f602c8b0",
+				"tarball": "https://registry.npmjs.org/postcss-fs-css/-/postcss-fs-css-1.0.0.tgz",
+				"integrity": "sha512-GU+9AKZKzq197YGcESeS1vB6KntH56QiAxBoyIPKYt8uG1xye66n4lABhJ/tBPmQYoB0mSY532LxjFHQNPTzLw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDhmBe+tpg/aIlFoJjofCt/iJBEZBUk+x1xNXGEP6x/qgIhAIj9OSRIHqACXPNIXrvfLhqh/gmXKRNttI0KWl08QBnr"
+					}
+				]
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-fs-css-1.0.0.tgz_1501848215794_0.7764563397504389"
+			}
+		}
+	},
+	"readme": "# Postcss FS CSS\n\n> A PostCSS-plugin transforming plain CSS to FirstSpirit compatible CSS\n\nThis plugin is highly inspired by the [grunt-fscss](https://github.com/SebastianM/grunt-fscss) plugin. It brings the functionality\nto PostCSS to integrate it within any workflow you like using PostCSS.\n\n## Setup\n\nInstall the plugin by typing `npm install --save-dev postcss-fs-css`. After that you cann use the plugin like any other\nPostCSS plugin.\n\nExample:\n\n```js\nconst postcss = require('postcss');\n\npostcss([\n   require('postcss-fs-css')()\n]);\n```\n\nWithin the function-call you can pass a configuration object.\n\n## Configuration\n\nThe configuration is fairly easy. There are three options in the configuration object:\n\n### `abs`\n\nHere you can simply add a string which is passed in the `CMS_REF` function as the `abs` argument.\n\n### `cacheStrategy`\n\nWhen configuring the plugin to use the `revision` caching strategy there is a get-parameter with a FirstSpirit function\ngenerating a revision-id added.\n\n### `fileMapping`\n\nThis option is an object specifying a mapping between the files and the reference IDs within FirstSpirit CMS. The key is\nthe name of the file, the value is either a string specifying the reference ID associated or an object with the reference\nand the corresponding `abs`.\n\nExample:\n\n```js\nconst postcss = require('postcss');\n\npostcss([\n   require('postcss-fs-css')({\n        'fonts/sample.woff': {\n            referenceName: 'sample_1',\n            abs: 'test'\n        }\n   })\n]);\n```\n",
+	"maintainers": [
+		{
+			"name": "mariusb",
+			"email": "marius.buescher@gmx.de"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:02:17.389Z",
+		"created": "2017-08-04T12:03:36.738Z",
+		"1.0.0": "2017-08-04T12:03:36.738Z"
+	},
+	"homepage": "https://github.com/mariusbuescher/postcss-fs-css",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"FirstSpirit"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mariusbuescher/postcss-fs-css.git"
+	},
+	"author": {
+		"name": "Marius Büscher",
+		"email": "marius.buescher@denkwerk.com"
+	},
+	"bugs": {
+		"url": "https://github.com/mariusbuescher/postcss-fs-css/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

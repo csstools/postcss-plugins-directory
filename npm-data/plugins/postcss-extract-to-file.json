@@ -1,0 +1,118 @@
+{
+	"_id": "postcss-extract-to-file",
+	"_rev": "3-6b9ec580aa6eed827d064be6787c9936",
+	"name": "postcss-extract-to-file",
+	"description": "A PostCSS plugin to extract rules from one file and write them to another",
+	"dist-tags": {
+		"latest": "0.0.2"
+	},
+	"versions": {
+		"0.0.2": {
+			"name": "postcss-extract-to-file",
+			"version": "0.0.2",
+			"description": "A PostCSS plugin to extract rules from one file and write them to another",
+			"main": "index.js",
+			"scripts": {
+				"test": "ava"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/benfrain/postcss-extract-to-file.git"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"postcss-extract-to-file",
+				"postcss",
+				"css",
+				"optimisation",
+				"optimization"
+			],
+			"dependencies": {
+				"postcss": "^5.0.16"
+			},
+			"devDependencies": {
+				"ava": "^0.12.0",
+				"fs": "0.0.2",
+				"gzip-size": "^3.0.0",
+				"postcss": "^5.0.16",
+				"pretty-bytes": "^3.0.1"
+			},
+			"ava": {
+				"failFast": true,
+				"verbose": true
+			},
+			"author": {
+				"name": "Ben Frain"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/benfrain/postcss-extract-to-file/issues"
+			},
+			"homepage": "https://github.com/benfrain/postcss-extract-to-file#readme",
+			"gitHead": "ac7bb62e4fba43b6683a82284b02e731d7aa4d4b",
+			"_id": "postcss-extract-to-file@0.0.2",
+			"_shasum": "1e8d53abec9fa3789ac6f1ce4068fd8919575ceb",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "benfrain",
+				"email": "npm@benfrain.com"
+			},
+			"dist": {
+				"shasum": "1e8d53abec9fa3789ac6f1ce4068fd8919575ceb",
+				"tarball": "https://registry.npmjs.org/postcss-extract-to-file/-/postcss-extract-to-file-0.0.2.tgz",
+				"integrity": "sha512-nhsEVARWs6VMftzAqq7iucKY++BdczGeos8JyOHL0tkoFwfg8Jw/WYWWvA8CjT2YpiRQUL61IXZt+GNFV5ZB4w==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDJCp9kUMhqtRkClRICF1SdXxUkBQtb6KoYkfe5nH3lAwIhAKEtWzdb4AZGs1oOYElLXpp8wgxhBfnh2vI/NjdsIFUS"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "benfrain",
+					"email": "npm@benfrain.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-13-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-extract-to-file-0.0.2.tgz_1457050619049_0.9354298913385719"
+			}
+		}
+	},
+	"readme": "# PostCSS extract to file plugin\n\nA basic PostCSS plugin to extract certain rules from one file and write them to a different file.\n\nIt's intended use case it to remove all fallback CSS into its own file so that it can be loaded only for devices that require it. Think of all the OldIE rules for desktop or the non-W3C flexbox implementations for mobile.\n\n## Install\n### NPM \n\n`npm i postcss-extract-to-file --save-dev`\n\n### Git\n`git clone https://github.com/benfrain/postcss-extract-to-file.git`\n\n\n## There be dragons!!\n**NOTE: At this point the plugin is in 0.0.1 release. That means it's been tested in my own dev bubble and little else. Use with caution for production!!**\n\n**NOTE 2: I intend to port this to TypeScript or Babel shortly for better backwards compatibility in older Node versions. Presently, you'll need to use a modern NODE version (I'm rocking v4.2.6 at time of writing)**\n\n## Overview\nThe plugin takes 3 options: `remaining`, `extracted` and `extractors`. It processes your CSS, matches relevant rules (that you set in \"extractors\") and extracts them to the \"extracted\" file location. Rules that haven't matched are written to the \"remaining\" file location. Your existing file (the one that had both extracted and remaining in) continues to it's original location. That's it!\n\n**It is recommended that this plugin is used just before or just after your minifier (e.g. [cssnano](http://cssnano.co))**\n\n## Example\nGiven this config:\n\n````\n\"postcss-extract-to-file\": {\n    \"remaining\": \"./output/remaining.css\",\n    \"extracted\": \"./output/extracted.css\",\n    \"extractors\": [\n        \".no-w3cflexbox\",\n        \".no-svginhtml\",\n        \".no-flex\"\n    ]\n},\n````\n\nGiven this input CSS:\n\n### Input\n````\n.normal { \n    width: 100%;\n}\n\n.no-flex .normal {\n    width: 50%;\n}\n````\n\n### Output Part 1 (extracted.css)\n````\n.no-flex .normal {\n    width: 50%;\n}\n````\n\n### Output Part 2 (remaining.css)\n````\n.normal { \n    width: 100%;\n}\n````\n\nOriginal styles will be unaffected and continue to their 'normal' destination.\n\n## Options\n#### remaining\nThis is the location you want the rules that haven't matched to be written to.\n\n#### extracted\nThis is the location you want the rules that have matched to be written to.\n\n#### extractors\nThis is an object of possible strings (e.g. CSS selectors) that, should they be present in a rule will cause them to be extracted.\n\n## Tests\nThis plugin uses [AVA](https://github.com/sindresorhus/ava) for tests. If you want to check this plugin is working as it should on your system, from CLI, browse to `node_modules/postcss-extract-to-file/` and run `npm test`.\n\n\n",
+	"maintainers": [
+		{
+			"name": "benfrain",
+			"email": "npm@benfrain.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:55:23.274Z",
+		"created": "2016-03-04T00:17:02.342Z",
+		"0.0.2": "2016-03-04T00:17:02.342Z"
+	},
+	"homepage": "https://github.com/benfrain/postcss-extract-to-file#readme",
+	"keywords": [
+		"postcss-plugin",
+		"postcss-extract-to-file",
+		"postcss",
+		"css",
+		"optimisation",
+		"optimization"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/benfrain/postcss-extract-to-file.git"
+	},
+	"author": {
+		"name": "Ben Frain"
+	},
+	"bugs": {
+		"url": "https://github.com/benfrain/postcss-extract-to-file/issues"
+	},
+	"license": "ISC",
+	"readmeFilename": "README.md"
+}

@@ -1,0 +1,122 @@
+{
+	"_id": "postcss-place-shorthands",
+	"_rev": "3-d8ea55d3a80173cf7088d999d09470a4",
+	"name": "postcss-place-shorthands",
+	"description": "PostCSS plugin to polyfill the CSS Box Alignment shorthands: place-<content|self|items>",
+	"dist-tags": {
+		"latest": "0.2.1"
+	},
+	"versions": {
+		"0.2.1": {
+			"name": "postcss-place-shorthands",
+			"version": "0.2.1",
+			"description": "PostCSS plugin to polyfill the CSS Box Alignment shorthands: place-<content|self|items>",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"flexbox",
+				"grid"
+			],
+			"author": {
+				"name": "Serg Hospodarets"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/malyw/postcss-place-shorthands.git"
+			},
+			"bugs": {
+				"url": "https://github.com/malyw/postcss-place-shorthands/issues"
+			},
+			"files": [
+				"index.js"
+			],
+			"dependencies": {
+				"postcss": "~5.2.4"
+			},
+			"devDependencies": {
+				"eslint": "~3.7.1",
+				"eslint-config-airbnb": "~12.0.0",
+				"eslint-plugin-import": "~2.0.1",
+				"eslint-plugin-jsx-a11y": "~2.2.3",
+				"eslint-plugin-react": "~6.4.1",
+				"tape": "~4.6.2"
+			},
+			"scripts": {
+				"lint": "eslint *.js",
+				"tape-test": "tape test",
+				"test": "npm run lint && npm run tape-test"
+			},
+			"gitHead": "d0b742ebba4beb39b570ecc55ed3420ab7582462",
+			"homepage": "https://github.com/malyw/postcss-place-shorthands#readme",
+			"_id": "postcss-place-shorthands@0.2.1",
+			"_shasum": "2ad820d9e563c5d112a9dab1bf0eb8ed64cd0884",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.2.1",
+			"_npmUser": {
+				"name": "malyw",
+				"email": "sgospodarets@gmail.com"
+			},
+			"dist": {
+				"shasum": "2ad820d9e563c5d112a9dab1bf0eb8ed64cd0884",
+				"tarball": "https://registry.npmjs.org/postcss-place-shorthands/-/postcss-place-shorthands-0.2.1.tgz",
+				"integrity": "sha512-G9r6RZZv7H2oduZN+FdaZKJvHVkMpa96nsOG8o6+B/g8nf08OYZi41znjgtECRQ1ZZ/AW2UTcW4i8ah6hBNZ0A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCR7ELS9Ci0WBQDq0+UlNxDpWS82TtB9AYXjnb4vOb5BwIgM3LXfbMjcKECn+s+bFigAixooI3HM4JvvAvIsjupnE8="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "malyw",
+					"email": "sgospodarets@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-place-shorthands-0.2.1.tgz_1488503869597_0.9993134196847677"
+			},
+			"directories": {}
+		}
+	},
+	"readme": "# postcss-place-shorthands [![Build Status](https://travis-ci.org/malyw/postcss-place.svg)](https://travis-ci.org/malyw/postcss-place-shorthands)\n\n> PostCSS plugin to polyfill the CSS Box Alignment shorthands: place-\\<content|self|items\\>\n\n## Spec\n\n[place-content](https://drafts.csswg.org/css-align-3/#propdef-place-content)\n\n[place-self](https://drafts.csswg.org/css-align-3/#place-self-property)\n\n[place-items](https://drafts.csswg.org/css-align-3/#place-items-property) \n\n## How to use\n\nUsing this:\n\n```css\n.single {\n    place-content: space-between;\n    place-self: flex-end;\n    place-items: center;\n}\n\n.double {\n    place-content: space-between unset;\n    place-self: flex-start baseline;\n    place-items: center stretch;\n}\n```\n\nyou will get (empty lines added for readability):\n\n```css\n.single {\n    align-content: space-between;\n    justify-content: space-between;\n    place-content: space-between;\n    \n    align-self: flex-end;\n    justify-self: flex-end;\n    place-self: flex-end;\n    \n    align-items: center;\n    justify-items: center;\n    place-items: center;\n}\n\n.double {\n    align-content: space-between;\n    justify-content: unset;\n    place-content: space-between unset;\n    \n    align-self: flex-start;\n    justify-self: baseline;\n    place-self: flex-start baseline;\n    \n    align-items: center;\n    justify-items: stretch;\n    place-items: center stretch;\n}\n```\n\n## Installation\n\n```console\n$ npm install postcss-place-shorthands\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-place-shorthands') ])\n````\n\nCheck how to use with [Gulp](https://github.com/postcss/gulp-postcss),\n[Grunt](https://github.com/nDmitry/grunt-postcss),\n[Webpack, Node.js etc](https://github.com/postcss/postcss)\n\n## [Changelog](CHANGELOG.md)\n\n## License\n\nMIT\n",
+	"maintainers": [
+		{
+			"email": "shospodarets@gmail.com",
+			"name": "malyw"
+		},
+		{
+			"email": "shospodarets@gmail.com",
+			"name": "shospodarets"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:34:48.681Z",
+		"created": "2017-03-03T01:17:50.268Z",
+		"0.2.1": "2017-03-03T01:17:50.268Z"
+	},
+	"homepage": "https://github.com/malyw/postcss-place-shorthands#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"flexbox",
+		"grid"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/malyw/postcss-place-shorthands.git"
+	},
+	"author": {
+		"name": "Serg Hospodarets"
+	},
+	"bugs": {
+		"url": "https://github.com/malyw/postcss-place-shorthands/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

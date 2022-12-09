@@ -1,0 +1,125 @@
+{
+	"_id": "@tgfjt/postcss-svg",
+	"_rev": "3-d7551f5ca606abc0144bdada360e1bc6",
+	"name": "@tgfjt/postcss-svg",
+	"description": "Postcss plugin for insert inline SVG to CSS",
+	"dist-tags": {
+		"latest": "1.0.5"
+	},
+	"versions": {
+		"1.0.5": {
+			"name": "@tgfjt/postcss-svg",
+			"version": "1.0.5",
+			"description": "Postcss plugin for insert inline SVG to CSS",
+			"main": "dist/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Pavliko/postcss-svg.git"
+			},
+			"keywords": [
+				"postcss",
+				"plugin",
+				"svg",
+				"inline",
+				"colorize",
+				"color",
+				"css",
+				"image",
+				"background",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Pavel Gorlov"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/Pavliko/postcss-svg/issues"
+			},
+			"homepage": "https://github.com/Pavliko/postcss-svg#readme",
+			"dependencies": {
+				"color": "^0.10.1",
+				"dot": "^1.0.3",
+				"evil-icons": "^1.7.8",
+				"lodash": "^3.10.1",
+				"postcss": "^5.0.10",
+				"svgo": "^0.5.6",
+				"xmldom": "0.1.19"
+			},
+			"devDependencies": {
+				"autoprefixer-core": "^6.0.1",
+				"gulp": "^3.9.0",
+				"gulp-coffee": "^2.3.1",
+				"gulp-livereload": "^3.8.1",
+				"gulp-load-plugins": "^1.1.0",
+				"gulp-postcss": "^6.0.1",
+				"gulp-rename": "^1.2.2",
+				"open": "0.0.5"
+			},
+			"gitHead": "852c8b413d4321c7edaf5a506d31ef5f9567b834",
+			"_id": "@tgfjt/postcss-svg@1.0.5",
+			"scripts": {},
+			"_shasum": "67c0a1c0fb8d4ff841bd001d33bfeba98a3a3d5e",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "4.2.4",
+			"_npmUser": {
+				"name": "tgfjt",
+				"email": "tgfjt.mail@gmail.com"
+			},
+			"dist": {
+				"shasum": "67c0a1c0fb8d4ff841bd001d33bfeba98a3a3d5e",
+				"tarball": "https://registry.npmjs.org/@tgfjt/postcss-svg/-/postcss-svg-1.0.5.tgz",
+				"integrity": "sha512-RLfiYGHshink5fRJK2W3lDwbV1ZHKEMkvlWkbNiw8s6dY0Oza8eXbq+plzCU7d85MOhdIQu4tkpCfwPNySV8Ow==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDowbAV9csmOQBdkbgTwspaPdpKC+axrO/+faJkXRBXQAIhALd6fca7NOFFfGhS3q1V9tVlJOqLC4jv5tHXs6pwPKGu"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "tgfjt",
+					"email": "tgfjt.mail@gmail.com"
+				}
+			]
+		}
+	},
+	"readme": "# [postcss-svg](http://pavliko.github.io/postcss-svg/)\n[PostCSS](https://github.com/postcss/postcss) plug-in which to insert inline SVG to CSS and allows you to manage it colors.\nExamples [here](http://pavliko.github.io/postcss-svg/#examples)\n\n**Features:**\n\n* Easy insert inline SVG to CSS\n* Manage colors of your SVG image without editinig it\n* Symbols sprites support\n* Compression with svgo\n* Support Evil Icons from box\n\n## Installation\n\n```bash\nnpm install postcss-svg --save-dev\n```\n\n## Usage\nPostCSS:\n\n```javascript\n//...\nvar postcss = require('postcss');\nvar postcssSVG = require('postcss-svg');\nvar processors = [\n  //... ,\n  postcssSVG({\n    paths: ['pathToSVGDir1', 'pathToSVGDir2'],\n    defaults: \"[fill]: #000000\",\n    //more options...\n  });\n];\n\npostcss(processors)\n  .process(css, { from: './src/app.css', to: './dist/app.css' })\n  .then(function (result) {\n    fs.writeFileSync('./dist/app.css', result.css);\n  });\n```\n\nGulp:\n\n```javascript\nvar gulp = require('gulp');\nvar postcss = require('gulp-postcss');\n\ngulp.task('styles', function() {\n  var postcssProcessors;\n  postcssSVG = require.reload('postcss-svg');\n  postcssProcessors = [\n    postcssSVG({ defaults: '[fill]: green' })\n  ];\n\n  gulp.src('app/style.css')\n    .pipe(postcss(postcssProcessors))\n    .pipe(gulp.dest('.tmp'));\n});\n```\n\nUsing this `input.css`:\n\n```css\nbody {\n  background-image: svg(\"ei#sc-github\", \"[fill]: black\");\n}\n```\n\nyou will get:\n\n```css\nbody {\n  background-image: url(\"data:image/svg+xml,%3Csvg%20id%3D%22ei-sc-github-icon%22%20viewBox%3D%220%200%2050%2050%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20style%3D%22fill%3Ablack%3B%22%20height%3D%22100%25%22%20width%3D%22100%25%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M25%2010c-8.3%200-15%206.7-15%2015%200%206.6%204.3%2012.2%2010.3%2014.2.8.1%201-.3%201-.7v-2.6c-4.2.9-5.1-2-5.1-2-.7-1.7-1.7-2.2-1.7-2.2-1.4-.9.1-.9.1-.9%201.5.1%202.3%201.5%202.3%201.5%201.3%202.3%203.5%201.6%204.4%201.2.1-1%20.5-1.6%201-2-3.3-.4-6.8-1.7-6.8-7.4%200-1.6.6-3%201.5-4-.2-.4-.7-1.9.1-4%200%200%201.3-.4%204.1%201.5%201.2-.3%202.5-.5%203.8-.5%201.3%200%202.6.2%203.8.5%202.9-1.9%204.1-1.5%204.1-1.5.8%202.1.3%203.6.1%204%201%201%201.5%202.4%201.5%204%200%205.8-3.5%207-6.8%207.4.5.5%201%201.4%201%202.8v4.1c0%20.4.3.9%201%20.7%206-2%2010.2-7.6%2010.2-14.2C40%2016.7%2033.3%2010%2025%2010z%22%2F%3E%3C%2Fsvg%3E\");\n}\n```\n\n## Options\n#### paths\nType: `Array` Default: `['svg']` Example: `['pathToSVGDir1', 'pathToSVGDir2']` Required: `false`\n\nYou can define relative path to folders with SVG files.\n\n#### func\nType: `String` Default: 'svg' Example: 'url' Required: `false`\n\nYou can set func option to 'url' to support fallback to url(\"*.svg\") links.\n\n#### svgo\nType: `Boolean`, `Object` Default: `false` Example: `true` Required: `false`\n\nYou can set custom config for svgo module. Recommend to set true only for production build.\n\n#### defaults\nType: `String` Default: `''` Example: `'[fill]: #00F800; .glass[fill]: rgba(0, 0, 255, 0.1);'` Required: `false`\n\nYou can set default rules for all included SVG\n\n#### ei\nType: `Boolean`, `Object` Default: `true` Example: `{ \"dfaults\": \"[fill]: red\" }` Required: `false`\n\nYou can set false to disable initializing Evil Icons. Or you can set different defaults only for Evil Icons.\n\n#### debug\nType: `Boolean` Default: `false` Required: `false`\n\nYou can set false to disable initializing Evil Icons. Or you can set different defaults only for Evil Icons.\n\n#### silent\nType: `Boolean` Default: `true` Required: `false`\nDo not throw errors\n\n## Colors API\nYou can replace only **existing** values of `fill` and `stroke` attributes.\n\nTo replace colors you can use simple selectors.\n\nYou can use several selectors for one SVG.\n\nIn the bottom you can see this selectors in ascending order.\n\nFor better understanding of selectors check [examples](http://pavliko.github.io/postcss-svg/#examples).\n\n### Selectors:\n\n#### [color]\nAll `fill` and `stroke` attributes\n#### [fill]|[stroke]\nAll `fill` or `stroke` attributes\n#### tagName[fill]|tagName[stroke]\n`fill` or `stroke` tag attributes with name tagName\n#### .className[fill]|.className[stroke]\n`fill` or `stroke` tag attributes with class className\n#### colorGroupN\nAll colors in SVG are grouped in color groups. N - group index, starts from 0 (from the top of SVG document)\n#### \\#identifier[fill]|\\#identifier[stroke]\n`fill` or `stroke` tag attributes with id identifier\n#### colorN\nAll colors in SVG have index. N - index, starts from 0 (from the top of SVG document)\n\n## [Examples](http://pavliko.github.io/postcss-svg/#examples)\n\n## Contributing\nPull requests are welcome.\nTo run development envirement\n\n```\ngit clone git@github.com:Pavliko/postcss-svg.git\ncd postcss-svg\nnpm install\ngulp watch\n```\n\n## [Changelog](CHANGELOG.md)\n\n## [License](LCENSE)\n",
+	"maintainers": [
+		{
+			"name": "tgfjt",
+			"email": "tgfjt.mail@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-13T00:45:19.661Z",
+		"created": "2016-01-12T15:47:36.582Z",
+		"1.0.5": "2016-01-12T15:47:36.582Z"
+	},
+	"homepage": "https://github.com/Pavliko/postcss-svg#readme",
+	"keywords": [
+		"postcss",
+		"plugin",
+		"svg",
+		"inline",
+		"colorize",
+		"color",
+		"css",
+		"image",
+		"background",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Pavliko/postcss-svg.git"
+	},
+	"author": {
+		"name": "Pavel Gorlov"
+	},
+	"bugs": {
+		"url": "https://github.com/Pavliko/postcss-svg/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

@@ -1,0 +1,112 @@
+{
+	"_id": "postcss-packlite",
+	"_rev": "3-3b89720b54070282880f53b81e8e1b38",
+	"name": "postcss-packlite",
+	"description": "PostCSS plugin bundle that includes imports, variables, mixins, and nesting",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-packlite",
+			"version": "1.0.0",
+			"description": "PostCSS plugin bundle that includes imports, variables, mixins, and nesting",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"preprocessor"
+			],
+			"author": {
+				"name": "thuongvu",
+				"email": "thuongvuho@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/thuongvu/postcss-packlite.git"
+			},
+			"bugs": {
+				"url": "https://github.com/thuongvu/postcss-packlite/issues"
+			},
+			"homepage": "https://github.com/thuongvu/postcss-packlite",
+			"dependencies": {
+				"object-assign": "^4.0.1",
+				"postcss": "^5.0.2",
+				"postcss-import": "^7.0.0",
+				"postcss-mixins": "^1.0.2",
+				"postcss-nested": "^1.0.0",
+				"postcss-simple-vars": "^1.0.1"
+			},
+			"devDependencies": {
+				"chai": "^3.2.0",
+				"gulp": "^3.9.0",
+				"gulp-eslint": "^1.0.0",
+				"gulp-mocha": "^2.1.3",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"gitHead": "05684024d88078a6ac5aad19d323a7ff490b853f",
+			"_id": "postcss-packlite@1.0.0",
+			"_shasum": "90ddab25dbd701e6a8d2538cf84bc404651b35a5",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "thuongvu",
+				"email": "thuongvuho@gmail.com"
+			},
+			"dist": {
+				"shasum": "90ddab25dbd701e6a8d2538cf84bc404651b35a5",
+				"tarball": "https://registry.npmjs.org/postcss-packlite/-/postcss-packlite-1.0.0.tgz",
+				"integrity": "sha512-1WiEOykmdNNOjnjBFQx1FeK2XQIHRKKlKwkoTiRvbjDw//MhEAszfYvb9sSKnB89wn0K5r3glBEA1zgmXwPw1g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCqJphTHvKu1iRylrRwg0ZocZS1z7ClyfSrRtZXnbJ5MgIgGYv5JXZ1B/6rq9Jp1sKNW0WFhPqeWxy0skGU0iBKPjM="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "thuongvu",
+					"email": "thuongvuho@gmail.com"
+				}
+			]
+		}
+	},
+	"readme": "# PostCSS Packlite [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin bundle that includes imports, variables, mixins, and nesting.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/thuongvu/postcss-packlite.svg\n[ci]:      https://travis-ci.org/thuongvu/postcss-packlite\n\n### Imports\n\n```css\n/* Before */\n\n@import \"base\"; /* Contents of base.css: `body { margin: 0; }` */\n\n\n/* After */\n\nbody { margin: 0; }\n```\n\n### Variables\n\n```css\n/* before */\n\n$full-width: 100px;\n\n.foo {\n\twidth: $full-width;\n}\n\n\n/* after */\n\n.foo {\n\twidth: 100px;\n}\n\n```\n\n### Variables\n\n```css\n/* before */\n\n$full-width: 100px;\n\n.foo {\n\twidth: $full-width;\n}\n\n\n/* after */\n\n.foo {\n\twidth: 100px;\n}\n\n```\n\n### Mixins\n\n```css\n/* before */\n\n@define-mixin link $link, $visited, $hover {\n\ta {\n\t\tcolor: $link;\n\t}\n\ta:visited {\n\t\tcolor: $visited;\n\t}\n\ta:hover {\n\t\tcolor: $hover;\n\t}\n}\n.home {\n\t@mixin link red, yellow, orange;\n}\n\n\n\n/* after */\n\n.home a {\n    color: red\n}\n.home a:visited {\n    color: yellow\n}\n.home a:hover {\n    color: orange\n}\n\n\n```\n\n### Nesting\n\n```css\n/* before */\n\n.foo {\n\t.bar {\n\t\twidth: 100px;\n\t}\n}\n\n.foo {\n\t&.bar {\n\t\twidth: 200px;\n\t}\n}\n\n\n/* after */\n\n.foo .bar {\n    width: 100px;\n}\n\n.foo.bar {\n    width: 200px;\n}\n\n```\n\n\n## Usage\n\n```js\npostcss([ require('postcss-packlite') ])\n```\n",
+	"maintainers": [
+		{
+			"name": "thuongvu",
+			"email": "thuongvuho@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:33:00.686Z",
+		"created": "2015-10-27T05:47:55.048Z",
+		"1.0.0": "2015-10-27T05:47:55.048Z"
+	},
+	"homepage": "https://github.com/thuongvu/postcss-packlite",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"preprocessor"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thuongvu/postcss-packlite.git"
+	},
+	"author": {
+		"name": "thuongvu",
+		"email": "thuongvuho@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/thuongvu/postcss-packlite/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

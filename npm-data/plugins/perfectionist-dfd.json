@@ -1,0 +1,1360 @@
+{
+	"_id": "perfectionist-dfd",
+	"_rev": "15-75c0bfa0b9cf7e4b2f285170791b095c",
+	"name": "perfectionist-dfd",
+	"dist-tags": {
+		"latest": "3.0.1",
+		"stable": "3.0.1",
+		"devel": "3.0.1"
+	},
+	"versions": {
+		"2.4.2-beta.1": {
+			"name": "perfectionist-dfd",
+			"version": "2.4.2-beta.1",
+			"description": "Beautify CSS files. Fork of a fork of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"scripts": {
+				"coverage": "rollup -c && cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"prepublishOnly": "del-cli dist && rollup -c",
+				"pretest": "npm run lint",
+				"pretest:ci": "npm run lint",
+				"preversion": "cpy --flat --rename=CHANGELOG.md .changelog-header.md . && offline-github-changelog --next=${npm_package_version} >> CHANGELOG.md && git add CHANGELOG.md",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"test": "rollup -c && cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "npm run coverage",
+				"test:oldci": "cross-env NODE_ENV=test ava ./__tests-oldnode__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss": "^8.4.12",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "^4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"offline-github-changelog": "^2.4.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"gitHead": "17f4cac7f7ee6df46b843e2fe0cc74b71deb6e51",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@2.4.2-beta.1",
+			"_nodeVersion": "16.14.0",
+			"_npmVersion": "8.3.1",
+			"dist": {
+				"integrity": "sha512-Dx50jLKUx+x8BAqDqOiGxqLZFAWica0SzT4eddBbmyty/Y87y5Imy+lK+GO8OqbCNBuQZf5d5ebawLv6jYYn1Q==",
+				"shasum": "0ac733842b1b92462e97acf6e8f3dbb155d60736",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-2.4.2-beta.1.tgz",
+				"fileCount": 10,
+				"unpackedSize": 78577,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCmxBhvFZ1LpgEdwojS3WYkWUAozJDbkv1Sk1gHXIVuYgIhAIK6iptWJbLpb3hVha28tv7RCyqqu5+Yqly4bb8F8wIH"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiR9ssACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrMXw/9Eo1cV3/glWIU40rOnq7VgN2oLCJkrM3JuBXaOWmViyg5XiGw\r\nNVaqACed+bk+87EenW2MitDlz19VqBl6IXKqWFqpzuk9BBpJxGBt9DcHn92P\r\nzxUEe+f7Y5MFiYYII0lsJ3IDr6hrkMVx9DkKUSfwf5PZAs/xbThYDDTVLbOy\r\no+QgTVLB++JTmfPT0p/LTid+tediraqdPmnCu9gnEgmsKe9VQ6MenyYHOKCC\r\nMbmRUS7n50e7UhvUCDL8RB9MJLtgCq3OeCTxPAfBt4p1Nir7k/byICvdeF0c\r\nWFQo/oa1uwkgFicxr0z5P2C67xQKzA8TJfn2GfOA/uAQG/vIjNqL5w56n3g/\r\ntivf3s9xhJ/RGfPzmS12gdsufjcEPiW76J/n3+qIQpI8Z2IEVwwfD+68Cvc0\r\nDGEJju47rQIxc2341ieXGfG9DJdUDX/atcyPlaqehzKIgaGsf9XhT5XHVgOf\r\nT/mDQoKsAYaRrJsmOYw7QQTAJjp70kXHshbzuVsgkZiIvbHqNCBCnvEnG1xV\r\nYCMbdr9pj6s6kgXBvsAYoxcNrrt4ciF7wTEXPdMETcMC7XFGr9/KR52xTma3\r\n1mmypdDFGyWzuDWRWi438O8vtVKGRNgUNQsUqAVOFxYnOprDH9d/I5VqRtai\r\nk8AmFTYOCCA6s8TH8d4tg9Cp6s8nSk7Lpqw=\r\n=iVy7\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_2.4.2-beta.1_1648876332542_0.4630002569139382"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.2-beta.2": {
+			"name": "perfectionist-dfd",
+			"version": "2.4.2-beta.2",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"scripts": {
+				"coverage": "rollup -c && cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"prepublishOnly": "del-cli dist && rollup -c",
+				"pretest": "npm run lint",
+				"pretest:ci": "npm run lint",
+				"preversion": "cpy --flat --rename=CHANGELOG.md .changelog-header.md . && offline-github-changelog --next=${npm_package_version} >> CHANGELOG.md && git add CHANGELOG.md",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"test": "rollup -c && cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "npm run coverage",
+				"test:oldci": "cross-env NODE_ENV=test ava ./__tests-oldnode__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss": "^8.4.12",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "^4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"offline-github-changelog": "^2.4.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"gitHead": "17f4cac7f7ee6df46b843e2fe0cc74b71deb6e51",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@2.4.2-beta.2",
+			"_nodeVersion": "16.14.0",
+			"_npmVersion": "8.3.1",
+			"dist": {
+				"integrity": "sha512-rcJKy4+MdIY8gVUAEspTGjQToNFbLbiL431GOWlm1q2SVF6a2qyBBvbZ0Oz36YyKhE+BUliuol0jDmkjPC0QgQ==",
+				"shasum": "2db56d99edd73993f90ab4dbabdacbf62b3fe7ab",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-2.4.2-beta.2.tgz",
+				"fileCount": 10,
+				"unpackedSize": 79748,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICGMtHKUbYVdpEOo55wARWYFnuq0O75ezxDrfYub8BUmAiEAoRw8tSRHQMVQgha0SbWdjpkzefGJdajGaQU/SLicRVY="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiSKZdACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpYZxAAhRCiAxUuYZDHgipzBeCSAetL0ZgY9C94n9OLX92sV0SFiJF4\r\neNw3lxnijnSLLR+3LA5dBge64NGECqsECEnfl48hBye6Xzvb3rIWxN1gA1LT\r\naRkE1hojfjS2Rf9Taj/vBdeVNIjelhdIhhj385+nQCWCsSinsXtlaDqp7UKJ\r\nGElgPTVK1mrm6L0KSaMoKeJUpFf/Spd81SWX+62TzZEhhYgPJUWsqiM9a7Cz\r\nGsE4AEDDfclz+Nak8j4JurRqMjgHYSW0Bl/vQWPKe22qAwWHy6Xf8+PcQgjN\r\ngyxeUdi/E2B9dSMeua3fA1nr8pleXhkbPKiwc54Gf27ddgD37cbMDgrfnN5L\r\nVIsdJ3+JzqiEpCnPdNN4iC0fshKMQO6bCjhDe9aFYjbEITiXAGqFGZ2QTcsA\r\nRZNrpVBFJhbSRlo7VsiXO+u2BAZ+PMo/JFDZpL2FZ+ewUm5orjO9KCaxMuCm\r\nE/nUJ6FW6CtVAUS4JseSr1HaVI7kYYLG/cQJqvAz/1px8sTRY+ROthyBG0hk\r\ngvQcoeLIV6oexGNW+o4jhQs++VabU2nfnKRXnDdV9mpL0xybv/lFMNJ+qX5d\r\nldBpwRzJjFPjmvV/X+n2upEuMGKjPJgGnGHaFM2x2OTSanBn2Ma0zVc3iG0Z\r\no/RnNYFx4UTUeZDHn5JD9BHVaq3xdsBT4rc=\r\n=hKM6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_2.4.2-beta.2_1648928348942_0.2744353869389038"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.2": {
+			"name": "perfectionist-dfd",
+			"version": "2.4.2",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"scripts": {
+				"coverage": "rollup -c && cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"prepublishOnly": "del-cli dist && rollup -c",
+				"pretest": "npm run lint",
+				"pretest:ci": "npm run lint",
+				"preversion": "cpy --flat --rename=CHANGELOG.md .changelog-header.md . && offline-github-changelog --next=${npm_package_version} >> CHANGELOG.md && git add CHANGELOG.md",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"test": "del-cli out-test && rollup -c && cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "del-cli out-test && npm run coverage",
+				"test:oldci": "del-cli out-test && cross-env NODE_ENV=test ava ./__tests__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"normalize",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss": "^8.4.12",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"semver": "^7.3.5",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "^4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"offline-github-changelog": "^2.4.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**",
+					"out-test"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"gitHead": "0be0ee7016f2f837d48e274f87a8126dd2deab0d",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@2.4.2",
+			"_nodeVersion": "16.14.0",
+			"_npmVersion": "8.3.1",
+			"dist": {
+				"integrity": "sha512-3BbbV9ongm9cMcje4B+224OmIclXT9TLjcQ8o626dHfZHdxpJRYGZbxfxsqNqCpR4oWbq9g8GDZF3qCXNdPPgw==",
+				"shasum": "9c4d80090bfc2ec140c85dcb92fa12212c7211c3",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-2.4.2.tgz",
+				"fileCount": 10,
+				"unpackedSize": 79799,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEY7mBd9gv0t/uIvYSL6D+jjhwJDIZyvaXoTzWTPNr+/AiEAzggjN0Hp5TQhjJgrfui6afyJ/rzlhAp3uhHQ0ioriXU="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiSSUAACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr4hA//cifY81V5Ow4IBbF2VhP3L5j4HCG6t9viOaXsXO+zTWflYmiE\r\nz+buYVbKyMigTr3Ei6R8qr54kBYrrJ2a3/wzdvwKlCLEOlFlJqifQKGbX46E\r\n7ihsjndMdnabijsiXce2ud8k83IipEJ2WmFLZ2++iO1ArpStlQRTgDmoMngr\r\ncDueTWoCDyc/gCbXY+a9pkaE3o78kjdu9B2VfhdNTqli7U2te0DyLvrzCmE1\r\nne/v7A7b/j6IrYIC9SuRRo6QdnGRn/nXVTJjLsPE5eUxPM/Lf2gV0J/HVuHY\r\n/FumfgVOSouBOz2P+ynyeEYvEk0NIgM2AKTrPNamrqKCWlvDykY1s8fvTK+t\r\nrOmq2CX8dQ3FbFSxeqJOXX3jspdH2yUvIPPk6LErvkNLTGjGmDdbVorsG3Uz\r\ncrIiRfILoOfPrOPDwIhMcOvlnNxPGKoFWIpXCIq//f6NMTrWfp9bBSzvr0g2\r\nmYksDDSuVkTHsGVGu6GpGhdUtHSUQKER2Sm94CGdF8NyNWnRXrTON1U/N39U\r\n2ZjJT26UHjVcyIZwMI8vfvQ3pT0vIo0ZA5xAoEhBnNgC4sftzx7vE/NWwhS+\r\nG0Z9c8LIkQVWegj4tcdx15DOI2p0nfRfGw9l7oeIEUQDfvfA/EjSz17CTdgC\r\n/alb9xgRQDWQ0c0GSbsfeNOApoFARfNRnHw=\r\n=DpJl\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_2.4.2_1648960767972_0.5086743439244119"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0-alpha.2": {
+			"name": "perfectionist-dfd",
+			"version": "3.0.0-alpha.2",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"scripts": {
+				"coverage": "rollup -c && cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"prepublishOnly": "del-cli dist && rollup -c",
+				"pretest": "npm run lint",
+				"pretest:ci": "npm run lint",
+				"preversion": "cpy --flat --rename=CHANGELOG.md .changelog-header.md . && offline-github-changelog --next=${npm_package_version} >> CHANGELOG.md && git add CHANGELOG.md",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"test": "del-cli out-test && rollup -c && cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "del-cli out-test && npm run coverage",
+				"test:oldci": "del-cli out-test && cross-env NODE_ENV=test ava ./__tests__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"normalize",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"semver": "^7.3.5",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "^4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"offline-github-changelog": "^2.4.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.12"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**",
+					"out-test"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@3.0.0-alpha.2",
+			"_nodeVersion": "12.22.11",
+			"_npmVersion": "6.14.16",
+			"dist": {
+				"integrity": "sha512-WtWpluf8UpxKFKHUtFd7ScIdRq3Sxt4TkFNy8PCWkQ/tzh1NM5scNK9fiKHdX7WEzNwsENK+FXcKsyo1ACpYsw==",
+				"shasum": "ac35a1ba922db2f2129a3c7f7160145cee3c8d44",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-3.0.0-alpha.2.tgz",
+				"fileCount": 10,
+				"unpackedSize": 82810,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHe1RYIAFBs0XLtpZlhPClzhrjWIzpCjU7XikUtYuO+jAiEA382yerKQ+R2trEbGV1zO4EYwWsGQq0kt4TPHnoj7jDY="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiSf65ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpavw//TYg51sHMuv3nQSiPG0qty05YPNk537wLeNdCK8K2kgwxKDFP\r\nE5h8Lgy41rJ8pKJPgzGEpMf+XsstRyB7OtEKmpsrXPe1DnxxgJz9NzRexnxC\r\nEIhel+EuaNCILEKObMjoTGTxzarXKqNbd7J3C043aEBBVg/rxPpWda0Kthh1\r\ntr5pO9/ks2tpTtJIto6Yd8FaXYBSorBxP3UO3sfmty1xUn8h6DLTIDWOcbO3\r\nF7u/sWYF/6owcNPzyvk/N/3q+Jw7SPeJ//J9FrzU1nGTKl0G9xn0mDYlyopX\r\n8oredULsBfIoGICi5n8+fYumsv2qMERvRXfqkuQTF93PmQ6yahgD0CvFg4E3\r\noD7DI+USvHXsiPkkYdfVjSSmhbECsinXEeo1wkRGaM96jz6qk3ry0bUkKtwC\r\n2hlZDOzSn/6TI5PdQDt884MhpsrI+115ZjXgKsqwlgFo3GIe7INBdyLVyhB2\r\nP7Rn7rAPjO/tq6M3uGM8Q85cU0BYLYvPQt20OkEU5/3y0xF49Z/9MUcLe/tz\r\nXH9lsteUPRoQvTXL7OMcQfhW1SFjDnEFPWW3bQhjlEGBq1h3Rd7Q8KnDzYTJ\r\nAShjOBoevGcPhA4ajOB+eIndj9Pmj9tPeCjiToY44G2VzDQZpK5npLYrAKGs\r\n9MnswjDL5ZWgsP8lARMv4WAQ5iaiFnefjWw=\r\n=Hru8\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_3.0.0-alpha.2_1649016505229_0.793381076148097"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0-alpha.3-dev.1": {
+			"name": "perfectionist-dfd",
+			"version": "3.0.0-alpha.3-dev.1",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"publishConfig": {
+				"tag": "devel"
+			},
+			"scripts": {
+				"coverage": "rollup -c && cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"prepublishOnly": "del-cli dist && rollup -c",
+				"pretest": "npm run lint",
+				"pretest:ci": "npm run lint",
+				"preversion": "cpy --flat --rename=CHANGELOG.md .changelog-header.md . && offline-github-changelog --next=${npm_package_version} >> CHANGELOG.md && git add CHANGELOG.md",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"test": "del-cli out-test && rollup -c && cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "del-cli out-test && npm run coverage",
+				"test:oldci": "del-cli out-test && cross-env NODE_ENV=test ava ./__tests__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"normalize",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"semver": "^7.3.5",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "^4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"offline-github-changelog": "^2.4.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.12"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**",
+					"out-test"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"readme": "# perfectionist-dfd\n\nBeautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.\n\n## Status\n\n[![perfectionist-dfd CI](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml/badge.svg)](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml) [![Coverage](https://coveralls.io/repos/github/danielfdickinson/perfectionist-dfd/badge.svg?branch=main)](https://coveralls.io/github/danielfdickinson/perfectionist-dfd?branch=main) [![Dependency status](https://img.shields.io/librariesio/release/npm/perfectionist-dfd)](https://github.com/danielfdickinson/perfectionist-dfd/blob/main/package.json) [![NPM version](https://img.shields.io/npm/v/perfectionist-dfd)](https://www.npmjs.com/package/perfectionist-dfd?activeTab=versions)\n\n### Future\n\n1. TODO: #11 Update easy pieces of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n2. TODO: #12 Update main logic of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n3. TODO: #13 Update rest of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n4. TODO: #14 Improve and enhance [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) as a [PostCSS](https://github.com/postcss/postcss#readme) plugin.\n5. TODO: #15 Improve and enhance as a standalone tool.\n\n## Install\n\nWith [npm](https://npmjs.org/package/perfectionist-dfd) do:\n\n```sh\nnpm install postcss perfectionist-dfd --save\n```\n\n## Example\n\n### Input\n\n```css\nh1   {\n         color   :  red }\n```\n\n### Expanded output\n\n```css\nh1 {\n    color: red;\n}\n```\n\n### Compact output\n\n```css\nh1 { color: red; }\n```\n\n### Compressed output\n\n```css\nh1{color:red}\n```\n\n## API\n\n### perfectionistDFD.process(css, [options])\n\n#### css\n\nType: `string`\n*Required option.*\n\nPass a CSS string to beautify it.\n\n#### options\n\n##### cascade\n\nType: `boolean`\nDefault: `true`\n\nSet this to `false` to disable visual cascading of vendor prefixed properties.\nNote that this transform only applies to the `expanded` format.\n\n```css\n/* true */\nh1 {\n    -webkit-border-radius: 12px;\n            border-radius: 12px;\n}\n\n/* false */\nh1 {\n    -webkit-border-radius: 12px;\n    border-radius: 12px;\n}\n```\n\n##### colorCase\n\nType: `string`\nDefault: `lower`\n\nSet either `lower` or `upper` to transform hexadecimal colors to the according case.\n\n```css\n/* upper */\np { color: #C8C8C8 }\n\n/* lower */\np { color: #c8c8c8 }\n```\n\n##### colorShorthand\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to shorten hexadecimal colors.\n\n```css\n/* true */\np { color: #fff }\n\n/* false */\np { color: #ffffff }\n```\n\n##### format\n\nType: `string`\nDefault: `expanded`\n\nPass either `expanded`, `compact` or `compressed`. Note that the `compressed`\nformat only facilitates simple whitespace compression around selectors &\ndeclarations. For more powerful compression, see [cssnano](https://cssnano.co).\n\n##### indentChar\n\nType: `string`\nDefault: ' ' (space)\n\nSpecify `\\t` here instead if you would like to use tabs for indentation.\n\n##### indentSize\n\nType: `number`\nDefault: `4`\n\nThis number will be used as a basis for all indent levels, using the `expanded`\nformat.\n\n##### trimLeadingZero\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim leading zero for fractional numbers less than 1.\n\n```css\n/* true */\np { line-height: .8 }\n\n/* false */\np { line-height: 0.8 }\n```\n\n##### trimTrailingZeros\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim trailing zeros in numbers.\n\n```css\n/* true */\ndiv { top: 50px }\n\n/* false */\ndiv { top: 50.000px }\n```\n\n##### maxAtRuleLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for at-rule parameters; if\nthey exceed this, they will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### maxSelectorLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a selector string; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform is excluded from the\n`compressed` format.\n\n##### maxValueLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a property value; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### sourcemap\n\nType: `boolean`\nDefault: `false`\n\nGenerate a sourcemap with the transformed CSS.\n\n##### syntax\n\nType: `string`\n\nSpecify `scss` if you would like to also format SCSS-style single line comments.\nThis loads the [postcss-scss](https://github.com/postcss/postcss-scss) plugin.\n\n##### zeroLengthNoUnit\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim units after zero length.\n\n```css\n/* true */\ndiv { padding: 0 }\n\n/* false */\ndiv { padding: 0px }\n```\n\n### `postcss([ perfectionistDFD(opts) ])`\n\nperfectionist can also be consumed as a PostCSS plugin. See the\n[documentation](https://github.com/postcss/postcss#usage) for examples for\nyour environment.\n\n### CLI\n\nperfectionist also ships with a CLI app. To see the available options, just run:\n\n```sh\nperfectionist-dfd --help\n```\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributing\n\nPull requests are welcome. If you add functionality, then please add unit tests\nto cover it.\n\n## License\n\nMIT © 2015 [Ben Briggs](http://beneb.info) \\\nMIT © 2022 [Daniel F. Dickinson](https://www.wildtechgarden.ca/danielfdickinson/)\n",
+			"readmeFilename": "README.md",
+			"gitHead": "0be0ee7016f2f837d48e274f87a8126dd2deab0d",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@3.0.0-alpha.3-dev.1",
+			"_nodeVersion": "16.14.0",
+			"_npmVersion": "8.3.1",
+			"dist": {
+				"integrity": "sha512-sLs6JEv/okeFKj2yWKouX0LxpQy14EyxLC9R2u6Xbq6pVSk1w8a4dEOZwJ0VE/l4plELaOLlDbKTOzURG2T/Gg==",
+				"shasum": "a56cfa13935a4e0f9093f15b3171aa67c88ab9e0",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-3.0.0-alpha.3-dev.1.tgz",
+				"fileCount": 10,
+				"unpackedSize": 82852,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCn9cc0J8ZVER8aSSKGx8ejEonWdOXIgJm4s2DIWZjk6QIhAMJ+8kUB/tEa5wpviJJ6EEGCrH4A8UT8k7O/6hcOK0SI"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiShZYACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrOJQ/8DRSoUulROrlDSkKRHjpOhAz9JKb4IgfRuTDWILTQiKb4YODf\r\nh/rQ4RQUFkhz9mEjwsswdbCZA5xxAT6T3n0hmDt+sWpT58BxSFM6bUdC3kVi\r\nmEoRjZTBitjfbEyyFtenJJCyaBlFYk1ma1S6WhmJ396Su82l0KApPQHhhH+v\r\near7XWAfAs4jJAYqcX0GsXS1vp+IShHDwsvjJAZ7/FJOK98Pw3UJVRBvG47Y\r\nT/WLlE1sJNv4IXiEHi6F9lrjM3l3dhLLSqRDxGBjRwQwOUBUj/DM4tXLNQre\r\nMGb+05MM12x4FIUJIsjxOXZOB1VUQEna3gcYdTLBC6kvHEqdf1Gs7Ig/lD3r\r\naOe8yYbJMxPsHpDnUqfyhva700LaKLSe9YIZXPXMV0Pw6/g/w0qARntHMoz9\r\nMwBXF2/rUCKJrALuIQ31ehDkv/F/aV9YfhBT/NUy3ED1VY48Upy8a4SJoQ6p\r\nevwZ5YIc28JvfdxoR4qdDO6PgyS+pIl9qAimRkEIuMiQoXq4OGJk9DSVYZvm\r\n7AqVfMynWR6Qg8eYOyG8kf8oSORrxqflsMyR78yDNcxumQpW25LJUg4gTWs/\r\n1gBXwQdAy7nz4hVGv4k6E2qX88fssaSi9uIRzf7bkoLI8EFZiS1gbm1FVsKI\r\nhw+IcMZhUdjgx7G7rZhfy+NZgJBSRM/HHsk=\r\n=zY3u\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_3.0.0-alpha.3-dev.1_1649022551966_0.4394405110069495"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "perfectionist-dfd",
+			"version": "3.0.0",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"publishConfig": {
+				"tag": "devel"
+			},
+			"scripts": {
+				"precoverage": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"coverage": "cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"production": "npm run test && del-cli dist && cross-env NODE_ENV=production rollup -c",
+				"preversion": "npm run production",
+				"prepublishOnly": "npm run production",
+				"version": "cpy --flat --rename=CHANGELOG.md .changelog-header.md . && offline-github-changelog --next=${npm_package_version} >> CHANGELOG.md && git add CHANGELOG.md",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"pretest": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"test": "cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "npm run coverage",
+				"pretest:oldci": "del-cli out-test",
+				"test:oldci": "cross-env NODE_ENV=test ava ./__tests__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"normalize",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"semver": "^7.3.5",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "^4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"offline-github-changelog": "^2.4.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.12"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**",
+					"out-test"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"gitHead": "0be0ee7016f2f837d48e274f87a8126dd2deab0d",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@3.0.0",
+			"_nodeVersion": "16.14.0",
+			"_npmVersion": "8.3.1",
+			"dist": {
+				"integrity": "sha512-g2EBMVcmkPN1geYaB5/Fg0cVUDN2oLXsTkbsoZPc3QPdUBAyIsOQr/UCTavqFwbvPwETXgSjN8/tzjqzV1CgPw==",
+				"shasum": "811d323ff4df11bf9bfbe52ef25d97adb9ec6939",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-3.0.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 83575,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIE2L6KfbRQ5phaMToBiDvMMUWKtTtpH53D/1blb6sPNuAiEA7Fu/nsClMCIkyfgB+ddMYq+cQbQw+WUx5U/Fdb66x7E="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiSktMACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq6eRAAkpAQ6weXzD205W3jlfYXSGpmxtJWKE2jHbUTIEElmTJfQKOf\r\n3sC05ks6fRHmRxzdQCwUIIOgznTrdwT1Fl00MES9Ya1esMz7fJ8MMoNp0zLi\r\nTELxygBBeouL3ou578uV+aKCNjdbCKoWO7eQLQD8T1dcxmMVm1JlJB2Mz7P9\r\ney9PVbs8hfmqjkW53SIpnrge+JwADi5Vpf3ygkfFnXOZc8+e10zMx/61NmAF\r\nkPNuCX+S04E+70qACN8sZ/Pcej+fS8ZKJIzjzzwFHzZJGZ9U/6tw6+E2dsZv\r\ne5M8SsCwPbh9gohomZF+qTd58U1D891YNYft2taTEFJLt8y8Ws9uB/rMn8zc\r\nmehXjf9eVhf1O33CwB3vqtUMeK5xH2igykiOJaiYqj6R2p8180Cigp6bMCBo\r\nxIz5yoBayWIPIW5AmQAF4E8VXAce8C48cd3E7JbxEv1ditvilPIs5n4DqX/V\r\nE0+CH8+pChrQA3lBvdmJ1b3DZ+ookENaxa4bufE+cZpAo8rve4tO5YoN1K9n\r\nhFzo7yOM1XdJAkCH+2sm5SUoCbpggj4S/sBtX1yMjETgqbK77agIA7fNNL6T\r\nnfEmUhcvOZy6xwQa75KwYNC7vsuLiVjl18LtSW1YvTR+rUPOd8p4d2Kc8TRX\r\n6g74KFDk6qW6tZNKsGlwHOjSXmsj3CqIyas=\r\n=EhzM\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_3.0.0_1649036107860_0.9638685351152241"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1-beta.1": {
+			"name": "perfectionist-dfd",
+			"version": "3.0.1-beta.1",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"publishConfig": {
+				"tag": "devel"
+			},
+			"scripts": {
+				"precoverage": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"coverage": "cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"production": "npm run test && del-cli dist && cross-env NODE_ENV=production rollup -c",
+				"preversion": "npm run production",
+				"prepublishOnly": "npm run production",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"pretest": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"test": "cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "npm run coverage",
+				"pretest:oldci": "del-cli out-test",
+				"test:oldci": "cross-env NODE_ENV=test ava ./__tests__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"normalize",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"semver": "^7.3.5",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "^4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.12"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**",
+					"out-test"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"readme": "# perfectionist-dfd\n\nBeautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.\n\n## Status\n\n[![perfectionist-dfd CI](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml/badge.svg)](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml) [![Coverage](https://coveralls.io/repos/github/danielfdickinson/perfectionist-dfd/badge.svg?branch=main)](https://coveralls.io/github/danielfdickinson/perfectionist-dfd?branch=main) [![Dependency status](https://img.shields.io/librariesio/release/npm/perfectionist-dfd)](https://libraries.io/npm/perfectionist-dfd) [![NPM version](https://img.shields.io/npm/v/perfectionist-dfd)](https://www.npmjs.com/package/perfectionist-dfd?activeTab=versions)\n\n## Example runs\n\n### Input\n\n```css\nh1   {\n         color   :  red }\n```\n\n### Expanded output\n\n```css\nh1 {\n    color: red;\n}\n```\n\n### Compact output\n\n```css\nh1 { color: red; }\n```\n\n### Compressed output\n\n```css\nh1{color:red}\n```\n\n## Supported Environments\n\n* Currently [Node.js](https://nodejs.org) 12+ are supported.\n* REVIEW: May add browser support in the future.\n\n## Install\n\nWith [npm](https://npmjs.org/package/perfectionist-dfd) do:\n\n```sh\nnpm install postcss perfectionist-dfd --save\n```\n\n## Import (ES6+) or require (CommonJS) in your source file\n\n### ES6+\n\n```javascript\nimport perfectionistDFD from 'perfectionist-dfd';\n```\n\n### CommonJS\n\n```javascript\nconst perfectionistDFD = require('perfectionist-dfd');\n```\n\n## API\n\n### perfectionistDFD.process(css, [options])\n\n#### css\n\nType: `string`\n_Required option._\n\nPass a CSS string to beautify it.\n\n#### options\n\nType: `object`\n_optional_\n\n##### cascade\n\nType: `boolean`\nDefault: `true`\n\nSet this to `false` to disable visual cascading of vendor prefixed properties.\nNote that this transform only applies to the `expanded` format.\n\n```css\n/* true */\nh1 {\n    -webkit-border-radius: 12px;\n            border-radius: 12px;\n}\n\n/* false */\nh1 {\n    -webkit-border-radius: 12px;\n    border-radius: 12px;\n}\n```\n\n##### colorCase\n\nType: `string`\nDefault: `lower`\n\nSet either `lower` or `upper` to transform hexadecimal colors to the according case.\n\n```css\n/* upper */\np { color: #C8C8C8 }\n\n/* lower */\np { color: #c8c8c8 }\n```\n\n##### colorShorthand\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to shorten hexadecimal colors.\n\n```css\n/* true */\np { color: #fff }\n\n/* false */\np { color: #ffffff }\n```\n\n##### format\n\nType: `string`\nDefault: `expanded`\n\nPass either `expanded`, `compact` or `compressed`. Note that the `compressed`\nformat only facilitates simple whitespace compression around selectors &\ndeclarations. For more powerful compression, see [cssnano](https://cssnano.co).\n\n##### indentChar\n\nType: `string`\nDefault: ' ' (space)\n\nSpecify `\\t` here instead if you would like to use tabs for indentation.\n\n##### indentSize\n\nType: `number`\nDefault: `4`\n\nThis number will be used as a basis for all indent levels, using the `expanded`\nformat.\n\n##### trimLeadingZero\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim leading zero for fractional numbers less than 1.\n\n```css\n/* true */\np { line-height: .8 }\n\n/* false */\np { line-height: 0.8 }\n```\n\n##### trimTrailingZeros\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim trailing zeros in numbers.\n\n```css\n/* true */\ndiv { top: 50px }\n\n/* false */\ndiv { top: 50.000px }\n```\n\n##### maxAtRuleLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for at-rule parameters; if\nthey exceed this, they will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### maxSelectorLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a selector string; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform is excluded from the\n`compressed` format.\n\n##### maxValueLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a property value; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### sourcemap\n\nType: `boolean`\nDefault: `false`\n\nGenerate a sourcemap with the transformed CSS.\n\n##### syntax\n\nType: `string`\n\nSpecify `scss` if you would like to also format SCSS-style single line comments.\nThis loads the [postcss-scss](https://github.com/postcss/postcss-scss) plugin.\n\n##### zeroLengthNoUnit\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim units after zero length.\n\n```css\n/* true */\ndiv { padding: 0 }\n\n/* false */\ndiv { padding: 0px }\n```\n\n#### Example using perfectionistDFD.process\n\n```javascript\nimport perfectionistDFD from 'perfectionist-dfd'\n\nconst pftDFDOpts = {\n    indentSize: 2,\n    trimLeadingZero: false\n}\n\nconst outCSS = perfectionistDFD.process(css, pftDFDOpts).css\n```\n\n### `postcss([ perfectionistDFD(opts) ])`\n\nperfectionist-dfd can also be consumed as a PostCSS plugin. See the\n[PostCSS documentation](https://github.com/postcss/postcss#usage) for examples for\nyour environment.\n\n### CLI\n\nperfectionist-dfd also ships with a CLI app. To see the available options, just run:\n\n```sh\nperfectionist-dfd --help\n```\n\n### PostCSS usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Future\n\n1. TODO: #11 Update easy pieces of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n2. TODO: #12 Update main logic of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n3. TODO: #13 Update rest of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n4. TODO: #14 Improve and enhance [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) as a [PostCSS](https://github.com/postcss/postcss#readme) plugin.\n5. TODO: #15 Improve and enhance as a standalone tool.\n6. REVIEW: #24 Add support for use in browser environments.\n\n## Contributing\n\nPull requests are welcome. If you add functionality, then please add unit tests\nto cover it.\n\n## License\n\nMIT © 2015 [Ben Briggs](https://beneb.info) \\\nMIT © 2022 [Daniel F. Dickinson](https://www.wildtechgarden.ca/danielfdickinson/)\n",
+			"readmeFilename": "README.md",
+			"gitHead": "1675abc93e7f0c399da882db1f4997f15dc3bdad",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@3.0.1-beta.1",
+			"_nodeVersion": "16.15.0",
+			"_npmVersion": "8.5.5",
+			"dist": {
+				"integrity": "sha512-6w8Vf5xfppsi1wKDDwXUvsl5b0B3yUrVkJbsKqATOUD6O177zl9m/qe9ULu/KNFTNSAdciWS15F+VA2R/mkrzg==",
+				"shasum": "421211cdc4cafc8d13e896defeb9e8375eb3e4cc",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-3.0.1-beta.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 66378,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICbpJNS3QEVUA7NBxsg+qxFxPsxmp2FrLtKAPCOCcslkAiEA/I7Fv88TXiNCPOvwy+cNHpQ4oRa+wBjhsidb34EmCyI="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJibubnACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo3VA//Ti5JR7IOv9UAdEJwMvH4/KMVaFP18waddbnyZDqzkQQ6KhE7\r\n0RzP5jLaW50kBLl1bXudK+qmsdDh8yD9c646fw4CMwNiGyMOwHvtVRoqEjE9\r\n2v6aFCYgJkBtAA6QFYsodUeyXghaBW1aVKczh0qP7HDcFA9nvK3+hBmW4OIc\r\n2cVs7cGFGaErZvoNglr/kIUOfxd5Tz0BPDLOTvETInrsdInFWDuSsB9Jmncj\r\nXgPTeRIXZVmhPL4WXWY9b5EUN6q52T+9KsA2jfjmyqUv/SwLhm5ppqHvFPJ/\r\n5JdEilPWedXdANQ9j3g+ov3pc5zNtrZS0Eo+AD8wkX+Qc+ivEUJ/wbp+ARu2\r\nDgV9rp8J+xe9Ld85oFEcjEMyB5SO4xgeJeDRoOy2Tu+MY/jrc1c2vMEmkpPY\r\nDgQ8Zaf2vSLZ374u6J+0KExOvCxM+HaEpa1HYC8TIywoa8GV3t5CfQIMGrUE\r\nxH3tMH0LOhzGCs2WHXJILsonhpPSZ9ZK/05fAGk0ovh+RqHSPd3jE99uKqwb\r\nVP+nqnH+6bmmXBnnrir2o6woPx9KDLMp01uxxOwsn0oMaDyBPqQdkx2w5MP6\r\nLULA+Q+6RlMFxLHnSu0ukHOYs9qZ/u1z75pHeZAH0fXWAfjACFl4M1rPQQwr\r\nplbkFQr/Vm6B5hdlc481mRAchkrLo3fXOY0=\r\n=j7lh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_3.0.1-beta.1_1651435238968_0.977332850060058"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1-beta.2": {
+			"name": "perfectionist-dfd",
+			"version": "3.0.1-beta.2",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"publishConfig": {
+				"tag": "devel"
+			},
+			"scripts": {
+				"precoverage": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"coverage": "cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"production": "npm run test && del-cli dist && cross-env NODE_ENV=production rollup -c",
+				"preversion": "npm run production",
+				"prepublishOnly": "npm run production",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"pretest": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"test": "cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "npm run coverage",
+				"pretest:oldci": "del-cli out-test",
+				"test:oldci": "cross-env NODE_ENV=test ava ./__tests__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"normalize",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"semver": "^7.3.5",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "^4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.12"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**",
+					"out-test"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"readme": "# perfectionist-dfd\n\nBeautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.\n\n## Status\n\n[![perfectionist-dfd CI](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml/badge.svg)](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml) [![Coverage](https://coveralls.io/repos/github/danielfdickinson/perfectionist-dfd/badge.svg?branch=main)](https://coveralls.io/github/danielfdickinson/perfectionist-dfd?branch=main) [![Dependency status](https://img.shields.io/librariesio/release/npm/perfectionist-dfd)](https://libraries.io/npm/perfectionist-dfd) [![NPM version](https://img.shields.io/npm/v/perfectionist-dfd)](https://www.npmjs.com/package/perfectionist-dfd?activeTab=versions)\n\n## Example runs\n\n### Input\n\n```css\nh1   {\n         color   :  red }\n```\n\n### Expanded output\n\n```css\nh1 {\n    color: red;\n}\n```\n\n### Compact output\n\n```css\nh1 { color: red; }\n```\n\n### Compressed output\n\n```css\nh1{color:red}\n```\n\n## Supported Environments\n\n* Currently [Node.js](https://nodejs.org) 12+ are supported.\n* REVIEW: May add browser support in the future.\n\n## Install\n\nWith [npm](https://npmjs.org/package/perfectionist-dfd) do:\n\n```sh\nnpm install postcss perfectionist-dfd --save\n```\n\n## Import (ES6+) or require (CommonJS) in your source file\n\n### ES6+\n\n```javascript\nimport perfectionistDFD from 'perfectionist-dfd';\n```\n\n### CommonJS\n\n```javascript\nconst perfectionistDFD = require('perfectionist-dfd');\n```\n\n## API\n\n### perfectionistDFD.process(css, [options])\n\n#### css\n\nType: `string`\n_Required option._\n\nPass a CSS string to beautify it.\n\n#### options\n\nType: `object`\n_optional_\n\n##### cascade\n\nType: `boolean`\nDefault: `true`\n\nSet this to `false` to disable visual cascading of vendor prefixed properties.\nNote that this transform only applies to the `expanded` format.\n\n```css\n/* true */\nh1 {\n    -webkit-border-radius: 12px;\n            border-radius: 12px;\n}\n\n/* false */\nh1 {\n    -webkit-border-radius: 12px;\n    border-radius: 12px;\n}\n```\n\n##### colorCase\n\nType: `string`\nDefault: `lower`\n\nSet either `lower` or `upper` to transform hexadecimal colors to the according case.\n\n```css\n/* upper */\np { color: #C8C8C8 }\n\n/* lower */\np { color: #c8c8c8 }\n```\n\n##### colorShorthand\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to shorten hexadecimal colors.\n\n```css\n/* true */\np { color: #fff }\n\n/* false */\np { color: #ffffff }\n```\n\n##### format\n\nType: `string`\nDefault: `expanded`\n\nPass either `expanded`, `compact` or `compressed`. Note that the `compressed`\nformat only facilitates simple whitespace compression around selectors &\ndeclarations. For more powerful compression, see [cssnano](https://cssnano.co).\n\n##### indentChar\n\nType: `string`\nDefault: ' ' (space)\n\nSpecify `\\t` here instead if you would like to use tabs for indentation.\n\n##### indentSize\n\nType: `number`\nDefault: `4`\n\nThis number will be used as a basis for all indent levels, using the `expanded`\nformat.\n\n##### trimLeadingZero\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim leading zero for fractional numbers less than 1.\n\n```css\n/* true */\np { line-height: .8 }\n\n/* false */\np { line-height: 0.8 }\n```\n\n##### trimTrailingZeros\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim trailing zeros in numbers.\n\n```css\n/* true */\ndiv { top: 50px }\n\n/* false */\ndiv { top: 50.000px }\n```\n\n##### maxAtRuleLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for at-rule parameters; if\nthey exceed this, they will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### maxSelectorLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a selector string; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform is excluded from the\n`compressed` format.\n\n##### maxValueLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a property value; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### sourcemap\n\nType: `boolean`\nDefault: `false`\n\nGenerate a sourcemap with the transformed CSS.\n\n##### syntax\n\nType: `string`\n\nSpecify `scss` if you would like to also format SCSS-style single line comments.\nThis loads the [postcss-scss](https://github.com/postcss/postcss-scss) plugin.\n\n##### zeroLengthNoUnit\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim units after zero length.\n\n```css\n/* true */\ndiv { padding: 0 }\n\n/* false */\ndiv { padding: 0px }\n```\n\n#### Example using perfectionistDFD.process\n\n```javascript\nimport perfectionistDFD from 'perfectionist-dfd'\n\nconst pftDFDOpts = {\n    indentSize: 2,\n    trimLeadingZero: false\n}\n\nconst outCSS = perfectionistDFD.process(css, pftDFDOpts).css\n```\n\n### `postcss([ perfectionistDFD(opts) ])`\n\nperfectionist-dfd can also be consumed as a PostCSS plugin. See the\n[PostCSS documentation](https://github.com/postcss/postcss#usage) for examples for\nyour environment.\n\n### CLI\n\nperfectionist-dfd also ships with a CLI app. To see the available options, just run:\n\n```sh\nperfectionist-dfd --help\n```\n\n### PostCSS usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Future\n\n1. TODO: #11 Update easy pieces of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n2. TODO: #12 Update main logic of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n3. TODO: #13 Update rest of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n4. TODO: #14 Improve and enhance [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) as a [PostCSS](https://github.com/postcss/postcss#readme) plugin.\n5. TODO: #15 Improve and enhance as a standalone tool.\n6. REVIEW: #24 Add support for use in browser environments.\n\n## Contributing\n\nPull requests are welcome. If you add functionality, then please add unit tests\nto cover it.\n\n## License\n\nMIT © 2015 [Ben Briggs](https://beneb.info) \\\nMIT © 2022 [Daniel F. Dickinson](https://www.wildtechgarden.ca/danielfdickinson/)\n",
+			"readmeFilename": "README.md",
+			"gitHead": "5f3149889d65b3b94b192b5563ec7d7b09e714a7",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@3.0.1-beta.2",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-PEWX42o94iTFEBBAj1yAdwlRRW6KYsATABE7e+XC7xO13LyR3Xv4CpOahabncVRSJUD0D5MseLI6LgiBbfYbJw==",
+				"shasum": "839260dcc04e6076caf9e4931078809d9cc06f6f",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-3.0.1-beta.2.tgz",
+				"fileCount": 9,
+				"unpackedSize": 66378,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC6I+1+Cz1YMz6X/BqDlH9lsCdawrXF6r1IvlvMGdbYoAIhAJXWSbhbFyCUSjgXe7JhSP1+/KfVxsyQwmf7iM7LOO+f"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi2W0IACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqxjw//RXNwsI5hP5yAeRC+c9miaDubD+X7uzPvztgCbeM34pOowiFA\r\nLb1XlZAcMFaAnKetCBFG174sdrH76s2ZnbiO0e4uCr66xY2Ei0Zvu1QWRnm5\r\nP7V9utUo1RiuBnqig0UiPEJ8g/W/+KxLD7DRfH3Y/vzRP5LTlpdBx964BHW0\r\nsN+EaFRXesZsPgJTkdHo2hZC9/GFs5lL92NO9iBM7ErowAqyBEvydt0CbnF6\r\nPC6L6j++yUocQXvEvEk0rmf3fE0q1jX0Vd8pGd+j8lUBsLwQJ9C78CVAyHHQ\r\nDH/WgxnfmuRezRcChCBEDQh4PVqIx8je9DFK027cJLx3oE2hprCI2sRjV9mA\r\nKsE7Xa7d90uWkwwp/dKXkhnYoMJV4ouQgHotT9cEnh2kCtqlGDwnncPNTO1b\r\n139J2f06YnijK7K4gVTx9FliXWcBO7hs15phATbsx6G2B5WGYSh3OCuGkpvp\r\nlsa2WCVBwHi5BepmxPQnBkm8bT+be8ik9a7Gcca2OLBAEIZOaHO2erfoAtkK\r\nClOIAUD1eCiu6kCAvCpok39GtSPuBrGu9no1NJYyXG9X/oJHz5hSkMPmzdJj\r\ncYX89a6smhxkaIbHE7SKB9rXNuNvPzyy6sxD+yizfenud154p86QNVWf7CxR\r\noc+tQoFlh1xmH5VVqWaFvPZr9GZjfc2M+Uw=\r\n=86nl\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_3.0.1-beta.2_1658416391969_0.46061149076244945"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1-beta.4": {
+			"name": "perfectionist-dfd",
+			"version": "3.0.1-beta.4",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"publishConfig": {
+				"tag": "devel"
+			},
+			"scripts": {
+				"precoverage": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"coverage": "cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"production": "npm run test && del-cli dist && cross-env NODE_ENV=production rollup -c",
+				"preversion": "npm run production",
+				"prepublishOnly": "npm run production",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"pretest": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"test": "cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "npm run coverage",
+				"pretest:oldci": "del-cli out-test",
+				"test:oldci": "cross-env NODE_ENV=test ava ./__tests__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"normalize",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"semver": "^7.3.5",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^22.0.1",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "~4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.12"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**",
+					"out-test"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"readme": "# perfectionist-dfd\n\nBeautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.\n\n## Status\n\n[![perfectionist-dfd CI](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml/badge.svg)](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml) [![Coverage](https://coveralls.io/repos/github/danielfdickinson/perfectionist-dfd/badge.svg?branch=main)](https://coveralls.io/github/danielfdickinson/perfectionist-dfd?branch=main) [![Dependency status](https://img.shields.io/librariesio/release/npm/perfectionist-dfd)](https://libraries.io/npm/perfectionist-dfd) [![NPM version](https://img.shields.io/npm/v/perfectionist-dfd)](https://www.npmjs.com/package/perfectionist-dfd?activeTab=versions)\n\n## Example runs\n\n### Input\n\n```css\nh1   {\n         color   :  red }\n```\n\n### Expanded output\n\n```css\nh1 {\n    color: red;\n}\n```\n\n### Compact output\n\n```css\nh1 { color: red; }\n```\n\n### Compressed output\n\n```css\nh1{color:red}\n```\n\n## Supported Environments\n\n* Currently [Node.js](https://nodejs.org) 12+ are supported.\n* REVIEW: May add browser support in the future.\n\n## Install\n\nWith [npm](https://npmjs.org/package/perfectionist-dfd) do:\n\n```sh\nnpm install postcss perfectionist-dfd --save\n```\n\n## Import (ES6+) or require (CommonJS) in your source file\n\n### ES6+\n\n```javascript\nimport perfectionistDFD from 'perfectionist-dfd';\n```\n\n### CommonJS\n\n```javascript\nconst perfectionistDFD = require('perfectionist-dfd');\n```\n\n## API\n\n### perfectionistDFD.process(css, [options])\n\n#### css\n\nType: `string`\n_Required option._\n\nPass a CSS string to beautify it.\n\n#### options\n\nType: `object`\n_optional_\n\n##### cascade\n\nType: `boolean`\nDefault: `true`\n\nSet this to `false` to disable visual cascading of vendor prefixed properties.\nNote that this transform only applies to the `expanded` format.\n\n```css\n/* true */\nh1 {\n    -webkit-border-radius: 12px;\n            border-radius: 12px;\n}\n\n/* false */\nh1 {\n    -webkit-border-radius: 12px;\n    border-radius: 12px;\n}\n```\n\n##### colorCase\n\nType: `string`\nDefault: `lower`\n\nSet either `lower` or `upper` to transform hexadecimal colors to the according case.\n\n```css\n/* upper */\np { color: #C8C8C8 }\n\n/* lower */\np { color: #c8c8c8 }\n```\n\n##### colorShorthand\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to shorten hexadecimal colors.\n\n```css\n/* true */\np { color: #fff }\n\n/* false */\np { color: #ffffff }\n```\n\n##### format\n\nType: `string`\nDefault: `expanded`\n\nPass either `expanded`, `compact` or `compressed`. Note that the `compressed`\nformat only facilitates simple whitespace compression around selectors &\ndeclarations. For more powerful compression, see [cssnano](https://cssnano.co).\n\n##### indentChar\n\nType: `string`\nDefault: ' ' (space)\n\nSpecify `\\t` here instead if you would like to use tabs for indentation.\n\n##### indentSize\n\nType: `number`\nDefault: `4`\n\nThis number will be used as a basis for all indent levels, using the `expanded`\nformat.\n\n##### trimLeadingZero\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim leading zero for fractional numbers less than 1.\n\n```css\n/* true */\np { line-height: .8 }\n\n/* false */\np { line-height: 0.8 }\n```\n\n##### trimTrailingZeros\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim trailing zeros in numbers.\n\n```css\n/* true */\ndiv { top: 50px }\n\n/* false */\ndiv { top: 50.000px }\n```\n\n##### maxAtRuleLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for at-rule parameters; if\nthey exceed this, they will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### maxSelectorLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a selector string; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform is excluded from the\n`compressed` format.\n\n##### maxValueLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a property value; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### sourcemap\n\nType: `boolean`\nDefault: `false`\n\nGenerate a sourcemap with the transformed CSS.\n\n##### syntax\n\nType: `string`\n\nSpecify `scss` if you would like to also format SCSS-style single line comments.\nThis loads the [postcss-scss](https://github.com/postcss/postcss-scss) plugin.\n\n##### zeroLengthNoUnit\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim units after zero length.\n\n```css\n/* true */\ndiv { padding: 0 }\n\n/* false */\ndiv { padding: 0px }\n```\n\n#### Example using perfectionistDFD.process\n\n```javascript\nimport perfectionistDFD from 'perfectionist-dfd'\n\nconst pftDFDOpts = {\n    indentSize: 2,\n    trimLeadingZero: false\n}\n\nconst outCSS = perfectionistDFD.process(css, pftDFDOpts).css\n```\n\n### `postcss([ perfectionistDFD(opts) ])`\n\nperfectionist-dfd can also be consumed as a PostCSS plugin. See the\n[PostCSS documentation](https://github.com/postcss/postcss#usage) for examples for\nyour environment.\n\n### CLI\n\nperfectionist-dfd also ships with a CLI app. To see the available options, just run:\n\n```sh\nperfectionist-dfd --help\n```\n\n### PostCSS usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Future\n\n1. TODO: #11 Update easy pieces of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n2. TODO: #12 Update main logic of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n3. TODO: #13 Update rest of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n4. TODO: #14 Improve and enhance [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) as a [PostCSS](https://github.com/postcss/postcss#readme) plugin.\n5. TODO: #15 Improve and enhance as a standalone tool.\n6. REVIEW: #24 Add support for use in browser environments.\n\n## Contributing\n\nPull requests are welcome. If you add functionality, then please add unit tests\nto cover it.\n\n## License\n\nMIT © 2015 [Ben Briggs](https://beneb.info) \\\nMIT © 2022 [Daniel F. Dickinson](https://www.wildtechgarden.ca/danielfdickinson/)\n",
+			"readmeFilename": "README.md",
+			"gitHead": "5c824e57971f3714e3f85301919aeba1bce5e32b",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@3.0.1-beta.4",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-HnwJxYYFk6JA799LDpINY4kWnU1r6UZrWOC2fIeDvH625sRX/xfGwN05e5JVfwrHv64Wow41COxddXI9zUuvfA==",
+				"shasum": "248c0a5346e278cd67d0df87b0d085ae464abff6",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-3.0.1-beta.4.tgz",
+				"fileCount": 9,
+				"unpackedSize": 66378,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAHh5heH3hjIzxKKGwXS0E8qvw4qsKiiX5Bbi2jGYZ62AiBGYJhoP15THjLh24WEdHLKrKU0VfTw+FYOdokbrgrLWg=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi2Xc1ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoeSg//Y1TMkLOKW5i+svsfLBvFBoOad8HwNHR4NbW7jlG0JGlBSzvI\r\naWIMmwqg59/gIRZbEPCdrNv9yDEtuM6X5zFaMTT6/zDGCh87h92GfhwlBupf\r\nxjQrjhMZZgzKLY2Tc86zVJe8hsfH5Gr/Pwo/bXQKmp97yQUEQB0yIdxvtHnT\r\nPV4pdyNfP84ar+PfWCYNPUHy75Pp3H/mGeqHWgDFKQrqM4SzpL+buDtdXrE+\r\nMpZq4AsidTGvNeuLZovwXU/V51pX8KymPyApYxyT+oNlMjZU+0ZG7zh7KL+r\r\niln+36Uuhih/nfq0hlMcvKzg3KBTs4WNi99FcwLie23lzV7OvZ9vTZYFAM9F\r\ne/gDqKNTvIk4L6Kg5Z1hFIDDFg/MMUrUF3kVL8yUyA/auHNjhX3+HxsAamoZ\r\nGxK7s1dfXx6Vwx4dZNsF5XumLhth1MG/+bFk4ZyFDDwOJKVQukAcvW/7Locf\r\nFIWq0Jz8VVQerP8YcWhQnwdVe6UjSIa4H/KXFDfySWpLGoOVf4fH6rebgtw9\r\nPMtA1P+VuxZBqstO5EjHHAbc4SvDQk3/XbMkdZVgOnsMI3YBrfVArJYw/qwe\r\nPwNYX8ydq8WE2V8wq0M5O4E3cuFa1uZIWkjQC5Yf0JUUp/HbNCCMyaTgsXIY\r\nQAAKUjtvCeZgcPQ3Rzp1dDDuMafviF6dIzg=\r\n=XPca\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_3.0.1-beta.4_1658418996809_0.3288999386445086"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "perfectionist-dfd",
+			"version": "3.0.1",
+			"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+			"type": "commonjs",
+			"main": "dist/perfectionist-dfd.min.js",
+			"bin": {
+				"perfectionist-dfd": "bin/cmd.js"
+			},
+			"publishConfig": {
+				"tag": "devel"
+			},
+			"scripts": {
+				"precoverage": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"coverage": "cross-env NODE_ENV=test c8 ava ./__tests__/*.mjs",
+				"lint": "eslint src --ext .mjs --ext .js",
+				"production": "npm run test && del-cli dist && cross-env NODE_ENV=production rollup -c",
+				"preversion": "npm run production",
+				"prepublishOnly": "npm run production",
+				"report": "c8 report -o ./coverage --reporter=text >./coverage/text-report.txt && c8 report -o ./coverage --reporter=lcov",
+				"pretest": "npm run lint && del-cli out-test dist && cross-env NODE_ENV=test rollup -c",
+				"test": "cross-env NODE_ENV=test ava ./__tests__/*.mjs",
+				"test:ci": "npm run coverage",
+				"pretest:oldci": "del-cli out-test",
+				"test:oldci": "cross-env NODE_ENV=test ava ./__tests__/*.mjs"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"normalize",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+			"author": {
+				"name": "Daniel F. Dickinson",
+				"email": "dfdpublic@wildtechgarden.ca",
+				"url": "https://www.wildtechgarden.ca/about/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+			},
+			"dependencies": {
+				"defined": "^1.0.0",
+				"minimist": "^1.2.6",
+				"postcss-scss": "^4.0.3",
+				"postcss-value-parser": "^4.2.0",
+				"read-file-stdin": "^0.2.1",
+				"semver": "^7.3.5",
+				"string.prototype.repeat": "^1.0.0",
+				"write-file-stdout": "^0.0.2"
+			},
+			"devDependencies": {
+				"@rollup/plugin-commonjs": "^22.0.1",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"ava": "^4.1.0",
+				"c8": "^7.11.0",
+				"comment-regex": "^2.0.0",
+				"cpy-cli": "^4.1.0",
+				"cross-env": "^7.0.3",
+				"del-cli": "~4.0.1",
+				"eslint": "^8.12.0",
+				"eslint-plugin-ava": "^13.2.0",
+				"execa": "^6.1.0",
+				"rollup": "^2.70.1",
+				"rollup-plugin-terser": "^7.0.2",
+				"vendors": "^2.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.12"
+			},
+			"ava": {
+				"nodeArguments": [
+					"--trace-deprecation"
+				]
+			},
+			"c8": {
+				"all": true,
+				"exclude": [
+					"node_modules",
+					"__tests__/**",
+					"__tests-oldnode/**",
+					"dist/**",
+					"out-test"
+				],
+				"reporter": [
+					"lcov"
+				],
+				"src": "src"
+			},
+			"readme": "# perfectionist-dfd\n\nBeautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.\n\n## Status\n\n[![perfectionist-dfd CI](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml/badge.svg)](https://github.com/danielfdickinson/perfectionist-dfd/actions/workflows/ci.yml) [![Coverage](https://coveralls.io/repos/github/danielfdickinson/perfectionist-dfd/badge.svg?branch=main)](https://coveralls.io/github/danielfdickinson/perfectionist-dfd?branch=main) [![Dependency status](https://img.shields.io/librariesio/release/npm/perfectionist-dfd)](https://libraries.io/npm/perfectionist-dfd) [![NPM version](https://img.shields.io/npm/v/perfectionist-dfd)](https://www.npmjs.com/package/perfectionist-dfd?activeTab=versions)\n\n## Example runs\n\n### Input\n\n```css\nh1   {\n         color   :  red }\n```\n\n### Expanded output\n\n```css\nh1 {\n    color: red;\n}\n```\n\n### Compact output\n\n```css\nh1 { color: red; }\n```\n\n### Compressed output\n\n```css\nh1{color:red}\n```\n\n## Supported Environments\n\n* Currently [Node.js](https://nodejs.org) 12+ are supported.\n* REVIEW: May add browser support in the future.\n\n## Install\n\nWith [npm](https://npmjs.org/package/perfectionist-dfd) do:\n\n```sh\nnpm install postcss perfectionist-dfd --save\n```\n\n## Import (ES6+) or require (CommonJS) in your source file\n\n### ES6+\n\n```javascript\nimport perfectionistDFD from 'perfectionist-dfd';\n```\n\n### CommonJS\n\n```javascript\nconst perfectionistDFD = require('perfectionist-dfd');\n```\n\n## API\n\n### perfectionistDFD.process(css, [options])\n\n#### css\n\nType: `string`\n_Required option._\n\nPass a CSS string to beautify it.\n\n#### options\n\nType: `object`\n_optional_\n\n##### cascade\n\nType: `boolean`\nDefault: `true`\n\nSet this to `false` to disable visual cascading of vendor prefixed properties.\nNote that this transform only applies to the `expanded` format.\n\n```css\n/* true */\nh1 {\n    -webkit-border-radius: 12px;\n            border-radius: 12px;\n}\n\n/* false */\nh1 {\n    -webkit-border-radius: 12px;\n    border-radius: 12px;\n}\n```\n\n##### colorCase\n\nType: `string`\nDefault: `lower`\n\nSet either `lower` or `upper` to transform hexadecimal colors to the according case.\n\n```css\n/* upper */\np { color: #C8C8C8 }\n\n/* lower */\np { color: #c8c8c8 }\n```\n\n##### colorShorthand\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to shorten hexadecimal colors.\n\n```css\n/* true */\np { color: #fff }\n\n/* false */\np { color: #ffffff }\n```\n\n##### format\n\nType: `string`\nDefault: `expanded`\n\nPass either `expanded`, `compact` or `compressed`. Note that the `compressed`\nformat only facilitates simple whitespace compression around selectors &\ndeclarations. For more powerful compression, see [cssnano](https://cssnano.co).\n\n##### indentChar\n\nType: `string`\nDefault: ' ' (space)\n\nSpecify `\\t` here instead if you would like to use tabs for indentation.\n\n##### indentSize\n\nType: `number`\nDefault: `4`\n\nThis number will be used as a basis for all indent levels, using the `expanded`\nformat.\n\n##### trimLeadingZero\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim leading zero for fractional numbers less than 1.\n\n```css\n/* true */\np { line-height: .8 }\n\n/* false */\np { line-height: 0.8 }\n```\n\n##### trimTrailingZeros\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim trailing zeros in numbers.\n\n```css\n/* true */\ndiv { top: 50px }\n\n/* false */\ndiv { top: 50.000px }\n```\n\n##### maxAtRuleLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for at-rule parameters; if\nthey exceed this, they will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### maxSelectorLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a selector string; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform is excluded from the\n`compressed` format.\n\n##### maxValueLength\n\nType: `boolean|number`\nDefault: `80`\n\nIf set to a positive integer, set a maximum width for a property value; if\nit exceeds this, it will be split up over multiple lines. If false, this\nbehaviour will not be performed. Note that this transform only applies to\nthe `expanded` format.\n\n##### sourcemap\n\nType: `boolean`\nDefault: `false`\n\nGenerate a sourcemap with the transformed CSS.\n\n##### syntax\n\nType: `string`\n\nSpecify `scss` if you would like to also format SCSS-style single line comments.\nThis loads the [postcss-scss](https://github.com/postcss/postcss-scss) plugin.\n\n##### zeroLengthNoUnit\n\nType: `boolean`\nDefault: `true`\n\nSet this to `true` to trim units after zero length.\n\n```css\n/* true */\ndiv { padding: 0 }\n\n/* false */\ndiv { padding: 0px }\n```\n\n#### Example using perfectionistDFD.process\n\n```javascript\nimport perfectionistDFD from 'perfectionist-dfd'\n\nconst pftDFDOpts = {\n    indentSize: 2,\n    trimLeadingZero: false\n}\n\nconst outCSS = perfectionistDFD.process(css, pftDFDOpts).css\n```\n\n### `postcss([ perfectionistDFD(opts) ])`\n\nperfectionist-dfd can also be consumed as a PostCSS plugin. See the\n[PostCSS documentation](https://github.com/postcss/postcss#usage) for examples for\nyour environment.\n\n### CLI\n\nperfectionist-dfd also ships with a CLI app. To see the available options, just run:\n\n```sh\nperfectionist-dfd --help\n```\n\n### PostCSS usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Future\n\n1. TODO: #11 Update easy pieces of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n2. TODO: #12 Update main logic of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n3. TODO: #13 Update rest of [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) to 8.x API.\n4. TODO: #14 Improve and enhance [perfectionist-dfd](https://github.com/danielfdickinson/perfectionist-dfd) as a [PostCSS](https://github.com/postcss/postcss#readme) plugin.\n5. TODO: #15 Improve and enhance as a standalone tool.\n6. REVIEW: #24 Add support for use in browser environments.\n\n## Contributing\n\nPull requests are welcome. If you add functionality, then please add unit tests\nto cover it.\n\n## License\n\nMIT © 2015 [Ben Briggs](https://beneb.info) \\\nMIT © 2022 [Daniel F. Dickinson](https://www.wildtechgarden.ca/danielfdickinson/)\n",
+			"readmeFilename": "README.md",
+			"gitHead": "b06903bc22ce7da6fe3d8414794282bd9a2a1ecf",
+			"bugs": {
+				"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+			},
+			"_id": "perfectionist-dfd@3.0.1",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-H55djuORPi2f3vPUOt2y658fVIgunl26qZJnq4u4TWR/kGUsGm0sJZIFtbAO94qaDc1/BfKjTC9O+vH6+DCaKQ==",
+				"shasum": "6d5caeee3fe4553e13b60b6517cae88e7a08e965",
+				"tarball": "https://registry.npmjs.org/perfectionist-dfd/-/perfectionist-dfd-3.0.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 66371,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDowvCTO7SvCYiMgfXci+LBzDmUFHVgV48UFdO2QKK9LgIgH21fQvmVuEqwIAqPxZMhufMbbK7N3V3WNh2ArwgmciM="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi2loBACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmow9BAAmxvjEcN+C3PAPP+RbBePx/TR1ivpQYPEbQafxTzJjvPO+x+9\r\nHwKjATpH/AZbKbpUgPrAo24OrekC0+L4cBzjjgM4/TCUYF4tQx4yBZaEOPvB\r\n2wROVu5g+SfSlrWSYigkYONrHiALBZXVi9A7djmki3hK9kAXWfM9uNc6hNn7\r\ntkEdetxFH8JPm/9bJVL2/SGaxdCPC758NgnZjo5h2zhX9HqPlhWJUXpBB835\r\nFecxDEZHQHR+w4xVQdZuGWIrioS2fLs3cZfrtFq3ocs+1vfr7rEsOTuUIc/R\r\nMD43N6RpKDdq9kc5B6hkBuFQuOjIT9gSi4fTw1owgtj0RIY3kzbfg5sdTRrt\r\nlmDAjzN87GWz7Xbo9skawSdcQPYgdQGRmWBXKiHSN7STxxAGu+sqU9BXtcYz\r\nsATLtjzDDamxhpGNymKFzKGmeXyMAMHaMGZjTgnHntzSyIenb4H2NCzsC2+3\r\nZqqCbbqALdsxWCfKybwfSEIcpvOvZWeiAm9pgRnIq/A0QIYCZyY+OkIqR/v2\r\nw3xLcT9Vybx0D88o94pjGdfz4Dr/9UVtJgvRGnO0e9IPCmiBE7yXXmTDdsto\r\n2QG8yX2NS/SPdkrrVJZpVrN+dqOJidQV2Yx+1WDse1+sAFirXXIiXCF7FTS5\r\n504eI6CaRiET/OAiawOFboo880Sn9k/V+0w=\r\n=6Eou\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "danielfdickinson",
+				"email": "dfdpublic@wildtechgarden.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielfdickinson",
+					"email": "dfdpublic@wildtechgarden.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/perfectionist-dfd_3.0.1_1658477057370_0.025270380557305794"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-04-02T05:12:12.541Z",
+		"2.4.2-beta.1": "2022-04-02T05:12:12.722Z",
+		"modified": "2022-07-22T08:11:38.399Z",
+		"2.4.2-beta.2": "2022-04-02T19:39:09.145Z",
+		"2.4.2": "2022-04-03T04:39:28.143Z",
+		"3.0.0-alpha.2": "2022-04-03T20:08:25.438Z",
+		"3.0.0-alpha.3-dev.1": "2022-04-03T21:49:12.130Z",
+		"3.0.0": "2022-04-04T01:35:08.046Z",
+		"3.0.1-beta.1": "2022-05-01T20:00:39.160Z",
+		"3.0.1-beta.2": "2022-07-21T15:13:12.161Z",
+		"3.0.1-beta.4": "2022-07-21T15:56:37.078Z",
+		"3.0.1": "2022-07-22T08:04:17.580Z"
+	},
+	"maintainers": [
+		{
+			"name": "danielfdickinson",
+			"email": "dfdpublic@wildtechgarden.ca"
+		}
+	],
+	"description": "Beautify and/or normalize CSS files. Fork and update of a fork and update of an archived project.",
+	"homepage": "https://github.com/danielfdickinson/perfectionist-dfd",
+	"keywords": [
+		"beautify",
+		"css",
+		"format",
+		"normalize",
+		"postcss",
+		"postcss-plugin",
+		"pretty"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/danielfdickinson/perfectionist-dfd.git"
+	},
+	"author": {
+		"name": "Daniel F. Dickinson",
+		"email": "dfdpublic@wildtechgarden.ca",
+		"url": "https://www.wildtechgarden.ca/about/"
+	},
+	"bugs": {
+		"url": "https://github.com/danielfdickinson/perfectionist-dfd/issues"
+	},
+	"license": "MIT",
+	"readme": "",
+	"readmeFilename": ""
+}

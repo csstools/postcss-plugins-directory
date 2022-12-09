@@ -1,0 +1,294 @@
+{
+	"_id": "style-perfectionist",
+	"_rev": "2-4fb02e0c9ad19815b50c1fdaad83033c",
+	"name": "style-perfectionist",
+	"dist-tags": {
+		"latest": "0.0.1",
+		"alpha": "1.0.0-alpha.0"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "style-perfectionist",
+			"version": "0.0.1",
+			"description": "Beautify your styles",
+			"main": "dist/index.js",
+			"bin": {
+				"style-perfectionist": "bin/cmd.js"
+			},
+			"engines": {
+				"node": ">=10.18.0"
+			},
+			"scripts": {
+				"pretest": "eslint src --fix",
+				"prepublish": "npm run build",
+				"build": "del-cli dist && cross-env BABEL_ENV=publish babel src --out-dir dist --ignore \"**/__tests__/\"",
+				"report": "nyc report --reporter=html",
+				"test": "cross-env BABEL_ENV=test nyc ava"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/anikethsaha/style-perfectionist",
+			"author": {
+				"name": "Aniketh Saha",
+				"email": "anik220798@gmail.com",
+				"url": "https://twitter.com/__ANIX__"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/anikethsaha/style-perfectionist.git"
+			},
+			"dependencies": {
+				"comment-regex": "^1.0.1",
+				"defined": "^1.0.0",
+				"minimist": "^1.2.5",
+				"postcss": "^7.0.32",
+				"postcss-scss": "^2.1.1",
+				"postcss-value-parser": "^4.1.0",
+				"read-file-stdin": "^0.2.0",
+				"string.prototype.repeat": "^1.0.0",
+				"vendors": "^1.0.4",
+				"write-file-stdout": "0.0.2"
+			},
+			"devDependencies": {
+				"@ava/babel": "^1.0.1",
+				"@babel/cli": "^7.0.0",
+				"@babel/core": "^7.0.0",
+				"@babel/preset-env": "^7.0.0",
+				"@babel/register": "^7.0.0",
+				"ava": "^3.9.0",
+				"babel-eslint": "^10.0.1",
+				"babel-plugin-istanbul": "^6.0.0",
+				"cross-env": "^2.0.0",
+				"del-cli": "^0.2.0",
+				"eslint": "^7.2.0",
+				"eslint-plugin-import": "^2.17.2",
+				"eslint-plugin-prettier": "^3.1.0",
+				"eslint-plugin-react": "^7.13.0",
+				"execa": "^4.0.2",
+				"nyc": "^15.1.0",
+				"prettier": "^2.0.5"
+			},
+			"ava": {
+				"babel": true,
+				"require": "@babel/register"
+			},
+			"nyc": {
+				"exclude": [
+					"node_modules",
+					"**/__tests__"
+				],
+				"sourceMap": false,
+				"instrument": false
+			},
+			"gitHead": "41a4d3e424a62be2affc4985869ed8ac84cc80bb",
+			"bugs": {
+				"url": "https://github.com/anikethsaha/style-perfectionist/issues"
+			},
+			"_id": "style-perfectionist@0.0.1",
+			"_nodeVersion": "12.18.0",
+			"_npmVersion": "6.14.5",
+			"dist": {
+				"integrity": "sha512-bpuidUYZslbpuaZaUzkaS1Xi1LBWZN0QvU0S2tt2kXqHfGyK9nB9bnwlkiCxkeLGAbZidhDu9CcRvV8Wo5jveA==",
+				"shasum": "a29a8cd617470c93fe8e0bba3bddeadf42067c65",
+				"tarball": "https://registry.npmjs.org/style-perfectionist/-/style-perfectionist-0.0.1.tgz",
+				"fileCount": 21,
+				"unpackedSize": 36924,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe58S0CRA9TVsSAnZWagAAYrMP/2ddFZKTqk31ONfL6ZXt\nM+CXpvqRCscp41e/cvTvJ/bOiE5Po0vKcJ0l0LB/Ri+lDEJSn9blBHvHbjeT\n6FzKiiSahhX70NoLAybjKlHJbUIEdWDd1H/DRN0YmMJI4IW2CZXIwLqdslSc\nca50K54yvpkdLFGjBOEQvWq/RkZGjpvaJbsINesz4JmUipI4Wgh6wcF02jnU\nxHAu+W6eInLq8R0rMpASFKSMxWX4XVsoITUWdSOaw1IaxH5HhwqmhmLWThEF\nxRbOnWIJiFF6YR6+eJcKJInL9j6ZeahHydsjHc9YjnbxamK0GlsSnvByQWTO\nyteA9nDHuq3rROgndZB3wucZ9gFBn4rD9KQzk6tehrdJsMKDeohiB9TFG2pb\nb5m4MIsE6kgItcP/ocfcMt0wfhsBn5d+ygceiOpVVg7yoOZG+mFKr/CjD9kp\na4hy73AcV4XLiTIxPLfBQwDiiAt3j9mh3RQV3VgQwOUw4eymRj3SxT3jkmOD\nAJTRGHWo+lCsB17fJXeAZQOi6Uti0JHHlOo+QZA++LF8PpDwvr24EKlgrVAR\nlO9g9CpBUDPB8yc7ImJMqLXpkLJxCKa2FKQT0LaBqr+bj2cLAyTtWDyF/zbU\nbUNAMqwaBfbHY52A+qW2XxqQJp1Rc5ZnSMZDmJeFORz2y5m2Uct36YaANwtb\nhND2\r\n=qg8z\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFrblT2CeYeFym5/NGvC0ihnlEpSylopf2Nyx2NHRWzgAiEA57Q6Rg6w1CJLw4bkdhVB/tSYJx1iMBDRN9jMP9ZnWAg="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "anixsaha",
+					"email": "anik220798@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "anixsaha",
+				"email": "anik220798@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/style-perfectionist_0.0.1_1592247476126_0.17459239924828696"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0-alpha.0": {
+			"name": "style-perfectionist",
+			"version": "1.0.0-alpha.0",
+			"description": "format your styles",
+			"main": "dist/index.js",
+			"browser": "./standalone.js",
+			"unpkg": "./standalone.js",
+			"bin": {
+				"style-perfectionist": "bin/cmd.js"
+			},
+			"engines": {
+				"node": ">=10.18.0"
+			},
+			"scripts": {
+				"lint": "eslint src --fix",
+				"prepublish": "npm run build",
+				"build": "del-cli dist && cross-env BABEL_ENV=publish babel src --out-dir dist --ignore \"**/__tests__/\" && npm run  build:standalone",
+				"build:standalone": "webpack",
+				"report": "nyc report --reporter=html",
+				"coverage": "cross-env BABEL_ENV=test nyc ava",
+				"test": "cross-env BABEL_ENV=test  ava"
+			},
+			"keywords": [
+				"beautify",
+				"css",
+				"format",
+				"postcss",
+				"postcss-plugin",
+				"pretty"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/anikethsaha/style-perfectionist",
+			"author": {
+				"name": "Aniketh Saha",
+				"email": "anik220798@gmail.com",
+				"url": "https://twitter.com/__ANIX__"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/anikethsaha/style-perfectionist.git"
+			},
+			"dependencies": {
+				"comment-regex": "^1.0.1",
+				"cosmiconfig": "^6.0.0",
+				"defined": "^1.0.0",
+				"minimist": "^1.2.5",
+				"postcss": "^7.0.32",
+				"postcss-scss": "^2.1.1",
+				"postcss-value-parser": "^4.1.0",
+				"read-file-stdin": "^0.2.0",
+				"string.prototype.repeat": "^1.0.0",
+				"vendors": "^1.0.4",
+				"write-file-stdout": "0.0.2"
+			},
+			"devDependencies": {
+				"@ava/babel": "^1.0.1",
+				"@babel/cli": "^7.0.0",
+				"@babel/core": "^7.0.0",
+				"@babel/preset-env": "^7.0.0",
+				"@babel/register": "^7.0.0",
+				"ava": "^3.9.0",
+				"babel-eslint": "^10.0.1",
+				"babel-plugin-istanbul": "^6.0.0",
+				"cross-env": "^2.0.0",
+				"del-cli": "^0.2.0",
+				"eslint": "^7.2.0",
+				"eslint-plugin-import": "^2.17.2",
+				"eslint-plugin-prettier": "^3.1.0",
+				"eslint-plugin-react": "^7.13.0",
+				"execa": "^4.0.2",
+				"nyc": "^15.1.0",
+				"prettier": "^2.0.5",
+				"terser-webpack-plugin": "^3.0.6",
+				"webpack": "^4.43.0",
+				"webpack-cli": "^3.3.12"
+			},
+			"ava": {
+				"babel": true,
+				"require": "@babel/register"
+			},
+			"nyc": {
+				"exclude": [
+					"node_modules",
+					"**/__tests__"
+				],
+				"sourceMap": false,
+				"instrument": false
+			},
+			"readme": "![logo](https://github.com/anikethsaha/style-perfectionist/blob/master/style-perfectionist-logo.JPG)\r\n\r\n# style-perfectionist [![Build Status](https://travis-ci.org/anikethsaha/style-perfectionist.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/style-perfectionist.svg)][npm]\r\n\r\n> Beautify CSS files.\r\n\r\nThis is an active development fork of [perfectionist](https://github.com/ben-eb/perfectionist) as that is deprecated.\r\n\r\n## Install\r\n\r\nWith [npm](https://npmjs.org/package/style-perfectionist) do:\r\n\r\n```\r\nnpm install style-perfectionist --save\r\n```\r\n\r\n## For browser\r\n\r\nadd the following script\r\n\r\n```html\r\n<script src=\"https://cdn.jsdelivr.net/npm/style-perfectionist/dist/standalone.js\"></script>\r\n```\r\n\r\nAnd to use it,\r\n\r\n```html\r\n<script>\r\n    console.log(window.stylePerfectionist.process(\"h1{}\", {}).toString());\r\n    /*\r\n        output:\r\n            h1{\r\n            }\r\n    */\r\n</script>\r\n```\r\n\r\n## Example\r\n\r\n### Input\r\n\r\n```css\r\nh1 {\r\n    color: red;\r\n}\r\n```\r\n\r\n### Expanded output\r\n\r\n```css\r\nh1 {\r\n    color: red;\r\n}\r\n```\r\n\r\n### Compact output\r\n\r\n```css\r\nh1 {\r\n    color: red;\r\n}\r\n```\r\n\r\n### Compressed output\r\n\r\n```css\r\nh1 {\r\n    color: red;\r\n}\r\n```\r\n\r\n## API\r\n\r\n### stylePerfectionist.process(css, [options])\r\n\r\n#### css\r\n\r\nType: `string`\r\n_Required option._\r\n\r\nPass a CSS string to beautify it.\r\n\r\n#### options\r\n\r\n##### cascade\r\n\r\nType: `boolean`\r\nDefault: `true`\r\n\r\nSet this to `false` to disable visual cascading of vendor prefixed properties.\r\nNote that this transform only applies to the `expanded` format.\r\n\r\n```css\r\n/* true */\r\n/* true */\r\nh1 {\r\n    -webkit-border-radius: 12px;\r\n    border-radius: 12px;\r\n}\r\n\r\n/* false */\r\nh1 {\r\n    -webkit-border-radius: 12px;\r\n    border-radius: 12px;\r\n}\r\n```\r\n\r\n##### colorCase\r\n\r\nType: `string`\r\nDefault: `lower`\r\n\r\nSet either `lower` or `upper` to transform hexadecimal colors to the according case.\r\n\r\n```css\r\n/* upper */\r\np {\r\n    color: #c8c8c8;\r\n}\r\n\r\n/* lower */\r\np {\r\n    color: #c8c8c8;\r\n}\r\n```\r\n\r\n##### colorShorthand\r\n\r\nType: `boolean`\r\nDefault: `true`\r\n\r\nSet this to `true` to shorten hexadecimal colors.\r\n\r\n```css\r\n/* true */\r\np {\r\n    color: #fff;\r\n}\r\n\r\n/* false */\r\np {\r\n    color: #ffffff;\r\n}\r\n```\r\n\r\n##### format\r\n\r\nType: `string`\r\nDefault: `expanded`\r\n\r\nPass either `expanded`, `compact` or `compressed`. Note that the `compressed`\r\nformat only facilitates simple whitespace compression around selectors &\r\ndeclarations. For more powerful compression, see [cssnano].\r\n\r\n##### indentChar\r\n\r\nType: `string`\r\nDefault: `` (space)\r\n\r\nSpecify `\\t` here instead if you would like to use tabs for indentation.\r\n\r\n##### indentSize\r\n\r\nType: `number`\r\nDefault: `4`\r\n\r\nThis number will be used as a basis for all indent levels, using the `expanded`\r\nformat.\r\n\r\n##### trimLeadingZero\r\n\r\nType: `boolean`\r\nDefault: `true`\r\n\r\nSet this to `true` to trim leading zero for fractional numbers less than 1.\r\n\r\n```css\r\n/* true */\r\np {\r\n    line-height: 0.8;\r\n}\r\n\r\n/* false */\r\np {\r\n    line-height: 0.8;\r\n}\r\n```\r\n\r\n##### trimTrailingZeros\r\n\r\nType: `boolean`\r\nDefault: `true`\r\n\r\nSet this to `true` to traim trailing zeros in numbers.\r\n\r\n```css\r\n/* true */\r\ndiv {\r\n    top: 50px;\r\n}\r\n\r\n/* false */\r\ndiv {\r\n    top: 50px;\r\n}\r\n```\r\n\r\n##### maxAtRuleLength\r\n\r\nType: `boolean|number`\r\nDefault: `80`\r\n\r\nIf set to a positive integer, set a maximum width for at-rule parameters; if\r\nthey exceed this, they will be split up over multiple lines. If false, this\r\nbehaviour will not be performed. Note that this transform only applies to\r\nthe `expanded` format.\r\n\r\n##### maxSelectorLength\r\n\r\nType: `boolean|number`\r\nDefault: `80`\r\n\r\nIf set to a positive integer, set a maximum width for a selector string; if\r\nit exceeds this, it will be split up over multiple lines. If false, this\r\nbehaviour will not be performed. Note that this transform is excluded from the\r\n`compressed` format.\r\n\r\n##### maxValueLength\r\n\r\nType: `boolean|number`\r\nDefault: `80`\r\n\r\nIf set to a positive integer, set a maximum width for a property value; if\r\nit exceeds this, it will be split up over multiple lines. If false, this\r\nbehaviour will not be performed. Note that this transform only applies to\r\nthe `expanded` format.\r\n\r\n##### sourcemap\r\n\r\nType: `boolean`\r\nDefault: `false`\r\n\r\nGenerate a sourcemap with the transformed CSS.\r\n\r\n##### syntax\r\n\r\nType: `string`\r\n\r\nSpecify `scss` if you would like to also format SCSS-style single line comments.\r\nThis loads the [postcss-scss](https://github.com/postcss/postcss-scss) plugin.\r\n\r\n##### zeroLengthNoUnit\r\n\r\nType: `boolean`\r\nDefault: `true`\r\n\r\nSet this to `true` to trim units after zero length.\r\n\r\n```css\r\n/* true */\r\ndiv {\r\n    padding: 0;\r\n}\r\n\r\n/* false */\r\ndiv {\r\n    padding: 0px;\r\n}\r\n```\r\n\r\n### `postcss([ stylePerfectionist(opts) ])`\r\n\r\nstyle-perfectionist can also be consumed as a PostCSS plugin. See the\r\n[documentation](https://github.com/postcss/postcss#usage) for examples for\r\nyour environment.\r\n\r\n### CLI\r\n\r\nstyle-perfectionist also ships with a CLI app. To see the available options, just run:\r\n\r\n```sh\r\n$ style-perfectionist --help\r\n```\r\n\r\n#### config file.\r\n\r\nWe support loading using config file.\r\n\r\nThe recommended config file name should be `.style-perfectionistrc` or `.style-perfectionistrc.js` or `.style-perfectionist.yml`.\r\nFor supportting extension and name format, refer [this](https://github.com/davidtheclark/cosmiconfig#explorersearch).\r\n\r\nExamples\r\n\r\n```shell\r\n$ style-perfectionist -c .\r\n$ style-perfectionist -c .style-perfectionistrc\r\n$ style-perfectionist -c ../style-perfectionist.config.js\r\n```\r\n\r\n## Usage\r\n\r\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\r\nexamples for your environment.\r\n\r\n## Contributing\r\n\r\nPull requests are welcome. If you add functionality, then please add unit tests\r\nto cover it.\r\n\r\n[ci]: https://travis-ci.org/anikethsaha/style-perfectionist\r\n[cssnano]: https://github.com/anikethsaha/cssnano\r\n[deps]: https://gemnasium.com/anikethsaha/style-perfectionist\r\n[npm]: http://badge.fury.io/js/style-perfectionist\r\n[postcss]: https://github.com/postcss/postcss\r\n",
+			"readmeFilename": "README.md",
+			"gitHead": "ec51fde7778481b99b948c28e2c467af4fc238b0",
+			"bugs": {
+				"url": "https://github.com/anikethsaha/style-perfectionist/issues"
+			},
+			"_id": "style-perfectionist@1.0.0-alpha.0",
+			"_nodeVersion": "12.18.0",
+			"_npmVersion": "6.14.5",
+			"dist": {
+				"integrity": "sha512-L/zOpwrj9UDAsneLjZkcLy90C2EDeGwT3bGXMq/JO7HGq3cIJ8r2FvKEck0zyIJCsmhoKMWpJwc2mYnVJGa8rA==",
+				"shasum": "538cfcb98ff7d7334b5b91bef72e4eb3d798d723",
+				"tarball": "https://registry.npmjs.org/style-perfectionist/-/style-perfectionist-1.0.0-alpha.0.tgz",
+				"fileCount": 23,
+				"unpackedSize": 177304,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe7zD5CRA9TVsSAnZWagAAhT4QAJ8MLOADFUPmaj5B5XOH\nTPrG04NEPnd/OO5kKvshnM3btxceNKfruf3tFi1DyE3iWcXyr1Fj5oxLLdgC\nMZNcZKAyUSdC7QKmK5Isqmc3aDOJ+POxjYPHvgVS5GvpQFvTzAKv27SwTpy4\nSL3o2eGZsRicD0SLZf+QE+05buo822lSGY3epdtmx0EZiGFD+zGJU16qRNwG\ni57JE/Q4m5zwuI0E0VVzgdrzevPHEe3PAsIGh8jteJCd7AsBCX7aPxnt2FXH\npPONoUkgMc575LUaeGYxhLJZM2LVDk62zPzxs8HevjyMNw32LHa69CTveAik\nOQYl4sWUD8fvLiuDlgWSdLLrT90BM3Xqh5XccevCw7kYqAzMev72UPHCl0Xg\ni/nWTybkOJmefNRYmvOo56oIbVovOMuQRS2MoOWPts2ycbypMe1Wp2kJ/mwp\nNYNTE1f3ud+hGiPZpFc+jkdeWBmuD17wmcIkoOqPcdhtx2x99SH3A/hHvfji\nTPPdJWmwKxDtxv7FTvSA3XqirVbi5wyCLMMNugitddSCAg1e9bs+au4enTKk\nKHCYZVIRfCMEzYg8r6+GaB1GK6tTiI8YMT4j+yex2E1qbw4Cfm/ZJyLk2aoR\nT0fw6pnYOPfNaiKdIM8NN07CdwvzO4LYxyuX2M6MSA4xO9XlcEHn2MUKDuWP\nqde9\r\n=aB+x\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDGG4HZHE+hKnEXjGGqk9eWxWRBVUTvrGjaxfs8fXBQEQIhAJ7wpaGPXfIgR7WKIdX//Fbr2VLF30cAmyDTzmuZlquW"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "anixsaha",
+					"email": "anik220798@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "anixsaha",
+				"email": "anik220798@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/style-perfectionist_1.0.0-alpha.0_1592733944973_0.4531211213493458"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2020-06-15T18:57:56.126Z",
+		"0.0.1": "2020-06-15T18:57:56.277Z",
+		"modified": "2022-05-18T22:10:29.725Z",
+		"1.0.0-alpha.0": "2020-06-21T10:05:45.300Z"
+	},
+	"maintainers": [
+		{
+			"name": "anixsaha",
+			"email": "anik220798@gmail.com"
+		}
+	],
+	"description": "Beautify your styles",
+	"homepage": "https://github.com/anikethsaha/style-perfectionist",
+	"keywords": [
+		"beautify",
+		"css",
+		"format",
+		"postcss",
+		"postcss-plugin",
+		"pretty"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/anikethsaha/style-perfectionist.git"
+	},
+	"author": {
+		"name": "Aniketh Saha",
+		"email": "anik220798@gmail.com",
+		"url": "https://twitter.com/__ANIX__"
+	},
+	"bugs": {
+		"url": "https://github.com/anikethsaha/style-perfectionist/issues"
+	},
+	"license": "MIT",
+	"readme": "",
+	"readmeFilename": ""
+}

@@ -1,0 +1,101 @@
+{
+	"_id": "postcss-arrow-boxes",
+	"_rev": "3-e5d71ed79d1be0387c2881564a642306",
+	"name": "postcss-arrow-boxes",
+	"description": "A PostCSS plugin that will create boxes with arrows in any direction.",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-arrow-boxes",
+			"version": "1.0.0",
+			"description": "A PostCSS plugin that will create boxes with arrows in any direction.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"arrows"
+			],
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"author": {
+				"name": "Luke Larsen",
+				"email": "luke@lukelarsen.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lukelarsen/postcss-arrow-boxes.git"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^5.0.11"
+			},
+			"gitHead": "c6843029895260c6acbf3ec072b09c4fdce07a5b",
+			"bugs": {
+				"url": "https://github.com/lukelarsen/postcss-arrow-boxes/issues"
+			},
+			"homepage": "https://github.com/lukelarsen/postcss-arrow-boxes#readme",
+			"_id": "postcss-arrow-boxes@1.0.0",
+			"_shasum": "afb6a4232854615ad39851bf57e3679f04312f19",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "lukelarsen",
+				"email": "luke@lukelarsen.com"
+			},
+			"dist": {
+				"shasum": "afb6a4232854615ad39851bf57e3679f04312f19",
+				"tarball": "https://registry.npmjs.org/postcss-arrow-boxes/-/postcss-arrow-boxes-1.0.0.tgz",
+				"integrity": "sha512-ID5LJOz78Y/bRF8N5ggold4nmJzjgNqPC7YEQnRX6eMEXw5Xn3lj6D5F96qkEW6iZvnPRFZrEzB8EcmR1cCcpA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCID2oWM5cZMy1DgOoGc3U/f4d5Fy+tQSeO+3EqZyeVryMAiBNn2clyYfJDsP6Y/mguHPrkLJKwAFE6cjzJ9qQifPAsw=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "lukelarsen",
+					"email": "luke@lukelarsen.com"
+				}
+			]
+		}
+	},
+	"readme": "[PostCSS]:                 https://github.com/postcss/postcss\n\n# PostCSS Arrow Boxes\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"http://postcss.github.io/postcss/logo-leftp.png\">\n\n[PostCSS] plugin that will create boxes with arrows in any direction.\n\nIt is often useful to have some content in a box and have that box have an arrow that points to something. A simple example would be an open tool tip pointing at the icon that opened the tooltip. Creating those boxes with the pointer arrows is easy with this plugin.\n\n## Example\n```html\n<div class=\"arrow-box  arrow-box--bottom-right\"></div>\n```\n\n```css\n/* You define properties of your box. */\n.arrow-box{\n    position: relative;\n    display: block;\n    width: 120px;\n    height: 75px;\n}\n\n/* Let the plugin position the arrow. */\n.arrow-box--bottom-right{\n    arrow-box: bottom, left, gray, 10px;\n}\n```\n\nWill output:\n\n```css\n.arrow-box{\n    position: relative;\n    display: block;\n    width: 120px;\n    height: 75px;\n}\n\n.arrow-box--bottom-right{\n    background-color: gray;\n}\n\n.arrow-box--bottom-right:before{\n    border-top-color: gray !important;\n    border: 10px solid transparent;\n    position: absolute;\n    top: 100%;\n    border-collapse: separate;\n    content: \"\";\n    left: 10px;\n}\n```\n\n## Usage\n\n```\nnpm install postcss-arrow-boxes --save-dev\n```\n\n### Gulp\n```js\nvar postcss = require('gulp-postcss');\nvar arrowBoxes = require('postcss-arrow-boxes');\n\ngulp.task('css', function () {\n    var processors = [\n        arrowBoxes\n    ];\n    return gulp.src('./src/*.css')\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('./dest'));\n});\n```\n\n### Options\narrow-box: (side), (position), (color), (size);\n\n#### side\nSide can be either top, right, bottom, or left.\n\n#### postion\nPosition options change a bit depending on what was chosen for the 'side' option.\nIf 'side' is top or bottom position can be right, left, or center.\nIf 'side' is left or right position can be top, bottom, or center.\n\n#### color\nColor can be set to any color value.\n\n#### size\nSize will control the size of your arrow. It should be in px.\n\n#### Example\n```css\narrow-box: top, left, red, 8px;\n```\nThis would place the arrow on the top side of the box on the left edge. It would be red and sized to 8px.",
+	"maintainers": [
+		{
+			"name": "lukelarsen",
+			"email": "luke@lukelarsen.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:25:22.702Z",
+		"created": "2015-11-23T19:15:24.940Z",
+		"1.0.0": "2015-11-23T19:15:24.940Z"
+	},
+	"homepage": "https://github.com/lukelarsen/postcss-arrow-boxes#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"arrows"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lukelarsen/postcss-arrow-boxes.git"
+	},
+	"author": {
+		"name": "Luke Larsen",
+		"email": "luke@lukelarsen.com"
+	},
+	"bugs": {
+		"url": "https://github.com/lukelarsen/postcss-arrow-boxes/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}

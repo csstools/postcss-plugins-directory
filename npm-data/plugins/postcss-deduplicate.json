@@ -1,0 +1,147 @@
+{
+	"_id": "postcss-deduplicate",
+	"_rev": "3-14ad109bfaafd5a7f3f0142478dcfc51",
+	"name": "postcss-deduplicate",
+	"description": "PostCSS plugin to remove duplicate class definitions",
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"versions": {
+		"1.0.1": {
+			"name": "postcss-deduplicate",
+			"version": "1.0.1",
+			"description": "PostCSS plugin to remove duplicate class definitions",
+			"main": "lib/index.js",
+			"scripts": {
+				"compile": "babel -d lib/ src/",
+				"prepublish": "npm run compile",
+				"test": "ava",
+				"coverage": "nyc npm test",
+				"codeclimate": "npm run coverage && nyc report --reporter=text-lcov | codeclimate-test-reporter",
+				"lint": "eslint --ignore-path .gitignore ."
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/GarthDB/postcss-deduplicate.git"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"deduplicate",
+				"remove",
+				"deplicates",
+				"css"
+			],
+			"ava": {
+				"require": [
+					"babel-register"
+				],
+				"babel": "inherit"
+			},
+			"nyc": {
+				"include": [
+					"src/*.js"
+				],
+				"require": [
+					"babel-register"
+				]
+			},
+			"author": {
+				"name": "Garth Braithwaite",
+				"email": "garthdb@gmail.com",
+				"url": "http://garthdb.com"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/GarthDB/postcss-deduplicate/issues"
+			},
+			"homepage": "https://github.com/GarthDB/postcss-deduplicate#readme",
+			"dependencies": {
+				"debug": "^2.2.0",
+				"deep-equal": "^1.0.1",
+				"postcss": "^5.1.2",
+				"clean-css": "^3.4.19"
+			},
+			"devDependencies": {
+				"ava": "^0.16.0",
+				"babel-cli": "^6.11.4",
+				"babel-core": "^6.13.2",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-plugin-istanbul": "^2.0.0",
+				"babel-preset-es2015": "^6.13.2",
+				"babel-register": "^6.11.6",
+				"codeclimate-test-reporter": "^0.3.3",
+				"eslint": "^3.3.1",
+				"eslint-config-airbnb": "^10.0.1",
+				"eslint-plugin-import": "^1.13.0",
+				"eslint-plugin-jsx-a11y": "^2.1.0",
+				"eslint-plugin-react": "^6.1.2",
+				"nyc": "^8.1.0"
+			},
+			"gitHead": "d4827f5d7003699a4e4aaff72dfb3b8de46b43e4",
+			"_id": "postcss-deduplicate@1.0.1",
+			"_shasum": "8ca366e5f57c4b2dd30da45ff9154c2b718bcb84",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "garthdb",
+				"email": "garthdb@gmail.com"
+			},
+			"dist": {
+				"shasum": "8ca366e5f57c4b2dd30da45ff9154c2b718bcb84",
+				"tarball": "https://registry.npmjs.org/postcss-deduplicate/-/postcss-deduplicate-1.0.1.tgz",
+				"integrity": "sha512-blTpIloKkKn2fdQRY7S7NQbF7y2H5zIX99YypmY30wX48k6i9fXO5pA6lVn8WFVG579rDWMpQWVFjYPs51NggA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIADwdvecI+uh6XrgRchnMwG7KvKOWI/yeSpUfykq5w0jAiBUbuWrX5YITTYWb9BL8OnyL7R2kyi9eQN/FW5Pp3N5sw=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "garthdb",
+					"email": "garthdb@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-deduplicate-1.0.1.tgz_1471547767836_0.7934987402986735"
+			}
+		}
+	},
+	"readme": "# PostCSS Deduplicate\n\n[![Build Status](https://travis-ci.org/GarthDB/postcss-deduplicate.svg?branch=master)](https://travis-ci.org/GarthDB/postcss-deduplicate) [![Code Climate](https://codeclimate.com/github/GarthDB/postcss-deduplicate/badges/gpa.svg)](https://codeclimate.com/github/GarthDB/postcss-deduplicate) [![Test Coverage](https://codeclimate.com/github/GarthDB/postcss-deduplicate/badges/coverage.svg)](https://codeclimate.com/github/GarthDB/postcss-deduplicate/coverage) [![Issue Count](https://codeclimate.com/github/GarthDB/postcss-deduplicate/badges/issue_count.svg)](https://codeclimate.com/github/GarthDB/postcss-deduplicate/issues) [![Dependency Status](https://david-dm.org/GarthDB/postcss-deduplicate.svg)](https://david-dm.org/GarthDB/postcss-deduplicate) [![Inline docs](http://inch-ci.org/github/GarthDB/postcss-deduplicate.svg?branch=master)](http://inch-ci.org/github/GarthDB/postcss-deduplicate) [![npm version](https://badge.fury.io/js/postcss-deduplicate.svg)](https://badge.fury.io/js/postcss-deduplicate)\n\n---\n\n<a href=\"http://postcss.org/\"><img align=\"right\" width=\"95\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"http://postcss.github.io/postcss/logo.svg\"></a>\n\nPostCSS plugin to remove duplicate class definitions. Based on [Kristofer Joseph](http://twitter.com/dam)'s [rework-deduplicate](https://github.com/kristoferjoseph/rework-deduplicate) plugin.\n\n## Install\n\n`npm i --save`\n\n## Usage\n\n```js\nvar dedupe = require('postcss-deduplicate');\nvar read = require('fs').readFileSync;\n\nvar css = postcss([dedupe('')])\n  .process(read('path/to/source.css', 'utf8'))\n  .then(result => { console.log(result.css.toString()) });\n```\n\n## Example\n\nInput:\n\n```css\n.button {\n  background: black;\n}\n.button {\n  background: red;\n}\n.button {\n  background: black;\n}\n```\n\nOutput:\n\n```css\n.button {\n  background: black;\n}\n.button {\n  background: red;\n}\n```\n",
+	"maintainers": [
+		{
+			"name": "garthdb",
+			"email": "garthdb@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T09:48:11.113Z",
+		"created": "2016-08-18T19:16:09.955Z",
+		"1.0.1": "2016-08-18T19:16:09.955Z"
+	},
+	"homepage": "https://github.com/GarthDB/postcss-deduplicate#readme",
+	"keywords": [
+		"postcss-plugin",
+		"deduplicate",
+		"remove",
+		"deplicates",
+		"css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/GarthDB/postcss-deduplicate.git"
+	},
+	"author": {
+		"name": "Garth Braithwaite",
+		"email": "garthdb@gmail.com",
+		"url": "http://garthdb.com"
+	},
+	"bugs": {
+		"url": "https://github.com/GarthDB/postcss-deduplicate/issues"
+	},
+	"license": "Apache-2.0",
+	"readmeFilename": "README.md"
+}

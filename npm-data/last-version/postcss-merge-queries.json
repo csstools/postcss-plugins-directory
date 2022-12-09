@@ -1,0 +1,117 @@
+{
+	"name": "postcss-merge-queries",
+	"description": "Simple media packer, merges same CSS media query rules into one via PostCSS",
+	"version": "1.0.3",
+	"author": {
+		"name": "n19htz",
+		"email": "4n19htz@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/n19htz/postcss-merge-queries/issues"
+	},
+	"dependencies": {
+		"postcss": "^8.2.15"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.14.0",
+		"@babel/preset-env": "^7.14.0",
+		"@commitlint/cli": "^12.1.1",
+		"@commitlint/config-conventional": "^12.1.1",
+		"@rollup/plugin-typescript": "^8.2.1",
+		"@types/jest": "^26.0.23",
+		"@typescript-eslint/eslint-plugin": "^4.23.0",
+		"@typescript-eslint/parser": "^4.23.0",
+		"commitizen": "^4.2.4",
+		"del": "^6.0.0",
+		"env-cmd": "^10.0.1",
+		"eslint": "^7.26.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jest": "^24.3.6",
+		"husky": "^6.0.0",
+		"jest": "^27.0.4",
+		"lint-staged": "^11.0.0",
+		"prettier": "^2.2.1",
+		"rollup": "^2.47.0",
+		"rollup-plugin-delete": "^2.0.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"standard-version": "^9.3.0",
+		"ts-jest": "^27.0.2",
+		"tslib": "^2.2.0",
+		"typescript": "^4.2.4"
+	},
+	"homepage": "https://github.com/n19htz/postcss-merge-queries",
+	"keywords": [
+		"css",
+		"media",
+		"postcss-merge-queries",
+		"postcss-merge-media",
+		"postcss-merge-media-queries",
+		"media-query",
+		"@media",
+		"postcss-plugin",
+		"query"
+	],
+	"license": "MIT",
+	"main": "build/index.js",
+	"module": "build/index.es.js",
+	"types": "build/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/n19htz/postcss-merge-queries.git"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"test": "jest --passWithNoTests --watchAll=false --updateSnapshot --detectOpenHandles --forceExit",
+		"test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
+		"lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix --ignore-pattern 'src/**/*.{spec,test}.{js,jsx,ts,tsx}'",
+		"format": "prettier 'src/**/*.{js,jsx,ts,tsx}' --ignore-path ./.prettierignore --write && git status",
+		"release": "HUSKY=0 standard-version --sign",
+		"prepare": "husky install"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,json}": [
+			"npm run lint",
+			"./node_modules/.bin/prettier --ignore-path ./.prettierignore --write"
+		]
+	},
+	"gitHead": "0eeb5c6af0116ca005848da7a345835887809730",
+	"_id": "postcss-merge-queries@1.0.3",
+	"_nodeVersion": "16.2.0",
+	"_npmVersion": "7.14.0",
+	"dist": {
+		"integrity": "sha512-ax8RW0PZpNeVew2OQE8UcWIvhtSmV5rUVG3by2vmP7oimW+eImGgMvQa6xvAv/2lJ9PsvMHSlPhHyLSiNibm+A==",
+		"shasum": "cb7919bec20524e3d4613273bf9c60d87b505767",
+		"tarball": "https://registry.npmjs.org/postcss-merge-queries/-/postcss-merge-queries-1.0.3.tgz",
+		"fileCount": 32,
+		"unpackedSize": 192473,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgvXAMCRA9TVsSAnZWagAAZ+EQAIdTRtxao5stoTVEmY5l\npKlLkdOHMpJqhHKoIbbUlrPl+mzAAVr4/bxgKHU683tNGC87VJaGzSwFQPVF\np5glin4hVBcdLyGtfx6LysyBXaPqwtTS/myxPNsFgqmUlYHOLRxJr9JneSOD\nUX0w3W1QIio6NwUi4o1kbfRWnmeSiISW2bTjfTK5pxjb8kmsC7dkKpxlzYR2\ny86oy8Ki/A1QVhS7RKXXSxa6lvUIwAwW06yhqysfVXcjigvc3w0Ks5W/7l46\niy8cw3Rb0xkwm85lWJR3UuPzssxv6n9ufgSBOwzMGGStg2j002qJ4gNUde5/\nMbzcOVsGvL1pDFqpjVhpmoNjn1Ey61jRSTmFKb1aOcE7MeeTsAQAx7DBikwM\nQqSTlYHLFVv42T7ewjMXvrcCxr+Xl1QYVMoiNiqn+d6hW+v9el0zXqjm5644\nagJYkDDRf58fEwghp8iBQ6IdJEJge+MqBs9v2URG2NRwbsbI6QZWhXxMmGvA\nbFEyi0sYvhOWAJyVtW4zdHziarqJvzvVrFhy2rk78xK4ycZuuqnELMsyiAEy\nVSxYLvlR1qs99csctyGt31ollB93zzJaqIaoxRam61tsuzrp8d3mwz80B7tb\n6JehpzL2MJ9aB9QALdyZAIXPUzKAq4jYTDsWUoBTrTyhTGFfGubE2eHyoknZ\nYAw9\r\n=shuW\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIE6An4fE4Da1/GSpSJUoF+nYz83u3VNg/z9Oyo2FbRZVAiAabRX0si8RhFQANJpmbZ3qXxcEiS79dUuk089T053ZwQ=="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "n19htz",
+		"email": "4n19htz@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "n19htz",
+			"email": "4n19htz@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-merge-queries_1.0.3_1623027724801_0.38136689059906614"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2021-06-07T01:02:04.948Z"
+}

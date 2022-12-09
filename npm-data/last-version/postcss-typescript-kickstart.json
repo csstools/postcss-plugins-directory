@@ -1,0 +1,112 @@
+{
+	"name": "postcss-typescript-kickstart",
+	"version": "1.0.1",
+	"description": "Simple boilerplate to kick start your new PostCSS plugin with TypeScript",
+	"main": "dist/index.js",
+	"scripts": {
+		"clean": "rimraf dist coverage *.log",
+		"compile": "npm run clean && tsc",
+		"compile:watch": "tsc --watch",
+		"lint": "npm run tslint \"src/**/*.ts\"",
+		"test": "nyc ava",
+		"test:watch": "ava --watch",
+		"tslint": "tslint --project tsconfig.json",
+		"precommit": "npm test",
+		"pretest": "npm run lint && npm run compile",
+		"report-coverage": "codecov -f coverage/lcov.info"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/ezavile/postcss-typescript-kickstart.git"
+	},
+	"author": {
+		"name": "ezavile",
+		"email": "ezavile@gmail.com"
+	},
+	"license": "MIT",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"typescript",
+		"boilerplate",
+		"kickstart"
+	],
+	"bugs": {
+		"url": "https://github.com/ezavile/postcss-typescript-kickstart/issues"
+	},
+	"homepage": "https://github.com/ezavile/postcss-typescript-kickstart",
+	"ava": {
+		"files": [
+			"dist/spec/*.spec.js"
+		],
+		"source": [
+			"dist/**/*.js"
+		]
+	},
+	"nyc": {
+		"lines": 100,
+		"statements": 100,
+		"functions": 100,
+		"branches": 100,
+		"include": [
+			"dist/**/*.js"
+		],
+		"exclude": [
+			"dist/**/*.spec.js"
+		],
+		"reporter": [
+			"lcov",
+			"text"
+		],
+		"cache": true,
+		"all": true,
+		"check-coverage": true
+	},
+	"devDependencies": {
+		"@types/core-js": "0.9.41",
+		"@types/node": "7.0.22",
+		"ava": "0.19.1",
+		"codecov": "2.2.0",
+		"core-js": "2.4.1",
+		"husky": "0.13.3",
+		"nyc": "10.3.2",
+		"rimraf": "2.6.1",
+		"tslint": "5.1.0",
+		"typescript": "2.3.3"
+	},
+	"dependencies": {
+		"postcss": "6.0.1"
+	},
+	"gitHead": "07e21efeb48d44723203fac6c95217352c03a49d",
+	"_id": "postcss-typescript-kickstart@1.0.1",
+	"_shasum": "45dffd4718e6f013dfd0f60de7287a0b776129c8",
+	"_from": ".",
+	"_npmVersion": "4.1.2",
+	"_nodeVersion": "7.7.4",
+	"_npmUser": {
+		"name": "ezavile",
+		"email": "ezavile@gmail.com"
+	},
+	"dist": {
+		"shasum": "45dffd4718e6f013dfd0f60de7287a0b776129c8",
+		"tarball": "https://registry.npmjs.org/postcss-typescript-kickstart/-/postcss-typescript-kickstart-1.0.1.tgz",
+		"integrity": "sha512-s7GEN1Z5ngSt5W2aqhbeJ8Ifcu5KfwIvabu+cYt/elhQgP53XLgLjhGJdMT1S+W+52d5nHEFT8k/6QQrejId+g==",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIGgfbg1Gxt7xOCxz/zAPew16gxckNYrLFoZY9dgblUgjAiAVRdn5xlorOmP35QK6ohie6xdyxe510diQAV0vxq6K8w=="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "ezavile",
+			"email": "ezavile@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-typescript-kickstart-1.0.1.tgz_1495558299815_0.8122107959352434"
+	},
+	"_time": "2017-05-23T16:51:39.882Z"
+}

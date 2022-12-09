@@ -1,0 +1,2328 @@
+{
+	"_id": "postcss-sprites",
+	"_rev": "39-d3761d736ea42a521e16af290c808df4",
+	"name": "postcss-sprites",
+	"time": {
+		"modified": "2022-06-24T10:59:19.271Z",
+		"created": "2015-05-27T15:03:09.509Z",
+		"1.0.0": "2015-05-27T15:03:09.509Z",
+		"1.0.1": "2015-05-28T06:37:58.458Z",
+		"1.0.2": "2015-06-01T07:50:34.250Z",
+		"1.0.3": "2015-06-01T13:15:46.061Z",
+		"1.0.4": "2015-06-05T14:34:05.871Z",
+		"1.0.5": "2015-06-08T12:36:32.742Z",
+		"1.0.6": "2015-06-09T07:11:08.867Z",
+		"1.0.7": "2015-06-29T06:56:36.288Z",
+		"1.0.8": "2015-07-08T08:08:46.084Z",
+		"1.0.9": "2015-07-20T06:40:34.184Z",
+		"1.1.0": "2015-08-28T06:31:44.091Z",
+		"2.0.0": "2015-08-28T07:52:08.023Z",
+		"2.0.1": "2015-09-23T06:11:23.713Z",
+		"2.0.2": "2015-10-30T07:25:44.453Z",
+		"2.0.3": "2016-01-06T07:26:27.501Z",
+		"3.0.0": "2016-01-18T13:50:56.123Z",
+		"3.0.1": "2016-01-19T06:44:22.812Z",
+		"3.0.2": "2016-01-20T12:20:29.614Z",
+		"3.0.3": "2016-01-20T13:43:13.993Z",
+		"3.1.0": "2016-02-04T06:29:41.726Z",
+		"3.1.1": "2016-03-23T06:57:57.173Z",
+		"3.1.2": "2016-04-11T07:07:32.018Z",
+		"3.2.0": "2016-07-18T06:39:22.071Z",
+		"3.2.1": "2016-07-21T06:09:23.579Z",
+		"3.2.2": "2016-07-22T05:34:55.642Z",
+		"3.2.3": "2016-07-22T11:10:27.966Z",
+		"3.3.0": "2016-07-26T05:56:18.546Z",
+		"4.0.0": "2016-08-26T08:24:58.876Z",
+		"4.1.0": "2016-11-22T07:40:01.924Z",
+		"4.1.1": "2016-12-07T08:41:41.111Z",
+		"4.2.0": "2017-02-07T12:51:23.224Z",
+		"4.2.1": "2017-04-21T06:03:26.312Z"
+	},
+	"maintainers": [
+		{
+			"name": "2create_studio",
+			"email": "bitbucket.2create@gmail.com"
+		}
+	],
+	"dist-tags": {
+		"latest": "4.2.1"
+	},
+	"description": "Generate spritesheets from stylesheets",
+	"readme": "# postcss-sprites [![Build Status](https://travis-ci.org/2createStudio/postcss-sprites.svg?branch=master)](https://travis-ci.org/2createStudio/postcss-sprites) [![npm version](https://badge.fury.io/js/postcss-sprites.svg)](http://badge.fury.io/js/postcss-sprites)\n\n> [PostCSS](https://github.com/postcss/postcss) plugin that generates spritesheets from your stylesheets.\n\n```css\n/* Input */\n.comment { background: url(images/sprite/ico-comment.png) no-repeat 0 0; }\n.bubble { background: url(images/sprite/ico-bubble.png) no-repeat 0 0; }\n\n/* ---------------- */\n\n/* Output */\n.comment { background-image: url(images/sprite.png); background-position: 0 0; }\n.bubble { background-image: url(images/sprite.png); background-position: 0 -50px; }\n```\n\n----\n\n### Usage\n\n```javascript\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar sprites = require('postcss-sprites');\n\nvar css = fs.readFileSync('./css/style.css', 'utf8');\nvar opts = {\n\tstylesheetPath: './dist',\n\tspritePath: './dist/images/'\n};\n\npostcss([sprites(opts)])\n\t.process(css, {\n\t\tfrom: './css/style.css',\n\t\tto: './dist/style.css'\n\t})\n\t.then(function(result) {\n\t\tfs.writeFileSync('./dist/style.css', result.css);\n\t});\n\n```\n\nSee [PostCSS](https://github.com/postcss/postcss) docs for examples for your environment.\n\n----\n\n### Options\n\n###### stylesheetPath\n\n> Relative path to the folder that will keep your output stylesheet(s). If it's null the path of CSS file will be used.\n\n- Default: null\n- Required: `false`\n\n###### spritePath\n\n> Relative path to the folder that will keep your output spritesheet(s).\n\n- Default: `./`\n- Required: `true`\n\n###### basePath\n\n> Your base path that will be used for images with absolute CSS urls.\n\n- Default: `./`\n- Required: `false`\n\n###### relativeTo\n\n> Indicates whether the url should be relative against current CSS context or original CSS stylesheet file.\n\n- Default: `file`\n- Required: `false`\n- Options: `file|rule`\n\n###### filterBy\n\n> Defines filter functions that will manipulate the list of images founded in your stylesheet(s).\n\n- Default: `[]`\n- Required: `false`\n- Options: `Function|Function[]`\n\n**Every function must return a ``Promise`` which should be resolved or rejected.**\n\nBuilt-in filters:\n\n- based on `fs.stat` and used to remove non exisiting images\n\n###### groupBy\n\n> Defines group functions that will manipulate the list of images founded in your stylesheet(s).\n\n- Default: `[]`\n- Required: `false`\n- Options: `Function|Function[]`\n\n**Every function must return a ``Promise`` which should be resolved with a string or rejected.**\n\nBuilt-in filters:\n\n- based on `@2x` naming convention\n\n###### retina\n\n> Defines whether or not to search for retina mark in the filename.\n\n- Default: `false`\n- Required: `false`\n\n###### hooks\n\n> Defines whether or not to search for retina mark in the filename.\n\n- Default: `{}`\n- Required: `false`\n\n###### hooks.onSaveSpritesheet\n\n> Hook that allows to rewrite the data of produced spritesheet.\n\n> If returned value is string, it is used as filepath value, and if returned value is object, it is used as value which will be merged with current spritesheet data.\n\n> Returned value can also be Promise which should return either string or object.\n\n- Default: `null`\n- Required: `false`\n\n###### hooks.onUpdateRule\n\n> Hook that allows to rewrite the CSS output for an image.\n\n- Default: `null`\n- Required: `false`\n\n###### spritesmith\n\n> A [spritesmith](https://github.com/Ensighten/spritesmith) configuration.\n\n- Default: `{}`\n- Required: `false`\n\n###### spritesmith.engine\n\n> The [engine](https://github.com/Ensighten/spritesmith#engines).\n\n- Default: `pixelsmith`\n- Required: `false`\n\n###### spritesmith.algorithm\n\n> The [algorithm](https://github.com/Ensighten/spritesmith#algorithms).\n\n- Default: `binary-tree`\n- Required: `false`\n\n###### spritesmith.padding\n\n> The space between images in spritesheet.\n\n- Default: `0`\n- Required: `false`\n\n###### spritesmith.engineOpts\n\n> The configuration of the [engine](https://github.com/Ensighten/spritesmith#engines).\n\n- Default: `{}`\n- Required: `false`\n\n###### spritesmith.exportOpts\n\n> The export options of the [engine](https://github.com/Ensighten/spritesmith#engines).\n\n- Default: `{}`\n- Required: `false`\n\n###### svgsprite\n\n> A [svg-sprite](https://github.com/jkphl/svg-sprite#configuration-basics) configuration.\n\n###### verbose\n\n> Prints the plugin output to the console.\n\n- Default: `false`\n- Required: `false`\n\n----\n\n### The Image\n\nEvery filter or group function will be called with an ``Image`` object.\n\n###### styleFilePath\n\n> An absolute path to the stylesheet - ``/Path/to/your/source/stylesheet.css``\n\n###### path\n\n> An absolute path to the image - ``/Path/to/your/image.png``\n\n###### originalUrl\n\n> The url found in your stylesheet including the query params - ``../image.png?v1``\n\n###### url\n\n> A normalized version of the original url - ``../image.png``\n\n###### ratio\n\n> The retina ratio of your image - ``2``\n\n###### retina\n\n> Indicates whenever your image is retina - ``true``\n\n###### groups\n\n> The groups associated with the image - ``['shapes', '@2x']``\n\n###### token\n\n> The string used as reference in your stylesheet - ``/* @replace|image.png */``\n\n###### coords\n\n> The position & dimensions of image in generated spritesheet - ``{ width: 20, height: 20, x: 0, y: 0 }``\n\n###### spritePath\n\n> A relative path to the generated spritesheet - ``dist/sprite.png``\n\n###### spriteUrl\n\n> A CSS url to the generated spritesheet - ``sprite.png``\n\n###### spriteWidth\n\n> The total width of the spritesheet - ``200``\n\n###### spriteHeight\n\n> The total height of the spritesheet - ``400``\n\n----\n\n### Advanced\n\n- [Filter By](examples/filter-by.md)\n- [Group By](examples/group-by.md)\n- [Output Dimensions](examples/output-dimensions.md)\n- [Skip Prefix](examples/skip-prefix.md)\n- [Responsive Spritesheets](examples/responsive-spritesheets.md)\n- [Relative To Rule](examples/relative-to-rule.md)\n- [Webpack Hot Load](examples/webpack-hot-load.md)\n\n----\n\n### Contributing\n\nPull requests are welcome.\n\n```\n$ git clone git@github.com:2createStudio/postcss-sprites.git\n$ npm install\n$ npm run watch\n```\n",
+	"versions": {
+		"1.0.1": {
+			"name": "postcss-sprites",
+			"version": "1.0.1",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcssplugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"gitHead": "0d589fd89056828285df553d3ae0fc387795bf9b",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.1",
+			"scripts": {},
+			"_shasum": "64443e70a3696a407a2bea51fd5369869ed9dfdc",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "64443e70a3696a407a2bea51fd5369869ed9dfdc",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.1.tgz",
+				"integrity": "sha512-V6xKWL+u6LUPwHq5xpRrunpjSITH1LG5xt9L/bV9R3tnlTvI2EbEPods5YVy8YYvYe88xgRtZ/4LLXZyzTweOA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFKr14jcoSmxi9ddv1DIWclU1wDfsJe1nadDBGTF9JmAAiEAxeza13B2jOQAYsF37t/xjWHvA2ztmguOhaDJ21GED0E="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.2": {
+			"name": "postcss-sprites",
+			"version": "1.0.2",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "9bc126457dee78f74054860173ddb14b48be30c7",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.2",
+			"_shasum": "c540284d2cb4a8ea0a9ea88f1dbac52db2cb45fd",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "c540284d2cb4a8ea0a9ea88f1dbac52db2cb45fd",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.2.tgz",
+				"integrity": "sha512-kd55LlMQwglDtyH8+pP7ltLI8POGYkxsKynMpofL0eJkIFYjUZqIn9CO/ouxq3IVMOLkMCeDDtcyrArEhwMyaA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDkWK6dwtC0U27OzHyBky0HTM59Yqm1i5EM2N4kVh4OCAiEA61YA3g0w74gGN5ur9zqR8+2AzDVkxeT3MV29CFz7cvU="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.3": {
+			"name": "postcss-sprites",
+			"version": "1.0.3",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "be4947220340f5e6d935b808a1f59b48ace2ca7b",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.3",
+			"_shasum": "5e9a68cd64beefce1d166b8b583249766daf4bd2",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "5e9a68cd64beefce1d166b8b583249766daf4bd2",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.3.tgz",
+				"integrity": "sha512-NyFmGu2MVePScSERjxxEoYwkKNRzHNzkq5be0jMwes0k2pibDsWdXHCsjgNSYC0Io6kYpvzdop2djqpCmckp8A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCr2CnVDNzxIN2dEhw5PRmJIZRlkrl/nyoTM5i6t7LQxwIgW+tVdX4aLxgVoGmwPvb7pWwJmMynDhsUPZvgOBa9jts="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.4": {
+			"name": "postcss-sprites",
+			"version": "1.0.4",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "5f9376991d06e41749be014ab0229dbfa3de1980",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.4",
+			"_shasum": "7ddd637e031ea0484613a5d3193e26efbe804e5b",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "7ddd637e031ea0484613a5d3193e26efbe804e5b",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.4.tgz",
+				"integrity": "sha512-9yybAUWj3hUdTBH38+fpkwuab7OqMptTKBMfiNfxl+QOYC80X6uRnCuGmEuKNlm/02dhFbLnFksJMvhRhH6DiQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGnzsBWVnvnyp8Qg2qf+jZZyGLhrar40mkURaDBka6SgAiAkgNFoEEhRaGnBsh/hPTnRewf/p0YiNeP52/SHr6vNVg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.5": {
+			"name": "postcss-sprites",
+			"version": "1.0.5",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "a6335d7091a23314d33c71dfd8dfd1f22f61f1e0",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.5",
+			"_shasum": "2820a965babaf78767e7eeb16cb8b3ec9a348370",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "2820a965babaf78767e7eeb16cb8b3ec9a348370",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.5.tgz",
+				"integrity": "sha512-m1Vd6l+31mpV694n+78OfZDBC9Cgt/dS+nBL1TaJ+p1SuSbd2Kze2lPG2bqcSF9dDF8DVcWifyH5+M8uRRDf3Q==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHePuaGB0dGdcYYK9tazKXI9O8KxKBI30rxHJ+3URd9kAiBVDKatz7kHVKFKI9xYHJihwY6AHsRMYVn6+BbDMEpyLA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.6": {
+			"name": "postcss-sprites",
+			"version": "1.0.6",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "65ce2f629403eab2f872a5253dec65665b7d2ed4",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.6",
+			"_shasum": "edad087514c7cf0f8b9bb22bde5a23b1bab61a07",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "edad087514c7cf0f8b9bb22bde5a23b1bab61a07",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.6.tgz",
+				"integrity": "sha512-XkXDp40RD/JCbzAS7BfX7ayXjboB5NLDzv8qMHdF/WK+UdmZ5Fg3bhvb2ncjwmQjjN+QV1U/iRY3mskFcRWH1g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBtA6rNWCATuz4jlVwhyMVz+fgdBsKKmPvtvPz0Z0exEAiEA0iq2g3em2vR+KirSx/Twuhd2EbYsrmNvkHm/ijrp5z8="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.7": {
+			"name": "postcss-sprites",
+			"version": "1.0.7",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "0ae4c1223a1304d387c8d237f209e33209b6547a",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.7",
+			"_shasum": "54de77f70dc5bc16067beb8b2616375da2ef3ad1",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "54de77f70dc5bc16067beb8b2616375da2ef3ad1",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.7.tgz",
+				"integrity": "sha512-YGJ+QOqdivV4TIPli1UF3xzMmC8EAQVk1oJEQwpD19KkAVZa8SGwARydi2WObtC6U1PKa9BNcb9YZHXX9Zopvg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHVTNBNDn4TDHt/00++DP3JERcKJdz6rpjZLDq12iWfbAiEA/9iXDDrGNoXBQKnHXkpqT1J/4bJMf9VjsZ14ANHkqTA="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.8": {
+			"name": "postcss-sprites",
+			"version": "1.0.8",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "70700f67b9eee52cc90c6cd0f169b272601b6bba",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.8",
+			"_shasum": "e658bd5cc5ee3ad2bff7804c1142b96129fb563f",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "e658bd5cc5ee3ad2bff7804c1142b96129fb563f",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.8.tgz",
+				"integrity": "sha512-gr7qpGHhkLGxW+OvqJrHS8gX9VTXk0qPQbUmDe/M22SgI3YOUdLZhE1+Ob89+X1+ED9BFGuzLqscQ7PdgGIZ1A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDaeeU9lzjURzqpNJbuJyEk2BnoGk8RbPDBYEL82WzRqAiEApitogUE5dgnc54iU9Qg4vIpn6SC+9ku4RM94RaSB7/g="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"1.0.9": {
+			"name": "postcss-sprites",
+			"version": "1.0.9",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^4.1.10",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0",
+				"postcss": "^4.1.10"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "94ced1c0bd43dc716e8d5438fa7dd7b12b20fb26",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@1.0.9",
+			"_shasum": "47496bc62085c471f0156ab1ed1c29653cb14750",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "47496bc62085c471f0156ab1ed1c29653cb14750",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-1.0.9.tgz",
+				"integrity": "sha512-ZlvCaxEVzTay624ZwtYd6SRPf77hfyVxnG2VDLiRfHbc9S9hjuayePqUNXPfVNN/WU3Wv51oQjOARTqtaN9rHA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIH71ONWuYGOeHwHpI6gpYDVmO7eIXpVXcCTxD/V6ddiNAiEA0zTNeIX35hE7STM8Xkvm68SLTrDPbYwwKeiZMb1Tp5w="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"2.0.0": {
+			"name": "postcss-sprites",
+			"version": "2.0.0",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/2createStudio/postcss-sprites"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^5.0.2",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "95ddae48f5b1c3582cb0b80ee11e312f8d795722",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites",
+			"_id": "postcss-sprites@2.0.0",
+			"_shasum": "f8199697600cb3d4db34c3cf1143a00ee7e8bc1f",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "f8199697600cb3d4db34c3cf1143a00ee7e8bc1f",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-2.0.0.tgz",
+				"integrity": "sha512-xIKHUQfTp2puOfS9g05inj9LP2c4b+9hIr5zeAD8B56vxZNo9+tF+38ZEALlJIJWMRzoHpx76t+cQ5/eZgBsOA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGnPgDsUNNWh9nPY+tSYZ/OHXEOh0TCdspMkEojZtH3FAiAtF1xjjUrI9QV1omsSAr0SD1/nJuP//biMrkalcuEICA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"2.0.1": {
+			"name": "postcss-sprites",
+			"version": "2.0.1",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createStudio/postcss-sprites.git"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^5.0.2",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "799990ee3500aa574aeb87a589527ebc9a06affb",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"_id": "postcss-sprites@2.0.1",
+			"_shasum": "020867cd89f525928299d853eaa9e7447f6e7cd9",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "020867cd89f525928299d853eaa9e7447f6e7cd9",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-2.0.1.tgz",
+				"integrity": "sha512-J9YmSHUmH9H2cE1RqLjAs2i/bvasLBbbvCqnNihrvii7C7RDe1t9eysJRaGrPPB+nNc/uZNHDYe/T/6HnMemEw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCRC1uwMVxA6/eqcNDzJh2tD8A0RsW+VB/eKH1kgL+mogIgUWTp6VKGMFKdN+xOC1b3j6630hLqPJQ4OXYVkch3ttU="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"2.0.2": {
+			"name": "postcss-sprites",
+			"version": "2.0.2",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createStudio/postcss-sprites.git"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^5.0.2",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "c909cafa77fedd082ed73fd8ab33c836894e05d5",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"_id": "postcss-sprites@2.0.2",
+			"_shasum": "48a446f036baccf6697c9b4d3d63682e07e0ef2b",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "48a446f036baccf6697c9b4d3d63682e07e0ef2b",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-2.0.2.tgz",
+				"integrity": "sha512-CsR4zDp0KG/Z57vZkVq0vycu7SpxulpRnEbJX/Q0NC8/ltA16pA5/TlZgzQSXCEMlaH5WGq6mN/mL473ifGmnQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDqjf62Y8KITT1E3AMScrTCqhpXv98YVsg+KioJUXSFYAIgFY3suObotqRMDdTGK1Ulc7wduAGLxpmW4M2i00FHALc="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"2.0.3": {
+			"name": "postcss-sprites",
+			"version": "2.0.3",
+			"description": "Generate sprites from stylesheets.",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"sprite",
+				"spritesheet",
+				"generator",
+				"css",
+				"spritesmith",
+				"png",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "2createStudio",
+				"url": "https://github.com/2createStudio"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createStudio/postcss-sprites.git"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss": "^5.0.2",
+				"async": "^0.9.0",
+				"lodash": "^3.8.0",
+				"mkdirp": "^0.5.1",
+				"q": "^1.4.0",
+				"spritesmith": "^1.3.1"
+			},
+			"devDependencies": {
+				"tape": "^4.0.0",
+				"tap-spec": "^3.0.0"
+			},
+			"scripts": {
+				"test": "node ./test/index.js | ./node_modules/.bin/tap-spec"
+			},
+			"gitHead": "b525125d9bae2911335cb27d0263558eee9f7723",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"_id": "postcss-sprites@2.0.3",
+			"_shasum": "934640017940c16e9be48cf4c4a6b877bfb7f7e5",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "934640017940c16e9be48cf4c4a6b877bfb7f7e5",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-2.0.3.tgz",
+				"integrity": "sha512-NZLtghF9Zd81JzsK4e58+TKlZ+Iiv+ejfD/fdccxPfcBT/zB/zgG6N4k4uDSBC6GFQZdQDkBPw5JO+L9hf0e7g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICdmPvq26SwsETUehjf9yaalb3tNpVMj8OTbGS0PWaWmAiEA66pjJVwjlSEwqZXaWzly5qGPHYmCiduNgkK/7qZ0paY="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"3.0.0": {
+			"name": "postcss-sprites",
+			"version": "3.0.0",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.9.1",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"gitHead": "9d474708037fe98f3ceaf9d6bb3dfe29c9a01728",
+			"_id": "postcss-sprites@3.0.0",
+			"_shasum": "c0662a90fd0db13ecd22bc08e6b79e3d046bfcb6",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "c0662a90fd0db13ecd22bc08e6b79e3d046bfcb6",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.0.0.tgz",
+				"integrity": "sha512-SULwvVQkkMi9okDoRCAVWQfI6OzFNH9YRDKnkjDi1HJz75F+Lttr38SnQlb+GIZTBQpIaFw9f2+fr3uCarZouQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICjybzJu6z3ELt2EIxk8o9sg8uVRHQopUqLJt9xYyTpyAiEA1fnk7p2lOu98aDxFHzsiodNwzjko3TPPxeLAQrmKP9g="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"3.0.1": {
+			"name": "postcss-sprites",
+			"version": "3.0.1",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.9.1",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"gitHead": "e14f2aed8d7937bd9534873f2b31796707b431e9",
+			"_id": "postcss-sprites@3.0.1",
+			"_shasum": "6b619ec631b307bee66871bd435bf25a2049d960",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "6b619ec631b307bee66871bd435bf25a2049d960",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.0.1.tgz",
+				"integrity": "sha512-kXdVzf6WSrWiqLNzYL0j2mnk66mxHQlmsErINLSj6BGytRyuc/wo+mik4R7eXfbl1HGctqoJMWPxv+vddcrStw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIAK5ViLy6qeppxMtbBNxXcOjKxDlCTzl0YE23IyzUuckAiEAiOJYSVYwQq7TGAIhNqcfl0i0eF0T/YXa1il3kkbi6Vs="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"3.0.2": {
+			"name": "postcss-sprites",
+			"version": "3.0.2",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.9.1",
+				"babel-cli": "^6.4.0",
+				"babel-plugin-add-module-exports": "^0.1.2",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"gitHead": "5e51b0d42b79df488fa6fa28ebb14e7620246e04",
+			"_id": "postcss-sprites@3.0.2",
+			"_shasum": "d8c3eb9f50bae40580665c79e2262d90dd009459",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "d8c3eb9f50bae40580665c79e2262d90dd009459",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.0.2.tgz",
+				"integrity": "sha512-rNl6YNZPlN22BWJkRfhPEwtnJ89GIo9Mq3WjAIWltvGeopUwx7HBu0YOF71UC/p1hKXvAHLGXbkjbkRZzRgIHw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCa8hW9xMVtfBvVlr4WAH8VdWzsibE/4H1XM9juthda9gIhAI6A5GLTn1c8fzO2vOHTh2jfNUdkavX0UygTVtrYNgwY"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"3.0.3": {
+			"name": "postcss-sprites",
+			"version": "3.0.3",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.9.1",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"gitHead": "68bb2f67ee27fef75eaff1e871876ecc602051bb",
+			"_id": "postcss-sprites@3.0.3",
+			"_shasum": "af59472c946e848bd547b1b4ae7f16f22a5d7778",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "af59472c946e848bd547b1b4ae7f16f22a5d7778",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.0.3.tgz",
+				"integrity": "sha512-5QU9DBeHGCz7ptySVkB2pgDTpajf968Cd16Vdna9WoG4yiUdhoxtavdKDa+kj5IB8liuKWEIR6JxeYb5FuxxvQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDyffcRCwoBWosCKUBszXWjtykVpCookzFXHR4YpFGLDwIhAObMbAj+m2rrsi3dQo7DweunyoMVz5Y4GkBRmBkika8B"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			]
+		},
+		"3.1.0": {
+			"name": "postcss-sprites",
+			"version": "3.1.0",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.9.1",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"gitHead": "2eeeae411f88fb7a08163fb8f8079e9cab0f3e8e",
+			"_id": "postcss-sprites@3.1.0",
+			"_shasum": "3ab41d3a58d67b49468d5511901d034633450e6d",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "3ab41d3a58d67b49468d5511901d034633450e6d",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.1.0.tgz",
+				"integrity": "sha512-iZq1ot0RQfyHzjnukbJR7w3AKRpNcV3GEJOuW24FPY63MzZRMkDMDJ/BDeFhhPaSP/lyCJTk6JKVIQ3mdZfrKw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDDfHFzm0XIpzgXGWlXJwF1gL1/cSh5iSLvQbTbiIORGQIhAIpVqAdZH6iPyVTTMx5xU4xqoik+p7GuKEsHNBX4OCEV"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-3.1.0.tgz_1454567378682_0.5969992089085281"
+			}
+		},
+		"3.1.1": {
+			"name": "postcss-sprites",
+			"version": "3.1.1",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.9.1",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"gitHead": "284304dc2d591d24bacc96902585e8f8c79a1c2c",
+			"_id": "postcss-sprites@3.1.1",
+			"_shasum": "dd1370b33a7160fa19fc7deae6bab7c2b540255f",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.1.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "dd1370b33a7160fa19fc7deae6bab7c2b540255f",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.1.1.tgz",
+				"integrity": "sha512-cjWPs+/c9NRAEl2+hGiH85AhbmvyQ9ZPxTsObco8HANRZNa1JNQV0ogDm4QNyPDPdJiCokUy2Z2OmOwj9qhT+w==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC3sK2essdfoynIcn9Am/U8F036XPzuc+/wx0JeNQUWPgIhALUOqJz5stBvmaSDAjDgt4GqgJLyG8HPrZn9mMs4LwAS"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-3.1.1.tgz_1458716274845_0.3007624160964042"
+			}
+		},
+		"3.1.2": {
+			"name": "postcss-sprites",
+			"version": "3.1.2",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.9.1",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "cd1cda211198e72166909899166167dff3d617a4",
+			"_id": "postcss-sprites@3.1.2",
+			"_shasum": "c9afc3ecc196d115b9594fbdf9413f9531a8c9f8",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "c9afc3ecc196d115b9594fbdf9413f9531a8c9f8",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.1.2.tgz",
+				"integrity": "sha512-bAggShffQfzsBZUvfEWopf2dSlaek6vbBflX32aW/BLHD6CvDrcnGu9QxmzsQi7oHiEFzRBw9cihQ0EL2JN+Cw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIE+7ge7xFcDorBtjD5NoJqOWxXCzcK0Fc9rjx52o7mfCAiEAsbBirJxzDJIIjj66zl7XR+5380Wf1dvk5A04XP0WCgM="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-3.1.2.tgz_1460358448614_0.15243083122186363"
+			}
+		},
+		"3.2.0": {
+			"name": "postcss-sprites",
+			"version": "3.2.0",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "7f72df7cb69ff0e253605aa7e8e9c92f3e5a871f",
+			"_id": "postcss-sprites@3.2.0",
+			"_shasum": "2d4704b6666f185ac3d1a6091694b4ace6366bb9",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "2d4704b6666f185ac3d1a6091694b4ace6366bb9",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.2.0.tgz",
+				"integrity": "sha512-pCbxoKJozeXM2Yzd9BjefDu+6CzsZPUdduA5SGbSGFiLG2KOHHzeQAlhid/6tnvDdtYosNO8Ejf+B1fc3Zxt7A==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDA+Y5hIibaNexCU++gslt9xtDCN4choaLjjgKZAPekfgIgZblc61GkJQZdhirIN573mUI6PsMwMyXX28c7Lo93NBM="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-3.2.0.tgz_1468823960933_0.5927772813010961"
+			}
+		},
+		"3.2.1": {
+			"name": "postcss-sprites",
+			"version": "3.2.1",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "7c52eaf583047207dec2af75363007c5e5042e6c",
+			"_id": "postcss-sprites@3.2.1",
+			"_shasum": "d27b3f7a58a87eb7818acb3e1987a12e2a71bc19",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "d27b3f7a58a87eb7818acb3e1987a12e2a71bc19",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.2.1.tgz",
+				"integrity": "sha512-ug2MPKSQkgLVhRZoVDIhSikZYm+ermntG0+vi2u9kG+VF330hd8XOPahIQERA1BvNk8VipgaM4JZFvHwiV9Z8w==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDNN/kzakQWXs+eZNu1qct6XCo8uTJxvv/DUgtaLc9DUwIgKD7O9H9+XeCYjHo5/k0iuMBBYOeQZYfFgKjgW6LYirk="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-3.2.1.tgz_1469081361797_0.9873670043889433"
+			}
+		},
+		"3.2.2": {
+			"name": "postcss-sprites",
+			"version": "3.2.2",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "cf8728615298c55f5b2c5bfd7959597d8f577077",
+			"_id": "postcss-sprites@3.2.2",
+			"_shasum": "e7f0c7cc3bca5dc6a5d56879ccdb54aae9069919",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "e7f0c7cc3bca5dc6a5d56879ccdb54aae9069919",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.2.2.tgz",
+				"integrity": "sha512-rLGkHfT2ezxf/pdmefmJvmeaxyXxvOxXy0pw7yB/gLObjqsZvYfiZDF9YZOhBGAEJIBWiNEIU9/XHticv02eiw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCgvF6TfJcXGNEagxJV8B+xd9vO+emhWBwsY3CnQCZhjQIgFVjfg16gI8o3mWw60iBuXMMiHRz3zSewBIg+FF7GSdo="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-3.2.2.tgz_1469165693916_0.6119221798144281"
+			}
+		},
+		"3.2.3": {
+			"name": "postcss-sprites",
+			"version": "3.2.3",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "290fe92b181364b39d90a8a1f85e3af05c3ec344",
+			"_id": "postcss-sprites@3.2.3",
+			"_shasum": "b5fd6f66ce776283916feddd9c3409c626dcdc41",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "b5fd6f66ce776283916feddd9c3409c626dcdc41",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.2.3.tgz",
+				"integrity": "sha512-GCrKgIcvYagUGdS5mnYzyeO7dHFQQzg323HY+v+E+1Ox3c2e2q3as19pz4WaKJ1gWtA4Owq3vTCssFF9YJ/ajw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDhpkFNhzGbNg/kHLxGgqq19xECMfxESbPHU4YDLsTHOwIgTIW2OUMK+8Q+H06z+FV2WNEf4KOEGAMhF6WURBWf+l0="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-3.2.3.tgz_1469185826155_0.39061815151944757"
+			}
+		},
+		"3.3.0": {
+			"name": "postcss-sprites",
+			"version": "3.3.0",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png"
+			],
+			"scripts": {
+				"test": "ava --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "c668ce92f8137290a58e12f5ed3b3ad22324d9d4",
+			"_id": "postcss-sprites@3.3.0",
+			"_shasum": "ee2619e90beb641cee834755969621e729964e9c",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "ee2619e90beb641cee834755969621e729964e9c",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-3.3.0.tgz",
+				"integrity": "sha512-m9KJrx/d9Hg+7Uv3HO3y+dtkWlhs3nybpHeQHtiWqdhy+ln+ra4C9LLAq1n9kYPynu8UnMwRdkIVREo7f4thBg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICbrB0ut6P38zmi2ELNMD4cbr77NZxFKcA9VT3vacrhJAiEAwaxOZPzSi20laaEoZJXTZUShCCdR/177fzCzzOG4OCc="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-3.3.0.tgz_1469512576525_0.019903532462194562"
+			}
+		},
+		"4.0.0": {
+			"name": "postcss-sprites",
+			"version": "4.0.0",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png",
+				"svg"
+			],
+			"scripts": {
+				"test": "ava test/*.js --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1",
+				"svg-sprite": "^1.3.5"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "c5a5eceb5913369683c6aa9b7e90059231caefd9",
+			"_id": "postcss-sprites@4.0.0",
+			"_shasum": "06cbb5ac29a6e1710030e7d757983207ed69fa27",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "06cbb5ac29a6e1710030e7d757983207ed69fa27",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-4.0.0.tgz",
+				"integrity": "sha512-yPhb0o/3S2MVpzeTf0+6F3Yx3PkHIZiAAbK4wSgp/DJ+4I4JejBu11dVhLX/ZBl+0LUypStI2UY1X4P0dXeCNA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICoIAIdbwX/0BMK5WUEIog9uZ6k+rYraQ3dxOx/tEJbZAiEAzo2qQVxeIuWD6oyaTG9Va74/AXIe5poi45Q4YnKTsHU="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-4.0.0.tgz_1472199897089_0.7393650189042091"
+			}
+		},
+		"4.1.0": {
+			"name": "postcss-sprites",
+			"version": "4.1.0",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png",
+				"svg"
+			],
+			"scripts": {
+				"test": "ava test/*.js --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1",
+				"svg-sprite": "^1.3.5"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "9af4fe6497dd08d820bdbe536bf02f7690054d22",
+			"_id": "postcss-sprites@4.1.0",
+			"_shasum": "9f9db294391480901c59c378dae8e1f4d71288a6",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "9f9db294391480901c59c378dae8e1f4d71288a6",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-4.1.0.tgz",
+				"integrity": "sha512-Md0zFtIKUw0obeAxzDdDybhVMix3Oo2mwCed1r+rbIcqWlR5r6bjooNgnsua1PezXhcq0PqFeTJnJJiHCn/nzA==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCmpTzJ1QCbnMovtoLwMyhG+dkMz8Pka4UfKsdarYy7HwIhAOguvKDzkMkQfzpDQ3Bd8T4OO0eopN/3chsfI93NrJca"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-4.1.0.tgz_1479800401324_0.4385353911202401"
+			}
+		},
+		"4.1.1": {
+			"name": "postcss-sprites",
+			"version": "4.1.1",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png",
+				"svg"
+			],
+			"scripts": {
+				"test": "ava test/*.js --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1",
+				"svg-sprite": "^1.3.5"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "a7e02d260ed3f3ef8ac3114b2ae5014843f0c77a",
+			"_id": "postcss-sprites@4.1.1",
+			"_shasum": "2df4a51e287d29ce925e098d221943c7d1f4b028",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "2df4a51e287d29ce925e098d221943c7d1f4b028",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-4.1.1.tgz",
+				"integrity": "sha512-7v8aPe11HosmiEXwTfhb1JPceG4UAP8yflV3Kfypz3tyoDvTCHXUC7GwSwI0WaRM8EHhQoqdPYKuWXZDWX03rg==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDPhyudVcpZenTOxCh5OJhH7hIqtt7KLextn3MDB4VZMAiEAvoVj5ji75nnpWjQi/oj4LMGuevJ7u8p2Ab9RSDrvCuM="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-4.1.1.tgz_1481100100369_0.7937156844418496"
+			}
+		},
+		"4.2.0": {
+			"name": "postcss-sprites",
+			"version": "4.2.0",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png",
+				"svg"
+			],
+			"scripts": {
+				"test": "ava test/*.js --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"debug": "^2.6.0",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1",
+				"svg-sprite": "^1.3.5"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "68d6e970c1357d048ca5961fd97847f181649b54",
+			"_id": "postcss-sprites@4.2.0",
+			"_shasum": "d81ef8e16add3523b6710f12c1198ceba83f25fa",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "d81ef8e16add3523b6710f12c1198ceba83f25fa",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-4.2.0.tgz",
+				"integrity": "sha512-lXmGuaHBtUPrWXPmFofNduIk8H7PnkkT93mPTD/1PTJX+n8fCA9Ga8Uj7B61cUmjAYNFAnSKdOoAdUs+gGCdmw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDhEo96zVSC0fqiTNnGAzv39OZqHWkV9ik9MLOk3xIcmwIgKp4wdShbtKAz4iS73mtFy462WqxodPkUUT3z7Jfh8Fw="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-4.2.0.tgz_1486471882511_0.5885912997182459"
+			}
+		},
+		"4.2.1": {
+			"name": "postcss-sprites",
+			"version": "4.2.1",
+			"description": "Generate spritesheets from stylesheets",
+			"main": "lib/index.js",
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"spritesheet",
+				"spritesmith",
+				"sprite",
+				"png",
+				"svg"
+			],
+			"scripts": {
+				"test": "ava test/*.js --verbose --serial",
+				"build": "babel src/ --out-dir lib/",
+				"watch": "babel --watch src/ --out-dir lib/",
+				"prepublish": "npm test",
+				"pretest": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+			},
+			"author": {
+				"name": "2createStudio"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/2createStudio/postcss-sprites/issues"
+			},
+			"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+			"devDependencies": {
+				"ava": "^0.15.2",
+				"babel-cli": "^6.4.0",
+				"babel-plugin-add-module-exports": "^0.2.1",
+				"babel-preset-es2015": "^6.3.13"
+			},
+			"dependencies": {
+				"bluebird": "^3.1.1",
+				"debug": "^2.6.0",
+				"fs-extra": "^0.26.4",
+				"lodash": "^4.0.0",
+				"postcss": "^5.0.14",
+				"spritesmith": "^3.0.1",
+				"svg-sprite": "^1.3.5"
+			},
+			"typings": "./typings.d.ts",
+			"gitHead": "fe7c2071ff44252eb9335d49e43ce0ff61a8ca3c",
+			"_id": "postcss-sprites@4.2.1",
+			"_shasum": "15551e5f7245a08abac7dbc24528556b3e1d14c9",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.5.0",
+			"_npmUser": {
+				"name": "2create_studio",
+				"email": "bitbucket.2create@gmail.com"
+			},
+			"dist": {
+				"shasum": "15551e5f7245a08abac7dbc24528556b3e1d14c9",
+				"tarball": "https://registry.npmjs.org/postcss-sprites/-/postcss-sprites-4.2.1.tgz",
+				"integrity": "sha512-SKLXlxxERWds7NN2SilhPz9Rq7lO4eEE4AvfC63fsztDV/SCSS5kU23j46YxhjN0m3uMA/6dWY7VAcR+C4A+Aw==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDAOu9gHSSst7LA2sjCDjmmKrI+eunMMGHrahRmYBM5UgIhAInvKetOcytMy8tpWhw1/EobeRYSujpgiZxmLZseaSAn"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "2create_studio",
+					"email": "bitbucket.2create@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-sprites-4.2.1.tgz_1492754604192_0.40833621588535607"
+			}
+		}
+	},
+	"homepage": "https://github.com/2createStudio/postcss-sprites#readme",
+	"keywords": [
+		"postcss-plugin",
+		"postcss",
+		"css",
+		"spritesheet",
+		"spritesmith",
+		"sprite",
+		"png",
+		"svg"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/2createstudio/postcss-sprites.git"
+	},
+	"author": {
+		"name": "2createStudio"
+	},
+	"bugs": {
+		"url": "https://github.com/2createStudio/postcss-sprites/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"326060588": true,
+		"antixrist": true,
+		"malitov": true
+	}
+}

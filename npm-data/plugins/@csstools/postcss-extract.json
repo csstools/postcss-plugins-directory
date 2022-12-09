@@ -1,0 +1,280 @@
+{
+	"_id": "@csstools/postcss-extract",
+	"_rev": "1-d1804c6ea92bb43850a253a9047381f2",
+	"name": "@csstools/postcss-extract",
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-extract",
+			"description": "Extract bits of your CSS",
+			"version": "1.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-extract#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-extract"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"data",
+				"export",
+				"extract",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"exportName": "postcssExtract",
+				"humanReadableName": "PostCSS Extract"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "8f823851f3ab9c0ceb235aaf9e38176913fbb1eb",
+			"_id": "@csstools/postcss-extract@1.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-znuPHOcOpY/2jE9Rf2D3xyVhPlS0ZtLh0Oh7sAkHfTgMl3yWZ2PZdRS9Xt2KhDJAmHotuWM1yxD9VLjhJ+hOdQ==",
+				"shasum": "82df23ac31489ca45256fd3f31655e2d29f8fcd7",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-extract/-/postcss-extract-1.0.0.tgz",
+				"fileCount": 17,
+				"unpackedSize": 21830,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCHHB7XB6PLAYsScPpINQaLWJnMSlxFk6BCiq++NRXumAIgGUglcbLFl4j6vFPvlQ1NUmPXMqtShiROMwmoEmyaTFA="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjO9EYACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrajA//VFvjtibFAYu9ApxoZ8o5DW0ny3/ysQ/79vc/D+JCCWl8OU23\r\nKopjkjCrB9wvR656/WfwvYwBxKO3+Tun7tnUDloq31hU2CvmDyqqYuG8sQ3y\r\nhWFVOvzojV3IN57W3nRlqwL9yOo5CLotzPl0cQj9Pol1bYEX2kIzUZLWadkZ\r\nWP2eJhu0JF+1JTvud5zCBqPVFh2hntewlnA6eWiRH6qIIV1N72aoe6bDYLsS\r\nCrRJdO+yENv9xRfZ5Tgvyf/KMDPTmST7Be9fd9JdkTjnQquvmXJD8FNM5u0q\r\naQeZH23kFQru7ObrBTIeXP8G8NfVGUu0paaqx1rMj/q7BkzXr0WrgMnmCSPq\r\n/ZWDF8ePUN98YG1VyxQsXAwJiZ/y5/ejwj3Yh8x5BGd2zHv1QrU410y4gATD\r\naY1NG01MsFwzS+lLLJ8ihAOqvNLp6Fq+BX282Re8mFVS9HDjJ4gf4GD5c3xS\r\nz7iGI7lADHA7t9EUz7p5M7tKCLmA0EUHnAcSoSA4Fkc03z7mI11WcDHkT6oU\r\n5bvCWeonw5S+mCi/lWmeRd+hvnCxmBWZnUP4RYXx+L7zLwsClN6zMzrPYPtX\r\nIXjgkbRmzUJtXbj3hH5L3Z6Mi6LeZetVzB8ZUI5nuBcJVNBPAX4vxjK2wVsF\r\ng2TKOg36Joe5sSJxvhEhZFD1MmHd+UD3+Mo=\r\n=ETA0\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-extract_1.0.0_1664864536036_0.11701309816142458"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-extract",
+			"description": "Extract bits of your CSS",
+			"version": "1.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-extract#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-extract"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"data",
+				"export",
+				"extract",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"exportName": "postcssExtract",
+				"humanReadableName": "PostCSS Extract"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "f35b958d37edba29ceb7644d2e059c2b302f0e9d",
+			"_id": "@csstools/postcss-extract@1.0.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-UWhNiHmiXQOwc8P3ZDReSvVF7R4yUhes+DKJB7HxODa1NKk1eDtHC3vp/5LqcAkBlX5ImMsz8Ag71UaHxYAgiw==",
+				"shasum": "4543d7c91a9ca88a11036182b45cc2ebb15ec1ac",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-extract/-/postcss-extract-1.0.1.tgz",
+				"fileCount": 17,
+				"unpackedSize": 21944,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD25MGEbE60ssZtGdglsKvoWJ09pogNATRJUB5eShKRTAIhAKxjeeebWj6SIamqEm+BgdOJukRVm1PsbKSVXUBuQ2MI"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjO+smACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqsgg//VrFaGr5SMtSZELtNoTKNeUOokOASKlABBqzXn0nCiIEGpucH\r\nlL+mqg2ODLbmyIq9JmWad5wT/N0h6gJSzJM0qgzITtz8UDMwYIi8GjpJ2ZpJ\r\nrH1FGLrVpwdBrj5qSbzstHbP4lXEF57mODMB5awr/Aof7sygZ+iavwu/ONjD\r\n6UNKgc/klNCMswHCW4mYmiIsdbLyHCI/XA4i/vObj6fc9kKbDX79PNVA5E5s\r\n7jv7CUKL09xWBFEHv3O5M+jgvRw4oXrGNb0lKGh+KVRykvzqNMgiNVX0HnI0\r\nI7oh3+IWYQCviTzaMx2xO6e7OFOCfEevl9KLK8mTxAezMXbFij8+uK60QvdE\r\nqqD9Z+xVHPemdD+EBXzfFead4e3/DWeRjkovaU9mBtdYPHpFGY1/iiGKa1KD\r\nlExJMdzC6m9mIJHy/8VeIGzKHLhf+ee5eJBXBJuHSYrlvRmR/DkK8yyLJfI3\r\n0Cwl7u7MV0RVp4ashvnyfJX7DN+m6yT2pxZTbY5gyntwwP1ObY0fm1HxZUlS\r\n6E0AQhe3KRoAwUr29VG/rKjPuo4U9p370vwROCYrTT78yaw/b30AJevgQ4I7\r\nq5jrG+hrGzej+tS6NfVnuqMI71RIa9SyxWImCRdfS0Ei1Qe/OBKm769nJ11F\r\n27Ih0qUbFdCFLTGY6GpzR62eZ5SpA8QsgjY=\r\n=o21j\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-extract_1.0.1_1664871206007_0.565078206621314"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-10-04T06:22:15.980Z",
+		"1.0.0": "2022-10-04T06:22:16.269Z",
+		"modified": "2022-10-04T08:13:26.267Z",
+		"1.0.1": "2022-10-04T08:13:26.187Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Extract bits of your CSS",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-extract#readme",
+	"keywords": [
+		"data",
+		"export",
+		"extract",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-extract"
+	},
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS Extract [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-extract.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Extract] lets you easily export parts of your CSS source files to JavaScript objects.\n\nyour query :\n\n```css\nrule[selector*=\":root\" i] > decl[variable]\n```\n\nyour config :\n\n```js\npostcssExtract({\n\tqueries: {\n\t\t'your-export': 'rule[selector*=\":root\" i] > decl[variable]'\n\t},\n\tresults: function(results) {\n\t\tconsole.log(results)\n\t}\n})\n```\n\nyour css :\n\n```css\n:root {\n\t--your-property: cyan;\n}\n\n.other {\n\t--other-property: yellow;\n}\n```\n\nthe exported data :\n\n```js\n[\n\t{ type: 'decl', prop: '--your-property', value: 'cyan', variable: true },\n]\n```\n\n## Usage\n\nAdd [PostCSS Extract] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-extract --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssExtract = require('@csstools/postcss-extract');\n\npostcss([\n\tpostcssExtract(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Extract] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### queries\n\nThe `queries` option let's you define which parts of your CSS are exported.\nEach query is written in CSS.\n\nSupported combinators:\n- `>` direct child\n- ` ` any descendant (space)\n- `+` adjacent sibling\n- `~` general sibling\n\nSupported selectors:\n- `*` any node\n- `atrule`\n- `rule`\n- `decl`\n- `comment`\n- `[type=decl]`\n- `[value=cyan]`\n- `[value=cyan i]` case insensitive\n- `[value^=cy]` starts with\n- `[value*=ya]` contains\n- `[value$=an]` ends with\n- `:not(<complex selector>)`\n\nBrowse the [PostCSS API](https://postcss.org/api/) to gain more insights into the AST naming and structure.\n\n```js\npostcssExtract({\n\tqueries: {\n\t\t'your-export': 'rule[selector*=\":root\" i] > decl[variable]'\n\t},\n})\n```\n\n### results\n\nThe `results` option let's you define a callback to receive results.\nYou can then apply further transforms on the data so that it fits your use case.\n\n```js\npostcssExtract({\n\tresults: (yourResults) => {\n\t\tconsole.log(yourResults);\n\t},\n})\n```\n\n### extractLate\n\nThe `extractLate` option let's you define if the queries are run early or late in the PostCSS process.\n\n`extractLate: false` uses `Once` in PostCSS.<br>\nThis means that it will try to run early.\n\n`extractLate: true` uses `OnceExit` in PostCSS.<br>\nThis means that it will try to run late.\n\nThe order of plugins is still respected if multiple plugins use `Once`|`OnceExit`.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-extract\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Extract]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-extract\n",
+	"readmeFilename": "README.md"
+}

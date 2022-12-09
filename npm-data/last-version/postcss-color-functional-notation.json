@@ -1,0 +1,118 @@
+{
+	"name": "postcss-color-functional-notation",
+	"description": "Use space and slash separated color notation in CSS",
+	"version": "4.2.4",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-functional-notation#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-color-functional-notation"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"color",
+		"colors",
+		"comma",
+		"css",
+		"design",
+		"functional",
+		"hsl",
+		"hsla",
+		"hwb",
+		"notation",
+		"postcss",
+		"postcss-plugin",
+		"rgb",
+		"rgba",
+		"space",
+		"syntax"
+	],
+	"csstools": {
+		"exportName": "postcssColorFunctionalNotation",
+		"humanReadableName": "PostCSS Color Functional Notation"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "a79a735c39db00160362dd0613b754a972981084",
+	"_id": "postcss-color-functional-notation@4.2.4",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-2yrTAUZUab9s6CpxkxC4rVgFEVaR6/2Pipvi6qcgvnYiVqZcbDHEoBDhrXzyb7Efh2CCfHQNtcqWcIruDTIUeg==",
+		"shasum": "21a909e8d7454d3612d1659e471ce4696f28caec",
+		"tarball": "https://registry.npmjs.org/postcss-color-functional-notation/-/postcss-color-functional-notation-4.2.4.tgz",
+		"fileCount": 9,
+		"unpackedSize": 24898,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQDgL5AFToeeYTpCHQbbTs9064sj6vZALimMk64Qd6iLdgIgctx/WaV8BH492UQH7tx5Q9pGEK2RZ1ydsA7akziyr5s="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFfiACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmperA//TVGR6K+PQwSl7bAwiTl5cpQeteEhjUahVS1ZNIysRXJ6gX6O\r\n9qLTrH++uRW2m/Lsb5ydDRGHoqxa2Wlx91IG7rtbPOc4hFFvPbYtE7tbmkv2\r\nd8gZp3WOTNh0HczNYoGcEgmhS6jVK5WClFjCUecYO0DS4FNPvqaBgVvPCMK2\r\nL7ovOIffn9LiItQ+tZV/RNnPtjz9oDdma46NfyCaEvmML3nu0qgY9KIwKaC4\r\nFxOFEvfcECMvjYitQZ2vsI6qTd7fxMakew/2Zdt8d33ejHw3mm3/1PVs7RAw\r\nG794IJ1Ma0T2paHDo43rtU2nqsvjkzA81FIv5Vt7Nm1y53uX41+fwst1HX9n\r\nLOoQPcwCmTjQ/piTvyjuD8Ry9/WzIrsW/iaKIDFQjqIfpgISVjqa0oS++CxG\r\nZM0HJxfflwLjgN9FNMZ7pypvrMr5eJD+ppH8tAqa2vJxbbSIDyM4ti6BQbeZ\r\naEKBU0UT6qDZzQdYzL54PF8xnEJVzwp/aqnmYSmbYYgNiOU4HFT+hrdRvxxN\r\nlsGH9CRQcNQBovEEr+hua7znlffDL7f37qLPUUAXLSPI1KI0TrcD9l/mZt18\r\nBP8bYYXs8dHm2TPgyX4KwFh8gUSGQu/a2ONk3TSURimLnzI7OTorOGy8eYSe\r\nmB2ujQ1XjLjsqz3bdg0BC9S1EO+3xZJUmBI=\r\n=UVCz\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-color-functional-notation_4.2.4_1657296866541_0.9915271975826807"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-07-08T16:14:26.730Z"
+}

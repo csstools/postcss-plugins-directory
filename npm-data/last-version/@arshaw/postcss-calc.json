@@ -1,0 +1,101 @@
+{
+	"name": "@arshaw/postcss-calc",
+	"version": "7.0.2",
+	"description": "PostCSS plugin to reduce calc()",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"calculation",
+		"calc"
+	],
+	"main": "dist/index.js",
+	"scripts": {
+		"prepublish": "npm run build",
+		"build": "del-cli dist && cross-env BABEL_ENV=publish babel src --out-dir dist --ignore src/__tests__/**/*.js && jison src/parser.jison -o dist/parser.js",
+		"pretest": "npm run build && eslint src",
+		"test": "ava"
+	},
+	"author": {
+		"name": "Andy Jansson"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/postcss/postcss-calc.git"
+	},
+	"eslintConfig": {
+		"parser": "babel-eslint",
+		"extends": "eslint-config-i-am-meticulous",
+		"rules": {
+			"curly": "error"
+		}
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.1.2",
+		"@babel/core": "^7.1.2",
+		"@babel/polyfill": "^7.0.0",
+		"@babel/preset-env": "^7.1.0",
+		"@babel/register": "^7.0.0",
+		"ava": "^1.4.1",
+		"babel-eslint": "^10.0.1",
+		"babel-plugin-add-module-exports": "^1.0.0",
+		"cross-env": "^5.2.0",
+		"del-cli": "^1.1.0",
+		"eslint": "^5.7.0",
+		"eslint-config-i-am-meticulous": "^11.0.0",
+		"eslint-plugin-babel": "^5.2.1",
+		"eslint-plugin-import": "^2.14.0",
+		"jison-gho": "^0.6.1-215"
+	},
+	"dependencies": {
+		"postcss": "^7.0.27",
+		"postcss-selector-parser": "^6.0.2",
+		"postcss-value-parser": "^4.0.2"
+	},
+	"ava": {
+		"require": [
+			"@babel/register",
+			"@babel/polyfill"
+		]
+	},
+	"gitHead": "1a753cded695c643f152cb15031a33854c3f382c",
+	"bugs": {
+		"url": "https://github.com/postcss/postcss-calc/issues"
+	},
+	"homepage": "https://github.com/postcss/postcss-calc#readme",
+	"_id": "@arshaw/postcss-calc@7.0.2",
+	"_nodeVersion": "13.12.0",
+	"_npmVersion": "6.14.4",
+	"dist": {
+		"integrity": "sha512-co0Hjp5N10WY4RY7l1pHFqwbG+SyK1gjhdg2CqlW7+tw37itYlssYCIHI1NV0GhwoqXo8tQBx4TQ1Eii9/i0pg==",
+		"shasum": "fd92cc54a64c381eec1073454a9b73822db3a6fc",
+		"tarball": "https://registry.npmjs.org/@arshaw/postcss-calc/-/postcss-calc-7.0.2.tgz",
+		"fileCount": 10,
+		"unpackedSize": 151557,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe6+PPCRA9TVsSAnZWagAAd9QQAJsZNWZvdSMfEMH/SwqK\nstDBs2yqcXz/USfcsEjAETGnrO3ZLUuihJwLs6Yw6A5GY/LSgm7wd71xmhCx\nW5JTmJ3Z/0Kz5uwcjfbbOoSu5ol3wuDK738E6KbSHNmXVP+XVU2QiWjZrBuq\nQoKSJHGuPY7bKlsJ71BHcypMlLTi9OWgIYcfIrA+b9c//ifguQNUpB3EXmWH\n9dL6AmOHErFTIzEI/vLctgCtlN5FDYWIFmYgUbAX2CPla8dBjTXt+b9T56eC\nSFk5oQl/8regFimgPhGyu15ED/URBB+/e966CpZVViNaDdQowCLdoRm/IawP\ne1o3vF1a9whq0xCzL2qCFK9I5Nm3tdcJgDeLwuM+Ck3FvHDjxs9I3eeMZj7h\nGWExNn6gbRX494f7kKcfi7cPIscjCiJWQNHtpuvOSbI9B4EeNQEXWxuUr9N8\n93U9fhcCIzox4neALfmLlE+KPQDJC2bzrTrNlzkOiykh0WhHavfvICR/RTUV\n10MPaL2UWSHTaUgi03cgTaIQZhwTw2dqDp6Y3LNH/CDUX/9sOxtygX7XXe/2\n//DEVXR5vUMdpOOIJ8pBJHpOJWTgR5C3AXv2LsWBGMzszeLzB7yPWR5NSD5Q\nm7SgoRM2XVebZgKHgYIP/7XNn4e+sOmwLPKojSPz3xMX1kcwRKs+59wWFORj\n7/xq\r\n=0/RR\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIEmL+S2pS+xizUF7q1YszCb0CDnLTKHgzpKO8ILDEq/gAiEAvb1eoE6Zc85Il1SqwfohaIhHWnktUcq+9jsd/HhCH9E="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "arshaw",
+			"email": "arshaw@arshaw.com"
+		}
+	],
+	"_npmUser": {
+		"name": "arshaw",
+		"email": "arshaw@arshaw.com"
+	},
+	"directories": {},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-calc_7.0.2_1592517582969_0.3595471105492427"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2020-06-18T21:59:43.083Z"
+}

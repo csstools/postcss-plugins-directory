@@ -1,0 +1,130 @@
+{
+	"_id": "sunesimonsen-postcss-input-range",
+	"_rev": "2-70619eb4873fd0387263f4c36adfb145",
+	"name": "sunesimonsen-postcss-input-range",
+	"description": "Style range inputs with unprefixed pseudo-classes",
+	"dist-tags": {
+		"latest": "2.1.0"
+	},
+	"versions": {
+		"2.1.0": {
+			"name": "sunesimonsen-postcss-input-range",
+			"version": "2.1.0",
+			"description": "Style range inputs with unprefixed pseudo-classes",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"styles",
+				"ranges",
+				"inputs",
+				"types",
+				"pseudos",
+				"classes",
+				"thumbs",
+				"tracks"
+			],
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonathantneal/postcss-input-range.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonathantneal/postcss-input-range/issues"
+			},
+			"homepage": "https://github.com/jonathantneal/postcss-input-range",
+			"dependencies": {
+				"postcss": "^5.0.9",
+				"postcss-selector-parser": "^1.3.0"
+			},
+			"devDependencies": {
+				"eslint": "^1.6.0",
+				"tap-spec": "^4.1.0",
+				"tape": "^4.2.1"
+			},
+			"scripts": {
+				"lint": "eslint . --ignore-path .gitignore",
+				"test-fixtures": "tape test/*.js | tap-spec",
+				"test": "npm run lint && npm run test-fixtures"
+			},
+			"engines": {
+				"iojs": ">=2.0.0",
+				"node": ">=0.12.0"
+			},
+			"gitHead": "82e8cc2cda01c2f2506b10f2de40da6eae6d924d",
+			"_id": "sunesimonsen-postcss-input-range@2.1.0",
+			"_shasum": "c95a350a2555782a116ae21aa2ef898f2441cc02",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "sunesimonsen",
+				"email": "sune@we-knowhow.dk"
+			},
+			"dist": {
+				"shasum": "c95a350a2555782a116ae21aa2ef898f2441cc02",
+				"tarball": "https://registry.npmjs.org/sunesimonsen-postcss-input-range/-/sunesimonsen-postcss-input-range-2.1.0.tgz",
+				"integrity": "sha512-bjVAsuYZ+XhanvAhmuwtquHWNS79EjvKVYGTL6Fcqwf9mzqsVvblBQ7THtDKoqtG4tNMPBzx2gItFR07WE6wog==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHJ4SzeezsGiEgCSqas6VgrZxKVorQPGcg2r+HMyfXaWAiAOcXnWV/bcLwQhzwwxGEO92f4P5SgclgNn9tYXjId9pg=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "sunesimonsen",
+					"email": "sune@we-knowhow.dk"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/sunesimonsen-postcss-input-range-2.1.0.tgz_1493810521303_0.16661575133912265"
+			}
+		}
+	},
+	"readme": "# Input Range [![Build Status][ci-img]][ci]\n\n<img align=\"right\" width=\"135\" height=\"95\" src=\"http://postcss.github.io/postcss/logo-leftp.png\" title=\"Philosopher’s stone, logo of PostCSS\">\n\n[Input Range] allows you to style input ranges with unprefixed selectors.\n\n```css\n/* before */\n\n::range-track {\n\tbackground: #3071a9;\n\twidth: 100%;\n}\n\n::range-thumb {\n\tborder-radius: 3px;\n\tcursor: pointer;\n}\n\n/* after */\n\n::-moz-range-track {\n\tbackground: #3071a9;\n\twidth: 100%;\n}\n\n::-ms-track {\n\tbackground: #3071a9;\n\twidth: 100%;\n}\n\n::-webkit-slider-runnable-track {\n\tbackground: #3071a9;\n\twidth: 100%;\n}\n\n::-moz-range-thumb {\n\tborder-radius: 3px;\n\tcursor: pointer;\n}\n\n::-ms-thumb {\n\tborder-radius: 3px;\n\tcursor: pointer;\n}\n\n::-webkit-slider-thumb {\n\tborder-radius: 3px;\n\tcursor: pointer;\n}\n```\n\n## Supported selectors\n\n#### `::range-track`\n\nStyles the track of a range.\n\n#### `::range-thumb`\n\nStyles the thumb of a range.\n\n#### `::range-lower`\n\nStyles the lower track of a range before the thumb. <small>*Only supported in Firefox, Edge and IE 10+.*</small>\n\n#### `::range-upper`\n\nStyles the upper track of a range after the thumb. <small>*Only supported in Edge and IE 10+.*</small>\n\n## Usage\n\nAdd [Input Range] to your build tool:\n\n```bash\nnpm install postcss-input-range --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-input-range')({ /* options */ }).process(YOUR_CSS);\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [Input Range] as a PostCSS plugin:\n\n```js\npostcss([\n    require('postcss-input-range')({ /* options */ })\n]);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [Input Range] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n    return gulp.src('./css/src/*.css').pipe(\n        postcss([\n            require('postcss-input-range')({ /* options */ })\n        ])\n    ).pipe(\n        gulp.dest('./css')\n    );\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [Input Range] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n    postcss: {\n        options: {\n            processors: [\n                require('postcss-input-range')({ /* options */ })\n            ]\n        },\n        dist: {\n            src: 'css/*.css'\n        }\n    }\n});\n```\n\n## Options\n\n#### `method`\n\nType: `String`\nDefault: `'replace'`\n\n##### `clone`\nCopies any rules with `::range` pseudo-elements to new rules using prefixes.\n```css\n/* before */\n\n::range-thumb {\n\tborder-radius: 3px;\n}\n\n/* after */\n\n::-moz-range-thumb {\n\tborder-radius: 3px;\n}\n\n::-ms-thumb {\n\tborder-radius: 3px;\n}\n\n::-webkit-slider-thumb {\n\tborder-radius: 3px;\n}\n\n::range-thumb {\n\tborder-radius: 3px;\n}\n```\n\n##### `replace`\nCopies any rules with `::range` pseudo-elements to new rules using prefixes while removing the original.\n```css\n/* before */\n\n::range-thumb {\n\tborder-radius: 3px;\n}\n\n/* after */\n\n::-moz-range-thumb {\n\tborder-radius: 3px;\n}\n\n::-ms-thumb {\n\tborder-radius: 3px;\n}\n\n::-webkit-slider-thumb {\n\tborder-radius: 3px;\n}\n```\n\n##### `warn`\nWarns whenever a `::range` pseudo-class is found.\n\n#### `strict`\n\nType: `Boolean`\nDefault: `true`\n\n##### `true`\nIgnores prefixed `::range`-type pseudo-classes.\n```css\n/* before */\n\n::-ms-thumb {\n\tborder-radius: 3px;\n}\n\n/* after */\n\n::-ms-thumb {\n\tborder-radius: 3px;\n}\n```\n\n##### `false`\nProcesses prefixed `::range`-type pseudo-classes.\n```css\n/* before */\n\n::-ms-thumb {\n\tborder-radius: 3px;\n}\n\n/* after */\n\n::-moz-range-thumb {\n\tborder-radius: 3px;\n}\n\n::-ms-thumb {\n\tborder-radius: 3px;\n}\n\n::-webkit-slider-thumb {\n\tborder-radius: 3px;\n}\n```\n\n[ci]: https://travis-ci.org/jonathantneal/postcss-input-range\n[ci-img]: https://travis-ci.org/jonathantneal/postcss-input-range.svg\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[Input Range]: https://github.com/jonathantneal/postcss-input-range\n",
+	"maintainers": [
+		{
+			"name": "sunesimonsen",
+			"email": "sune@we-knowhow.dk"
+		}
+	],
+	"time": {
+		"modified": "2022-06-27T02:05:36.417Z",
+		"created": "2017-05-03T11:22:01.543Z",
+		"2.1.0": "2017-05-03T11:22:01.543Z"
+	},
+	"homepage": "https://github.com/jonathantneal/postcss-input-range",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"styles",
+		"ranges",
+		"inputs",
+		"types",
+		"pseudos",
+		"classes",
+		"thumbs",
+		"tracks"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonathantneal/postcss-input-range.git"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/jonathantneal/postcss-input-range/issues"
+	},
+	"license": "CC0-1.0",
+	"readmeFilename": "README.md"
+}

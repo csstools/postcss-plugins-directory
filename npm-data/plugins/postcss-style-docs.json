@@ -1,0 +1,932 @@
+{
+	"_id": "postcss-style-docs",
+	"_rev": "6-06e1436cc96fbca0d667c080c52f0fdd",
+	"name": "postcss-style-docs",
+	"dist-tags": {
+		"latest": "0.0.7"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-style-docs",
+			"version": "0.0.1",
+			"description": "PostCSS plugin for dynamically adding documentation to styles",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-style-docs"
+			],
+			"scripts": {
+				"build": "concurrently npm:tsc:*",
+				"lint": "eslint ./src/index.ts",
+				"prerelease": "npm run build",
+				"release": "standard-version",
+				"test": "npm run build && jest --coverage && npm run lint",
+				"tsc:cjs": "tsc --project tsconfig.cjs.json",
+				"tsc:mjs": "tsc --project tsconfig.mjs.json"
+			},
+			"main": "lib/cjs/index.js",
+			"module": "lib/mjs/index.js",
+			"exports": {
+				"import": {
+					"path": "./lib/mjs/index.js",
+					"types": "./lib/mjs/index.d.ts"
+				},
+				"require": {
+					"path": "./lib/cjs/index.js",
+					"types": "./lib/cjs/index.d.ts"
+				}
+			},
+			"sideEffects": false,
+			"author": {
+				"name": "Caleb D. Williams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/calebdwilliams/postcss-style-docs.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^27.5.0",
+				"@typescript-eslint/eslint-plugin": "^5.23.0",
+				"@typescript-eslint/parser": "^5.23.0",
+				"clean-publish": "^3.4.2",
+				"concurrently": "^7.1.0",
+				"eslint": "^8.15.0",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11",
+				"postcss-nesting": "^10.1.4",
+				"standard-version": "^9.3.2",
+				"ts-jest": "^27.1.4",
+				"typescript": "^4.6.4"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"sourceType": "module",
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"parser": "@typescript-eslint/parser",
+				"plugins": [
+					"@typescript-eslint"
+				],
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"types": "./lib/cjs/index.d.ts",
+			"gitHead": "4344153398ff5dd98daa4be27006f1734d103234",
+			"bugs": {
+				"url": "https://github.com/calebdwilliams/postcss-style-docs/issues"
+			},
+			"homepage": "https://github.com/calebdwilliams/postcss-style-docs#readme",
+			"_id": "postcss-style-docs@0.0.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-3I4pK42VCu405pjdk+/NJGOKjo/hQpJzBwgRCrTX2JdT0CPDMs/KwDWFW4PlDvdgAh3CCqVf2p3/pykO8dIT4g==",
+				"shasum": "eeed5077c8634301e2675eb5f528b53b34dca36c",
+				"tarball": "https://registry.npmjs.org/postcss-style-docs/-/postcss-style-docs-0.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12882,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGZ4CskHWdfKUe7CHnFPdS8vx6N34cHCD8fQ6lGUQbaPAiAGuDb9OXQHzryScAjL9C0o8y9xh/afJln5j0lbkF+Xbg=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiezmIACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqRYA//UPvKUDg72mmgH5b2BKtc+JpNMa5QMGOMm8p4BZGg2s90FrYA\r\nHLQvXeuhW2jP8czALBvlfP+2cfgNPldHkTmGOX3BMZoAlsSTfqtWnxw+hZk8\r\nELjPmVWGWnulpvRikUu/FKDmW617TYERkosLOVMPGnKwCe/AVDK6ydedNsrr\r\nG6mOXRm+Ruygd52Sq6Pgd3CpCxTJn/jUWmcUxKsLaMcycKIK67fLalesfr5Z\r\n8M0R2jE/FupcE6oZJOyxgMMG4GlwebzLXi175MV0CAZDodaPlUIMRpsDFn7U\r\nbaTAkishs+tMnWqFjrAuPO3z7RoE2jUlKeP/w+93FaE5schv1tp0X5/lEasa\r\nHHSN5uKnRCC1Drfsxtm4BbK8cU1EyoiXAySFNj2D/mtUiw/6TJ3pWCT5Gfzu\r\n1xODxKIKE4E5q/TY83BZnmWsVjDDRkX5LBnGjqeqqNtRYZdPRcQbW6tTaJ5x\r\nffR/ZfVCWyhSsM+dVO9rgGvF7+L/x5z0YNhxBGRBvUf3ttIYGZY6XuCjoP2B\r\nWu9RFhp7nDZmYeAZWQ5qDH8SAyZFJN/YCXt3uxu+HxlMlumTNaZioajXmw9V\r\nQYA2nRRnJDm2UO/aA7ZiedibxzMwbob3fqMUGXjle2p/02i6NLq+uGEXBOss\r\n+bEuCeaomQMd2zM3U3WVVFZYwl4klAV4FF8=\r\n=5G3w\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "calebdwilliams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "calebdwilliams",
+					"email": "caleb.d.williams@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-style-docs_0.0.1_1652242824101_0.05574410002022745"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.2": {
+			"name": "postcss-style-docs",
+			"version": "0.0.2",
+			"description": "PostCSS plugin for dynamically adding documentation to styles",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-style-docs"
+			],
+			"scripts": {
+				"build": "concurrently npm:tsc:*",
+				"lint": "eslint ./src/index.ts",
+				"postrelease": "git push --follow-tags origin master; npm publish",
+				"prerelease": "npm run build",
+				"release": "standard-version",
+				"test": "npm run build && jest --coverage && npm run lint",
+				"tsc:cjs": "tsc --project tsconfig.cjs.json",
+				"tsc:mjs": "tsc --project tsconfig.mjs.json"
+			},
+			"main": "lib/cjs/index.js",
+			"module": "lib/mjs/index.js",
+			"type": "module",
+			"exports": {
+				".": {
+					"import": "./lib/mjs/index.js",
+					"require": "./lib/cjs/index.js"
+				}
+			},
+			"sideEffects": false,
+			"author": {
+				"name": "Caleb D. Williams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/calebdwilliams/postcss-style-docs.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^27.5.0",
+				"@typescript-eslint/eslint-plugin": "^5.23.0",
+				"@typescript-eslint/parser": "^5.23.0",
+				"clean-publish": "^3.4.2",
+				"concurrently": "^7.1.0",
+				"eslint": "^8.15.0",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11",
+				"postcss-nesting": "^10.1.4",
+				"standard-version": "^9.3.2",
+				"ts-jest": "^27.1.4",
+				"typescript": "^4.6.4"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"sourceType": "module",
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"parser": "@typescript-eslint/parser",
+				"plugins": [
+					"@typescript-eslint"
+				],
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"types": "./lib/cjs/index.d.ts",
+			"gitHead": "c2c75436e8ff9489c0a3988c423cd996d62ceb9b",
+			"bugs": {
+				"url": "https://github.com/calebdwilliams/postcss-style-docs/issues"
+			},
+			"homepage": "https://github.com/calebdwilliams/postcss-style-docs#readme",
+			"_id": "postcss-style-docs@0.0.2",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-bD+IfBcngWa1PC2U6lr4ZGOKGXmOQwsky8AcdoUEMw2tK8kywUMyGoneOJHqnjluFlW3yin/m9YTXERqPtrI3A==",
+				"shasum": "4d97c6d80dad9a70965b13dfbf18c332e5dc3380",
+				"tarball": "https://registry.npmjs.org/postcss-style-docs/-/postcss-style-docs-0.0.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12873,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFx9D9ms4zDXEwC7QTdUQuxP9l2AUtXpqMACKhdK68siAiEA4qxRS2fSYYyucYsNfpRfA9HL8tc1sIWOpRjsuzcLyUk="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJie71gACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqnqBAAhtW6lvIEu5OuwAQNgmEG0W/PgEDlg2UI+8Ljw8zlYYJPx62Q\r\n6upWzOi7Ym5igmGc4XlyPYF77XnCoKJ4RO8KaqOGfLJvn4kYAHsc1VEBDDtI\r\nmboULh+AvgPfoeKjMxW418PdFge8SxGipJzX0e/bo1DSYslwh+j9oxjf67HF\r\nc5VyOQBpQi8zzG80ZB9dSnTJuiTVx5BILC71hc1eAlVyB3tbVvLdQeI7U9nY\r\nt7FjmhtQXuKFwCq/aLULKa9reWkNcm2xl4ytOM1Gf+V/IY5MgrXGSSMOIgBv\r\nTePVng1LZtcv2/OlXNaoc2lUR8TcxwRfi9uDcxn1yzKruKJDzZwCRbRjkxuc\r\nPb+WST5fuDIiswTSIs3hYfDN3SVJ35ckfFtEiHVWjQuhM3bAx5eN/TQt6+g0\r\nG4NT8+s8QvWuEdYq+Rj6s9jdx3T8d9jUEeIxISiwJxzzQtf9kNLVNUhBdxg7\r\n5Jy0WQeJyrF2ruiKgY/o5tjBrIdbaM0leAYVffaCPJYEi6yneTmHzA9kb2H+\r\nBEjMw+AgBhD/LVTdLCBheJzGbWvqtOmxb8oSQkkPgLJB1Hbzna/iB2+dtUK0\r\nTC90BPF5s0IiZXWGZuZV/pJ9SYsJqsu34t86hGkGHAGutIDBu07KWP5P3nZr\r\ngGWnzge0F61Z0zyRggEIsqWmrIrj1Bo5w2A=\r\n=AOs6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "calebdwilliams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "calebdwilliams",
+					"email": "caleb.d.williams@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-style-docs_0.0.2_1652276576477_0.3742423762890601"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.3": {
+			"name": "postcss-style-docs",
+			"version": "0.0.3",
+			"description": "PostCSS plugin for dynamically adding documentation to styles",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-style-docs"
+			],
+			"scripts": {
+				"build": "concurrently npm:tsc:*",
+				"lint": "eslint ./src/index.ts",
+				"postrelease": "git push --follow-tags origin master; npm publish",
+				"prerelease": "npm run build",
+				"release": "standard-version",
+				"test": "npm run build && jest --coverage && npm run lint",
+				"tsc:cjs": "tsc --project tsconfig.cjs.json",
+				"tsc:mjs": "tsc --project tsconfig.mjs.json"
+			},
+			"main": "./lib/cjs/index.js",
+			"module": "./lib/mjs/index.js",
+			"exports": {
+				"import": "./lib/cjs/index.js",
+				"require": "./lib/cjs/index.js"
+			},
+			"sideEffects": false,
+			"author": {
+				"name": "Caleb D. Williams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/calebdwilliams/postcss-style-docs.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^27.5.0",
+				"@typescript-eslint/eslint-plugin": "^5.23.0",
+				"@typescript-eslint/parser": "^5.23.0",
+				"clean-publish": "^3.4.2",
+				"concurrently": "^7.1.0",
+				"eslint": "^8.15.0",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11",
+				"postcss-nesting": "^10.1.4",
+				"standard-version": "^9.3.2",
+				"ts-jest": "^27.1.4",
+				"typescript": "^4.6.4"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"sourceType": "module",
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"parser": "@typescript-eslint/parser",
+				"plugins": [
+					"@typescript-eslint"
+				],
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"types": "./lib/cjs/index.d.ts",
+			"gitHead": "0851e27abad2bb3e25432fe40002b10cd10e8418",
+			"bugs": {
+				"url": "https://github.com/calebdwilliams/postcss-style-docs/issues"
+			},
+			"homepage": "https://github.com/calebdwilliams/postcss-style-docs#readme",
+			"_id": "postcss-style-docs@0.0.3",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-aVODV5/fOOIISRI8kG6URqrWROG/IBgSchUOW/Dle8C3/aE7G5RwtqOe0JTyZjHfSAwHQyQG389otFeDBEynyg==",
+				"shasum": "748845141dd6f041ba114ac59c28c63d48dc5fcf",
+				"tarball": "https://registry.npmjs.org/postcss-style-docs/-/postcss-style-docs-0.0.3.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12836,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGMKpyQ5kt7qEzG9SljWxizTrD50Hss/iwuqV35va48QAiAmZMbrLEYJ1V3/a6oj6Xrt3kIpMwFrbAK3viMy4Tnr+w=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJie8BfACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoqwQ/8CbNDXvdRMEF558UDxLVCCFBttg2XIiFHwlEow2kOKW621i10\r\n1cRKQR5JI/b3tLPP5W6ik6HEsWVS3YlSCdnmprH17eRfuhdJ6VAcYXC8IyCu\r\nVwyb8p7wdfLbkfu01Ya0rjheojUfG3Vho5XM+aikRCp9gWVTYjW7T927f1zC\r\nSEFcFpqIzc6hQ0zliUV2LyQznDy5K9mAax2MUJ0Xz7lI7ouS/ys/Z0LdPKoC\r\ndg71QcjPFpzmlMQZd4Lvc4mIBYIaoyLdNRKp1rvDEp8QegiDl1eOS2+cXo6K\r\nl9hB7RuUBkRQbbkJ24p52IqeLeFDJetR2hTShiXSb1aA90Zn4NjBYL53hopG\r\nkKe0wl+vp9SCTtTTwUmRlAcu1qowrOqywCmwmL0mRgF/NEGMsF6+Yk3MIbxN\r\nHx3vMGH2HgdYt0/MdvQPHIQQGeu/Hqg487alXV1IEkM8J4t4eaUCOoHPaHGe\r\nae6RcDyxAdnqQsb7hCkYfKjaAGYhtvdWnGbPbmxmUknCyIuCGNrzhT0XZndr\r\n9BVlt+gD8iOGO3XZ8dVMcFmtFfbSjBVzZSLFHgvHaeoT8z+vxvDA4d2JIbDw\r\n5qXMbNhezxk1gfGGCf1Zua8YPqZfB/6mShVoarC+FyKO8Ug+QfE2dd79ND9l\r\n7T7T1Y0Ch//fslQuShbprvR2tdVJdWwcRi8=\r\n=Rq4j\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "calebdwilliams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "calebdwilliams",
+					"email": "caleb.d.williams@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-style-docs_0.0.3_1652277342109_0.3844944465234077"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.4": {
+			"name": "postcss-style-docs",
+			"version": "0.0.4",
+			"description": "PostCSS plugin for dynamically adding documentation to styles",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-style-docs"
+			],
+			"scripts": {
+				"build": "concurrently npm:tsc:*",
+				"lint": "eslint ./src/index.ts",
+				"postrelease": "git push --follow-tags origin master; npm publish",
+				"prerelease": "npm run build",
+				"release": "standard-version",
+				"test": "npm run build && jest --coverage && npm run lint",
+				"tsc:cjs": "tsc --project tsconfig.cjs.json",
+				"tsc:mjs": "tsc --project tsconfig.mjs.json"
+			},
+			"main": "./lib/cjs/index.js",
+			"module": "./lib/mjs/index.js",
+			"exports": {
+				"import": "./lib/cjs/index.js",
+				"require": "./lib/cjs/index.js"
+			},
+			"sideEffects": false,
+			"author": {
+				"name": "Caleb D. Williams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/calebdwilliams/postcss-style-docs.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^27.5.0",
+				"@typescript-eslint/eslint-plugin": "^5.23.0",
+				"@typescript-eslint/parser": "^5.23.0",
+				"clean-publish": "^3.4.2",
+				"concurrently": "^7.1.0",
+				"eslint": "^8.15.0",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11",
+				"postcss-nesting": "^10.1.4",
+				"standard-version": "^9.3.2",
+				"ts-jest": "^27.1.4",
+				"typescript": "^4.6.4"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"sourceType": "module",
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"parser": "@typescript-eslint/parser",
+				"plugins": [
+					"@typescript-eslint"
+				],
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"types": "./lib/cjs/index.d.ts",
+			"gitHead": "2bc1e5b5dc96de6e8f8239293be73edbb25f41d7",
+			"bugs": {
+				"url": "https://github.com/calebdwilliams/postcss-style-docs/issues"
+			},
+			"homepage": "https://github.com/calebdwilliams/postcss-style-docs#readme",
+			"_id": "postcss-style-docs@0.0.4",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-tLnLINY0+HPS2EtPL3gakQVOOgAlGDTvrrGMfpYFIlEJ5Ewb+J+kbn6ONCN+RRo2+4kdDSU/xGMJmYiKtMGdRw==",
+				"shasum": "8bc4e4a37f395905541cdf71b8b42f3cb222461c",
+				"tarball": "https://registry.npmjs.org/postcss-style-docs/-/postcss-style-docs-0.0.4.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12836,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDKuV3K8sZ23xZxAcQlW/7EsCzBQYUlbf+636RnEPlQ/gIhAMzB1bOtqEFEI2fKgDEl7Y9i6eQapUDCWUKCM0qWNsAN"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJie8BzACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpuCg/+NEWCPM69MhDBzE46CF6ObLRmQi7I5xlxhLFDJ5W7o5O9E01A\r\ndfypSRVUXz6brypi4/k39iTUwXM5DLprHJ6+G+EnfM86i8Z/mqKqcC5WFDTU\r\nhiDu9cBnn383fxjBgtrr2MILkJWu8XrTrxVWawQxe8mSynrWlrzBOrizqC1p\r\nz9gFcGY9Bq88VcT4NyGz+a+oLTLgNYyrlT6EcNpKnBFBKeH0/+++AlkdM4vD\r\nIJy9QhgJXmsXARTrWg0wJwbsmjaJEmbyY4Hp5ME3y7WvyHPDVwKBLTJnlbAJ\r\nYFr5u0JD2gHrgGSMkVQCTHwqwI959/6JSV5sA+LW1FKGhnttgFc6XP3FuDXD\r\nEMUkkziK+oS4lxONv8N5UvBCdMwnCJDU8HIJYiqKn/2+nb91p31fcqhdflki\r\nhwB1AZpdcX+9KaZGNLLTo7jPIqK1N1sahCgQ0ao2Qdi3xpCH/LHImAdDVmMM\r\n5zwOTkptu42QAs9Zo3rpXkm0M8vT4+goWbEN4WMh0x1RZAxCH1XplJ+1aTSR\r\nrwm+o/59dh974l9CTN4m2AHio6Gsg4ux4JIzieVJLfqVbJzOfGBbL29zcEiL\r\nChMXKt3Dd2qWl+kyus2Kh71a8Dm+4VFSt8XbCU9SNTxax4OGB+7AwWKiX0uW\r\nqVZtFeVjZVefzBoZKSYFXIR+NR/wmYk3o5k=\r\n=lyJm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "calebdwilliams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "calebdwilliams",
+					"email": "caleb.d.williams@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-style-docs_0.0.4_1652277363401_0.7869660616292522"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.5": {
+			"name": "postcss-style-docs",
+			"version": "0.0.5",
+			"description": "PostCSS plugin for dynamically adding documentation to styles",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-style-docs"
+			],
+			"scripts": {
+				"build": "concurrently npm:tsc:*",
+				"lint": "eslint ./src/index.ts",
+				"postrelease": "git push --follow-tags origin master; npm publish",
+				"prerelease": "npm run build",
+				"release": "standard-version",
+				"test": "npm run build && jest --coverage && npm run lint",
+				"tsc:cjs": "tsc --project tsconfig.cjs.json",
+				"tsc:mjs": "tsc --project tsconfig.mjs.json"
+			},
+			"main": "./lib/cjs/index.js",
+			"module": "./lib/mjs/index.js",
+			"exports": {
+				"import": "./lib/cjs/index.js",
+				"require": "./lib/cjs/index.js"
+			},
+			"sideEffects": false,
+			"author": {
+				"name": "Caleb D. Williams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/calebdwilliams/postcss-style-docs.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^27.5.0",
+				"@typescript-eslint/eslint-plugin": "^5.23.0",
+				"@typescript-eslint/parser": "^5.23.0",
+				"clean-publish": "^3.4.2",
+				"concurrently": "^7.1.0",
+				"eslint": "^8.15.0",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11",
+				"postcss-nesting": "^10.1.4",
+				"standard-version": "^9.3.2",
+				"ts-jest": "^27.1.4",
+				"typescript": "^4.6.4"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"sourceType": "module",
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"parser": "@typescript-eslint/parser",
+				"plugins": [
+					"@typescript-eslint"
+				],
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"types": "./lib/cjs/index.d.ts",
+			"gitHead": "f285aadac1119e9a3d2313441ba7dd26c334f018",
+			"bugs": {
+				"url": "https://github.com/calebdwilliams/postcss-style-docs/issues"
+			},
+			"homepage": "https://github.com/calebdwilliams/postcss-style-docs#readme",
+			"_id": "postcss-style-docs@0.0.5",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-DaA86MXVc6XLDW7B/khfT+nk7kbR6Mjco9grehDy0SYDmJy4dLtst0WaZWovowoPAxi6+LS0GinjrQ/1jiC6Pg==",
+				"shasum": "382a7fc1dc392727941bf62ae333f890317e6635",
+				"tarball": "https://registry.npmjs.org/postcss-style-docs/-/postcss-style-docs-0.0.5.tgz",
+				"fileCount": 7,
+				"unpackedSize": 13092,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFaK3z+xIua+5x0c5IG2DvuqJJgKIOtlnrtexAkiRHSmAiEAswD80GKOsk7YRWW+0ZIxfRysXe4gPKYnfquYrBMxmN8="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJie8p5ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoHJw//Ry2JQwAg1rlAuZ5V05KIOpDx4fWMPXonEKKtnP+I90r1g/4R\r\nMXQseH5mwYlXjSy58aRLiawJaFGfsKOCykssY2eYZ7SIGVUqpmixUqd+f/Pu\r\nKx+G0gf+Gr4U+8qvJ4JH3sboWYhvQv9C5XoOIXXfcJfYAEF++0D9yIC05CMl\r\nxxVyQ+GJnDVu96YgfZfztSQPVzIZxzND49n1AR2Qp0a+vcxgeKYUnGD8Vaq9\r\nnxHLrUI4VfsKJMG7M1lCKrpOkanD6CTfBSUca/yseVjFbB/dDHn5Ytpa/AUq\r\nf62XkZehq1iTjy/E+ZHhl+slZ24BbExM44qszGS/BOqijTSSP8JuVPLpBnZ+\r\nhiUFro1u0izW26m52zkTkxJ4MTSLq10wOVTT0xMeizARBx5S1JIzALAFuGMa\r\n2oLukjhq7eKThQJaKdJysCcccynm+V7edYkOWiRcgQ2Z3MEj3WaY4+3Lku1T\r\nnTxYVIA+zkBFwxQExUdnUY5hFcBTdovHKjt2uEUbSXCDLoyEPh2pldYyxr7c\r\n5Q6j840qg6cffbAhtHgsmSU1jLxtXuOLLV155MgCbdvCjMRJEKyQBHNVdQC7\r\nDonTENbLhC28ht6EXK7jEx6ojCtZu1G5aO23Oaa4Sg/NLQRXEmJ14xlWvY2L\r\n2HM0wSElHp9yXohZ4o+9vrFgPtZxNDO/jyo=\r\n=K3Cd\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "calebdwilliams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "calebdwilliams",
+					"email": "caleb.d.williams@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-style-docs_0.0.5_1652279928828_0.4647555479017884"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.6": {
+			"name": "postcss-style-docs",
+			"version": "0.0.6",
+			"description": "PostCSS plugin for dynamically adding documentation to styles",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-style-docs"
+			],
+			"scripts": {
+				"build": "concurrently npm:tsc:*",
+				"lint": "eslint ./src/index.ts",
+				"postrelease": "git push --follow-tags origin master; npm publish",
+				"prerelease": "npm run build",
+				"release": "standard-version",
+				"test": "npm run build && jest --coverage && npm run lint",
+				"tsc:cjs": "tsc --project tsconfig.cjs.json",
+				"tsc:mjs": "tsc --project tsconfig.mjs.json"
+			},
+			"main": "./lib/cjs/index.js",
+			"module": "./lib/mjs/index.js",
+			"exports": {
+				"import": "./lib/cjs/index.js",
+				"require": "./lib/cjs/index.js"
+			},
+			"sideEffects": false,
+			"author": {
+				"name": "Caleb D. Williams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/calebdwilliams/postcss-style-docs.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^27.5.0",
+				"@typescript-eslint/eslint-plugin": "^5.23.0",
+				"@typescript-eslint/parser": "^5.23.0",
+				"clean-publish": "^3.4.2",
+				"concurrently": "^7.1.0",
+				"eslint": "^8.15.0",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11",
+				"postcss-nesting": "^10.1.4",
+				"standard-version": "^9.3.2",
+				"ts-jest": "^27.1.4",
+				"typescript": "^4.6.4"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"sourceType": "module",
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"parser": "@typescript-eslint/parser",
+				"plugins": [
+					"@typescript-eslint"
+				],
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"types": "./lib/cjs/index.d.ts",
+			"gitHead": "8bc0dfa1c05c2ffc7f42753dc3642d610f357895",
+			"bugs": {
+				"url": "https://github.com/calebdwilliams/postcss-style-docs/issues"
+			},
+			"homepage": "https://github.com/calebdwilliams/postcss-style-docs#readme",
+			"_id": "postcss-style-docs@0.0.6",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-mSoqNMlPxbGospH9+9Xdf3jhfKINNrbkNCIbPU40RY2MfoCoyyCMvATl0l81z0E0v9RglwH2Fc7fB7Wxzc0eUg==",
+				"shasum": "d4fb9f6d12481d711e2fb9073eec4dd7b0ce2991",
+				"tarball": "https://registry.npmjs.org/postcss-style-docs/-/postcss-style-docs-0.0.6.tgz",
+				"fileCount": 7,
+				"unpackedSize": 13785,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIF80cw3MzRi2auOTMzUN7SKxltPoqYwyEq5G4FG+ptWuAiBnO0132UsIceA0RlcvZLSaObrCM2YB9gTPjE0x1fF5cg=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJie90fACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqViQ/8CdS+5Cw2e20ppjkF03k7ze6yNzxzR5jwcQPbC7lvaG7a87YI\r\njsEAtr/UVx7JH5Sd3azjDD6x88ErwXJ+QJBmL9Nh4DeCzw5qhrPA49+GanE5\r\nJOeE0spnHBEowabXgpwhzTo33NWV56OZtHE9lvssUbiWnEh1lcEkRHHn6we+\r\nsH61XtVVCL3/rJ0mnK1Ut+3IIhihiRE9qYL5DhaCLnVI4gr9Uu3xDFzjcj8q\r\nhKffOroDujXM7Aug6ZJwIGItGDP8abgnSmsn870F3VaHsdlEdgqM1J9W5bpb\r\n1LhanM2Wc5iflma/JykPfWmKWuCOshKJuDkTVAb9M9UK/frmgVX0PTYHZNOm\r\nW4jWNyAwJRFPMvuYG7tlpWw/sLICBALK7I/nHn/V+O3pzvx2KixIM6Y6bAJR\r\n+Subde7d6SL/0/J6us67BTYO0tonN22RIE8f5baVK3GKNwYio3th/BpxAF4/\r\n/Kg6Fbd9oz+6fdu4QKhlJKbKKJpZ5a7EVX94QH2GKQAkqnmdAFAvX8/XsMk1\r\nmZxYmZT8cx0FoISeB9mzYhRCler1R8g+isuNEGhzNqY7vbbXghwnS7QLN5ww\r\nkAsWL1ssvNDfqm0BWvcyaKr1MBWFnDrDhWpl//yaTC4q1CbLzp68aorDwYgm\r\n2qWx7lgZjViS7yHKLYOG7qfgibfvkPB33KQ=\r\n=D/fO\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "calebdwilliams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "calebdwilliams",
+					"email": "caleb.d.williams@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-style-docs_0.0.6_1652284703327_0.1080437529873175"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.7": {
+			"name": "postcss-style-docs",
+			"version": "0.0.7",
+			"description": "PostCSS plugin for dynamically adding documentation to styles",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-style-docs"
+			],
+			"scripts": {
+				"build": "concurrently npm:tsc:*",
+				"lint": "eslint ./src/index.ts",
+				"postrelease": "git push --follow-tags origin master; npm publish",
+				"prerelease": "npm run build",
+				"release": "standard-version",
+				"test": "npm run build && jest --coverage && npm run lint",
+				"tsc:cjs": "tsc --project tsconfig.cjs.json",
+				"tsc:mjs": "tsc --project tsconfig.mjs.json"
+			},
+			"main": "./lib/cjs/index.js",
+			"module": "./lib/mjs/index.js",
+			"exports": {
+				"import": "./lib/cjs/index.js",
+				"require": "./lib/cjs/index.js"
+			},
+			"sideEffects": false,
+			"author": {
+				"name": "Caleb D. Williams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/calebdwilliams/postcss-style-docs.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^27.5.0",
+				"@typescript-eslint/eslint-plugin": "^5.23.0",
+				"@typescript-eslint/parser": "^5.23.0",
+				"clean-publish": "^3.4.2",
+				"concurrently": "^7.1.0",
+				"eslint": "^8.15.0",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11",
+				"postcss-nesting": "^10.1.4",
+				"standard-version": "^9.3.2",
+				"ts-jest": "^27.1.4",
+				"typescript": "^4.6.4"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"sourceType": "module",
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"parser": "@typescript-eslint/parser",
+				"plugins": [
+					"@typescript-eslint"
+				],
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"types": "./lib/cjs/index.d.ts",
+			"gitHead": "b4e3e24c92cc6c31b6f9ba0765ff7a71d459e4aa",
+			"bugs": {
+				"url": "https://github.com/calebdwilliams/postcss-style-docs/issues"
+			},
+			"homepage": "https://github.com/calebdwilliams/postcss-style-docs#readme",
+			"_id": "postcss-style-docs@0.0.7",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-dIo3FtvxLYYNAgRnp+qmm/8rHJlJIT2y2MblONpxlhiW9r6Gz32rp29UTCrK8YwoyIrlBF5po6kMTxnIsC9CYg==",
+				"shasum": "491a06e4ad27055215727d5e182a7e9d7ef2070b",
+				"tarball": "https://registry.npmjs.org/postcss-style-docs/-/postcss-style-docs-0.0.7.tgz",
+				"fileCount": 7,
+				"unpackedSize": 14161,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBRjDA0qp+6x86wZ7wcyaE5Wb5hJgaPiCgfvA0YiFbxXAiEA5sREUb8pqXAXexqY72YclZzMkYnTE37RHHzjiR+JksY="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJij5pUACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr2wg//ZsP745dHneo7SxVFQ02+Jc3dbbJ2Daez8n3xTn70uj4rHejR\r\nUttIsTpInhW9fOQ0AbYMlmZfG9upCh80bNNUkfZAc9jXSXglVxKFZsKTNOfq\r\ng5Y9RpWsovYCW44wKXZ70I0XUDRtgM2IuMd9FwvbOfn6VHShG+myXb5FyjMr\r\nLwvu0C4URSGjVjgmYxU+aX95MzX2qHK3xi6OxeydV2fJhuBNNc/HMlYcGaUg\r\n7ERG26yDMP3/x1b31E1ZznZIxjSoRlLOJKXo45ba6FMyutBOOBLJPxm4yqSq\r\nCS9R+bokCRPoJbI/1nLgpvB+OqywTjE41vjAXMaEJgLr9PCCM/YC+5gsflk0\r\nU4rXS69ggnRvkLIpKTbS8aLMl4x35U4c345xiafZ3eQOJKy4JvN9a4Z4FatX\r\n9+7LsAtm54xxvWyKb2RPhktB2oWVmBCyJxiYZom9751qvNjBz1rBLFx+l75m\r\nGyWgGkugM9yuQ1SedCs7wkqGzUePrApdUV1W8irPDWcMn1ab7O/a4D7DwCUu\r\ndz05r6EwsexerDI6f4xWZFaj0QU0HnWTNVJAF+e9PNV6MCL/ugXBl42oJ8Ni\r\nydiE6mMq8q/9Z2n7eFiBoaRjUwAVsR9KkEESeysrTBbOC2VQdqOxiR5tqatf\r\n9SWvpl9/JlkMHpU14ad26qC4RjmxmcvNUyE=\r\n=8ur+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "calebdwilliams",
+				"email": "caleb.d.williams@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "calebdwilliams",
+					"email": "caleb.d.williams@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-style-docs_0.0.7_1653578324559_0.5962100055694288"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-05-11T04:20:24.100Z",
+		"0.0.1": "2022-05-11T04:20:24.308Z",
+		"modified": "2022-05-26T15:18:44.775Z",
+		"0.0.2": "2022-05-11T13:42:56.608Z",
+		"0.0.3": "2022-05-11T13:55:43.085Z",
+		"0.0.4": "2022-05-11T13:56:03.591Z",
+		"0.0.5": "2022-05-11T14:38:49.059Z",
+		"0.0.6": "2022-05-11T15:58:23.565Z",
+		"0.0.7": "2022-05-26T15:18:44.717Z"
+	},
+	"maintainers": [
+		{
+			"name": "calebdwilliams",
+			"email": "caleb.d.williams@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin for dynamically adding documentation to styles",
+	"homepage": "https://github.com/calebdwilliams/postcss-style-docs#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss-style-docs"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/calebdwilliams/postcss-style-docs.git"
+	},
+	"author": {
+		"name": "Caleb D. Williams",
+		"email": "caleb.d.williams@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/calebdwilliams/postcss-style-docs/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-style-docs\n\n[PostCSS] plugin for dynamically adding documentation to styles.\n\n[PostCSS]: https://github.com/postcss/postcss\n\nThe `postcss-style-docs` pluin will walk through your input CSS and create a map of styles to documentation blocks as a message output.\n\n```css\n/**\n * @docs\n * This is a documentation block for the .foo class\n * it can be multiple lines\n */\n.foo {\n  /* Input example */\n}\n```\n\n```css\n.foo {\n  /* Output example */\n}\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-style-docs\n```\n\n**Step 2:** The `postcss-style-docs` plugin works best when manually calling `postcss.process` which enables users to get data out of the plugin:\n\n```javascript\nimport postcss from 'postcss';\nimport { getDocs, styleDocsPlugin } from './lib/cjs/index';\n\nconst inputCSS = `\n/**\n * @docs\n * We're doing something really fancy and our users are going\n * to love it.\n */\n.something-fancy {\n  color: tomato;\n}\n\n/** @docs Make it pop */\n.something-fancy--pop {\n  background: papayawhip;\n}\n`;\n\nconst { css, messages } = await postcss([\n  styleDocsPlugin()\n]).process(inputCSS, { from: undefined });\n\nconst docs = getDocs(messages);\n\nconsole.log(docs.size); // 2\nconsole.log(docs.get('.something-fancy')); // 'We're doing something really fancy and our users are going to love it'\nconsole.log(docs.get('.something-fancy--pop')); // 'Make it pop'\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
+	"readmeFilename": "README.md"
+}

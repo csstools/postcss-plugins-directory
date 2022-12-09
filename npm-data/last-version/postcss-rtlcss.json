@@ -1,0 +1,117 @@
+{
+	"name": "postcss-rtlcss",
+	"version": "4.0.1",
+	"description": "PostCSS plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"rtl",
+		"ltr",
+		"right-to-left",
+		"left-to-right",
+		"postcss-rtlcss",
+		"rtlcss"
+	],
+	"main": "index.js",
+	"module": "esm/index.js",
+	"types": "index.d.ts",
+	"exports": {
+		".": {
+			"require": "./index.js",
+			"import": "./esm/index.js"
+		},
+		"./options": {
+			"require": "./options.js",
+			"import": "./esm/options.js"
+		}
+	},
+	"scripts": {
+		"test": "jest --clearCache && jest --verbose",
+		"lint": "eslint src/**/*.ts",
+		"clean": "./scripts/clean.sh",
+		"copy": "./scripts/copy.sh",
+		"modify-dts": "replace-in-file --configFile=config.replace.js",
+		"build": "yarn clean && rollup --config rollup.config.js && yarn copy && yarn modify-dts",
+		"prepare": "yarn build",
+		"prepublishOnly": "npm run lint && npm run test",
+		"version": "git add .",
+		"postversion": "git push && git push --tags"
+	},
+	"author": {
+		"name": "ElChiniNet"
+	},
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/elchininet/postcss-rtlcss.git"
+	},
+	"dependencies": {
+		"rtlcss": "4.0.0"
+	},
+	"devDependencies": {
+		"@rollup/plugin-json": "^4.1.0",
+		"@types/eslint": "^8.4.6",
+		"@types/jest": "^29.0.2",
+		"@types/node": "^18.7.18",
+		"@types/rtlcss": "^3.5.0",
+		"@typescript-eslint/eslint-plugin": "^5.37.0",
+		"@typescript-eslint/parser": "^5.37.0",
+		"coveralls": "^3.1.1",
+		"eslint": "^8.23.1",
+		"eslint-plugin-jest": "^27.0.4",
+		"jest": "^29.0.3",
+		"postcss": "^8.4.16",
+		"replace-in-file": "^6.3.5",
+		"rollup": "^2.79.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"rollup-plugin-ts": "^3.0.2",
+		"ts-jest": "^29.0.1",
+		"typescript": "^4.8.3"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4.6"
+	},
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"gitHead": "df60fd2968eebec196aeced90debb5b1799cd9be",
+	"bugs": {
+		"url": "https://github.com/elchininet/postcss-rtlcss/issues"
+	},
+	"homepage": "https://github.com/elchininet/postcss-rtlcss#readme",
+	"_id": "postcss-rtlcss@4.0.1",
+	"_nodeVersion": "16.17.0",
+	"_npmVersion": "8.15.0",
+	"dist": {
+		"integrity": "sha512-x92gkPeo4Mt9K6oP02EghAkQkq3/dr19SWGQZdEOWfmFnjoUvET5+aoTr85eM+JH+hupSSXZhc+kqVrvAJrkvg==",
+		"shasum": "aec5261a8fc6878f33bceb4c9de3e15945e6f4ab",
+		"tarball": "https://registry.npmjs.org/postcss-rtlcss/-/postcss-rtlcss-4.0.1.tgz",
+		"fileCount": 10,
+		"unpackedSize": 98585,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQC7dIFzf0hLxi2Vbtk6R1/9vxhV+zHiTYB2oF/1JI0IWQIhAOOGaGnc1ZceEAKPVVcIkzddOn1dhQAFMzgmiiWnEGr5"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjJz0xACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpSEw//QAoHN9Gz4AZh81QJiETMJKDbT3xhFXsCVbIv/6jVzVyfpeEX\r\nMIDVKg/uDDQaJTB9q0BfS+hiI/rFq1m13/pWPFa3oNjVvEBTApm8b8aB0uE8\r\n1ypPH8yZ7vBhMG5OyOzgUbgOGyY/4aIqzLQ8z7fuYN10EeSLj94GNtSZ6lJ1\r\niRKTOBhRjmSinSPqJhDb+76XDWNahyHaxxh42PLa7UFRyssoU0NlmaJ3jrUn\r\nCjXq5b1YMQARU45NlpnLDkY/Ln+pbCOmRTOVw7u1i6t+CvRtOb9NeWqdDk+5\r\nLV92ax+x23vBxmypm6cBsgbVuI8ZVkkZtB/OVbmrSPswuPTVD2S2KemaIc6p\r\nIaYc40k3EYhxlZxhyppyFkIig3BHM3iB8IO1KuhvYupemxsLyiXspli1hyLy\r\ng8drzxzPXft0yRpbEjOil57zMh9U56u3x6p6aLMGt1k/Ab5LTu8Oa/ertfMw\r\ntJjrDfezbzL1ZT8AY/brJsC6pDTz9k5DqN+iH0XIBuUxaOEB1BBGNhgikngT\r\np8Xu1k5Na5dowjlhM0/bIiaKWMvwcseHC4mipOv4wthYcigjn8p7jjtSmpKK\r\nabUioJEx9VtM+IWMgiZFC/FXSD8I1OVx3jM7vrVevsv32vWC2FSZl/R6kzo6\r\ntCBGydjV7dR/HrAW/UV33KoetPGtzaVECKs=\r\n=gBSc\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "elchininet",
+		"email": "elchininet@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "elchininet",
+			"email": "elchininet@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-rtlcss_4.0.1_1663515953519_0.8532052789581006"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-09-18T15:45:53.723Z"
+}

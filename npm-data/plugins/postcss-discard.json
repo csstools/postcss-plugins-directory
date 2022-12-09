@@ -1,0 +1,1681 @@
+{
+	"_id": "postcss-discard",
+	"_rev": "21-6d5da675d29ba0383027158cf1a05c84",
+	"name": "postcss-discard",
+	"dist-tags": {
+		"latest": "2.0.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-discard",
+			"version": "0.1.0",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"common-tags": "^1.7.2",
+				"lodash": "^4.17.10",
+				"postcss": "^6.0.16"
+			},
+			"devDependencies": {
+				"eslint": "^4.18.2",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^22.4.2"
+			},
+			"scripts": {
+				"test": "jest && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"env": {
+					"jest": true
+				},
+				"rules": {
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					]
+				}
+			},
+			"prettier": {
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 80,
+				"bracketSpacing": true
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2018 Ben Zörb <ben@sommerlaune.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-discard@0.1.0",
+			"dist": {
+				"shasum": "29503b1b349674120bc93a25203090ec124ca8c2",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.1.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 252201,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa73seCRA9TVsSAnZWagAAIKsP/j5TawdkaN9c/F/ZDwkY\nSO4HCNa45wOpyDYEpd5Cp3jGF5Ko7jzOwru8qAhqNjiX//ux8PZeamIWVd1M\nut3ATAC0okGBnjnOPyvX8lXb6l9yZ43Dr7au9M0DOMxw0uxKpaU0BBa1aQgU\ntcpPsZVbLaj0tklJhSkagrhESvpIlFI2qQ/+8JSyoAhMNXq6jGn7I3JINHpw\nkuMdx45JVjKB7tpLIwbI8ctzCqB1yM1dRHYJcU8yq3ViUS+2abwEnp6rFp6+\ntkXqbpGHI6H6UPpIWcpZrZntO0OLFm5D0oI/Hr0shZg5ePUV0kAyNMg5RwQz\nyy2Umf0K11QtaWg5KkzKU7xQ2C7CJs4kIHYo7P4PYB8pPbdhoVC86ayAK+It\nO1Gge3cblBLV2EAFavDG6ngYnIydNSohDH5upTwAgoZNDyIAOeAKT9XXBF2T\ngXNuNsCtgjf6kUpvmxUQeQ5apI1U2QC+xQTdjNIVResK2A2DFMYmMvZYdvTV\nSqo+wJRDzSM43EDbdgqKXayixZLjGHSIp2ISu2rkYa/E/RbpOKlMrAGcKOa/\nkxZxM/lRGTOFrdlJyy4SR/HppObhkVpk44rTsNtWMi7fuv+04Nm9nbropQ2F\nY1+4RFcoOcH1V1/MTHUnObssZoZFWbLmzizs9yTRtleTnG26FwCxhb2+8K+5\nkPSA\r\n=k+Ys\r\n-----END PGP SIGNATURE-----\r\n",
+				"integrity": "sha512-6yWHi6n4g/n6gu6Qd8RQt0Gd4B29j4pacrxK87biG+N8BrTgYn9QvXSPlbdLUJM8gQPS+7fXpRp/zK0iZX/v3g==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBJkVYSux3HBRpZy7Z+I5h3Vh+xsvoxAp6w5rvk3emApAiArNyTbmjTsj9jRDaxSYHHUduNxyEfHuQccCDyXKyoXrA=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.1.0_1525644060818_0.21786920335314996"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.1.1": {
+			"name": "postcss-discard",
+			"version": "0.1.1",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"common-tags": "^1.7.2",
+				"lodash": "^4.17.10",
+				"postcss": "^6.0.16"
+			},
+			"devDependencies": {
+				"eslint": "^4.18.2",
+				"eslint-config-postcss": "^2.0.2",
+				"jest": "^22.4.2"
+			},
+			"scripts": {
+				"test": "jest && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"env": {
+					"jest": true
+				},
+				"rules": {
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					]
+				}
+			},
+			"prettier": {
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 80,
+				"bracketSpacing": true
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"licenseText": "The MIT License (MIT)\n\nCopyright 2018 Ben Zörb <ben@sommerlaune.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+			"_id": "postcss-discard@0.1.1",
+			"dist": {
+				"shasum": "c67359448ffb5763c65a7b35df1b8a2b9e63f4d1",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.1.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 258413,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbD6dQCRA9TVsSAnZWagAAV5IP/j6uIz6O/AdczJbfN73e\n1vHsPs3UTir7AT6oDhN8Wk2LW05F+q64sXp6UEWmfUL00HxwtnHCDuOVwLc+\ndHVGLyGpn5J1oto3Y4Pob+AV/9OUXfmgBBj3kN5zNavhZ8YBdJItyf/JNp1F\nUuCPfECRbkcGDkiIY0Q0KScLsxOlTCJCPZsywhzyakjoLOzXHKCYk4IWqL5h\npbWJ2pay56gAjQpob/0qtnuKNjWk5w269YVq9/9E1wQROeOYjStdDUGW6W9s\nkt0ziJhcqHT9zl23icq/hHvNdbHxy0H8I9bOxqF0KhshGYNlBHg4gbiZrujt\nJptmm3x9zFjXnQ1suHULSlNVpkRzxCWxeuNehsn67fMfoYcHMNSZ89OFVCeK\nrfG7CLswNbLIz1XUiKRoS5GiK1LSkzKjQ/fXtqgtPbRuSBkDkM/38xYbKZyB\nlS8oimYBdLju6Gw9GYMGgt3xMdvvj1hmpU1xsss3nphNLXPwYiEFwoY8Gtsx\nhADTtDJw98H1InvJhFga84djPQHCFoTRQKZyE3m+EvTykQRBSAWVCYf5s0QQ\nUFYU10gbNPUTZ2thRundet+MW/q2aQWnbvm191PysSsejBAywZBBVhgezMp7\nTAQ7efad77bKwP4k3/YtdSUMzYKMDQSc2NJl/36wjinZbA13A0ElQWgR3M8U\n7Px1\r\n=q6yf\r\n-----END PGP SIGNATURE-----\r\n",
+				"integrity": "sha512-eBkSrge39eW5jmzgMvwTTx+dSb8gU6Z3LTErMRAQkd79NAAevZ8K4NiqD0rCX20v4ig4+1bwQy5p6cW6OigCWQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGM5AJZJoVZBjxJY8tU4In0NCJ+bHDe7fJLZxcoJfvdgAiEAi06bKOn1ugnIqr8hAfRFf5wSsPRU0A1SeFtTBK0utug="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.1.1_1527752527342_0.7929948077455082"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.1.2": {
+			"name": "postcss-discard",
+			"version": "0.1.2",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"common-tags": "^1.7.2",
+				"lodash": "^4.17.11",
+				"postcss": "^7.0.6"
+			},
+			"devDependencies": {
+				"eslint": "^5.9.0",
+				"eslint-config-xo-space": "^0.20.0",
+				"jest": "^23.6.0"
+			},
+			"scripts": {
+				"test": "jest && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "xo-space"
+			},
+			"prettier": {
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 120,
+				"bracketSpacing": false
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"gitHead": "2fb7d8198634c96cd981b60bbb3b44df5030eed4",
+			"_id": "postcss-discard@0.1.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.1.0",
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"dist": {
+				"integrity": "sha512-UiIbHM0b1ETg+7M7VOflCXJlAGRwwz2gfG2iGOBOtSFfTQ3kvcVFNjSV6efDbTzDg0Qb/kDkl8x2becdB/YHBg==",
+				"shasum": "b02a57ab3d7d7857a9bab852f82cf77a117d86ad",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.1.2.tgz",
+				"fileCount": 5,
+				"unpackedSize": 5587,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/N10CRA9TVsSAnZWagAACiYQAI7s08W/ykUS36zalFER\n/nN3balCYBToLzp0P+T+AL2WoB7SzN0C+Hsg6oRELgm0/ShxqEk3yrg9cBT4\n2FlEh0k52nG0Scu588ayLgV3X9yGmqaYq0VuwLFwZrLSOmTtsvL/SpinjIjB\nCg02rko3rEamgbO+ErLxwDpTcpmfxhVhFaV9ewb/AM9TnOtXVHI9ujY3OXGA\nfiNuqoraUCwSAb9Mh3NboahMdKGiS7ES2mR3e1FARzHyXPp6nFmcY1oabqtQ\ngeg1mRidA+Lz3Uv1LirCdIcP22ZMMprLJGef5OCAaIx4JBV0hwZX+RbhcZqw\nC4tdlbI5j5GFTV8W0fBNyEXTYIeti6YnvXWSi6ng8cIkJbSw6l6KAa7S/13y\nhpyNStVDVwa9QVjIKFW3wo3/fBaXXe4TOBnxvrbLwckfdmVJ3vm7fOcmlRhr\neiAy/N66gd1jIymWo+ZhsCu6xZ0rWXEkYRnxkz9ngZAfXv01HJF0PS9sDvqE\naEmUfqkKt9NAknIJlyzXN5GeDRZkepS4AlGqzCb9I/yXGm59jziKCbBdfXWt\n0bXVyML286qdwD49aR5vmGBtE3GyTcOxXcc4g574vnWLyBL3GBX1Vpg5MjFJ\nFEsSCQZmaGjAvXOojlPLBH3EH5istMA5tFPWCuPEZ2ayjdnpeZc5eCPDCZs2\nvcI4\r\n=Td4j\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCICxJ1CjA9sBSAIgdnnnHTkZWcYw2f0ksvgHAornlRsypAiBgRwMuY0URMFvqa2R93xQ3pp4kmGHqCPB9+9ZMIben6A=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.1.2_1543298420016_0.8542012499657181"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.0": {
+			"name": "postcss-discard",
+			"version": "0.2.0",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"common-tags": "^1.7.2",
+				"lodash": "^4.17.11",
+				"postcss": "^7.0.6"
+			},
+			"devDependencies": {
+				"eslint": "^5.9.0",
+				"eslint-config-xo-space": "^0.20.0",
+				"jest": "^23.6.0"
+			},
+			"scripts": {
+				"test": "jest && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "xo-space"
+			},
+			"prettier": {
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 120,
+				"bracketSpacing": false
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"gitHead": "05ded16da8ccf7075f7e4766c967c9235fcf1ea3",
+			"_id": "postcss-discard@0.2.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.1.0",
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"dist": {
+				"integrity": "sha512-zEZYhsr4dT1BZ8QBuvXJuDK0uv1xhecBIRyLrVwZh+zJrqcjpj45LN71ZzTZof+IrwdGiteOR8UpLPdrZh+xRg==",
+				"shasum": "1b1027839b095bf7d6fe049587888765be0f8735",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.2.0.tgz",
+				"fileCount": 20,
+				"unpackedSize": 9495,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcGI8kCRA9TVsSAnZWagAAPF8P/3NLFCDVgHZtVHYrCB50\nznFmGIPiKmataUOHZIXPiN3wKSgGfwg/L6YxAYWiOLJzM7VRcFcCEvZbgnrg\n/7ZE/trCQdqj3+r3vMJxe3qLCq29qZ8tyv6Q35tKVBmdaiO6+i9QagHYVC5g\nNGq+Cc/4yaYLqoANo60r58wNJ2/TeEN/YB3JgdHo9l1cg+DPx5Cwn6R1UBur\nr0t0nwwM2dLx1xp0cvl2WsdIOlAKj9CH6oLkhRajqcf91w+Nu5vsof+Z6aH6\nkLLqY0QJdw9gQldzD9qGqaiJoLIFfrWhqzhIGiTI5KXwNO+kusE9R85kKpNn\n6r3+kyrAbQxkq2Ys4nroe2lF/nBnAfQ4/40DpS1hIizOgIUMjKNn3/+twDgN\nHiX7fWJwsIRFjuRIb4+THFZFF/qlc4ebCmW+iMVRqbawERImL/qiFPjqFG3M\nkywoYcB4V+LMW9AppSeWWwr/pVY1tWTgcm9X1/+NMXs0B6leBFy/k4rJoOjq\n3B7v1hC7iTsW0RC6dCZNim1FU0k3yQUBdzkKx9pcZoyELY1x6Ib72eQmlRmk\nzEYc4UyLUgLRgPXOBWvN5SxXRH7sroBQDXZXX3ry+xSjRsHebTY1TIN9j8gY\nd46QNruB+xkbthfIdZqxtHAab74GZ95n7YTP+QvLt8ofnTwvF4rql4/+BtRq\nyH0A\r\n=+mGu\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIH3mXvxbZClbEs6BVCHP0buqzpdmrMPA3SGNdKxDWvjEAiEAmC9l66QEDAS4EP/QNFGH5iAVE9H2QWjUXslRo5P7K6w="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.2.0_1545113380081_0.052279273841915996"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.0": {
+			"name": "postcss-discard",
+			"version": "0.3.0",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"common-tags": "^1.7.2",
+				"lodash": "^4.17.11",
+				"postcss": "^7.0.6"
+			},
+			"devDependencies": {
+				"eslint": "^5.9.0",
+				"eslint-config-xo-space": "^0.20.0",
+				"jest": "^23.6.0"
+			},
+			"scripts": {
+				"test": "jest && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "xo-space"
+			},
+			"prettier": {
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 120,
+				"bracketSpacing": false
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"gitHead": "422971608a8439bc71142e3f9f406181fd4fe7ea",
+			"_id": "postcss-discard@0.3.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.1.0",
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"dist": {
+				"integrity": "sha512-nqxrNxXl0VY1hLscuFl7NmZV6m4fCBRICfAW42zBe0uzUryLnE3G7X3eymZNyGNpET68qAM0+lvZ//ORIdraww==",
+				"shasum": "9d8674f0fd5b637b5d7866c564f2fce7dc772c66",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.0.tgz",
+				"fileCount": 23,
+				"unpackedSize": 18486,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcGW3ACRA9TVsSAnZWagAAuAIP/i39XhYu40GjiEBBn40n\ng84AHLMaN61jn65IbbiPjkmaRhsNE8JfU8QMzYvkX5QrMXGIzDqxJgRtPOzO\ncQo5fT31LKwzpE7VycvjBOueG+SKVuknm6Fef83Sm8Qu4XuGQUN0zMd3ym62\nlgmdGEUkUpq5YvrcJi4/LqiQogoW2fjbNzt1zxnGHzDZBTOssRf9oqyaPmcb\n75d1C/i0c3LsHYRe2hdRir8ieJUPz1Ko74Dc7o3qxQG6UVW6Z986wMu3/uVc\nEG5pwts4/Dkd/USIj86DENAv76LovGi8iTDg4gsXeCqJXYFemM1FIdCo389q\nwdWWV6GRqF9RprKc9Yp95D64ykxOIyviOTnStR53j2jd1DVBBmxAejlRRPVx\n+500F0egalDjdffBW/W5ARYPDfW68E6tjXPAcOuhCrbIUsc/ZCS0tFoCpUWO\ni92gStZo/Ot0fnJ1h+8O8g04HvFuxUMz2IF4oJs7j3URfRnEh+qJPpcGI1/t\nCGPyBTR4N7TDuFOGHmHn6MUUQ+va5RLFe4JPQu/h8Osg84Dt4kzVn16F1e34\nIiJsngtOax2o0/pTWtw1CUOIzsvjBn4E8MODv831lAqRJ1Oah1uNzZIX3XNz\n24lGr5rGucuUH3XlcSqBf+aDxr3jCXx3+/VCd+jxhGF2d+fMkpuIlhgMChqR\nSA+L\r\n=lWZy\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCwOw4Eq6pLg0AuXVf+tUibe9vq0uWshqCf3ATT9TrEGQIgMNmIh8ahaXnLIx5wbRW623pLHB9teelW9gXNQKRL/K4="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.0_1545170367969_0.4417840845349841"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.1": {
+			"name": "postcss-discard",
+			"version": "0.3.1",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"lodash": "^4.17.15",
+				"postcss": "^7.0.17"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^24.9.0",
+				"xo": "^0.24.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "e49a1840e57b73c301eb549abb7c162a9b91efc8",
+			"_id": "postcss-discard@0.3.1",
+			"_nodeVersion": "12.3.1",
+			"_npmVersion": "6.11.2",
+			"dist": {
+				"integrity": "sha512-gIflc5euw608ueWTjlIxbgrNqAYklMjQTYJZ4SnPHX9lIqXAXRMxV3viKXhYAUgu4i11NO8ryKT3Pe+rInLzRA==",
+				"shasum": "479322ce926b0aac181c0da2117071e364055725",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.1.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8005,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdbYtTCRA9TVsSAnZWagAA4iMQAIer8PSaTRGli7nXLzpO\nDM0YZ/LXKDtHzU/jntyqqOuQJG4MFFrTRD2p+Y2ioqHDIzv+MzCmPXTznNON\nUe5A+WyvbqAFRAYpiCWvxBBGdgcD6KHf2AIZiMNrUzGFSZX2ZGvfy/rm8oFj\nrZ8yU7PYfWo+0OxP4nhTF3byKjKMVUPI6HbO4OdB3Y59z365KL+loSzf0AwV\n3Lz7CcxY1cnIgQg1OwvO3/NAp+BJ5saW1IAiAMn6NvO5NKwM6JH1ncc8yVzM\nVpJcQ0lTqMM3lRYKiypaHOn9Xp+Rm/3Pi9YijsFA+Udv9BxcHfTnCsJ5c4IT\nqMwEBYUOrH4rKTnTd7OpF6tsNkxilTDc6EWzym0gzSP2kc85VN5EA5ruTNdq\nAE7OG5ijgz5EPkEYOCOi0rUlN7Kuz0XFR+94k3Eiz0f5QxJuUY72A4mUbIEn\nbxPZZHv+Drbt0RK9v/GPsEhXYbVRxwbNjWHEmgWMpRcXz98pfXa8V6XAOEDq\npyJ+Shd4as2umq0bXVj/0Qvvn51qqOK3bxHMCEHobeypHh2tzm0BSa58dsvE\n4CZk+oV5oAf25JCwRGUwADy6qbHniQnmfXn9T7Fk2OGSfXi+bFRy+yspPO7b\nQ2c+ybCyfrXkNVpX8AY3zVZvIMyh3aydQAK+8xfkSllxPONoWX3rCp8BpKpn\n21uP\r\n=tc7+\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDJMOkaDfry8mSR3hkXcddB+iNNIGu2iK4pgdaM2B9PXAiA0gFuOJf9pXsI2o37DIbJmnHxOmankFYEEfXykGzFT1A=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.1_1567460178632_0.2736900272688627"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.2": {
+			"name": "postcss-discard",
+			"version": "0.3.2",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"lodash": "^4.17.15",
+				"postcss": "^7.0.17"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^24.9.0",
+				"xo": "^0.24.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "9a7fec45dbb1aa2794a143db30cbc1e5670bf0d6",
+			"_id": "postcss-discard@0.3.2",
+			"_nodeVersion": "12.10.0",
+			"_npmVersion": "6.11.3",
+			"dist": {
+				"integrity": "sha512-8ujZTvtiD7pr3kDHBGzkhjbpC/avTchD9I004FtqXL599NI7QPLtCS+6X1yPkG8FEPJhNkCzJ5g6syc7pFGwsw==",
+				"shasum": "b487f16565254dcc46b278ddf584eb662ad13c4d",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.2.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8040,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdipOICRA9TVsSAnZWagAAHAUP/3tEJ4SPKoNjPCWWJn/H\ntWXd1W7qaWUfiZZe4SOBuGzc3iqMwNXnGXuvimpOVgnPGJdX+hsgsCUmZo/T\nUURo60XDQnL8sNowoGgspCVl00ZZWTqU+XqrOGVe3oqoTTTxHhBwEdcBnYhO\nOLOE9mUgANzC+k/jBn2ixKxXWLqur6LvAcn+7OubxxtpQIbSxLqDQF3aD6dG\nIPKCMKbi9tJZcs0abef45d/JR5obiFdaS7GA7PccTJnRIEUN/r0YQW9QYOzt\n4PSMNRq84ALnzClzHr5jQHsY9VXSYi0WcqE5evCcZ6Fgsy1/7IJ1QHMOGT/u\n21xOX5LLTG7ltz7H/BO2FXr3o3sdiOOHve+Jp1nfyxPj9i4gZUZDWazqdov8\n+/7q0V+NvfM8MQrMw2b7J9ASFNcIEAebhqWYrjzIY1hpCATGsaOs0Rnwynih\nCsxO75XrU0fSqkPV3QMmHCfiR67vzOiAI9ITr+1uGGwqzkUI+vo3lAEMksJ0\necFXwQltSid/t2s3I38woG7gKrwLED3nFzJBCjKj1fKHrz431qxCD3Y7Jcbf\n9ZuNId9PcsJqwxp95oorMJ4tAR13eJ1TfFzS4XQsUG1GbX9oCFedRJWxiCcp\nFG+kodpGXZ+4HOoHE00qqBjV6exYo9q6MZ9DJPyfN4jlS9q6hTWZ2CoxWjJr\nINC8\r\n=xjMj\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICJAwqbawTd4cowTSHrFZCAShRt7Jp7kO384XEj+LUzVAiEAj0qSuvE4t/8cqBmsXTvRZcxp1oWMHsYX5Z9Oa9ENKKk="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.2_1569362823775_0.2134616744002129"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.3": {
+			"name": "postcss-discard",
+			"version": "0.3.3",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^24.9.0",
+				"xo": "^0.24.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "61f7a0bbb663dfefa419045cab66b3b08ddb6514",
+			"_id": "postcss-discard@0.3.3",
+			"_nodeVersion": "12.10.0",
+			"_npmVersion": "6.11.3",
+			"dist": {
+				"integrity": "sha512-gSRGHSOEjb5jY7cODyOHjYO7hjGl/NphiQwKeTB22Nsblim+fkzi90cF2t50GCxFHBqvP4IijNwJunVXbFsABQ==",
+				"shasum": "fc6c7736d0a2acdbd8ab36962b885d3aab48b84a",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.3.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8121,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdxfNVCRA9TVsSAnZWagAAhmYP/RanMthc9IJLYXEa05OH\nyAZafwwIKxyQOQh1H2JG5gGbv16k774/l47yBsf6WZ2eWtzq+lz2wQGZFjgf\nneIdc7ec5OJRNjebWt2hj0XE46g+mdW/Br/7jFD4TtRcYr/nreVChVYn108E\nwjxrUouDNDN3CLHgEOS5dancYzHnHXajTL+S1AZWwozu9zO39rGt5lgKCVjC\neIw/NIBI3EY07kPB0gtgqkaAkrRWNmUJ7oEuvmibOy+11PIPeMSWFhLveWWF\nVocrzhlbjlYMOJ3INC/39QqpjGlVRm/bPqnuNjmiNVopH6dNNdo9z4dayyfQ\n5yMvOU/P2TcM7N8NCoVmqluyypOGM1SjpBsa26O1ga09QButs+j845pwr3L9\nRYzT4LfdaDTny8A195M8d3YzRDZQ/NBplEIKSSc7sRSvLXEVDXUd5z3WDKQF\n6+Or1CZ/LA2//kF/cMGUpgNUUsVcNbk2q03wy8QnoCS5BqrfFNcpfoNkXfFm\nOjPtxORCUUsCbdrDBeZxCoe/NbCiTeE7feN5K++j6n3R1JlqckVGwdfV78Eu\nEluPsMF+Gjh+9s4t6IQ+bIKXq3ZEgSsY01hlQpLcNUXS7GxiTAVV1fGF2dxJ\nDRK3cwTJpk/Y5hvqtWggnmv0EPCzlkV3A89v1Gd3GzuGQZ54lXfjIjIwmOgN\nqlPS\r\n=sIQj\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCqxKi3qYThMYLjf6OaBeTxp01v0AJIvQw0uHK0ez8HwwIhAIiO+Zvex5Sy49KtUUPochClj39DsT+sHvnkk3XhwNeO"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.3_1573253973103_0.9610975713042185"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.4": {
+			"name": "postcss-discard",
+			"version": "0.3.4",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^24.9.0",
+				"xo": "^0.24.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "d2aec7003f09923f8f97cacb252264a05b7477ee",
+			"_id": "postcss-discard@0.3.4",
+			"_nodeVersion": "12.4.0",
+			"_npmVersion": "6.13.1",
+			"dist": {
+				"integrity": "sha512-cMbGD5dABnJTpwp/NFdqCDewWg34o5BWlBmHxOqaM7+o+cZcWTXSoWxi09/ASnfELqQ1RjPOvr6H3gl/5zYp9g==",
+				"shasum": "3ac727e5b197ce7f64c0a64b66a27dcbb0141d57",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.4.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8412,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJd5tkuCRA9TVsSAnZWagAA1sgP/30BkuPk376Y1Ye4ANF1\nUvsRApfA/jehzZmqomDsWVidih49Z305/9UJFMSnOWicOmVRTUqQA+Ujkz7/\nC/fXY6dcfsUMo8QBDjsXp6xmuA5FXrO5QjFW4zxHkKfsiyOV+MqEggfRBVJb\nacYDep6yRdp3/HQRc+8tIBaosgc0L+eGn5MZdBHiCHwnnBc651rDRRLmN7n7\nKByqgSlpRvg0rtPMGKDi0DL2PefeQk0zKxdZLtC4rRyng+fYuNuXeeFcRVfa\nWYKit2Mzt8h4vpXUaZ14XLdr8gyiUTxdeTX4//lixcK3RepSNZ/xVorJ80F9\nSj26OuRkjHtCly4xetwXItoXeNf+LW/xNcoLMsKHr2VZVC5DI23luZZIRCb6\ncpgF6rnDCTmoLtCD9FefZpl4qEKDiPZ3mSoI8JQSv3rtxHU0KLohmoGyrEwE\nCQK4XzDWiGSFJCvjOo6gwG3WjMKNM8DT2SnarCmWB+LFRuYM7TIEFpyCUxXa\nxuZOqHj+VuAuCz4DyNDfLCFZLunxJZePGaiGmZoY4bnLF7krD0BPu+t5U5lY\naJxtvIaOULIboLUuv1Ls0670PtAsPYmLWHQtX5DJNm5gx/gouTOxnbjSLykx\nUJZShy60xnlRk2WGR9dwPpl2xu3BCL3RfHN2XrJYTVY2TPTLiuSyHWKzYVXe\n6LP2\r\n=5x+X\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD1rmXfatVJ+fWLM/zTlx8iAsYfL07DICoH0h5CPGuWjAIhAMsPv84jAFc0tFrMWyjdjgK9Ab+KZCFcwwBEXT5Dmcq0"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.4_1575409965843_0.519725398102912"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.5": {
+			"name": "postcss-discard",
+			"version": "0.3.5",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^24.9.0",
+				"xo": "^0.24.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "a4932b7f45530bf1803c2043b2bdf0034558997e",
+			"_id": "postcss-discard@0.3.5",
+			"_nodeVersion": "13.8.0",
+			"_npmVersion": "6.13.7",
+			"dist": {
+				"integrity": "sha512-XbSkNefqyoeY8vajVSt5UZwfWDPqprDtiaIdYYrKSg0EVBwwGR/k6kWOQQDo8xmottLNokrAZmE8pGr9qUyCYQ==",
+				"shasum": "a38df4453a167ab9ba86ff621c94eb4a1e21e7af",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.5.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8412,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeVvo3CRA9TVsSAnZWagAAkrYP/2Ew6Cf8i+29hHFxmvr+\ndHf62636rvnYbFXogNcMe8eLmv33D9B9QtQJwWd64um2ViawA3383NcIWGE+\nNFB6XLqiPFoE4kZB91eAukRGIg4Ki3EYWLVqnqEV22vrwqS+/ild1/pjmHz6\n5MbIjg5kJKYs0+7tpR15/x5T15UOo1a2Qnpse+p4ocm5jz/iVXAHkpPoF2nS\n1J6ZOq6KBNZNP5ZEA9JFn7OfPpJyZP4QEthi5POHqk2SzssoQPfzIBXKvLBm\nZydNK8glCdLHZg1XDf4lSpohWomGWZquFm9uCMSH//G+bkHSGA4j9kd+GFvq\nN6nF+Uthlo2w5n/7/oaLgKcmgdUG+E6Bhb64k8gQzC5LJUWIQ/MSCmfudeUJ\na6wNsBtpaHT09RJqq4vHjSjJ32O1uYvOxyDoehIDOxO3JNZNCIb0xB+d5Irm\nQnQP1unXtykMC+TmUb4+x0TDo/6FRDyjxNiUIYrizZYalk3uJjmETStV6h9O\nDS5sDvsiyuRFvWPTPWNbBGJfZoMkhGCNuwhb4zrVfbhrq81z3BPuxQZ/qDhu\nKnKy7ERyvTqfqBtDzRO6NCeN+X//1d+uOhqp97PBVRjQtSH+fcLH6RIDRRn7\nbhj2qhcFbFZ8pngAk+LIinoc0DWMukGbRMv/QHUU/fBAhI0F/BWHV6W59qS/\n5n1C\r\n=trpb\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCdDM6TV6cUhkaJ1pn0aOK7l3eb6tKxwlEfmw1aTUPONQIgPzd3fU7nYbXMVxO3KN6YJqsKBwUHL3YOT2gKPzvSVc4="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.5_1582758454597_0.12356609596727419"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.6": {
+			"name": "postcss-discard",
+			"version": "0.3.6",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^24.9.0",
+				"xo": "^0.24.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"unicorn/string-content": "off",
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "1a6674b5b03e61bbeab5ccd88b59caef292eff26",
+			"_id": "postcss-discard@0.3.6",
+			"_nodeVersion": "13.8.0",
+			"_npmVersion": "6.13.7",
+			"dist": {
+				"integrity": "sha512-mFou0wGsqgFDhsX1vVloQkr/ElLtLLO2LaC04wo15f2wMQNgrbrXptGU6b+V1eOGkja60puqEkWl9ly2UpP0Dw==",
+				"shasum": "f38de2cc0e1df97ad6df9ccff17e5de4a2308cda",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.6.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8612,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJebrDyCRA9TVsSAnZWagAAtOwQAIstvryUCqhpAGqxrCl3\nnn92lmQqgfEmxiTUwHGpAHBu5glceUJn4GN6lFuiD6kQgmQx22BcT6q/T9qm\npYBGwgsz/WxtCxMMSnGuHKn0n0KkLmQppZ57Gn2n6rXQcvTfYfASwDI7Tvva\nXqaB1dbaBj73BoyZ1KmuRWJft0H+aauDn66MjokV3Ug91zGjynqxL2rnelxF\nnpO8QCS4xnRPGyauFtQAp3vRk1BTuP1azwxLOpEnYSO3X/Udnp5rBNXPqFeW\nm89JtbaDVXbtodDtWE0KFI9NWYRviCz9gh5OL3Kf1BZoeqbay1JJQtJHhXWz\nWfH1w7bffLPblcDiJAXk9fVA7FNRMzed0326+vrh2+t65YCJO5tbhcfdMTBg\n3KtnwNsd/0Xt2bnX4Bt5nl00Ob4SBW/YUqaCVFj+jAKj1w2OCcJM54T4S1Dt\n6C8Au4sCeP9Yx2DThmuBNWHbeu9R07yML7tnPzjJix2BMwoP1jCEzhRHmJ3E\npjsXvcvZz1tjv8n7icvS6qSbzlGYZF9vEJIkNSXSkc0IQk1t3o/h7uPbFPx1\n8aFMxcdNg5ru1UKle7R0IV6BVkqu9VOzvzK8NaTieEvysqHMvXG16TnuUsOH\nj2WoR79bxsQjXyg5S2JFXsaxZby7q/7TupiI8l/qH1l1XUURSrdlWvVJCZCR\njCha\r\n=4jGA\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCwhDVBOmSwaLa68tef1VX78zBHDhrUKEtuWhrlB8OtPAIhAJ8MMyMwxirUaFw5Ta+xP8i3Fk+V/IRyRGLhT36CjtjI"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.6_1584312562016_0.3126772242317719"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.7": {
+			"name": "postcss-discard",
+			"version": "0.3.7",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^24.9.0",
+				"minimist": ">=1.2.2",
+				"xo": "^0.24.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"unicorn/string-content": "off",
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "81bbc066a2029af19a7d52a3de2420411a68de89",
+			"_id": "postcss-discard@0.3.7",
+			"_nodeVersion": "13.8.0",
+			"_npmVersion": "6.13.7",
+			"dist": {
+				"integrity": "sha512-j626WGqY8QjVqn2LdLYOq7v334JQzaGle1hh/B5POMsodP2hJGFIh0g/whFFl8zl+pmSzF5iN2u0OhUQvi9fgw==",
+				"shasum": "4d97101fb82ff3ab858a9cd6573d3310524b17dd",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.7.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8639,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJebrIzCRA9TVsSAnZWagAAFpoP/33zJ1oktVgUBOoNrXgJ\n5nYTmY6AAGt/aIr7r1EXhTeSpbi6p4bM2VrrDbcAt2KT3RNM4uYi6Xq4tKMa\ncM2gfZIf7gpfKX/htzfH2gIEFrd8lhwswaNy/7kJHq9V/LpnjbLlwZnzzI3k\nIUE1zNYlObue8ATLLsbiGrRQ4IuEshZG8ufl2acg2maL0mQQXfM5vBCOHnt3\ny3AtyI5fn4V2hFtN91jF9f21U7KJmTWtblvyLpSZEcaqhRN6fd9n2GIWxMo6\nwYKqMFh/Ptvznvv2GqvAmVt6NecOIm1XOsyVikeFmhWnGozRfLVxRDCc+1nl\nDjvJlAGrTMro/L0kpfQWFg4t52hZYdrss+vmonRqwjoUtXOiCNG6B9Bd+Dcf\nBOIeqB5HmHVrUys7pVC8XJCDXb7yGULR4y4jCRhSHhD2eTNHVZnUHP1HWukA\nvbMwXEX5t+J69iy33t16tmoaRZXg7f2NKhHobVpeDlnFtN4mJJ3n4md5Bfrw\nNAbuDPlnXvRKGDkWHxFROhx28zi7oKL9yf9n+RsNxDv2oDUjfOIv7kks+oca\ns4HLWijNXSvBe8pA3+JHmOebjGZmZyAvLTiBa+kvRkMRBCgltxIgxbKN0T2K\nFNMkzELMji3fH2fcrDG46EoYcG+PfHOvDfpJoSqy+Z++/v5QnV6O1vIF800c\n3tBg\r\n=1JvY\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDivFWfjZsrj060BsSAIMk74Rp3kQMKy7BSYekZCGKiegIhANEtrBXCX3hPltE/gsvwfOSVX8p9D9MDVVK+eOQEJXHD"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.7_1584312882774_0.9019790570772044"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.8": {
+			"name": "postcss-discard",
+			"version": "0.3.8",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.1",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^7.0.21"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^24.9.0",
+				"minimist": ">=1.2.2",
+				"xo": "^0.24.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"unicorn/string-content": "off",
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "6f2b020696b51a9a1706b8794709b3b9a2903563",
+			"_id": "postcss-discard@0.3.8",
+			"_nodeVersion": "14.3.0",
+			"_npmVersion": "6.14.4",
+			"dist": {
+				"integrity": "sha512-AeiJsGA14z94VRUgu0/+xnciwp8MuhMKIkrRHnTepcmja9ccvpGmFooYZ7d/iac7PZQACC5tyXAMh06aveWYOA==",
+				"shasum": "12720225312ace8d33d9ce9674173dde0cd4f183",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-0.3.8.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8622,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe0X+ZCRA9TVsSAnZWagAAmMcP/0XI8x2AfXritoEgSZ+h\nXbE3vLqAGll7e+XkaS23mqywfqesBvHB6FaW5YvbDooxrnp0tweGZVvE0UMx\naxluiSZ9qIfI4cNEkh9lY8v/XKYJidsOOrMLBni1IZFBnMInavUMTdxV+Lly\nBFGSaQHoNm4WiMPrdR3elIn+HyPzNlqRCZ3FX0KZ8LRaY0iv9I7hTPHBzFd+\n9kmdS0MWnrV5mf9GqPR397prPwdphM807kQBxbRbLXQIWK6Hf7/a6uLdef85\nWaBCt6iRASBWXCTFm64vYuVOdvVuzY5m/m2n9b8kUQVuUQg/EwTihwtq+YdA\ne5wB6Ox3zdUZEMnCkw/0gAgNEi1mEZgiHmwPxpvGntSx89IouNkAq8IJZ94h\nRiqBuJi7qd31IajRPJxqxdoiCwr3KZfmaSr0QygvSF/fziCl0eZVktDZjPXg\nO6DrpU9C4b0YVy3QDC1zFi+ULs6ALckngI9zyd7roBHAiahNivwqIJpqsfO9\ndXumZ+HlBu9k7jP8ahBLLuQ9o2XMiWvWtpsw/AY+T5Pm5JH/HEpZW8u9Ozfy\noR13bx1g4VH8+8vLnyaHjEC96NKY0uf4IQSTHTjT0LkWMGnRLqgmZGDLL7ed\n1VWPxi59ZGnRDY5OwASAJVddRnVFMM1gkc/at07eo47BL9NlmdXWXc2hqDKk\nsBQD\r\n=97Oh\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDWyIddA7+T2szmWSOC2Ci2m49BYtH9AjuE/RJXTSncMgIgToD+/2i/e/e+dc2Ls+rdvYRkJiJBz2cJKcMdXKVb22Y="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_0.3.8_1590787992609_0.7247527216703866"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0": {
+			"name": "postcss-discard",
+			"version": "1.0.0",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=10"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.3",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^7.0.31"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^26.0.1",
+				"minimist": ">=1.2.2",
+				"xo": "^0.30.0"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"unicorn/string-content": "off",
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "4de02673cf1eb1b43cb5f9e8106303b7832aa17f",
+			"_id": "postcss-discard@1.0.0",
+			"_nodeVersion": "14.3.0",
+			"_npmVersion": "6.14.4",
+			"dist": {
+				"integrity": "sha512-mWTAm0bWlA9RoWuOFxAUj/JfHeIBxi0cEznYBO9QfsFfpA2W7vfACuI5kBQsOOtOwRkqPa8xO2MtDgmrZvHECA==",
+				"shasum": "89295252c2698919f393349dc6f9faaa0bebde0e",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-1.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8612,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe0YIoCRA9TVsSAnZWagAAPgwQAJKj46orN4gSQkMQxSYV\nNLR0Bz4PxVg0tM2Gf3SOmYz5RYru92rU7hnWaCVViK3ZFtlY1eRey+BLSjZ2\nJYOVBCU2mK2XfyYMqUFs8xq2G0yBfgoujLRixvKLS6GRD1RmD3QSq2W+50Aa\nMmoRZL1C3BO5E0mvNIxdLULNLyVvtLLFKknFPlhHaQkselB/i2i7AxnwKhWM\nNt1wxYhvm5noO3lNTJnRCP5HXuFUtdl8aNeE6jx3x3El5M5cB0AaeJx4KbNl\nx4rED7ZG1X8Pyc0ATDquxDWhz0531Z0U3lxLiRIkrp8+Ut5w1C6SJEe/HdWo\n06hxy8TGRCFESz/5/v+qh+oVaUCU97nCxM8HiqJHYNhTlPKMWqzmQxcls9Cn\nhZzBBeR64xy1IWS3PTdxD/1nBhgCzaRCrtvfwrFStWoCTpB5mpzkJRHzKa7X\nNAqUWrLLoaXK/oBmTuWHIVO7joh5XB2nTb+7WdaQAsn+5Wbf/2J+Y9WPD/uV\nJQMYbLXuTnQ0bg6B+nMkzK0G3ro6tKaJSS2KwHUd+wTsgd/MjCWiKNw/nJIW\nsmhST50jbKvow6oz+OZ6WYUM0VGmTousmGfsCkAtBXGu5O7mIzGjLFbQuJmP\nzC7b0j0diw3NYjh+DIAi0p69ft9rfX42KYYEIn6mrZo53sOZaPWOyYUlvvQs\nbQAx\r\n=X09Z\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDrqRy+GUtTvAq289h303WBAc+S5VDowa21KxhqjtOOtgIhAOYCBaKDAXkZax0aXpZ34NgmTLWQQJlW1pBCvghI8/pI"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_1.0.0_1590788647524_0.3390371965675436"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "postcss-discard",
+			"version": "1.0.1",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": ">=10"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^4.2.3",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^7.0.32"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^26.4.2",
+				"minimist": ">=1.2.2",
+				"xo": "^0.33.1"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"unicorn/string-content": "off",
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "c21fa2175015603a630be267fa4dc7be805a4e61",
+			"_id": "postcss-discard@1.0.1",
+			"_nodeVersion": "14.3.0",
+			"_npmVersion": "6.14.4",
+			"dist": {
+				"integrity": "sha512-sAFH3rvFqMy20eCZkGRVoaXcpzd5Dg9tXgklAcA4enHd7RX8Jo4CMjIQGdmiWoQWh/6KoQCJXdzv5E6yzhAA7w==",
+				"shasum": "6009cee1464f16ad1cc4762353eef9cf299ab8bf",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-1.0.1.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8612,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfVcZpCRA9TVsSAnZWagAAyNgP/jdNgnVZSehDFuwuzBIz\nNdxOEcdadAxR4wa903ZFasH5QV4F97S/MxCXfMkje2Pnsww19My/o9ouIk9V\nq2dvk/W+7HO8MCJEMFcjxBIJ299eHmG6HOXm++7X/sySpb5kx1y3T+DDn+W+\nGqg+eK37dlASvBq72bbgFXSVzfzA394wom3vi8NlyHcv9Za/M7qjMCT0Hap9\n48JNFaLh+5GXQ4S/0RLDFzIhHq+pnxw7fCK+hUarGky8d4FaVTBb7SEjRuGL\nVI9UZYHsDUJlfpJxSh3wLyscybXqdtV2OqQ/kfaa96Oz3Sk5TL+kqFwVMQS4\n1y3B6C+piP6i2/q83WTZg7lSAKAdxfyIZnyhSjUtolo/aJN+fzw6zmgkxMJ/\nMSHu/0Okd06/ELxV5f9OWSGEmYbdNeszZNmBtN5zTVEFXpmOEFuAU+KwK7Rs\nlZ9mSAgFvqih01saxTvt1llDaukoOnEsQY39MCqTVRKJJDZ+C415f8CUmfur\njOpB3WreKiT2Ma9stFsPGwrhDIw9yH6Mo0Y9YuIWDkhQ2s9KQXGCWFgAWLcF\nFA78HZWwnCXu9IF35AYNVR44OxqqiUQpJN69cIa9/Sf1EGw/Z4/QH5W3+ZBd\nW6ezGHyHVqUcIUL2zIMqNFhz7MKTGBczvOd+MHqw+fkwMDI3U7LFJ0a6yrNH\nKH4H\r\n=kFIh\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDAnrfrqnCWftJ3VGAin3KnbiPd+1DWqp8EJSJWuxsh+gIhAPCC/pmaF6pDkMI15FT2VaFlS0T4uBcEz67TufTXkYC3"
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_1.0.1_1599456873370_0.4600714677910507"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.2": {
+			"name": "postcss-discard",
+			"version": "1.0.2",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": "^10 || ^12 || >=14"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^5.1.2",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^27.0.1",
+				"minimist": ">=1.2.2",
+				"xo": "^0.39.1"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"unicorn/string-content": "off",
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "7afa8777ee45e178afc5a8d1d07e9bb600610438",
+			"_id": "postcss-discard@1.0.2",
+			"_nodeVersion": "14.16.1",
+			"_npmVersion": "6.14.12",
+			"dist": {
+				"integrity": "sha512-fM0TnSIF4YzBxYU7aopeZbBbtvIxMj5CxKdJtLNkE6zsuIO1W3teMq0/rPBaFF3QTtWeYjqvzta5PEgfCvK+2w==",
+				"shasum": "ad18e81840ebcd4049880a870696c10948711663",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-1.0.2.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8650,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgsWQSCRA9TVsSAnZWagAAwC8P/2Ukw6hJNCEW8GknsfEq\njuE0w36/56U53XxMK4hri4pwJEScz0BV83yWzAPqgzCOCw8bH45eT2kMqP3E\nP2pjegE9ZcIQgk1Jnx8I+b9JlhfIjG+q+KGDAVUWqxKDD1RDBSVCOOhKcEnG\neMbKfJs/o8x4MXqVzMfAqutEekbuH7/umEK+Kod71FzuMZ1/euB7UPzleeIv\nW4FylmrZJRx+NGADgHgURoP5utu4vpdk8qfiDkalD64Y/Tz57YHLgLOv5s1f\nx6K8pa8L15GoDDDe8CyxVBPeFn6ldw0yCmy5FSoux9fdpD3jEe5KMx5wXBmi\nJGkZo6Z/Bn+RQ6XEmkm/WiSjtwPD/tvfdjxZhJSrPkefXJepdqcGHhNAsWRF\nl4j5D8jgF/Es9xvwv3mijU+OUTEG+w7Sk7NFI8kNswvT2TDt+glQkbWDMDFI\nDLU7CiV0yl/D9cO68BiALcxaPhZyu3AixPwb6WRIAKKzjVs1ujP8kVhYAhM2\nySITpI5RXgb1qSl8PAbT1goHueTiKwM9Z+3d3CrufIc6+QBA2isNa5ubJDdu\n7V1ddOc0pT73Ca7U5uiZQbqFPERvwkJZ/MPAWX/1mexKbRj/D2gaGGn/4LHG\nnIdKlcdNSt82r4y9sP6C4A/+JeoPV4vr5ydWdItKuURDer29NE2AG77gcltj\nmgGH\r\n=PR/q\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQChyxFGnBSIje4E5k70CV4wKvbloeE6DhAeI8xLHnZ4XAIhAMxNlIAqODLTUumEJAiZXE3VDkdZBujaajREA+Wa21W2"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_1.0.2_1622238225670_0.5536446999820668"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This patch introduced breaking changes. Use 1.0.3 or 2.x"
+		},
+		"1.0.3": {
+			"name": "postcss-discard",
+			"version": "1.0.3",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": "^10 || ^12 || >=14"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^5.1.2",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^27.0.1",
+				"minimist": ">=1.2.2",
+				"xo": "^0.39.1"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"unicorn/string-content": "off",
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "d1414fe02b1439393d5bdc3f76cc59d45fbdcef5",
+			"_id": "postcss-discard@1.0.3",
+			"_nodeVersion": "16.0.0",
+			"_npmVersion": "7.10.0",
+			"dist": {
+				"integrity": "sha512-GSEw59lvAr29wvsDQNbuI5hQHeXto+8UaM7VsNzRp0vJyfhNDc9xNDzxtKml4hO/kf7QxcB5dlaZj8lyBnthtg==",
+				"shasum": "a6e305dabfe259ef82a64ebcf6772ed349f45a66",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-1.0.3.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8627,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgsrSaCRA9TVsSAnZWagAA1CoP/j0xWPZgg05QkURDcnk3\n50VBDuJsrhsfALo1vXs0oJBoOeKk1LCx89BN5c41zLadSgNatWiB9UYSAAwG\nVoE1cUGAk1QC3BnOmMpTGDCqrT+6GbPm82qNlUHlVVCYER/mEwajcwmM15B1\nmNVD4JptYCqohuJimLsgYFIqExwDsOMvXT56TqpHCNJsbqcm0TFh19Gjy/Ek\nSvrUkXOrHklkse2zg/4SKMhCdk/DhPV6V9Jcr5gJT+zYiPQ4XNt+oqvQ8udL\nPtC2IK6ydEjcfKulxgOCJppKz35sb+idEMIA4x906RiiZEBRIRaEnD5E0t2R\nG3X6sTPent8WTpgli5AVj5ptiKIbyQkuEPP06q0Bi5JNAMfQgSaTKN26My4K\ne8bt1kcZwv3yWDoYZaWCRiHyKuIEwLeoL+mUhQTdBtmdRB2Fu2r9x1bC7oZb\nvLGQ04WJv7PnrgeAoJYQ3YzGImlC+b8XZWBdIqwlYJyNk/7cUs6n7Q+LWtue\n/HDn6BNsrH9V0ejQbqAF7DPj9EipAIyjCVZDb5CKg6VXwbAxG0My56Rq0O1m\nhFktcZTcX1gW+eBw/ws9dlrCh15sX/EDX6yvultBBp4ktewPQ0kGzZjy8w0D\npgJUN5Uv0WwzL2qlR4UZ1hu0XPYEiWYTCyKIYg/cJ9snX7DxFnMYOkTk8OI/\ng7Fe\r\n=1peM\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFMeUFWTPXvpYBwiUpkc28k7TUvmz1mwArumSTKFCzG3AiBmglEpbWkBG/xmip3GyqZC6DquSj0J/pmFQnmYrsKMOA=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_1.0.3_1622324377839_0.557442723093345"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "postcss-discard",
+			"version": "2.0.0",
+			"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"discard",
+				"remove",
+				"filter"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-discard.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-discard/issues"
+			},
+			"engines": {
+				"node": "^10 || ^12 || >=14"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-discard",
+			"dependencies": {
+				"clean-css": "^5.1.2",
+				"lodash.isfunction": "^3.0.9",
+				"lodash.isregexp": "^4.0.1",
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"common-tags": "^1.8.0",
+				"jest": "^27.0.1",
+				"minimist": ">=1.2.2",
+				"xo": "^0.39.1"
+			},
+			"scripts": {
+				"jest": "jest",
+				"xo": "xo",
+				"test": "npm run xo && npm run jest"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"xo": {
+				"space": 2,
+				"rules": {
+					"unicorn/string-content": "off",
+					"capitalized-comments": "off"
+				}
+			},
+			"gitHead": "31d9f7772b2d2f2e5bc62853c2b9e56fa1604d98",
+			"_id": "postcss-discard@2.0.0",
+			"_nodeVersion": "16.0.0",
+			"_npmVersion": "7.10.0",
+			"dist": {
+				"integrity": "sha512-M7e1ckqMd3r0THkY4zTIRKP3H2NUrsNsI7UuIUYbyFDPRD26QgFR/BGGw8CNt5X4F0uGBnAMAFGgktraPdOZFw==",
+				"shasum": "b575dc52efe4c5d25f74f59ffd0f146462ff28e5",
+				"tarball": "https://registry.npmjs.org/postcss-discard/-/postcss-discard-2.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 8650,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgsrZgCRA9TVsSAnZWagAA+HcP/i1Gwj3PAEkB6EwtFpOw\nPOdWbQipA80RqPMs8nDxeKznED6xfM7p0QA57NXvr2XzGsxCvRd5a6AyAGqd\n9LAszAincezfDop9uqHyC2VCuD/rt+nG5rFX5qPJr1lopIdegjjjv5ctI24J\nKbLBx+wF6P39P/U2Q/Rg2/+IKddEUYZa6TXP9f3blBsxErgOyx+C/S0gh+93\nIn9zVsTrsrns8/rcN1c2eHRg31kVK/TgnV3saQyw8uSkHnH/xHUOu4UGYdOw\n5z5yL+Lhm316dvm0xHGEME7Oae0+9pDVQ2nn7oZaqbKi3rjASIdrT7m7LArt\nDQbXEc576/eBkhw8hwxOud4HNp0yFVLgfx9GII5+M+0U/PubSCihOGq+3Kus\nhUFRI7D43/s4aSdIY8T9gmfUWRlvqKQMYuc8wVGUFCOUD4G8EuHamz6wXWp1\nIbDC/fv3ead5uAWaUxigBcFUvH0vFcaKKHorQt9B+N98An6pmFGt11zKCopo\nG3AzU7WsTgtpIvrMPM30yiLvcTojRsuDMjY3gN1mGzCX+d2YufehFE57M6Mv\nWSjCbtjQKAgGqntSFkCoE0sphALweXlyiyEhgTqSC4nHpYQvcxHkqT3R9OKw\nS7GsWve3MZqGGHZRiP2iL2pI/ow5SX1MgmxoEH0nBYdwlkc4hY6XUFEqKm+P\nmlLz\r\n=B2qW\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHZaPYa4ni5eh9W3sHS1fkGSm7Aa1/Cc/0MLsj8XgVaSAiB80WMysqNXUwBLVAUWGTW2JYm5kDP9jbteTGOJzAQ7+A=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard_2.0.0_1622324831998_0.7033093487876592"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-05-06T22:01:00.818Z",
+		"0.1.0": "2018-05-06T22:01:00.897Z",
+		"modified": "2022-06-24T09:49:47.136Z",
+		"0.1.1": "2018-05-31T07:42:07.419Z",
+		"0.1.2": "2018-11-27T06:00:20.156Z",
+		"0.2.0": "2018-12-18T06:09:40.206Z",
+		"0.3.0": "2018-12-18T21:59:28.082Z",
+		"0.3.1": "2019-09-02T21:36:18.834Z",
+		"0.3.2": "2019-09-24T22:07:03.924Z",
+		"0.3.3": "2019-11-08T22:59:33.214Z",
+		"0.3.4": "2019-12-03T21:52:45.987Z",
+		"0.3.5": "2020-02-26T23:07:34.690Z",
+		"0.3.6": "2020-03-15T22:49:22.138Z",
+		"0.3.7": "2020-03-15T22:54:42.898Z",
+		"0.3.8": "2020-05-29T21:33:12.805Z",
+		"1.0.0": "2020-05-29T21:44:07.669Z",
+		"1.0.1": "2020-09-07T05:34:33.525Z",
+		"1.0.2": "2021-05-28T21:43:45.829Z",
+		"1.0.3": "2021-05-29T21:39:37.969Z",
+		"2.0.0": "2021-05-29T21:47:12.146Z"
+	},
+	"maintainers": [
+		{
+			"name": "bezoerb",
+			"email": "ben@sommerlaune.com"
+		}
+	],
+	"description": "PostCSS plugin to discard rules, atrules or declarations by selector, RegExp or callback function",
+	"homepage": "https://github.com/bezoerb/postcss-discard",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"discard",
+		"remove",
+		"filter"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bezoerb/postcss-discard.git"
+	},
+	"author": {
+		"name": "Ben Zörb",
+		"email": "ben@sommerlaune.com"
+	},
+	"bugs": {
+		"url": "https://github.com/bezoerb/postcss-discard/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Discard [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin to discard rules by selector, RegExp, or @type. Also usable to generate a diff from two stylesheets\n\n[postcss]: https://github.com/postcss/postcss\n[ci-img]: https://github.com/bezoerb/postcss-discard/workflows/Tests/badge.svg\n[ci]: https://github.com/bezoerb/postcss-discard/actions?workflow=Tests\n\n## Usage\n\n```js\nconst discard = require('postcss-discard');\npostcss([discard(options)]);\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n#### Options\n\n| Name   | Type                           | Description                                   |\n| ------ | ------------------------------ | --------------------------------------------- |\n| atrule | `String`, `RegExp`, `Function` | Match atrule like `@font-face`                |\n| rule   | `String`, `RegExp`, `Function` | Match rule like `.big-background-image {...}` |\n| decl   | `String`, `RegExp`, `Function` | Match declarations                            |\n| css    | `String`                       | CSS String or path to file containing css     |\n\nYou can also pass a filter function for any of the supported types.\nThe function is invoked with two arguments (node, value).\n\n- `node` The currently processed AST node generated by [`postcss`](http://api.postcss.org/).\n- `value` Current value.\n\nReturn true if the element should be discarded.\n\n## Examples\n\n### Diffing stylesheets\n\n```js\npostcss(discard({css: 'STYLES TO BE REMOVED'})).process('ORIGINAL CSS').css;\n```\n\n### Discard by specifying rules\n\n```css\n.bg {\n  width: 100%;\n  height: 100%;\n  background-image: url('some/big/image.png');\n}\n\n@font-face {\n  font-family: 'My awesome font';\n}\n\n@media print {\n  ...;\n}\n```\n\n```js\npostcss([\n  discard({\n    atrule: ['@font-face', /print/],\n  }),\n]);\n```\n\n```css\n.bg {\n  width: 100%;\n  height: 100%;\n}\n```\n",
+	"readmeFilename": "README.md"
+}

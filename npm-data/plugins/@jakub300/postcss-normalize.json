@@ -1,0 +1,174 @@
+{
+	"_id": "@jakub300/postcss-normalize",
+	"_rev": "2-aa7f5a1b15f10d44446f075347299c85",
+	"name": "@jakub300/postcss-normalize",
+	"dist-tags": {
+		"latest": "9.0.1"
+	},
+	"versions": {
+		"9.0.1": {
+			"name": "@jakub300/postcss-normalize",
+			"version": "9.0.1",
+			"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-normalize.git"
+			},
+			"homepage": "https://github.com/csstools/postcss-normalize#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-normalize/issues"
+			},
+			"main": "dist/index.cjs.js",
+			"module": "dist/index.esm.mjs",
+			"scripts": {
+				"build": "npx rollup -c .rollup.js",
+				"build:watch": "npx rollup -c .rollup.js --watch",
+				"lint": "npx eslint --cache src",
+				"lint:fix": "npx eslint --cache --fix",
+				"pretest": "npm install && npm run build",
+				"test": "npm run lint && npm run tape",
+				"tape": "npx postcss-tape"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"dependencies": {
+				"@csstools/normalize.css": "*",
+				"postcss": "^7.0.27",
+				"postcss-browser-comments": "^3.0.0",
+				"sanitize.css": "^12.0.1"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.9.0",
+				"@babel/plugin-syntax-import-meta": "^7.8.3",
+				"@babel/preset-env": "^7.9.5",
+				"babel-eslint": "^10.1.0",
+				"eslint": "^6.8.0",
+				"postcss-import": "^12.0.1",
+				"postcss-tape": "^5.0.2",
+				"pre-commit": "^1.2.2",
+				"rollup": "^2.6.0",
+				"rollup-plugin-babel": "^4.4.0"
+			},
+			"babel": {
+				"plugins": [
+					"@babel/plugin-syntax-import-meta"
+				],
+				"presets": [
+					[
+						"@babel/env",
+						{
+							"targets": "maintained node versions"
+						}
+					]
+				]
+			},
+			"eslintConfig": {
+				"env": {
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint"
+			},
+			"rollup": {
+				"input": "src/index.js",
+				"plugins": [
+					"rollup-plugin-babel"
+				],
+				"output": [
+					{
+						"file": "dist/index.cjs.js",
+						"format": "cjs"
+					},
+					{
+						"file": "dist/index.esm.js",
+						"format": "esm"
+					}
+				]
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"normalizes",
+				"browsers",
+				"fixes"
+			],
+			"gitHead": "c0e1bcefb1d7a02ed24940d26daf4bcb89a68f42",
+			"_id": "@jakub300/postcss-normalize@9.0.1",
+			"_nodeVersion": "14.17.6",
+			"_npmVersion": "6.14.15",
+			"dist": {
+				"integrity": "sha512-K/+RmwfOUj5UMjqTpOsQdtU9boeDTfw5MNHqi49vrYrqhwFnq4RsnqhcLINx/wvVkEgX2FX2M0/TYzMUPdXzgA==",
+				"shasum": "92893d81df02455c3e235766c272cf1806cddde1",
+				"tarball": "https://registry.npmjs.org/@jakub300/postcss-normalize/-/postcss-normalize-9.0.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 31460,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2Md5CRA9TVsSAnZWagAAX0gP+QH5vX4klbTqzE9+ZKLo\nW4BHqrCzqpepcbIIxBspgnBqTNX/RAmFj/eaAB4RbQ30eFNWYVkjtAPvj5qZ\nVUdG73a8ZjmNLJycgY4pDnzulvo5/sOUR7Y/UXtDPOBpPRxrl14hlu69R8Lw\nXXSb+Nzsc2jQlCWs+l5Oj3wfwI1pXeOFxmaq9ZaJT6g5Rr2PMnWhxVIyHDQk\nk+c22EGEFHfFUnKJBYWIrKdg1vczeWY+sP5QzHFim21dOXadXuLnLerpaond\nfLAM7MrNzFa7/o0XbhiCnxvtiA1bLolNrOb1ebSXaozt5R78RE7rSxzjA68X\nFbECs5vJHqJyTBOuLg9gfdbibIzeQVzWiUSvBmE5DalS236ksbCb7jwpxj5y\n5fWTp7V2gZQGUk+asE1VHsfla5dMB8uzsJm/l5YDRYxmS9EAW0Q9bl2s2JLF\nxyZfcnBz5AmCNtmJbffs1Jz/nNfh8I6HrTJAnqieWgFzJIuYmV7+YZFb5Jf3\nBrBCOvyZVQ95eexu6F6CWm17lJ/sZL8pcbgqZ7LRP75lMJw53Vsvpxr6z0xj\nrt+PvAh3lTgGCJVFKr05ItpNeRSzco0hZiJdkr2YMO0guppfvWDP85KmVW+N\nVAY8TYVFGKLY/M2khc5iE2cE2ID01uHWjTS/QFtN1g3yuexPEX6Di0h7FQFA\njeob\r\n=+9WV\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCnmwGk8hcM8PAPgWVBy4xa6HQBOFX9dbTgyzyJ/PeNgQIgMfqUG+vUlHZzXRJse46Gwm7jwNwxJp4mJb30+2Ww1vQ="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "jakub300",
+				"email": "jakub300@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jakub300",
+					"email": "jakub300@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-normalize_9.0.1_1632952322725_0.4549055100324395"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2021-09-29T21:52:02.669Z",
+		"9.0.1": "2021-09-29T21:52:02.862Z",
+		"modified": "2022-04-05T21:34:28.104Z"
+	},
+	"maintainers": [
+		{
+			"name": "jakub300",
+			"email": "jakub300@gmail.com"
+		}
+	],
+	"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
+	"homepage": "https://github.com/csstools/postcss-normalize#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"normalizes",
+		"browsers",
+		"fixes"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-normalize.git"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-normalize/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "You're probably looking for [postcss-normalize](https://www.npmjs.com/package/postcss-normalize). This is a fork of v9 that fixes broken import [#62](https://github.com/csstools/postcss-normalize/issues/62) by setting sanitize.css dependency to ^12.0.1.\n\n---\n\n# PostCSS Normalize (Fork) [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-normalize.svg\" height=\"20\">][npm-url]\n[<img alt=\"build status\" src=\"https://img.shields.io/travis/csstools/postcss-normalize/master.svg\" height=\"20\">][cli-url]\n[<img alt=\"support chat\" src=\"https://img.shields.io/badge/support-chat-blue.svg\" height=\"20\">][git-url]\n\n[PostCSS Normalize] lets you use the parts of [normalize.css] or [sanitize.css]\nthat you need from your [browserslist].\n\n```css\n@import \"normalize.css\";\n```\n\n```css\n@import \"sanitize.css\";\n```\n\n**PostCSS Normalize** uses a non-opinionated version of [normalize.css], but\nan opinionated version may also be used.\n\n```css\n@import \"normalize.css/opinionated.css\";\n```\n\n### Examples\n\nHere is a sample of what **normalize.css** looks like when the **browserslist**\nis `ie >= 9`:\n\n```css\n/**\n * Add the correct display in IE 9-.\n */\n\naudio,\nvideo {\n  display: inline-block;\n}\n\n/**\n * Remove the border on images inside links in IE 10-.\n */\n\nimg {\n  border-style: none;\n}\n```\n\nAnd here is the same sample when the **browserslist** is `ie >= 10`:\n\n```css\n/**\n * Remove the border on images inside links in IE 10-.\n */\n\nimg {\n  border-style: none;\n}\n```\n\n## Usage\n\nAdd [PostCSS Normalize] to your project:\n\n```bash\nnpm install postcss-normalize --save-dev\n```\n\nAdd a [browserslist] entry in `package.json`:\n\n```json\n{\n  \"browserslist\": \"last 2 versions\"\n}\n```\n\nUse **PostCSS Normalize** to process your CSS:\n\n```js\nconst postcssNormalize = require('postcss-normalize')\n\npostcssNormalize.process(YOUR_CSS /*, processOptions, pluginOptions */)\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss')\nconst postcssNormalize = require('postcss-normalize')\n\npostcss([\n  postcssNormalize(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */)\n```\n\n**PostCSS Normalize** runs in all Node environments, with special instructions\nfor:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## PostCSS Import Usage\n\n**PostCSS Normalize** includes a `postcssImport` function to configure\n[PostCSS Import] and allow you to continue using the `@import` syntax.\n\n```js\nconst postcss = require('postcss')\nconst postcssImport = require('postcss-import')\nconst postcssNormalize = require('postcss-normalize')\n\npostcss([\n  postcssImport(\n    postcssNormalize(\n      /* pluginOptions (for PostCSS Normalize) */\n    ).postcssImport(\n      /* pluginOptions (for PostCSS Import) */\n    )\n  )\n]) // now you can use @import \"normalize.css\", etc. again\n```\n\nAlternatively, use `@import-normalize` or `@import-sanitize` to avoid conflicts\nwith `@import` transforms.\n\n```pcss\n@import-normalize;\n```\n\n```pcss\n@import-normalize \"opinionated.css\";\n```\n\n```pcss\n@import-sanitize;\n```\n\n## Options\n\n### allowDuplicates\n\nThe `allowDuplicates` option determines whether multiple, duplicate insertions\nof CSS libraries are allowed. By default, duplicate libraries are omitted.\n\n```js\npostcssNormalize({ allowDuplicates: true })\n```\n\n### forceImport\n\nThe `forceImport` option defines CSS libraries that will be inserted at the\nbeginning of the CSS file. Unless overriden by `allowDuplicates`, duplicate\nCSS libraries would still be omitted.\n\n```js\npostcssNormalize({ forceImport: true })\n```\n\nSpecific CSS libraries may be defined.\n\n```js\npostcssNormalize({\n  forceImport: 'sanitize.css'\n})\n```\n\n### browsers\n\nThe `browsers` option defines an override of the project’s **browserslist** for\n**PostCSS Normalize**. This option should be avoided in leui of a browserslist\nfile.\n\n```js\npostcssNormalize({ browsers: 'last 2 versions' })\n```\n\n## CSS Libraries\n\n**PostCSS Normalize** can include [normalize.css] or [sanitize.css] and\nconfigure either with the following combinations:\n\n```css\n@import \"normalize\"; /* also, @import \"normalize.css\" */\n@import \"normalize/opinionated\"; /* also, @import \"normalize.css/opinionated.css\", @import \"normalize.css/*\" */\n@import \"sanitize\"; /* also, @import \"sanitize.css\" */\n@import \"sanitize/forms\"; /* also, @import \"sanitize.css/forms.css\" */\n@import \"sanitize/typography\"; /* also, @import \"sanitize.css/typography.css\" */\n@import \"sanitize/page\"; /* also, @import \"sanitize.css/page.css\" */\n@import \"sanitize/*\"; /* also, @import \"sanitize.css/*\" (sanitize + all additions) */\n```\n\n[cli-img]: https://img.shields.io/travis/csstools/postcss-normalize/master.svg\n[cli-url]: https://travis-ci.org/csstools/postcss-normalize\n[git-img]: https://img.shields.io/badge/support-chat-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[npm-img]: https://img.shields.io/npm/v/postcss-normalize.svg\n[npm-url]: https://www.npmjs.com/package/postcss-normalize\n\n[browserslist]: http://browserl.ist/\n[CSS Libraries]: #css-libraries\n[normalize.css]: https://github.com/csstools/normalize.css\n[Options]: #options\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Import]: https://github.com/postcss/postcss-import\n[PostCSS Import Usage]: #postcss-import-usage\n[PostCSS Normalize]: https://github.com/csstools/postcss-normalize\n[sanitize.css]: https://github.com/csstools/sanitize.css\n",
+	"readmeFilename": "README.md"
+}

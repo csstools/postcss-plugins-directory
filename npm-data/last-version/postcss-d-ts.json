@@ -1,0 +1,140 @@
+{
+	"name": "postcss-d-ts",
+	"version": "1.2.0",
+	"description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+	"homepage": "https://github.com/askirmas/postcss-d-ts#readme",
+	"keywords": [
+		"css",
+		"d.ts",
+		"css-modules",
+		"postcss-plugin",
+		"typescript",
+		"declare",
+		"declarations",
+		"sass"
+	],
+	"author": {
+		"name": "Andrii Kirmas",
+		"email": "kirmas@phystech.edu",
+		"url": "https://about.me/kirmas"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/askirmas/postcss-d-ts.git"
+	},
+	"scripts": {
+		"setup": "git config include.path ../.gitconfig && git-hooks-wrapper init",
+		"dev": "npm run jest -- --watch --coverage=false",
+		"test": "npm run build",
+		"build": "npm run compile",
+		"prebuild": "npm run t",
+		"postbuild": "npm run spec && npm run docs",
+		"compile": "tsc --project tsconfig.compile.json",
+		"precompile": "rm -rf docs dist unpacked && mkdir docs",
+		"postcompile": "./postcompile.sh",
+		"spec": "cd __recipes__ && npm run build",
+		"t": "npm run t/utils && npm run t/func && npm run t/tsc",
+		"t/utils": "npm run jest -- --config jest.config.utils.json",
+		"t/func": "npm run jest --",
+		"t/tsc": "cd __unit__ && tsc && cd ../__func__ && tsc",
+		"jest": "jest --runInBand --detectOpenHandles",
+		"docs": "cd dist && find . -type f -iname '*.json' -exec cp {} ../docs/ \\;",
+		"dev:n3": "cd __recipes__ && npm run dev:n3",
+		"dev:n5": "cd __recipes__ && npm run dev:n5",
+		"np": "np",
+		"eslint": "eslint --fix .",
+		"ci": "npm ci --prefer-offline --no-audit --silent --quiet --no-progress",
+		"postci": "cd __recipes__ && npm run ci"
+	},
+	"devDependencies": {
+		"@logux/eslint-config": "^44.1.0",
+		"@mysticatea/eslint-plugin": "^13.0.0",
+		"@types/globby": "^9.1.0",
+		"@types/jest": "^26.0.20",
+		"@types/react": "^16.9.46",
+		"@typescript-eslint/eslint-plugin": "^4.18.0",
+		"bootstrap3": "npm:bootstrap@^3.4.1",
+		"bootstrap4": "npm:bootstrap@^4.6.0",
+		"eslint": "^7.22.0",
+		"eslint-config-standard": "^16.0.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jest": "^24.3.2",
+		"eslint-plugin-no-use-extend-native": "^0.5.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-optimize-regex": "^1.2.0",
+		"eslint-plugin-prefer-let": "^1.1.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-react": "^7.22.0",
+		"eslint-plugin-security": "^1.4.0",
+		"eslint-plugin-sonarjs": "^0.6.0",
+		"eslint-plugin-standard": "^5.0.0",
+		"eslint-plugin-unicorn": "^27.0.0",
+		"git-hooks-wrapper": "^0.7.1",
+		"globby": "^11.0.2",
+		"jest": "^26.6.3",
+		"material10": "npm:material-components-web@^10.0.0",
+		"np": "^6.3.2",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^7.0.35",
+		"postcss8": "npm:postcss@^8.2.8",
+		"ts-jest": "^26.5.0",
+		"typescript": "^4.1.3"
+	},
+	"peerDependencies": {
+		"postcss": ">=7",
+		"react-classnaming": "*"
+	},
+	"engines": {
+		"node": ">=10.0.0"
+	},
+	"bugs": {
+		"url": "https://github.com/askirmas/postcss-d-ts/labels/bug"
+	},
+	"main": "dist/index.js",
+	"types": "dist/",
+	"publishConfig": {
+		"access": "public"
+	},
+	"np": {
+		"yarn": false,
+		"branch": "master",
+		"2fa": false
+	},
+	"dependencies": {},
+	"gitHead": "bc62ea5d9a5dd4f178c3aa86bb436321c8d01f84",
+	"_id": "postcss-d-ts@1.2.0",
+	"_nodeVersion": "12.20.2",
+	"_npmVersion": "6.14.11",
+	"dist": {
+		"integrity": "sha512-tDobGnUFkarZ/kUSX99OBgulRunJcSFZrARUzzzn7nynrjAZF3mAdP+E6Ql/YDd9e8uwzGknt+F+TxRdZGCRCg==",
+		"shasum": "de1732a214d2110c7bdc1b3d725cc3dbaeb17e32",
+		"tarball": "https://registry.npmjs.org/postcss-d-ts/-/postcss-d-ts-1.2.0.tgz",
+		"fileCount": 15,
+		"unpackedSize": 28547,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgtJDNCRA9TVsSAnZWagAAFDEP/0egwYfDdHFMI/0RXkTz\nx2EUSe7RQGtpRlHMwe7SfOlxWghBfEnNHPmUWz/D4k9ELp590J0jBtoniYYf\n520K2suLgpWQEWu2AS5vWD0Opio31ebZRBabSM85+0NR0o4/x6pBbqFQeJdV\nsY+fHkGCkB0awY5a4xjkWb4Aoc0ugmPLSMUfAZi4ID+yFEbh07ZvJSE+T8qP\nN+r9uM97EYWerdIOakYldur/gazAu+hxss4bBuH+76usPmY9r+b8GK0Rt1J3\nyPCV1fbQVdh+er0nEgeN5n4LPFGSsxnna3mhuZVCyGEvVgnhkgWUMhdSEMDm\nxtvkqrNYPs/P8ngdiHr9uWFO8xWjA8QLfmqMXk7eR5M960fyLfpENqSQRnP5\ntmd/CbkUtiq1x6px8solUIvhibYqHGPVbY/MIADaGWQfptIXnXeq5AQM3Mjb\nPkIdZWo3IwXTRzt2S5pFxC5zeuamYmQjjaGTuNBowoESnNrFiXwTCjXQUSqx\ngSw+6rWtYBdWz4Q4OUa2RN7oFanUXUeg21l95qOL1LYG0ny0gn4u/3q8Sqnf\nzfFmUCx81YoPXkqpECM1DzPf9A73DzYiD0WYPAGPZmn4lyFFAy/CRKICSW3d\nus6PwL+Xipy9fffbKoRHZtI9FXf2qS0pjiJb5zT3pW+jN2qvKfZxbNYqZPYl\nUXhU\r\n=EA+/\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQC8y7yPoq9N+RgjM2Q7Gj2DGTRcNOTzh9jBzJoASx2vNwIgQaTGbTXvWCeDrnlUZLAy25ZXdYJTC1kkmn5ZxcLIvcc="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "kirmas",
+		"email": "kirmas@phystech.edu"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "kirmas",
+			"email": "kirmas@phystech.edu"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-d-ts_1.2.0_1622446285170_0.009215218033321593"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2021-05-31T07:31:25.291Z"
+}

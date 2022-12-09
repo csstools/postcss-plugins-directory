@@ -1,0 +1,568 @@
+{
+	"_id": "postcss-capsize",
+	"_rev": "6-4d4df3ad7b0c22e55b680bb825006b7b",
+	"name": "postcss-capsize",
+	"dist-tags": {
+		"latest": "0.3.0"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-capsize",
+			"version": "0.0.1",
+			"main": "index.js",
+			"license": "MIT",
+			"_id": "postcss-capsize@0.0.1",
+			"_nodeVersion": "14.15.5",
+			"_npmVersion": "7.5.4",
+			"dist": {
+				"integrity": "sha512-5OxlAUxitO6acK1Jr1F8iqlYzQ7FGOnMa9gyYajP9kWpP3rBkmmtWztCI3c9F08h8G06IVbPSHEaMGabu6dOHA==",
+				"shasum": "7a71ce8051e93b1f78a41a6e4f388a76167391fd",
+				"tarball": "https://registry.npmjs.org/postcss-capsize/-/postcss-capsize-0.0.1.tgz",
+				"fileCount": 2,
+				"unpackedSize": 96,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgTRsdCRA9TVsSAnZWagAAyA0QAI10GhYQ7ivShExw3TrS\njvEwkOi7TkkpxUTkrD3IDbhqLUlsdeVMyBhZLxQw1QvNV1yMpcz2Hd1fwlh0\nAxsxxEm0+orHwx5g8Z52lgBja2UcKMucxQOrdD3z/CuFD1DVTnP+rmQmxgOM\n4PYvgnAuOmhPg2X1HuncVsVa3+Om207kyoyYoO7IJa1hBTWgfps6xuPJt53/\n5nMRsg3HWgjbh/Ml7ljRCyqiX9PJqgm4ikSbLVDNbJXc/ow3u+brJEP3GlDd\n/GBjWsYBHt1MkHUKeFGQRvHNs8WmysdMmzZLOvy1+fvo38+e/n6moIHd3loS\nTfUVDWpLFlHsWVbLi8gZrTGX1n3PeWNLty2xiVh4LvkyiTOHC2cFi6cp3gUP\n5CHpHoiR27wxzidRsgUJoN2+CtW1xybXnO/w3O5xLAc/wUJhw27I9emT4/2O\nvmYbsZgKMffD9RGBRaCBX9KjetbowENHjlK45smQsS0qCrmvGUJUa3XB6yrV\n7FK4Apfpx//95JwaEJVSMoUHiV3F47S1OUkHdfJhVpXfVpuDjGsG2TAM2V2O\nvfdOZsq5ynYb9CxDQlJx4FRcnInslvVwXZf5MpcHU2qQqcilMay9QiIAuoaD\nq6l+P39Yd+AKqfHUz2ALl3aEAGbQr0CHAHktfaG+8Um36IBH8NJijk3R/deY\nAMLm\r\n=j/FH\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCIMRWXFA7qEO3M6YsU5OpUn+vKlstEuuDsun0yETZAQgIhAMi4GA4xLEx0O3+76D5nGw6CqAaUkWIPVidW9j7Bf0Rf"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "danielroe",
+				"email": "daniel@roe.dev"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielroe",
+					"email": "daniel@roe.dev"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-capsize_0.0.1_1615665949121_0.9256964050607117"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.2": {
+			"name": "postcss-capsize",
+			"version": "0.0.2",
+			"description": "PostCSS plugin to inject capsize font metrics",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"font",
+				"capsize",
+				"metrics"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielroe/postcss-capsize.git"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Roe",
+				"email": "daniel@roe.dev",
+				"url": "https://github.com/danielroe"
+			},
+			"sideEffects": false,
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"scripts": {
+				"build": "yarn clean && yarn compile",
+				"clean": "rm -rf lib/*",
+				"compile": "siroc build",
+				"lint": "yarn lint:all:eslint && yarn lint:all:prettier",
+				"lint:all:eslint": "yarn lint:eslint --ext .js,.ts .",
+				"lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,ts}\"",
+				"lint:eslint": "eslint --fix",
+				"lint:prettier": "prettier --write --loglevel warn",
+				"prepare": "husky install && yarn build",
+				"prepublishOnly": "yarn lint && yarn test",
+				"release": "release-it",
+				"test": "yarn test:unit",
+				"test:unit": "jest"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged"
+				}
+			},
+			"dependencies": {
+				"capsize": "^1.1.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.13.10",
+				"@babel/plugin-transform-runtime": "^7.13.10",
+				"@babel/preset-env": "^7.13.10",
+				"@babel/preset-typescript": "^7.13.0",
+				"@babel/runtime": "^7.13.10",
+				"@release-it/conventional-changelog": "^2.0.1",
+				"@siroc/eslint-config": "^0.2.0",
+				"@siroc/jest-preset": "^0.2.0",
+				"@types/jest": "^26.0.20",
+				"@typescript-eslint/eslint-plugin": "^4.17.0",
+				"@typescript-eslint/parser": "^4.17.0",
+				"codecov": "^3.8.1",
+				"conventional-changelog-conventionalcommits": "^4.5.0",
+				"esbuild": "0.9.2",
+				"eslint": "^7.22.0",
+				"eslint-config-prettier": "^8.1.0",
+				"eslint-plugin-jest": "^24.3.0",
+				"eslint-plugin-prettier": "^3.3.1",
+				"expect-type": "^0.11.0",
+				"husky": "^5.1.3",
+				"jest": "^26.6.3",
+				"lint-staged": "^10.5.4",
+				"postcss": "^8.2.8",
+				"prettier": "^2.2.1",
+				"release-it": "^14.4.1",
+				"semver": "^7.3.4",
+				"siroc": "^0.8.0",
+				"typescript": "^4.2.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8"
+			},
+			"gitHead": "cb6d09cd8c5e237c1a317e32d3ccb237f5da2e7f",
+			"bugs": {
+				"url": "https://github.com/danielroe/postcss-capsize/issues"
+			},
+			"homepage": "https://github.com/danielroe/postcss-capsize#readme",
+			"_id": "postcss-capsize@0.0.2",
+			"_nodeVersion": "14.15.5",
+			"_npmVersion": "7.5.4",
+			"dist": {
+				"integrity": "sha512-ZPNlAMOySDWjdAXtvUOx8M+Fj8VmnE0IvDG57FtXHvr9X1Nmx2REJ66ATSTj63UFFXokk20cnsH7GBbpNHy1Vw==",
+				"shasum": "22cab08d6037ff2c2bf9590bcb99339782ffd081",
+				"tarball": "https://registry.npmjs.org/postcss-capsize/-/postcss-capsize-0.0.2.tgz",
+				"fileCount": 6,
+				"unpackedSize": 8605,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgTTX0CRA9TVsSAnZWagAAFKoP/Rp6DoJz07g8AUkEj5ce\nqVdjExREIN8Y+W8fJxjfYfC9vHDTjsN5wP5vTHEZO3bYPPSvUxJopCEBxuXj\nQhHiU2onGOrdMqL5mc4nn/XdcCe8ygZkThIAxUuI1YPFA6lqo/XrE8VQfYZg\nBWqxLHHh/pE07DqibxL0f+L1+lQx1tXQDLhuVij8urtOmY1UR+oUe81rjGEc\nCVwvtmw2Z+TY3UahglX+pbKHgn8qd/cKdUn12KqUGaAY0HXB7NDYvn8fC1Z3\nFYYeSLlhiTBEA9CluhzzBZYbNmhGR8MSDZB3m3LikOZIgxhcgqvi+YcKCdH5\nBOr/P4+H+rbj1tYbmFNrnklYWk5T6+gIA7pJobe5y+v7nV2hL08OuQXchdAH\nRzIvwZTC/GM6bNVFsiuiy/P0FRCLOs91mqJKl2nFXeY9Sen/nbdttRYz/96/\n6fzNSu/wgwxdZ+YhBzcJdYKNt928foWUNoPWwyHO1kI5vg9OdrUqpJYGNlDE\n3w6JcrzhTmQ0+ImZICROwtA0xr8IaQUc520uwtOd9mzUJPLEXc+lLTcqlHNG\nzzVR1szqy1cf/QsNeJoibcANknnZyKxR+B3mt5PKeXyNK2GiO7GGqhqYf7ef\n//ODAo/czvydENVtiI1CiT4u6+vNX9k1XBgFzQrl50kxXc9bzJTrajRA4aJr\nn3gD\r\n=rDnp\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGye2V1qGzKKYdK3IxW4/RstjKG+qu0CtUIozrIoPBobAiEAoLNsLS7+IVTZ2EOz13yJU6XznbfE0qCwkOo6VbAKiwo="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "danielroe",
+				"email": "daniel@roe.dev"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielroe",
+					"email": "daniel@roe.dev"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-capsize_0.0.2_1615672820305_0.18193106821951543"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.1.0": {
+			"name": "postcss-capsize",
+			"version": "0.1.0",
+			"description": "PostCSS plugin to inject capsize font metrics",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"font",
+				"capsize",
+				"metrics"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielroe/postcss-capsize.git"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Roe",
+				"email": "daniel@roe.dev",
+				"url": "https://github.com/danielroe"
+			},
+			"sideEffects": false,
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"scripts": {
+				"build": "yarn clean && yarn compile",
+				"clean": "rm -rf lib/*",
+				"compile": "siroc build",
+				"lint": "yarn lint:all:eslint && yarn lint:all:prettier",
+				"lint:all:eslint": "yarn lint:eslint --ext .js,.ts .",
+				"lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,ts}\"",
+				"lint:eslint": "eslint --fix",
+				"lint:prettier": "prettier --write --loglevel warn",
+				"prepare": "husky install && yarn build",
+				"prepublishOnly": "yarn lint && yarn test",
+				"release": "release-it",
+				"test": "yarn test:unit",
+				"test:unit": "jest"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged"
+				}
+			},
+			"dependencies": {
+				"capsize": "^2.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.13.10",
+				"@babel/plugin-transform-runtime": "^7.13.10",
+				"@babel/preset-env": "^7.13.10",
+				"@babel/preset-typescript": "^7.13.0",
+				"@babel/runtime": "^7.13.10",
+				"@release-it/conventional-changelog": "^2.0.1",
+				"@siroc/eslint-config": "^0.2.0",
+				"@siroc/jest-preset": "^0.2.0",
+				"@types/jest": "^26.0.20",
+				"@typescript-eslint/eslint-plugin": "^4.18.0",
+				"@typescript-eslint/parser": "^4.18.0",
+				"codecov": "^3.8.1",
+				"conventional-changelog-conventionalcommits": "^4.5.0",
+				"esbuild": "0.9.2",
+				"eslint": "^7.22.0",
+				"eslint-config-prettier": "^8.1.0",
+				"eslint-plugin-jest": "^24.3.1",
+				"eslint-plugin-prettier": "^3.3.1",
+				"expect-type": "^0.11.0",
+				"husky": "^5.1.3",
+				"jest": "^26.6.3",
+				"lint-staged": "^10.5.4",
+				"postcss": "^8.2.8",
+				"prettier": "^2.2.1",
+				"release-it": "^14.4.1",
+				"semver": "^7.3.4",
+				"siroc": "^0.8.0",
+				"typescript": "^4.2.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8"
+			},
+			"gitHead": "db545ae927aa615dade7b5201f755b110390abf1",
+			"bugs": {
+				"url": "https://github.com/danielroe/postcss-capsize/issues"
+			},
+			"homepage": "https://github.com/danielroe/postcss-capsize#readme",
+			"_id": "postcss-capsize@0.1.0",
+			"_nodeVersion": "14.15.5",
+			"_npmVersion": "7.5.4",
+			"dist": {
+				"integrity": "sha512-Egeon86otWWZ7wYtpFkGCLhZ5t+6HvkaVwceupeV6bKqxcUfr6eRaIQsv7tmAFeNkIrtQVWgiIxnH+Bc7cE2YQ==",
+				"shasum": "e959b0fdade8381345d82814dcccc386f12d71e0",
+				"tarball": "https://registry.npmjs.org/postcss-capsize/-/postcss-capsize-0.1.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 9161,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgT+/SCRA9TVsSAnZWagAAN+4P/0DZauPLlQifqRMdCKbq\nAvHcKTwRqpw1Uevk2KhCAD0WkNAMugjFoXYGTm765XviUj3GQjcavvuQUsBD\nLyOpnHLiHZ9Vuu4uZ6WCYKdMcXURSTTAC+xpbXQ1GNKlCaLrabUCHJyCNuvu\naPiVSlNSld1NyOPlmfGFsvZBshCxLq0FPLChTQfc2HeymwibL5glgEbFlQhe\nnHxOB0zj7rFcUCirAxc5nTDxpAzNHM1VPg9SHqZFG5WmPrM3CqVYvYjm4xM+\nxxhztVk6Nj+08waGz3oGPMq0PVXzoM6jMoxyNHw/SkYSRqbNIwmeN367mvfv\nq8smBkFGePF6W5Sg9da8Xo1B7HwO36k+Fu+1Cu/TJ4vqO62lamXWd+7Y3aJV\n/WNK+8Ren37NLaoejxTip+ueYOIKTCsZkT+7xn4TegFMANtl2vvKdEe+PZGz\ne/iSh+D/f2mrS0nRDKAVEL10ODYFBEyKmWCSheYNlgcqlonlqw5gTpbUeNn2\ntgxWwyH6VXjv6jwvBgKBAL2Xyh8xOQaxyn1uP5ptmRMdcEONNexmhAJHifQ7\nkWCNC+i9AdTqrFjQTlzrxbgGHtW0hJ4CX42p+1EWH0Pn95gZK4KBQfTenZTg\n+503Rc2c8eug2DegjHo0xMSFUPbSdW+yWuVRr19qoP58tREggAPt2kmy3UXv\ni6am\r\n=W7ZG\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCF4G6XAclACETGNR9RUa+UbAqc2vHHWtfpdOj39NaXVgIgc5B7ckOzOx85Vdt0j13Ma4KajUdPDdBIgoWBkNscxDo="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "danielroe",
+				"email": "daniel@roe.dev"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielroe",
+					"email": "daniel@roe.dev"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-capsize_0.1.0_1615851474351_0.7937510857292227"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.2.0": {
+			"name": "postcss-capsize",
+			"version": "0.2.0",
+			"description": "PostCSS plugin to inject capsize font metrics",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"font",
+				"capsize",
+				"metrics"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielroe/postcss-capsize.git"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Roe",
+				"email": "daniel@roe.dev",
+				"url": "https://github.com/danielroe"
+			},
+			"sideEffects": false,
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"scripts": {
+				"build": "yarn clean && yarn compile",
+				"clean": "rm -rf lib/*",
+				"compile": "siroc build",
+				"lint": "yarn lint:all:eslint && yarn lint:all:prettier",
+				"lint:all:eslint": "yarn lint:eslint --ext .js,.ts .",
+				"lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,ts}\"",
+				"lint:eslint": "eslint --fix",
+				"lint:prettier": "prettier --write --loglevel warn",
+				"prepare": "husky install && yarn build",
+				"prepublishOnly": "yarn lint && yarn test",
+				"release": "release-it",
+				"test": "yarn test:unit",
+				"test:unit": "jest"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged"
+				}
+			},
+			"dependencies": {
+				"capsize": "^2.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.13.10",
+				"@babel/plugin-transform-runtime": "^7.13.10",
+				"@babel/preset-env": "^7.13.10",
+				"@babel/preset-typescript": "^7.13.0",
+				"@babel/runtime": "^7.13.10",
+				"@release-it/conventional-changelog": "^2.0.1",
+				"@siroc/eslint-config": "^0.2.0",
+				"@siroc/jest-preset": "^0.2.0",
+				"@types/jest": "^26.0.20",
+				"@typescript-eslint/eslint-plugin": "^4.18.0",
+				"@typescript-eslint/parser": "^4.18.0",
+				"codecov": "^3.8.1",
+				"conventional-changelog-conventionalcommits": "^4.5.0",
+				"esbuild": "0.9.2",
+				"eslint": "^7.22.0",
+				"eslint-config-prettier": "^8.1.0",
+				"eslint-plugin-jest": "^24.3.1",
+				"eslint-plugin-prettier": "^3.3.1",
+				"expect-type": "^0.11.0",
+				"husky": "^5.1.3",
+				"jest": "^26.6.3",
+				"lint-staged": "^10.5.4",
+				"postcss": "^8.2.8",
+				"prettier": "^2.2.1",
+				"release-it": "^14.4.1",
+				"semver": "^7.3.4",
+				"siroc": "^0.8.0",
+				"typescript": "^4.2.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8"
+			},
+			"gitHead": "637093973722d9a43038dfb3c72e91bda69b6bce",
+			"bugs": {
+				"url": "https://github.com/danielroe/postcss-capsize/issues"
+			},
+			"homepage": "https://github.com/danielroe/postcss-capsize#readme",
+			"_id": "postcss-capsize@0.2.0",
+			"_nodeVersion": "14.15.5",
+			"_npmVersion": "7.5.4",
+			"dist": {
+				"integrity": "sha512-zrAA+COnolLVaVAm1BBwcREe74NPk0X58D3Rzwe5A/3JtuW+JHKaLgMWI8HndvzgvvhmpuaPRoTZ9wwpNx/IeQ==",
+				"shasum": "4ead31846ba160df34621d3be4711656cdf2e8f0",
+				"tarball": "https://registry.npmjs.org/postcss-capsize/-/postcss-capsize-0.2.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 10633,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgUUHLCRA9TVsSAnZWagAAVPcP/iYWOskwq1DqMzMkvUD4\nXFJd6eMikbyTeBWmU0Lu8ZxPZ9eYpi9J+G8Xp964AkAAQE34kZG67JqP2p6w\nel0DtHm4NEU4F2xPr/+bdHQQD+1f0Ocb6SaUDBfSH0qzrJxgu308YB5jmM1v\nMcrQ2oibln3ZjlYQtswgEJWihDylCi5l/caVBdN8Pgn6L5lFdnXm9BOBpvCs\nWdlliyxfCnd+o3mGV4N5mfdHuW0IpJou70ViUzRLYsPKy284GjGdIXYkJk3f\n+TmyG5S2a4vteORZ+PSgQjPLW043I+FbrRXpUL4xjx6Tw1cFjW1KBVdV4JF7\niGdSnCzW/93H7GAhVKLVaorzN1735RkO3u9XALHz9t6U+Y/b3SD+LJpI1QCX\nIlNg1AgtU9frXnapmoDYKk89p/7zEIt8sXwPi2IKnYBS+OFDOlBcnZNO+rdD\nlq5dO533Enk7EbNp/ErhwNucpM2l8qKZUTRtgbAUBInKT976FWq93dkjik8x\nbndfOgubWfkIp5k6QMOhMbL2NhsVoCJpeH6+vhHVUy7RrTaqK3wy9lc7i9sY\n72bVC2OA+cYCF7yKDSS4IlaZi1su81IYGJXQ/Y44q3VV3vQ1SnD3WW2I1nbj\nARVg2M86hqEaAuktfYO7x32on01HNlbBe29C4VAagtEVJIAzb18d1iq+ZP8p\nimN9\r\n=YE/L\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAT4mUTVUEatx/rhVWbZBRUMljEPZsDPuD+GNZbo/FNXAiBtoj7NQ8GPI7knR9Qp2Gf5xIWF6btusv3AfTaTmrTa0Q=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "danielroe",
+				"email": "daniel@roe.dev"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielroe",
+					"email": "daniel@roe.dev"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-capsize_0.2.0_1615937995159_0.2765690656274391"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.0": {
+			"name": "postcss-capsize",
+			"version": "0.3.0",
+			"description": "PostCSS plugin to inject capsize font metrics",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"font",
+				"capsize",
+				"metrics"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/danielroe/postcss-capsize.git"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Roe",
+				"email": "daniel@roe.dev",
+				"url": "https://github.com/danielroe"
+			},
+			"sideEffects": false,
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"scripts": {
+				"build": "yarn clean && yarn compile",
+				"clean": "rm -rf lib/*",
+				"compile": "siroc build",
+				"lint": "yarn lint:all:eslint && yarn lint:all:prettier",
+				"lint:all:eslint": "yarn lint:eslint --ext .js,.ts .",
+				"lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,ts}\"",
+				"lint:eslint": "eslint --fix",
+				"lint:prettier": "prettier --write --loglevel warn",
+				"prepare": "yarn husky install && yarn build",
+				"prepublishOnly": "yarn pinst --disable && yarn lint && yarn test",
+				"release": "release-it",
+				"test": "yarn test:unit",
+				"test:unit": "jest",
+				"_postinstall": "yarn husky install",
+				"postpublish": "yarn pinst --enable"
+			},
+			"dependencies": {
+				"@capsizecss/core": "^3.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.15.5",
+				"@babel/plugin-transform-runtime": "^7.15.0",
+				"@babel/preset-env": "^7.15.6",
+				"@babel/preset-typescript": "^7.15.0",
+				"@babel/runtime": "^7.15.4",
+				"@jest/test-sequencer": "^27.2.4",
+				"@release-it/conventional-changelog": "^3.3.0",
+				"@siroc/eslint-config": "^0.2.0",
+				"@types/jest": "^27.0.2",
+				"@typescript-eslint/eslint-plugin": "^4.32.0",
+				"@typescript-eslint/parser": "^4.32.0",
+				"codecov": "^3.8.3",
+				"conventional-changelog-conventionalcommits": "^4.6.1",
+				"esbuild": "0.13.3",
+				"eslint": "^7.32.0",
+				"eslint-config-prettier": "^8.3.0",
+				"eslint-plugin-jest": "^24.5.0",
+				"eslint-plugin-prettier": "^4.0.0",
+				"expect-type": "^0.12.0",
+				"husky": "^7.0.2",
+				"jest": "^27.2.4",
+				"jest-environment-node": "^27.2.4",
+				"lint-staged": "^11.1.2",
+				"pinst": "^2.1.6",
+				"postcss": "^8.3.8",
+				"prettier": "^2.4.1",
+				"release-it": "^14.11.6",
+				"semver": "^7.3.5",
+				"siroc": "^0.16.0",
+				"typescript": "^4.4.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8"
+			},
+			"gitHead": "e4ae1944bc7ca842ce8599615c84bfbb65c322da",
+			"bugs": {
+				"url": "https://github.com/danielroe/postcss-capsize/issues"
+			},
+			"homepage": "https://github.com/danielroe/postcss-capsize#readme",
+			"_id": "postcss-capsize@0.3.0",
+			"_nodeVersion": "14.17.3",
+			"_npmVersion": "6.14.13",
+			"dist": {
+				"integrity": "sha512-ZuP1jc4idmSNh9bJr9MW6al/SJjWlM4E7xnVlVVmWQpZwZ/AgAlKpQmyeBMP5AuopAtrZBdMtpUF6sPvBTs+ZA==",
+				"shasum": "ecd83ba47706c0b3b92d9dbfd805742562d4e8be",
+				"tarball": "https://registry.npmjs.org/postcss-capsize/-/postcss-capsize-0.3.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 11292,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh22+9CRA9TVsSAnZWagAAhtcP/3ktK92PlW6NA6vP3pG2\nE708VfROqYLwCfuUSZTv8OE1nX9DgpauXncaqKIzMcJSMVEWpd9PEP+zh9Gb\niwUnv+rzoyF6F7Ww9WsrUDWtxeRC/D9Ax9aeO18+5gJg/EUMH+aWN4cmPDCE\nrwodCk0pcyekFVzh71K+ewxb/sxugZIA5xZV/r2hTEhYfam/9qZeK1tHYOKs\nk+p7VrtuVzuGIeAtnJYT2nAOQzaZMXkia6Yw5rTnVcuL8atJXeX61wI3Tjhq\nLpTr140IGYDyrOyUwSe60Dz+LFSRGMoE6+6vZwHya3qoinLVsGDC6egBmwR2\nmeoKMHbxprxhDImrJ3ijy+PogWiBieiGe8+x3J6d4ESHkEMkn6des7ejmsyL\ncm/yCcj28zFFy228dTVb2ns7NniJocwkWu1GwvhSYMGHXyJ/YRT2LgdFZHNk\nOVDsHsnTBKv9uJKBLPwtGw9f2vzlA6dQ3dthalgFVUCAp9hAF8uY1CJHsxlE\nyVz1HqE5zWo2x7jxsHc5VHh8FdffSLTl6xHUqOH6g9eallZkVbkRWJlVakuF\nLq/fjquBd+nbuo8Nfkf1nqZ8wkJR8q1iTWTLYcajQlLqMjRShW4WUgizMz4x\n1EWLj4MwyoOMyVFbFea1XRAfjPopn2kkHPMNYi+tK7BLUDnBvTyJEo3HAKH6\nrZsD\r\n=B6pY\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDpYH9oM2CDS0AjQjX9GsJWWJTWdszmzSk69ys1y70qpAIgDeGwkg5SwcGYdxZ30YPI63dFxicdRof6QjwidX/uK2E="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "danielroe",
+				"email": "daniel@roe.dev"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "danielroe",
+					"email": "daniel@roe.dev"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-capsize_0.3.0_1632943610142_0.776284466632088"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2021-03-13T20:05:49.120Z",
+		"0.0.1": "2021-03-13T20:05:49.252Z",
+		"modified": "2022-05-13T06:06:46.917Z",
+		"0.0.2": "2021-03-13T22:00:20.437Z",
+		"0.1.0": "2021-03-15T23:37:54.470Z",
+		"0.2.0": "2021-03-16T23:39:55.352Z",
+		"0.3.0": "2021-09-29T19:26:50.371Z"
+	},
+	"maintainers": [
+		{
+			"name": "danielroe",
+			"email": "daniel@roe.dev"
+		}
+	],
+	"license": "MIT",
+	"readme": "<h1 align=\"center\">postcss-capsize</h1>\n<p align=\"center\">PostCSS plugin to inject Capsize font metrics</p>\n\n<p align=\"center\">\n<a href=\"https://npmjs.com/package/postcss-capsize\">\n    <img alt=\"\" src=\"https://img.shields.io/npm/v/postcss-capsize/latest.svg?style=flat-square\">\n</a>\n<a href=\"https://bundlephobia.com/result?p=postcss-capsize\">\n    <img alt=\"\" src=\"https://img.shields.io/bundlephobia/minzip/postcss-capsize?style=flat-square\">\n</a>\n<a href=\"https://npmjs.com/package/postcss-capsize\">\n    <img alt=\"\" src=\"https://img.shields.io/npm/dt/postcss-capsize.svg?style=flat-square\">\n</a>\n<a href=\"https://lgtm.com/projects/g/danielroe/postcss-capsize\">\n    <img alt=\"\" src=\"https://img.shields.io/lgtm/alerts/github/danielroe/postcss-capsize?style=flat-square\">\n</a>\n<a href=\"https://lgtm.com/projects/g/danielroe/postcss-capsize\">\n    <img alt=\"\" src=\"https://img.shields.io/lgtm/grade/javascript/github/danielroe/postcss-capsize?style=flat-square\">\n</a>\n<a href=\"https://david-dm.org/danielroe/postcss-capsize\">\n    <img alt=\"\" src=\"https://img.shields.io/david/danielroe/postcss-capsize.svg?style=flat-square\">\n</a>\n<a href=\"https://codecov.io/gh/danielroe/postcss-capsize\">\n    <img alt=\"\" src=\"https://img.shields.io/codecov/c/github/danielroe/postcss-capsize.svg?style=flat-square\">\n</a>\n</p>\n\n> PostCSS plugin to inject Capsize font metrics\n\n[**Read more about Capsize**](https://seek-oss.github.io/capsize/)\n\n## Quick Start\n\nFirst install `postcss-capsize`:\n\n```bash\nyarn add postcss-capsize --dev\n# or npm\nnpm install postcss-capsize --save-dev\n```\n\nSecond, add `postcss-capsize` as a PostCSS plugin to your `postcss.config.js`, \nor in your project configuration.\n\n```diff\nmodule.exports = {\n  plugins: [\n+   ['postcss-capsize', {\n+     metrics: {\n+       'Test Mono': {\n+         capHeight: 100,\n+         ascent: 800,\n+         descent: -200,\n+         lineGap: 0,\n+         unitsPerEm: 1000,\n+       }\n+       // You can declare as many fonts as needed\n+     }\n+   }],\n    require('autoprefixer')\n  ]\n}\n```\n\n**Note**: there are many font metrics you can install from `@capsizecss/metrics` - or generate from a font file via `@capsizecss/unpack`.\n\n## Example\n\n### Split syntax\n```css\n.test {\n  line-gap: 10px;\n  /* both properties below must be declared alongside `line-gap` */\n  /* The first matching font-family from your plugin config will be used */\n  font-family: 'Gaudy Mono', 'Test Mono', sans-serif;\n  font-size: 24px;\n}\n```\n\n### Combined syntax (deprecated)\n```css\n.test {\n  /* font-metrics: [font-size] [font-family] [line-gap] */\n  /* [font-family] must match the entry in your plugin config */\n  font-metrics: 24px Test Mono 10px;\n}\n```\n\n### Result\n\n```css\n.test {\n  line-height: 12.4px;\n  font-size: 24px;\n  font-family: 'Gaudy Mono', 'Test Mono', sans-serif;\n  /* Or, with combined syntax */\n  font-family: Test Mono; \n}\n.test::before {\n  content: '';\n  margin-bottom: -0.4583em;\n  display: table; \n}\n.test::after {\n  content: '';\n  margin-top: 0.0417em;\n  display: table; \n}\n```\n\n## Contributors\n\nThis has been developed to suit my needs but additional use cases and contributions are very welcome.\n\n## License\n\n[MIT License](./LICENSE) - Copyright &copy; Daniel Roe\n",
+	"readmeFilename": "README.md",
+	"description": "PostCSS plugin to inject capsize font metrics",
+	"homepage": "https://github.com/danielroe/postcss-capsize#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"font",
+		"capsize",
+		"metrics"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/danielroe/postcss-capsize.git"
+	},
+	"author": {
+		"name": "Daniel Roe",
+		"email": "daniel@roe.dev",
+		"url": "https://github.com/danielroe"
+	},
+	"bugs": {
+		"url": "https://github.com/danielroe/postcss-capsize/issues"
+	}
+}

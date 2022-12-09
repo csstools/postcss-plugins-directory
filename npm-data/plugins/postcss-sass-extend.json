@@ -1,0 +1,112 @@
+{
+	"_id": "postcss-sass-extend",
+	"_rev": "3-97d4d0e237635253fef1a43261a03703",
+	"name": "postcss-sass-extend",
+	"description": "PostCSS Sass Extend is a PostCSS plugin that allows you to use @extend and placeholder classes as you would in Sass",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-sass-extend",
+			"version": "0.0.1",
+			"description": "PostCSS Sass Extend is a PostCSS plugin that allows you to use @extend and placeholder classes as you would in Sass",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"sass",
+				"extends",
+				"placeholders",
+				"classes"
+			],
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonathantneal/postcss-sass-extend.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonathantneal/postcss-sass-extend/issues"
+			},
+			"homepage": "https://github.com/jonathantneal/postcss-sass-extend",
+			"dependencies": {
+				"postcss": "^4.1.13"
+			},
+			"devDependencies": {
+				"chai": "^3.0.0",
+				"gulp": "^3.9.0",
+				"gulp-eslint": "^0.14.0",
+				"gulp-mocha": "^2.1.2"
+			},
+			"scripts": {
+				"test": "gulp"
+			},
+			"gitHead": "02ff7387e76ff4a84a8ab3aa2cc65da451d2ae92",
+			"_id": "postcss-sass-extend@0.0.1",
+			"_shasum": "69435f0b096256bfe3ebfab80a5c28dcaf69973b",
+			"_from": ".",
+			"_npmVersion": "2.12.1",
+			"_nodeVersion": "0.12.5",
+			"_npmUser": {
+				"name": "jonathantneal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"dist": {
+				"shasum": "69435f0b096256bfe3ebfab80a5c28dcaf69973b",
+				"tarball": "https://registry.npmjs.org/postcss-sass-extend/-/postcss-sass-extend-0.0.1.tgz",
+				"integrity": "sha512-kxBPkj9VK5VvPihv+bw3VYlxTE4ERdtIXu9IA/zERDFACw/aD0IBuf+/k35oMEogH6wb6hsmYfX4a14X/Jx30w==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCICk7drQWfV6qALWauVs2aVbcuG6KJ1FVWc/N8O7jlIseAiBlHmtMrooPhYb4li6szNbhCzxrZLXfe6aNnbhA55Y78g=="
+					}
+				]
+			},
+			"maintainers": [
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			]
+		}
+	},
+	"readme": "# PostCSS Sass Extend [![Build Status][ci-img]][ci]\n\n<img align=\"right\" width=\"135\" height=\"95\" src=\"http://postcss.github.io/postcss/logo-leftp.png\" title=\"Philosopher’s stone, logo of PostCSS\">\n\n[PostCSS Sass Extend] is a [PostCSS] plugin that allows you to use @extend and placeholder classes like you do in Sass.\n\n```css\n/* before */\n\n%placeholder {\n\tcolor: blue;\n}\n\n%unused-placeholder {\n\tcolor: yellow;\n}\n\n.a {\n\t@extend %placeholder;\n\n\tbackground-color: black;\n}\n\n.b {\n\tcolor: red;\n}\n\n.c {\n\tbackground-color: white;\n\n\t@extend %placeholder;\n}\n\n.d {\n\tcolor: green;\n}\n\n/* after */\n\n.a, .c {\n\tcolor: blue;\n}\n\n.a {\n\n\tbackground-color: black;\n}\n\n.b {\n\tcolor: red;\n}\n\n.c {\n\tbackground-color: white;\n}\n\n.d {\n\tcolor: green;\n}\n```\n\n## Usage\n\nYou just need to follow these two steps to use [PostCSS Sass Extend]:\n\n1. Add [PostCSS] to your build tool.\n2. Add [PostCSS Sass Extend] as a PostCSS process.\n\n```sh\nnpm install postcss-sass-extend --save-dev\n```\n\n### Node\n\n```js\npostcss([ require('postcss-sass-extend')({ /* options */ }) ])\n```\n\n### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```sh\nnpm install postcss-sass-extend --save-dev\n```\n\nEnable [PostCSS Sass Extend] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n\tpostcss: {\n\t\toptions: {\n\t\t\tprocessors: [\n\t\t\t\trequire('postcss-sass-extend')({ /* options */ })\n\t\t\t]\n\t\t},\n\t\tdist: {\n\t\t\tsrc: 'css/*.css'\n\t\t}\n\t}\n});\n```\n\n[ci]: https://travis-ci.org/jonathantneal/postcss-sass-extend\n[ci-img]: https://travis-ci.org/jonathantneal/postcss-sass-extend.svg\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Sass Extend]: https://github.com/jonathantneal/postcss-sass-extend\n",
+	"maintainers": [
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T10:50:48.985Z",
+		"created": "2015-07-10T04:49:30.202Z",
+		"0.0.1": "2015-07-10T04:49:30.202Z"
+	},
+	"homepage": "https://github.com/jonathantneal/postcss-sass-extend",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"sass",
+		"extends",
+		"placeholders",
+		"classes"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonathantneal/postcss-sass-extend.git"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/jonathantneal/postcss-sass-extend/issues"
+	},
+	"license": "CC0-1.0",
+	"readmeFilename": "README.md"
+}

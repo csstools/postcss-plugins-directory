@@ -1,0 +1,126 @@
+{
+	"_id": "postcss-substitute-optional-required",
+	"_rev": "9-5ef083b8f95915ce60eaaae797b1bce7",
+	"name": "postcss-substitute-optional-required",
+	"description": "PostCSS plugin to shim the pseudo-selectors :required and :optional by using negation (:not) and therefore increase their browser support.",
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"versions": {
+		"1.0.1": {
+			"name": "postcss-substitute-optional-required",
+			"version": "1.0.1",
+			"description": "PostCSS plugin to shim the pseudo-selectors :required and :optional by using negation (:not) and therefore increase their browser support.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"required",
+				"optional",
+				"shim",
+				"fix",
+				"browser-support"
+			],
+			"author": {
+				"name": "Matthias Müller",
+				"email": "MattDiMu@users.noreply.github.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mattdimu/postcss-substitute-optional-required.git"
+			},
+			"bugs": {
+				"url": "https://github.com/MattDiMu/postcss-substitute-optional-required/issues"
+			},
+			"homepage": "https://github.com/MattDiMu/postcss-substitute-optional-required",
+			"dependencies": {
+				"postcss": "^5.0.16"
+			},
+			"devDependencies": {
+				"ava": "^0.14.0",
+				"eslint": "^2.1.0",
+				"eslint-config-postcss": "^2.0.0"
+			},
+			"scripts": {
+				"test": "ava && eslint *.js"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-postcss/es5",
+				"rules": {
+					"max-len": 0
+				}
+			},
+			"gitHead": "02bfc0581a05e3e7b2992cd7e2f2df2e81bde5f1",
+			"_id": "postcss-substitute-optional-required@1.0.1",
+			"_shasum": "7d149a95a2f35a5cc148412de8609289cabfeca8",
+			"_from": ".",
+			"_npmVersion": "3.7.2",
+			"_nodeVersion": "5.6.0",
+			"_npmUser": {
+				"name": "mattdimu",
+				"email": "matthias.und.mueller@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mattdimu",
+					"email": "matthias.und.mueller@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7d149a95a2f35a5cc148412de8609289cabfeca8",
+				"tarball": "https://registry.npmjs.org/postcss-substitute-optional-required/-/postcss-substitute-optional-required-1.0.1.tgz",
+				"integrity": "sha512-gPHrYlJGgxNVbR64t9uJqGCfqu2KqI/Q8v6aximbgfU8FpAaqeL5Y+R+04yvJDRbTNjYr/6xQdoomUoLBqKwRQ==",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDLXj0YdQBMGr9XAMNcw08igvrj0hmj2MNn8dZIZReTyQIgCV2NULSjkw5jiJMZBQu3EKqeta+PFZfsbQTn4cGaLDM="
+					}
+				]
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/postcss-substitute-optional-required-1.0.1.tgz_1463710232930_0.43319161771796644"
+			}
+		}
+	},
+	"readme": "# PostCSS Substitute Optional Required [![Build Status][ci-img]][ci] [![dependencies](https://david-dm.org/MattDiMu/postcss-substitute-optional-required.svg)] (https://david-dm.org/MattDiMu/postcss-substitute-optional-required) [![devDependencies](https://david-dm.org/MattDiMu/postcss-substitute-optional-required/dev-status.svg)](https://david-dm.org/MattDiMu/postcss-substitute-optional-required)\n\n[PostCSS] plugin to shim the pseudo-selectors :required and :optional by using negation (:not) and therefore slightly increase their browser support.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/MattDiMu/postcss-substitute-optional-required.svg\n[ci]:      https://travis-ci.org/MattDiMu/postcss-substitute-optional-required\n\n```css\n/* input */\ninput:required::after {\n    content: '*'\n}\ntextarea:optional::after {\n    content: '(optional)';\n}\n\n/* output */\ninput:not(:optional),\ninput:required::after {\n    content: '*'\n}\n\ntextarea:not(:required)::after,\ntextarea:optional::after {\n    content: '(optional)';\n}\n```\n\n```css\n/* input, option { method: 'shim-required' } */\n:required {\n    color: hotpink;\n}\n:optional {\n    color: indianred;\n}\n/* output, option { method: 'shim-required' } */\n:not(:optional),\n:required {\n    color: hotpink;\n}\n:optional {\n    color: indianred;\n}\n```\n\n```css\n/* input, option { method: 'shim-optional' } */\n:required {\n    color: hotpink;\n}\n:optional {\n    color: indianred;\n}\n/* output, option { method: 'shim-optional' } */\n:required {\n    color: hotpink;\n}\n:not(:required),\n:optional {\n    color: indianred;\n}\n```\n\n##Options\nThe only available option is `method`, with the possible values `shim-all` (default), `shim-optional` and `shim-required`:\n\n\n## Usage\n```js\npostcss([ require('postcss-substitute-optional-required') ])\n```\n```js\npostcss([ require('postcss-substitute-optional-required') ])({ method: 'shim-required' }) //shim only the :required selector\n```\nSee [PostCSS] docs for examples for your environment.\n",
+	"maintainers": [
+		{
+			"name": "mattdimu",
+			"email": "matthias.und.mueller@gmail.com"
+		}
+	],
+	"time": {
+		"modified": "2022-06-24T11:01:31.185Z",
+		"created": "2016-05-20T02:10:35.391Z",
+		"1.0.1": "2016-05-20T02:10:35.391Z"
+	},
+	"homepage": "https://github.com/MattDiMu/postcss-substitute-optional-required",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"required",
+		"optional",
+		"shim",
+		"fix",
+		"browser-support"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mattdimu/postcss-substitute-optional-required.git"
+	},
+	"author": {
+		"name": "Matthias Müller",
+		"email": "MattDiMu@users.noreply.github.com"
+	},
+	"bugs": {
+		"url": "https://github.com/MattDiMu/postcss-substitute-optional-required/issues"
+	},
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"users": {
+		"mattdimu": true
+	}
+}
