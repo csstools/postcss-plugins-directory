@@ -2,6 +2,7 @@
 
 ## Requirements for inclusion :
 
+- published on npm
 - `postcss-plugin` keyword in your `package.json`
 - a repository link in your `package.json`
 - valid `peerDependency` value for `postcss`
