@@ -1,0 +1,61 @@
+name: Update directory
+on:
+  schedule:
+    - cron: '0 10-20 * * *'
+  workflow_dispatch:
+      
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+        
+      - name: setup node
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: latest
+          cache: 'npm'
+
+      - name: update directory
+        run: |
+          npm install
+          node .github/bin/update-directory/index.mjs
+
+      - name: determine modified workspaces
+        run: |
+          echo "UPDATED_PLUGIN=$(node './.github/bin/update-directory/index.mjs')" >> $GITHUB_ENV
+
+      - name: save
+        run: |
+          # Git config
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git checkout -b "update-directory/$UPDATED_PLUGIN"
+          git add .
+          git commit --allow-empty -m "$UPDATED_PLUGIN"
+          git push origin
+
+      - name: Open pull request
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { repo, owner } = context.repo;
+            const result = await github.rest.pulls.create({
+              title: process.env.UPDATED_PLUGIN,
+              owner,
+              repo,
+              head: `update-directory/${process.env.UPDATED_PLUGIN}`,
+              base: 'main',
+              body: [
+                'This PR is auto-generated'
+              ].join('\n')
+            });
+            github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: result.data.number,
+              labels: ['update directory']
+            });
