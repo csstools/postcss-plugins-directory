@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import semver from 'semver';
 
-const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
+const pluginsList = JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json'));
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
 	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
