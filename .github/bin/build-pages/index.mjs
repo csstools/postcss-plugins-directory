@@ -117,4 +117,4 @@ for (let i = 0; i < pluginDataFiles.length; i++) {
 	`
 }
 
-await fs.writeFile('./public/index.html', renderPage(result))
+await fs.writeFile('./docs/index.html', renderPage(result))
