@@ -1,0 +1,132 @@
+{
+	"name": "@csstools/postcss-cascade-layers",
+	"description": "Use cascade layers in CSS",
+	"version": "2.0.0",
+	"contributors": [
+		{
+			"name": "Olu Niyi-Awosusi",
+			"email": "o.niyiawosusi@gmail.com"
+		},
+		{
+			"name": "Sana Javed",
+			"email": "sanajaved7@gmail.com"
+		},
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/selector-specificity": "^2.0.2",
+		"postcss-selector-parser": "^6.0.10"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"postcss-import": "^15.0.0",
+		"puppeteer": "^19.0.0"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:browser": "node ./test/_browser.mjs",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-cascade-layers#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-cascade-layers"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"cascade",
+		"css",
+		"layers",
+		"postcss",
+		"postcss-plugin",
+		"selectors",
+		"specificity"
+	],
+	"csstools": {
+		"cssdbId": "cascade-layers",
+		"exportName": "postcssCascadeLayers",
+		"humanReadableName": "PostCSS Cascade Layers",
+		"specUrl": "https://www.w3.org/TR/css-cascade-5/#layering"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "345df8f3758287a6cfd757e588df5a901ca12717",
+	"_id": "@csstools/postcss-cascade-layers@2.0.0",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-99oD++cbAtusDzU1yBy1K2Q6SE9/vLtJ8AEuOvHutZu3lntkzu51okR7UUfFaIRrSQFNu+ri5tW8n42y6pnoaQ==",
+		"shasum": "a6ebd7d0a44ca662c8406edd44ed788d0c9db530",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-2.0.0.tgz",
+		"fileCount": 21,
+		"unpackedSize": 41059,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIG+2x2GxlprUPb4Ku0yFW2Mhh1MytPYgMnYCPZpIr+e0AiBkCa9u/ElBIybX7vwOuuk+ZAW/xOMQ1i0By9puL2SrDA=="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjcg+DACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo0zQ//duEZhrSZ6USyrDuYoha45bpYkb48HhqhmEsZOgzYJZSY6zU2\r\n05NkkgWlw+FbiRYZ9loUEM1cDWqssBOXhovmMXoOL2qJJ/m+KF7GFv/fbsHA\r\nWKCaaYkj3OqAjxQpLRJ+TWKTfwd0TrHkL2mp7CMM8F0hVQo92i4ZoYaf6Q82\r\nJ2+jjgZfZcfuI3wsXGWfzh9oEk4LC/d4FXzk5DKwPZl77sBJ/HkAbDH7U+PR\r\nFAga0IMGYQbGEGzyFWdI3DNLL4Tf50+jYxCmPVKQes7OF9Sut8+kzQCa8nkB\r\nO3W6Md2J1Pf6rTBlrHoU1Iy3yBgooZO+dL7eeKbv8IRoyEEfHPpCG4Y7DAis\r\nNlstCwkYnouv3VbouCqOOz/+/BugiDHarXLjQtBbe6lN9/L2gRRmT8dqYHQO\r\nDdPwfTTykcDprJu9i2bko8Attqg4+30tSBmmgg3wztjObji3heT+wFPry+/0\r\n863V1rnN5tkUHYrWEQP4+NLHZ4kXpSePZO5E5byOc3kl9bZKIJrA6TMKYe88\r\ntotCdLReTSbGRyxPQx4bYCkQE8uQeD9p2nSelS0cHzboZwgA9i0EZfq8hZ0f\r\n5up7MstBQXkVE5dEGweoAxK6jhkam2s5SicocVyA1m4rbCL2HtlOb7xHiZ2R\r\n3c/nRGngzpJ2TgmHVHImBnbJeuaVsPXHjfk=\r\n=i+aI\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-cascade-layers_2.0.0_1668419458972_0.3569707626071541"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-11-14T09:50:59.106Z"
+}
