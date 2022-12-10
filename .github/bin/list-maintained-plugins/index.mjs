@@ -28,6 +28,12 @@ const invalidForks = [
 	'@pumpn/postcss-unique-selectors',
 	'@pumpn/stylehacks',
 	'@voodeng/postcss-px-to-viewport',
+];
+
+// These authors repeatedly listed incorrect data in "package.json"
+const ignoreScopes = [
+	'flemist',
+	'pumpn',
 ]
 
 const repositoriesByPackageName = new Map()
@@ -51,6 +57,10 @@ const lastPostCSSVersion = postcssVersions[postcssVersions.length-1]
 const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
+	if (ignoreScopes.includes(plugin.package.scope)) {
+		continue
+	}
+
 	if (invalidForks.includes(plugin.package.name)) {
 		continue
 	}
