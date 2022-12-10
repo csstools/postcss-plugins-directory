@@ -1,0 +1,40 @@
+name: 'Collect Plugins Data'
+on:
+  schedule:
+    - cron: '0 20 * * 0'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: 'Collect Plugins Data'
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 1
+        
+      - name: setup node
+        uses: actions/setup-node@v2.2.0
+        with:
+          node-version: latest
+          cache: 'npm'
+
+      - name: collect
+        run: |
+          npm install
+          node .github/bin/list-all-plugins/index.mjs
+          node .github/bin/list-maybe-plugins/index.mjs
+          node .github/bin/fetch-detailed-plugin-data/index.mjs
+          node .github/bin/last-plugin-version-info/index.mjs
+          node .github/bin/list-maintained-plugins/index.mjs
+
+      - name: save
+        run: |
+          # Git config
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit --allow-empty -m "collect plugins data"
+          git push --set-upstream origin main
+
