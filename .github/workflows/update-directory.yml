@@ -26,6 +26,8 @@ jobs:
       - name: determine modified workspaces
         run: |
           echo "UPDATED_PLUGIN=$(node './.github/bin/update-directory/index.mjs')" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: save
         run: |

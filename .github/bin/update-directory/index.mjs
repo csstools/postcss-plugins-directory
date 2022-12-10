@@ -1,6 +1,71 @@
 import fs from 'fs/promises';
 import path from 'path';
 import semver from 'semver';
+import https from 'https';
+
+export async function listAllPullRequests() {
+	const allPullRequests = [];
+
+	let page = 1;
+
+	while (true) {
+		const newPullRequests = await getPullRequests(page);
+		allPullRequests.push(...newPullRequests);
+		page++
+
+		if (newPullRequests.length < 100) {
+			break;
+		}
+	}
+
+	return new Set(allPullRequests);
+}
+
+async function getPullRequests(page) {
+	return await (new Promise((resolve, reject) => {
+		const headers = {
+			'User-Agent': 'GitHub Workflow'
+		}
+
+		if (process.env.GITHUB_TOKEN) {
+			headers['authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+		}
+
+		https.get({
+			host: 'api.github.com',
+			port: 443,
+			path: `/repos/romainmenke/postcss-plugins-directory/pulls?per_page=100&page=${page}`,
+			method: 'GET',
+			headers: headers
+		}, (res) => {
+			if (!res.statusCode || (Math.floor(res.statusCode / 100) !== 2)) {
+				throw new Error(`Unepected response code "${res.statusCode}" with message "${res.statusMessage}"`)
+			}
+
+			let data = [];
+			res.on('data', (chunk) => {
+				data.push(chunk);
+			});
+
+			res.on('end', () => {
+				resolve(
+					JSON.parse(Buffer.concat(data).toString()).map((x) => {
+						if (!x.head.ref.startsWith('update-directory/')) {
+							return false;
+						}
+
+						return x.head.ref.slice(17)
+					}).filter((x) => !!x)
+				);
+			});
+
+		}).on('error', (err) => {
+			reject(err);
+		});
+	}));
+}
+
+const existingUpdates = await listAllPullRequests();
 
 const pluginsList = JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json'));
 for (let i = 0; i < pluginsList.objects.length; i++) {
@@ -49,15 +114,20 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 		// noop
 	}
 
+	let packageName = plugin.package.name
+	if (packageName.startsWith('@')) {
+		packageName = packageName.slice(1)
+	}
+
+	const updateName = `${packageName}-${lastVersion}`;
+	if (existingUpdates.has(updateName)) {
+		continue
+	}
+
 	await fs.writeFile(lastVersionFilePath, updatedData)
 
 	if (process.env.GITHUB_ACTIONS) {
-		let packageName = plugin.package.name
-		if (packageName.startsWith('@')) {
-			packageName = packageName.slice(1)
-		}
-
-		process.stdout.write(`${packageName}-${lastVersion}`)
+		process.stdout.write(updateName)
 	}
 
 	break;
