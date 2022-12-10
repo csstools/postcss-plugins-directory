@@ -57,7 +57,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 			packageName = packageName.slice(1)
 		}
 
-		process.write(`${packageName}-${lastVersion}`)
+		process.stdout.write(`${packageName}-${lastVersion}`)
 	}
 
 	break;
