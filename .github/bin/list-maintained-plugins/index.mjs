@@ -10,7 +10,10 @@ const result = {
 // Forks published on npm without updating sufficient information.
 // This is confusing to users because they will be unable to find the source code or contact the maintainer.
 const invalidForks = [
+	'@alexlafroscia/postcss-color-mod-function',
 	'@andreyvolokitin/postcss-inline-svg',
+	'@developwithstyle/postcss-custom-media',
+	'@doomfist/postcss-px-to-viewport',
 	'@espkg/postcss-px-to-viewport',
 	'@flemist/postcss-nested',
 	'@flemist/postcss-nested',
