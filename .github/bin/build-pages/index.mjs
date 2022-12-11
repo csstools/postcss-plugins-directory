@@ -40,7 +40,6 @@ function renderPage(body, searchData, allKeywords) {
 	</p>
 
 	<p>
-		This is not a list of plugins authored by "PostCSS".
 		It is not possible to audit each plugin for security or interoperability issues.
 		It remains your responsibility to choose the best dependencies for your project.
 	</p>
