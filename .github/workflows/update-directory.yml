@@ -43,20 +43,22 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { repo, owner } = context.repo;
-            const result = await github.rest.pulls.create({
-              title: process.env.UPDATED_PLUGIN,
-              owner,
-              repo,
-              head: `update-directory/${process.env.UPDATED_PLUGIN}`,
-              base: 'main',
-              body: [
-                'This PR is auto-generated'
-              ].join('\n')
-            });
-            github.rest.issues.addLabels({
-              owner,
-              repo,
-              issue_number: result.data.number,
-              labels: ['update directory']
-            });
+            if (!!process.env.UPDATED_PLUGIN) {
+              const { repo, owner } = context.repo;
+              const result = await github.rest.pulls.create({
+                title: process.env.UPDATED_PLUGIN,
+                owner,
+                repo,
+                head: `update-directory/${process.env.UPDATED_PLUGIN}`,
+                base: 'main',
+                body: [
+                  'This PR is auto-generated'
+                ].join('\n')
+              });
+              github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: result.data.number,
+                labels: ['update directory']
+              });
+            }
