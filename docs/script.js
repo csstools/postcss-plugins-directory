@@ -38,7 +38,7 @@
 		});
 
 		if (!searchTerms.length) {
-			sshowAll();
+			showAll();
 			return;
 		}
 
@@ -57,8 +57,10 @@
 					continue SEARCH_TERM_LOOP;
 				}
 
-				if (pluginData.keywords.includes(currentSearchTerm)) {
-					continue SEARCH_TERM_LOOP;
+				for (var k = 0; k < pluginData.keywords.length; k++) {
+					if (pluginData.keywords[k].includes(currentSearchTerm)) {
+						continue SEARCH_TERM_LOOP;
+					}
 				}
 
 				continue PLUGIN_LOOP;

@@ -169,7 +169,9 @@ for (let i = 0; i < allPluginData.length; i++) {
 	searchData.push({
 		name: pluginData.name,
 		id: he.encode(encodeURIComponent(pluginData.name)),
-		keywords: pluginData.keywords?.length ? pluginData.keywords : [],
+		keywords: (pluginData.keywords?.length ? pluginData.keywords : []).map((x) => {
+			return x.toLowerCase().trim();
+		}),
 		description: pluginData.description ?? ''
 	});
 
