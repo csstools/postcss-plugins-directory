@@ -98,7 +98,6 @@ async function traverseDir(dir) {
 	}
 }
 
-
 const pluginsList = JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json'));
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];

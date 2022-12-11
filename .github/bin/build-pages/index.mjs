@@ -71,6 +71,14 @@ function renderKeywords(keywords) {
 	return '';
 }
 
+function renderScope(pluginData) {
+	if (pluginData.scope !== 'unscoped') {
+		return `<span style="opacity: 0.6;">${he.encode('@' + pluginData.scope + '/')}</span>`
+	}
+
+	return ''
+}
+
 async function traverseDir(dir) {
 	const out = [];
 
@@ -93,13 +101,47 @@ const pluginDataFiles = await traverseDir('./directory');
 let result = '';
 const excludedKeywords = ['postcss', 'postcss-plugin', 'css', 'css4', 'css3']
 
+const maintainedPluginsData = new Map(JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json')).objects.map((plugin) => {
+	return [plugin.package.name, plugin]
+}));
+
+const allPluginData = [];
 for (let i = 0; i < pluginDataFiles.length; i++) {
 	const pluginDataFile = pluginDataFiles[i];
-	const pluginData = JSON.parse(await fs.readFile(pluginDataFile))
+	const pluginData = JSON.parse(await fs.readFile(pluginDataFile));
+	pluginData.scope = maintainedPluginsData.get(pluginData.name).package.scope
+	pluginData.unscopedPackageName = unscopedPackageName(pluginData)
+	allPluginData.push(pluginData)
+}
+
+function unscopedPackageName(pluginData) {
+	if (!pluginData.scope || pluginData.scope === 'unscoped') {
+		return pluginData.name;
+	}
+
+	return pluginData.name.slice(`@${pluginData.scope}/`.length);
+}
+
+allPluginData.sort((a, b) => {
+	if (a.unscopedPackageName !== b.unscopedPackageName) {
+		return a.unscopedPackageName.localeCompare(b.unscopedPackageName)
+	}
+
+	if (a.scope === 'unscoped') {
+		return -1
+	} else if (b.scope === 'unscoped') {
+		return 1
+	} else {
+		return a.name.localeCompare(b.name)
+	}
+})
+
+for (let i = 0; i < allPluginData.length; i++) {
+	const pluginData = allPluginData[i];
 
 	result += `
 		<article class="plugin">
-			<h3>${he.encode(pluginData.name)}</h3>
+			<h3>${renderScope(pluginData)}${he.encode(pluginData.unscopedPackageName)}</h3>
 			<p>${he.encode(pluginData.description) || '<i>no description</i>'}</p>
 
 			<dl>
