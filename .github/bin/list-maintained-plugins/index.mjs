@@ -19,6 +19,7 @@ const invalidForks = [
 	'@flemist/postcss-nested',
 	'@flemist/postcss-nested-ancestors',
 	'@flemist/postcss-pxtorem',
+	'@gogogosir/postcss8-px-to-viewport',
 	'@hamidreza4dev/postcss-node-sass',
 	'@koddsson/postcss-sass',
 	'@outstand/postcss-extend-rule',
