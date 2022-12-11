@@ -1,0 +1,113 @@
+{
+	"name": "@csstools/postcss-oklab-function",
+	"description": "Use oklab() and oklch() color functions in CSS",
+	"version": "1.1.1",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-oklab-function#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-oklab-function"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"color",
+		"colors",
+		"css",
+		"design",
+		"display-p3",
+		"oklab",
+		"oklch",
+		"postcss",
+		"postcss-plugin",
+		"syntax"
+	],
+	"csstools": {
+		"exportName": "postcssOKLabFunction",
+		"humanReadableName": "PostCSS OKLab Function"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "6e778349db96620429a4f0182c70a6df330362d6",
+	"_id": "@csstools/postcss-oklab-function@1.1.1",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-nJpJgsdA3dA9y5pgyb/UfEzE7W5Ka7u0CX0/HIMVBNWzWemdcTH3XwANECU6anWv/ao4vVNLTMxhiPNZsTK6iA==",
+		"shasum": "88cee0fbc8d6df27079ebd2fa016ee261eecf844",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-oklab-function/-/postcss-oklab-function-1.1.1.tgz",
+		"fileCount": 20,
+		"unpackedSize": 44775,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDOebh4if2mNkHRuzk0/4ZP31asW0oi9EN9EDvQovyWhwIhAJxPawGopEGWVjNbsAGOVB1BZZjyYidBNu5pnA4sLjXX"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGO7ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpxqQ/+OSCwMHLkK7OG+GqOr06VvNOQFbhO5EhJGM7hrZwjyA/3VnLp\r\nIlAtbLRhPXlqsA7J25e6Ya39rl9CxEtDRjtFroYjkTPLJUEPX0A21njirnIw\r\nzzYRhYOEAjvtaX7rhvg2luYCWw/in2rx/MFKJUtj1k6NzvcwhgJxeknsFmHG\r\nNWJeT5qth54QE2n9B4zegWg+rYTTnr8qEpbqqvXb0rstXYGas5zBVxLThGz0\r\nIrKTdOwX4t4YU6pKhiIDoCNVBsmxLcfrq9FNcNJwK5EQNOjDL2S2poKiGNoQ\r\nbBvQDVtU/S8i4t53LQpQ+ND10H8l8MTN8eLDbDvN1o99FVJFdEzPmUanrtaE\r\nl67MiarCou8HYlUJ4hkuCzhsTFENW3QJTsR9hqxdDvTWdygGfYkKHet1JY+Q\r\n1AoOkP/064CACn/BKL8ImQkqd/zPA7M6Xtlt4a8VvrEJWM/VB1ajNz4yq7RA\r\nTOOYtDsYWmfMowo8iHohkNXLzAaae2WvCFfI+CYLoHwg0unq6W6vEZFkmnGU\r\nmdRGa7g5RBZCrgFAsDvNp+9OoroXka+wKjNdlF01/Yt+ulOrvq5ePCA35xNZ\r\njC/g2ce0srVHIf9cNnWX+A7THn/SyHb9PNibOGONKzzZokFZT87kuuIV/BIr\r\nYcmRkVJmw+zT9oORYXfE6eRRs7Has9z9bm4=\r\n=28AC\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-oklab-function_1.1.1_1657299899381_0.6272359019972555"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-07-08T17:04:59.537Z"
+}
