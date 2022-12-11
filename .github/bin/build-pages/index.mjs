@@ -29,7 +29,13 @@ function renderPage(body) {
 
 	<h2>Disclaimer</h2>
 	<p>
-		It is not possible to audit each plugin for security or interoperability issues.<br>
+		PostCSS plugins are created and maintained by many different authors.
+		This is not a list of plugins created by "PostCSS".
+	</p>
+
+	<p>
+		This is not a list of plugins authored by "PostCSS".
+		It is not possible to audit each plugin for security or interoperability issues.
 		It remains your responsibility to choose the best dependencies for your project.
 	</p>
 
