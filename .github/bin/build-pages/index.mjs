@@ -2,7 +2,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import he from 'he';
 
-function renderPage(body) {
+const excludedKeywords = ['postcss', 'postcss-plugin', 'css', 'css4', 'css3', 'lib', 'node', 'style']
+
+function renderPage(body, searchData, allKeywords) {
 	return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,11 @@ function renderPage(body) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>PostCSS Plugin Directory</title>
 
+	<script type="text/javascript" src="./script.js" defer=""></script>
 	<link rel="stylesheet" href="./style.css">
+	<script>
+		window._searchData = ${JSON.stringify(searchData)}
+	</script>
 </head>
 <body>
 	<h1>PostCSS Plugin Directory</h1>
@@ -42,6 +48,15 @@ function renderPage(body) {
 	<hr>
 
 	<h2>Directory</h2>
+
+	<div hidden id="search" role="search" aria-label="Plugins">
+		<label for="search-input">Search all plugins</label><br>
+		<input type="search" list="search-suggestions" id="search-input" name="search" spellcheck="false">
+
+		<datalist id="search-suggestions">
+			${allKeywords.map((x) => `<option value="${x}">`).join('')}
+		</datalist>
+	</div>
 
 	${body}
 </body>
@@ -99,7 +114,8 @@ async function traverseDir(dir) {
 const pluginDataFiles = await traverseDir('./directory');
 
 let result = '';
-const excludedKeywords = ['postcss', 'postcss-plugin', 'css', 'css4', 'css3']
+let searchData = [];
+const allKeywords = new Set();
 
 const maintainedPluginsData = new Map(JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json')).objects.map((plugin) => {
 	return [plugin.package.name, plugin]
@@ -139,10 +155,28 @@ allPluginData.sort((a, b) => {
 for (let i = 0; i < allPluginData.length; i++) {
 	const pluginData = allPluginData[i];
 
+	searchData.push({
+		name: pluginData.name,
+		id: he.encode(encodeURIComponent(pluginData.name)),
+		keywords: pluginData.keywords?.length ? pluginData.keywords : [],
+		description: pluginData.description ?? ''
+	});
+
+	if (pluginData.keywords) {
+		for (let j = 0; j < pluginData.keywords.length; j++) {
+			allKeywords.add(he.encode(pluginData.keywords[j].toLowerCase().trim()));
+		}
+	}
+
 	result += `
-		<article class="plugin">
-			<h3>${renderScope(pluginData)}${he.encode(pluginData.unscopedPackageName)}</h3>
-			<p>${he.encode(pluginData.description) || '<i>no description</i>'}</p>
+		<article class="plugin" id="${he.encode(encodeURIComponent(pluginData.name))}">
+			<h3>
+				<a class="plugin-anchor-link" href="#${he.encode(encodeURIComponent(pluginData.name))}">
+					<span class="plugin-anchor-link__icon" aria-hidden="true">☞</span>
+					${renderScope(pluginData)}${he.encode(pluginData.unscopedPackageName)}
+				</a>
+			</h3>
+			<p>${he.encode(pluginData.description ?? '') || '<i>no description</i>'}</p>
 
 			<dl>
 				<dt><a href="https://www.npmjs.com/package/${he.encode(pluginData.name)}">npm</a></dt>
@@ -165,4 +199,7 @@ for (let i = 0; i < allPluginData.length; i++) {
 	`
 }
 
-await fs.writeFile('./docs/index.html', renderPage(result))
+const allKeywordsSorted = Array.from(allKeywords).filter((x) => !excludedKeywords.includes(x));
+allKeywordsSorted.sort((a, b) => a.localeCompare(b))
+
+await fs.writeFile('./docs/index.html', renderPage(result, searchData, allKeywordsSorted))
