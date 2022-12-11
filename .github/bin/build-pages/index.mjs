@@ -49,6 +49,15 @@ function renderPage(body, searchData, allKeywords) {
 
 	<h2>Directory</h2>
 
+	<div hidden id="detailed-plugin-info">
+		<label for="toggle-detailed-plugin-info">Show detailed plugin info</label><br>
+		<input type="checkbox" id="toggle-detailed-plugin-info" name="detailed-plugin-info">
+
+		<datalist id="search-suggestions">
+			${allKeywords.map((x) => `<option value="${x}">`).join('')}
+		</datalist>
+	</div>
+
 	<div hidden id="search" role="search" aria-label="Plugins">
 		<label for="search-input">Search all plugins</label><br>
 		<input type="search" list="search-suggestions" id="search-input" name="search" spellcheck="false">
@@ -58,7 +67,9 @@ function renderPage(body, searchData, allKeywords) {
 		</datalist>
 	</div>
 
-	${body}
+	<div id="plugin-list">
+		${body}
+	</div>
 </body>
 </html>
 `

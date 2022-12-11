@@ -1,4 +1,24 @@
-.plugin {}
+.plugin {
+	background-color: hsla(169, 10%, 79%, 0.197);
+	border-radius: 16px;
+	border: 1px solid hsla(169, 10%, 79%, 0.359);
+	margin: 2rem 0;
+	padding: 1.5rem 32px;
+}
+
+.plugin ul {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 2rem 0 0 -8px;
+	max-width: 360px;
+	padding: 0;
+}
+
+.plugin li {
+	display: inline-block;
+	margin: 0;
+	padding: 0.25rem 8px;
+}
 
 .plugin-anchor-link:any-link {
 	color: currentColor;
@@ -15,3 +35,26 @@
 }
 
 
+body:not([show-detailed-plugin-info]) .plugin {
+	border-radius: 0;
+	border: 0;
+	border-bottom: 1px solid hsla(169, 10%, 79%, 0.359);
+	margin: 0;
+	padding: 1rem 16px;
+}
+
+body:not([show-detailed-plugin-info]) .plugin:first-child {
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	margin-top: 2rem;
+}
+
+body:not([show-detailed-plugin-info]) .plugin:last-child {
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	margin-bottom: 2rem;
+}
+
+body:not([show-detailed-plugin-info]) .plugin :is(p, dl, ul, .plugin-anchor-link__icon) {
+	display: none;
+}

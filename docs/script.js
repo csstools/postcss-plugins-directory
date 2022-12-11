@@ -77,3 +77,29 @@
 	searchInput.addEventListener('change', valueChangeHandler)
 	searchInput.addEventListener('paste', valueChangeHandler)
 })();
+
+;(function () {
+	var detailedPluginInfo = document.getElementById('detailed-plugin-info');
+	if (!detailedPluginInfo) {
+		return;
+	}
+
+	detailedPluginInfo.removeAttribute('hidden');
+})();
+
+; (function () {
+	var detailedPluginInfoToggle = document.getElementById('toggle-detailed-plugin-info');
+	if (!detailedPluginInfoToggle) {
+		return;
+	}
+
+	function valueChangeHandler() {
+		if (detailedPluginInfoToggle.checked) {
+			document.body.setAttribute('show-detailed-plugin-info', '');
+		} else {
+			document.body.removeAttribute('show-detailed-plugin-info');
+		}
+	}
+
+	detailedPluginInfoToggle.addEventListener('change', valueChangeHandler)
+})();
