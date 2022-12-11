@@ -67,6 +67,38 @@ async function getPullRequests(page) {
 
 const existingUpdates = await listAllPullRequests();
 
+async function traverseDir(dir) {
+	const out = [];
+
+	const files = await fs.readdir(dir);
+	for (let i = 0; i < files.length; i++) {
+		const file = files[i];
+		let fullPath = path.join(dir, file);
+		if ((await fs.lstat(fullPath)).isDirectory()) {
+			out.push(...(await traverseDir(fullPath)));
+		} else {
+			out.push(fullPath)
+		}
+	}
+
+	return out;
+}
+
+{
+	const pluginDataFiles = await traverseDir('./directory');
+	const pluginsSet = new Set(JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json')).objects.map((plugin) => {
+		return path.join('directory', plugin.package.name) + '.json'
+	}));
+
+	for (let i = 0; i < pluginDataFiles.length; i++) {
+		const pluginDataFile = pluginDataFiles[i];
+		if (!pluginsSet.has(pluginDataFile)) {
+			await fs.rm(pluginDataFile)
+		}
+	}
+}
+
+
 const pluginsList = JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json'));
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
@@ -101,12 +133,12 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 	const time = pluginData.time[lastVersion];
 	lastVersionData._time = time
 
-	const lastVersionFilePath = path.join('directory', plugin.package.name) + '.json'
-	await fs.mkdir(path.dirname(lastVersionFilePath), { recursive: true })
+	const directoryFilePath = path.join('directory', plugin.package.name) + '.json'
+	await fs.mkdir(path.dirname(directoryFilePath), { recursive: true })
 	const updatedData = JSON.stringify(lastVersionData, null, '\t');
 
 	try {
-		const existingData = await fs.readFile(lastVersionFilePath)
+		const existingData = await fs.readFile(directoryFilePath)
 		if (existingData.toString() === updatedData.toString()) {
 			continue;
 		}
@@ -124,7 +156,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 		continue
 	}
 
-	await fs.writeFile(lastVersionFilePath, updatedData)
+	await fs.writeFile(directoryFilePath, updatedData)
 
 	if (process.env.GITHUB_ACTIONS) {
 		process.stdout.write(updateName)
