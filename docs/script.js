@@ -13,11 +13,23 @@
 		return;
 	}
 
-	var searchStyles = document.body.appendChild(document.createElement('style'));
+	function showAll() {
+		var list = document.querySelectorAll('article.plugin')
+		for (var i = 0; i < list.length; i++) {
+			list[i].removeAttribute('hidden');
+		}
+	}
+
+	function hideAll() {
+		var list = document.querySelectorAll('article.plugin')
+		for (var i = 0; i < list.length; i++) {
+			list[i].setAttribute('hidden', '');
+		}
+	}
 
 	function valueChangeHandler() {
 		if (!searchInput.value) {
-			searchStyles.innerText = '';
+			showAll();
 			return;
 		}
 
@@ -26,7 +38,7 @@
 		});
 
 		if (!searchTerms.length) {
-			searchStyles.innerText = '';
+			sshowAll();
 			return;
 		}
 
@@ -55,12 +67,10 @@
 			matchingItemIDs.push(pluginData.id)
 		}
 
-		var styles = 'article.plugin { display: none; }';
+		hideAll();
 		for (var i = 0; i < matchingItemIDs.length; i++) {
-			styles += 'article.plugin[id="' + matchingItemIDs[i] +'"] { display: block; }';
+			document.getElementById(matchingItemIDs[i]).removeAttribute('hidden')
 		}
-
-		searchStyles.innerText = styles;
 	}
 
 	searchInput.addEventListener('keyup', valueChangeHandler)
