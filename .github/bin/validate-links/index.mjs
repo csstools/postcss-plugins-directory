@@ -1,27 +1,36 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { cleanupLink } from '../util/cleanup-link.mjs';
 
 let counter = 0;
 
 async function checkLinkStatus(link) {
+	if (link.includes('://git@')) {
+		return 500;
+	}
+
 	let u;
 	try {
 		u = new URL(link)
 	} catch (_) {
-		u = new URL(link, 'https://github.com')
+		try {
+			u = new URL(link, 'https://github.com')
+		} catch (_) {
+			return 500;
+		}
 	}
 
 	const headers = {
 		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
 	}
 
-	if (counter >= 100) {
-		return 429
+	if (counter >= 200) {
+		return 429;
 	}
 
 	counter++;
 
-	return await fetch(u, {
+	return fetch(u, {
 		method: 'HEAD',
 		headers: headers,
 	}).then((res) => {
@@ -31,8 +40,26 @@ async function checkLinkStatus(link) {
 	});
 }
 
+function shuffle(array) {
+	let currentIndex = array.length, randomIndex;
+
+	// While there remain elements to shuffle.
+	while (currentIndex != 0) {
+
+		// Pick a remaining element.
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex--;
+
+		// And swap it with the current element.
+		[array[currentIndex], array[randomIndex]] = [
+			array[randomIndex], array[currentIndex]];
+	}
+
+	return array;
+}
+
 const now = Date.now();
-const threshold = now - (86400000 * 7);
+const threshold = now - (86400000 * 14);
 const links = new Map(JSON.parse(await fs.readFile('./npm-data/links.json')).filter((x) => {
 	if (x.timestamp < threshold) {
 		return false;
@@ -44,6 +71,8 @@ const links = new Map(JSON.parse(await fs.readFile('./npm-data/links.json')).fil
 }));
 
 const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
+pluginsList.objects = shuffle(pluginsList.objects);
+
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
 	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
@@ -58,29 +87,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 				valid: false
 			});
 		} else {
-			if (repositoryLink.startsWith('git+')) {
-				repositoryLink = repositoryLink.slice(4);
-			}
-
-			if (repositoryLink.startsWith('git://')) {
-				repositoryLink = repositoryLink.slice(6);
-			}
-
-			if (repositoryLink.startsWith('ssh://git@')) {
-				repositoryLink = 'https://' + repositoryLink.slice(10);
-			}
-
-			if (repositoryLink.startsWith('git@github.com:')) {
-				repositoryLink = 'https://github.com/' + repositoryLink.slice(15);
-			}
-
-			if (repositoryLink.startsWith('github.com')) {
-				repositoryLink = 'https://' + repositoryLink;
-			}
-
-			if (repositoryLink.endsWith('.git')) {
-				repositoryLink = repositoryLink.slice(0, -4);
-			}
+			repositoryLink = cleanupLink(repositoryLink)
 
 			if (!links.has(repositoryLink)) {
 				const linkStatus = await checkLinkStatus(repositoryLink);
@@ -106,6 +113,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 				valid: false
 			});
 		} else {
+			homepageLink = cleanupLink(homepageLink)
 
 			if (!links.has(homepageLink)) {
 				const linkStatus = await checkLinkStatus(homepageLink);

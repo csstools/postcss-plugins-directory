@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import semver from 'semver';
 import spdxLicenses from 'spdx-licenses'
+import { cleanupLink } from '../util/cleanup-link.mjs';
 
 const result = {
 	objects: []
@@ -204,21 +205,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 			continue;
 		}
 
-		if (repositoryLink.startsWith('git+')) {
-			repositoryLink = repositoryLink.slice(4);
-		}
-
-		if (repositoryLink.startsWith('ssh://git@')) {
-			repositoryLink = 'https://' + repositoryLink.slice(10);
-		}
-
-		if (repositoryLink.startsWith('git@github.com:')) {
-			repositoryLink = 'https://github.com/' + repositoryLink.slice(15);
-		}
-
-		if (repositoryLink.endsWith('.git')) {
-			repositoryLink = repositoryLink.slice(0, -4);
-		}
+		repositoryLink = cleanupLink(repositoryLink)
 
 		if (links.has(repositoryLink) && links.get(repositoryLink).valid !== true) {
 			continue
@@ -230,6 +217,8 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 		if (!homepageLink) {
 			continue;
 		}
+
+		homepageLink = cleanupLink(homepageLink)
 
 		if (links.has(homepageLink) && links.get(homepageLink).valid !== true) {
 			continue
