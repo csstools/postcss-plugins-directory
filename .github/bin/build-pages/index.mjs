@@ -199,7 +199,13 @@ for (let i = 0; i < allPluginData.length; i++) {
 					${renderScope(pluginData)}${he.encode(pluginData.unscopedPackageName)}
 				</a>
 			</h3>
-			<p>${he.encode(pluginData.description ?? '') || '<i>no description</i>'}</p>
+
+			<a class="plugin-npm-link-for-summary" href="https://www.npmjs.com/package/${he.encode(pluginData.name)}">npm</a>
+			
+			<p>
+				${he.encode(pluginData.description ?? '') || '<i>no description</i>'}
+				
+			</p>
 
 			<dl>
 				<dt><a href="https://www.npmjs.com/package/${he.encode(pluginData.name)}">npm</a></dt>
