@@ -118,6 +118,20 @@ async function traverseDir(dir) {
 	return out;
 }
 
+{
+	const pluginDataFiles = await traverseDir('./directory');
+	const pluginsSet = new Set(JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json')).objects.map((plugin) => {
+		return path.join('directory', plugin.package.name) + '.json'
+	}));
+
+	for (let i = 0; i < pluginDataFiles.length; i++) {
+		const pluginDataFile = pluginDataFiles[i];
+		if (!pluginsSet.has(pluginDataFile)) {
+			await fs.rm(pluginDataFile)
+		}
+	}
+}
+
 const pluginDataFiles = await traverseDir('./directory');
 
 let result = '';
