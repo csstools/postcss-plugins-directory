@@ -80,13 +80,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 
 	if (pluginData.repository) {
 		let repositoryLink = (typeof pluginData.repository === 'string') ? pluginData.repository : pluginData.repository?.url
-		if (!repositoryLink) {
-			links.set(repositoryLink, {
-				timestamp: now,
-				link: repositoryLink,
-				valid: false
-			});
-		} else {
+		if (repositoryLink) {
 			repositoryLink = cleanupLink(repositoryLink)
 
 			if (!links.has(repositoryLink)) {
@@ -106,13 +100,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 
 	if (pluginData.homepage) {
 		let homepageLink = (typeof pluginData.homepage === 'string') ? pluginData.homepage : ''
-		if (!homepageLink) {
-			links.set(homepageLink, {
-				timestamp: now,
-				link: homepageLink,
-				valid: false
-			});
-		} else {
+		if (homepageLink) {
 			homepageLink = cleanupLink(homepageLink)
 
 			if (!links.has(homepageLink)) {
