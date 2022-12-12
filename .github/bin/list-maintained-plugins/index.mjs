@@ -22,6 +22,7 @@ const invalidForks = [
 	'@gogogosir/postcss8-px-to-viewport',
 	'@hamidreza4dev/postcss-node-sass',
 	'@koddsson/postcss-sass',
+	'@nikifilini/postcss-d-ts',
 	'@outstand/postcss-extend-rule',
 	'@peixin/postcss-px-to-viewport',
 	'@pumpn/cssnano',
