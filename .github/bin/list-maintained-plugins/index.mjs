@@ -7,6 +7,10 @@ const result = {
 	objects: []
 };
 
+const repositoryIs404 = [
+	'@robertcordes/postcss-tailwind-hex'
+]
+
 // Forks published on npm without updating sufficient information.
 // This is confusing to users because they will be unable to find the source code or contact the maintainer.
 const invalidForks = [
@@ -73,6 +77,10 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 	}
 
 	if (invalidForks.includes(plugin.package.name)) {
+		continue
+	}
+
+	if (repositoryIs404.includes(plugin.package.name)) {
 		continue
 	}
 
