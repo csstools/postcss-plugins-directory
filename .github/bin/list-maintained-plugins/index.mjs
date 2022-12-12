@@ -57,6 +57,36 @@ async function fetchPlugin(name) {
 	return await response.json()
 }
 
+async function checkLinkStatus(link) {
+	let u;
+	try {
+		u = new URL(link)
+	} catch (_) {
+		u = new URL(link, 'https://github.com')
+	}
+
+	const headers = {
+		'User-Agent': 'GitHub Workflow'
+	}
+
+	if (u.hostname === 'github.com') {
+		if (process.env.GITHUB_TOKEN) {
+			headers['authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+		}
+	}
+
+	await (new Promise((resolve) => setTimeout(() => { resolve() }, 250)))
+
+	return fetch(u, {
+		method: 'HEAD',
+		headers: headers,
+	}).then((res) => {
+		return res.status
+	}).catch((err) => {
+		return 500;
+	});
+}
+
 const postcssData = await fetchPlugin('postcss');
 const postcssVersions = Object.keys(postcssData.versions);
 postcssVersions.sort((a, b) => {
@@ -192,6 +222,44 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 		}
 
 		repositoriesByPackageName.set(key, plugin.package.name)
+	}
+
+	if (pluginData.repository) {
+		let repositoryLink = (typeof pluginData.repository === 'string') ? pluginData.repository : pluginData.repository?.url
+		if (!repositoryLink) {
+			continue;
+		}
+
+		if (repositoryLink.startsWith('git+')) {
+			repositoryLink = repositoryLink.slice(4);
+		}
+
+		if (repositoryLink.startsWith('ssh://git@')) {
+			repositoryLink = 'https://' + repositoryLink.slice(10);
+		}
+
+		if (repositoryLink.startsWith('git@github.com:')) {
+			repositoryLink = 'https://github.com/' + repositoryLink.slice(15);
+		}
+
+		if (repositoryLink.endsWith('.git')) {
+			repositoryLink = repositoryLink.slice(0, -4);
+		}
+
+		if ((await checkLinkStatus(repositoryLink)) !== 200) {
+			continue
+		}
+	}
+
+	if (pluginData.homepage) {
+		let homepageLink = (typeof pluginData.homepage === 'string') ? pluginData.homepage : ''
+		if (!homepageLink) {
+			continue;
+		}
+
+		if ((await checkLinkStatus(homepageLink)) !== 200) {
+			continue
+		}
 	}
 
 	result.objects.push(plugin);

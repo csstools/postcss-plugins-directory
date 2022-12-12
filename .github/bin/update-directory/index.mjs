@@ -1,7 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
 import semver from 'semver';
-import https from 'https';
 
 export async function listAllPullRequests() {
 	const allPullRequests = [];
@@ -22,47 +21,35 @@ export async function listAllPullRequests() {
 }
 
 async function getPullRequests(page) {
-	return await (new Promise((resolve, reject) => {
-		const headers = {
-			'User-Agent': 'GitHub Workflow'
-		}
+	const headers = {
+		'User-Agent': 'GitHub Workflow'
+	}
 
-		if (process.env.GITHUB_TOKEN) {
-			headers['authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
-		}
+	if (process.env.GITHUB_TOKEN) {
+		headers['authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+	}
 
-		https.get({
-			host: 'api.github.com',
-			port: 443,
-			path: `/repos/romainmenke/postcss-plugins-directory/pulls?per_page=100&page=${page}`,
+	const response = await fetch(
+		`https://api.github.com/repos/romainmenke/postcss-plugins-directory/pulls?per_page=100&page=${page}`,
+		{
 			method: 'GET',
-			headers: headers
-		}, (res) => {
-			if (!res.statusCode || (Math.floor(res.statusCode / 100) !== 2)) {
-				throw new Error(`Unepected response code "${res.statusCode}" with message "${res.statusMessage}"`)
-			}
+			headers: headers,
+		}
+	);
 
-			let data = [];
-			res.on('data', (chunk) => {
-				data.push(chunk);
-			});
+	if (!response.status || (Math.floor(response.status / 100) !== 2)) {
+		throw new Error(`Unepected response code "${response.status}" with message "${response.statusText}"`)
+	}
 
-			res.on('end', () => {
-				resolve(
-					JSON.parse(Buffer.concat(data).toString()).map((x) => {
-						if (!x.head.ref.startsWith('update-directory/')) {
-							return false;
-						}
+	const data = await response.json();
 
-						return x.head.ref.slice(17)
-					}).filter((x) => !!x)
-				);
-			});
+	return data.map((x) => {
+		if (!x.head.ref.startsWith('update-directory/')) {
+			return false;
+		}
 
-		}).on('error', (err) => {
-			reject(err);
-		});
-	}));
+		return x.head.ref.slice(17)
+	}).filter((x) => !!x)
 }
 
 const existingUpdates = await listAllPullRequests();

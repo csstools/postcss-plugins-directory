@@ -27,7 +27,8 @@ function renderPage(body, searchData, allKeywords) {
 	<ul>
 		<li>published on npm</li>
 		<li>postcss-plugin keyword in your <code>package.json</code></li>
-		<li>a repository link in your <code>package.json</code></li>
+		<li>valid repository link in your <code>package.json</code></li>
+		<li>valid homepage link in your <code>package.json</code></li>
 		<li>valid peer dependency value for postcss</li>
 		<li><a href="https://opensource.org/licenses/alphabetical">OSI approved license</a></li>
 		<li>package version greater than 1.0.0</li>
