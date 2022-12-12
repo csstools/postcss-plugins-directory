@@ -58,7 +58,12 @@ postcssVersions.sort((a, b) => {
 })
 const lastPostCSSVersion = postcssVersions[postcssVersions.length-1]
 
-const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
+const pluginsList = {
+	objects: [
+		...JSON.parse(await fs.readFile('./npm-data/plugins.json')).objects,
+		...JSON.parse(await fs.readFile('./npm-data/maybe-plugins.json')).objects,
+	]
+};
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
 	if (ignoreScopes.includes(plugin.package.scope)) {
@@ -66,6 +71,10 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 	}
 
 	if (invalidForks.includes(plugin.package.name)) {
+		continue
+	}
+
+	if (!plugin.package.keywords?.map((x) => x.trim().toLowerCase()).includes('postcss-plugin')) {
 		continue
 	}
 

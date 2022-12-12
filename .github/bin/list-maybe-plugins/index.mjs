@@ -16,7 +16,25 @@ async function fetchPackages(offset) {
 	return await response.json()
 }
 
-const result = await fetchPackages(0)
+const result = {
+	objects: []
+};
+
+{
+	const batch = await fetchPackages(0)
+	result.total = batch.total
+
+	for (let i = 0; i < batch.objects.length; i++) {
+		const plugin = batch.objects[i];
+		if (seen.has(plugin.package.name)) {
+			continue;
+		}
+
+		seen.add(plugin.package.name)
+		result.objects.push(plugin)
+	}
+}
+
 const remainingPages = Math.ceil(result.total / 250)
 for (let i = 1; i < remainingPages; i++) {
 	const batch = await fetchPackages(i * 250)

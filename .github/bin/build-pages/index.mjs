@@ -51,10 +51,6 @@ function renderPage(body, searchData, allKeywords) {
 	<div hidden id="detailed-plugin-info">
 		<label for="toggle-detailed-plugin-info">Show detailed plugin info</label><br>
 		<input type="checkbox" id="toggle-detailed-plugin-info" name="detailed-plugin-info">
-
-		<datalist id="search-suggestions">
-			${allKeywords.map((x) => `<option value="${x}">`).join('')}
-		</datalist>
 	</div>
 
 	<div hidden id="search" role="search" aria-label="Plugins">
