@@ -1,0 +1,129 @@
+import fs from 'fs/promises';
+import path from 'path';
+
+let counter = 0;
+
+async function checkLinkStatus(link) {
+	let u;
+	try {
+		u = new URL(link)
+	} catch (_) {
+		u = new URL(link, 'https://github.com')
+	}
+
+	const headers = {
+		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+	}
+
+	if (counter >= 100) {
+		return 429
+	}
+
+	counter++;
+
+	return await fetch(u, {
+		method: 'HEAD',
+		headers: headers,
+	}).then((res) => {
+		return res.status
+	}).catch((err) => {
+		return 500;
+	});
+}
+
+const now = Date.now();
+const threshold = now - (86400000 * 7);
+const links = new Map(JSON.parse(await fs.readFile('./npm-data/links.json')).filter((x) => {
+	if (x.timestamp < threshold) {
+		return false;
+	}
+
+	return true;
+}).map((x) => {
+	return [x.link, x]
+}));
+
+const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
+for (let i = 0; i < pluginsList.objects.length; i++) {
+	const plugin = pluginsList.objects[i];
+	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
+	const pluginData = JSON.parse(await fs.readFile(pluginFilePath))
+
+	if (pluginData.repository) {
+		let repositoryLink = (typeof pluginData.repository === 'string') ? pluginData.repository : pluginData.repository?.url
+		if (!repositoryLink) {
+			links.set(repositoryLink, {
+				timestamp: now,
+				link: repositoryLink,
+				valid: false
+			});
+		} else {
+			if (repositoryLink.startsWith('git+')) {
+				repositoryLink = repositoryLink.slice(4);
+			}
+
+			if (repositoryLink.startsWith('git://')) {
+				repositoryLink = repositoryLink.slice(6);
+			}
+
+			if (repositoryLink.startsWith('ssh://git@')) {
+				repositoryLink = 'https://' + repositoryLink.slice(10);
+			}
+
+			if (repositoryLink.startsWith('git@github.com:')) {
+				repositoryLink = 'https://github.com/' + repositoryLink.slice(15);
+			}
+
+			if (repositoryLink.startsWith('github.com')) {
+				repositoryLink = 'https://' + repositoryLink;
+			}
+
+			if (repositoryLink.endsWith('.git')) {
+				repositoryLink = repositoryLink.slice(0, -4);
+			}
+
+			if (!links.has(repositoryLink)) {
+				const linkStatus = await checkLinkStatus(repositoryLink);
+				if (linkStatus === 429) {
+					break;
+				}
+
+				links.set(repositoryLink, {
+					timestamp: now,
+					link: repositoryLink,
+					valid: linkStatus === 200
+				});
+			}
+		}
+	}
+
+	if (pluginData.homepage) {
+		let homepageLink = (typeof pluginData.homepage === 'string') ? pluginData.homepage : ''
+		if (!homepageLink) {
+			links.set(homepageLink, {
+				timestamp: now,
+				link: homepageLink,
+				valid: false
+			});
+		} else {
+
+			if (!links.has(homepageLink)) {
+				const linkStatus = await checkLinkStatus(homepageLink);
+				if (linkStatus === 429) {
+					break;
+				}
+
+				links.set(homepageLink, {
+					timestamp: now,
+					link: homepageLink,
+					valid: linkStatus === 200
+				});
+			}
+		}
+	}
+}
+
+const results = Array.from(links.values());
+results.sort((a, b) => a.link.localeCompare(b.link))
+
+await fs.writeFile('./npm-data/links.json', JSON.stringify(results, null, '\t'))

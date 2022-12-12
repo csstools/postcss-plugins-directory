@@ -57,35 +57,9 @@ async function fetchPlugin(name) {
 	return await response.json()
 }
 
-async function checkLinkStatus(link) {
-	let u;
-	try {
-		u = new URL(link)
-	} catch (_) {
-		u = new URL(link, 'https://github.com')
-	}
-
-	const headers = {
-		'User-Agent': 'GitHub Workflow'
-	}
-
-	if (u.hostname === 'github.com') {
-		if (process.env.GITHUB_TOKEN) {
-			headers['authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
-		}
-	}
-
-	await (new Promise((resolve) => setTimeout(() => { resolve() }, 250)))
-
-	return fetch(u, {
-		method: 'HEAD',
-		headers: headers,
-	}).then((res) => {
-		return res.status
-	}).catch((err) => {
-		return 500;
-	});
-}
+const links = new Map(JSON.parse(await fs.readFile('./npm-data/links.json')).map((x) => {
+	return [x.link, x]
+}));
 
 const postcssData = await fetchPlugin('postcss');
 const postcssVersions = Object.keys(postcssData.versions);
@@ -246,7 +220,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 			repositoryLink = repositoryLink.slice(0, -4);
 		}
 
-		if ((await checkLinkStatus(repositoryLink)) !== 200) {
+		if (links.has(repositoryLink) && links.get(repositoryLink).valid !== true) {
 			continue
 		}
 	}
@@ -257,7 +231,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 			continue;
 		}
 
-		if ((await checkLinkStatus(homepageLink)) !== 200) {
+		if (links.has(homepageLink) && links.get(homepageLink).valid !== true) {
 			continue
 		}
 	}
