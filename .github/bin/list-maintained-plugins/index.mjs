@@ -32,6 +32,7 @@ const invalidForks = [
 	'@pumpn/postcss-minify-selectors',
 	'@pumpn/postcss-unique-selectors',
 	'@pumpn/stylehacks',
+	'@rdil/postcss-color-mod-function',
 	'@voodeng/postcss-px-to-viewport',
 ];
 
