@@ -21,7 +21,6 @@ const invalidForks = [
 	'@doomfist/postcss-px-to-viewport',
 	'@espkg/postcss-px-to-viewport',
 	'@flemist/postcss-nested',
-	'@flemist/postcss-nested',
 	'@flemist/postcss-nested-ancestors',
 	'@flemist/postcss-pxtorem',
 	'@gogogosir/postcss8-px-to-viewport',
@@ -39,6 +38,7 @@ const invalidForks = [
 	'@pumpn/stylehacks',
 	'@rdil/postcss-color-mod-function',
 	'@voodeng/postcss-px-to-viewport',
+	'@z1c1/postcss-px-to-viewport',
 ];
 
 // These authors repeatedly listed incorrect data in "package.json"
