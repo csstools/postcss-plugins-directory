@@ -2,7 +2,17 @@ import fs from 'fs/promises';
 import path from 'path';
 import he from 'he';
 
-const excludedKeywords = ['postcss', 'postcss-plugin', 'css', 'css4', 'css3', 'lib', 'node', 'style']
+const excludedKeywords = [
+	'css',
+	'css3',
+	'css4',
+	'csswg',
+	'lib',
+	'node',
+	'postcss',
+	'postcss-plugin',
+	'style',
+]
 
 function renderPage(body, searchData, allKeywords) {
 	return `<!DOCTYPE html>
