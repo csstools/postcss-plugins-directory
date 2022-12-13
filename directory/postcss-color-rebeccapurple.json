@@ -1,0 +1,140 @@
+{
+	"name": "postcss-color-rebeccapurple",
+	"description": "Use the rebeccapurple color keyword in CSS",
+	"version": "7.1.1",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "Maxime Thirouin"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-rebeccapurple#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-color-rebeccapurple"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"becca",
+		"color",
+		"colors",
+		"css",
+		"csswg",
+		"eric",
+		"meyer",
+		"postcss",
+		"postcss-plugin",
+		"purple",
+		"rebecca",
+		"rgb",
+		"syntax",
+		"w3c"
+	],
+	"csstools": {
+		"cssdbId": "rebeccapurple-color",
+		"exportName": "postcssRebeccaPurple",
+		"humanReadableName": "PostCSS RebeccaPurple",
+		"specUrl": "https://www.w3.org/TR/css-color-4/#valdef-color-rebeccapurple"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "a9291ce822b3b0211bc46e7a9fc79f5cd5f4fed4",
+	"_id": "postcss-color-rebeccapurple@7.1.1",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-pGxkuVEInwLHgkNxUc4sdg4g3py7zUeCQ9sMfwyHAT+Ezk8a4OaaVZ8lIY5+oNqA/BXXgLyXv0+5wHP68R79hg==",
+		"shasum": "63fdab91d878ebc4dd4b7c02619a0c3d6a56ced0",
+		"tarball": "https://registry.npmjs.org/postcss-color-rebeccapurple/-/postcss-color-rebeccapurple-7.1.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 15070,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIFDwDSS1sk0kBjIuBcxDI6rjyQIvLntivIvWua2tmB0dAiEA/NMfGC65OQuRg9kQSm0xg8POBPGnXbSjdg0y46R+7ns="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFg2ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrE4g//d1SWmY+4KKjKmEr+uqrDYENT9ponJygFFkjj5NRazQcKollW\r\nhzXavy7eJv0SDn/mLrgYDjLH3Bn56ifN+gSS5QFTiiALdZQSS8vY6+dMFm7z\r\nHREx0UZX44mWJzOo0unovdhhBUWUYwc4wj6XY3JzRu5r0Vgmw+8Qw2zf8rgb\r\n8zj4rf1UF4W1loPrhNpHFeLaBsM/NljGcSKqQFux+d4CDkLpFw4rIo9A3aB/\r\n4mu4Zj8II1Qju84gJNJqV8lXWSSx2L1wxRaFZJ3y+qLRZMP5EaWbuSIsncPr\r\nTmjGUYOIpQ0QU82WRcGyk0KLewIB0djI1/gIiRz4EYjBYDA7eBNUgExd18eR\r\nGqPNa4RBTRSdB0Y4bgzKXRxDUXDVgJfqAtUqGvvw+jpyGezFM9W4XxDlU3tM\r\nLaNNVAUxC1hsRr2DuqybMN6Uu0CzYuVjQvxi7YJbreYeFn2wCnOgCQsGdcOI\r\nLR/aZhObqBOrG6KSCH3M7VrrhnwOUrHu32ZkvmE9X28jWkNO/2zbwcOYuSAS\r\n/HyZpnvBhsHNq0a2397RDXJ+aQ6rtU1PBs8q07V4Ds7SoyUFVzabcMQObbkT\r\n+S17W78qiaFTBYSQ06ELwNMir841nklFUxuO4+/scxDbZ7mXIc7nEmaGeq8I\r\nIQcK2tFgDO4JxIG49tYJVYxhpWTO8LfVmeU=\r\n=kfcZ\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "moox",
+			"email": "npm@moox.io"
+		},
+		{
+			"name": "semigradsky",
+			"email": "semigradskyd@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-color-rebeccapurple_7.1.1_1657296949804_0.34321808911060825"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-07-08T16:15:49.994Z"
+}
