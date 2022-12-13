@@ -1,0 +1,131 @@
+{
+	"name": "postcss-custom-properties",
+	"description": "Use Custom Properties Queries in CSS",
+	"version": "13.0.0",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"contributors": [
+		{
+			"name": "Maxime Thirouin"
+		}
+	],
+	"license": "MIT",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"postcss-import": "^15.0.0"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-properties#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-custom-properties"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"css",
+		"csswg",
+		"custom",
+		"declarations",
+		"postcss",
+		"postcss-plugin",
+		"properties",
+		"specification",
+		"variables",
+		"vars",
+		"w3c"
+	],
+	"csstools": {
+		"cssdbId": "custom-properties",
+		"exportName": "postcssCustomProperties",
+		"humanReadableName": "PostCSS Custom Properties",
+		"specUrl": "https://www.w3.org/TR/css-variables-1/"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "587a0ba6be5ac2df454b9f9e119ed7401ae0a052",
+	"_id": "postcss-custom-properties@13.0.0",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-y4lGIjKPdy1gDyGgwZLpMgqcum04JZZ9UWKxO6WjxSEQ1IzaAFxgbiqcF5M4RWHXFqe5Wa549xXz/4F7DU9TYg==",
+		"shasum": "4de6687403c988ac4ac7ad274ae2fe2399f950af",
+		"tarball": "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-13.0.0.tgz",
+		"fileCount": 11,
+		"unpackedSize": 27072,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQCl6UxKdHhJ5aYkJHUlybcC7G2Cf648b5EYZ9d+1PcKnAIhANCKXWb/eICFkJhgOa5QAXVldJoof+VyrsKBFAkno7kU"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjcg8tACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrTKxAAhhX9LtYf8CCwb+BH+6MCyNNZat4K+NLJsjtgovnJE0Z5ZlQ9\r\nZFYjczdneFnmM1zbxL32W2oStqVPJkcQjaE8zoAupniL+IDUo5hpnKdq3Lat\r\nLaEQurLo2+Zq9FQsqX2WSCggIkqRIvfZldfYU5HKvZesFlihjRq5JCV8vQmU\r\n/NZgbo+bAjMYv+kjp7/32DIZ6zAZkPUqrEUYbZAd3/+0Mjf6rjPd/pfkiFU5\r\njV4T+mvCbA7SG56SSTJISNHL3iQh3zbosfAxWa5H6oVornCB+DyKM+/uDhne\r\ncKGAjWzjlZvkTtxsy5H3/1cyX6XlRNohLw+1FmakChKMfe+XmmbZIANpToR0\r\nsmpY/UBO9SjJVf+KeF0ukCf4izyIjRF2fvowA2COdTeA6S+KYE72zz6vHTxP\r\nUkpLsF+9b8fYJ9hlMbrWNMT5Ig5UtWOmgb4DKidDk9q31HJZ7kXlxSWvFO4U\r\nkOEDYkKCFdILm5tZGj3Wo70F4yz1bkXfDeh9O7W9aDjPrwZlHHsW36uYDyqQ\r\nTawhq/TWhPKeM2QTyDsmpCUS2iP/1aqJ0FccmwN1emzfTdG47i4fm88Vkfc6\r\nOIhLWJ9Y2UXl6udqV7n7FBwy1fqFtTgSPSakzH6ytp9iQlrlbAdatRv73S71\r\nfXPxym38H0MxwpIwRozbtnp8R89zu8FHBjc=\r\n=gHzN\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "moox",
+			"email": "npm@moox.io"
+		},
+		{
+			"name": "semigradsky",
+			"email": "semigradskyd@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-custom-properties_13.0.0_1668419372831_0.42625853920069945"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-11-14T09:49:33.048Z"
+}
