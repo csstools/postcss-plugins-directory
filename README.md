@@ -10,7 +10,7 @@
 - [`OSI` approved license](https://opensource.org/licenses/alphabetical)
 - package version greater than `1.0.0`
 
-## Requirements from plugin forks :
+## Requirements for plugin forks :
 
 Forking plugins is a normal and essential part of a decentralized ecosystem of plugins.
 We only require that forks try to avoid confusion between themselves and the original plugin.
