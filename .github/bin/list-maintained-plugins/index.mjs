@@ -42,6 +42,8 @@ const invalidForks = [
 	'@zhbhun/postcss-pxtorem',
 	'fix-postcss-flexibility-mao',
 	'postcss-8-px-to-viewport-',
+	'postcss-custom-media-with-spaces',
+	'postcss-custom-media2',
 ];
 
 // These authors repeatedly listed incorrect data in "package.json"
