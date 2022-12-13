@@ -1,0 +1,138 @@
+{
+	"name": "css-prefers-color-scheme",
+	"description": "Use light and dark color schemes in all browsers",
+	"version": "7.0.1",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		},
+		"./browser": {
+			"import": "./dist/browser.mjs",
+			"require": "./dist/browser.cjs",
+			"default": "./dist/browser.mjs"
+		},
+		"./browser-global": {
+			"default": "./dist/browser-global.js"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"devDependencies": {
+		"puppeteer": "^16.0.0"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:browser": "node ./test/_browser.mjs",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-prefers-color-scheme#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/css-prefers-color-scheme"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"color",
+		"css",
+		"dark",
+		"interface",
+		"light",
+		"media",
+		"mode",
+		"no-preference",
+		"postcss",
+		"postcss-plugin",
+		"prefers",
+		"queries",
+		"query",
+		"scheme"
+	],
+	"csstools": {
+		"cssdbId": "prefers-color-scheme-query",
+		"exportName": "prefersColorScheme",
+		"humanReadableName": "Prefers Color Scheme",
+		"specUrl": "https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "2d5689c302ce06a7411c88daebb88cc9d3762beb",
+	"_id": "css-prefers-color-scheme@7.0.1",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-vacLYKcuRVtNJyPzP7yL55D9glTNcBEuTR2+EuJaO1tCg81U7+fKHO6rI+EvPAmrYH0uaOM64pEj2Iau+Cf6Cg==",
+		"shasum": "6224cfc0bf9d6c0c52ded7d2cea3ed18e82c8867",
+		"tarball": "https://registry.npmjs.org/css-prefers-color-scheme/-/css-prefers-color-scheme-7.0.1.tgz",
+		"fileCount": 13,
+		"unpackedSize": 46523,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDc/eHVeb9Nc/Ffoe8raN8gQlQwywLOayw9veQmSohi8AIhAIZvPY6Fd2JowLMWiZ/QiXE/r0OFLuQY6xLbwaFpU9wL"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjBT4QACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoXcg//VY9QvweSYGuxd41UXADKf+kVfgzMjazv//qBLlKgoSgGtZYv\r\nKm3qvUNCvBKoGBDtyAVnXHJeOsJ67b3KyXEuPxrLKvXZVDJDVA/zQKthDZYi\r\nweKt/JcdDDAvYT9YHtZv2fYa3xTeWekH9lvJH7qmk26bwCEYkWHZdoe4K98y\r\nCLwIefZ3Pdu1rqyIShtIg74ZIzNQx51daOCK8jGodNh/m1vSPG8Xa88ps7cu\r\nn+JOvd9u/lBIgfekseyLqnDizZh6k/nPiB09nmlNKy5dz/vROUnJrNs4Ihwm\r\n6u3kx8Q0G8QE5QCfX+WXJtdgntP015T396mJZbX9j3KNg9MQEs6Ln2zPUW0K\r\nLUDhQX6121zS4vCE6OFPZwMMATC8ug43xiv/DSwcMohQuRepC1yyAE08m98a\r\nMPY+95/aYD7RWw1BqdNUE7Du5XZM3pONCw3RXIlhZV75BVZ398d9z4a+tglX\r\nk3KN8fAZuny9sxpKhNj+yxvLxrMeLGr2UVQuqXk8Q1oXEE1azqvj/1ylpst0\r\n2hJfsCzSGmq+J8RuzRVCX+rQfgcjPL6OVy3ylwADQ03chtunnwAohwTQhhqz\r\nrS4unSpCG25fKfB4Ee/bXddCqI205AQ311A/P1PtVb5dL6pk3UIxOm36kmOV\r\nLwLI6kKF6PK3YIYS0Zj/4VReJ+bSJCzmgeg=\r\n=YGTw\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/css-prefers-color-scheme_7.0.1_1661287952779_0.742571379407335"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-08-23T20:52:32.916Z"
+}
