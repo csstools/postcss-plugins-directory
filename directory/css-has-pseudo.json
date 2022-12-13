@@ -1,0 +1,142 @@
+{
+	"name": "css-has-pseudo",
+	"description": "Style elements relative to other elements in CSS",
+	"version": "4.0.2",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		},
+		"./browser": {
+			"import": "./dist/browser.mjs",
+			"require": "./dist/browser.cjs",
+			"default": "./dist/browser.mjs"
+		},
+		"./browser-global": {
+			"default": "./dist/browser-global.js"
+		}
+	},
+	"dependencies": {
+		"@csstools/selector-specificity": "^2.0.1",
+		"postcss-selector-parser": "^6.0.10",
+		"postcss-value-parser": "^4.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"devDependencies": {
+		"@mrhenry/core-web": "^0.7.7",
+		"puppeteer": "^16.0.0"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:unit && npm run test:exports",
+		"test:browser": "node ./test/_browser.mjs",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+		"test:unit": "node ./src/encode/test.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-has-pseudo#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/css-has-pseudo"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"contains",
+		"css",
+		"descendant",
+		"has",
+		"javascript",
+		"js",
+		"polyfill",
+		"postcss",
+		"postcss-plugin",
+		"pseudo",
+		"selector"
+	],
+	"csstools": {
+		"cssdbId": "has-pseudo-class",
+		"exportName": "postcssHasPseudo",
+		"humanReadableName": "PostCSS Has Pseudo",
+		"specUrl": "https://www.w3.org/TR/selectors-4/#has-pseudo"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "589c49f1353adaacf3cb208a8c3b387d7a2f0759",
+	"_id": "css-has-pseudo@4.0.2",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-bhAVH1oI51Jc99i7gPXCURWOQbeaoWp37Z/ZL7kkd/gkZjxE2VZLc85B8BhaxHGEtXGIEmQMAPQc2cqSqcgAeA==",
+		"shasum": "c1e00df714685497d5bc00168872b72720dc87e4",
+		"tarball": "https://registry.npmjs.org/css-has-pseudo/-/css-has-pseudo-4.0.2.tgz",
+		"fileCount": 14,
+		"unpackedSize": 191048,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDW6MSIv34wB61XeSJQk4vq0llolmOQ5sDkVemJ7U43dAIhAI8U4r15Bk9GQsDyR1GwRHGXA5KdCUFOCw5+j8u41RIY"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjl2L6ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpu+w/+NOzAvTjHEcjgM2fy18Ux3j+WfH+gb1sue0c4GBE7NSaKthke\r\nVCi5ugssISSqYUwuVYv0d9VVVNAFz94Vojta4p6CWJKoLwcQA0lIZRHlu4Fl\r\n6ongaKPT+KPS1giowmuCtcmXQ//y2bBSCObbBohRnvP7Hef28r5n/P6m/YMS\r\nK7JPmkeILeMZ/F+60mQV04UvGB8cp/dNyMXiFwUULEK9XonRlqTApFR4Bl58\r\nTaR5Pfubv0noagjJPpfKyhtkNS/a6dWIeg0/KhnZCyI+PlC7cXQZJfTLYQcM\r\nMTA1bCkqAqwcgcJ1KeCMy8T3fbCXCTPdPyJj0x4rbgb0Cu+YtfxO8sVK0cPO\r\nCNymPW67YFP9uml6DFLnqFd4++tOmCRt0am3/Q8sAwRLn2oOD0vKjHAP4scZ\r\n6Mc/1iFq/MqENbJiK3f6zKbNV/SBEYJHxhukIMRWk+dZ+ixt9U9Om8MS7PKr\r\nude7V5h875ugrczTTZUWqXHQfU/PlxjRk1cEiv2y93urojcGz+HvqLA5bGCj\r\nXuzTH1bw0lTzPx88d789P0L0nWXwANhHNcUAXuACSct6feMnpvMQOyXZvGA/\r\nAM8KYIf6Rz22rjMT+yrDQteJ5E+YA8HEfP8P++vy1D9vxKWEnIgWXwQ2VsCI\r\nTS8MxQRqHrSlbujX7Bj/EA3O80mDi5GajAo=\r\n=ateC\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/css-has-pseudo_4.0.2_1670865658516_0.2261838560531888"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-12-12T17:20:58.715Z"
+}
