@@ -40,6 +40,7 @@ const invalidForks = [
 	'@voodeng/postcss-px-to-viewport',
 	'@z1c1/postcss-px-to-viewport',
 	'@zhbhun/postcss-pxtorem',
+	'fix-postcss-flexibility-mao',
 ];
 
 // These authors repeatedly listed incorrect data in "package.json"
