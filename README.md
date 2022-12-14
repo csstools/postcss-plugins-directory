@@ -3,6 +3,7 @@
 ## Requirements for inclusion :
 
 - published on npm
+- 50 monthly downloads from npm
 - `postcss-plugin` keyword in your `package.json`
 - valid repository link in your `package.json`
 - valid homepage link in your `package.json`

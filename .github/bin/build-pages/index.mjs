@@ -36,6 +36,7 @@ function renderPage(body, searchData, allKeywords) {
 	<h2>Criteria</h2>
 	<ul>
 		<li>published on npm</li>
+		<li>50 monthly downloads from npm</li>
 		<li>postcss-plugin keyword in your <code>package.json</code></li>
 		<li>valid repository link in your <code>package.json</code></li>
 		<li>valid homepage link in your <code>package.json</code></li>
