@@ -1,0 +1,112 @@
+{
+	"name": "postcss-em-media-query",
+	"version": "4.1.0",
+	"description": "PostCSS plugin for transforming min/max-width/height media queries to ems.",
+	"main": "index.cjs.js",
+	"module": "index.esm.js",
+	"author": {
+		"name": "Ivan Nikolić",
+		"email": "niksy5@gmail.com",
+		"url": "http://ivannikolic.com"
+	},
+	"license": "MIT",
+	"sideEffects": false,
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"build": "rollup --config rollup.config.js",
+		"lint": "eslint '{index,lib/**/*,test/**/*}.js'",
+		"postpublish": "GITHUB_TOKEN=$GITHUB_RELEASE_TOKEN github-release-from-changelog",
+		"prepublishOnly": "npm run build",
+		"release": "np",
+		"test": "npm run lint && nyc mocha --require esm 'test/**/*.js' $([[ $WATCH_TEST ]] && echo --watch) && nyc check-coverage",
+		"test:watch": "WATCH_TEST=1 npm test",
+		"version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
+	},
+	"dependencies": {
+		"em-media-query": "^2.0.0"
+	},
+	"devDependencies": {
+		"changelog-verify": "^1.1.2",
+		"eslint": "^6.7.2",
+		"eslint-config-niksy": "^8.0.0",
+		"eslint-config-prettier": "^4.2.0",
+		"eslint-plugin-extend": "^0.1.1",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsdoc": "^18.4.3",
+		"eslint-plugin-mocha": "^6.2.2",
+		"eslint-plugin-node": "^10.0.0",
+		"eslint-plugin-prettier": "^3.0.1",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-unicorn": "^14.0.1",
+		"esm": "^3.0.51",
+		"github-release-from-changelog": "^2.1.1",
+		"husky": "^3.1.0",
+		"lint-staged": "^9.5.0",
+		"mocha": "^4.1.0",
+		"np": "^3.0.4",
+		"nyc": "^12.0.2",
+		"postcss": "^8.1.1",
+		"prettier": "^1.17.0",
+		"rollup": "^1.0.0",
+		"version-changelog": "^3.1.1"
+	},
+	"peerDependencies": {
+		"postcss": "^8.1.1"
+	},
+	"engines": {
+		"node": ">=12"
+	},
+	"keywords": [
+		"css",
+		"em",
+		"media",
+		"mq",
+		"postcss",
+		"postcss-plugin",
+		"query"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/niksy/postcss-em-media-query.git"
+	},
+	"bugs": {
+		"url": "https://github.com/niksy/postcss-em-media-query/issues"
+	},
+	"homepage": "https://github.com/niksy/postcss-em-media-query#readme",
+	"gitHead": "fb816e64f72614a4abef3c1cec334279685d58b9",
+	"_id": "postcss-em-media-query@4.1.0",
+	"_nodeVersion": "12.18.0",
+	"_npmVersion": "6.14.4",
+	"dist": {
+		"integrity": "sha512-BYw6a13M9SGVqK/ORWi1P2oqCNKi4/DHlA5tSM8Do4pIRN3jwMyfaAqxsEyu8xqr2I+dXwdEQPjLJOclgF5MGg==",
+		"shasum": "910d71394296f058c2b0aefca66e80bc53289dfc",
+		"tarball": "https://registry.npmjs.org/postcss-em-media-query/-/postcss-em-media-query-4.1.0.tgz",
+		"fileCount": 8,
+		"unpackedSize": 7407,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfj+1ECRA9TVsSAnZWagAA6XYP/1y/W3BRZhvTdO1jQ8qk\nrP0RbsrAd+CfBKAAc2UtWM2qiDRhqYV3vBPpfA6RoyF/JNgMKtxXt2FLQMlY\nwUBh90b4BTYXfmM8jIyxmfsOBJxZnvGazWS607ACj0Q3y5vm8pOhTBvSue3Y\nhWYcpAxMcxMczq0AgooUifrB+2bpq+pv96Ed7SXQtDty7SzyRM0jLW67Wfsl\nMHMLw8uGpnJxB/hmXGapr0LqD9IFZ6Mv2DYe+AP11ARAgXijK2aUf2azXn8P\ndu5KkGVDXql8P//izbsXNpcZR7Ax4OzAUUDOIl4EQClbNicuFzO74MNazzeq\nJv9mNa7pDgY0BKchhgoNnOVOd091zn9nfn1FuFXFYjdv4iJrtE99CXZWXkco\n4BLnrfa9XTc52dOyItqYozIfeIXikJnuwR3D8E4waItMf6Jgtyi13nQXGiwP\nI8IK+cSI0VNWVevxBwximI2jfUnkjo8BH/USSC+BF3k6qb1PAz7p+iKjK6zA\n8iIHmDi64TZs7l5F8cYZyMh//EvoLYkQoO7zzx+K+Hq3H43M/bIRtO7erdJC\ngbWu0quMiTgOfBHUULkCrokNyMB48FEDjezL7qHezjUFW3/UVi4UWrB1LScX\nJ1J8T3aTJDI5T8ScLCF/+CuDoKIRHbOaBItgNK1AFlWZZiALuh3ikeSQa4cp\nQhsy\r\n=SdGW\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIFN8QNT7YzVjpv+PXm7FMTYiS3gXeiYaT8BJkWQYjQ26AiB30yGVdNJmad4IrheEbSnyTqpKxS3Cd7NQI9xJ9HohCw=="
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "niksy",
+			"email": "niksy5@gmail.com"
+		}
+	],
+	"_npmUser": {
+		"name": "niksy",
+		"email": "niksy5@gmail.com"
+	},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-em-media-query_4.1.0_1603267907717_0.6106565271344884"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2020-10-21T08:11:47.854Z"
+}
