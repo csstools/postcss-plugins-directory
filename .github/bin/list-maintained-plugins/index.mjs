@@ -101,6 +101,12 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 
 	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
 	const pluginData = JSON.parse(await fs.readFile(pluginFilePath))
+	if ('_downloads' in pluginData && pluginData._downloads < 50) {
+		// Plugin must at least be downloaded a 50 times a month.
+		// Anything less than that could be a single user or bot traffic.
+		continue;
+	}
+
 	const versions = Object.keys(pluginData.versions).filter((x) => {
 		if (pluginData.versions[x].flags?.unstable === true) {
 			return false
