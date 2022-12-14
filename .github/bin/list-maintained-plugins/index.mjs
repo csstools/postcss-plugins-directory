@@ -44,6 +44,7 @@ const invalidForks = [
 	'postcss-8-px-to-viewport-',
 	'postcss-custom-media-with-spaces',
 	'postcss-custom-media2',
+	'postcss-custom-properties-nested',
 ];
 
 // These authors repeatedly listed incorrect data in "package.json"
