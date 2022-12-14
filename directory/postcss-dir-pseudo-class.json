@@ -1,0 +1,115 @@
+{
+	"name": "postcss-dir-pseudo-class",
+	"description": "Use the :dir pseudo-class in CSS",
+	"version": "6.0.5",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"postcss-selector-parser": "^6.0.10"
+	},
+	"peerDependencies": {
+		"postcss": "^8.2"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.js",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-dir-pseudo-class#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-dir-pseudo-class"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"attribute",
+		"css",
+		"directionality",
+		"directions",
+		"left",
+		"left-to-right",
+		"ltr",
+		"polyfill",
+		"postcss",
+		"postcss-plugin",
+		"right",
+		"right-to-left",
+		"rtl",
+		"selector"
+	],
+	"csstools": {
+		"exportName": "postcssDirPseudoClass",
+		"humanReadableName": "PostCSS Dir Pseudo Class"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "15f1458d3433fff7da696e19196824f6a433d28a",
+	"_id": "postcss-dir-pseudo-class@6.0.5",
+	"_nodeVersion": "16.13.1",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-eqn4m70P031PF7ZQIvSgy9RSJ5uI2171O/OO/zcRNYpJbvaeKFUlar1aJ7rmgiQtbm0FSPsRewjpdS0Oew7MPA==",
+		"shasum": "2bf31de5de76added44e0a25ecf60ae9f7c7c26c",
+		"tarball": "https://registry.npmjs.org/postcss-dir-pseudo-class/-/postcss-dir-pseudo-class-6.0.5.tgz",
+		"fileCount": 6,
+		"unpackedSize": 19039,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDCf5CY9n9d/MsrkIGd1Z5cV3G4TDJzjcaW9xfeHGZwngIhAIjHHcfrDx0qb5m7cB6Y+eRJZui8haLPz/BFkSgcCjTr"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFh1ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoauA/+OZLRdICtk6kL/IaqCsdvcVYhp39ckh9CXMHzkYozZdOT4A2c\r\neUzRyXL4dUR68S4TAfx9XkP4IPud5Bz6rXzPQr4GWj66XJj/P7/emeXH+eJJ\r\nbhc+XqwfvjmEazM6CpKdNnjkBYvTNWblB3+7bDBRE29ScRuIWZcsVAMhbmkS\r\n2+KsxOMf3GIg6CrFqSMdTAPahUA9sPNo/2eTnqQXbfyplefdXweJGOL909IW\r\n7tEor8GJDAeWJN5cEM8s3TrPmp2o1wOptxDmYtqhPVI3X0gwve/njWje6aVh\r\ntlneH0TwPAPnxL2F6Q1Ev/2PJjaZMDCf050YzK4RpOnGjF8gB6lNfBZDzkyC\r\nY9nx0Q3IuqdRXxMddPckx7iEVEY5ldExKJdShtYXj4LBmyj+lQGQBtzuPYNU\r\nekw2FYjmT1e/EBuAhIo7hE/6FhnxyMQYhvJ51g9VUdt0AauhTUxW29gL7O/d\r\na17Y4jpSZsUFKLD9w0nAId+TBrxwzB2gnYTG0jSe69wa51xu0Yy7maDUhH1/\r\ngGJGUJzwKuQNYfKESm0fXbV83qeYODAUU8addh2ktzxvs9j4MMRkgc3CYijj\r\nY4v50V0DO/bL3u4kER5LaFyWPKB9GwS1uIamSAkAEf9mKNEmXsbFvNkGfovo\r\n9u4BViSxZFZQki44ljjnGevOOo9YGXTkl8I=\r\n=d6eN\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-dir-pseudo-class_6.0.5_1657297013321_0.1740367225999766"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-07-08T16:16:53.541Z"
+}
