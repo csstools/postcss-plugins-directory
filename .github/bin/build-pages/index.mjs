@@ -2,17 +2,122 @@ import fs from 'fs/promises';
 import path from 'path';
 import he from 'he';
 
-const excludedKeywords = [
+const excludedKeywords = new Set([
+	'alignments',
+	'at-rule',
+	'at-rules',
+	'attribute',
+	'becca',
+	'browsers',
+	'calculation',
+	'child',
+	'children',
 	'css',
 	'css3',
 	'css4',
+	'csscomb',
 	'csswg',
+	'custom',
+	'declarative',
+	'default',
+	'defaults',
+	'delete',
+	'design',
+	'directionality',
+	'directions',
+	'eaches',
+	'environments',
+	'envs',
+	'flexbugs',
+	'flexibility',
+	'function',
+	'functional',
+	'functions',
+	'generate',
+	'generation',
+	'javascript',
+	'js',
 	'lib',
+	'list-item',
+	'lists',
+	'meyer',
+	'mq',
+	'nestings',
+	'node modules',
 	'node',
+	'npm',
+	'postcss plugin',
 	'postcss',
+	'postcss-aspect-ratio',
+	'postcss-class-prefixer',
+	'postcss-design-tokens',
+	'postcss-extract-css-variables',
+	'postcss-inline-base64',
+	'postcss-merge-rules-plus',
+	'postcss-nested',
 	'postcss-plugin',
+	'preprocessor',
+	'spritesmith',
 	'style',
-]
+])
+
+const _normalizeKeywordMappings = new Map(
+	[
+		['aligns', 'align'],
+		['ancestors', 'ancestor'],
+		['browserlists', 'browserslists'],
+		['classes', 'class'],
+		['colors', 'color'],
+		['components-library', 'components'],
+		['compression', 'compress'],
+		['conditionals', 'conditional'],
+		['css modules', 'modules'],
+		['css-custom-properties', 'custom properties'],
+		['css-modules', 'modules'],
+		['declarations', 'declaration'],
+		['descendants', 'descendant'],
+		['extensions', 'extension'],
+		['faces', 'face'],
+		['flexbox', 'flex'],
+		['gaps', 'gap'],
+		['grids', 'grid'],
+		['if-statements', 'if-statement'],
+		['ios-safari', 'ios'],
+		['iterators', 'iterator'],
+		['keyboards', 'keyboard'],
+		['match', 'matches'],
+		['matched', 'matches'],
+		['media querie', 'media query'],
+		['media queries', 'media query'],
+		['mediaquery', 'media query'],
+		['medias', 'media query'],
+		['mixins', 'mixin'],
+		['normalizes', 'normalize'],
+		['optimisation', 'optimise'],
+		['optimization', 'optimise'],
+		['placehold', 'placeholder'],
+		['prefixer', 'prefix'],
+		['prefixes', 'prefix'],
+		['properties', 'property'],
+		['pseudos', 'pseudo'],
+		['queries', 'query'],
+		['rules', 'rule'],
+		['selectors', 'selector'],
+		['shorthands', 'shorthand'],
+		['spec', 'specification'],
+		['specifications', 'specification'],
+		['specs', 'specification'],
+		['subclasses', 'subclass'],
+		['subclassing', 'subclass'],
+		['tokens', 'token'],
+		['types', 'type'],
+		['variants', 'variant'],
+	]
+);
+
+function normalizeKeyword(keyword) {
+	return _normalizeKeywordMappings.get(keyword) ?? keyword
+}
 
 function renderPage(body, searchData, allKeywords) {
 	return `<!DOCTYPE html>
@@ -95,7 +200,7 @@ function renderFunding(funding) {
 
 function renderKeywords(keywords) {
 	if (keywords?.length) {
-		const uniqueKeywords = Array.from(new Set(keywords)).filter((x) => !excludedKeywords.includes(x));
+		const uniqueKeywords = Array.from(new Set(keywords));
 		uniqueKeywords.sort((a, b) => a.localeCompare(b));
 
 		return '<ul>' + uniqueKeywords.map((keyword) => `<li>${he.encode(keyword)}</li>`).join('') + '</ul>';
@@ -188,29 +293,31 @@ allPluginData.sort((a, b) => {
 for (let i = 0; i < allPluginData.length; i++) {
 	const pluginData = allPluginData[i];
 
-	const keywords = (pluginData.keywords?.length ? pluginData.keywords : []).map((x) => {
-		return x.toLowerCase().trim();
+	pluginData.keywords = (pluginData.keywords?.length ? pluginData.keywords : []).map((x) => {
+		return normalizeKeyword(x.toLowerCase().trim());
+	}).filter((x) => {
+		return !excludedKeywords.has(x);
 	});
 	
 	if (pluginData.repository && pluginData.repository.startsWith('https://github.com/csstools/')) {
-		keywords.push('csstools');
+		pluginData.keywords.push('csstools');
 	}
 
 	if (pluginData.repository && pluginData.repository.startsWith('https://github.com/cssnano/')) {
-		keywords.push('cssnano');
+		pluginData.keywords.push('cssnano');
 	}
 
-	const searchEntry = {
+	pluginData.keywords = Array.from(new Set(pluginData.keywords));
+
+	searchData.push({
 		name: pluginData.name,
 		id: he.encode(encodeURIComponent(pluginData.name)),
-		keywords: keywords,
+		keywords: pluginData.keywords,
 		description: pluginData.description ?? ''
-	};
+	});
 
-	searchData.push(searchEntry);
-
-	for (let j = 0; j < searchEntry.keywords.length; j++) {
-		allKeywords.add(he.encode(searchEntry.keywords[j]));
+	for (let j = 0; j < pluginData.keywords.length; j++) {
+		allKeywords.add(he.encode(pluginData.keywords[j]));
 	}
 
 	result += `
@@ -247,7 +354,7 @@ for (let i = 0; i < allPluginData.length; i++) {
 	`
 }
 
-const allKeywordsSorted = Array.from(allKeywords).filter((x) => !excludedKeywords.includes(x));
+const allKeywordsSorted = Array.from(allKeywords);
 allKeywordsSorted.sort((a, b) => a.localeCompare(b))
 
 await fs.writeFile('./docs/index.html', renderPage(result, searchData, allKeywordsSorted))
