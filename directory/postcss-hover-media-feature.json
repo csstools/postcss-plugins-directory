@@ -1,0 +1,141 @@
+{
+	"name": "postcss-hover-media-feature",
+	"version": "1.0.2",
+	"description": "PostCSS plugin that extracts and wraps rules containing `:hover` pseudo-classes in `@media (hover: hover) {}` media queries",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"media",
+		"feature",
+		"query",
+		"hover",
+		"touch"
+	],
+	"main": "index.cjs.js",
+	"module": "index.es.mjs",
+	"scripts": {
+		"lint": "prettier '*.{md,yml}' --check && eslint-ci .",
+		"lint:fix": "prettier '*.{md,yml}' --write && eslint-ci . --fix",
+		"test": "jest-ci --coverage",
+		"build": "rollup -c",
+		"version": "auto-changelog -p && git add CHANGELOG.md"
+	},
+	"author": {
+		"name": "Saul Hardman",
+		"email": "hello@iamsaul.co.uk"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saulhardman/postcss-hover-media-feature.git"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.3",
+		"@babel/preset-env": "^7.8.3",
+		"@logux/eslint-config": "^40.0.5",
+		"@rollup/plugin-json": "^4.0.1",
+		"auto-changelog": "^2.2.1",
+		"eslint": "^7.10.0",
+		"eslint-ci": "^1.0.0",
+		"eslint-config-postcss": "^4.0.0",
+		"eslint-config-standard": "^14.1.1",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jest": "^24.0.2",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prefer-let": "^1.1.0",
+		"eslint-plugin-prettierx": "^0.14.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-security": "^1.4.0",
+		"eslint-plugin-standard": "^4.0.1",
+		"eslint-plugin-unicorn": "^22.0.0",
+		"husky": "^4.3.0",
+		"jest": "^26.4.2",
+		"jest-ci": "^0.1.1",
+		"jest-cli": "^26.4.2",
+		"lint-staged": "^10.4.0",
+		"postcss": "^8.1.1",
+		"prettier": "^2.2.1",
+		"rollup": "^2.28.2",
+		"rollup-plugin-babel": "^4.3.3"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": "eslint --fix",
+		"*.{md,yml}": "prettier --write"
+	},
+	"eslintConfig": {
+		"extends": "eslint-config-postcss",
+		"parserOptions": {
+			"ecmaVersion": 2017,
+			"sourceType": "module"
+		},
+		"env": {
+			"node": true,
+			"es6": true
+		},
+		"rules": {
+			"jest/expect-expect": "off"
+		}
+	},
+	"prettier": {
+		"singleQuote": true,
+		"semi": false,
+		"trailingComma": "none"
+	},
+	"engines": {
+		"node": ">=10.0.0"
+	},
+	"jest": {
+		"testEnvironment": "node"
+	},
+	"dependencies": {
+		"postcss-selector-parser": "^6.0.4"
+	},
+	"gitHead": "a3885c43fc8931377cf27f3fc7b7aeaf077eb0ba",
+	"bugs": {
+		"url": "https://github.com/saulhardman/postcss-hover-media-feature/issues"
+	},
+	"homepage": "https://github.com/saulhardman/postcss-hover-media-feature#readme",
+	"_id": "postcss-hover-media-feature@1.0.2",
+	"_nodeVersion": "16.13.2",
+	"_npmVersion": "8.3.2",
+	"dist": {
+		"integrity": "sha512-o5xDUqCQ4xtilWOcvo5LKYxFVSLWcBN0IlTqa0IJwAwHTd4pxKmX4c0fGIpgLQCcBB/+aFizt2NVWNGJWG4Izg==",
+		"shasum": "7c2046ddee1521148660195864b014d6c1d13b3c",
+		"tarball": "https://registry.npmjs.org/postcss-hover-media-feature/-/postcss-hover-media-feature-1.0.2.tgz",
+		"fileCount": 7,
+		"unpackedSize": 25086,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh8ErqCRA9TVsSAnZWagAAyqYQAKLy3i6OLZb+FTShrxzQ\nY1pgU1wl9dYfEiyPE5zNRVft+nHUomA7+h00JtFh6RYAosYFMspQHkvv+9cH\n4ooZoqAoQCs5jvwXNEcNZ8xHwtryMM5MEe3GNjH58pb/OIcSoZBDRfaCqAZv\neN55pVJ6czO4PuZmjpLS/XIv3UPrpMPuo2SzrK6XGG4wJIMY9IIZVUkXtBPA\nJac4x1vHFLAkasQOr/PYMxD2+wp+jxMoDp+iMWIwJ8BoQYs0zfD5CFHZZLYM\nJmG2FH8zqLcJxFWkdBJrxI84l5p7L1pbTirZ94BbuBLOI4FD7Teanej6qMyl\nx9iRDuORC5mgrkvawCKn028pwmvMvMk1cmTIJb3eTQVEJNzBMceMJx2qkkMq\n4i/mgnGapouRZ2rYDDFYuvslPwyy/9vgc5mXdKV/IgQSWlki5geZ7Es8FKQA\nFgR5yP9Z2u0QPdcEORKlPDJWaIpshHYgls1eJA8Rjs3dqfTYSZWmm+oSPoih\nZBxtOzmCtlU/8HU4EufxTDDFdCfACGZg+lNvNkPpSOoVAA8pVkD+hVNdivx7\nqWs2GH0wkZrUZB/GkIjNFPTcgNNXVm0zUnHGZcDOH95unmYV7hFBzBLmdGWE\n9UkfyXisDmFG56/MWffvJw5PWhwAy1IbPCA4DSDyIv2ouWRwehVxZH1yZnsh\n15r4\r\n=ivfT\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQC2+bRDhFz4ilZ2tSfVWpsqhJ0tPuSz87bSR+yGcwiOywIhAJQNf2xikQ1hUy+0NzudjxJwfTt8Z3JpwN0CoKg5chdy"
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "saulhardman",
+		"email": "hello@iamsaul.co.uk"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "saulhardman",
+			"email": "hello@iamsaul.co.uk"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-hover-media-feature_1.0.2_1643137770319_0.1118914675048559"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-01-25T19:09:30.650Z"
+}
