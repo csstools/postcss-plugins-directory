@@ -1,0 +1,121 @@
+{
+	"name": "postcss-input-range",
+	"version": "5.0.0",
+	"description": "Style range inputs with unprefixed pseudo-classes",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonathantneal/postcss-input-range.git"
+	},
+	"homepage": "https://github.com/jonathantneal/postcss-input-range#readme",
+	"bugs": {
+		"url": "https://github.com/jonathantneal/postcss-input-range/issues"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"scripts": {
+		"build": "rollup --config .rollup.js --silent",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "npm run lint && npm run test:tape",
+		"lint": "echint && eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+		"test:tape": "postcss-tape"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"dependencies": {
+		"postcss-selector-parser": "^6.0.10"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.17.2",
+		"@babel/eslint-parser": "^7.17.0",
+		"@babel/preset-env": "^7.16.11",
+		"echint": "^4.0.1",
+		"echint-config-dev": "1.0.0",
+		"eslint": "^8.13.0",
+		"eslint-config-dev": "2.0.0",
+		"postcss": "^8.4.6",
+		"postcss-tape": "^6.0.1",
+		"rollup": "^2.67.2",
+		"rollup-plugin-babel": "^4.4.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"postcssConfig": {
+		"config": ".tape.js"
+	},
+	"echint": {
+		"extends": "dev"
+	},
+	"eslintConfig": {
+		"extends": "dev",
+		"parserOptions": {
+			"sourceType": "module"
+		}
+	},
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"styles",
+		"ranges",
+		"inputs",
+		"types",
+		"pseudos",
+		"classes",
+		"thumbs",
+		"tracks"
+	],
+	"gitHead": "fa8faf950266e5f3388447c5c573107cb45148ec",
+	"_id": "postcss-input-range@5.0.0",
+	"_nodeVersion": "16.13.2",
+	"_npmVersion": "8.1.2",
+	"dist": {
+		"integrity": "sha512-fL6spCg2tvVUMaWGImNYV78azlfQP0/wON7im188apJxIq0HMUwysTdMeN3TvS+Co/bjJvU2BuEhqg1LZfCuxw==",
+		"shasum": "059065ef09f081ae1a33bc1eafac3d2bbef24861",
+		"tarball": "https://registry.npmjs.org/postcss-input-range/-/postcss-input-range-5.0.0.tgz",
+		"fileCount": 6,
+		"unpackedSize": 18721,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCdIq6lnmwr1R2zlkxW99ATzccmblB3m4wmjOKp7zSlPwIgLpp93T4+4AMzKAc3d/2tjoyi9fMiEmVLq4xjdKhCi60="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiVTOdACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqWsQ/+OcZRlaytP+DXT94Sr05Ckci4COF/d/E/LrO0E473qE3qOsSm\r\nzPd0g3AauavG8YPQRvutuC12voYr7IT+6ZLwhe9YB2tPRI5do3d2cHeMF6+x\r\nVKAQAzd12LRHr2apA4pVjcVYkjUcNTufJSc5+jG8gpaMXl/lJTtGW3pEA2Sv\r\npqiu8N4O5aMSkA5Gjxk1ZlipYrFtw/36TMM71bHcQsG8U8A7qJB30AdGQIbd\r\n1jyzGAaJKn+CLMmt6PTbDVNx79KxEeTcD7snOqXqLHgN6m/2aczEdoA8tuuE\r\n9pRcGvIz2WE84XMW3CdK3tmDkMfo7lYt1YUP+3RVILx5jM6h2croHbrmztCN\r\nXbQnkTrmCVvZ04mn+8Z9Dn/QbMnzEsWVdlumk4T2uu0vxI6LqvzEWGLXIVWu\r\nzVI0C4leNxpZ3ExFVujFmFp7JMbC5p1RCmA8GWUwXVUMeyxK1t6OQKQp+AYa\r\nYShKalfqJkKzot1NSvdKKcGDoCuTrSkFFIOEvAAdRpDz5WukYuNGhaUc7SI/\r\nt3ndWchOGosF1bp/m9LVsPxc8lWS0U+TiFPEoh9PBRUU3MDyzbmkGaorkGEl\r\n1nZCd/lHqa2crDL+b8vMK+WlfGiwyESNDjMA4Xc8J6WJoVsDhQUg+IiiI89B\r\njmEXj6KYXjtu8BkqL0f2v61mfHE9bYKLJXA=\r\n=xWyk\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-input-range_5.0.0_1649750940847_0.740736383143233"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2022-04-12T08:09:00.998Z"
+}
