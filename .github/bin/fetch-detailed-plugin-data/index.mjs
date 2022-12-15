@@ -39,9 +39,16 @@ async function fetchDetailedPluginData(plugin, forced, index, total) {
 	}
 
 	console.log(`processing ${index + 1}/${total}`, pluginFilePath);
-	const detailedData = await fetchPlugin(plugin.package.name)
-	const downloadsData = await fetchDownloadCount(plugin.package.name)
-	detailedData._downloads = downloadsData.downloads
+	const detailedData = await fetchPlugin(plugin.package.name);
+	const downloadsData = await fetchDownloadCount(plugin.package.name);
+
+	if (existingData._downloads && existingData._downloads > 50 && downloadsData.downloads < 50) {
+		// Some plugins might oscillate around 50.
+		// If a plugin drops from above 50 to under 50 we set it to exactly 50.
+		detailedData._downloads = 50;
+	} else {
+		detailedData._downloads = downloadsData.downloads;
+	}
 
 	await fs.mkdir(path.dirname(pluginFilePath), { recursive: true })
 	await fs.writeFile(pluginFilePath, JSON.stringify(detailedData, null, '\t'))
