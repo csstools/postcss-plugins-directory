@@ -46,6 +46,7 @@ const invalidForks = [
 	'postcss-custom-media2',
 	'postcss-custom-properties-nested',
 	'postcss-mpxtorem',
+	'postcss-vwtorem',
 ];
 
 // These authors repeatedly listed incorrect data in "package.json"
