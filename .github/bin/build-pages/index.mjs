@@ -157,9 +157,10 @@ const allPluginData = [];
 for (let i = 0; i < pluginDataFiles.length; i++) {
 	const pluginDataFile = pluginDataFiles[i];
 	const pluginData = JSON.parse(await fs.readFile(pluginDataFile));
-	pluginData.scope = maintainedPluginsData.get(pluginData.name).package.scope
-	pluginData.unscopedPackageName = unscopedPackageName(pluginData)
-	allPluginData.push(pluginData)
+	pluginData.scope = maintainedPluginsData.get(pluginData.name).package.scope;
+	pluginData.unscopedPackageName = unscopedPackageName(pluginData);
+	pluginData.repository = maintainedPluginsData.get(pluginData.name).package.links?.repository;
+	allPluginData.push(pluginData);
 }
 
 function unscopedPackageName(pluginData) {
@@ -187,12 +188,22 @@ allPluginData.sort((a, b) => {
 for (let i = 0; i < allPluginData.length; i++) {
 	const pluginData = allPluginData[i];
 
+	const keywords = (pluginData.keywords?.length ? pluginData.keywords : []).map((x) => {
+		return x.toLowerCase().trim();
+	});
+	
+	if (pluginData.repository && pluginData.repository.startsWith('https://github.com/csstools/')) {
+		keywords.push('csstools');
+	}
+
+	if (pluginData.repository && pluginData.repository.startsWith('https://github.com/cssnano/')) {
+		keywords.push('cssnano');
+	}
+
 	searchData.push({
 		name: pluginData.name,
 		id: he.encode(encodeURIComponent(pluginData.name)),
-		keywords: (pluginData.keywords?.length ? pluginData.keywords : []).map((x) => {
-			return x.toLowerCase().trim();
-		}),
+		keywords: keywords,
 		description: pluginData.description ?? ''
 	});
 
