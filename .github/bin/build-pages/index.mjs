@@ -200,17 +200,17 @@ for (let i = 0; i < allPluginData.length; i++) {
 		keywords.push('cssnano');
 	}
 
-	searchData.push({
+	const searchEntry = {
 		name: pluginData.name,
 		id: he.encode(encodeURIComponent(pluginData.name)),
 		keywords: keywords,
 		description: pluginData.description ?? ''
-	});
+	};
 
-	if (pluginData.keywords) {
-		for (let j = 0; j < pluginData.keywords.length; j++) {
-			allKeywords.add(he.encode(pluginData.keywords[j].toLowerCase().trim()));
-		}
+	searchData.push(searchEntry);
+
+	for (let j = 0; j < searchEntry.keywords.length; j++) {
+		allKeywords.add(he.encode(searchEntry.keywords[j]));
 	}
 
 	result += `
@@ -224,10 +224,7 @@ for (let i = 0; i < allPluginData.length; i++) {
 
 			<a class="plugin-npm-link-for-summary" href="https://www.npmjs.com/package/${he.encode(pluginData.name)}">npm</a>
 			
-			<p>
-				${he.encode(pluginData.description ?? '') || '<i>no description</i>'}
-				
-			</p>
+			<p>${he.encode(pluginData.description ?? '') || '<i>no description</i>'}</p>
 
 			<dl>
 				<dt><a href="https://www.npmjs.com/package/${he.encode(pluginData.name)}">npm</a></dt>
