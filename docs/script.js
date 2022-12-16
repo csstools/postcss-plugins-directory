@@ -14,14 +14,14 @@
 	}
 
 	function showAll() {
-		var list = document.querySelectorAll('article.plugin')
+		var list = document.querySelectorAll('article.plugin');
 		for (var i = 0; i < list.length; i++) {
 			list[i].removeAttribute('hidden');
 		}
 	}
 
 	function hideAll() {
-		var list = document.querySelectorAll('article.plugin')
+		var list = document.querySelectorAll('article.plugin');
 		for (var i = 0; i < list.length; i++) {
 			list[i].setAttribute('hidden', '');
 		}
@@ -66,18 +66,18 @@
 				continue PLUGIN_LOOP;
 			}
 
-			matchingItemIDs.push(pluginData.id)
+			matchingItemIDs.push(pluginData.id);
 		}
 
 		hideAll();
 		for (var i = 0; i < matchingItemIDs.length; i++) {
-			document.getElementById(matchingItemIDs[i]).removeAttribute('hidden')
+			document.getElementById(matchingItemIDs[i]).removeAttribute('hidden');
 		}
 	}
 
-	searchInput.addEventListener('keyup', valueChangeHandler)
-	searchInput.addEventListener('change', valueChangeHandler)
-	searchInput.addEventListener('paste', valueChangeHandler)
+	searchInput.addEventListener('keyup', valueChangeHandler);
+	searchInput.addEventListener('change', valueChangeHandler);
+	searchInput.addEventListener('paste', valueChangeHandler);
 })();
 
 ;(function () {
@@ -97,11 +97,18 @@
 
 	function valueChangeHandler() {
 		if (detailedPluginInfoToggle.checked) {
-			document.body.setAttribute('show-detailed-plugin-info', '');
+			var detailsElements = document.getElementsByTagName('details');
+			for (var i = 0; i < detailsElements.length; i++) {
+				detailsElements[i].setAttribute('open', '');
+			}
+
 		} else {
-			document.body.removeAttribute('show-detailed-plugin-info');
+			var detailsElements = document.getElementsByTagName('details');
+			for (var i = 0; i < detailsElements.length; i++) {
+				detailsElements[i].removeAttribute('open');
+			}
 		}
 	}
 
-	detailedPluginInfoToggle.addEventListener('change', valueChangeHandler)
+	detailedPluginInfoToggle.addEventListener('change', valueChangeHandler);
 })();

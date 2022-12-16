@@ -152,7 +152,7 @@ function renderPage(body, searchData, allKeywords) {
 	<ul>
 		<li>published on npm</li>
 		<li>50 monthly downloads from npm</li>
-		<li>postcss-plugin keyword in your <code>package.json</code></li>
+		<li><code>postcss-plugin</code> keyword in your <code>package.json</code></li>
 		<li>valid repository link in your <code>package.json</code></li>
 		<li>valid homepage link in your <code>package.json</code></li>
 		<li>valid peer dependency value for postcss</li>
@@ -332,34 +332,35 @@ for (let i = 0; i < allPluginData.length; i++) {
 
 	result += `
 		<article class="plugin" id="${he.encode(encodeURIComponent(pluginData.name))}">
-			<h3>
-				<a class="plugin-anchor-link" href="#${he.encode(encodeURIComponent(pluginData.name))}">
+			<details>
+				<summary>
+					<h3>${renderScope(pluginData)}${he.encode(pluginData.unscopedPackageName)}</h3>
+
+					<p>${he.encode(pluginData.description ?? '') || '<i>no description</i>'}</p>
+				</summary>
+
+				<dl>
+					<dt><a href="https://www.npmjs.com/package/${he.encode(pluginData.name)}">npm</a></dt>
+					<dd><code>npm -i ${he.encode(pluginData.name)}</code></dd>
+
+					<dt>Version</dt>
+					<dd><code>${he.encode(pluginData.version)}</code></dd>
+
+					<dt>License</dt>
+					<dd><code>${he.encode(pluginData.license)}</code></dd>
+
+					<dt>PostCSS version range</dt>
+					<dd><code>${he.encode(pluginData.peerDependencies.postcss)}</code></dd>
+					
+					${renderFunding(pluginData.funding)}
+				</dl>
+
+				${renderKeywords(pluginData.keywords)}
+
+				<a class="plugin-anchor-link" href="#${he.encode(encodeURIComponent(pluginData.name))}" title="Link to this item">
 					<span class="plugin-anchor-link__icon" aria-hidden="true">☞</span>
-					${renderScope(pluginData)}${he.encode(pluginData.unscopedPackageName)}
 				</a>
-			</h3>
-
-			<a class="plugin-npm-link-for-summary" href="https://www.npmjs.com/package/${he.encode(pluginData.name)}">npm</a>
-			
-			<p>${he.encode(pluginData.description ?? '') || '<i>no description</i>'}</p>
-
-			<dl>
-				<dt><a href="https://www.npmjs.com/package/${he.encode(pluginData.name)}">npm</a></dt>
-				<dd><code>npm -i ${he.encode(pluginData.name)}</code></dd>
-
-				<dt>Version</dt>
-				<dd><code>${he.encode(pluginData.version)}</code></dd>
-
-				<dt>License</dt>
-				<dd><code>${he.encode(pluginData.license)}</code></dd>
-
-				<dt>PostCSS version range</dt>
-				<dd><code>${he.encode(pluginData.peerDependencies.postcss)}</code></dd>
-				
-				${renderFunding(pluginData.funding)}
-			</dl>
-
-			${renderKeywords(pluginData.keywords)}
+			</details>
 		</article>
 	`;
 }
