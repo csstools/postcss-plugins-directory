@@ -292,9 +292,9 @@ allPluginData.sort((a, b) => {
 	}
 
 	if (a.scope === 'unscoped') {
-		return -1
+		return -1;
 	} else if (b.scope === 'unscoped') {
-		return 1
+		return 1;
 	} else {
 		return a.name.localeCompare(b.name);
 	}
