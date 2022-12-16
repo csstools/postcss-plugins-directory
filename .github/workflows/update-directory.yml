@@ -30,6 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: save
+        if: ${{ env.UPDATED_PLUGIN }}
         run: |
           # Git config
           git config user.name github-actions
@@ -40,25 +41,24 @@ jobs:
           git push --set-upstream origin "update-directory/$UPDATED_PLUGIN"
 
       - name: Open pull request
+        if: ${{ env.UPDATED_PLUGIN }}
         uses: actions/github-script@v6
         with:
           script: |
-            if (!!(process.env.UPDATED_PLUGIN.trim())) {
-              const { repo, owner } = context.repo;
-              const result = await github.rest.pulls.create({
-                title: process.env.UPDATED_PLUGIN,
-                owner,
-                repo,
-                head: `update-directory/${process.env.UPDATED_PLUGIN}`,
-                base: 'main',
-                body: [
-                  'This PR is auto-generated'
-                ].join('\n')
-              });
-              github.rest.issues.addLabels({
-                owner,
-                repo,
-                issue_number: result.data.number,
-                labels: ['update directory']
-              });
-            }
+            const { repo, owner } = context.repo;
+            const result = await github.rest.pulls.create({
+              title: process.env.UPDATED_PLUGIN,
+              owner,
+              repo,
+              head: `update-directory/${process.env.UPDATED_PLUGIN}`,
+              base: 'main',
+              body: [
+                'This PR is auto-generated'
+              ].join('\n')
+            });
+            github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: result.data.number,
+              labels: ['update directory']
+            });
