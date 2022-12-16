@@ -140,13 +140,17 @@ function renderPage(body, searchData, allKeywords) {
 
 	<script type="text/javascript" src="./script.js" defer=""></script>
 	<link rel="stylesheet" href="./style.css">
+	<link href="/favicon.ico" rel="shortcut icon">
 	<script>
 		window._searchData = ${JSON.stringify(searchData)}
 	</script>
 </head>
 <body>
-	<h1>PostCSS Plugin Directory</h1>
-	<p>A directory of PostCSS plugins.<br>This list aims to only show plugins that you can use today.</p>
+	<div class="header">
+		<img src="./postcss.svg" width="100" height="100">
+		<h1>PostCSS Plugin Directory</h1>
+		<p>A directory of PostCSS plugins.<br>This list aims to only show plugins that you can use today.</p>
+	</div>
 
 	<h2>Criteria</h2>
 	<ul>
@@ -221,7 +225,7 @@ function renderKeywords(keywords) {
 
 function renderScope(pluginData) {
 	if (pluginData.scope !== 'unscoped') {
-		return `<span style="opacity: 0.6;">${he.encode('@' + pluginData.scope + '/')}</span>`;
+		return `<span style="opacity: 0.7;">${he.encode('@' + pluginData.scope + '/')}</span>`;
 	}
 
 	return '';
