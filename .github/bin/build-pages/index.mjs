@@ -65,7 +65,7 @@ const excludedKeywords = new Set([
 	'preprocessor',
 	'spritesmith',
 	'style',
-])
+]);
 
 const _normalizeKeywordMappings = new Map(
 	[
@@ -126,7 +126,7 @@ const _normalizeKeywordMappings = new Map(
 );
 
 function normalizeKeyword(keyword) {
-	return _normalizeKeywordMappings.get(keyword) ?? keyword
+	return _normalizeKeywordMappings.get(keyword) ?? keyword;
 }
 
 function renderPage(body, searchData, allKeywords) {
@@ -194,7 +194,7 @@ function renderPage(body, searchData, allKeywords) {
 	</div>
 </body>
 </html>
-`
+`;
 }
 
 function renderFunding(funding) {
@@ -221,10 +221,10 @@ function renderKeywords(keywords) {
 
 function renderScope(pluginData) {
 	if (pluginData.scope !== 'unscoped') {
-		return `<span style="opacity: 0.6;">${he.encode('@' + pluginData.scope + '/')}</span>`
+		return `<span style="opacity: 0.6;">${he.encode('@' + pluginData.scope + '/')}</span>`;
 	}
 
-	return ''
+	return '';
 }
 
 async function traverseDir(dir) {
@@ -237,7 +237,7 @@ async function traverseDir(dir) {
 		if ((await fs.lstat(fullPath)).isDirectory()) {
 			out.push(...(await traverseDir(fullPath)));
 		} else {
-			out.push(fullPath)
+			out.push(fullPath);
 		}
 	}
 
@@ -247,13 +247,13 @@ async function traverseDir(dir) {
 {
 	const pluginDataFiles = await traverseDir('./directory');
 	const pluginsSet = new Set(JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json')).objects.map((plugin) => {
-		return path.join('directory', plugin.package.name) + '.json'
+		return path.join('directory', plugin.package.name) + '.json';
 	}));
 
 	for (let i = 0; i < pluginDataFiles.length; i++) {
 		const pluginDataFile = pluginDataFiles[i];
 		if (!pluginsSet.has(pluginDataFile)) {
-			await fs.rm(pluginDataFile)
+			await fs.rm(pluginDataFile);
 		}
 	}
 }
@@ -265,7 +265,7 @@ let searchData = [];
 const allKeywords = new Set();
 
 const maintainedPluginsData = new Map(JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json')).objects.map((plugin) => {
-	return [plugin.package.name, plugin]
+	return [plugin.package.name, plugin];
 }));
 
 const allPluginData = [];
@@ -288,7 +288,7 @@ function unscopedPackageName(pluginData) {
 
 allPluginData.sort((a, b) => {
 	if (a.unscopedPackageName !== b.unscopedPackageName) {
-		return a.unscopedPackageName.localeCompare(b.unscopedPackageName)
+		return a.unscopedPackageName.localeCompare(b.unscopedPackageName);
 	}
 
 	if (a.scope === 'unscoped') {
@@ -296,7 +296,7 @@ allPluginData.sort((a, b) => {
 	} else if (b.scope === 'unscoped') {
 		return 1
 	} else {
-		return a.name.localeCompare(b.name)
+		return a.name.localeCompare(b.name);
 	}
 })
 
@@ -361,10 +361,10 @@ for (let i = 0; i < allPluginData.length; i++) {
 
 			${renderKeywords(pluginData.keywords)}
 		</article>
-	`
+	`;
 }
 
 const allKeywordsSorted = Array.from(allKeywords);
-allKeywordsSorted.sort((a, b) => a.localeCompare(b))
+allKeywordsSorted.sort((a, b) => a.localeCompare(b));
 
-await fs.writeFile('./docs/index.html', renderPage(result, searchData, allKeywordsSorted))
+await fs.writeFile('./docs/index.html', renderPage(result, searchData, allKeywordsSorted));

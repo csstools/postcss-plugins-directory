@@ -7,33 +7,33 @@ async function fetchPlugin(name) {
 		throw new Error(`Fetching detailed plugin data : ${response.statusText}`);
 	}
 
-	return await response.json()
+	return await response.json();
 }
 
 async function fetchDownloadCount(name) {
-	const response = await fetch(`https://api.npmjs.org/downloads/point/last-month/${name}`)
+	const response = await fetch(`https://api.npmjs.org/downloads/point/last-month/${name}`);
 	if (response.status !== 200) {
 		return {
 			downloads: 0
-		}
+		};
 	}
 
-	return await response.json()
+	return await response.json();
 }
 
 async function readJSONFromFileOrEmptyObject(path) {
 	try {
-		return JSON.parse(await fs.readFile(path))
+		return JSON.parse(await fs.readFile(path));
 	} catch (_) {
-		return {}
+		return {};
 	}
 }
 
 async function fetchDetailedPluginData(plugin, forced, index, total) {
-	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
+	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
 
-	const existingData = await readJSONFromFileOrEmptyObject(pluginFilePath)
-	const times = new Set(Object.values(existingData?.time ?? {}))
+	const existingData = await readJSONFromFileOrEmptyObject(pluginFilePath);
+	const times = new Set(Object.values(existingData?.time ?? {}));
 	if (!forced && times.has(plugin.package.date) && existingData._downloads) {
 		return false;
 	}
@@ -50,8 +50,8 @@ async function fetchDetailedPluginData(plugin, forced, index, total) {
 		detailedData._downloads = downloadsData.downloads;
 	}
 
-	await fs.mkdir(path.dirname(pluginFilePath), { recursive: true })
-	await fs.writeFile(pluginFilePath, JSON.stringify(detailedData, null, '\t'))
+	await fs.mkdir(path.dirname(pluginFilePath), { recursive: true });
+	await fs.writeFile(pluginFilePath, JSON.stringify(detailedData, null, '\t'));
 
 	return true;
 }
@@ -80,7 +80,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
 	const didFetch = await fetchDetailedPluginData(plugin, false, i, pluginsList.objects.length);
 	if (didFetch) {
-		counter++
+		counter++;
 	}
 }
 

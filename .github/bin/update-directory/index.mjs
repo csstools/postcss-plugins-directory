@@ -23,7 +23,7 @@ export async function listAllPullRequests() {
 async function getPullRequests(page) {
 	const headers = {
 		'User-Agent': 'GitHub Workflow'
-	}
+	};
 
 	if (process.env.GITHUB_TOKEN) {
 		headers['authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
@@ -38,7 +38,7 @@ async function getPullRequests(page) {
 	);
 
 	if (!response.status || (Math.floor(response.status / 100) !== 2)) {
-		throw new Error(`Unepected response code "${response.status}" with message "${response.statusText}"`)
+		throw new Error(`Unepected response code "${response.status}" with message "${response.statusText}"`);
 	}
 
 	const data = await response.json();
@@ -48,8 +48,8 @@ async function getPullRequests(page) {
 			return false;
 		}
 
-		return x.head.ref.slice(17)
-	}).filter((x) => !!x)
+		return x.head.ref.slice(17);
+	}).filter((x) => !!x);
 }
 
 const existingUpdates = await listAllPullRequests();
@@ -64,7 +64,7 @@ async function traverseDir(dir) {
 		if ((await fs.lstat(fullPath)).isDirectory()) {
 			out.push(...(await traverseDir(fullPath)));
 		} else {
-			out.push(fullPath)
+			out.push(fullPath);
 		}
 	}
 
@@ -74,13 +74,13 @@ async function traverseDir(dir) {
 {
 	const pluginDataFiles = await traverseDir('./directory');
 	const pluginsSet = new Set(JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json')).objects.map((plugin) => {
-		return path.join('directory', plugin.package.name) + '.json'
+		return path.join('directory', plugin.package.name) + '.json';
 	}));
 
 	for (let i = 0; i < pluginDataFiles.length; i++) {
 		const pluginDataFile = pluginDataFiles[i];
 		if (!pluginsSet.has(pluginDataFile)) {
-			await fs.rm(pluginDataFile)
+			await fs.rm(pluginDataFile);
 		}
 	}
 }
@@ -88,22 +88,22 @@ async function traverseDir(dir) {
 const pluginsList = JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json'));
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
-	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
-	const pluginData = JSON.parse(await fs.readFile(pluginFilePath))
+	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
+	const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
 	const versions = Object.keys(pluginData.versions).filter((x) => {
 		if (pluginData.versions[x].flags?.unstable === true) {
-			return false
+			return false;
 		}
 
 		if (semver.prerelease(x)) {
-			return false
+			return false;
 		}
 
 		if (!semver.gte(x, '1.0.0')) {
-			return false
+			return false;
 		}
 
-		return true
+		return true;
 	})
 
 	if (!versions.length) {
@@ -111,20 +111,20 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 	}
 
 	versions.sort((a, b) => {
-		return semver.compareLoose(a, b)
-	})
+		return semver.compareLoose(a, b);
+	});
 
 	const lastVersion = versions[versions.length - 1];
 	const lastVersionData = pluginData.versions[lastVersion];
 	const time = pluginData.time[lastVersion];
-	lastVersionData._time = time
+	lastVersionData._time = time;
 
-	const directoryFilePath = path.join('directory', plugin.package.name) + '.json'
-	await fs.mkdir(path.dirname(directoryFilePath), { recursive: true })
+	const directoryFilePath = path.join('directory', plugin.package.name) + '.json';
+	await fs.mkdir(path.dirname(directoryFilePath), { recursive: true });
 	const updatedData = JSON.stringify(lastVersionData, null, '\t');
 
 	try {
-		const existingData = await fs.readFile(directoryFilePath)
+		const existingData = await fs.readFile(directoryFilePath);
 		if (existingData.toString() === updatedData.toString()) {
 			continue;
 		}
@@ -132,9 +132,9 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 		// noop
 	}
 
-	let packageName = plugin.package.name
+	let packageName = plugin.package.name;
 	if (packageName.startsWith('@')) {
-		packageName = packageName.slice(1)
+		packageName = packageName.slice(1);
 	}
 
 	const updateName = `${packageName}-${lastVersion}`;
@@ -142,10 +142,10 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 		continue
 	}
 
-	await fs.writeFile(directoryFilePath, updatedData)
+	await fs.writeFile(directoryFilePath, updatedData);
 
 	if (process.env.GITHUB_ACTIONS) {
-		process.stdout.write(updateName)
+		process.stdout.write(updateName);
 	}
 
 	break;

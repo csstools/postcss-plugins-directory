@@ -10,7 +10,7 @@ const result = {
 
 const repositoryIs404 = [
 	'@robertcordes/postcss-tailwind-hex'
-]
+];
 
 // Forks published on npm without updating sufficient information.
 // This is confusing to users because they will be unable to find the source code or contact the maintainer.
@@ -53,29 +53,29 @@ const invalidForks = [
 const ignoreScopes = [
 	'flemist',
 	'pumpn',
-]
+];
 
-const repositoriesByPackageName = new Map()
+const repositoriesByPackageName = new Map();
 
 async function fetchPlugin(name) {
-	const response = await fetch(`https://registry.npmjs.org/${name}`)
+	const response = await fetch(`https://registry.npmjs.org/${name}`);
 	if (response.status !== 200) {
 		throw new Error(`Fetching detailed plugin data : ${response.statusText}`);
 	}
 
-	return await response.json()
+	return await response.json();
 }
 
 const links = new Map(JSON.parse(await fs.readFile('./npm-data/links.json')).map((x) => {
-	return [x.link, x]
+	return [x.link, x];
 }));
 
 const postcssData = await fetchPlugin('postcss');
 const postcssVersions = Object.keys(postcssData.versions);
 postcssVersions.sort((a, b) => {
-	return semver.compareLoose(a, b)
-})
-const lastPostCSSVersion = postcssVersions[postcssVersions.length-1]
+	return semver.compareLoose(a, b);
+});
+const lastPostCSSVersion = postcssVersions[postcssVersions.length - 1];
 
 const pluginsList = {
 	objects: [
@@ -86,23 +86,23 @@ const pluginsList = {
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
 	if (ignoreScopes.includes(plugin.package.scope)) {
-		continue
+		continue;
 	}
 
 	if (invalidForks.includes(plugin.package.name)) {
-		continue
+		continue;
 	}
 
 	if (repositoryIs404.includes(plugin.package.name)) {
-		continue
+		continue;
 	}
 
 	if (!plugin.package.keywords?.map((x) => x.trim().toLowerCase()).includes('postcss-plugin')) {
-		continue
+		continue;
 	}
 
-	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
-	const pluginData = JSON.parse(await fs.readFile(pluginFilePath))
+	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
+	const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
 	if ('_downloads' in pluginData && pluginData._downloads < 50) {
 		// Plugin must at least be downloaded a 50 times a month.
 		// Anything less than that could be a single user or bot traffic.
@@ -111,38 +111,38 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 
 	const versions = Object.keys(pluginData.versions).filter((x) => {
 		if (pluginData.versions[x].flags?.unstable === true) {
-			return false
+			return false;
 		}
 
 		if (semver.prerelease(x)) {
-			return false
+			return false;
 		}
 
 		if (!semver.gte(x, '1.0.0')) {
-			return false
+			return false;
 		}
 
-		return true
-	})
+		return true;
+	});
 
 	if (!versions.length) {
 		continue;
 	}
 
 	versions.sort((a, b) => {
-		return semver.compareLoose(a, b)
-	})
+		return semver.compareLoose(a, b);
+	});
 
 	const lastVersion = versions[versions.length - 1];
 	const lastVersionData = pluginData.versions[lastVersion];
 	if (lastVersionData.dependencies?.postcss) {
 		// Direct dependency on PostCSS is no longer advised.
-		continue
+		continue;
 	}
 	
 	if (!lastVersionData.peerDependencies?.postcss) {
 		// Peer dependency on PostCSS must be declared.
-		continue
+		continue;
 	}
 
 	if (!semver.validRange(lastVersionData.peerDependencies.postcss)) {
@@ -171,16 +171,16 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 
 	let licenseStr = lastVersionData.license;
 	if (licenseStr === 'GPL-2.0-or-later') {
-		licenseStr = 'GPL-2.0'
+		licenseStr = 'GPL-2.0';
 	}
 	if (licenseStr === 'GPL-3.0-only') {
-		licenseStr = 'GPL-3.0'
+		licenseStr = 'GPL-3.0';
 	}
 
 	const license = spdxLicenses.spdx(licenseStr);
 	if (!license || !license.OSIApproved && lastVersionData.license !== 'CC0-1.0') {
 		// Plugins must have an OSI Approved license or CC0-1.0
-		continue
+		continue;
 	}
 
 	if (plugin.package.name.includes('@csstools') && plugin.package.name.includes('experimental')) {
@@ -210,7 +210,7 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 			console.log('---------------------------------------------');
 		}
 
-		repositoriesByPackageName.set(key, plugin.package.name)
+		repositoriesByPackageName.set(key, plugin.package.name);
 	}
 
 	if (pluginData.repository) {
@@ -219,10 +219,10 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 			continue;
 		}
 
-		repositoryLink = cleanupLink(repositoryLink)
+		repositoryLink = cleanupLink(repositoryLink);
 
 		if (links.has(repositoryLink) && links.get(repositoryLink).valid !== true) {
-			continue
+			continue;
 		}
 	}
 
@@ -232,10 +232,10 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 			continue;
 		}
 
-		homepageLink = cleanupLink(homepageLink)
+		homepageLink = cleanupLink(homepageLink);
 
 		if (links.has(homepageLink) && links.get(homepageLink).valid !== true) {
-			continue
+			continue;
 		}
 	}
 
@@ -244,20 +244,20 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 
 result.objects.sort((a, b) => {
 	if (a.package.name !== b.package.name) {
-		return a.package.name.localeCompare(b.package.name)
+		return a.package.name.localeCompare(b.package.name);
 	}
 
 	if (a.package.scope !== b.package.scope) {
-		return a.package.scope.localeCompare(b.package.scope)
+		return a.package.scope.localeCompare(b.package.scope);
 	}
 
-	return 0
-})
+	return 0;
+});
 
 result.objects.forEach((x) => {
 	delete x.score;
 	delete x.searchScore;
-})
+});
 
-delete result.time
-await fs.writeFile('./npm-data/maintained-plugins.json', JSON.stringify(result, null, '\t'))
+delete result.time;
+await fs.writeFile('./npm-data/maintained-plugins.json', JSON.stringify(result, null, '\t'));

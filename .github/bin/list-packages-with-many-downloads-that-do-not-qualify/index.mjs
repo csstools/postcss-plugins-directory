@@ -12,11 +12,11 @@ const pluginsList = {
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
 	if (maintainedPlugins.has(plugin.package.name)) {
-		continue
+		continue;
 	}
 
-	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
-	const pluginData = JSON.parse(await fs.readFile(pluginFilePath))
+	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
+	const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
 	if ('_downloads' in pluginData && pluginData._downloads < 1000_000) {
 		continue;
 	}

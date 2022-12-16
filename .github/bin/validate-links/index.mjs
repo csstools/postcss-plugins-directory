@@ -11,10 +11,10 @@ async function checkLinkStatus(link) {
 
 	let u;
 	try {
-		u = new URL(link)
+		u = new URL(link);
 	} catch (_) {
 		try {
-			u = new URL(link, 'https://github.com')
+			u = new URL(link, 'https://github.com');
 		} catch (_) {
 			return 500;
 		}
@@ -22,7 +22,7 @@ async function checkLinkStatus(link) {
 
 	const headers = {
 		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
-	}
+	};
 
 	if (counter >= 200) {
 		return 429;
@@ -34,7 +34,7 @@ async function checkLinkStatus(link) {
 		method: 'HEAD',
 		headers: headers,
 	}).then((res) => {
-		return res.status
+		return res.status;
 	}).catch((err) => {
 		return 500;
 	});
@@ -75,13 +75,13 @@ pluginsList.objects = shuffle(pluginsList.objects);
 
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
-	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json'
-	const pluginData = JSON.parse(await fs.readFile(pluginFilePath))
+	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
+	const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
 
 	if (pluginData.repository) {
-		let repositoryLink = (typeof pluginData.repository === 'string') ? pluginData.repository : pluginData.repository?.url
+		let repositoryLink = (typeof pluginData.repository === 'string') ? pluginData.repository : pluginData.repository?.url;
 		if (repositoryLink) {
-			repositoryLink = cleanupLink(repositoryLink)
+			repositoryLink = cleanupLink(repositoryLink);
 
 			if (!links.has(repositoryLink)) {
 				const linkStatus = await checkLinkStatus(repositoryLink);
@@ -99,9 +99,9 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 	}
 
 	if (pluginData.homepage) {
-		let homepageLink = (typeof pluginData.homepage === 'string') ? pluginData.homepage : ''
+		let homepageLink = (typeof pluginData.homepage === 'string') ? pluginData.homepage : '';
 		if (homepageLink) {
-			homepageLink = cleanupLink(homepageLink)
+			homepageLink = cleanupLink(homepageLink);
 
 			if (!links.has(homepageLink)) {
 				const linkStatus = await checkLinkStatus(homepageLink);
@@ -120,6 +120,6 @@ for (let i = 0; i < pluginsList.objects.length; i++) {
 }
 
 const results = Array.from(links.values());
-results.sort((a, b) => a.link.localeCompare(b.link))
+results.sort((a, b) => a.link.localeCompare(b.link));
 
-await fs.writeFile('./npm-data/links.json', JSON.stringify(results, null, '\t'))
+await fs.writeFile('./npm-data/links.json', JSON.stringify(results, null, '\t'));
