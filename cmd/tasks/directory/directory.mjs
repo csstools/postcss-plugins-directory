@@ -79,7 +79,7 @@ export async function updateTheDirectory() {
 		const plugin = pluginsList.objects[i];
 		const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
 		const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
-		const versions = Object.keys(pluginData.versions).filter(filterVersions);
+		const versions = Object.keys(pluginData.versions).filter(filterVersions(pluginData));
 
 		if (!versions.length) {
 			continue;

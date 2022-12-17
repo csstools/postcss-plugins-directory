@@ -5,7 +5,7 @@ import spdxLicenses from 'spdx-licenses'
 import { ignoredScopes } from '../../config/ignored-scopes.mjs';
 import { invalidForks } from '../../config/invalid-forks.mjs';
 import { repositoryIs404 } from '../../config/missing-repositories.mjs';
-import { NPM_DATA_LINKS_FILE_PATH, NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, NPM_DATA_MAYBE_PLUGINS_FILE_PATH, NPM_DATA_PLUGINS_FILE_PATH, PLUGIN_MINIMUM_VERSION, POSTCSS_MUST_MATCH_RANGE, POSTCSS_MUST_NOT_MATCH_RANGE, REQUIRED_PACKAGE_KEYWORD } from '../constants.mjs';
+import { NPM_DATA_LINKS_FILE_PATH, NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, NPM_DATA_MAYBE_PLUGINS_FILE_PATH, NPM_DATA_PLUGINS_FILE_PATH, POSTCSS_MUST_MATCH_RANGE, POSTCSS_MUST_NOT_MATCH_RANGE, REQUIRED_PACKAGE_KEYWORD } from '../constants.mjs';
 import { cleanObjects } from '../util/clean-objects.mjs';
 import { cleanupLink } from '../util/cleanup-link.mjs';
 import { fetchPlugin } from '../util/fetch-plugin.mjs';
@@ -62,7 +62,7 @@ export async function listMaintainedPlugins() {
 			continue;
 		}
 
-		const versions = Object.keys(pluginData.versions).filter(filterVersions);
+		const versions = Object.keys(pluginData.versions).filter(filterVersions(pluginData));
 		if (!versions.length) {
 			continue;
 		}

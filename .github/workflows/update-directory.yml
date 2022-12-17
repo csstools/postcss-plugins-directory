@@ -19,11 +19,11 @@ jobs:
           node-version: latest
           cache: 'npm'
 
-      - name: update directory
+      - name: npm install
         run: |
           npm install
 
-      - name: determine modified workspaces
+      - name: update directory
         run: |
           echo "UPDATED_PLUGIN=$(npm run --silent plugins-directory update-directory)" >> $GITHUB_ENV
         env:

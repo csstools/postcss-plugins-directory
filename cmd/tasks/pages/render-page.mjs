@@ -1,5 +1,5 @@
-import { html } from "../util/html.mjs";
 import he from 'he';
+import { html } from "../util/html.mjs";
 
 export function renderPage(body, searchData, allKeywords) {
 	return html`<!DOCTYPE html>

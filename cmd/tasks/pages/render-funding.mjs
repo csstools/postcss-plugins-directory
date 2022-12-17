@@ -1,5 +1,5 @@
-import { html } from "../util/html.mjs";
 import he from 'he';
+import { html } from "../util/html.mjs";
 
 export function renderFunding(funding) {
 	if (funding?.url && funding?.type) {

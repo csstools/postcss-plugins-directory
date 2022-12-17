@@ -1,8 +1,8 @@
-import { html } from "../util/html.mjs";
 import he from 'he';
-import { renderScope } from "./render-scope.mjs";
+import { html } from "../util/html.mjs";
 import { renderFunding } from "./render-funding.mjs";
 import { renderKeywords } from "./render-keywords.mjs";
+import { renderScope } from "./render-scope.mjs";
 
 export function renderPlugin(pluginData) {
 	return html`

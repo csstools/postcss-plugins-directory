@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import semver from 'semver';
-import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, PLUGIN_MINIMUM_VERSION } from '../constants.mjs';
+import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH } from '../constants.mjs';
 import { filterVersions } from '../util/filter-versions.mjs';
 
 export async function lastPluginVersionInfo() {
@@ -10,7 +10,7 @@ export async function lastPluginVersionInfo() {
 		const plugin = pluginsList.objects[i];
 		const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
 		const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
-		const versions = Object.keys(pluginData.versions).filter(filterVersions)
+		const versions = Object.keys(pluginData.versions).filter(filterVersions(pluginData))
 
 		if (!versions.length) {
 			continue;
