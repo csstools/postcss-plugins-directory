@@ -25,7 +25,7 @@ jobs:
 
       - name: determine modified workspaces
         run: |
-          echo "UPDATED_PLUGIN=$(node './.github/bin/update-directory/index.mjs')" >> $GITHUB_ENV
+          echo "UPDATED_PLUGIN=$(npm run --silent plugins-directory update-directory)" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
