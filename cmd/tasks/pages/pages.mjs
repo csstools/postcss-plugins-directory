@@ -84,8 +84,16 @@ export async function pages() {
 			pluginData.keywords.push('csstools');
 		}
 
+		if (pluginData.scope === 'csstools') {
+			pluginData.keywords.push('csstools');
+		}
+
 		if (pluginData.repository && pluginData.repository.startsWith('https://github.com/cssnano/')) {
 			pluginData.keywords.push('cssnano');
+		}
+
+		if (pluginData.funding?.url) {
+			pluginData.keywords.push('sponsor');
 		}
 
 		pluginData.keywords = Array.from(new Set(pluginData.keywords));
