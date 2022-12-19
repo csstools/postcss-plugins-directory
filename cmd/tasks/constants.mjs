@@ -12,6 +12,6 @@ export const POSTCSS_MUST_NOT_MATCH_RANGE = '<8.0.0';
 
 export const PLUGIN_MINIMUM_VERSION = '1.0.0'
 
-export const THIS_REPOSITORY = 'romainmenke/postcss-plugins-directory';
+export const THIS_REPOSITORY = 'csstools/postcss-plugins-directory';
 
 export const PAGES_INDEX_HTML_FILE_PATH = './docs/index.html';
