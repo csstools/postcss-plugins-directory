@@ -58,8 +58,10 @@ export function renderPage(body, searchData, allKeywords) {
 	<h2>Directory</h2>
 
 	<div hidden id="detailed-plugin-info">
-		<label for="toggle-detailed-plugin-info">Show detailed plugin info</label><br>
 		<input type="checkbox" id="toggle-detailed-plugin-info" name="detailed-plugin-info">
+		<label for="toggle-detailed-plugin-info">
+			Show detailed plugin info
+		</label>
 	</div>
 
 	<div hidden id="search" role="search" aria-label="Plugins">
