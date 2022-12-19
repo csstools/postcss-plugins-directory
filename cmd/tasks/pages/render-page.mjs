@@ -13,7 +13,7 @@ export function renderPage(body, searchData, allKeywords) {
 
 	<script type="text/javascript" src="./script.js" defer=""></script>
 	<link rel="stylesheet" href="./style.css">
-	<link href="/favicon.ico" rel="shortcut icon">
+	<link href="./favicon.ico" rel="shortcut icon">
 	<script>
 		window._searchData = ${JSON.stringify(searchData)}
 	</script>
