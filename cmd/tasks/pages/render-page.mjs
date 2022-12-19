@@ -49,6 +49,10 @@ export function renderPage(body, searchData, allKeywords) {
 		It remains your responsibility to choose the best dependencies for your project.
 	</p>
 
+	<p>
+		<a href="https://github.com/csstools/postcss-plugins-directory">For support and issues you can open an issue on GitHub.</a>
+	</p>
+
 	<hr>
 
 	<h2>Directory</h2>
