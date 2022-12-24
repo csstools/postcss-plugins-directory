@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-inline-base64",
-	"_rev": "26-5c6eab46722b718940b327233ef21e94",
+	"_rev": "27-b94f91bb413af2e508472cbd7d8cb38a",
 	"name": "postcss-inline-base64",
 	"description": "PostCSS plugin for encode the file to base64",
 	"dist-tags": {
-		"latest": "7.2.2"
+		"latest": "7.3.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -2096,6 +2096,114 @@
 				"tmp": "tmp/postcss-inline-base64_7.2.2_1650167422990_0.584338807954224"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.3.0": {
+			"name": "postcss-inline-base64",
+			"version": "7.3.0",
+			"description": "PostCSS plugin for encode the file to base64",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"base64",
+				"file",
+				"inline",
+				"postcss-inline-base64"
+			],
+			"author": {
+				"name": "Thiago Lagden",
+				"email": "lagden@gmail.com"
+			},
+			"license": "MIT",
+			"homepage": "https://github.com/lagden/postcss-inline-base64",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lagden/postcss-inline-base64.git"
+			},
+			"bugs": {
+				"url": "https://github.com/lagden/postcss-inline-base64/issues"
+			},
+			"type": "module",
+			"exports": {
+				".": {
+					"import": "./src/plugin.js",
+					"require": "./dist/plugin-wrapper.cjs"
+				},
+				"./package.json": "./package.json"
+			},
+			"main": "./src/plugin.js",
+			"engines": {
+				"node": ">=14.17"
+			},
+			"scripts": {
+				"rm": "rm -rf dist",
+				"eslint": "eslint --config .eslintrc.yml --ext .js --ignore-path .gitignore .",
+				"pretest": "npm run eslint",
+				"test": "c8 --reporter=text --reporter=text-summary --reporter=lcov ava",
+				"prepublishOnly": "npm run build",
+				"prebuild": "npm test && npm run rm",
+				"esbuild": "node ./esbuild.config.js",
+				"postbuild": "npm run dist:pkg && npm run dist:wrapper",
+				"dist:pkg": "echo '{\"type\": \"commonjs\"}'> dist/package.json",
+				"dist:wrapper": "echo \"module.exports = require('./plugin.cjs').default\"> dist/plugin-wrapper.cjs",
+				"build": "npm run esbuild",
+				"snyk-protect": "snyk-protect",
+				"prepare": "npm run snyk-protect"
+			},
+			"dependencies": {
+				"debug": "4.3.4",
+				"file-type": "18.0.0",
+				"got": "12.5.3",
+				"is-svg": "4.3.2"
+			},
+			"devDependencies": {
+				"@snyk/protect": "1.1076.0",
+				"ava": "5.1.0",
+				"c8": "7.12.0",
+				"esbuild": "0.16.10",
+				"eslint": "8.30.0",
+				"eslint-config-xo": "0.43.1",
+				"eslint-plugin-unicorn": "45.0.2",
+				"postcss": "8.4.20"
+			},
+			"peerDependencies": {
+				"postcss": ">=8.0.0"
+			},
+			"snyk": true,
+			"gitHead": "fd8a3f050bfd71b2a6e013e4831576738ff09309",
+			"_id": "postcss-inline-base64@7.3.0",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "9.2.0",
+			"dist": {
+				"integrity": "sha512-vw3TIMK1zdv6HVLaBMaZ1BqIezajk5yE4k/jKw/UW0f4zt5YqFE5gywwvSLUhm5D4/ZL/iQQ+wQRgFYMGX9sTw==",
+				"shasum": "3f85e0d6ee30fb65e6e6d0bfb924d8582d56f977",
+				"tarball": "https://registry.npmjs.org/postcss-inline-base64/-/postcss-inline-base64-7.3.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 392933,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBK2euikt14kNKMkhoDcdc26LHH6HuNJNGykQJx17oFOAiEAld/luWSQYHEwUIgmo4tM1fAd9Tq/rVUpII522Wi3v/Q="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjpkW3ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrPAg/+IFHmChvRQI20t8JaoSYBh6Nia5yfpFM6CfOFQUxzW0TXF+Dw\r\nMpzRRX5BDKG8Cp46YjGSrOL8RmldqTqNObjuM6ge/vSHsoMq3vILeaGamQ4u\r\nEE+8/zKdv0NHTmaTQAiuoZEQ32qJ7PU3llzScMqy1tUsagRtuX98AZ6rnJxS\r\nrJeZjWem4csrTfCZBTJ5YOd5RrAPzGuCALkm6uSZ2UfrhCOj+vaJAHjCroIt\r\nNNqxCtwScV43aZ4dHJCmFZgMrSme01cWtsjFh2CJ/fITndzPoCo2KAReub+h\r\nvLFnMs4UTES8mbnUtPROQZvkHQvvySk5TaufT6RyfPV+1qc5z2DAEsja6Pvn\r\noWFJcKxxlQj5GkbHmKlpWE+xirSDzOqJJNuiq0pVjgLKDAsOGJ/VGWcgRplJ\r\nuFYnKcYx2zjX1dBY2Hx0ckRwvUXUutpSp6+Q6b/DWB0Skk8fvJ/do0LflS0w\r\nUYktskwHbv6zXKuQ8iu9wIAGJTAyB1u81HS+9gpRqpsYIVuMWzCpW2rQ3a+p\r\n7zi11yPDY4MpZGZu/NiR5gOvCQ3/GPvQYAE15trTsO0aEKFsONiXXyVgs/wo\r\n6RAgGxGXkVVz13SoJblTjy1BUbRkkWk/XJyXq/SUNlaPWXEuveG5jTW9WGkr\r\nDexf9Ai5I8bEAYt/LqxKI5TeqCTU9DBVpIw=\r\n=fORA\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "lagden",
+				"email": "lagden@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "lagden",
+					"email": "lagden@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-inline-base64_7.3.0_1671841207635_0.41618667532008624"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Inline Base64\n\n[![Node.js CI][ci-img]][ci]\n[![Coverage Status][cover-img]][cover]\n[![Snyk badge][snyk-img]][snyk]\n\n[PostCSS](https://github.com/postcss/postcss) plugin used to replace value inside of url function to base64\n\n[PostCSS]:   https://github.com/postcss/postcss\n[ci-img]:    https://github.com/lagden/postcss-inline-base64/actions/workflows/nodejs.yml/badge.svg\n[ci]:        https://github.com/lagden/postcss-inline-base64/actions/workflows/nodejs.yml\n[cover-img]: https://codecov.io/gh/lagden/postcss-inline-base64/branch/master/graph/badge.svg\n[cover]:     https://codecov.io/gh/lagden/postcss-inline-base64\n[snyk-img]:  https://snyk.io/test/github/lagden/postcss-inline-base64/badge.svg\n[snyk]:      https://snyk.io/test/github/lagden/postcss-inline-base64\n\n\n## Usage\n\nSee the [example](#example) below\n\n```js\nimport postcssInlineBase64 from 'postcss-inline-base64'\n\npostcss([\n  postcssInlineBase64(options),\n])\n```\n\n\nIf you are using `CommonJS module`:\n\n```js\npostcss([\n  require('postcss-inline-base64')(options),\n])\n```\n\n### Options\n\nName        | Type    | Default        | Description\n----------- | ------- | -------------- | ------------\nbaseDir     | string  | process.cwd()  | Path to load files\n\n\n## Example\n\nUse the syntax below inside `url()` function:\n\n```\nVariations:\n\n - b64---{file}---\n - b64---'{file}'---\n - b64---\"{file}\"---\n - 'b64---{file}---'\n - \"b64---{file}---\"\n```\n\n\n### input\n\n```css\n:root {\n  --image: 'b64---./example.gif---';\n}\n\n@font-face {\n  font-family: 'example';\n  src: url('b64---./example.woff---') format('woff'), url('b64---./example.woff2---') format('woff2');\n  font-weight: normal;\n  font-style: normal;\n}\n\nbody {\n  background-color: gray;\n  background-image: url(var(--image));\n}\n\n.notfound {\n  background-image: url('b64---https://file.not/found.png---');\n}\n\n.ignore {\n  background-image: url('https://cdn.lagden.in/mask.png');\n}\n```\n\n\n### output\n\n```css\n:root {\n  --image: 'data:image/png;charset=utf-8;base64,iVBORw0K...SuQmCC';\n}\n\n@font-face {\n  font-family: 'example';\n  src: url('data:font/woff;charset=utf-8;base64,d09...eLAAAA==') format('woff'), url('data:font/woff2;charset=utf-8;base64,d09...eLAAAA==') format('woff2');\n  font-weight: normal;\n  font-style: normal;\n}\n\nbody {\n  background-color: gray;\n  background-image: url(var(--image));\n}\n\n.notfound {\n  background-image: url('https://file.not/found.png');\n}\n\n.ignore {\n  background-image: url('https://cdn.lagden.in/mask.png');\n}\n```\n\n---\n\nSee [PostCSS](https://github.com/postcss/postcss/tree/master/docs) docs for examples for your environment.\n\n\n## License\n\nMIT © [Thiago Lagden](https://github.com/lagden)\n",
@@ -2106,7 +2214,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:12:48.328Z",
+		"modified": "2022-12-24T00:20:07.870Z",
 		"created": "2016-03-05T19:51:52.539Z",
 		"1.0.0": "2016-03-05T19:51:52.539Z",
 		"2.0.0": "2016-03-09T05:58:07.105Z",
@@ -2128,7 +2236,8 @@
 		"7.1.0": "2021-08-03T03:21:25.406Z",
 		"7.2.0": "2022-03-18T02:16:58.520Z",
 		"7.2.1": "2022-03-18T02:50:21.723Z",
-		"7.2.2": "2022-04-17T03:50:23.207Z"
+		"7.2.2": "2022-04-17T03:50:23.207Z",
+		"7.3.0": "2022-12-24T00:20:07.788Z"
 	},
 	"homepage": "https://github.com/lagden/postcss-inline-base64",
 	"keywords": [
@@ -2154,5 +2263,5 @@
 	"license": "MIT",
 	"readmeFilename": "README.md",
 	"users": {},
-	"_downloads": 5340
+	"_downloads": 5350
 }
