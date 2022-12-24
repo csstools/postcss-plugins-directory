@@ -1,6 +1,6 @@
 {
 	"name": "postcss-inline-base64",
-	"version": "7.2.2",
+	"version": "7.3.0",
 	"description": "PostCSS plugin for encode the file to base64",
 	"keywords": [
 		"postcss",
@@ -32,7 +32,7 @@
 		},
 		"./package.json": "./package.json"
 	},
-	"main": "./dist/plugin-wrapper.cjs",
+	"main": "./src/plugin.js",
 	"engines": {
 		"node": ">=14.17"
 	},
@@ -41,6 +41,7 @@
 		"eslint": "eslint --config .eslintrc.yml --ext .js --ignore-path .gitignore .",
 		"pretest": "npm run eslint",
 		"test": "c8 --reporter=text --reporter=text-summary --reporter=lcov ava",
+		"prepublishOnly": "npm run build",
 		"prebuild": "npm test && npm run rm",
 		"esbuild": "node ./esbuild.config.js",
 		"postbuild": "npm run dist:pkg && npm run dist:wrapper",
@@ -52,44 +53,41 @@
 	},
 	"dependencies": {
 		"debug": "4.3.4",
-		"file-type": "17.1.1",
-		"got": "12.0.3",
+		"file-type": "18.0.0",
+		"got": "12.5.3",
 		"is-svg": "4.3.2"
 	},
 	"devDependencies": {
-		"@babel/core": "7.17.9",
-		"@babel/eslint-parser": "7.17.0",
-		"@snyk/protect": "1.906.0",
-		"ava": "4.2.0",
-		"c8": "7.11.0",
-		"esbuild": "0.14.36",
-		"eslint": "8.13.0",
-		"eslint-config-xo": "0.40.0",
-		"eslint-plugin-unicorn": "42.0.0",
-		"postcss": "8.4.12"
+		"@snyk/protect": "1.1076.0",
+		"ava": "5.1.0",
+		"c8": "7.12.0",
+		"esbuild": "0.16.10",
+		"eslint": "8.30.0",
+		"eslint-config-xo": "0.43.1",
+		"eslint-plugin-unicorn": "45.0.2",
+		"postcss": "8.4.20"
 	},
 	"peerDependencies": {
 		"postcss": ">=8.0.0"
 	},
 	"snyk": true,
-	"babel": {},
-	"gitHead": "394c914a6b38c9723086389032f039c3a28e4222",
-	"_id": "postcss-inline-base64@7.2.2",
-	"_nodeVersion": "14.17.0",
-	"_npmVersion": "8.3.0",
+	"gitHead": "fd8a3f050bfd71b2a6e013e4831576738ff09309",
+	"_id": "postcss-inline-base64@7.3.0",
+	"_nodeVersion": "18.12.1",
+	"_npmVersion": "9.2.0",
 	"dist": {
-		"integrity": "sha512-kbl5Lkj9ZCvtuxsQQ76O+XDJuRSfUhBY9l/AvUr3HCzfbfmHFKDVQ4qgGYrzIsQaCQB+KnROPKHEibNN03TJSw==",
-		"shasum": "67f4fd9e733dbe5f4076d9ac364eaf8b06c1ff24",
-		"tarball": "https://registry.npmjs.org/postcss-inline-base64/-/postcss-inline-base64-7.2.2.tgz",
-		"fileCount": 12,
-		"unpackedSize": 1135472,
+		"integrity": "sha512-vw3TIMK1zdv6HVLaBMaZ1BqIezajk5yE4k/jKw/UW0f4zt5YqFE5gywwvSLUhm5D4/ZL/iQQ+wQRgFYMGX9sTw==",
+		"shasum": "3f85e0d6ee30fb65e6e6d0bfb924d8582d56f977",
+		"tarball": "https://registry.npmjs.org/postcss-inline-base64/-/postcss-inline-base64-7.3.0.tgz",
+		"fileCount": 11,
+		"unpackedSize": 392933,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCGACRAJ+xBJ6l+IfKCl0+QTw8NwS0MkVDndj/zQIiNWQIgcLJsijP8BznIizUzowaUGmfzpSVLe4/peqBsHT8loBM="
+				"sig": "MEUCIBK2euikt14kNKMkhoDcdc26LHH6HuNJNGykQJx17oFOAiEAld/luWSQYHEwUIgmo4tM1fAd9Tq/rVUpII522Wi3v/Q="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiW45/ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpS9w/+J3zXwX5U1tA5XlUjNMXkIw9Iv+pDEKmv3QSdfYymNS9PvSzm\r\nMl1yrU2mecQ8Zo1LuWRsiwhQuFI0kJgXX0r8hK53xARkg5BaJ8lp5O8PTdTq\r\nEctvYcBYihrKbeSlKD2bc1cdjchhVGU7t9KzaUQcuOiTW0VWnU4od7izKtvh\r\nmBmjLFUkOqbIfyV6jZBfb7CSrRcB/Oz+Iv0R9Gih85VbfM1cmCikgREbqVh5\r\noY4vlTb8bu1xr2F0EFwqvuxgop4W437n6w/bqydF7TJz3MT02+HsTBZ/bid8\r\nike+WYl1mYYcJI7KpxBkSjCnUuAtAsvrkvolCsLcTjN45jBrsn+kAs0EiQfU\r\n+6T0FMkRVmzwHbuuVr5QFxqCfXEngKTJP1UV41guH5lcSHRmCEqva9jhVXTx\r\nVeMfUnmwZndtTrn7KcofwDoQVHH6umatS3PuDzXI0lN7dDbNeAcuwdjiFvFt\r\nVZ5H8BEjVZaUAHY8bxoyI9xH44TiA3MUiFXD4kWbWsfryf1qe8PgY9FMTolr\r\nfB+rbIbeGHvoc6gRhPlDIOQbk23AW8Nttd445AJOzg9FqNH4pIGkwbNuTysx\r\nS6PuEUComLRNj7IaikUIiIjKzQlx+XkqYv85/UgSoEXQcWK/5MxPM8ArKhoq\r\nez62xM1CbiSnoqeH+ffPxQmIHXGLQCaojbc=\r\n=/EO0\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjpkW3ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrPAg/+IFHmChvRQI20t8JaoSYBh6Nia5yfpFM6CfOFQUxzW0TXF+Dw\r\nMpzRRX5BDKG8Cp46YjGSrOL8RmldqTqNObjuM6ge/vSHsoMq3vILeaGamQ4u\r\nEE+8/zKdv0NHTmaTQAiuoZEQ32qJ7PU3llzScMqy1tUsagRtuX98AZ6rnJxS\r\nrJeZjWem4csrTfCZBTJ5YOd5RrAPzGuCALkm6uSZ2UfrhCOj+vaJAHjCroIt\r\nNNqxCtwScV43aZ4dHJCmFZgMrSme01cWtsjFh2CJ/fITndzPoCo2KAReub+h\r\nvLFnMs4UTES8mbnUtPROQZvkHQvvySk5TaufT6RyfPV+1qc5z2DAEsja6Pvn\r\noWFJcKxxlQj5GkbHmKlpWE+xirSDzOqJJNuiq0pVjgLKDAsOGJ/VGWcgRplJ\r\nuFYnKcYx2zjX1dBY2Hx0ckRwvUXUutpSp6+Q6b/DWB0Skk8fvJ/do0LflS0w\r\nUYktskwHbv6zXKuQ8iu9wIAGJTAyB1u81HS+9gpRqpsYIVuMWzCpW2rQ3a+p\r\n7zi11yPDY4MpZGZu/NiR5gOvCQ3/GPvQYAE15trTsO0aEKFsONiXXyVgs/wo\r\n6RAgGxGXkVVz13SoJblTjy1BUbRkkWk/XJyXq/SUNlaPWXEuveG5jTW9WGkr\r\nDexf9Ai5I8bEAYt/LqxKI5TeqCTU9DBVpIw=\r\n=fORA\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "lagden",
@@ -104,8 +102,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-inline-base64_7.2.2_1650167422990_0.584338807954224"
+		"tmp": "tmp/postcss-inline-base64_7.3.0_1671841207635_0.41618667532008624"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-04-17T03:50:23.207Z"
+	"_time": "2022-12-24T00:20:07.788Z"
 }
