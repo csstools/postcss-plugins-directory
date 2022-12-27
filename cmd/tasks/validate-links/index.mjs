@@ -26,7 +26,7 @@ async function checkLinkStatus(link) {
 		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
 	};
 
-	if (counter >= 200) {
+	if (counter >= 250) {
 		return 429;
 	}
 
@@ -43,11 +43,12 @@ async function checkLinkStatus(link) {
 }
 
 export async function validateLinks() {
-
 	const now = Date.now();
 	const threshold = now - (86400000 * 14);
+
+	let expiredLinksCounter = 0;
 	const links = new Map(JSON.parse(await fs.readFile(NPM_DATA_LINKS_FILE_PATH)).filter((x) => {
-		if (x.timestamp < threshold) {
+		if (x.timestamp < threshold && expiredLinksCounter++ < 200) {
 			return false;
 		}
 
