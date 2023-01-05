@@ -1,9 +1,9 @@
 {
 	"_id": "flex-gap-polyfill",
-	"_rev": "34-03b3e0d0fc112d43259fc870e94ee2ed",
+	"_rev": "35-556b99c4a2a157855c4302dc3723ec84",
 	"name": "flex-gap-polyfill",
 	"dist-tags": {
-		"latest": "4.1.0",
+		"latest": "4.1.2",
 		"next": "4.0.0-1"
 	},
 	"versions": {
@@ -3847,12 +3847,132 @@
 				"tmp": "tmp/flex-gap-polyfill_4.1.0_1629028731315_0.32420402585696007"
 			},
 			"_hasShrinkwrap": false
+		},
+		"4.1.2": {
+			"name": "flex-gap-polyfill",
+			"version": "4.1.2",
+			"description": "A PostCSS polyfill for adding gap between flex items",
+			"author": {
+				"name": "Gavin",
+				"email": "someotter@tadpot.com"
+			},
+			"license": "CC0-1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/limitlessloop/flex-gap-polyfill.git"
+			},
+			"homepage": "https://github.com/limitlessloop/flex-gap-polyfill#readme",
+			"bugs": {
+				"url": "https://github.com/limitlessloop/flex-gap-polyfill/issues"
+			},
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"scripts": {
+				"build": "rollup --config .rollup.js --silent && node preprocess.js",
+				"prepublishOnly": "npm test",
+				"pretest:tape": "npm run build",
+				"test": "npm run test:js && npm run test:tape && node preprocess.js",
+				"test:js": "eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
+				"test:tape": "postcss-tape"
+			},
+			"engines": {
+				"node": ">=8.0.0"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.14.3",
+				"@babel/preset-env": "^7.14.4",
+				"@rollup/plugin-commonjs": "^19.0.0",
+				"autoprefixer": "^10.2.6",
+				"babel-eslint": "^10.1.0",
+				"chokidar": "^3.5.1",
+				"common-tags": "^1.8.0",
+				"eslint": "^7.28.0",
+				"fs-extra": "^10.0.0",
+				"phtml-utility-class": "^3.0.3",
+				"postcss": "8.3.6",
+				"postcss-load-config": "^3.0.1",
+				"postcss-nested": "^5.0.5",
+				"postcss-preset-env": "^6.7.0",
+				"postcss-tape": "^6.0.1",
+				"pre-commit": "1.2.2",
+				"rollup": "^2.50.6",
+				"rollup-plugin-babel": "^4.4.0",
+				"stylup": "^0.0.0-alpha.6",
+				"uniqid": "^5.3.0",
+				"yarn": "^1.22.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.6"
+			},
+			"eslintConfig": {
+				"env": {
+					"browser": true,
+					"es6": true,
+					"node": true
+				},
+				"extends": "eslint:recommended",
+				"parser": "babel-eslint",
+				"parserOptions": {
+					"ecmaVersion": 2018,
+					"impliedStrict": true,
+					"sourceType": "module"
+				},
+				"root": true
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"gutters",
+				"columns",
+				"rows",
+				"flex",
+				"flexbox",
+				"polyfill"
+			],
+			"dependencies": {
+				"postcss-values-parser": "^5.0.0"
+			},
+			"gitHead": "83408e85a42e5ab1130c7a2a73af5c5b3b46167d",
+			"_id": "flex-gap-polyfill@4.1.2",
+			"_nodeVersion": "16.13.0",
+			"_npmVersion": "7.24.2",
+			"dist": {
+				"integrity": "sha512-s2jFyXdK906VGbX3dDB6CnZvqgN5P/OkJA0AnvI3jEQ+lp1yMa9MJ+YL+HfPY3PpTBMe9ywrxqiV0HRFzLU2CA==",
+				"shasum": "f578be3da927fb232ef98506b037bdc597c34f12",
+				"tarball": "https://registry.npmjs.org/flex-gap-polyfill/-/flex-gap-polyfill-4.1.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 119294,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCICiUdtoYxgnUtrAiQqgqqf6SuxPYy0bQlzsFgPX0zNMaAiBMQKqH9yRIu6b06gkVfXD9mq7kuvEtnvPlvwkqSrbhiw=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjtaKaACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpogw//XZzsKvQ2md4TJN2IRAS0F34AS1hPwZOYDtg/a2FjnMuqC/Tt\r\nXTJ6kXkbK5qAkihYnF6OyBVFEzfnbAFX6uSwWQhxND0Pz4GsGnKlyvc4WzvY\r\nEQMezw7GZ/3/sw0DJEdrgRpcF4Y/wKW+6eGf+kKwDiMxUPe6Uyo5MoWdXc5n\r\nnejPZsMkijS6/5WtFeNgbNO2iILQLzZTWAcBN4zbd+tRyQH8XF9Z0E7r+jHf\r\n1K7Vv3oMWLtmA6IcMuSzhg348rN7fpBWpxOcJuwEILVBcMBVJEJObk+KH2Sy\r\n29VEgUrzguwBRQ2ZmDxcVmoqupUcTY5lG4rggr7TJZuvR3g5zu29oHQJkUQA\r\n1hnLDFvXMJ/m0ze5SEn2zyPeYjZ9CzN/mj9LrcAh5Wf5DLuM22h1iOFRRY4q\r\nU1Aad3yWO5Kxd25TdsROzxnigwHY6cTPz3ssNPh9/92DzI4Iuj04+oR1+fVH\r\nEzt4j8u6Jut17pVI5YMZtmH1nO3vxYGgvnlNXapFAPCycRpMwSjjtrmAmXSh\r\nj+9hOSqvZFzVxlpXHvMbEGKni5hZBiVPbmqhc7EUV/dvO8hLFIf2ld0sZfLW\r\nMv9/lSLtg2tz6h3UDye4TDhBoKt3us7mkgNeyebuI2BPYZhdQyEgFtQ1M4fH\r\n+eEy82jd3Md7z7Q7kcR1xcXaPRFbqa+J45E=\r\n=J1/J\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "limitlessloop",
+				"email": "stripygoose@tadpot.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "limitlessloop",
+					"email": "stripygoose@tadpot.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/flex-gap-polyfill_4.1.2_1672848026413_0.4408145080965664"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2020-03-13T14:55:50.457Z",
 		"1.0.0-alpha.0": "2020-03-13T14:55:50.830Z",
-		"modified": "2022-05-02T14:42:58.690Z",
+		"modified": "2023-01-04T16:00:26.703Z",
 		"1.0.0-alpha.1": "2020-03-13T15:45:37.197Z",
 		"1.0.0-alpha.2": "2020-03-13T15:47:49.488Z",
 		"1.0.0-alpha.3": "2020-07-30T21:32:13.707Z",
@@ -3885,7 +4005,8 @@
 		"4.0.4": "2021-05-16T13:11:11.866Z",
 		"4.0.5": "2021-06-03T19:34:25.166Z",
 		"4.0.6": "2021-06-06T16:19:09.739Z",
-		"4.1.0": "2021-08-15T11:58:51.484Z"
+		"4.1.0": "2021-08-15T11:58:51.484Z",
+		"4.1.2": "2023-01-04T16:00:26.629Z"
 	},
 	"maintainers": [
 		{
@@ -3918,7 +4039,7 @@
 		"url": "https://github.com/limitlessloop/flex-gap-polyfill/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# Flex Gap Polyfill\n\n[![NPM Version][npm-img]][npm-url]\n[![Linux Build Status][cli-img]][cli-url]\n[![Gitter Chat][git-img]][git-url]\n\n\nThis is a pure CSS polyfill using PostCSS to emulate flex gap using margins.\n\n## Known limitations\n\n- Must use a wrapper div when using `margin: auto` or `background`.\n- Percentage gaps aren't reliable if the container is not full width of parent container\n- Width of flex items with percentages vary slightly from spec because of negative margin on container.\n\nView the [demo page](https://limitlessloop.github.io/flex-gap-polyfill/) for various test cases of the polyfill in action.\n\n## Example\n\n```css\n.container {\n    display: flex;\n    gap: 40px;\n}\n```\n\nBecomes:\n\n```css\n/* Output simplified for purpose of example */\n\n.container > * {\n    --fgp-parent-gap-row: 40px;\n    --fgp-parent-gap-column: 40px;\n    --fgp-margin-top: calc(var(--fgp-gap-row) + var(--orig-margin-top, 0px));\n    --fgp-margin-left: calc(var(--fgp-gap-column) + var(--orig-margin-left, 0px));\n    margin-top: var(--fgp-margin-top);\n    margin-left: var(--fgp-margin-left);\n}\n\n.container {\n    --fgp-gap: var(--has-fgp, 40px);\n    --fgp-gap-row: 40px;\n    --fgp-gap-column: 40px;\n    --fgp-margin-top: calc(var(--fgp-parent-gap-row, 0px) - var(--fgp-gap-row) + var(--orig-margin-top, 0px));\n    --fgp-margin-left: calc(var(--fgp-parent-gap-column, 0px) - var(--fgp-gap-column) + var(--orig-margin-left, 0px));\n    display: flex;\n    gap: var(--fgp-gap, 0px);\n    margin-top: var(--fgp-margin-top, var(--orig-margin-top));\n    margin-left: var(--fgp-margin-left, var(--orig-margin-left));\n}\n```\n\nThe polyfill emulates flex gap by adding margins to each child element and applying a negative margin to the container.\n\n- <mark>NEW</mark> Now works regardless of whether `display: flex` and `gap` are used in the same rule (see [Options](#Options) for ways to optimise)\n- Works with unlimited nested elements with any combination of units, px > px, px > %, % > %, etc\n- No additional class names or divs needed (except when using `margin: auto` or `background`)\n- Works even when margin already exists on element (inline styles not supported)\n- Style margin, borders and padding as normal\n- Supports `gap`, `row-gap` and `column-gap`\n\n## Browser support\n\nSupports all current modern browsers, Edge, Firefox, Chrome, Safari, Opera (any browser that supports `calc()` and `var()`).\n\n\n## Usage\n\nAdd [Flex Gap Polyfill] to your project:\n\n```bash\nnpm install flex-gap-polyfill postcss --save-dev\n```\n\nUse **Flex Gap Polyfill** to process your CSS:\n\n```js\nconst flexGapPolyfill = require('flex-gap-polyfill');\n\nflexGapPolyfill.process(YOUR_CSS /*, processOptions, pluginOptions */);\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst flexGapPolyfill = require('flex-gap-polyfill');\n\npostcss([\n    flexGapPolyfill(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[npm-url]: https://www.npmjs.com/package/flex-gap-polyfill\n[npm-img]: https://img.shields.io/npm/v/flex-gap-polyfill.svg\n[cli-url]: https://travis-ci.org/limitlessloop/flex-gap-polyfill\n[cli-img]: https://img.shields.io/travis/limitlessloop/flex-gap-polyfill.svg\n[git-url]: https://gitter.im/postcss/postcss\n[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg\n\n[PostCSS]: https://github.com/postcss/postcss\n[Flex Gap Polyfill]: https://github.com/limitlessloop/flex-gap-polyfill\n\n\n## Options\n\n- `only`\n\n    __Type__: Array __Default__: undefined\n\n    When `true` polyfill will only apply when `display: flex | inline-flex` and `gap` are used in the same rule. Provide an array of selectors to match additional rules. Can be `strings` or `regexes`. Inlcude `/* apply fgp */` within a rule to manually apply the polyfill.\n\n\n- `flexGapNotSupported`\n\n    __Type__: String __Default__: false\n\n    Manually specify a selector to use when flex gap is not supported by [detection via JavaScript](https://github.com/Modernizr/Modernizr/blob/master/feature-detects/css/flexgap.js), eg `flexGapNotSupported: '.flex-gap-not-supported'`.\n\n<!-- - `tailwindCSS`\n\n    __Type__: Boolean __Default__: false\n\n    When `true` polyfill will add extra CSS to support TailwindCSS. -->\n\n- `webComponents`\n\n    __Type__: Boolean __Default__: false\n\n    When `true` polyfill will also target slotted elements\n\n<!-- - `percentageRowGaps`\n\n    __Type__: Boolean __Default__: false\n\n    When `true` percentage row gaps will be calculated based on width of element (non spec). -->\n",
+	"readme": "# Flex Gap Polyfill\n\n[![NPM Version][npm-img]][npm-url]\n[![Linux Build Status][cli-img]][cli-url]\n[![Gitter Chat][git-img]][git-url]\n\n\nThis is a pure CSS polyfill using PostCSS to emulate flex gap using margins.\n\n## Known limitations\n\n- Must use a wrapper div when using `margin: auto` or `background`.\n- Percentage gaps aren't reliable if the container is not full width of parent container\n- Width of flex items with percentages vary slightly from spec because of negative margin on container.\n\nView the [demo page](https://gavinmcfarland.github.io/flex-gap-polyfill/) for various test cases of the polyfill in action.\n\n## Example\n\n```css\n.container {\n    display: flex;\n    gap: 40px;\n}\n```\n\nBecomes:\n\n```css\n/* Output simplified for purpose of example */\n\n.container > * {\n    --fgp-parent-gap-row: 40px;\n    --fgp-parent-gap-column: 40px;\n    --fgp-margin-top: calc(var(--fgp-gap-row) + var(--orig-margin-top, 0px));\n    --fgp-margin-left: calc(var(--fgp-gap-column) + var(--orig-margin-left, 0px));\n    margin-top: var(--fgp-margin-top);\n    margin-left: var(--fgp-margin-left);\n}\n\n.container {\n    --fgp-gap: var(--has-fgp, 40px);\n    --fgp-gap-row: 40px;\n    --fgp-gap-column: 40px;\n    --fgp-margin-top: calc(var(--fgp-parent-gap-row, 0px) - var(--fgp-gap-row) + var(--orig-margin-top, 0px));\n    --fgp-margin-left: calc(var(--fgp-parent-gap-column, 0px) - var(--fgp-gap-column) + var(--orig-margin-left, 0px));\n    display: flex;\n    gap: var(--fgp-gap, 0px);\n    margin-top: var(--fgp-margin-top, var(--orig-margin-top));\n    margin-left: var(--fgp-margin-left, var(--orig-margin-left));\n}\n```\n\nThe polyfill emulates flex gap by adding margins to each child element and applying a negative margin to the container.\n\n- <mark>NEW</mark> Now works regardless of whether `display: flex` and `gap` are used in the same rule (see [Options](#Options) for ways to optimise)\n- Works with unlimited nested elements with any combination of units, px > px, px > %, % > %, etc\n- No additional class names or divs needed (except when using `margin: auto` or `background`)\n- Works even when margin already exists on element (inline styles not supported)\n- Style margin, borders and padding as normal\n- Supports `gap`, `row-gap` and `column-gap`\n\n## Browser support\n\nSupports all current modern browsers, Edge, Firefox, Chrome, Safari, Opera (any browser that supports `calc()` and `var()`).\n\n\n## Usage\n\nAdd [Flex Gap Polyfill] to your project:\n\n```bash\nnpm install flex-gap-polyfill postcss --save-dev\n```\n\nUse **Flex Gap Polyfill** to process your CSS:\n\n```js\nconst flexGapPolyfill = require('flex-gap-polyfill');\n\nflexGapPolyfill.process(YOUR_CSS /*, processOptions, pluginOptions */);\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst flexGapPolyfill = require('flex-gap-polyfill');\n\npostcss([\n    flexGapPolyfill(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[npm-url]: https://www.npmjs.com/package/flex-gap-polyfill\n[npm-img]: https://img.shields.io/npm/v/flex-gap-polyfill.svg\n[cli-url]: https://travis-ci.org/limitlessloop/flex-gap-polyfill\n[cli-img]: https://img.shields.io/travis/limitlessloop/flex-gap-polyfill.svg\n[git-url]: https://gitter.im/postcss/postcss\n[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg\n\n[PostCSS]: https://github.com/postcss/postcss\n[Flex Gap Polyfill]: https://github.com/limitlessloop/flex-gap-polyfill\n\n\n## Options\n\n- `only`\n\n    __Type__: Array __Default__: undefined\n\n    When `true` polyfill will only apply when `display: flex | inline-flex` and `gap` are used in the same rule. Provide an array of selectors to match additional rules. Can be `strings` or `regexes`. Inlcude `/* apply fgp */` within a rule to manually apply the polyfill.\n\n\n- `flexGapNotSupported`\n\n    __Type__: String __Default__: false\n\n    Manually specify a selector to use when flex gap is not supported by [detection via JavaScript](https://github.com/Modernizr/Modernizr/blob/master/feature-detects/css/flexgap.js), eg `flexGapNotSupported: '.flex-gap-not-supported'`.\n\n<!-- - `tailwindCSS`\n\n    __Type__: Boolean __Default__: false\n\n    When `true` polyfill will add extra CSS to support TailwindCSS. -->\n\n- `webComponents`\n\n    __Type__: Boolean __Default__: false\n\n    When `true` polyfill will also target slotted elements\n\n<!-- - `percentageRowGaps`\n\n    __Type__: Boolean __Default__: false\n\n    When `true` percentage row gaps will be calculated based on width of element (non spec). -->\n",
 	"readmeFilename": "README.md",
-	"_downloads": 6513
+	"_downloads": 5299
 }
