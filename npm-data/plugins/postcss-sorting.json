@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-sorting",
-	"_rev": "37-ceffb11c5964d9d5669b7013779c4500",
+	"_rev": "38-3f09092fe8aa90a77d31be205b7f3bd8",
 	"name": "postcss-sorting",
 	"description": "PostCSS plugin to keep rules and at-rules content in order.",
 	"dist-tags": {
-		"latest": "8.0.0"
+		"latest": "8.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -2670,6 +2670,109 @@
 				"tmp": "tmp/postcss-sorting_8.0.0_1672941096661_0.7745618023333403"
 			},
 			"_hasShrinkwrap": false
+		},
+		"8.0.1": {
+			"name": "postcss-sorting",
+			"version": "8.0.1",
+			"description": "PostCSS plugin to keep rules and at-rules content in order.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"sorting",
+				"order"
+			],
+			"author": {
+				"name": "Aleks Hudochenkov",
+				"email": "aleks@hudochenkov.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hudochenkov/postcss-sorting.git"
+			},
+			"bugs": {
+				"url": "https://github.com/hudochenkov/postcss-sorting/issues"
+			},
+			"homepage": "https://github.com/hudochenkov/postcss-sorting",
+			"peerDependencies": {
+				"postcss": "^8.4.20"
+			},
+			"devDependencies": {
+				"eslint": "^8.31.0",
+				"eslint-config-hudochenkov": "^9.0.0",
+				"eslint-config-prettier": "^8.6.0",
+				"husky": "^8.0.3",
+				"jest": "^29.3.1",
+				"jest-watch-typeahead": "^2.2.1",
+				"lint-staged": "^13.1.0",
+				"postcss": "^8.4.20",
+				"postcss-html": "^1.5.0",
+				"postcss-styled-syntax": "^0.1.0",
+				"prettier": "^2.8.1",
+				"prettier-config-hudochenkov": "^0.3.0"
+			},
+			"scripts": {
+				"test-full": "npm run lint && jest",
+				"test": "jest",
+				"watch": "jest --watch",
+				"coverage": "jest --coverage",
+				"fix": "npm run lint -- --fix && prettier --write *.js 'lib/**/*.js'",
+				"lint": "eslint *.js 'lib/**/*.js' --max-warnings=0 && prettier --check *.js 'lib/**/*.js'",
+				"prepare": "husky install"
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint --fix --max-warnings=0",
+					"prettier --write"
+				]
+			},
+			"jest": {
+				"setupFiles": [
+					"./jest-setup.js"
+				],
+				"testEnvironment": "node",
+				"testRegex": "__tests__/[a-zA-Z-.]+\\.js$",
+				"watchPlugins": [
+					"jest-watch-typeahead/filename",
+					"jest-watch-typeahead/testname"
+				]
+			},
+			"prettier": "prettier-config-hudochenkov",
+			"gitHead": "f8bad7765e11319e9bb46cd4449cf6a6a1807dae",
+			"_id": "postcss-sorting@8.0.1",
+			"_nodeVersion": "16.18.1",
+			"_npmVersion": "8.19.3",
+			"dist": {
+				"integrity": "sha512-go9Zoxx7KQH+uLrJ9xa5wRErFeXu01ydA6O8m7koPXkmAN7Ts//eRcIqjo0stBR4+Nir2gMYDOWAOx7O5EPUZA==",
+				"shasum": "d03852914979ac0a1ef3ca6e517bf4b53c045f35",
+				"tarball": "https://registry.npmjs.org/postcss-sorting/-/postcss-sorting-8.0.1.tgz",
+				"fileCount": 31,
+				"unpackedSize": 49220,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDn2tT/70g/hI1lT5TtNs2uojy8zuhZfl3MB6BHjaYAlwIhAL+QSeCl5oWfuXj6wq5W9uuvv7CooMtEfArD+83GWQGG"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjuFksACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrBKg//TnS2/DZ9J/KVPTiFYR8aqRvpfxCtBxUCch1XBRMcJDr+foAr\r\njyKlwGPWja3lGYdFH0VaUlEo8e1tHFTkbPBUCagPsFat0nIDKclJ8oXVgiHF\r\n6fksvjOxVyxpVjNTP4cy/1LDJdeYQc6PDxyJQWqFXvcEJPHUsS99sKwQBPtH\r\nsnHhZN0Y+ym8T7GQ0/DIhDYHzKN92pLvd5Ec8lTxfFiYG55l4YJWeeSiPn9+\r\nVc19JF+UfnjoBvm8eNeKVqbQUgFODsZQ8hne2zIe3tXTVqA7RBi3jmDALaY6\r\nBN4SYcvuw2nHT3G/DXztyBY3drGQD+GwTT0RUQp1GZB4MwAWiF82AtNSys2f\r\nHdkFzgmdDbtkvg+SWxKQ83+L7GY0iPjWIPichSr2LxcjyrsCzi9fM2MzsdF2\r\nrUFdsQWhsm2e6qI2PXuFuuxdI3s65no7o4INfUOn0O7M8jChGLN3Vq9/pkQX\r\npsXt86DX2r1Nc9AnZvelWYviBuf9OhAJ+xV4jZvlkVhKbLmrCEmFL8zIqvDM\r\nsUU6epMvP8S0GgjsbPyekMFtb1wmWsqULYLdt+4/o3FcxtVI64MaUw9DkI0/\r\nH/S9iyz3rgNhOg2o9eCgxRlDNElnAzAv9gPVWAiIcWJGSfExhqHRGjox9ji4\r\njWXZH2E4AHkvpY3VJ9pVWaZ5Bv79LTfEIj0=\r\n=XMCF\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "hudochenkov",
+				"email": "aleks@hudochenkov.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "hudochenkov",
+					"email": "aleks@hudochenkov.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-sorting_8.0.1_1673025836296_0.6109968609799676"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Sorting\n\n[![npm version][npm-version-img]][npm] [![npm downloads last month][npm-downloads-img]][npm]\n\n[PostCSS] plugin to keep rules and at-rules content in order.\n\nLint and autofix stylesheet order with [stylelint-order].\n\n## Features\n\n* Sorts rules and at-rules content.\n* Sorts properties.\n* Sorts at-rules by different options.\n* Groups properties, custom properties, dollar variables, nested rules, nested at-rules.\n* Supports CSS, SCSS (using [postcss-scss]), CSS-in-JS (with [postcss-styled-syntax]), HTML (with [postcss-html]), and most likely any other syntax added by other PostCSS plugins.\n\n## Installation\n\n```bash\nnpm install --save-dev postcss postcss-sorting\n```\n\n## Options\n\nThe plugin has no default options. Everything is disabled by default.\n\n- [`order`](./lib/order/README.md): Specify the order of content within declaration blocks.\n- [`properties-order`](./lib/properties-order/README.md): Specify the order of properties within declaration blocks.\n- [`unspecified-properties-position`](./lib/properties-order/unspecified-properties-position.md): Specify position for properties not specified in `properties-order`.\n- `throw-validate-errors`: Throw config validation errors instead of showing and ignoring them. Defaults to `false`.\n\n## Caveats\n\n### Handling comments\n\nComments that are before node and on a separate line linked to that node. Shared-line comments are also linked to that node. Shared-line comments are comments which are located after a node and on the same line as a node.\n\n```css\na {\n\ttop: 5px; /* shared-line comment belongs to `top` */\n\t/* comment belongs to `bottom` */\n\t/* comment belongs to `bottom` */\n\tbottom: 15px; /* shared-line comment belongs to `bottom` */\n}\n```\n\n### Ignored at-rules\n\nSome at-rules, like [control](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#control_directives__expressions) and [function](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#function_directives) directives in Sass, are ignored. It means rules won't touch content inside these at-rules, as doing so could change or break functionality.\n\n### CSS-in-JS\n\nPlugin will ignore rules, which have template literal interpolation, to avoid breaking the logic:\n\n```js\nconst Component = styled.div`\n\t/* The following properties WILL NOT be sorted, because interpolation is on properties level */\n\tz-index: 1;\n\ttop: 1px;\n\t${props => props.great && 'color: red'};\n\tposition: absolute;\n\tdisplay: block;\n\n\tdiv {\n\t\t/* The following properties WILL be sorted, because interpolation for property value only */\n\t\tz-index: 2;\n\t\tposition: static;\n\t\ttop: ${2 + 10}px;\n\t\tdisplay: inline-block;\n\t}\n`;\n```\n\n## Usage\n\nSee [PostCSS] docs for more examples.\n\n### Command Line\n\nAdd [postcss-cli](https://github.com/postcss/postcss-cli) and PostCSS Sorting to your project:\n\n```bash\nnpm install postcss postcss-cli postcss-sorting --save-dev\n```\n\nCreate a `postcss.config.js` with PostCSS Sorting configuration:\n\n```js\nmodule.exports = {\n\tplugins: {\n\t\t'postcss-sorting': {\n\t\t\torder: [\n\t\t\t\t'custom-properties',\n\t\t\t\t'dollar-variables',\n\t\t\t\t'declarations',\n\t\t\t\t'at-rules',\n\t\t\t\t'rules',\n\t\t\t],\n\n\t\t\t'properties-order': 'alphabetical',\n\n\t\t\t'unspecified-properties-position': 'bottom',\n\t\t},\n\t},\n};\n```\n\nOr, add the `'postcss-sorting'` section to your existing `postcss-cli` configuration file.\n\nNext execute:\n\n```bash\nnpx postcss --no-map --replace your-css-file.css\n```\n\nFor more information and options, please consult the [postcss-cli docs](https://github.com/postcss/postcss-cli).\n\n### Gulp\n\nAdd [gulp-postcss] and PostCSS Sorting to your build tool:\n\n```bash\nnpm install postcss gulp-postcss postcss-sorting --save-dev\n```\n\nEnable PostCSS Sorting within your Gulpfile:\n\n```js\nlet gulp = require('gulp');\nlet postcss = require('gulp-postcss');\nlet sorting = require('postcss-sorting');\n\nexports['sort-css'] = () => {\n\treturn gulp\n\t\t.src('./css/src/*.css')\n\t\t.pipe(\n\t\t\tpostcss([\n\t\t\t\tsorting({\n\t\t\t\t\t/* options */\n\t\t\t\t}),\n\t\t\t])\n\t\t)\n\t\t.pipe(gulp.dest('./css/src'));\n};\n```\n\n### Text editor\n\nThis plugin available as [Sublime Text], [Atom], [VS Code], and [Emacs] plugin. Though, seems all these plugins are not maintained.\n\n## Related tools\n\n[stylelint] and [stylelint-order] help lint stylesheets and let you know if stylesheet order is correct. Also, they could autofix stylesheets.\n\nI recommend [Prettier] for formatting stylesheets.\n\n[npm-version-img]: https://img.shields.io/npm/v/postcss-sorting.svg\n[npm-downloads-img]: https://img.shields.io/npm/dm/postcss-sorting.svg\n[npm]: https://www.npmjs.com/package/postcss-sorting\n\n[PostCSS]: https://github.com/postcss/postcss\n[Sublime Text]: https://github.com/hudochenkov/sublime-postcss-sorting\n[Atom]: https://github.com/lysyi3m/atom-postcss-sorting\n[VS Code]: https://github.com/mrmlnc/vscode-postcss-sorting\n[Emacs]: https://github.com/P233/postcss-sorting.el\n\n[gulp-postcss]: https://github.com/postcss/gulp-postcss\n[postcss-scss]: https://github.com/postcss/postcss-scss\n[postcss-html]: https://github.com/gucong3000/postcss-html\n[postcss-styled-syntax]: https://github.com/hudochenkov/postcss-styled-syntax\n[Prettier]: https://prettier.io/\n[stylelint]: https://stylelint.io/\n[stylelint-order]: https://github.com/hudochenkov/stylelint-order\n",
@@ -2680,7 +2783,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-01-05T17:51:36.895Z",
+		"modified": "2023-01-06T17:23:56.607Z",
 		"created": "2015-12-11T11:51:48.761Z",
 		"1.0.0": "2015-12-11T11:51:48.761Z",
 		"1.0.1": "2015-12-11T11:57:17.531Z",
@@ -2712,7 +2815,8 @@
 		"6.0.0": "2020-09-17T00:50:55.063Z",
 		"7.0.0": "2021-10-12T23:28:20.255Z",
 		"7.0.1": "2021-10-16T22:53:28.873Z",
-		"8.0.0": "2023-01-05T17:51:36.820Z"
+		"8.0.0": "2023-01-05T17:51:36.820Z",
+		"8.0.1": "2023-01-06T17:23:56.502Z"
 	},
 	"homepage": "https://github.com/hudochenkov/postcss-sorting",
 	"keywords": [
@@ -2735,5 +2839,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 4846860
+	"_downloads": 4793948
 }
