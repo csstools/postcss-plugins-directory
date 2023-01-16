@@ -1,0 +1,601 @@
+{
+	"_id": "postcss-custom-media-generator",
+	"_rev": "5-6fb8405fac0c8b968437ccff78e0b688",
+	"name": "postcss-custom-media-generator",
+	"dist-tags": {
+		"latest": "0.0.6"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-custom-media-generator",
+			"version": "0.0.1",
+			"description": "PostCSS plugin custom media generator",
+			"main": "dist/index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-custom-media-generator"
+			],
+			"author": {
+				"name": "Jason Raimondi",
+				"email": "jason@raimondi.us"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jasonraimondi/postcss-custom-media-generator.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@jmondi/tsconfig": "^0.1.0",
+				"@types/jest": "^29.2.5",
+				"@types/node": "^18.11.18",
+				"clean-publish": "^4.1.1",
+				"jest": "^29.3.1",
+				"postcss": "^8.4.21",
+				"prettier": "^2.8.3",
+				"ts-jest": "^29.0.5",
+				"typescript": "^4.9.4"
+			},
+			"jest": {
+				"preset": "ts-jest",
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"scripts": {
+				"test": "jest",
+				"build": "tsc",
+				"prepublish": "rm -rf ./dist && pnpm test && pnpm build"
+			},
+			"types": "./dist/index.d.ts",
+			"bugs": {
+				"url": "https://github.com/jasonraimondi/postcss-custom-media-generator/issues"
+			},
+			"homepage": "https://github.com/jasonraimondi/postcss-custom-media-generator#readme",
+			"_id": "postcss-custom-media-generator@0.0.1",
+			"_integrity": "sha512-8zW3bhNLXYvImfd8fGkl0QTE8kQfJCzwfG9kpLbs1e/Z89L+cXGZJVIITWaJd+fC3979xKxdPzwtTwbhD0kTIg==",
+			"_resolved": "/private/var/folders/x7/34p1sppn6wj7p0gjs87scy9w0000gn/T/70a754d063a245ab8ccf7181086900a3/postcss-custom-media-generator-0.0.1.tgz",
+			"_from": "file:postcss-custom-media-generator-0.0.1.tgz",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-8zW3bhNLXYvImfd8fGkl0QTE8kQfJCzwfG9kpLbs1e/Z89L+cXGZJVIITWaJd+fC3979xKxdPzwtTwbhD0kTIg==",
+				"shasum": "e1a02187fb0ec04e2ee9b1978ee5d735c9422802",
+				"tarball": "https://registry.npmjs.org/postcss-custom-media-generator/-/postcss-custom-media-generator-0.0.1.tgz",
+				"fileCount": 19,
+				"unpackedSize": 18754,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDsUsR1EUqI+RDaSK7eQKkauwi8peBVluVjXU3OZ81PMAIgBaPGnaP9xvsJ2MYqOutDxBGxCCjiXcGLUAyc2hSrRkw="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjw44gACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpsVg/9GzxqNJXxA0YnMjkIDQgg/s7hl1lpDR/L5UvLV4fnQHD+uUQB\r\nmlKIw1Qy7jAGwQWhol68SUXoXi3bzzHA1FqjWmYQl+CPuNdd48Kf79tnX1wh\r\nVv+mTZzDz+metvQ8qzivJDUEmpriKXtqQAau8GMFfx7/fTJZDgwMHTYvtbJW\r\nYw4fumXdLJlYaytDKnEmAW/gArU3F/eg82vALRuAX1pSBiY3gRUc4cwPVC52\r\n3GaZxrFL3QX7lLHclYKuH9UmdPxdMj18h9BRZBQBRwr/uQ/CQ6mrnAdM9sCz\r\n93EF7sI/GBmZ/jDD5srivt2aQ1NX+L+gfCP6LyQVI3UlSmCJWJvATixsnlGz\r\n574uG+7LpDDOQom0BGx+AsGLj6ZEtUAnYjeeVC4xNriEfddjVTioGbC0FBTn\r\nHFDj1SB3MMcdEx8L6L2z44t1ncyUbYpHULYokfZRbuU/B+wpR/KdcMDeNj6j\r\nq7pDU3Y+rUIZUJwLvgJB0+ezUmWbEXh3RlKcP21Vpe+ylNmkaJcR7IFThUKc\r\njj2bGzIflKHBA78qY89K7qLV1O8XA88g3dOs+RyWkiAom41gWbO1xJRyCb9E\r\nyhM3BO7IP+/FSQXIszNlTxnvto/cuFnesCaEv1ySTNBUSQG0gpGB/PvActax\r\nCIkdw5nWqJVKbvi8oEplfNFy72Sn/DJtiPc=\r\n=tmw+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "jasonraimondi",
+				"email": "jason@raimondi.us"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jasonraimondi",
+					"email": "jason@raimondi.us"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-media-generator_0.0.1_1673760288009_0.5760021771893347"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.2": {
+			"name": "postcss-custom-media-generator",
+			"version": "0.0.2",
+			"description": "PostCSS plugin custom media generator",
+			"main": "dist/index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-custom-media-generator"
+			],
+			"author": {
+				"name": "Jason Raimondi",
+				"email": "jason@raimondi.us"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jasonraimondi/postcss-custom-media-generator.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@jmondi/tsconfig": "^0.1.0",
+				"@types/jest": "^29.2.5",
+				"@types/node": "^18.11.18",
+				"clean-publish": "^4.1.1",
+				"jest": "^29.3.1",
+				"postcss": "^8.4.21",
+				"prettier": "^2.8.3",
+				"ts-jest": "^29.0.5",
+				"typescript": "^4.9.4"
+			},
+			"jest": {
+				"preset": "ts-jest",
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"scripts": {
+				"test": "jest",
+				"build": "tsc",
+				"prepublish": "rm -rf ./dist && pnpm test && pnpm build"
+			},
+			"types": "./dist/index.d.ts",
+			"bugs": {
+				"url": "https://github.com/jasonraimondi/postcss-custom-media-generator/issues"
+			},
+			"homepage": "https://github.com/jasonraimondi/postcss-custom-media-generator#readme",
+			"_id": "postcss-custom-media-generator@0.0.2",
+			"_integrity": "sha512-URlpuilWKx/QP8Mls7EF32TzY+A92DhiEKqoyKen7ITNjfa+F5GX8xBmWjnVRapCgVSUv9fcy6sseZWfkBDT3w==",
+			"_resolved": "/private/var/folders/x7/34p1sppn6wj7p0gjs87scy9w0000gn/T/842fc15724e4270d62b9196b5f707718/postcss-custom-media-generator-0.0.2.tgz",
+			"_from": "file:postcss-custom-media-generator-0.0.2.tgz",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-URlpuilWKx/QP8Mls7EF32TzY+A92DhiEKqoyKen7ITNjfa+F5GX8xBmWjnVRapCgVSUv9fcy6sseZWfkBDT3w==",
+				"shasum": "32e46f4a0b6cb0681284fbfadc4ce1050dedb246",
+				"tarball": "https://registry.npmjs.org/postcss-custom-media-generator/-/postcss-custom-media-generator-0.0.2.tgz",
+				"fileCount": 19,
+				"unpackedSize": 18754,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCiKi8qwZzeq32HBxouLht7JCrS2cCOt3qgMeRvFyZa3AIhAInImlj3pzfWukKI045eIWilmxIHwzPqMwqlZFF+ks6j"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjw45sACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmojIBAAjF3yR/UmrVQsDh9agUGVo9URuBQn/eXRCJuf/iunt4NYJ/Pr\r\nlKEt7Y9gpkfLAfLM2No6NOtaMPrB0/ZLgelHxeuR4EFAirp6hZWAYsNH2fxI\r\nT7tqJwXszSfBgaHMLPRDoDxCg3/m+/WjA3WA59ZkN8JFip1I7bDkfnxBYYfh\r\nmoiW5HzU8Eww2FnHEMaEsoZB2fNKOSBRDAZJmyaWk8BujGQrtFP3k95p6Exb\r\nbzdtl49H8QmQ235OL+r+J8rNcQIENTJfd8pLzkuq7rLHg3gM8iiGMjjrTCrX\r\nJQHipENVzM0GJstVedq2COP+8D2WdsP5+HAayHG8i7dpua62DkEQb8CgwmoV\r\n7zeSlIvdgBP8C8X0R4HYlFCywvywg54hjbcHcU3fDjVfd0nVP0trIJvwCUsm\r\nsU4kk7Vqz4qsO70Rr2PDbS4ICkzqw4zg90Fyvc2XpgO0QQPBKrHMSJSLzKDY\r\nNbiN2MlhV742SaUCYTsD6EooLL/zaVIJcpIFbVkmLG4/0n/huGLBNTkXOzo5\r\nD5UhKqy545BfPU+ox0hzS1M3M30p/lJjC1U4VAHTS38kCXB0fVc6cidyTmMP\r\n0WLMP7aRqOoznKroN7LT0SPvc5tjE2wLTi4MiJW/I2IFOSYxz3J2enfM+2jN\r\nHMT70nH1xAJ3tECVdnJ9bgeVqAQtnq4f0HM=\r\n=JcCX\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "jasonraimondi",
+				"email": "jason@raimondi.us"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jasonraimondi",
+					"email": "jason@raimondi.us"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-media-generator_0.0.2_1673760364578_0.5376861016101189"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.3": {
+			"name": "postcss-custom-media-generator",
+			"version": "0.0.3",
+			"description": "PostCSS plugin custom media generator",
+			"main": "dist/index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-custom-media-generator"
+			],
+			"author": {
+				"name": "Jason Raimondi",
+				"email": "jason@raimondi.us"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jasonraimondi/postcss-custom-media-generator.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@jmondi/tsconfig": "^0.1.0",
+				"@types/jest": "^29.2.5",
+				"@types/node": "^18.11.18",
+				"clean-publish": "^4.1.1",
+				"jest": "^29.3.1",
+				"postcss": "^8.4.21",
+				"prettier": "^2.8.3",
+				"ts-jest": "^29.0.5",
+				"typescript": "^4.9.4"
+			},
+			"jest": {
+				"preset": "ts-jest",
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"scripts": {
+				"test": "jest",
+				"build": "tsc",
+				"prepublish": "rm -rf ./dist && pnpm test && pnpm build"
+			},
+			"types": "./dist/index.d.ts",
+			"bugs": {
+				"url": "https://github.com/jasonraimondi/postcss-custom-media-generator/issues"
+			},
+			"homepage": "https://github.com/jasonraimondi/postcss-custom-media-generator#readme",
+			"_id": "postcss-custom-media-generator@0.0.3",
+			"_integrity": "sha512-geUgLTWZS4olukJ8Wf4TqKiRruHroh4w4XvjtPI+BPDtPViNE+7mtj1KQN0kZ+RP45M42JcXBrmRYujvevz9cg==",
+			"_resolved": "/private/var/folders/x7/34p1sppn6wj7p0gjs87scy9w0000gn/T/67ff47110833acb2af81fe281ddd1b4d/postcss-custom-media-generator-0.0.3.tgz",
+			"_from": "file:postcss-custom-media-generator-0.0.3.tgz",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-geUgLTWZS4olukJ8Wf4TqKiRruHroh4w4XvjtPI+BPDtPViNE+7mtj1KQN0kZ+RP45M42JcXBrmRYujvevz9cg==",
+				"shasum": "7199f6bfee99bde9f71663d7330eb7c6fa0f5c6d",
+				"tarball": "https://registry.npmjs.org/postcss-custom-media-generator/-/postcss-custom-media-generator-0.0.3.tgz",
+				"fileCount": 19,
+				"unpackedSize": 18703,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFgHgPBAiWyeMiY3tufdmd8TBBwY3vfR4ATeEg0v8CjeAiBHoO+Ni8WRUdqJQfRMqAMxfW3aVyFEQ6j7gwlgLuZNQg=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjxFXUACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpkpw/+KLs4ZIoWjem3felMRnsIITYuY/JfnyFk8DGA/pHokKshTQPQ\r\nEWBd3YoRbrmhzxRNGDH47XvlESHe041CfyQKx62voDz0DjD2fY//e1nsKris\r\nGi6rK50ktKzaFU+0ni6ACLkXhxRUsKZH2eQlgtZNB9mdCxl6KdBT1p4LQ5qs\r\n9Ot1zSil7vzykKEZE+QlVDLGHI22pyf5gqy0DKqFT+fTSlVfClIvR5UTVrDp\r\nnlpIvjsvDkjEVOMWmI/BDr+Tq1CMlE5dbu+o45A9H8ta22LfJcJR8qCo54Tc\r\nTb23hSMTOxP9vKTQDHhV79DDh1pppDYPKxQ1ftSa060PFWp0SteWNeMSclix\r\nO5kJPNEJUiK2/wA9uT+NxtRWI5troGZPciYsNA5mz2uZbcIri1uszvPmQNIx\r\n16IIdz2Kbee+uzIKUgMEO2SW91XR9qT6aLdF2DpnWuhdRc3TmfN8bnSH1NfL\r\nT12GTuB5CqfWIXZfFp3dnwR9CiydBi8r8tEK8YPqLNucDlPSxlM1PqXRuWU6\r\nWb930eiCECDN+RyrwSMoCwPBVGQZBucrtSNCHstXmPNSMqJWrKC+H5NZJeyK\r\nu9njrBBn8MPDAy6MLABQQWMVANqK05vOkjz+wNwdEsWLp8mD3f3XvwhNubTQ\r\nqo+7gysrjlmf69jDGqdMQBY7DtX8m2BFDiA=\r\n=B+py\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "jasonraimondi",
+				"email": "jason@raimondi.us"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jasonraimondi",
+					"email": "jason@raimondi.us"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-media-generator_0.0.3_1673811412410_0.3027401227476394"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.4": {
+			"name": "postcss-custom-media-generator",
+			"version": "0.0.4",
+			"description": "PostCSS plugin custom media generator",
+			"main": "dist/index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-custom-media-generator"
+			],
+			"author": {
+				"name": "Jason Raimondi",
+				"email": "jason@raimondi.us"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jasonraimondi/postcss-custom-media-generator.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@jmondi/tsconfig": "^0.1.0",
+				"@types/jest": "^29.2.5",
+				"@types/node": "^18.11.18",
+				"clean-publish": "^4.1.1",
+				"jest": "^29.3.1",
+				"postcss": "^8.4.21",
+				"prettier": "^2.8.3",
+				"ts-jest": "^29.0.5",
+				"typescript": "^4.9.4"
+			},
+			"jest": {
+				"preset": "ts-jest",
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"scripts": {
+				"test": "jest",
+				"build": "tsc",
+				"prepublish": "rm -rf ./dist && pnpm test && pnpm build"
+			},
+			"types": "./dist/index.d.ts",
+			"bugs": {
+				"url": "https://github.com/jasonraimondi/postcss-custom-media-generator/issues"
+			},
+			"homepage": "https://github.com/jasonraimondi/postcss-custom-media-generator#readme",
+			"_id": "postcss-custom-media-generator@0.0.4",
+			"_integrity": "sha512-6lIbNhLioMGyt9IocBHJH+WYAJP12fNzoKKS/hB831sWmdLczje1ltllut6/i0VBCDFvavYUrNBqNFqdvphhsg==",
+			"_resolved": "/private/var/folders/x7/34p1sppn6wj7p0gjs87scy9w0000gn/T/dc0345cc55e344eb0cf91ed6da5f318e/postcss-custom-media-generator-0.0.4.tgz",
+			"_from": "file:postcss-custom-media-generator-0.0.4.tgz",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-6lIbNhLioMGyt9IocBHJH+WYAJP12fNzoKKS/hB831sWmdLczje1ltllut6/i0VBCDFvavYUrNBqNFqdvphhsg==",
+				"shasum": "1c4085ce445fbbaaaafb9c3ce1664fa4a8b1e325",
+				"tarball": "https://registry.npmjs.org/postcss-custom-media-generator/-/postcss-custom-media-generator-0.0.4.tgz",
+				"fileCount": 19,
+				"unpackedSize": 18703,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIE9WMeOV54hb209H+FSGKEKEE+fBuHXJANdPD4/lX2GwAiEAsmHC2aj0+3J1C80Gyie8mMVF25drZ4fYb2Qa47+CsVU="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjxHKlACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoDEBAAjSmnts7JhqupXRq+TZR7V+Q/xgH82cGAf8z/6EVF5BkXv3we\r\nvSok0ZZjInFYtFc2XCQWFiT9CAhKyufIy2hIY4bsqB/8RpWco3sBuRdckALd\r\nojAwtnRNdK42QyecY7C+PrggM6J7LKjfciO4qgZBt7ee0pFck4AyunVMY+S1\r\nDJYDeF650/UwWKH5rxoCDEG/GokZ1WNpzfUB5uku+br/eXrO18as8I+sAqTA\r\nIcXRCkaiJYNtDt+tmb6a7sSHFxk8W3NRx0G+yoCynPrtxOsRp9weDirecJZI\r\nsIvL4KeW6iMIddta5Edd6pscFpMPEa3YZ6Eap6VChgFaV2spQJyqxD9GeswN\r\ndINQDrJmH70f1VPGz1pSSNNaUDMibKEHYmgoA7nqPzTRHMbkY6ykmdYXM2lf\r\ng4FT1A6KYkEb2QLsDgEfNJGx/4fQphTFuwSFWoc3dy/VlTJD9EyyBBO63apL\r\nbcxKKRumaaaxWvVFW/9FtrVnAHT/mr3N1RveD4TMch0NptCZAhE+QnGKz1EN\r\nWO6Sena6bgYg9S3FiNf+dVXfTibII9IUGZkXy3VnLvLVKRNu+1taYBI38i0n\r\nplqlm8SHV6cyYOYE+928/ocoh9v+0ODtDCauomdx4hDcbQvSG5bTaZ8H2nY6\r\ncQRIo8bM1lpetQX565s1PzDGrZEvEjQCgyE=\r\n=FGBm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "jasonraimondi",
+				"email": "jason@raimondi.us"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jasonraimondi",
+					"email": "jason@raimondi.us"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-media-generator_0.0.4_1673818789361_0.9308519980263907"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.5": {
+			"name": "postcss-custom-media-generator",
+			"version": "0.0.5",
+			"description": "PostCSS plugin custom media generator",
+			"main": "dist/index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-custom-media-generator"
+			],
+			"author": {
+				"name": "Jason Raimondi",
+				"email": "jason@raimondi.us"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jasonraimondi/postcss-custom-media-generator.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@jmondi/tsconfig": "^0.1.0",
+				"@types/jest": "^29.2.5",
+				"@types/node": "^18.11.18",
+				"clean-publish": "^4.1.1",
+				"jest": "^29.3.1",
+				"postcss": "^8.4.21",
+				"prettier": "^2.8.3",
+				"ts-jest": "^29.0.5",
+				"typescript": "^4.9.4"
+			},
+			"jest": {
+				"preset": "ts-jest",
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"scripts": {
+				"test": "jest",
+				"build": "tsc",
+				"prepublish": "rm -rf ./dist && pnpm test && pnpm build"
+			},
+			"types": "./dist/index.d.ts",
+			"bugs": {
+				"url": "https://github.com/jasonraimondi/postcss-custom-media-generator/issues"
+			},
+			"homepage": "https://github.com/jasonraimondi/postcss-custom-media-generator#readme",
+			"_id": "postcss-custom-media-generator@0.0.5",
+			"_integrity": "sha512-E1zxWnzK1W3lZXRSh1tQtR/QuJee4inPEqqxp1+oU0WxIAJGcxRR4239tk6agMWkibrURa8kmHugvR84OeZ3KA==",
+			"_resolved": "/private/var/folders/x7/34p1sppn6wj7p0gjs87scy9w0000gn/T/6d52f6b9c3e24dd94fa50de263bf3998/postcss-custom-media-generator-0.0.5.tgz",
+			"_from": "file:postcss-custom-media-generator-0.0.5.tgz",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-E1zxWnzK1W3lZXRSh1tQtR/QuJee4inPEqqxp1+oU0WxIAJGcxRR4239tk6agMWkibrURa8kmHugvR84OeZ3KA==",
+				"shasum": "6c1c221d94d55d4a29655f395b944058edc6acc8",
+				"tarball": "https://registry.npmjs.org/postcss-custom-media-generator/-/postcss-custom-media-generator-0.0.5.tgz",
+				"fileCount": 19,
+				"unpackedSize": 19433,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFjRD2kIKGZoNDu28rttz0vbgKVzj7w2iJxhTgxo/HAYAiEAwV3+5+kIf+7emawzs+EmxExVEPNbHIohGFtSMkGMb2k="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjxIC1ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo8ig//R14s0QQVVBP95zOAA5eLTgXOw/bSMv8CDzEjbvhcGtVN4RF2\r\nBMQczlL0jdKNwwaL50+Aa/ItJ6D6NeSdAvwLzQ+Eapkvi+oAq/kX5DAXoziH\r\nM9pDS7rf3DkTPy0z0bOdjfRnq9kGcvfB4vP9RIyDF2YNNBYM36LPgzYb4Nfx\r\n1ulMWOWYUmF2LBM34fXjZgJ9bkdSwvjxZmDQMhwnSe0ATJz7+Whu3blftvNm\r\n0wsasgEVg3GRPn/Kcp+IdQET/AEMwq45RYIGnWobyGE0FC6uiVJIPn+YRKIt\r\njEQ2/X+aVMmoJjY7mHaz/rNHF26a1gu3iVgg4n7JqokTnhJiiB9F+/TzXYDD\r\nb2GHQG8P83qkOTmTDZKZKLsS9cnFjEDOHZUUtC45WroCcRjJKu5JvtU5H0O2\r\nehIszPXqH5N123LEQCHEv+OAvDcmGdLS7ECHqp2m5YMNFV6FWdnBFu+vLoVG\r\nN8CS4phhorHZt7BNlkvdT/vHwWXENS7dw1T4osVnv7Rxcw+EOU5UqloZm7J0\r\nTJxJczXr3+FtBuHijV2PQa7j1VF99ZdYXyMNaz5WyhKQcpXx4zcktVp23lHj\r\nuxySYEuzfmYZq/1wmURc/jr0HIaC/eNurbEeT/2BKFD0jccT4RSMiR8/3OeR\r\nLSAkzAX/EEc0YbgQW1L6h2JrzJu0BTgQ+VA=\r\n=yE5S\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "jasonraimondi",
+				"email": "jason@raimondi.us"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jasonraimondi",
+					"email": "jason@raimondi.us"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-media-generator_0.0.5_1673822389680_0.6548531308606682"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.6": {
+			"name": "postcss-custom-media-generator",
+			"version": "0.0.6",
+			"description": "PostCSS plugin custom media generator",
+			"main": "dist/index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-custom-media-generator"
+			],
+			"author": {
+				"name": "Jason Raimondi",
+				"email": "jason@raimondi.us"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jasonraimondi/postcss-custom-media-generator.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@jmondi/tsconfig": "^0.1.0",
+				"@types/jest": "^29.2.5",
+				"@types/node": "^18.11.18",
+				"clean-publish": "^4.1.1",
+				"jest": "^29.3.1",
+				"postcss": "^8.4.21",
+				"prettier": "^2.8.3",
+				"ts-jest": "^29.0.5",
+				"typescript": "^4.9.4"
+			},
+			"jest": {
+				"preset": "ts-jest",
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"scripts": {
+				"test": "jest",
+				"build": "tsc",
+				"prepublish": "rm -rf ./dist && pnpm test && pnpm build"
+			},
+			"types": "./dist/index.d.ts",
+			"bugs": {
+				"url": "https://github.com/jasonraimondi/postcss-custom-media-generator/issues"
+			},
+			"homepage": "https://github.com/jasonraimondi/postcss-custom-media-generator#readme",
+			"_id": "postcss-custom-media-generator@0.0.6",
+			"_integrity": "sha512-NNi5DOEQnGzVVmj/vCFa8pXNWC1zImiOIr5VEQtrjiaDmsNHieO6FbZwl0eNGPFp/xOY9K+o9MtkBFPkoimPMA==",
+			"_resolved": "/private/var/folders/x7/34p1sppn6wj7p0gjs87scy9w0000gn/T/c1bc672d64b90bb400007c15d81e572c/postcss-custom-media-generator-0.0.6.tgz",
+			"_from": "file:postcss-custom-media-generator-0.0.6.tgz",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-NNi5DOEQnGzVVmj/vCFa8pXNWC1zImiOIr5VEQtrjiaDmsNHieO6FbZwl0eNGPFp/xOY9K+o9MtkBFPkoimPMA==",
+				"shasum": "cb14e1d04a6cc17e22147a19a088bedb4adb8066",
+				"tarball": "https://registry.npmjs.org/postcss-custom-media-generator/-/postcss-custom-media-generator-0.0.6.tgz",
+				"fileCount": 19,
+				"unpackedSize": 19433,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHSm6FjMrcwaHrorZ2FtX3asp95U5zny34fc1Xr2pZJoAiBxB4g+l3hGoSPLUPFgMNHEgS6QG5+iSCCEg1wA9LDOwA=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjxIVcACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpFLQ/+NSksiqk0iSoxhvfw4hlLyE8BBDKt66i1geRGBdrhl8eZCFcs\r\ntnGk2m28tklBGN35w/rgHc046ZoXFodSUCxbt/9BQGsB4k22MSDMxA2I9pMQ\r\nUNLVhtlqjpd8jhmEyGcLu77+arTdMtHbc1hpPOmoTAH3LSZCg76vdoO7HWui\r\nk5zfUNx1qmMHEPD4qUjbwrw0Ro9vL/fhd5awAwh8MjIra4zaAjLye8sCwXIe\r\nKK9eH9IjiVyPAdNqXVQVTCpO8kxxJvC5yR0PomzYH/NkvUTnxJSPkmsrvB1i\r\nl/MwrWvFtHTuWBfhox6m+k8tzH9evPJzFWq+LZuOyzJlrGgMytkoxoGKc/OA\r\n43UCYAXSZ7Vn3pUO9+esFjyPU5qwR1DCfU6xd9MTTK4hS6f288JQkCOb+k+Y\r\nkN73hujIIuto81CzieYAtq3vheCU2oRI+79nLgQ/gGdMcroUApuyXduGlmIA\r\nB2cGy4M2UW/gjaZwAa8RMGtG9XJVUNlmRJEvK4MaX3jGhJ7CrohduJHQkkNR\r\nfoR6Ru8x3g0EPX1Vqy144QSkBeTvoD8WdF218oG9gR2SBzarJT/xoPoRFrZa\r\nVXOsyRZKj3FQeGX/Be4zr5baWTpXnHlMBhrqhaBCrHFOwnCNXwBCrPLLsLWp\r\nbC8Lvm7O2WF3oN+u7MS4LdEuHBb4Oir1uZE=\r\n=aJRq\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "jasonraimondi",
+				"email": "jason@raimondi.us"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jasonraimondi",
+					"email": "jason@raimondi.us"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-media-generator_0.0.6_1673823579891_0.9857779454719355"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2023-01-15T05:24:47.942Z",
+		"0.0.1": "2023-01-15T05:24:48.206Z",
+		"modified": "2023-01-15T22:59:40.125Z",
+		"0.0.2": "2023-01-15T05:26:04.746Z",
+		"0.0.3": "2023-01-15T19:36:52.557Z",
+		"0.0.4": "2023-01-15T21:39:49.497Z",
+		"0.0.5": "2023-01-15T22:39:49.861Z",
+		"0.0.6": "2023-01-15T22:59:40.040Z"
+	},
+	"maintainers": [
+		{
+			"name": "jasonraimondi",
+			"email": "jason@raimondi.us"
+		}
+	],
+	"description": "PostCSS plugin custom media generator",
+	"homepage": "https://github.com/jasonraimondi/postcss-custom-media-generator#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss-custom-media-generator"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jasonraimondi/postcss-custom-media-generator.git"
+	},
+	"author": {
+		"name": "Jason Raimondi",
+		"email": "jason@raimondi.us"
+	},
+	"bugs": {
+		"url": "https://github.com/jasonraimondi/postcss-custom-media-generator/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-custom-media-generator\n\n[PostCSS] plugin custom media generator.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```diff\nmodule.exports = {\n  plugins: [\n    \"postcss-custom-media-generator\": {\n      \"--light\": \"prefers-color-scheme: light\",\n      \"--dark\": \"prefers-color-scheme: dark\",\n      sm: 600,\n      md: 800,\n      lg: 1000,\n    },\n    autoprefixer: {},\n  ]\n}\n```\n\n```postcss\n@custom-media --light (prefers-color-scheme: light);\n@custom-media --dark (prefers-color-scheme: dark);\n@custom-media --sm-only (min-width: 600px) and (max-width: 799px);\n@custom-media --sm (min-width: 600px);\n@custom-media --md-only (min-width: 800px) and (max-width: 999px);\n@custom-media --md (min-width: 800px);\n@custom-media --lg (min-width: 1000px);\n@custom-media --lg-only (min-width: 1000px);\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-custom-media-generator\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-custom-media-generator')({ /* options */ }),\n    require('autoprefixer')\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
