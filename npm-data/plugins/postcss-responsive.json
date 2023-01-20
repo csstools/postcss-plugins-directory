@@ -1,16 +1,17 @@
 {
 	"_id": "postcss-responsive",
-	"_rev": "3-00653e533861a15df8a3e176b2191935",
+	"_rev": "4-b600d03f227c46a244ab6949daee8cc8",
 	"time": {
 		"created": "2022-07-27T12:30:54.386Z",
 		"1.0.0": "2022-03-02T07:43:37.231Z",
-		"modified": "2022-08-07T14:06:34.462Z",
+		"modified": "2023-01-19T14:20:16.327Z",
 		"0.1.0": "2022-07-27T12:30:54.582Z",
-		"0.1.1": "2022-08-07T14:06:34.394Z"
+		"0.1.1": "2022-08-07T14:06:34.394Z",
+		"0.3.0": "2023-01-19T14:20:16.200Z"
 	},
 	"name": "postcss-responsive",
 	"dist-tags": {
-		"latest": "0.1.1"
+		"latest": "0.3.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -204,6 +205,114 @@
 				"tmp": "tmp/postcss-responsive_0.1.1_1659881194247_0.0525506833306999"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.3.0": {
+			"name": "postcss-responsive",
+			"description": "PostCSS plugin that improves developer experience of responsive design",
+			"version": "0.3.0",
+			"main": "./dist/umd.js",
+			"module": "./dist/es.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/azat-io/postcss-responsive.git"
+			},
+			"author": {
+				"name": "Azat S.",
+				"email": "to@azat.io"
+			},
+			"license": "MIT",
+			"engines": {
+				"node": ">=14.0.0"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"responsive",
+				"clamp"
+			],
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"@commitlint/cli": "^17.4.2",
+				"@commitlint/config-conventional": "^17.4.2",
+				"@logux/eslint-config": "^48.0.0",
+				"@types/node": "^18.11.18",
+				"@typescript-eslint/eslint-plugin": "^5.48.2",
+				"@typescript-eslint/parser": "^5.48.2",
+				"@vitest/coverage-c8": "^0.27.2",
+				"bumpp": "^8.2.1",
+				"eslint": "^8.32.0",
+				"eslint-config-standard": "^17.0.0",
+				"eslint-plugin-import": "^2.27.5",
+				"eslint-plugin-n": "^15.6.1",
+				"eslint-plugin-prefer-let": "^3.0.1",
+				"eslint-plugin-promise": "^6.1.1",
+				"postcss": "^8.4.21",
+				"simple-git-hooks": "^2.8.1",
+				"standard-version": "^9.5.0",
+				"tsm": "^2.3.0",
+				"typescript": "^4.9.4",
+				"vite": "^4.0.4",
+				"vite-node": "^0.27.2",
+				"vitest": "^0.27.2"
+			},
+			"scripts": {
+				"build": "vite build",
+				"release": "pnpm release:check && pnpm release:version && pnpm release:publish",
+				"release:changelog": "standard-version --infile changelog.md --same-file --skip.bump --skip.commit --skip.tag",
+				"release:check": "pnpm test && pnpm build",
+				"release:publish": "pnpm publish",
+				"release:version": "bumpp package.json --execute=\"pnpm release:changelog && git add changelog.md\" --commit \"build: publish v%s\" --tag --all",
+				"lint": "eslint .",
+				"test:types": "tsc --noEmit --pretty",
+				"test:unit": "vitest run --coverage",
+				"test": "pnpm lint && pnpm test:types && pnpm test:unit"
+			},
+			"bugs": {
+				"url": "https://github.com/azat-io/postcss-responsive/issues"
+			},
+			"homepage": "https://github.com/azat-io/postcss-responsive#readme",
+			"_id": "postcss-responsive@0.3.0",
+			"_integrity": "sha512-29uzJiz4Qr4rqAPSO0oVyqzu5V7/jGyGMLOvvyfW6C4YVI9RUQvTYba2gsiFUzzlRIL7htacdy/Bi1bJHxU7Cw==",
+			"_resolved": "/private/var/folders/ss/ysx7vg4s0gz7m0gjcq3p8df80000gn/T/d87d0acfc053ea0dd6edcab32cac1122/postcss-responsive-0.3.0.tgz",
+			"_from": "file:postcss-responsive-0.3.0.tgz",
+			"_nodeVersion": "19.4.0",
+			"_npmVersion": "9.2.0",
+			"dist": {
+				"integrity": "sha512-29uzJiz4Qr4rqAPSO0oVyqzu5V7/jGyGMLOvvyfW6C4YVI9RUQvTYba2gsiFUzzlRIL7htacdy/Bi1bJHxU7Cw==",
+				"shasum": "95c038b31ddb59fef8e6b886df75d81bc0297335",
+				"tarball": "https://registry.npmjs.org/postcss-responsive/-/postcss-responsive-0.3.0.tgz",
+				"fileCount": 34,
+				"unpackedSize": 14368628,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBth7esJ8a4QeVwNmsvirSuTzFyIG+6RxzZmc5HIhUZVAiEApqlAfNZYy18zdXUl/SuPOWT5TNjk+qIIx/Ej4OzAUyY="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjyVGgACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmrd+g//YmH19nuX7f9pSHoEAKDCBU1VdjtVRWgeuvU6YKjdghK4OTiS\r\n+yYes87s92KeUnXOKpejB2LTvYuYeFk5UFU1/I0/V/Mfz6WAE2ZisFylmRW9\r\nFEWR0fMn5NWTkkiMU1hKTqFKJL/wWPMzG+6L3r9+Prlffmqsxjy1dhUNSsLz\r\nLj95fyaPqRPrKSngpQrMLv8UHZnFKeycFvQhMxlk23/hbTv1CtrZgws1mLz8\r\nlSOOJidGNInu3ZRDtSneqdEatgkt2HfvjFpWygipikTFyp8LQruCgF73GQzl\r\nNMOTT2/RW1qZIiGXy2x+vLICrDlJQ2iuoqu2gHWtmMYQymzQJD841wFL9TDW\r\nx0LF+tGsJwKZf0IDOT08nN7+6SeTkCcXZSz7k+I0Vpgq7++pDgVHAEa4fI2i\r\nnBIyl+kazCPn6VTWPO/276v1ERrODOdy9lRKnfSElEkcBovHDvXwdHy7XgK7\r\njvPUGof20DkaF9x4wGzmFWxl2e142U+tRCdcwsSBnIOIDIXtbXRfFv7DBDVk\r\ne0yNfVDWWd7AiFGR4nXKtn+eRywlDWtaeonkjIFoCrFzXwk3dZ/zSOMOMBLF\r\nLRjWKgtcxuOj2Uy0XzJimT9ZRxc0LZjbOBTp+u493lvW4Vrv7fCFjfih8N6f\r\nhPX3PNziAZmACPL5FTcLRvQYBhL1oj89cVo=\r\n=TNqJ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "azat-io",
+				"email": "to@azat.io"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "azat-io",
+					"email": "to@azat.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-responsive_0.3.0_1674138015971_0.40579318828914945"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"maintainers": [
@@ -233,7 +342,7 @@
 		"url": "https://github.com/azat-io/postcss-responsive/issues"
 	},
 	"license": "MIT",
-	"readme": "# PostCSS Responsive\n\n[PostCSS](https://postcss.org) plugin that simplifies the creation of adaptive design with custom `responsive()` function.\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-responsive\n```\n\n**Step 2:** Check your project for existing PostCSS config: `.postcssrc` in the project root, `\"postcss\"` section in `package.json` or `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs](https://github.com/postcss/postcss#usage)\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to your PostCSS config:\n\n```diff\n{\n  \"plugins\": {\n+    \"postcss-responsive\": {\n+      \"minWidth\": 480,\n+      \"maxWidth\": 1280,\n+    },\n    \"autoprefixer\": {}\n  }\n}\n```\n\n**Step 4:** Just add `responsive()` function into your CSS code. This function can take 2 or 4 arguments: minimum and maximum value and minimum and maximum viewport width (You can set it in plugin settings).\n\n## Example\n\n### Input\n\n```css\n.container {\n  display: grid;\n  grid-template-columns: responsive(180px, 240px) 1fr;\n  grid-gap: responsive(8px, 16px);\n  padding: responsive(16px, 32px) responsive(16px, 24px);\n  font-size: responsive(1rem, 1.125rem, 400px, 800px);\n  line-height: responsive(1.5rem, 1.75rem, 400px, 800px);\n}\n```\n\n### Output\n\n```css\n.container {\n  display: grid;\n  grid-template-columns: clamp(11.25rem, 9rem + 7.5vw, 15rem) 1fr;\n  grid-gap: clamp(0.5rem, 0.2rem + 1vw, 1rem);\n  padding: clamp(1rem, 0.4rem + 2vw, 2rem) clamp(1rem, 0.7rem + 1vw, 1.5rem);\n  font-size: clamp(1rem, 0.875rem + 0.5vw, 1.125rem);\n  line-height: clamp(1.5rem, 1.25rem + 1vw, 1.75rem);\n}\n```\n\n### Browser Support\n\n`postcss-responsive` plugin uses `clamp()` function and `vw` units. So it works on all modern browsers. You can check browser support [here](https://caniuse.com/?search=clamp)\n\n## Contributing\n\nPull requests are welcome.\n\n## License\n\nMIT &copy; [Azat S.](https://twitter.com/azat_io)\n",
+	"readme": "# PostCSS Responsive\n\n<img align=\"right\" width=\"120\" height=\"120\" title=\"PostCSS\" src=\"http://postcss.github.io/postcss/logo.svg\">\n\n[PostCSS](https://postcss.org) plugin that simplifies the creation of adaptive design with custom `responsive()` function.\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-responsive\n```\n\n**Step 2:** Check your project for existing PostCSS config: `.postcssrc` in the project root, `\"postcss\"` section in `package.json` or `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs](https://github.com/postcss/postcss#usage)\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to your PostCSS config:\n\n```diff\n{\n  \"plugins\": {\n+    \"postcss-responsive\": {\n+      \"minWidth\": 480,\n+      \"maxWidth\": 1280,\n+    },\n    \"autoprefixer\": {}\n  }\n}\n```\n\n**Step 4:** Just add `responsive()` function into your CSS code. This function can take 2 or 4 arguments: minimum and maximum value and minimum and maximum viewport width (You can set it in plugin settings).\n\n## Options\n\n### minWidth\n\nThe minimum value of the viewport, starting from which we will build a fluid layout. By default, it is not preserved.\n\n### maxWidth\n\nThe maximum value of the viewport, ending with which we will build a fluid layout. By default, it is not preserved.\n\n### funcName\n\nYou can set your own CSS function name. Default value is `responsive`\n\n## Example\n\n### Input\n\n```css\n.container {\n  display: grid;\n  grid-template-columns: responsive(180px, 240px) 1fr;\n  grid-gap: responsive(8px, 16px);\n  padding: responsive(16px, 32px) responsive(16px, 24px);\n  font-size: responsive(1rem, 1.125rem, 400px, 800px);\n  line-height: responsive(1.5rem, 1.75rem, 400px, 800px);\n}\n```\n\n### Output\n\n```css\n.container {\n  display: grid;\n  grid-template-columns: clamp(11.25rem, 9rem + 7.5vw, 15rem) 1fr;\n  grid-gap: clamp(0.5rem, 0.2rem + 1vw, 1rem);\n  padding: clamp(1rem, 0.4rem + 2vw, 2rem) clamp(1rem, 0.7rem + 1vw, 1.5rem);\n  font-size: clamp(1rem, 0.875rem + 0.5vw, 1.125rem);\n  line-height: clamp(1.5rem, 1.25rem + 1vw, 1.75rem);\n}\n```\n\n### Browser Support\n\n`postcss-responsive` plugin uses `clamp()` function and `vw` units. So it works on all modern browsers. You can check browser support [here](https://caniuse.com/?search=clamp)\n\n## Contributing\n\nPull requests are welcome.\n\n## License\n\nMIT &copy; [Azat S.](https://twitter.com/azat_io)\n",
 	"readmeFilename": "readme.md",
 	"_downloads": 8
 }

@@ -1,0 +1,164 @@
+{
+	"_id": "@csstools/postcss-logical-viewport-units",
+	"name": "@csstools/postcss-logical-viewport-units",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-logical-viewport-units",
+			"description": "Use vb and vi length units in CSS",
+			"version": "1.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/css-tokenizer": "^1.0.0"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-viewport-units#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-logical-viewport-units"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"postcss-plugin"
+			],
+			"csstools": {
+				"cssdbId": "logical-viewport-units",
+				"exportName": "postcssLogicalViewportUnits",
+				"humanReadableName": "PostCSS Logical Viewport Units",
+				"specUrl": "https://www.w3.org/TR/css-values-4/#viewport-relative-units"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "ed0119f3eb6d06b7d453580aef27740f86613ed4",
+			"_id": "@csstools/postcss-logical-viewport-units@1.0.0",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-O+RpwJd3tqIopCH0lJsc5HUavyuGsxzRp8SydL90s68bHgoLYWV9tsjCOwvKJj6qckjZgqnIyNYR4gKXQ8FS7g==",
+				"shasum": "b9dfd91a95716999dcb16c6e979eded9d7c44d35",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-viewport-units/-/postcss-logical-viewport-units-1.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 17582,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC0F6nQhGG7BGtndocJYcER/BWY8LmDAb3UxzuVBaRo6gIhAP9T8rL83NVzgdTXuHT0d7GQdDPUxN8cw7u+dMicg58B"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjyYSfACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrYlg/8DxKlWF9ZRcKPwKx7XcZ2p/kOJLkZK6DH0TKc3WJBnO/aOZ/Q\r\nCkQkLau5z2kFYciVuSQ7T5zIJMDJZjdbAcJGO22hh6o77+KLLaR60w5xwk8J\r\nR+YdWFvdTwiaa1k4JrGNSRtDxST17NT/itmShFaXtna/NnaxbN3b+FRCHMxf\r\nF4UArmPOArJ4mee5MN410VoMnGG/DTYTE1d08TmU+HoNjFaFrflaoXs34qkS\r\n0krA5f8/5rn/w4H2Wonj1XUhpXXAVRoWH7biWQEYSiKWjTDfk5qL6pVZqhoZ\r\nz2JIXXFH15w4FIzFp/15tff5AQSkXfRSrmHj7O/XgyMKRqT1SDqebW5iznBO\r\nbKVGDi3ubxEKlnhcgs5bu1rZaI2H2Qr5xZQfP41O1/aeuanWdyt6RUJGLd7i\r\nedNG8sgVhUlI31Pxpss5KOM7Mg924wBgCPl3YWOy7reyWxDx1cowNttjO8ss\r\nwFsGz2iRJd83NwiB+tQ22IYFwUQzsRe6+GkKPHVXYEvLVKzgEkSPUpclti9f\r\nUX//hHNl66uDzx3vzKEFXpZDamPZXdKNDH12yczu/32itltbuEMAO9hQj+Hh\r\nNZdhRsVEMW6by+YwoEEkoubxOc1aRq+sHwFvmmhvYTLt79NM4PIi4+WSfOxE\r\nfDBGkJS2t+CMin2BW6GsPbxrOJbdaOlbcTE=\r\n=trK2\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical-viewport-units_1.0.0_1674151071344_0.5690212096678737"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2023-01-19T17:57:51.264Z",
+		"1.0.0": "2023-01-19T17:57:51.538Z",
+		"modified": "2023-01-19T17:57:51.779Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Use vb and vi length units in CSS",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-viewport-units#readme",
+	"keywords": [
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-logical-viewport-units"
+	},
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS Logical Viewport Units [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-logical-viewport-units.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/logical-viewport-units.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Logical Viewport Units] lets you easily use `vb` and `vi` length units following the [CSS-Values-4 Specification].\n\n```pcss\n.foo {\n\tmargin: 10vi 20vb;\n}\n\n/* becomes */\n\n.foo {\n\tmargin: 10vw 20vh;\n\tmargin: 10vi 20vb;\n}\n```\n\n## Usage\n\nAdd [PostCSS Logical Viewport Units] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-logical-viewport-units --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLogicalViewportUnits = require('@csstools/postcss-logical-viewport-units');\n\npostcss([\n\tpostcssLogicalViewportUnits(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Logical Viewport Units] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n ### inlineDirection\n\n The `inlineDirection` option allows you to specify the direction of the inline axe. The default value is `left-to-right` respectively which would match any latin language.\n\n You might want to tweak these value if you are using a different writing system, such as Arabic, Hebrew or Chinese for example.\n\n ```js\n postcssLogicalViewportUnits({\n \tinlineDirection: 'top-to-bottom'\n })\n ```\n\n ```pcss\n .foo {\n\tmargin: 10vi 20vb;\n}\n\n /* becomes */\n\n .foo {\n\tmargin: 10vh 20vw;\n\tmargin: 10vi 20vb;\n}\n ```\n\n Each direction must be one of the following:\n\n - `top-to-bottom`\n - `bottom-to-top`\n - `left-to-right`\n - `right-to-left`\n\n Please do note that transformations won't do anything particular for `right-to-left` or `bottom-to-top`.\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssLogicalViewportUnits({ preserve: false })\n```\n\n```pcss\n.foo {\n\tmargin: 10vi 20vb;\n}\n\n/* becomes */\n\n.foo {\n\tmargin: 10vw 20vh;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#logical-viewport-units\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-logical-viewport-units\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Logical Viewport Units]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-viewport-units\n[CSS-Values-4 Specification]: https://www.w3.org/TR/css-values-4/#viewport-relative-units\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
