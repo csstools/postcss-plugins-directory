@@ -1,0 +1,176 @@
+{
+	"_id": "@csstools/postcss-logical-resize",
+	"name": "@csstools/postcss-logical-resize",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@csstools/postcss-logical-resize",
+			"description": "Use logical values in the resize property",
+			"version": "1.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-resize#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-logical-resize"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"block",
+				"css",
+				"inline",
+				"logical",
+				"postcss",
+				"postcss-plugin",
+				"resize"
+			],
+			"csstools": {
+				"cssdbId": "logical-resize",
+				"exportName": "postcssLogicalResize",
+				"humanReadableName": "PostCSS Logical Resize",
+				"specUrl": "https://www.w3.org/TR/css-logical-1/"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "eb9d2768574cb83d485e91fdaaf5a7cdec6361b7",
+			"_id": "@csstools/postcss-logical-resize@1.0.0",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-gsySHNBxhHI76I0MmoHz+OJ+EWlEl7TQFKdpRmKG0bfdYZVZaAexAHXLulJL3Tp3ifcD0ev9fSsIPYGeKTx2qA==",
+				"shasum": "4f0942ec91c5e09524624e4669904b95b348ef53",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-resize/-/postcss-logical-resize-1.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 18236,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC5YLTvWqu4T9i2DBT/Wfdge9oA2o+XN6XEjNubU4056AIhAMlE8TBt5QUcN423gLjqCD/NPkj+TNGmo5qkHTpwrsVf"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjzF3iACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp37A//TKLtePyr1gPhG7RN/z0dhlkOeAyF2J12XMQ4CtLe6t2hVyKb\r\n9DmzvTB5KMD7RGYYjejOZcDfRbM2uLxSfryAFYj4++TdmFirkT1vivICJpra\r\neyrR6vIh0vjPVJNxBRegbQ1IF6s0T7up+3AeAGNOMWI2Q7OoHi8KRefIXGsd\r\njzg+ZR/UZHJb4kXvPH82iUjPPY68iQUv7AafqiZDMWU3uTyKwbazNj77bajw\r\n5wnlyNmJLK/19VLWl3H5wgCqEO6HizoDJFux4aG0odDRLmO1mcxURxY5O4uA\r\niAhdq2c2Ux7AXWgpe/nW4nXGsz+0LGLD9ZT9iEMjHDkbJLjxXwKDjmHrMxGq\r\nkvei5b6KwCk6PLIR6iRgMC95C/lY/upmMfjZ7HoGtvaoitQC4A2zgDWT4VF9\r\n8Loq03qF1Qlig3iHkZlTCO1VFVIhdFJeprC/MgyOWgJA+Xp/8OufXb700/A6\r\nfmKNPqvGuS0m+jhiKN9FzvGBj6uIFM3dRt0lKqnNZT1pIv98/41COQkNwGMM\r\nmGLAX4Ni4eJORBw+9QzM1sws8Y+HR9ns+RJqaUipSCG7FsFPJMTmu+MoEiSc\r\n015WQq/vqTzqG+TxwHkkeMHUkjtgnVUYifIE0LBxfb9caWG0El7d4NT+wFaT\r\nx9/BXN24pr3UphMCas6a31k4IgJL9wDVQ98=\r\n=t+Bk\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical-resize_1.0.0_1674337762224_0.4668424705923475"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2023-01-21T21:49:22.135Z",
+		"1.0.0": "2023-01-21T21:49:22.424Z",
+		"modified": "2023-01-21T21:49:22.620Z"
+	},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "Use logical values in the resize property",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-resize#readme",
+	"keywords": [
+		"block",
+		"css",
+		"inline",
+		"logical",
+		"postcss",
+		"postcss-plugin",
+		"resize"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-logical-resize"
+	},
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# PostCSS Logical Resize [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-logical-resize.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/logical-resize.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Logical Resize] lets you use logical, rather than physical, values for `resize`, following the [CSS Logical Properties and Values] specification.\n\n```pcss\n.resize-block {\n\tresize: block;\n}\n\n.resize-inline {\n\tresize: inline;\n}\n\n/* becomes */\n\n.resize-block {\n\tresize: vertical;\n}\n\n.resize-inline {\n\tresize: horizontal;\n}\n```\n\n## Usage\n\nAdd [PostCSS Logical Resize] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-logical-resize --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLogicalResize = require('@csstools/postcss-logical-resize');\n\npostcss([\n\tpostcssLogicalResize(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Logical Resize] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### blockDirection & inlineDirection\n\nThe `blockDirection` and `inlineDirection` options allow you to specify the direction of the block and inline axes. The default values are `top-to-bottom` and `left-to-right` respectively which would match any latin language.\n\nYou might want to tweak these values if you are using a different writing system, such as Arabic, Hebrew or Chinese for example.\n\n```js\npostcssLogicalResize({\n\tblockDirection: 'right-to-left',\n\tinlineDirection: 'top-to-bottom'\n})\n```\n\n```pcss\n.resize-block {\n\tresize: block;\n}\n\n.resize-inline {\n\tresize: inline;\n}\n\n/* becomes */\n\n.resize-block {\n\tresize: horizontal;\n}\n\n.resize-inline {\n\tresize: vertical;\n}\n```\n\nEach direction must be one of the following:\n\n- `top-to-bottom`\n- `bottom-to-top`\n- `left-to-right`\n- `right-to-left`\n\nYou can't mix two vertical directions or two horizontal directions so for example `top-to-bottom` and `right-to-left` are valid, but `top-to-bottom` and `bottom-to-top` are not.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#logical-resize\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-logical-resize\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Logical Resize]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-resize\n[CSS Logical Properties and Values]: https://www.w3.org/TR/css-logical-1/\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
