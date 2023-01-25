@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-font-format-keywords",
 	"description": "Use unquoted format on @font-face CSS definitions.",
-	"version": "1.0.1",
+	"version": "2.0.0",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -12,7 +12,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -28,11 +28,12 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -67,26 +68,26 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "66b85f3955fc07d06ef572011e4fdcf4ea6bd3d3",
+	"gitHead": "3ab17ec90bc201ae41f42f48c0636124dce2305e",
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
-	"_id": "@csstools/postcss-font-format-keywords@1.0.1",
+	"_id": "@csstools/postcss-font-format-keywords@2.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-ZgrlzuUAjXIOc2JueK0X5sZDjCtgimVp/O5CEqTcs5ShWBa6smhWYbS0x5cVc/+rycTDbjjzoP0KTDnUneZGOg==",
-		"shasum": "677b34e9e88ae997a67283311657973150e8b16a",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-font-format-keywords/-/postcss-font-format-keywords-1.0.1.tgz",
+		"integrity": "sha512-/ew2ScjfoN4dBWhs3CQhVp47VPVO4MVzTdpjygiW9bXj3e2MyoMXuWoBksA1LdREMh5UhrEjBmtwFIx7R2oVIA==",
+		"shasum": "24d6a8eb19a8ab79160184f6c90d171dfd275c31",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-font-format-keywords/-/postcss-font-format-keywords-2.0.0.tgz",
 		"fileCount": 7,
-		"unpackedSize": 13694,
+		"unpackedSize": 13865,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCMVnP4Y/3QlyfjezywrcwFfGN8te9gOnL1uo0vS9GExgIhAKbrOieyK3L3EzIoyE4hnJgkUeQLfsFJGLrPuun5F/8R"
+				"sig": "MEQCIAHCyEsqgblywrjQbe/4M9/7yKYUfbF60/ikR2Lc4U3JAiBGKEGeWTmbI1GWw3yOemK2yQ8JUS4/HznXvRmBlTbSHA=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFmNACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp4rw/8DPhbSew5Puzc0TDsoik0bT6jA6w9EGUn8lJi/EzHsg4Gq7C3\r\nARmU0OsOYk7+g18FLMmO10wfAi4lVFAkQrVg8Twr70fmIPXgL5wFonemuKqp\r\n8Dk7O1WDKC6yYhp8MEGCD58im4TQvsxQpspj7rh4IoaG5rns+vNECPeUbS0H\r\nFszLuD6RVrEZr55jMf+nccoPzwzsO4CxT1IYUXyw/OQxhRLIO3ZAd/VtVi56\r\nLlEs/h2jNk5zDNtNrtDdu9ZjcoCVuzU22OFO9fpMiFcK2uB6UP1p5ftumc+a\r\nyTTcOOXkVyAHGUZ9FyCuBPa8p/wZVaYCzNOu9uiec74zxUoA7kwuSgEAlRdB\r\no+Prpl0Ajno1KIxoZ1srU89WiqPa8l823DXS1PvUcVpAYdU/nhzlHrvMDXus\r\nsm7ozlc6Z8pTN6ECh3i8XSwgICN+jr6Zxe7WJEbj24NeAsKLO6YUCJIiIyWl\r\nPJi/iY5qUwSJ24SQTrWb+IKUKZIAYqToVB5Xju9inZWCrXpIUOXZLEt5T19Z\r\net8I9i+s/MytW99ZqyF727sjNigJWtvihb0Wyc+O39As0PZxUmNp/95DpRnR\r\n90XY4t3j7x78EfSfAKMTHfz5qts1jYMDkddHCW5B8PNqwY1MDIg5WijvWOO7\r\n9FD1ibRJBBCgDdk/8vUPsm4OdvdddlyLbos=\r\n=fvcF\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz59yACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmojeQ/+LfA+/fqWC8v7Q8HtkqZzBPKexDhelIZ+NNFDg7FCZb+lYSTp\r\nq2/J97bJxpOYHVtr3yv/6k20uAWZEdo+YU6wJ5Akt22C4dn59dN8bCkQ4Xgo\r\ni6dLvXiFtC3P3mJmAsIgEZVt4KwaCLoyBURSjeN5DL9Q+uNcpzzfp2xkPBho\r\nvZzxmXdQSNJkVTPojYR+2GAw+XciyIb1GHstl7bfH5dqCGmAjzASSNzlRwDw\r\na6etneUI8owBVRD9LsZpFbSTvoRF8fGCkRfGFsux5ATJ8gW2wbMpK9GMDFXt\r\nfPpT7qNTNmxuV/ZRQsuS2kX0EIoB0BZ8PsQ5ZHZxPQ7wNrMoX25hoUi5nD4X\r\nlW5EP1OXXbh1ARnyKywF2s9Bc/9kqJz8gGnEB2nNPBGftKhAYa3xurFU9nG2\r\nmi7TEHgmg4MnWjM10mrwIWVJ3jFcJI4HFJPIPCjhYAp+0//IMuBCwmow2F1J\r\nuZqC5/j84tyTv2Ez64UO0AF+6tlbs5NscVJzlh7aPBEDbXkuCIb7SlqWlcCU\r\nqcjQj0LUcpzfIZH4qchKkzzPB7rCcOayM3mSaFeMeGWEzK/gqZpT8Oc8AxaH\r\nuvKLhGCEZ7sR9CpOO2YhwnyH516XgMZmbuvzgJ2OfEPVgeQX1uOILCc9apo0\r\nJRnC6My2OF01had8XhAt2opeYJPmlbiOL0U=\r\n=hxh8\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -105,8 +106,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-font-format-keywords_1.0.1_1657297292851_0.42401031017883195"
+		"tmp": "tmp/postcss-font-format-keywords_2.0.0_1674551154758_0.08833004555110802"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T16:21:33.050Z"
+	"_time": "2023-01-24T09:05:54.962Z"
 }
