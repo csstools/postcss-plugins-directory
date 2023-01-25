@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-conditional-values",
 	"description": "Easily apply space toggle hacks with some syntactic sugar",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -19,7 +19,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -32,14 +32,15 @@
 		}
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"devDependencies": {
 		"postcss-value-parser": "^4.2.0"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -62,29 +63,30 @@
 		"postcss-plugin"
 	],
 	"csstools": {
+		"assumesToProcessBundledCSS": true,
 		"exportName": "postcssConditionalValues",
 		"humanReadableName": "PostCSS Conditional Values"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "3bbea92163a6383f9b7876f7ce6d7cbc875e5286",
-	"_id": "@csstools/postcss-conditional-values@1.0.0",
+	"gitHead": "df2e243d66bb3ecb7e8bd37f247308723f007874",
+	"_id": "@csstools/postcss-conditional-values@2.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-qwWX7ltCMf+CVL6GXKvejd+6ZFheC2A4z0C3GM90H5NPT5b5TlxDtjTrkippARgTVaPtmoLCZqcny9PyN5qOig==",
-		"shasum": "dcaab3ef2a9a17ad678a936e3d4eaa201ab0e213",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-conditional-values/-/postcss-conditional-values-1.0.0.tgz",
+		"integrity": "sha512-xsNzDUPQ8Hngv0ETKwDNI7Hk9SjOxJn5Z0ExLs8V99xJPJCRhtSR3u0Mq6CICEOvW6oSbtJtuUHzvAU3YJJ0pQ==",
+		"shasum": "59d9fb239d2a7aa5778813e18655d626dd0ab284",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-conditional-values/-/postcss-conditional-values-2.0.0.tgz",
 		"fileCount": 7,
-		"unpackedSize": 16792,
+		"unpackedSize": 16697,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCWTw1MbC+ZIIYC1CkZBIJQA/GVbjgnuelhrqtknBrP2AIhALUeJRzDrU85MfcQrPnzSxCuaJBxzrIgsDEToHkuOLSg"
+				"sig": "MEYCIQDnvkqgO7vp0gGxeiQeSwe2/5LRoFQZ57/tzJviIQwnXwIhAOhG070rXsSDMFb+fP3cSiL020ety/24xsM5ci5pgv5w"
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi3mmSACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrkgxAAoEBWvmvPcrcIIsdX+iFVPd7CICOx5iajO2KQst8Si4TrK8GD\r\nDwxsVQ1A4gYFoTNgCSvj/o80vLzwfTsKtTlKq21brCp5J4ba4/lWk4T79kmr\r\nINrZ7yvRBUOfLBQHPWht5HYLQT0/n6gYVVrB/KmKChAz7PD9k46h9Hc3EXrB\r\nfvLJyOW7vReTs+Fae7LLRL/zqNEu1580N45n5S2gFw+/I7+soHv+Zh8EMj4P\r\nZOGzvgLZ/pQngZc06ptgGyyGJS91jmnDZ3waUQAnq8Y81CBdvFhlYNcrc2m1\r\nvaqSO4knFBEsI7tvDKn2Vfp975BbEct2YTYqAJ+SIIEC52tnwKnGzwWx6s/E\r\n9qiAwjoHZMBbg6NSUiuj69fD8lhL0Q/TFDgyksM8OVzB4AKiX1V55zdQHw9u\r\n72qVxYgJF6dYrqQJocsF89zc5NQEXvZgK1QPP2wao2IdtrjHBF7dOPUE9erx\r\nHOkMtSTXM7a/SrV0O+K7Qo8lXd5zTmD5JykUWTEIKP3HqTRsKepqQWLFAo3W\r\nKu9ptdVRgFwCJH/+YV+4V3ua4Cw7CyjSxFhc4ZzT+eORJI0G3lAywADzCF4h\r\nERHB+qc/DqB93rv6I8yrrDiS1xhVEL+INO8UgbW1WYgk2sFLdY0spPlYWArr\r\nNVHKIZHZRrjZdC/r8TdPB3iOFox6geo0u4M=\r\n=eT/c\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5uwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrYzhAAk9vO3i80luAPon/9XlMnV2SCGBzTeS4d2uG/c+7iCwdsAduq\r\nlMfHQ7y65+5NOCDTeqZ0Hys1EE+O5o5/P4Vyyk/NzNqEvginFqMj9E/07qcZ\r\nqJMirwmJscTY02/sWQ2nYcR+dfFfxEqJuBn5oyRWUROZFtjbJOZk0cbL4MX1\r\nmxTqTmuAC3cZjv/dIDcVOttz9XiW3jokAAm4MsYiArSZZuDj8lqLklwBs8nD\r\n5O7Dw9QONgQmKHAnssTh1kuWEW+pqcrWH8VuBN2MGJqxa0UUpsWNkLO54zH3\r\nNEx+yskbiS2fvfzJZxliDEf9emKrUF+ApVtE1tooX17xTnbcoWzdAjQlNX1f\r\nsgwkqlBJFfk4JWNckVQPk59OsJzP/JFXZ7UTd9VFJEFBBiy76W9HPPiQB6Ln\r\n2DH3qeQlhD4rkW+uUm2/PoxUuBHg92qoOcx86vjLw4OBtAYBQ3ZTGYDlcxOe\r\npyUh490M4V3qhXFCIo0L2br46/m60d+GY60jDi8tn+IJJOHxW/j9Icbmb6/B\r\nqRWKz9su1OVBOMCmJMGXs6upgfIVmE7+HsxI/uaNAoFW/I4XlkGo2NePz2f4\r\nE2DVTI3AaGwmgoOHe/B1S5T8JNxW9oMFbps2lp2/rtHsUBpynx3aNUMHkaGr\r\nQtUawdd5UXbZE7Dt4f11SJoQh4aWObLFzDY=\r\n=DmjK\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -103,8 +105,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-conditional-values_1.0.0_1658743186296_0.14742674561296476"
+		"tmp": "tmp/postcss-conditional-values_2.0.0_1674550192299_0.8279168218041784"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-25T09:59:46.535Z"
+	"_time": "2023-01-24T08:49:52.441Z"
 }
