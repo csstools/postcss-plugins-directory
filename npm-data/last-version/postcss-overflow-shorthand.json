@@ -1,21 +1,33 @@
 {
 	"name": "postcss-overflow-shorthand",
 	"description": "Use the overflow shorthand in CSS",
-	"version": "3.0.4",
-	"author": {
-		"name": "Jonathan Neal",
-		"email": "jonathantneal@hotmail.com"
-	},
+	"version": "4.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
 	"license": "CC0-1.0",
 	"funding": {
 		"type": "opencollective",
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
 			"import": "./dist/index.mjs",
@@ -27,12 +39,13 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
 		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
@@ -60,29 +73,31 @@
 		"values"
 	],
 	"csstools": {
+		"cssdbId": "overflow-property",
 		"exportName": "postcssOverflowShorthand",
-		"humanReadableName": "PostCSS Overflow Shorthand"
+		"humanReadableName": "PostCSS Overflow Shorthand",
+		"specUrl": "https://drafts.csswg.org/css-overflow/#propdef-overflow"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "369078a1e7e49f0a3c3468b2ce35c57790bdb31d",
-	"_id": "postcss-overflow-shorthand@3.0.4",
+	"gitHead": "58574d960cb82df8d0abb17129fa7b48bb7f108f",
+	"_id": "postcss-overflow-shorthand@4.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-otYl/ylHK8Y9bcBnPLo3foYFLL6a6Ak+3EQBPOTR7luMYCOsiVTUk1iLvNf6tVPNGXcoL9Hoz37kpfriRIFb4A==",
-		"shasum": "7ed6486fec44b76f0eab15aa4866cda5d55d893e",
-		"tarball": "https://registry.npmjs.org/postcss-overflow-shorthand/-/postcss-overflow-shorthand-3.0.4.tgz",
-		"fileCount": 6,
-		"unpackedSize": 13827,
+		"integrity": "sha512-HJ+HIX6IeVyDBu+b5cJScwGYPnGokswXWH1izVgJGT6D5mrHzQJUvWWvHBRlopCAEbtose+JNOjRQgTRGHjm3A==",
+		"shasum": "247a57c29e982f7fe6f34f2172371daeb6f2bfb2",
+		"tarball": "https://registry.npmjs.org/postcss-overflow-shorthand/-/postcss-overflow-shorthand-4.0.0.tgz",
+		"fileCount": 7,
+		"unpackedSize": 14310,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIH9ItgUeDRxOwtRe+iMj8JEsfCpMMa04FtB3EgIuZHC8AiBMxyakQoDcZa99NpuFMdaUqMagmNwTPV2IboDpYcGxog=="
+				"sig": "MEQCIFsAme4g6PAdXImmM75gA8/YMbMxlVibyzYuWM2kompVAiB35FN6MJGH1CuzyJHZ9ikNsBrQJSk6KkGD33z+5PWy+A=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGPYACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmohWw/7BU0HnvJqmWsx5/2isUmbWMfwTAmEnF6+Y2+PEs63TwaodLy0\r\nDL0nZOxCRLtN3wKqXKpk2TRpICJuVmeH+WitPuN91ZkIXdlD5IkakDZ1Xn+9\r\n89i/UYdvoTQ/sbtTpgLa+qDa8FUgRPuea1LfDNcSOvXpv65ubDjm+SzroinX\r\ngMOl7URcKSGsQkz/qVIJuXmo9JamrmaRbYEcjsPvYJlGqC/AMJMYlEujRnuX\r\nd8eGTdhmFron62uvUzVZ/S2npdDiUtc3RnsL5dJzsKp3CAvS17VYU3268XHV\r\nYHqla6YwmAjsZP0gTHX4Yqq92s8xtLW1V7BR5Bv31t4ZFnWEBSNO8r44lh/B\r\npg4YQMbGH44LngEK+4dDpfuBrswimni4hN3kCNYugAgNaPHl1NIlHALWTCj7\r\nQ3ocac25Xj0g0Oj3srEcQGr68ZoseJ4UnqhOrxyc64Wcz0m2Q2w8YcsFprVw\r\n9mjy9PCRITESteAGFF1LtJ67G+1vMJMOzY4PUb1dksnVNxD4IE64hzy0fZ7l\r\nXNzfkeSpGmkop+4+gYMM6NTZJ9Fltwy8DRJEfC7Wd0pZDDf1tFTZOwIuB4Kg\r\n4i08Sf88HEh3Xcll12NaL9jfk15ToEWNvl8AUxlZEIQKfKzinhtnkdNUP+Xn\r\naKTg/P2hrsEcyCJpIsITdRHSG45qDyw16Xo=\r\n=0rZo\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6F+ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpaWA//QMX6jxsolPaQnkSvIENl0qVwt2W2280tqmXVdk3VQaEa5gpv\r\nmp/BMysvZUwYaQZ2mfL3snrDiSsZxPbZfKyaX5irNqIxXpDlB8RZXe/rFdud\r\nZid9HsW7c59yMjqD6YEnOhncj4pQoIH96C8xmd8ySQL9JVfffhixEpHCo2ni\r\n1imLDnvNH2pj75Jz7axNgnmRoUccJmQTeN2ah9qznJzvav+DxOA3nKuvgy4Q\r\nz5SRJWRoFvdzBhz0Uzno25pUrNkAhQYJPv5ZCXyCC258Tzh4WOW2xPRzHYk4\r\nOgnLZzF+8LJHFzUIV3oi51Kp0EhC9lEk5dhkRDaP3ZJOK7a3yjTJAf6rNfbX\r\nEDac0NcT0FGqCX7FGQgPpWfM2ZtTfwJa9PwXU9Fh4kLj+ksl+OyCB5ZRhxdG\r\nJ+lsq/RMvJNyO1rYBiWWc1F8iCZkLNTwoU+f5od4mIul96EbCapwCKKfs3E0\r\ntTKInnQXGbvu3vXDXcwrFBoWq+co6WNWhzdvnBpthDGEsoNMXOqNYb1ySwln\r\nd6nwXhHwMhkJgfBxoldYnWVpESGSKL9PU+2jdCZ747xv5Z0w9Orc3/Pe/BLc\r\nPjo32J5RvkrvIp8tZVsKrONMoeAtpI6O5olbFpbXRHeqO+9sCz6pHpavYtci\r\nOBYyjL1Fei1QT/W/CCuygxWPIUwM4fo+Ux4=\r\n=D4I9\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -101,8 +116,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-overflow-shorthand_3.0.4_1657299928487_0.824582655345975"
+		"tmp": "tmp/postcss-overflow-shorthand_4.0.0_1674551678525_0.984050723780816"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T17:05:28.723Z"
+	"_time": "2023-01-24T09:14:38.659Z"
 }

@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-gap-properties",
-	"_rev": "9-32fca374f4094fef7f1ea8401363501d",
+	"_rev": "10-aa0aeaac8f941fddd4cec7cc77e6dd00",
 	"name": "postcss-gap-properties",
 	"dist-tags": {
-		"latest": "3.0.5"
+		"latest": "4.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -784,19 +784,142 @@
 				"tmp": "tmp/postcss-gap-properties_3.0.5_1657622099795_0.9490675796962484"
 			},
 			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"name": "postcss-gap-properties",
+			"description": "Use the gap, column-gap, and row-gap shorthand properties in CSS",
+			"version": "4.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gap-properties#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-gap-properties"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"columns",
+				"css",
+				"gaps",
+				"grids",
+				"layouts",
+				"postcss",
+				"postcss-plugin",
+				"prefixes",
+				"rows",
+				"shorthands"
+			],
+			"csstools": {
+				"cssdbId": "gap-properties",
+				"exportName": "postcssGapProperties",
+				"humanReadableName": "PostCSS Gap Properties",
+				"specUrl": "https://www.w3.org/TR/css-grid-1/#gutters"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "0d51c6952023f6b7fa55541c62ea09fb995d015d",
+			"_id": "postcss-gap-properties@4.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-ACrVEX+DZRkFNImiRBiFw56BW7OY43F/0AjusgBxGNE0mLvfqINkYQT421YMHB7HGs+rekladOcBNmYZu6+/iQ==",
+				"shasum": "116e5072cc1f8aebcfe0288ae0eff484c4bc8c6b",
+				"tarball": "https://registry.npmjs.org/postcss-gap-properties/-/postcss-gap-properties-4.0.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 14101,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHPOQBew3qCrgeynUjd1eDLgC5fsTqL3rBe2ENTpk+FNAiA8dHKpCiJkEHejPP6lcg1tnN5FOVABCnIiGuQ9zlFfTg=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5+TACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmocyw//fzkXfitpFuyWXgyuAv3upyMWzWLZJRn7taxj8WjP57JaLnJj\r\nEHX8deVbzKYn3FM5lE5y8opuDIib+ag57jGRhrz2ewSXRr465ZR2zv2V6t/O\r\ncT/FKvdDwJ4ZctGaZn8xDhOLL+TUHcaHSfi8+c2AFBTT6I/G3NwmjVHHihM/\r\n55mOhpDo8isYgFb2zmmBXpYM3Yv8hjix2K/Z7pnZtObvWnotVVvY1q3unck8\r\ndtrbo6BB2gJRxAnR8wMfkgJx9xn2IxoaQm85hbyL5KMoRzWUviPD6k4hp7KZ\r\ncLgig9ZIvsEup/0kQJZSPgJiQjyOb65JkmNcdWfvKXXu/PJahd5bEnINiPFB\r\nhuAiwqtPed2n8OrDL4BNaDUPPZTvU7GjCM5XJu5prZ/pQLPpc/ryCHUmtpMc\r\nMYzUIMIDkbNrI/POG+yjnxLxqbreLiDxoY57MqudslspYkJDUjL7yl5Zhkwm\r\nhmVUPLrv0bKsnVb3h7xlm5GleI4DVxey+P1+08YVSMKUGnPS7amYPmknDynv\r\n//KYjh9EG4yhVyuFzL+/ip6L6kpJx6PVLs/ZFh3jchqQZVuZfgMGZh5NtEz5\r\nZVqPw/1hFXVaJVrnFlyNNCaJniNWBG2IItEgWHVQ12DxotdHn9nb74Bwvd5E\r\nWHTb/+77zg/HR4x62UaEgyD0boRA67R9rC0=\r\n=5x7w\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-gap-properties_4.0.0_1674551187463_0.7630011355730095"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-05-01T02:45:29.555Z",
 		"1.0.0": "2018-05-01T02:45:29.645Z",
-		"modified": "2022-07-12T10:35:00.094Z",
+		"modified": "2023-01-24T09:06:27.889Z",
 		"2.0.0": "2018-09-18T04:47:06.947Z",
 		"3.0.0": "2021-09-17T13:19:36.533Z",
 		"3.0.1": "2021-12-13T09:38:20.507Z",
 		"3.0.2": "2022-01-02T15:35:19.602Z",
 		"3.0.3": "2022-02-05T17:10:51.402Z",
 		"3.0.4": "2022-07-08T16:31:30.488Z",
-		"3.0.5": "2022-07-12T10:35:00.007Z"
+		"3.0.5": "2022-07-12T10:35:00.007Z",
+		"4.0.0": "2023-01-24T09:06:27.668Z"
 	},
 	"maintainers": [
 		{
@@ -827,15 +950,26 @@
 		"url": "git+https://github.com/csstools/postcss-plugins.git",
 		"directory": "plugins/postcss-gap-properties"
 	},
-	"author": {
-		"name": "Jonathan Neal",
-		"email": "jonathantneal@hotmail.com"
-	},
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Gap Properties [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![CSS Standard Status][css-img]][css-url]\n[![Build Status][cli-img]][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Gap Properties] lets you use the `gap`, `column-gap`, and `row-gap`\nshorthand properties in CSS, following the [CSS Grid Layout] specification.\n\n```pcss\n.standard-grid {\n\tgap: 20px;\n}\n\n.spaced-grid {\n\tcolumn-gap: 40px;\n\trow-gap: 20px;\n}\n\n/* becomes */\n\n.standard-grid {\n\tgrid-gap: 20px;\n\tgap: 20px;\n}\n\n.spaced-grid {\n\tgrid-column-gap: 40px;\n\tcolumn-gap: 40px;\n\tgrid-row-gap: 20px;\n\trow-gap: 20px;\n}\n```\n\n## Usage\n\nAdd [PostCSS Gap Properties] to your project:\n\n```bash\nnpm install postcss postcss-gap-properties --save-dev\n```\n\nUse [PostCSS Gap Properties] as a [PostCSS] plugin:\n\n```js\nimport postcss from 'postcss';\nimport postcssGapProperties from 'postcss-gap-properties';\n\npostcss([\n  postcssGapProperties(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gap Properties] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original `gap` declaration should\nremain in the CSS. By default, the original declaration is preserved.\n\n[css-img]: https://cssdb.org/images/badges/gap-properties.svg\n[css-url]: https://cssdb.org/#gap-properties\n[cli-img]: https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-img]: https://img.shields.io/npm/v/postcss-gap-properties.svg\n[npm-url]: https://www.npmjs.com/package/postcss-gap-properties\n\n[CSS Grid Layout]: https://www.w3.org/TR/css-grid-1/#gutters\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Gap Properties]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gap-properties\n",
+	"readme": "# PostCSS Gap Properties [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-gap-properties.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/gap-properties.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Gap Properties] lets you use the `gap`, `column-gap`, and `row-gap`\nshorthand properties in CSS, following the [CSS Grid Layout] specification.\n\n```pcss\n.standard-grid {\n\tdisplay: grid;\n\tgap: 20px;\n}\n\n.spaced-grid {\n\tdisplay: grid;\n\tcolumn-gap: 40px;\n\trow-gap: 20px;\n}\n\n/* becomes */\n\n.standard-grid {\n\tdisplay: grid;\n\tgrid-gap: 20px;\n\tgap: 20px;\n}\n\n.spaced-grid {\n\tdisplay: grid;\n\tgrid-column-gap: 40px;\n\tcolumn-gap: 40px;\n\tgrid-row-gap: 20px;\n\trow-gap: 20px;\n}\n```\n\n## Usage\n\nAdd [PostCSS Gap Properties] to your project:\n\n```bash\nnpm install postcss postcss-gap-properties --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGapProperties = require('postcss-gap-properties');\n\npostcss([\n\tpostcssGapProperties(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gap Properties] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssGapProperties({ preserve: false })\n```\n\n```pcss\n.standard-grid {\n\tdisplay: grid;\n\tgap: 20px;\n}\n\n.spaced-grid {\n\tdisplay: grid;\n\tcolumn-gap: 40px;\n\trow-gap: 20px;\n}\n\n/* becomes */\n\n.standard-grid {\n\tdisplay: grid;\n\tgrid-gap: 20px;\n}\n\n.spaced-grid {\n\tdisplay: grid;\n\tgrid-column-gap: 40px;\n\tgrid-row-gap: 20px;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#gap-properties\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-gap-properties\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Gap Properties]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gap-properties\n[CSS Grid Layout]: https://www.w3.org/TR/css-grid-1/#gutters\n",
 	"readmeFilename": "README.md",
-	"_downloads": 28519814
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"_downloads": 24972681
 }

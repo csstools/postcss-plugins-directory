@@ -1,7 +1,7 @@
 {
 	"name": "postcss-custom-properties",
 	"description": "Use Custom Properties Queries in CSS",
-	"version": "13.0.0",
+	"version": "13.1.0",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -30,6 +30,9 @@
 		}
 	},
 	"dependencies": {
+		"@csstools/cascade-layer-name-parser": "^1.0.0",
+		"@csstools/css-parser-algorithms": "^2.0.0",
+		"@csstools/css-tokenizer": "^2.0.0",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
@@ -39,8 +42,9 @@
 		"postcss-import": "^15.0.0"
 	},
 	"scripts": {
+		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -73,6 +77,7 @@
 		"w3c"
 	],
 	"csstools": {
+		"assumesToProcessBundledCSS": true,
 		"cssdbId": "custom-properties",
 		"exportName": "postcssCustomProperties",
 		"humanReadableName": "PostCSS Custom Properties",
@@ -81,23 +86,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "587a0ba6be5ac2df454b9f9e119ed7401ae0a052",
-	"_id": "postcss-custom-properties@13.0.0",
+	"gitHead": "a7ea1ce300803e3c342e7fbec0b36611353ec8aa",
+	"_id": "postcss-custom-properties@13.1.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-y4lGIjKPdy1gDyGgwZLpMgqcum04JZZ9UWKxO6WjxSEQ1IzaAFxgbiqcF5M4RWHXFqe5Wa549xXz/4F7DU9TYg==",
-		"shasum": "4de6687403c988ac4ac7ad274ae2fe2399f950af",
-		"tarball": "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-13.0.0.tgz",
-		"fileCount": 11,
-		"unpackedSize": 27072,
+		"integrity": "sha512-O0Lg0CuHwADctEMBgGtaeams7eFES8pXo/9zBClTbRVdU3LFAkFluw1l9eYnJ3rtidp80EGbAIuiisEIu1Z+uA==",
+		"shasum": "b6f0ae00381f636932b8ce35ac77b406659dedb8",
+		"tarball": "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-13.1.0.tgz",
+		"fileCount": 13,
+		"unpackedSize": 31425,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCl6UxKdHhJ5aYkJHUlybcC7G2Cf648b5EYZ9d+1PcKnAIhANCKXWb/eICFkJhgOa5QAXVldJoof+VyrsKBFAkno7kU"
+				"sig": "MEUCIQCqGzQfjB2WxFh6JuEblaUB2sv3wz3daktHzDi6wsQnxwIgeLUGp9WUR/syg0WVrlI67iGoY1jpnsuBqYm6/nTZF84="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjcg8tACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrTKxAAhhX9LtYf8CCwb+BH+6MCyNNZat4K+NLJsjtgovnJE0Z5ZlQ9\r\nZFYjczdneFnmM1zbxL32W2oStqVPJkcQjaE8zoAupniL+IDUo5hpnKdq3Lat\r\nLaEQurLo2+Zq9FQsqX2WSCggIkqRIvfZldfYU5HKvZesFlihjRq5JCV8vQmU\r\n/NZgbo+bAjMYv+kjp7/32DIZ6zAZkPUqrEUYbZAd3/+0Mjf6rjPd/pfkiFU5\r\njV4T+mvCbA7SG56SSTJISNHL3iQh3zbosfAxWa5H6oVornCB+DyKM+/uDhne\r\ncKGAjWzjlZvkTtxsy5H3/1cyX6XlRNohLw+1FmakChKMfe+XmmbZIANpToR0\r\nsmpY/UBO9SjJVf+KeF0ukCf4izyIjRF2fvowA2COdTeA6S+KYE72zz6vHTxP\r\nUkpLsF+9b8fYJ9hlMbrWNMT5Ig5UtWOmgb4DKidDk9q31HJZ7kXlxSWvFO4U\r\nkOEDYkKCFdILm5tZGj3Wo70F4yz1bkXfDeh9O7W9aDjPrwZlHHsW36uYDyqQ\r\nTawhq/TWhPKeM2QTyDsmpCUS2iP/1aqJ0FccmwN1emzfTdG47i4fm88Vkfc6\r\nOIhLWJ9Y2UXl6udqV7n7FBwy1fqFtTgSPSakzH6ytp9iQlrlbAdatRv73S71\r\nfXPxym38H0MxwpIwRozbtnp8R89zu8FHBjc=\r\n=gHzN\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5wiACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpegA//WUBha06wWuXtzTQmIdWArVAnn7x/1Grla9WNk//XtuYSNuig\r\nz57xMtMmfW9pZ44wLsaYnd0BZ1Nnpnw+8JFQq6yOQ0z+Ieh54qGST6gpxqif\r\nn5vk/RpPY0VXotDtdGGmTiUBzVUwkymwCfQQWGybTv46ZCJpJXx/DOiqw3C2\r\nqpltU3ATYo4SuqTEchIZ6bR4V9N1l5Shc03tC+23IAzt9UHs7w/6uCPGLptk\r\nFAvTAP+MhErnjIthaBR6qh8TQZ4XF0mmU1VP4FC70JO66LCiw38jykHsMLYR\r\n5G5RcQHnWBFQwrMWjqPtlbwJETAZe++b5geraB0CSPsWW6aE1E0g8gGUTu4G\r\nvDmty5FD8ftV4v6emyDON/DH1Uenz91zQ3Vs5094j53FSUeR/j/6ndFtBF6z\r\nMJNv/cPH9/YwBWz6bU905PPGVdVS8ejkddWfzyEV+r8mej0Q9t22fOcCwsXB\r\n9XXa2epMrWhS695PtT5luCOh3pDQtGLopuwRbGXHsNCU+BY8Hz2Ew8NqOEcW\r\nivTtF4cuGBZhA+1sQszbjcRB4ISD9DsJVcdL0ggTkZxbaZ/rz8+GMiTfSVYp\r\nWC3rE9F0H0fosbLP2ZueEEgquBsAAqmn7nOoxy5qZl+ImgCPzJBcos/aR0EB\r\n2SKvUY/GuOnSdnifAb3AYfz1plrk5FTjY6k=\r\n=IB2m\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -124,8 +129,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-custom-properties_13.0.0_1668419372831_0.42625853920069945"
+		"tmp": "tmp/postcss-custom-properties_13.1.0_1674550306403_0.9490093763929346"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-11-14T09:49:33.048Z"
+	"_time": "2023-01-24T08:51:46.584Z"
 }

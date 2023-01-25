@@ -1,7 +1,7 @@
 {
 	"name": "postcss-color-hex-alpha",
 	"description": "Use 4 & 8 character hex color notation in CSS",
-	"version": "8.0.4",
+	"version": "9.0.0",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -26,7 +26,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -45,8 +45,9 @@
 		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -90,23 +91,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "3e1e446c89bea2672c5c56f6bbf9c066c07179a4",
-	"_id": "postcss-color-hex-alpha@8.0.4",
+	"gitHead": "1f65fdcd77324e50d4418664cf3cb42bc0eeab14",
+	"_id": "postcss-color-hex-alpha@9.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-nLo2DCRC9eE4w2JmuKgVA3fGL3d01kGq752pVALF68qpGLmx2Qrk91QTKkdUqqp45T1K1XV8IhQpcu1hoAQflQ==",
-		"shasum": "c66e2980f2fbc1a63f5b079663340ce8b55f25a5",
-		"tarball": "https://registry.npmjs.org/postcss-color-hex-alpha/-/postcss-color-hex-alpha-8.0.4.tgz",
+		"integrity": "sha512-NdIN7IzYadBApUm+wULJR03746sKliIrmRIdjHF6GaUCztsDdcq4L9wtYz5X3mw/t08mjZx8ld5By6StB+1lLQ==",
+		"shasum": "44707c389bd9a6ae3e60bb563751d50f6db06fc1",
+		"tarball": "https://registry.npmjs.org/postcss-color-hex-alpha/-/postcss-color-hex-alpha-9.0.0.tgz",
 		"fileCount": 7,
-		"unpackedSize": 10132,
+		"unpackedSize": 10220,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDlmbIbtU3KAejGMAT+4yX2IaHTwIQeT4F/WO7W2xfLAwIgGopkjwqzSqOZqu4c6Jn1EbxWtOS7nn4EDEHG6TyTM2c="
+				"sig": "MEUCIGam3AqzgQRBI46/r1QkD0zd+mjQO2J619NFJHFfSdlEAiEAr6gD2xnw0uQ95raj9VMCn4hh5uh0Cw2ldVXPY6ITM8M="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiovUuACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmovsA/9GFqOFStdjsz3k9VVCCAb7ZHFBkTj42fV6gI3b52BrmSifCUD\r\nm/SrIC4mbGmvBc8NQxHlQS8jFfc674eO2wl5hdkT3c4myhZeVNaGvmc/6MYi\r\nmZALzOkZqw+PV5rTuZKMVvSh856Bi72xnUxkJNG9How0S1YkB+QztanWX/v9\r\n2PDSTp+JI1PMDgnHwzwAxsShzVaHbbqUnmiIREONEBnFOH49Z9MprkFYGPBK\r\n9zxoN/JvjS0x9OsZJqmqdjpMoEV4KH3Lh8V1Z/lmrHKef8Fvuo8qizLe/H2y\r\nyU1lgJVHBXsce6RjfAm92bknLT/z3ZXiHHXK6BPWViTyS8l2dhuXimYaVbkH\r\nR9uuIX77ztDeeiYOy1RnxP/GiBvG2r18k4mtr8/JJW9U7BOklCj0bavh3tWc\r\nmv+Vj8hRO1xmd8077WYnesA8aB4aCTeykJ6wMM1zwfoPctGTu6Doy+g7LxxZ\r\n07/TKIyBBxNk5cknWR+YHTFHTb/wZyXLvGOLzvfeHjAb2o4PhpzYNab4vljh\r\nsuicAfVw5Cot8mpB7fXTg0RpnloeY9d8lIA0VKSKY89jKptWXZ7VPOJDER84\r\nKVLsvn/6BQMZey9KDpfbjqBopraylP91S7Yw1hnmOWeNWDsNL5XCTFT1iZv8\r\nbVopFoG07Wwk2F1N/w5XJ4zeuJ7XY64Z6Ao=\r\n=jf3K\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5tLACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo86hAAhKBm/jH5mtv/LYGVCqtGxoQiiBnbg3aFT6fpWUQ2FvblCw6L\r\nWmmAQnnC7dRhm4CXjjfuCDQrsNqVeWdHdOfV91Ulrf07wTYvn7mEqvX/jynW\r\nrxrTmxoq0nEEjlCROXCGDUxzEZzGS33uACwYENyh2Zn7sIwmjn35KXgMDskc\r\nYxOCB7iyxsgiH5V29Uv0xsQLEjC5Sjk9a6XVkNizjY0j+Z6rkUV4a/mOSbDa\r\n1I7T43YxL33LAA16coIkSkSAB/+IpGfwOykE9w05yQZCepq0wWAiAy8evWio\r\nOOuTG7KLD6TlF/udFTqm8e5YqzregoUimMOnQL+khwZNGFVHLOLz+Cuh8020\r\n20uwF1NNyjGQC5KawEnWLWzhas5W2n3oVcAIW9ZOqVoFdsZpcXVzxPohOAnw\r\nwV/TKBBQxdnqXkqH2TgySdxGD+csZF3+/jtEYBwwaV36V2zl8/470dleDCqm\r\nOlKTa1iRqmSp8PS0UpyKbDreW2t8FZBbn1iuthtyZtxfsff3jzBPYXVDgoEF\r\nTywmUBO3hnAF9Rzv2HkOHXNdNUx59fq35qqjFISDZYHyjfqJutDiqBhiyUPn\r\n85yb6zckQErL52ZTEIOI9il+iuwrRIJ4i32smllvqt12lEuARsKdKVKwZ6Gs\r\npH8nNOySmfpUoQluT9wrlxJVeQHZILA5T/o=\r\n=NXC8\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -133,8 +134,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-color-hex-alpha_8.0.4_1654846766642_0.7643128580728347"
+		"tmp": "tmp/postcss-color-hex-alpha_9.0.0_1674550090954_0.42977285000223153"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-06-10T07:39:26.851Z"
+	"_time": "2023-01-24T08:48:11.118Z"
 }

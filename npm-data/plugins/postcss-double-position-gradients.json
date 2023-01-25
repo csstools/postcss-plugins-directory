@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-double-position-gradients",
-	"_rev": "12-f65ee3041ea8bb2d9139721cd3177787",
+	"_rev": "13-3d29a83fea7b473b700488d92fdaeecd",
 	"name": "postcss-double-position-gradients",
 	"dist-tags": {
-		"latest": "3.1.2"
+		"latest": "4.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1160,12 +1160,128 @@
 				"tmp": "tmp/postcss-double-position-gradients_3.1.2_1657297165819_0.7755989655458748"
 			},
 			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"name": "postcss-double-position-gradients",
+			"description": "Use double-position gradients in CSS",
+			"version": "4.0.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^2.0.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-double-position-gradients#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-double-position-gradients"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"conic",
+				"css",
+				"double",
+				"gradients",
+				"linear",
+				"position",
+				"postcss",
+				"postcss-plugin",
+				"radial",
+				"repeating",
+				"stop",
+				"syntax"
+			],
+			"csstools": {
+				"exportName": "postcssDoublePositionGradients",
+				"humanReadableName": "PostCSS Double Position Gradients"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "84a81a27993d5209c93df7e678599ec29a6ca23c",
+			"_id": "postcss-double-position-gradients@4.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-RTOs3chf/D1ETvaT+BcdGkPmRxoImZn3hmfAkFGET5ijx3Lnw7npubQDvwqOL1on54/uN6w9BGuEMSUsOK+2kA==",
+				"shasum": "cd24802e9e2b029fd9865a610ca9f9c91d096b54",
+				"tarball": "https://registry.npmjs.org/postcss-double-position-gradients/-/postcss-double-position-gradients-4.0.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 20514,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD6yTeSC1Nyga72I6+JqGhtEmVbKNB2NQM1K/lJp7/+7QIhAMnkTfEby0yhMFEqmtq+p1VSzzZRSLqqVhGKL6BbS2wt"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz52EACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpO8g/7BvBTZtWUqGTgNDNGq1Ea0YJsONXbd6Dw8OtSHwvdq9XcLWlz\r\nChkJlZDhd/GOkxXLwtYBDlvWOCOb/+vt47fxktk685+QJ6ak3bItCqVxvSYg\r\nHyRffxEshbv3rEvReY+byVHI7vDYTf071biuQpGcOxUOlVk7NFPsnvmXu1Xn\r\ns6oLLz41fTwn+pxmnybkWoWkihpZlpkPG5eGFsuLlPKNKo843RbcWBTHAS9z\r\nx9wZS/0oaRZUB0Tci0eNhfT7/+3rQKMAL+eYN1uROrtArLL51rBCkBc6vUNt\r\nkujBsO8mU0/4RsPQX5Cf4p2h7MxI+ZozzX+tXBcWMSVz15fZocsiv9OKvQVt\r\naBsqepN/6Bln7hdnmR1M6xxSc1k8XUeIUZTHOcOj3pjhoO3Q3gKRp3a0yr6Z\r\nE/mwp+P8JgZofk0tG8p0Eb71ngiAoZxyLXGa6tcjyQFL4KXSorhnN+Jl9uJH\r\nGYJuTmSnitOeOdPw7Z7w8ruja53VsRBW2nyUPfJpf7JIGV7JSvHqN2UR3yez\r\nEy3MbXzmdjzUtnxITivXxbXozZaWZu9ub0pcvn2rRzpEpUkr47u7zmfr9qgz\r\nG0EXl3enhh86ffalwseag4dRnCrtY09rRuPK7BhRWpPaYTHosLMVTwNk3w61\r\n0GHV3uIyqDSwrVMXg1TrGDyL2Q9DjyUVEJg=\r\n=ZQi+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-double-position-gradients_4.0.0_1674550660298_0.7945705725264438"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-10-28T18:37:25.037Z",
 		"1.0.0": "2018-10-28T18:37:25.201Z",
-		"modified": "2022-07-08T16:19:26.056Z",
+		"modified": "2023-01-24T08:57:40.537Z",
 		"2.0.0": "2020-04-26T23:05:35.244Z",
 		"3.0.0": "2021-09-17T13:35:55.478Z",
 		"3.0.1": "2021-11-18T16:39:41.780Z",
@@ -1175,7 +1291,8 @@
 		"3.0.5": "2022-02-05T17:03:30.576Z",
 		"3.1.0": "2022-02-15T19:05:18.159Z",
 		"3.1.1": "2022-03-07T11:04:58.734Z",
-		"3.1.2": "2022-07-08T16:19:25.961Z"
+		"3.1.2": "2022-07-08T16:19:25.961Z",
+		"4.0.0": "2023-01-24T08:57:40.422Z"
 	},
 	"maintainers": [
 		{
@@ -1217,7 +1334,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Double Position Gradients [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"NPM Version\" src=\"https://img.shields.io/npm/v/postcss-double-position-gradients.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/double-position-gradients.svg\" height=\"20\">][css-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Double Position Gradients] lets you use double-position gradients in\nCSS, following the [CSS Image Values and Replaced Content] specification.\n\n```pcss\n.linear-gradient {\n  background-image: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n\n.conic-gradient {\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg 75%, #f06 0deg);\n}\n\n/* becomes */\n\n.linear-gradient {\n  background-image: linear-gradient(90deg, black 25%, black 50%, blue 50%, blue 75%);\n  background-image: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n\n.conic-gradient {\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg, gold 75%, #f06 0deg);\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg 75%, #f06 0deg);\n}\n```\n\n## Usage\n\nAdd [PostCSS Double Position Gradients] to your project:\n\n```bash\nnpm install postcss-double-position-gradients --save-dev\n```\n\nUse [PostCSS Double Position Gradients] to process your CSS:\n\n```js\nconst postcssDoublePositionGradients = require('postcss-double-position-gradients');\n\npostcssDoublePositionGradients.process(YOUR_CSS /*, processOptions, pluginOptions */);\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssDoublePositionGradients = require('postcss-double-position-gradients');\n\npostcss([\n  postcssDoublePositionGradients(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Double Position Gradients] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original double-position gradients\nshould be preserved. By default, double-position gradients are preserved.\n\n```js\npostcssDoublePositionGradients({ preserve: false })\n```\n\n```css\n.linear-gradient {\n  background-image: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n\n.conic-gradient {\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg 75%, #f06 0deg);\n}\n\n/* becomes */\n\n.linear-gradient {\n  background-image: linear-gradient(90deg, black 25%, black 50%, blue 50%, blue 75%);\n}\n\n.conic-gradient {\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg, gold 75%, #f06 0deg);\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssDoublePositionGradients({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n:root {\n\t--a-gradient: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n\n/* becomes */\n\n:root {\n\t--a-gradient: linear-gradient(90deg, black 25%, black 50%, blue 50%, blue 75%); /* will never be used, not even in older browser */\n\t--a-gradient: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n```\n\n[css-url]: https://cssdb.org/#double-position-gradients\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-double-position-gradients\n\n[CSS Image Values and Replaced Content]: https://www.w3.org/TR/css-images-4/#color-stop-syntax\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Double Position Gradients]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-double-position-gradients\n",
+	"readme": "# PostCSS Double Position Gradients [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"NPM Version\" src=\"https://img.shields.io/npm/v/postcss-double-position-gradients.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/double-position-gradients.svg\" height=\"20\">][css-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Double Position Gradients] lets you use double-position gradients in\nCSS, following the [CSS Image Values and Replaced Content] specification.\n\n```pcss\n.linear-gradient {\n  background-image: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n\n.conic-gradient {\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg 75%, #f06 0deg);\n}\n\n/* becomes */\n\n.linear-gradient {\n  background-image: linear-gradient(90deg, black 25%, black 50%, blue 50%, blue 75%);\n  background-image: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n\n.conic-gradient {\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg, gold 75%, #f06 0deg);\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg 75%, #f06 0deg);\n}\n```\n\n## Usage\n\nAdd [PostCSS Double Position Gradients] to your project:\n\n```bash\nnpm install postcss-double-position-gradients --save-dev\n```\n\nUse [PostCSS Double Position Gradients] to process your CSS:\n\n```js\nconst postcssDoublePositionGradients = require('postcss-double-position-gradients');\n\npostcssDoublePositionGradients.process(YOUR_CSS /*, processOptions, pluginOptions */);\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssDoublePositionGradients = require('postcss-double-position-gradients');\n\npostcss([\n  postcssDoublePositionGradients(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Double Position Gradients] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original double-position gradients\nshould be preserved. By default, double-position gradients are preserved.\n\n```js\npostcssDoublePositionGradients({ preserve: false })\n```\n\n```css\n.linear-gradient {\n  background-image: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n\n.conic-gradient {\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg 75%, #f06 0deg);\n}\n\n/* becomes */\n\n.linear-gradient {\n  background-image: linear-gradient(90deg, black 25%, black 50%, blue 50%, blue 75%);\n}\n\n.conic-gradient {\n  background-image: conic-gradient(yellowgreen 40%, gold 0deg, gold 75%, #f06 0deg);\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssDoublePositionGradients({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n:root {\n\t--a-gradient: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n\n/* becomes */\n\n:root {\n\t--a-gradient: linear-gradient(90deg, black 25%, black 50%, blue 50%, blue 75%); /* will never be used, not even in older browser */\n\t--a-gradient: linear-gradient(90deg, black 25% 50%, blue 50% 75%);\n}\n```\n\n[css-url]: https://cssdb.org/#double-position-gradients\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-double-position-gradients\n\n[CSS Image Values and Replaced Content]: https://www.w3.org/TR/css-images-4/#color-stop-syntax\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Double Position Gradients]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-double-position-gradients\n",
 	"readmeFilename": "README.md",
-	"_downloads": 25126345
+	"_downloads": 24899878
 }

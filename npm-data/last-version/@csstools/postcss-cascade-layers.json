@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-cascade-layers",
 	"description": "Use cascade layers in CSS",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"contributors": [
 		{
 			"name": "Olu Niyi-Awosusi",
@@ -48,11 +48,12 @@
 	},
 	"devDependencies": {
 		"postcss-import": "^15.0.0",
-		"puppeteer": "^19.0.0"
+		"puppeteer": "^19.5.2"
 	},
 	"scripts": {
+		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -82,6 +83,7 @@
 		"specificity"
 	],
 	"csstools": {
+		"assumesToProcessBundledCSS": true,
 		"cssdbId": "cascade-layers",
 		"exportName": "postcssCascadeLayers",
 		"humanReadableName": "PostCSS Cascade Layers",
@@ -90,23 +92,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "345df8f3758287a6cfd757e588df5a901ca12717",
-	"_id": "@csstools/postcss-cascade-layers@2.0.0",
+	"gitHead": "e0a2b1faf6afc1a6da1f20088a281318b2d00ef3",
+	"_id": "@csstools/postcss-cascade-layers@3.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-99oD++cbAtusDzU1yBy1K2Q6SE9/vLtJ8AEuOvHutZu3lntkzu51okR7UUfFaIRrSQFNu+ri5tW8n42y6pnoaQ==",
-		"shasum": "a6ebd7d0a44ca662c8406edd44ed788d0c9db530",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-2.0.0.tgz",
+		"integrity": "sha512-CpjItl5zYoROgc3f7+ptPOXJr0sFDf+0CUEmwQMd/JOAmpP9scXtAWvoFwkFKIjBDE6swqbamjIMwmYVCBL6rg==",
+		"shasum": "e89a7fc0415ca6c13fb9f1f59bcff9e529675135",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-3.0.0.tgz",
 		"fileCount": 21,
-		"unpackedSize": 41059,
+		"unpackedSize": 41319,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIG+2x2GxlprUPb4Ku0yFW2Mhh1MytPYgMnYCPZpIr+e0AiBkCa9u/ElBIybX7vwOuuk+ZAW/xOMQ1i0By9puL2SrDA=="
+				"sig": "MEYCIQCPTKc87oQV0onhAwIQ02ENav56jQ68XNuCZf9kK+F2UAIhAMQmuvA6aoc/s073zsa8n3iul9P3HeVnairhQSdVolPQ"
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjcg+DACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo0zQ//duEZhrSZ6USyrDuYoha45bpYkb48HhqhmEsZOgzYJZSY6zU2\r\n05NkkgWlw+FbiRYZ9loUEM1cDWqssBOXhovmMXoOL2qJJ/m+KF7GFv/fbsHA\r\nWKCaaYkj3OqAjxQpLRJ+TWKTfwd0TrHkL2mp7CMM8F0hVQo92i4ZoYaf6Q82\r\nJ2+jjgZfZcfuI3wsXGWfzh9oEk4LC/d4FXzk5DKwPZl77sBJ/HkAbDH7U+PR\r\nFAga0IMGYQbGEGzyFWdI3DNLL4Tf50+jYxCmPVKQes7OF9Sut8+kzQCa8nkB\r\nO3W6Md2J1Pf6rTBlrHoU1Iy3yBgooZO+dL7eeKbv8IRoyEEfHPpCG4Y7DAis\r\nNlstCwkYnouv3VbouCqOOz/+/BugiDHarXLjQtBbe6lN9/L2gRRmT8dqYHQO\r\nDdPwfTTykcDprJu9i2bko8Attqg4+30tSBmmgg3wztjObji3heT+wFPry+/0\r\n863V1rnN5tkUHYrWEQP4+NLHZ4kXpSePZO5E5byOc3kl9bZKIJrA6TMKYe88\r\ntotCdLReTSbGRyxPQx4bYCkQE8uQeD9p2nSelS0cHzboZwgA9i0EZfq8hZ0f\r\n5up7MstBQXkVE5dEGweoAxK6jhkam2s5SicocVyA1m4rbCL2HtlOb7xHiZ2R\r\n3c/nRGngzpJ2TgmHVHImBnbJeuaVsPXHjfk=\r\n=i+aI\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5roACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpzpA/9ENGkWZT6y3kI9+wKjLMZMd3+WYLHGdAMXhRPUuCUv6uRd99/\r\nSjjOHmJTZ/tlChnaQz3ucX4tr9PoPeqHiElehvg7d95qaWLKY781DmN+ofDq\r\n2EgFIQyPmiZDCa/EELKeUXUHAQwQa79OQjpKVTSKAChqz8vsMeIqbVCYsd8/\r\nXDpL3xYbso2xahpTgHkAyZ8/XT1OoJsaVIdm5v/+EEHDT7b7bC4wan0xTWPT\r\ni6rSYjnClA3KGIbf8PrrOJ2ELV1DmsYZEXq38Wk2E9QXQZ5qbcFfSy3LghH1\r\nBCQagd1wIReIqnPJGBlUFSzq1dBqjdJUMbpbt2O5zuyM27V3IU+EPKWxzVj7\r\n4lh7TorOvYHYcq8d7uXAloiMstW2LztgYSxdEP15dwOCIQ6pvtQGvLxOev8O\r\ngQBM3d2UP6y0A/MpfwmdxCrTQf0m2AthUyPJqS+nDNWmXbk68tW70xn3UVeJ\r\nZYUPUt9YVUGD3T8t6O/FHlVDmHI/lkS4SF0uPQb7QQZlaPZeoV235/DA104h\r\nU2/j9SPQqB0HU8HS7WrM9JOW7giPE1pBem3DUQBqPcCBbG14G8kQEsuW0ZWX\r\nsr0FIDNV/W4LJS/A/Yq4sxZVJw1herL/c+ASEwPbA+RVv8jk8nlShbRVFFii\r\nIOTk5sF0A3zUPHHCFcdYChGOAt+gpVrSTtc=\r\n=i2Mv\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -125,8 +127,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-cascade-layers_2.0.0_1668419458972_0.3569707626071541"
+		"tmp": "tmp/postcss-cascade-layers_3.0.0_1674549991903_0.05866871229763815"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-11-14T09:50:59.106Z"
+	"_time": "2023-01-24T08:46:32.154Z"
 }

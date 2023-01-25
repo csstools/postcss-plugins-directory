@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-unset-value",
-	"_rev": "3-fc61dfabf2e24f2b796f4c0ef81e0024",
+	"_rev": "4-086914d0b2c5a36a7643f7b1f9348a35",
 	"name": "@csstools/postcss-unset-value",
 	"dist-tags": {
-		"latest": "1.0.2"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -321,14 +321,125 @@
 				"tmp": "tmp/postcss-unset-value_1.0.2_1657300181186_0.1668266281931634"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "@csstools/postcss-unset-value",
+			"description": "Use the unset keyword in CSS.",
+			"version": "2.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-unset-value#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-unset-value"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"inherit",
+				"initial",
+				"postcss-plugin",
+				"unset"
+			],
+			"csstools": {
+				"exportName": "postcssUnsetValue",
+				"humanReadableName": "PostCSS Unset Value"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "5155e9644adf4bbe17aa9377e3a916010f65277b",
+			"_id": "@csstools/postcss-unset-value@2.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-dx15RWSMlYsgtcl4YkVOe7Rd8tEEx8AEBnxpURI7AQa4dDJC3utZWD3am4Ynx2aoGu5C5lMF/RvSA3+uRpHPXw==",
+				"shasum": "768e85f941e32e22dedc642626702e95628567a4",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-unset-value/-/postcss-unset-value-2.0.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 26849,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQD1PprMXhmTGhlGvnpG9STajt7RSyU8dRDa7A1XkJI8rAIgQxsODcJJqds4RlDIc13ZRL3X/BEfLARf+pzWrmSNAYg="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6KNACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqKrQ/5AJ0bMsZZ6XWpkHAs5jWSmjwor2xw50GlFZM6ZGYD1XisP5P9\r\nSRazlVuGzRWpww1DaZD+mhPbob+TPjCZGAQ4Z/SzGqb61JXQFulgSAjnU91t\r\nLlVir0L5BjQlqXahUCJMB6us8s4Rbd5mgWEILqWwVYP1JYHIEnE35IquhAAV\r\nr4lngIFuaArFJDBNjpmojPa0sO6EqiNIDq3W16TpBjqHPBWTV4RyuR2Tl8aZ\r\nzVND3ZNR9K3ps3AzjsGNCwLYMQfaCPA8UlYn+fH95IHeKaLooW5RqRwYQ41a\r\nLMuOTQ2To7fVWH5CfklrNlJFMaW/PuV4/cHQHbxbhdn1AmKm5EMlU5FMyysk\r\nMJQRjEOMeYPZTbk7dp+WhTGArWeKaBR5+iI54xB9Y6l7c4aCKk2xVCWdYxsZ\r\nQjpK8gvzglRa4HdLSqp2/Lj95W3jY0ToiFXXKRprVs9SGxhu9CU9E0vx9ntq\r\nPBkbCo/QO6gjBgALBEV7kuMkBDRsB2POBiIErRlAXbEuZH8FTgPpNvPPiQDw\r\n53+cOGEFGqaTwJ+b60Y8RZM1mjTAXuUWHIc4LWeax53baj+RfymeSeOL/Y3Z\r\nI5lEmaUdU7hc9gkbWa8qolnS0NH0+7PQGytd/Q1jnEtFl8wLJP6DXi9RaC0A\r\nMfdwlrrsznZ/ZTXajKWP+lyf6XPHytgmNAY=\r\n=5Ewn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-unset-value_2.0.0_1674551949106_0.7220765492588517"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-02-21T07:54:18.737Z",
 		"1.0.0": "2022-02-21T07:54:18.942Z",
-		"modified": "2022-07-08T17:09:41.477Z",
+		"modified": "2023-01-24T09:19:09.434Z",
 		"1.0.1": "2022-05-11T04:59:53.223Z",
-		"1.0.2": "2022-07-08T17:09:41.343Z"
+		"1.0.2": "2022-07-08T17:09:41.343Z",
+		"2.0.0": "2023-01-24T09:19:09.311Z"
 	},
 	"maintainers": [
 		{
@@ -357,7 +468,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Unset Value [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-unset-value.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/unset-value.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Unset Value] lets you use the unset keyword, following the [CSS Cascading and Inheritance] specification.\n\n```pcss\n.color {\n\tcolor: unset;\n}\n\n.border-color {\n\tborder-color: unset;\n}\n\n.margin {\n\tmargin: unset;\n}\n\n\n/* becomes */\n.color {\n\tcolor: inherit;\n}\n\n.border-color {\n\tborder-color: initial;\n}\n\n.margin {\n\tmargin: initial;\n}\n```\n\n## Usage\n\nAdd [PostCSS Unset Value] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-unset-value --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssUnsetValue = require('@csstools/postcss-unset-value');\n\npostcss([\n  postcssUnsetValue(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Unset Value] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original source\nis preserved. By default, it is not preserved.\n\n```js\npostcssUnsetValue({ preserve: true })\n```\n\n```pcss\n.color {\n\tcolor: unset;\n}\n\n.border-color {\n\tborder-color: unset;\n}\n\n.margin {\n\tmargin: unset;\n}\n\n/* becomes */\n\n.color {\n\tcolor: inherit;\n\tcolor: unset;\n}\n\n.border-color {\n\tborder-color: initial;\n\tborder-color: unset;\n}\n\n.margin {\n\tmargin: initial;\n\tmargin: unset;\n}\n```\n\n[postcss]: https://github.com/postcss/postcss\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#unset-value\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-unset-value\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[CSS Cascading and Inheritance]: https://www.w3.org/TR/css-cascade-4/#inherit-initial\n[PostCSS Unset Value]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-unset-value\n",
+	"readme": "# PostCSS Unset Value [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-unset-value.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/unset-value.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Unset Value] lets you use the unset keyword, following the [CSS Cascading and Inheritance] specification.\n\n```pcss\n.color {\n\tcolor: unset;\n}\n\n.border-color {\n\tborder-color: unset;\n}\n\n.margin {\n\tmargin: unset;\n}\n\n\n/* becomes */\n.color {\n\tcolor: inherit;\n}\n\n.border-color {\n\tborder-color: initial;\n}\n\n.margin {\n\tmargin: initial;\n}\n```\n\n## Usage\n\nAdd [PostCSS Unset Value] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-unset-value --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssUnsetValue = require('@csstools/postcss-unset-value');\n\npostcss([\n  postcssUnsetValue(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Unset Value] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original source\nis preserved. By default, it is not preserved.\n\n```js\npostcssUnsetValue({ preserve: true })\n```\n\n```pcss\n.color {\n\tcolor: unset;\n}\n\n.border-color {\n\tborder-color: unset;\n}\n\n.margin {\n\tmargin: unset;\n}\n\n/* becomes */\n\n.color {\n\tcolor: inherit;\n\tcolor: unset;\n}\n\n.border-color {\n\tborder-color: initial;\n\tborder-color: unset;\n}\n\n.margin {\n\tmargin: initial;\n\tmargin: unset;\n}\n```\n\n[postcss]: https://github.com/postcss/postcss\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#unset-value\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-unset-value\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[CSS Cascading and Inheritance]: https://www.w3.org/TR/css-cascade-4/#inherit-initial\n[PostCSS Unset Value]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-unset-value\n",
 	"readmeFilename": "README.md",
 	"contributors": [
 		{
@@ -370,5 +481,5 @@
 			"email": "romainmenke@gmail.com"
 		}
 	],
-	"_downloads": 12499228
+	"_downloads": 10455064
 }

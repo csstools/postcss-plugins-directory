@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-hwb-function",
-	"_rev": "3-e43617fa1a7646aae650f96d5c16113c",
+	"_rev": "4-c3c3d977a7314efef09cec0baf130f77",
 	"name": "@csstools/postcss-hwb-function",
 	"dist-tags": {
-		"latest": "1.0.2"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -345,14 +345,132 @@
 				"tmp": "tmp/postcss-hwb-function_1.0.2_1657297986442_0.25749284740821676"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "@csstools/postcss-hwb-function",
+			"description": "Use hwb() color functions in CSS",
+			"version": "2.0.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-hwb-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-hwb-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"comma",
+				"css",
+				"design",
+				"functional",
+				"hsl",
+				"hsla",
+				"hwb",
+				"notation",
+				"postcss",
+				"postcss-plugin",
+				"rgb",
+				"rgba",
+				"space",
+				"syntax"
+			],
+			"csstools": {
+				"exportName": "postcssHWBFunction",
+				"humanReadableName": "PostCSS HWB Function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "0a5d7aa86682ddc0ded8f9cf38748dba18d85fad",
+			"_id": "@csstools/postcss-hwb-function@2.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-1rXMiRapGL6tQJsGKzvEY78DSDc4lZXQzPkHwRBuwoJvRAdtXWQyR00Jk73TOFkmVtmo5bdbS6Rnm1f01lpmlg==",
+				"shasum": "51b4a2ca65486abfcbd245d6ad55a843b9c39c74",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-hwb-function/-/postcss-hwb-function-2.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 26372,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDgiOaWs8JCXFv00Fqf94s5IV7be2u1VjTGWRUe9le9gAIgR1UJWR0grspkW3FIDFGIdDQZHkDSX5aTr+lVouGvw8k="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5/SACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmrnxw/+Lg1o+LfMl8s9tOp8sQwS6hITnfNMXp9BQ9r/XvyI7+KmqBMK\r\nQkN7sbRHQ+Eret9BYMQqpqPYBOJZs0AnIZokjAz9dUk77RHm1C3MHaf32SG1\r\nAZVzQn8zCT086S/3AG+pwDhKu3a0lmh5uoV5QCYUupnbXxo05PBgGCG403SR\r\narB6GBSyTfy4fRS7gREFy1cLh/vhoM5Zf7h6Nz2QqMzx9oqmrmLx0GKpVOv1\r\n5zxztcEyGxPjcuWFnM6KwZW47hsvBUyIPB6FHEnwSXme3cEW+iB5+bJLWlO2\r\nWJvbmT2/ilqShpzRHg9wFRXnGl4v1DiRs3pAXmjwAv/5xaOQ68VvPVixTTxE\r\nQfWXWc926Y0+Pa9t++GOBTEDVQcvQFJc/c/6QFo4E2Yyh5L/oyKTp4mbsZxD\r\nouDs8dlV6tgj11OLIzUsDJJ1KbpLgBiwvp2tJjOwoT+H+EXc7b9H3OW29YRw\r\nAsOPao9NZN6oA3nIBY8sXmpPo5EN7qZuqHpUUt1P6MjlhJ62JaEgkNFhraw1\r\njLN6AGoLsan/JLPZSK+AolO3OEbLAiu8YrvPbaF7wqELEXNNAYPJQrJY0aMz\r\nzVdrUN5vghv/PjRIldHD1sXggT03/xC62Z2ZmC7C5EOtUknorNAZZgYybY3U\r\ntNJRBjHd8Sx+t4ju7TiqxdeA+cTV9j9LuR0=\r\n=SzRW\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-hwb-function_2.0.0_1674551250678_0.716319382492304"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-01-22T19:21:18.111Z",
 		"1.0.0": "2022-01-22T19:21:18.305Z",
-		"modified": "2022-07-08T16:33:06.678Z",
+		"modified": "2023-01-24T09:07:30.952Z",
 		"1.0.1": "2022-05-18T04:43:58.296Z",
-		"1.0.2": "2022-07-08T16:33:06.602Z"
+		"1.0.2": "2022-07-08T16:33:06.602Z",
+		"2.0.0": "2023-01-24T09:07:30.854Z"
 	},
 	"maintainers": [
 		{
@@ -368,7 +486,6 @@
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-hwb-function#readme",
 	"keywords": [
 		"color",
-		"colors",
 		"comma",
 		"css",
 		"design",
@@ -397,7 +514,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS HWB Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-hwb-function.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/hwb-function.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n\n[PostCSS HWB Function] lets you use `hwb` color functions in\nCSS, following the [CSS Color] specification.\n\n```pcss\na {\n\tcolor: hwb(194 0% 0%);\n\tcolor: hwb(194 0% 0% / .5);\n}\n\n/* becomes */\n\na {\n\tcolor: rgb(0, 195, 255);\n\tcolor: rgba(0, 195, 255, .5);\n}\n```\n\n## Usage\n\nAdd [PostCSS HWB Function] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-hwb-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssHWBFunction = require('@csstools/postcss-hwb-function');\n\npostcss([\n  postcssHWBFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS HWB Function] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original functional color notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssHWBFunction({ preserve: true })\n```\n\n```pcss\na {\n\tcolor: hwb(194 0% 0%);\n\tcolor: hwb(194 0% 0% / .5);\n}\n\n/* becomes */\n\na {\n\tcolor: rgb(0, 195, 255);\n\tcolor: hwb(194 0% 0%);\n\tcolor: rgba(0, 195, 255, .5);\n\tcolor: hwb(194 0% 0% / .5);\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#hwb-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-hwb-function\n\n[CSS Color]: https://drafts.csswg.org/css-color/#the-hwb-notation\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS HWB Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-hwb-function\n",
+	"readme": "# PostCSS HWB Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-hwb-function.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/hwb-function.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n\n[PostCSS HWB Function] lets you use `hwb` color functions in\nCSS, following the [CSS Color] specification.\n\n```pcss\na {\n\tcolor: hwb(194 0% 0%);\n\tcolor: hwb(194 0% 0% / .5);\n}\n\n/* becomes */\n\na {\n\tcolor: rgb(0, 195, 255);\n\tcolor: rgba(0, 195, 255, .5);\n}\n```\n\n## Usage\n\nAdd [PostCSS HWB Function] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-hwb-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssHWBFunction = require('@csstools/postcss-hwb-function');\n\npostcss([\n  postcssHWBFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS HWB Function] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original functional color notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssHWBFunction({ preserve: true })\n```\n\n```pcss\na {\n\tcolor: hwb(194 0% 0%);\n\tcolor: hwb(194 0% 0% / .5);\n}\n\n/* becomes */\n\na {\n\tcolor: rgb(0, 195, 255);\n\tcolor: hwb(194 0% 0%);\n\tcolor: rgba(0, 195, 255, .5);\n\tcolor: hwb(194 0% 0% / .5);\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#hwb-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-hwb-function\n\n[CSS Color]: https://drafts.csswg.org/css-color/#the-hwb-notation\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS HWB Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-hwb-function\n",
 	"readmeFilename": "README.md",
-	"_downloads": 13818039
+	"_downloads": 11578291
 }

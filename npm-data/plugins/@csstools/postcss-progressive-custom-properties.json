@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-progressive-custom-properties",
-	"_rev": "4-c0d8d036578404ccecc61a47c3ba0a34",
+	"_rev": "5-18e15aab17ed12dd670ca62d58a9626c",
 	"name": "@csstools/postcss-progressive-custom-properties",
 	"dist-tags": {
-		"latest": "1.3.0"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -416,15 +416,128 @@
 				"tmp": "tmp/postcss-progressive-custom-properties_1.3.0_1646651034065_0.6873737560326192"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "@csstools/postcss-progressive-custom-properties",
+			"description": "Correctly declare progressive enhancements for CSS Custom Properties.",
+			"version": "2.0.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "node ./generate/matchers.mjs && eslint --fix ./src/matchers.ts && rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-progressive-custom-properties"
+			},
+			"keywords": [
+				"css",
+				"custom",
+				"declarations",
+				"postcss",
+				"postcss-plugin",
+				"progressive",
+				"properties",
+				"utility",
+				"variables",
+				"vars"
+			],
+			"csstools": {
+				"exportName": "postcssProgressiveCustomProperties",
+				"humanReadableName": "PostCSS Progressive Custom Properties"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "51139eaeecfaeb5264141f76433f6fb4b25dc9f1",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins#readme",
+			"_id": "@csstools/postcss-progressive-custom-properties@2.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-jQl/sQRcMwgaWWzmy65LtxVWnSvRFnhnaRVCvHaMLf5ZT2LRE5w3EG7Z4FqV6IK4L/vB/GSZSzl8AEA9CXN8Zg==",
+				"shasum": "ada4d35c6891719d0d060f75d912eac11d8e47a9",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-progressive-custom-properties/-/postcss-progressive-custom-properties-2.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 44481,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDaAu2MYqkFt6LGb1iq+j7tFfcWYPAt6YZfDW/QHwe7nQIhALhcWZ25n4Qw7Ue2NVzktyJvzrGVmcZs1tymXTJhxHE1"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5ZtACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpb2RAAmlwLfD7S4QJe971e/EIrFlj5OhfaueJcaJS6AaKBaLQJsqlg\r\neyfeQYBV1E4f85IlQZL9vLnjwzEWqD97XHPR9ygGt2DHwRUNxDp/hVbxG1ht\r\n6JjOfRFxM/3UK+3Bw3YZW0nMnMdxzNG0ZPEZvrc/71nMWxx4asMOd/yg5xeW\r\nPnAGHifSrgWdnSxPeJjz9kreMbTJzf80N7VFVzwDyagivYFRmAxouvEAQ8Ig\r\ntuFAv6g6WofUMqb2tjhdvaoE+kcv6QH3Iwu83Ub+e0YCtu0kR+uR3qkTxQzF\r\nGLoBX7BSh5IOwJXaFQbsxwxcIwWru1oAfxqiS5daPpt5/Iaqz8F+Nr8sCZ2x\r\nYnFXRdK3y5CWDu68QJVsQ8Ee3M6Nh5wJb6jJBMb+CtTtd1Xuh0zfPxIVwQIZ\r\nkmh76Zf2nBhhx/jFcDMHh0O4VYOZwB2RDSMM782vapbK4Hl9biam6UETkE45\r\nfDv+YBV2DSTs05N56IzjFyO9qfjqDqwP7fgYkNc7LDA7jpb5X6T2d7UQj5eS\r\nRZ7fwcbVs9fB7rmVHPE3CrIHViW/wyH1uk6JIg3fD+eyETw9XeM3/N8JZPcE\r\nIvp2Gu1eAnDmY7j5EsTMlLuEIFPrtTJOp4duDrTVi3EtuAZZHjiWlApUJnzv\r\n4SHBHG+Hil+4eTIMaNEtNNGHy8cPvk5kXUU=\r\n=zCYL\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-progressive-custom-properties_2.0.0_1674548845073_0.9861056483550734"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-02-06T16:26:26.647Z",
 		"1.0.0": "2022-02-06T16:26:26.849Z",
-		"modified": "2022-04-05T02:03:36.549Z",
+		"modified": "2023-01-24T08:27:25.317Z",
 		"1.1.0": "2022-02-12T12:13:47.608Z",
 		"1.2.0": "2022-02-15T19:01:34.940Z",
-		"1.3.0": "2022-03-07T11:03:54.197Z"
+		"1.3.0": "2022-03-07T11:03:54.197Z",
+		"2.0.0": "2023-01-24T08:27:25.219Z"
 	},
 	"maintainers": [
 		{
@@ -463,7 +576,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Progressive Custom Properties [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Progressive Custom Properties] is a utility plugin to correctly declare Custom Property fallbacks and enhancements.\n\n⚠️ It is not intended to be used directly by stylesheet authors.\nMeant to be included in other PostCSS plugins that provide CSS value transforms as fallbacks.\n\n[Custom Properties are not discarded like regular declarations when invalid.](https://www.w3.org/TR/css-variables-1/#invalid-variables)\nThis makes it tricky to provide fallback values for older browsers.\n\nThe solution is to wrap Custom Property declarations in an `@supports` rule.\n\n```pcss\n:root {\n\t/* fallback */\n\t--a-color: red;\n\t/* progressive enhancement */\n\t--a-color: oklch(40% 0.234 0.39 / var(--opacity-50));\n}\n\n/* becomes */\n\n:root {\n\t--a-color: red;\n}\n\n@supports (color: oklch(0% 0 0)) {\n\t:root {\n\t\t--a-color: oklch(40% 0.234 0.39 / var(--opacity-50));\n\t}\n}\n```\n\n## Ignored values\n\n`initial` and `<white space>` are ignored.\n\n```pcss\n.initial {\n\t--prop-1: red;\n\t--prop-1: initial;\n}\n\n.white-space {\n\t--prop-1: red;\n\t--prop-1:;\n\n\t--prop-2: red;\n\t--prop-2: ;\n\n\t--prop-3: red;\n\t--prop-3:    ;\n}\n\n/* remains */\n\n.initial {\n\t--prop-1: red;\n\t--prop-1: initial;\n}\n\n.white-space {\n\t--prop-1: red;\n\t--prop-1:;\n\n\t--prop-2: red;\n\t--prop-2: ;\n\n\t--prop-3: red;\n\t--prop-3:    ;\n}\n```\n\n## Usage\n\nAdd [PostCSS Progressive Custom Properties] to your project:\n\n```bash\nnpm install @csstools/postcss-progressive-custom-properties --save-dev\n```\n\nUse [PostCSS Progressive Custom Properties] as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomProperties = require('@csstools/postcss-progressive-custom-properties');\n\npostcss([\n  postcssProgressiveCustomProperties()\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n## @supports\n\nThis plugin wraps Custom Property override declarations in an `@supports` rule.\nWith PostCSS 8 this trigger declaration visitors to run again.\n\nMake sure your plugin detects and ignores values inside relevant `@supports` rules.\n\n\n[PostCSS Progressive Custom Properties] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n\n[cli-img]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml/badge.svg\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-img]: https://img.shields.io/npm/v/@csstools/postcss-progressive-custom-properties.svg\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-progressive-custom-properties\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Progressive Custom Properties]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties\n",
+	"readme": "# PostCSS Progressive Custom Properties [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Progressive Custom Properties] is a utility plugin to correctly declare Custom Property fallbacks and enhancements.\n\n⚠️ It is not intended to be used directly by stylesheet authors.\nMeant to be included in other PostCSS plugins that provide CSS value transforms as fallbacks.\n\n[Custom Properties are not discarded like regular declarations when invalid.](https://www.w3.org/TR/css-variables-1/#invalid-variables)\nThis makes it tricky to provide fallback values for older browsers.\n\nThe solution is to wrap Custom Property declarations in an `@supports` rule.\n\n```pcss\n:root {\n\t/* fallback */\n\t--a-color: red;\n\t/* progressive enhancement */\n\t--a-color: oklch(40% 0.234 0.39 / var(--opacity-50));\n}\n\n/* becomes */\n\n:root {\n\t--a-color: red;\n}\n\n@supports (color: oklch(0% 0 0)) {\n\t:root {\n\t\t--a-color: oklch(40% 0.234 0.39 / var(--opacity-50));\n\t}\n}\n```\n\n## Ignored values\n\n`initial` and `<white space>` are ignored.\n\n```pcss\n.initial {\n\t--prop-1: red;\n\t--prop-1: initial;\n}\n\n.white-space {\n\t--prop-1: red;\n\t--prop-1:;\n\n\t--prop-2: red;\n\t--prop-2: ;\n\n\t--prop-3: red;\n\t--prop-3:    ;\n}\n\n/* remains */\n\n.initial {\n\t--prop-1: red;\n\t--prop-1: initial;\n}\n\n.white-space {\n\t--prop-1: red;\n\t--prop-1:;\n\n\t--prop-2: red;\n\t--prop-2: ;\n\n\t--prop-3: red;\n\t--prop-3:    ;\n}\n```\n\n## Usage\n\nAdd [PostCSS Progressive Custom Properties] to your project:\n\n```bash\nnpm install @csstools/postcss-progressive-custom-properties --save-dev\n```\n\nUse [PostCSS Progressive Custom Properties] as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomProperties = require('@csstools/postcss-progressive-custom-properties');\n\npostcss([\n  postcssProgressiveCustomProperties()\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n## @supports\n\nThis plugin wraps Custom Property override declarations in an `@supports` rule.\nWith PostCSS 8 this trigger declaration visitors to run again.\n\nMake sure your plugin detects and ignores values inside relevant `@supports` rules.\n\n\n[PostCSS Progressive Custom Properties] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n\n[cli-img]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml/badge.svg\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-img]: https://img.shields.io/npm/v/@csstools/postcss-progressive-custom-properties.svg\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-progressive-custom-properties\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Progressive Custom Properties]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties\n",
 	"readmeFilename": "README.md",
-	"_downloads": 12524582
+	"_downloads": 12600971
 }

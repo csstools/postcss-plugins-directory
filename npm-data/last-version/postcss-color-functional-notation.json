@@ -1,7 +1,7 @@
 {
 	"name": "postcss-color-functional-notation",
 	"description": "Use space and slash separated color notation in CSS",
-	"version": "4.2.4",
+	"version": "5.0.0",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -12,7 +12,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -28,11 +28,12 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -53,7 +54,6 @@
 	},
 	"keywords": [
 		"color",
-		"colors",
 		"comma",
 		"css",
 		"design",
@@ -76,23 +76,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "a79a735c39db00160362dd0613b754a972981084",
-	"_id": "postcss-color-functional-notation@4.2.4",
+	"gitHead": "fd30eb6025f99578ef397593f5391250a5834fe3",
+	"_id": "postcss-color-functional-notation@5.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-2yrTAUZUab9s6CpxkxC4rVgFEVaR6/2Pipvi6qcgvnYiVqZcbDHEoBDhrXzyb7Efh2CCfHQNtcqWcIruDTIUeg==",
-		"shasum": "21a909e8d7454d3612d1659e471ce4696f28caec",
-		"tarball": "https://registry.npmjs.org/postcss-color-functional-notation/-/postcss-color-functional-notation-4.2.4.tgz",
+		"integrity": "sha512-oxsPSdf6i2DJyNj24/hvQDaTyoztDwG0TMannHGUnFAdA6xSwB8Io5iDDqZcDrXTJTy32erpG9ETmwhMPPuCNg==",
+		"shasum": "7f652ceb84a69ec98deb02e0ffe2757b75e821d9",
+		"tarball": "https://registry.npmjs.org/postcss-color-functional-notation/-/postcss-color-functional-notation-5.0.0.tgz",
 		"fileCount": 9,
-		"unpackedSize": 24898,
+		"unpackedSize": 26506,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDgL5AFToeeYTpCHQbbTs9064sj6vZALimMk64Qd6iLdgIgctx/WaV8BH492UQH7tx5Q9pGEK2RZ1ydsA7akziyr5s="
+				"sig": "MEYCIQDZKiuF+7qhB+2hlJckvIy5R/6FjAtO+29neVhY9iQF9AIhAOC6AhxYLNjsBXPH1sbIpqA4Ib3WK2WpmdmLIxPwbTpX"
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFfiACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmperA//TVGR6K+PQwSl7bAwiTl5cpQeteEhjUahVS1ZNIysRXJ6gX6O\r\n9qLTrH++uRW2m/Lsb5ydDRGHoqxa2Wlx91IG7rtbPOc4hFFvPbYtE7tbmkv2\r\nd8gZp3WOTNh0HczNYoGcEgmhS6jVK5WClFjCUecYO0DS4FNPvqaBgVvPCMK2\r\nL7ovOIffn9LiItQ+tZV/RNnPtjz9oDdma46NfyCaEvmML3nu0qgY9KIwKaC4\r\nFxOFEvfcECMvjYitQZ2vsI6qTd7fxMakew/2Zdt8d33ejHw3mm3/1PVs7RAw\r\nG794IJ1Ma0T2paHDo43rtU2nqsvjkzA81FIv5Vt7Nm1y53uX41+fwst1HX9n\r\nLOoQPcwCmTjQ/piTvyjuD8Ry9/WzIrsW/iaKIDFQjqIfpgISVjqa0oS++CxG\r\nZM0HJxfflwLjgN9FNMZ7pypvrMr5eJD+ppH8tAqa2vJxbbSIDyM4ti6BQbeZ\r\naEKBU0UT6qDZzQdYzL54PF8xnEJVzwp/aqnmYSmbYYgNiOU4HFT+hrdRvxxN\r\nlsGH9CRQcNQBovEEr+hua7znlffDL7f37qLPUUAXLSPI1KI0TrcD9l/mZt18\r\nBP8bYYXs8dHm2TPgyX4KwFh8gUSGQu/a2ONk3TSURimLnzI7OTorOGy8eYSe\r\nmB2ujQ1XjLjsqz3bdg0BC9S1EO+3xZJUmBI=\r\n=UVCz\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5stACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrNTA//euPIRpBpbsHTD7pdyOX0dRHrVWRlHtYCxH4UwRU6QonvBXcr\r\nbjYts6EC9TUKpYwtymMye/Tl7U99BQ1Dw6DeFsHPlHXCI5rAmBCGfwKBoYyS\r\nVpNkngEovRkwHppfw5YVRMCmOMvj9fAi+RTN2OAQVQaax79ZugDxudF/KysM\r\nE9nwnXgc2x6XrM7WZ09ADlCRhdSov8iA+BpZbS7xO6ad92td8rz5MlNHvHaK\r\nSq6K5Fn011JJtQ3gvVL/N3lmTUK8xOvrWW6rnNsPCGf3XOdxCzRyIAF/+Tgi\r\njg+D0RLrCJXFDFk1U1wlquX6zSlfXfM00nH8rKqB2jHMbbxE+o3ERJE1POcY\r\nKXpNrVmwgVuexZQGTwseux4a5SWoFgZ1TogAEmthJTGxH3R5jUn/sw+JLUba\r\nVmYZVp8lkMXo7mmbGrNpZNuJeJAgF8zUcq73uI7JybjQx6ZBOEnJ6aq8y4h2\r\nBdgLSfNVivXsyfpEOCRc2myh+bbkiznnBJq+NEfhm5UW0JAU/QjMIEDsH5k1\r\n9Ckow3R7kwGLOeZB9timhUs7aNGh4jbTGmtNnzlgueC3F0q21oaze7C4kVnD\r\njNrNg+pETzw8fRmepCxCOdF5Xh1BuIa+HU9AqQIyswvUUNRTe5zdlEdVWlY9\r\n9+RMs7Vq+fv/bgdH5KG7AmdcrosDJI8lMdk=\r\n=QkCm\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -111,8 +111,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-color-functional-notation_4.2.4_1657296866541_0.9915271975826807"
+		"tmp": "tmp/postcss-color-functional-notation_5.0.0_1674550061235_0.008499502403695569"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T16:14:26.730Z"
+	"_time": "2023-01-24T08:47:41.395Z"
 }

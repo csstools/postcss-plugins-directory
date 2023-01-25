@@ -1,7 +1,7 @@
 {
 	"name": "postcss-focus-within",
 	"description": "Use the :focus-within pseudo-selector in CSS",
-	"version": "6.1.1",
+	"version": "7.0.0",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -23,7 +23,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -47,11 +47,12 @@
 		"postcss-selector-parser": "^6.0.10"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -94,23 +95,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "4bd9b1702df3be672306bedefe7af3b2b877205d",
-	"_id": "postcss-focus-within@6.1.1",
+	"gitHead": "9418170068c0fa4f03283c1d4b8485b8cb9f143e",
+	"_id": "postcss-focus-within@7.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-3NwCIuP/VQMzKbGS7sxCN8tquUhZSeQg9GGS6krST9dF9R243OvP0+zRBTlO2KgWNotyO4HVB7bwNqWRXicr0Q==",
-		"shasum": "93e412c4a5caa9843ede494f05be6f3e997006f7",
-		"tarball": "https://registry.npmjs.org/postcss-focus-within/-/postcss-focus-within-6.1.1.tgz",
+		"integrity": "sha512-DdIAwUY/7D981ROrWjxDuhCOTlbgjqbn2lCCuHWcGm+4s3m7thOCQzBGWBFc1heIx3MkiG1qF4Ew4logiPOxaQ==",
+		"shasum": "224c671a7e7d18d05135378943cf18ee0ce20d00",
+		"tarball": "https://registry.npmjs.org/postcss-focus-within/-/postcss-focus-within-7.0.0.tgz",
 		"fileCount": 13,
-		"unpackedSize": 40191,
+		"unpackedSize": 41592,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIEoIWbtbboY4jrCgCstbjx4DjN1n5t5um9r8LZrlgXzYAiBaC/y/DHrb1p5ByV5UfviR+8olr5mJFoXgCtyYILCRDw=="
+				"sig": "MEUCIAQdnAWym5v9j+FMTbtehsQgF9eDyf4fYgSGTm4LVZ+GAiEAkcG0lGk2BmrqovfyuP36HbQqOlYicgJmUKcJ53RJQ8U="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjBT48ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqb2g/+NHgNU/9/J+RbXPdRV3vl2DJOjUd3lcgadP9MqXShT2sVk6Px\r\nSW/7NZal3ZEEGBiJiBmN1GMhf3RL0ityLIF9xbXGevinFVzgxztyPHTZw62V\r\ndolIykaJigthOY8TjASYElgowM0LBzpxJqG+ZxkwfyJYuWNBigz/IIL5wb2e\r\nj87fLv+ESY9G7tb4qASRheDh9K6gNu159FZOg0u1BFk5CssjiKARR1FTp7TT\r\nD1lYCdRiCxBM5caiuK1Qk31n7f3WtlPCZlffO1bTucmSLVOYa7gSK65SbipR\r\nDOTrqepX6E06d/1w+wxKjHAtsnJ9SxHmNeQMkNB7CqiJy8FMlzeu6CWNOE/k\r\nInDiYUzQEg1sgq0rDvAD/tbqtDzVKw6PYNk/lFFuL9cZogGGZkC/CJB50Gfo\r\nGeP+nX4uddSDcKCeTNdAC7suhiXyY6GBu3Y8GPNN8hD7NCShJby+z3uNFwx5\r\ne8XbR70xJbffeYubeikLnbB/szD1x/B3NDNSwl2bNtHH4znxywLKUUnPSYba\r\nlM1ypV+foh2zDclh2QxSint0bGJGfbiGgAMmSAcy4xbQHKpEeHG53l7UQNyX\r\n9yvyhnIijiqiQVrvrDgGiP26DyToGQeNW4tAHjmwiCWvhhDB1kDDOczFPLT2\r\niH7e6M5Lky6Bug18z1M9f5mtD+Qzh8Ekuv8=\r\n=3iX1\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz59QACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqhGg//UkC/04YZqEOgpv1wUYhCxJGOtw3TTHETFyAf6Sh++rtZqffG\r\nv+drkgLSV1SkGpsgfpfhTFrS0X8WPkXXLoP978BSvU7aPqWzCY+C1wjtAopo\r\nHAUAQMRGZz3o4TTNfxn42GctKbivFf1H0BHMGe77zgeY5yAIndUrN6PKu1e8\r\nQCAj4YUewvPp+LHR3TDWxZeHJ5tNMtLfzT9rcPFwX52tpFv4fKiERpyVvO59\r\n7B9EwJ38Wa1MDylHCFbCjQhxQvVJNrgJeyC3EZ1n6ZtAp29xPB/fQPq1oOSu\r\nXJ8kVQQO4Bo+Wn1fyC8vlVaF+wCDQrBWv+HvFzOUuC3vwAZ2yZksk276GPuw\r\nJnmIcGQHpPuNSrpJEL+GvI02LIpteYARt9RTFZbggQD2J9bf7x4VX9tiJn7a\r\ni0a+MZ/RPCrH/b4gQa65zGp0aB1bo27UB+iJXdgX+zmqcsbSVYqNQeAmHCRK\r\nRZxOf8YAAfc3uMAl0/IH49LPJjJn8KwAhVkSk9u54HHnvUOElKahbOfIeors\r\nLd+TU6ffYUDlEcrZ4C437sv15ECba542AJ22JhunOinBI3/NLQCzOwBFSyDk\r\noxf0kD7ruAJ4D4hvNWtRcba84YptVuaf00DxbxjApphdTQyzRlSeVtiTsE4a\r\n0yEXErPqL5WQiJGstoktLHqboloS1J9f6DY=\r\n=TpNP\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -129,8 +130,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-focus-within_6.1.1_1661287996623_0.1139467186155545"
+		"tmp": "tmp/postcss-focus-within_7.0.0_1674551120315_0.6027439688591743"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-08-23T20:53:16.814Z"
+	"_time": "2023-01-24T09:05:20.505Z"
 }

@@ -1,7 +1,7 @@
 {
 	"name": "postcss-lab-function",
 	"description": "Use lab() and lch() color functions in CSS",
-	"version": "4.2.1",
+	"version": "5.0.0",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -12,7 +12,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -25,15 +25,16 @@
 		}
 	},
 	"dependencies": {
-		"@csstools/postcss-progressive-custom-properties": "^1.1.0",
+		"@csstools/postcss-progressive-custom-properties": "^2.0.0",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -54,7 +55,6 @@
 	},
 	"keywords": [
 		"color",
-		"colors",
 		"comma",
 		"css",
 		"design",
@@ -77,23 +77,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "70022627842d2dd3f754c34e6fa74a79c7b0ebc1",
-	"_id": "postcss-lab-function@4.2.1",
+	"gitHead": "0d3e5b67f6cabb108681a2316e914df1e6271df1",
+	"_id": "postcss-lab-function@5.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-xuXll4isR03CrQsmxyz92LJB2xX9n+pZJ5jE9JgcnmsCammLyKdlzrBin+25dy6wIjfhJpKBAN80gsTlCgRk2w==",
-		"shasum": "6fe4c015102ff7cd27d1bd5385582f67ebdbdc98",
-		"tarball": "https://registry.npmjs.org/postcss-lab-function/-/postcss-lab-function-4.2.1.tgz",
+		"integrity": "sha512-XTV77sdIJGPxDYzZxXE0giTn3mQDC/sl/a9i2VVOPdVEEK7wFbd3kM9Dom20F4WtioTFllpDl3oMBoQvCrl79w==",
+		"shasum": "9198607cd0fcb273590a2c96d6087995838be1b7",
+		"tarball": "https://registry.npmjs.org/postcss-lab-function/-/postcss-lab-function-5.0.0.tgz",
 		"fileCount": 20,
-		"unpackedSize": 48027,
+		"unpackedSize": 52549,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIAP1hAGKViDKom+ArUJi3dMxZBG6J8vJrpEdLg+zDb6BAiEA33wYOXvJMxcHSB1Ao4HdW50xBRRc3+zrkt/hrTunl0E="
+				"sig": "MEUCIDykF184B79EfQFlLxeUxfqnoD7mYSn+IDf19pIyerDaAiEAoficFcCS00Pk92QVTnWhePiuyGVC8Fggo7IcW79OYQg="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGNsACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmoy0w/9HcRG7fTc+2KK5BiHnreqR+8n8wblLiziMn9Z8GDWmKDTCg7M\r\nPPeRKpafxoDXBj8ysHMmnkEFD8zdKqRICIiqEXzCeB/ElKfl6ZZ/52Ig6lg0\r\nFKuROuNfJTwAluE1+kyfh+j5/j6bcDfBlB5YKWcWJLj3VFXbcst6wHYch+jH\r\nXSxwLAWi8H0dyE+krcWFM1iCCcLNAlZjnSIyDwj41fbn2zuvCEhwAxOu5SEL\r\niccGAYZIZPtzYlYPKkDT4ZoLaxenHiQuKCBYhbEPqbqLdHX7zlFwIlkcf1KR\r\nNPETMgbLLKERS20U6LcGlEaSEt6tGTU4ACjJVRKVNU69hIbLvcJu+13RDj/t\r\nOvdYB/8tmebfwSBedN/ZDUwYqUO6lU9ExUkAXGHxort/1Wsf5UaQIPAgR5Xx\r\nNH/SyfceTzTxQqPoijT+1VHpvA+txhTcZrwvtc5AW1vUdb6ZUL4ZX7rZiMhJ\r\n1LOAsr/sAQ0XjtgDrYqRn672gExl2Hp+7MRALgmK7OrPI6CQuBiIFglwOZPf\r\nxByFszYcxXjAkL2xb9PgCwt9e4Q/B9ulWtXFelWB28zVeTbtnIIJQGfUIZbX\r\nVQ6SgF5jo/cwjnNoEgd3afknimW4qvZ26fIeLwnkcsv8t7O9KCBDBjWpMqGw\r\nEoEzf2gWYkZTcUAPAmhLNu5atZV0ONLAAZw=\r\n=NF8L\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6BUACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmppIhAAison+VcipmkBAXRWyO4a365fJ/6vy6h8hF3NXgxEjZXL7Pc3\r\n/n9qwfHyjQZ+DknpJ/201KpbGNHExaTgv3xjtzlnDpLFWNgmWJeF/RxAC9sd\r\npFKT36tuKDvi+sv27yeaPHFjF/FNWjkPluEY2B2TQNqH2VpdOJqtEngTLmja\r\nHjJK6z8ImUjtdmpeNDljYl2EXBhd+zJHZk+7FEG5YuGXf5j+VgT4R6u5oasG\r\nyClOF3ZAhHOxMs/IZZGnejtYLfz2wWFb28dtixUk9ZgHlrFc9AGFU71U0GH4\r\ntnouQ/LFFpJFQp+orC2T+kWyX1r24EWZwMqr9cdBlDtvANEApsPb/rsVcQWv\r\np3Tqt6P1QXBcPUIJv8Q31jiv+V9vxeiAMTgWk41j4JTHIdpTRswNyBKdXrLQ\r\nZcRsy6FsUkfRgQUxmmk79P+vJrIBTXNUs1qqg7b5kIJ50l2yBnewPynFl0t/\r\nrhh0ao/ERqZqgWYbjAIPjK2e4OUYJLNUs4SEOOb1xoPfz2k2rar9pHPrEnkG\r\n72Vr6Aku0sGfZ3+xeIBN8YghLxHDV5r5Cb+rLauOeYe+S9k5MEUQqi+b1/3p\r\nATx+3JDwZ+yG7FRb7S0RljyLJ43/Jo1lcMty3BV+oVeK54dlB7XvaQo10Fmt\r\nvOZwPGVd9DIBOUbZeCPHsSw0ClcIdtaZZSc=\r\n=HnEv\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -112,8 +112,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-lab-function_4.2.1_1657299820756_0.2947320059466765"
+		"tmp": "tmp/postcss-lab-function_5.0.0_1674551380767_0.08296761290801657"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T17:03:40.939Z"
+	"_time": "2023-01-24T09:09:40.924Z"
 }

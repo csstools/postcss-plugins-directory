@@ -1,14 +1,18 @@
 {
 	"name": "postcss-env-function",
 	"description": "Use env() variables in CSS",
-	"version": "4.0.6",
+	"version": "5.0.0",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
 	},
 	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -26,8 +30,9 @@
 		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -63,23 +68,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "99a732a41a7c83b6ac5da44aa96b85881f598431",
-	"_id": "postcss-env-function@4.0.6",
+	"gitHead": "20105629f1a5b89b01fd0fc815994dc6c2bffcc8",
+	"_id": "postcss-env-function@5.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-kpA6FsLra+NqcFnL81TnsU+Z7orGtDTxcOhl6pwXeEq1yFPpRMkCDpHhrz8CFQDr/Wfm0jLiNQ1OsGGPjlqPwA==",
-		"shasum": "7b2d24c812f540ed6eda4c81f6090416722a8e7a",
-		"tarball": "https://registry.npmjs.org/postcss-env-function/-/postcss-env-function-4.0.6.tgz",
+		"integrity": "sha512-8FFoSvQlFrMlsbkiiCTQr4QH5aGhfTsEK8fJYAs1XttMV3FWztA94fFlyj5dRWBKCeTFSfY0kZz992DeTebsxw==",
+		"shasum": "d8fd5bbfcc58b10e06f988966ba18a41a2da606c",
+		"tarball": "https://registry.npmjs.org/postcss-env-function/-/postcss-env-function-5.0.0.tgz",
 		"fileCount": 6,
-		"unpackedSize": 19768,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiNhzpACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrzxA/8CFonl7f7UcVoyecC9VtUzIHoMPptpVG0Ws8SoFAotJ87PA62\r\nK1ht7MW9ERknEjno76g0wd7Yu5yts1nFnZfxQ3B6E2mcs/g3CJm9zy5sh06p\r\nl/B58XHNwxISia6CMk+TM4l6mNoCkLUABuj+RcQHGB8x3OEuzR2VNu2bzA5t\r\nFBFl7olRl4QknfWHyzLt4LG7NnftRivK8SX7M5u6ng2XQpZeNDnwWpnSVplb\r\nrKedEZradI+sR1hj5zuEqbw06TVqKymxv67aYSFcDgYLAwPNhM+eoeNon30q\r\nsqZJVZuNy1PNeqSbJvKtzsOBFereNLmLphXKQmvcJGwQXWDMTZGcfw3+u+L7\r\nhGAzGofhYsSbPQ49qijIZyTFzSTRfR8S0uO2P+AsrvY+p4HE3QDDL+GP6omT\r\ni3dnMtvq0HgrCB2/wmzcew2n3Dg7rXkCXSTGQ4WPD+5bCRaGcJdKfQQgXMmM\r\n5k22Uw/cPo9cPgpA6lrUuGAdQUrKj5UuhH4g1SjB9hZGH/emSj/+LDjxLP/B\r\nHdsRfve4Nc1brKebCDbk8ThAo5vrWx27wqWsBbvsiKpLKqnOS8VLNbHNmrUK\r\nANYU4uP2/iyAg4JsmPfk+LDGFphBlTTe0SSHz/vdMVNZMtZ5efdFYhH0zICs\r\n+9pDSMpz58W9mzxBdJrcckCq9D45kSDRA8g=\r\n=Zej3\r\n-----END PGP SIGNATURE-----\r\n",
+		"unpackedSize": 20774,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDreJpKIHH3Roxj8zNzDSzQ77fsbOKYFe3lGZpI81kEOQIhANeyrLdTbBfUFI4vCaYzQgsSL8bOND305/wMZ4FEKvFw"
+				"sig": "MEUCIQDMG2VCbSjfrLjoxJiqgmZtiZ6upEO/V8PdAsMn8hhQ8wIgLBcCIUEeFvyh1SzGNssTUbDePz0lS8JQp79GUIGvU8w="
 			}
-		]
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz57AACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqrdw//Rems8nkoLVV1iSqZ833bvosSlRbsmKdyaGtYLuuoVnHNzimS\r\n9RQk5KpSjARDuM2xX8lSn9ZSdBMqjgqoGCV8rNKLI/r49HFPZ0OOp+n6ur4e\r\nQIJ+hPg1NoXTxaUngyT+1a13y5aJAaVNHyoJMHcIXADZFn6l3e/p6I6OOoMX\r\nulvGPatL0SZUxbm6Dt2lu0xIydAHtUsTMseCP+etNZq+UIGLQdz0UbalCH/A\r\n7tOmUD5nHUitGV4JaoS1md+et/s6LKy+KuzMmrs+l3yhtGfu6Zdusp6zhqbm\r\n9+8QnmCY0PnkaT0uvA9jqsYWCLM4Axtfh4J2plvkT/2ev6F5FWgkqFEykYay\r\nOj9hgAcMccblMPfyev99Sw4ykEKl/tbGeWJd9nzQxbTWzcmLvi5EgC63/Lh5\r\ndrgWTlzYk+P/iL7qIJ3eBLMKPiu1riqaCGP5utaggxYf1g/198Lcat+ULebK\r\nTO9XAlJ4vXwFTBNCXGu5QHF/5eodpUU10jZgLUK68uzBAx86ITnQKnwKDNBX\r\n2GN7Lpg4H2FzbfqQf4cu4QaKYY/ebG5PeB/h1l35u15VgqAeF++7NZ2VfjXL\r\nv4kvGu6KnuseUbGsA8Csj8mroNe2qF2+NKfpfCF5ojm1NHRXv3QBqfh0kjeY\r\neotbvOX+N5uWiHt+LFTXW0dQI4TraszPC58=\r\n=8UXo\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -98,8 +103,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-env-function_4.0.6_1647713513215_0.7557344337139731"
+		"tmp": "tmp/postcss-env-function_5.0.0_1674550976405_0.4812652250563818"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-03-19T18:11:53.408Z"
+	"_time": "2023-01-24T09:02:56.575Z"
 }

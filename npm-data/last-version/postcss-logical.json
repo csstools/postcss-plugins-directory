@@ -1,18 +1,33 @@
 {
 	"name": "postcss-logical",
-	"version": "5.0.4",
 	"description": "Use logical properties and values in CSS",
-	"author": {
-		"name": "Jonathan Neal",
-		"email": "jonathantneal@hotmail.com"
-	},
+	"version": "6.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
 	"license": "CC0-1.0",
-	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical#readme",
-	"bugs": {
-		"url": "https://github.com/csstools/postcss-plugins/issues"
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
 			"import": "./dist/index.mjs",
@@ -20,78 +35,86 @@
 			"default": "./dist/index.mjs"
 		}
 	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
-		"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"stryker": "stryker run --logLevel error",
-		"test": "postcss-tape --ci && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs"
-	},
-	"engines": {
-		"node": "^12 || ^14 || >=16"
-	},
-	"devDependencies": {
-		"postcss": "^8.3.6",
-		"postcss-tape": "^6.0.1"
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
-	"keywords": [
-		"postcss",
-		"css",
-		"postcss-plugin",
-		"logical",
-		"flow",
-		"relative",
-		"property",
-		"properties",
-		"values",
-		"ltr",
-		"rtl",
-		"dir",
-		"directions",
-		"directional",
-		"inline",
-		"block",
-		"start",
-		"end",
-		"align",
-		"border",
-		"clear",
-		"float",
-		"margin",
-		"padding",
-		"size",
-		"text"
-	],
+	"scripts": {
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/csstools/postcss-plugins.git",
 		"directory": "plugins/postcss-logical"
 	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"align",
+		"block",
+		"border",
+		"css",
+		"dir",
+		"directional",
+		"directions",
+		"end",
+		"flow",
+		"inline",
+		"logical",
+		"ltr",
+		"margin",
+		"padding",
+		"postcss",
+		"postcss-plugin",
+		"properties",
+		"property",
+		"relative",
+		"rtl",
+		"size",
+		"start",
+		"text",
+		"values"
+	],
+	"csstools": {
+		"cssdbId": "logical-properties-and-values",
+		"exportName": "postcssLogical",
+		"humanReadableName": "PostCSS Logical Properties and Values",
+		"specUrl": "https://www.w3.org/TR/css-logical-1/"
+	},
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "0c4cc140155cb6156bd36a83b620f790395e259c",
-	"_id": "postcss-logical@5.0.4",
+	"gitHead": "f0ecb88b3eba38248c086703eb65b554498d3219",
+	"_id": "postcss-logical@6.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-RHXxplCeLh9VjinvMrZONq7im4wjWGlRJAqmAVLXyZaXwfDWP73/oq4NdIp+OZwhQUMj0zjqDfM5Fj7qby+B4g==",
-		"shasum": "ec75b1ee54421acc04d5921576b7d8db6b0e6f73",
-		"tarball": "https://registry.npmjs.org/postcss-logical/-/postcss-logical-5.0.4.tgz",
-		"fileCount": 6,
-		"unpackedSize": 44391,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh/rGJCRA9TVsSAnZWagAAFBQP/3AJbYKd7m3qY7tsrver\n1aDpKwYIIpBY0oOnbw3ViZMWexFCh+oeszMm6qQHpQaVU4+uZyY4dVv7JGnd\nsdONKsdCl90hzEeSpYXAOWnkxQhjUWPq5T4ZOUueLMM55SZJBDyEGN86Koqu\nLtp0HJh1PMJU2fMaYIV8f/dLtKnL1xYAKIsAqptqY/lSIp5C6a5OZVYUBbt0\nXWPy4VnlRNTRdLXKc79UjbdD6nslEw3Z7Pgh1kNyKHTJPtf16++ulPQnVLqD\nahr7vxKRCEqtV2JMTotc5SMOcOKZ7snK9pUmB3/fk9bZxERkAb79XWDXNjcp\ngCjZuXyXcgJxaaNhWnsZqJX8YOGrN3g0i2KNsm6bm/KNpY+K3+sr/Vy7myr0\nqOp3kRiBoL9qXIFQYlg/Uxy30UIyRAWFsu9NN92iKPrdqe66yUvBes9LAP8m\ndxJPMxTtT6bVRPwmRGSEABGMKlcjEiifeYQbmYv78TsEJ3fNHg4E8hkYP35c\nk1Os/tenak6W/93jMpnaELoYqYq2GV3R4A7b7mjyTmpkmRve3WJ11DwXqaVJ\nidgpOuuW7BU9rMvXHep7mCpi+DJDpL1uabx4RWTbpBRw2eV0/uW0U9I6WR9S\n5D+9eI3cPVlStJsPhhY1oqxbskzOvmCP/6AqCBmao3cIyWaNZPFkhbjsJA3l\nWpjJ\r\n=0WjO\r\n-----END PGP SIGNATURE-----\r\n",
+		"integrity": "sha512-pn50jY5c+PmpYiTZ7KfYQ4aKXAVaFfZgNevtUwXglD22TxfLrrYD5d8m7UDQkT9CAfYvBgSkzPSBWTyE0WuQmA==",
+		"shasum": "065b196c0935f4124996748a2382ec0c880615d2",
+		"tarball": "https://registry.npmjs.org/postcss-logical/-/postcss-logical-6.0.0.tgz",
+		"fileCount": 19,
+		"unpackedSize": 37022,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIAw47OjNYwT/mfJ29Jag8UwlnmIXb5HgWn+TpXJhfYV7AiEA4RSC3dNeh6MCXbXVoTh8XR1FaxUmJgMwtCRIN+Uacbo="
+				"sig": "MEYCIQC4+BTwYbMEIviQqJqsvJ6l6UZtZbjfDJUz4CEgiRGsbgIhAJR9uerNYsKEosB1WKq91JPkXSgMN5TPOW9dgYlr6z/+"
 			}
-		]
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6BwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpZ3Q/+PRizbjGOQDVm2JkIXvSJ0cncQYKAwN3eWJSxM7Qn2fbI85jx\r\nb501GEaiy8XWZN0SfmM/xQo32cwzaia2yQrAYjqI2yGU1NSE/PpX8VnFEV1v\r\ngSCwZOhM1BwOAOjPmnqmr2giA0RLeJ81eHmnGOlNguDaPR+wZoU3k7W7zyFZ\r\n7hAaOIQGZ8VkBktd3bk4H0dBGe1yw1MaVqJg0o0W5tAy5eG+Rccw51z78unl\r\n+B4pQq45LQ6CMLzZ9hlLIYtxr7gUgTV3JRAQ0bYxUh2CRM7kbQwjY0NQUixn\r\nfHB4EQpP5Dc5CAsrRZBZu+yXA8s1AhhJhvzsh0dIuGK5gX3hi99KXMOWOhK/\r\n/xfGLnM2Kzf+FFJ9DtJqS+lXA7xnQI++H29EC1wZNZWef1rNbnIsVu43d+UU\r\noq1ZLuKu4Pw+VjXpyN4O+IMkIf+bmQsLT6/raOawyzvyVg44NMmMNyWaJJri\r\nND9sO6QxvGojpjb6bT04gDlpQ60uDc11m3VsPBspzeQ8+m0SeGOHrRaMNnbK\r\nvGLjWqVWKhyvjUKUptEwWg+nCbEdmSlF/2km0B1sqI1St4ILTM88oajp76iY\r\nJGKsXz1oqsodLiDYeDrJEQLeT7y6+Aku1FuJGpRheu4hOgx77zewehI1wBa/\r\nhS7NnFrxCyhsCYPfl8kPyP+gR5tSgk4O1Zg=\r\n=mS1a\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -110,8 +133,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-logical_5.0.4_1644081544859_0.80097481528536"
+		"tmp": "tmp/postcss-logical_6.0.0_1674551408633_0.44288939570025265"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-02-05T17:19:05.006Z"
+	"_time": "2023-01-24T09:10:08.811Z"
 }

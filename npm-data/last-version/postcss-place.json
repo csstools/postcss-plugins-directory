@@ -1,21 +1,33 @@
 {
 	"name": "postcss-place",
 	"description": "Use a place-* shorthand for align-* and justify-* in CSS",
-	"version": "7.0.5",
-	"author": {
-		"name": "Jonathan Neal",
-		"email": "jonathantneal@hotmail.com"
-	},
+	"version": "8.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
 	"license": "CC0-1.0",
 	"funding": {
 		"type": "opencollective",
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
 			"import": "./dist/index.mjs",
@@ -27,12 +39,13 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
 		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
@@ -63,29 +76,31 @@
 		"shorthands"
 	],
 	"csstools": {
+		"cssdbId": "place-properties",
 		"exportName": "postcssPlace",
-		"humanReadableName": "PostCSS Place Properties"
+		"humanReadableName": "PostCSS Place Properties",
+		"specUrl": "https://www.w3.org/TR/css-align-3/#place-content"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "3bad4b893b7f34248abc8054101c2e9fe54fdc2a",
-	"_id": "postcss-place@7.0.5",
+	"gitHead": "3d7b2defb425a85a5a36c7f7de920b2c36c293ec",
+	"_id": "postcss-place@8.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-wR8igaZROA6Z4pv0d+bvVrvGY4GVHihBCBQieXFY3kuSuMyOmEnnfFzHl/tQuqHZkfkIVBEbDvYcFfHmpSet9g==",
-		"shasum": "95dbf85fd9656a3a6e60e832b5809914236986c4",
-		"tarball": "https://registry.npmjs.org/postcss-place/-/postcss-place-7.0.5.tgz",
-		"fileCount": 6,
-		"unpackedSize": 14776,
+		"integrity": "sha512-LFAiOWgekmvJ8/o4Cl1pPTuMryoMkr8PqAgv4j8i7iB9quinOhG4TXaq8RpF4nNIb9qOvn6+6LX4/BLcnza3rQ==",
+		"shasum": "e7e2ff52f72359cc836a53752e3c76346ec72e62",
+		"tarball": "https://registry.npmjs.org/postcss-place/-/postcss-place-8.0.0.tgz",
+		"fileCount": 8,
+		"unpackedSize": 15591,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIAsxvcHNC+w+Hmk7q8fId5jHmJ9K8zdTm6Ch0O3CHQ9OAiB4QDBmyay1cdfQV8A0JfzDdjGaPwjYEYXq+NXiI0EWpA=="
+				"sig": "MEQCICi9XYjpbdLTpA+MpQMi8183uTq3F2kDvkqgYb1mfKqGAiAXQbLaj6c23ZaOkBZlPv2t6q9jTn9FlcCk37WMFOHkTg=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGQAACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoATQ//ebkxqCMhCAP6VjnyhROmtwoaKsurUC8KaTJHvOM7T8LQJU/V\r\nlMmAecAwGvJ4diMfwmD8PaiLbEhMKHSm9mzuh1vG2ZbVS9f9cJJzHew2TCdc\r\n5rv0sZS2wjsMAuXPyUs2OGsaMjUNLrg50cGwW4ZwqkZb+Do7n6vzwxZCdbRI\r\n8oJ8UI6IkowP2hAg8bcMA8r8ZCZSegi/3MPCb3tShUQ1249PAhxm7cX0YClk\r\n+Fv4NgtikCHYuUS4eeJmY4W4Ln/vBiFfbMxATBWTx8sqidypw6SERbiySXTx\r\nf2pgxSskP1yf1hLY7I/kvK+F/YUYHpH38AtZTLfMQusiS7rBgLwdvLelX5bQ\r\ngcOo2x3DC5jzq34FOIeWFifMsid5gqe9mNmJklwcYxRLke+ND0LHvwDiaARq\r\nzhCSaQCPfyfy0W3ctcpWnxLARIZYwyXXtPXwmD5nnAtbxoaJzSYixUl9bZzN\r\nl0Lw+OHwoV/Bd01C/z3bgGRx7P80jyEdaOPxPXT9+3tuw2kidkesQ8PAY4hR\r\nDFNDZXHfyDtVOiGHpjpl7Pv3uirg9WaQIbjLlOpty+Ct0lF73RmIZZzXlLE8\r\n+RHl4LgyaysW6UJ1iLUPuc0CPoGyvrIbHjo71d18NEacy/sK1hDsbD6b7MQZ\r\nAsZuwnKfVFnTiGhDJIC4kwipbqqgRel/1i8=\r\n=aIht\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6GxACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr7Vg//S1Vu6lNxa3MAJGbWV3BBXaNklLf6vc6XkqfBepv8+v2K+JI2\r\nJWob/uw6APfcPcySzp/c45gYNFb31UwFz8D3NfiK3l4Xvi5SD23bysg7pQy6\r\nA6y/JtQ6cNvHUvAMu+X5XNrnaAblBOZqIbxP99XxrkXAVEli4gUjDRuBcMX8\r\nYS3q1BVUjobSl/YtGL5xJZTbMcnQjhKUBe5w/oi8a1cLyTUrKOfpSaArwV0J\r\nf0EAcbt4uh2eSOe1c+2Rrhs6aR2o650VzODDd4Hsx3qHFx96/r4mswqcs7JK\r\nFkUql0ecfeMl6U1UaGFMI+XKXkb3fOfGOH6kPjMVNhu6zlfKFYj+lSkdEcPe\r\naMIufYXOoQukaYxVVSMFlyuhy8jIkYxNRjW+V7sbakgzN1QcGULWD9XyrTPi\r\nk1GhrN+fhq+17l2/URcXDGjlDFOkJuYROgiharDfnChpu1SebgdL1Ea+unuO\r\n89MsN2mN42jBb63DQpCCaV8Ccoyecahr74aBPTh8rz/xpLGnxc27Z+395dWd\r\nEB4da5Bqr0g4JtCJ8EXRh6rw7D/ZJWdDPfaOkS2xNU7q3m1ucoUdYZQyD9QJ\r\nfe7zCtk+78O68fP87V4b0Y8uvyRS68s7i9RSSkZ7wa4SlKETGDA2I5Ul3d4+\r\nMimdxdHlP5MeVg0grdBhqG1+TwAAD9j1f0k=\r\n=ZPKn\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -104,8 +119,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-place_7.0.5_1657299967783_0.22948406049963244"
+		"tmp": "tmp/postcss-place_8.0.0_1674551728849_0.8209951232632746"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T17:06:08.151Z"
+	"_time": "2023-01-24T09:15:28.994Z"
 }

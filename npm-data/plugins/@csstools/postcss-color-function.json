@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-color-function",
-	"_rev": "6-0fcaa2458bd6a74eaf37796b2aff9044",
+	"_rev": "7-18bc354eb7dd643bbfb27c252d238837",
 	"name": "@csstools/postcss-color-function",
 	"dist-tags": {
-		"latest": "1.1.1"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -697,17 +697,139 @@
 				"tmp": "tmp/postcss-color-function_1.1.1_1657296796384_0.4136261569079067"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "@csstools/postcss-color-function",
+			"description": "Use the color() function in CSS",
+			"version": "2.0.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^2.0.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"postcss-lab-function": "^4.0.3"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"css",
+				"design",
+				"display-p3",
+				"postcss",
+				"postcss-plugin",
+				"prophoto-rgb",
+				"rec2020",
+				"rgb",
+				"rgba",
+				"srgb-linear",
+				"syntax",
+				"xyz"
+			],
+			"csstools": {
+				"cssdbId": "color-function",
+				"exportName": "postcssColorFunction",
+				"humanReadableName": "PostCSS Color Function",
+				"specUrl": "https://www.w3.org/TR/css-color-4/#funcdef-color"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "6bc29435c8bf2954d458c9f9ff816e9cdeb445d9",
+			"_id": "@csstools/postcss-color-function@2.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-rB3Ur+Ns2aOEBMz3zFyjmU6uBBGko84yRD1G6Re/v2p1GRzjz8/o738syQLoxRb1TNcND0YsiKoUeaRuwfk9yw==",
+				"shasum": "08bcfe7ae89c872c75d91eaf074964b6519ca217",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-color-function/-/postcss-color-function-2.0.0.tgz",
+				"fileCount": 24,
+				"unpackedSize": 49122,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD5tHZ3g4Hd7V6cGSU6M7SdzzbZElvEIBm97BKB2ntNUgIhAPLm9Rur0O5m8EotdYW2g8RtNhY0YDYKUdOZjk0qbFcs"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5sSACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqtEw/7BEn5PchsdFCTuTdaePvChjs7WsBkSsXNDK6jiLsHgk6JQH3p\r\nQsrhdrbpsJ5F5czm3xSFHOVlEDQ834aTPla087UeTWZ9m2PhfJV9jgbOp3wS\r\nkBQy+rT8ZTpKMcNB5YitVljLIaW40EokCcRc4c0/TebMJHk5s+nFqg7o7rEG\r\nlXAk7FuYZwPVtBk0xVzkXZc+VO3Z9+VLIidXnwsg1n6iH0x1/OBiSC17LWlN\r\nYyqIi5F6SfFABxBARhG1S7roswmZd9Ggp3OZu94qJLi7LNULzdMR7OYazewN\r\nKKdRXkxvvYQog1Thx/U8RPtyA5K9ItjZTvUu+bPCMq0whzD+p4RTofCa1Jwq\r\nYzVNhu94GA9J0K+yEO2oK/MgBIFjPpBGD7HPI/REdcDaZVg5Nixs+hgfMWAt\r\npwqdb2v69Hb60MRzfrKTsLsMGnRx9H1dEHdrrNB5nhTR8ic0MkDclRCoLfFa\r\nGKbwZv3GgdKVtnk/nVEEsbf9IaPm3faCbBxvMAJA5KluPRgTkABVRJI91icn\r\nbFrkCf+t1SgmTmfhLjRS+Gso73Xu09EZdmic0t/i/FTBi1ZEsgZikHAMBBpZ\r\nw01zfijjtJbCORI8xNeia2k6VViVA5uyH5m42IOFDXTBUZgmu5b/2D4/crXS\r\n24eglF0r3h5dKN4K6nZ3EJsKqFlbOQjUlXI=\r\n=9V99\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-function_2.0.0_1674550034556_0.4779701561494989"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-02-07T08:30:50.063Z",
 		"1.0.0": "2022-02-07T08:30:50.318Z",
-		"modified": "2022-07-08T16:13:16.651Z",
+		"modified": "2023-01-24T08:47:14.820Z",
 		"1.0.1": "2022-02-11T14:51:33.414Z",
 		"1.0.2": "2022-02-12T14:23:08.522Z",
 		"1.0.3": "2022-03-08T08:07:25.818Z",
 		"1.1.0": "2022-04-04T05:48:26.167Z",
-		"1.1.1": "2022-07-08T16:13:16.556Z"
+		"1.1.1": "2022-07-08T16:13:16.556Z",
+		"2.0.0": "2023-01-24T08:47:14.720Z"
 	},
 	"maintainers": [
 		{
@@ -723,8 +845,6 @@
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function#readme",
 	"keywords": [
 		"color",
-		"color",
-		"colors",
 		"css",
 		"design",
 		"display-p3",
@@ -751,7 +871,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Color Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-color-function.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/color-function.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Color Function] lets you use the `color` function in\nCSS, following the [CSS Color] specification.\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n}\n```\n\n## Usage\n\nAdd [PostCSS Color Function] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-color-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssColorFunction = require('@csstools/postcss-color-function');\n\npostcss([\n\tpostcssColorFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Color Function] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssColorFunction({ preserve: true })\n```\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n}\n\n@supports (color: color(srgb 0 0 0)) {\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssColorFunction({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n```\n\n_Custom properties do not fallback to the previous declaration_\n\n## Supported Color Spaces\n\n```css\n.color-spaces {\n\tcolor: color(a98-rgb 0.803 0.484 0.944);\n\tcolor: color(display-p3 0.8434 0.509 0.934);\n\tcolor: color(prophoto-rgb 0.759 0.493 0.898);\n\tcolor: color(rec2020 0.772 0.491 0.920);\n\tcolor: color(srgb 0.897 0.488 0.959);\n\tcolor: color(srgb-linear 0.783 0.203 0.910);\n\tcolor: color(xyz 0.560 0.377 0.904);\n\tcolor: color(xyz-d50 0.550 0.375 0.680);\n\tcolor: color(xyz-d65 0.560 0.377 0.904);\n}\n```\n\n## Out of gamut colors\n\nDepending on the browser implementation out of gamut colors may be clipped, resulting in a different color.<br>\nFallback values generated by [PostCSS Color Function] are always mapped to a close alternative in sRGB.\n\nWhen setting `preserve` to `true` the original values will be used by some browsers and these may be clipped.<br>\nCertain browsers will have an incorrect color if this occurs.\n\nIf the plugin detects out of gamut colors it will emit a warning :\n\n> \"color(srgb-linear -0.01656 0.23079 0.25298)\" is out of gamut for \"srgb-linear\". When \"preserve: true\" is set this will lead to unexpected results in some browsers.\n\nTo resolve this warning pick a larger color space when declaring the original value.\n\n## Copyright : color conversions\n\nThis software or document includes material copied from or derived from https://github.com/w3c/csswg-drafts/tree/main/css-color-4. Copyright © 2022 W3C® (MIT, ERCIM, Keio, Beihang).\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#color-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-color-function\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Color Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function\n[CSS Color]: https://www.w3.org/TR/css-color-4/#funcdef-color\n",
+	"readme": "# PostCSS Color Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-color-function.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/color-function.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Color Function] lets you use the `color` function in\nCSS, following the [CSS Color] specification.\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n}\n```\n\n## Usage\n\nAdd [PostCSS Color Function] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-color-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssColorFunction = require('@csstools/postcss-color-function');\n\npostcss([\n\tpostcssColorFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Color Function] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssColorFunction({ preserve: true })\n```\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n}\n\n@supports (color: color(srgb 0 0 0)) {\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssColorFunction({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n.color {\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179,35,35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n:root {\n\t--a-color: rgb(164,49,43);\n\t--a-color: color(srgb 0.64331 0.19245 0.16771);\n}\n```\n\n_Custom properties do not fallback to the previous declaration_\n\n## Supported Color Spaces\n\n```css\n.color-spaces {\n\tcolor: color(a98-rgb 0.803 0.484 0.944);\n\tcolor: color(display-p3 0.8434 0.509 0.934);\n\tcolor: color(prophoto-rgb 0.759 0.493 0.898);\n\tcolor: color(rec2020 0.772 0.491 0.920);\n\tcolor: color(srgb 0.897 0.488 0.959);\n\tcolor: color(srgb-linear 0.783 0.203 0.910);\n\tcolor: color(xyz 0.560 0.377 0.904);\n\tcolor: color(xyz-d50 0.550 0.375 0.680);\n\tcolor: color(xyz-d65 0.560 0.377 0.904);\n}\n```\n\n## Out of gamut colors\n\nDepending on the browser implementation out of gamut colors may be clipped, resulting in a different color.<br>\nFallback values generated by [PostCSS Color Function] are always mapped to a close alternative in sRGB.\n\nWhen setting `preserve` to `true` the original values will be used by some browsers and these may be clipped.<br>\nCertain browsers will have an incorrect color if this occurs.\n\nIf the plugin detects out of gamut colors it will emit a warning :\n\n> \"color(srgb-linear -0.01656 0.23079 0.25298)\" is out of gamut for \"srgb-linear\". When \"preserve: true\" is set this will lead to unexpected results in some browsers.\n\nTo resolve this warning pick a larger color space when declaring the original value.\n\n## Copyright : color conversions\n\nThis software or document includes material copied from or derived from https://github.com/w3c/csswg-drafts/tree/main/css-color-4. Copyright © 2022 W3C® (MIT, ERCIM, Keio, Beihang).\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#color-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-color-function\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Color Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-function\n[CSS Color]: https://www.w3.org/TR/css-color-4/#funcdef-color\n",
 	"readmeFilename": "README.md",
-	"_downloads": 10454376
+	"_downloads": 11414187
 }

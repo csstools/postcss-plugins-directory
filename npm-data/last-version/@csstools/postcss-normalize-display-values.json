@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-normalize-display-values",
 	"description": "Use two values display syntax for inner and outer display types.",
-	"version": "1.0.1",
+	"version": "2.0.0",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -12,7 +12,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -28,11 +28,12 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -77,27 +78,27 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "6b5e29f2b684f126114a9396120b0118c612ded1",
+	"gitHead": "9cb752e65617d599139acb75a0e39cd35038360f",
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins#readme",
-	"_id": "@csstools/postcss-normalize-display-values@1.0.1",
+	"_id": "@csstools/postcss-normalize-display-values@2.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-jcOanIbv55OFKQ3sYeFD/T0Ti7AMXc9nM1hZWu8m/2722gOTxFg7xYu4RDLJLeZmPUVQlGzo4jhzvTUq3x4ZUw==",
-		"shasum": "15da54a36e867b3ac5163ee12c1d7f82d4d612c3",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-normalize-display-values/-/postcss-normalize-display-values-1.0.1.tgz",
+		"integrity": "sha512-mN5ycsvVkPjt81fVo33p142imrhSBN3LAvvuP6qfkQ6C3452IWO1ZcbYQ/QYcYBymChsmbXmk1jQNZ2kZOFZag==",
+		"shasum": "3c3b62eefeff1a77f3fcead30c5d870a734dcf07",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-normalize-display-values/-/postcss-normalize-display-values-2.0.0.tgz",
 		"fileCount": 8,
-		"unpackedSize": 14928,
+		"unpackedSize": 15168,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCaaK7wxFkD8XsT2vfyVxG/1EupTr+YUOugE0a3W6iHUQIhAJ70udh7HelTreMFWU1MNVh+YuFaUsRdR0vqnGO8OUdR"
+				"sig": "MEYCIQCyyKRKTMT/WBJbPOleVtQWW0pHNVNbXuXBIot9J/jySQIhAIdUhlLfbBvzWZRDckhwe7sSbUZAlUbLMdjB3hoaBl+w"
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGOdACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqgkQ//ZbmGYFxaxHdprCw8sCAkIToeB4WVsuQbkza6TyQfVJAmRNAM\r\nuTXDd2uMPdQlgaBEF20dIYjvCwwBOtJyjLzq334qIPcu80K7jF6O3TUOGEWK\r\neWSrgGwN0GzeDzrldgYyf3XP+Nl/JLi0tEX0BOFYjHVl3k2aw2CChaFAsfe7\r\ndYNS1m5fwEosGx9Scn/sMSsOK0ttIPDQE+DJgzZjLKMoAJ9PWGuODtD1/nFG\r\nuJESBfAnOtkHbwuk5aL0AMMB1xBIMKu2mt6NpDYLR2u5oTgjCuZfVG0Gel2E\r\nOCvSJ5PAHCeVwKfVN320D8Ewvv7fW1+Xlo0qizejtU7K9cbVYIA/kgwnjJ78\r\n76eOIhRt+XlO2vkBEJURh+Cg49CvDm2GU2+22rmW5yw5iEq2FNutoonCiNQr\r\nFJRiVwwWh95ywzOzm0ZIhaRisoYCWcEqRtHuka4795WHwcDJE9ytO6ClKNqv\r\nD9IvcPtwnmmlkUzUsLw9YEpoh768ie105P05el8IqVoC83BFnNsO+XZCBDAw\r\nLfXy9jyDQeIQjCNB6hgmIGxrTkaqOtA9fddQJR2ewiAeb+EUYuzdLu1hRKtu\r\nXyZ7cCnCGvAkD6I5cP0aiVRE7zVe7n5SZYVOCecSGd578cSN9ILLz9maqhwQ\r\n2O7VzGUtf/QBVPW2/tAmourXIYfoDC2nxnk=\r\n=FQXM\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6E1ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoYfQ/9ELVwO6JnHTXIDFal3SL8ezxdMKI5eYSq50RMrCZEzsEPLnvw\r\n0nFyttldZImJjmC+EKokqN46YZGP5bBBT9yZ2EuMhqjGGOOkDJFv23Ty45uU\r\nQo9iaI0rgWu0rfwqL7yfJ2JvVs8Ci2R5dzyH19XAaJETpSactIxM7Mkm23tj\r\ncCICEpwSb1QHCq5Y1xlINfpKqq7RcE5ob/QXz3w96Xcej/2QrRFL8gcANPEB\r\njmDvW28ceG2fSvom1LE5ue7AWENXnhfhcjkBjJDZsSbSJ+FDWSq+73+r7QTA\r\n6cP7FAwBewvIURq5CnqRl1Sc+l6bvZvuqwZlEmJeUuHkRIs/dcpDZvb8zn3j\r\nDDW6wcb6UAG4YKCJDpUmW9PncJs1cqeokhJVqyZdmLNuP/+GbmHqWDG1sT65\r\neIoCbTDmrxmFbkLKtBR/Y6IAiiVjiH/RhLTIDogX7QhrW2unSTdcTgmHJGai\r\nJLHu7K2RNmn5H6J002/416JWUNW1kGGDRy5cIkh0fZztK/fBB/meX+aEWukv\r\nFlQyoyCJt91JTOJwPebRFEQkvE/lNHqoPlMJsIVdRmRoidwhIXG/o/THcj8J\r\nL/aGxGJ/UElIjijzjdRMMqFWnthRvrPeGfI+VAq+K6qbPrVgAM2tdbNkZ5DP\r\n30mcmjwEOuZqNrX6QTdjXHgp2ljrC9Q45kg=\r\n=U4XC\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -116,8 +117,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-normalize-display-values_1.0.1_1657299869704_0.6798064061837243"
+		"tmp": "tmp/postcss-normalize-display-values_2.0.0_1674551605399_0.7090355926703946"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T17:04:29.840Z"
+	"_time": "2023-01-24T09:13:25.550Z"
 }

@@ -1,21 +1,33 @@
 {
 	"name": "postcss-pseudo-class-any-link",
 	"description": "Use the :any-link pseudo-class in CSS",
-	"version": "7.1.6",
-	"author": {
-		"name": "Jonathan Neal",
-		"email": "jonathantneal@hotmail.com"
-	},
+	"version": "8.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
 	"license": "CC0-1.0",
 	"funding": {
 		"type": "opencollective",
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
 			"import": "./dist/index.mjs",
@@ -27,12 +39,13 @@
 		"postcss-selector-parser": "^6.0.10"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
 		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
@@ -63,29 +76,31 @@
 		"visited"
 	],
 	"csstools": {
+		"cssdbId": "any-link-pseudo-class",
 		"exportName": "postcssPseudoClassAnyLink",
-		"humanReadableName": "PostCSS Pseudo Class Any Link"
+		"humanReadableName": "PostCSS Pseudo Class Any Link",
+		"specUrl": "https://www.w3.org/TR/selectors-4/#the-any-link-pseudo"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "9b383bfc0e3f00a8d5ecacb653654a64708e4fce",
-	"_id": "postcss-pseudo-class-any-link@7.1.6",
+	"gitHead": "7f301aaee754f684bbf24db6e712eeafe8c0f502",
+	"_id": "postcss-pseudo-class-any-link@8.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-9sCtZkO6f/5ML9WcTLcIyV1yz9D1rf0tWc+ulKcvV30s0iZKS/ONyETvoWsr6vnrmW+X+KmuK3gV/w5EWnT37w==",
-		"shasum": "2693b221902da772c278def85a4d9a64b6e617ab",
-		"tarball": "https://registry.npmjs.org/postcss-pseudo-class-any-link/-/postcss-pseudo-class-any-link-7.1.6.tgz",
-		"fileCount": 6,
-		"unpackedSize": 19862,
+		"integrity": "sha512-9+SUrDDrmyQijQBRSZFfx5eL0N9sdtHhibcGPgmyQyYCshFZbhH22vfbo2z84U2TI8kh1TrN86t5N2xN2ojq0w==",
+		"shasum": "66afd0470bc5845ec7a1827f53b8c66e4f4908dd",
+		"tarball": "https://registry.npmjs.org/postcss-pseudo-class-any-link/-/postcss-pseudo-class-any-link-8.0.0.tgz",
+		"fileCount": 8,
+		"unpackedSize": 20985,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDmhh3aorgvz7gNQq09O+63wpASXufCOfzEyWE5VB205gIhALSvmrjCip7YDwjx8oda0O8qAHMsnaQFBFL69ZBxfWYo"
+				"sig": "MEUCIQCQDiKh7rdjwoZMyElEBaS6JIXzXByX3ScbmFjW4JmhagIgWjGAs54h621j32cU2jas5vIQ58g7yFPm/uO8GMa64FI="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGQsACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrfrQ//WXiO3/95uzqXXhr29r9gREsuJgu0kavxkdQ1SM6C/3Yt4igO\r\nNNA3TQquhl5FPCWQ8y7vH4DhcK+4wrlspj6w/3vR3rtidfo8J6gWCH2xYc7C\r\nUndLIo2lJnKD2956nC1Ev6dvWZDnME1WDRNJLN6D+UKfCv92n7MyMqIFWoZb\r\nJLC60NBnJ+N+ulp3UfNj83kDA2ync4CDUa4GWyeSyQFNbPg2wuG43WbA06H5\r\nPpgwKv6KA+7ZnnShr71ODRUNAVkuk1p/ahjPa3mSnreW5ZX/LirvjbGU4pbj\r\nE5hdqWwrYWStr1l2fPIb8WybJOZSEkGCMjiXjsmLNZj1aUT7qWiEhkc6XwxR\r\nrhxpiUzm2GuACxSyw6fcsM4SPkXwsaN14oyZcf2qXV4NKgl8tep9UPj90JE/\r\nNmvCalhgp0GEWwIt98gvZZI8kaABDySNw+/aFnxX9+G//2r6zzvgj9LFMAbT\r\nj2xTh6+B1Eddt/3/rqUhAF40QSTeKlla+ZbhGCQAc0doKOVOIvF3kD6YTTio\r\nocB8l3/Q/tRDPl4ihAip/cOz6Qy1MftGKiy7iJfnBCBoNTnZmH+d7Qy9oYAx\r\n9MGrrubzlJN7g8HWoCcVy39ushKjtOq3AQI55UUjiE4GKOe2sCm/1gBUSvYS\r\nhBV4LK+bbIq3WUC+eRiUkJpgjc/1slaSFHI=\r\n=dSeg\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6HYACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpfQA/5AYz9+dmMIEpM6p/cptQgAsMhHCqEwSykeQjwoJROqERV76SO\r\nzwetEmlJEf3Z3BnSvnYBwTTZSR76eGqJrHHfC9RpKVgN3VyQnZtvBrzt3Qp5\r\nu2Un773Q6o5VjL4HKutUVh2ZuTHrC9VKnmb0vnXAYy8JIOCvgo+dD/BnH1fk\r\nzl2fKLNsmvav7OlsoYXxL7zABi/zQRGpJQK5Q+EB0s2GVFfcF/WoYwU/aWPv\r\nb/bAHxf7GL/e1XBk1eWfOw4fefcCKMEhLmw6Bp7SAuIYtW7pdwx1nKQjnUlx\r\niU7zCZM/lr6rGIDTi7GDyD5D+4ymau5bIUPrHimTOtXuDxxtLF2L8sboVww1\r\njOdtKfGlXxeIGGK45v0QsAVQl20X9Ys4f2xuN172+Xt/A/s9L/w6+YpqYJqd\r\nidjhtXh4fw3RaoET9iejcFrzwjJ3W78o4eQ84C+1t3UvrRrzIqwJZK1iRIT5\r\nEQn90qYMCDT6wgqjF3kI6+S0RqJgP9u7dKaog5RDlpa6pW5a+cPfhuwK6DcC\r\n9whzvheORGh3Hgdv+SnqZkVg52ZC/OOvn5jUR7iTIx+1wBUbcl/PR2mk4j3E\r\n18/d5/MFdaqpopt9feiWXwa725azH0s0QkYIZZVJuDGRzhQVvb4jmH9jSvhN\r\ntwO63r0/REGwTaOG8+XNosRT2Ait/L9SwF0=\r\n=dxfu\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -104,8 +119,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-pseudo-class-any-link_7.1.6_1657300012145_0.6677890445745049"
+		"tmp": "tmp/postcss-pseudo-class-any-link_8.0.0_1674551767904_0.3460729641656113"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T17:06:52.362Z"
+	"_time": "2023-01-24T09:16:08.037Z"
 }

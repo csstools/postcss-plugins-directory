@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-image-set-function",
-	"_rev": "13-8ae9283af8cc9d6f2fec1585001807e8",
+	"_rev": "14-ac94fdbe70c87ee1f1f817a0aae98b9f",
 	"name": "postcss-image-set-function",
 	"dist-tags": {
-		"latest": "4.0.7"
+		"latest": "5.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1170,12 +1170,124 @@
 				"tmp": "tmp/postcss-image-set-function_4.0.7_1657299178211_0.3875381813832932"
 			},
 			"_hasShrinkwrap": false
+		},
+		"5.0.0": {
+			"name": "postcss-image-set-function",
+			"description": "Display resolution-dependent images using the image-set() function in CSS",
+			"version": "5.0.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-image-set-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-image-set-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"background",
+				"css",
+				"image",
+				"image-set",
+				"negotiation",
+				"optimization",
+				"postcss",
+				"postcss-plugin",
+				"resolution",
+				"responsive"
+			],
+			"csstools": {
+				"exportName": "postcssImageSetFunction",
+				"humanReadableName": "PostCSS image-set() Function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "cc60b184246a9bd3664afe5384e42db789aa3806",
+			"_id": "postcss-image-set-function@5.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-a7q8XdGnU4OMnBqRzVkUBTtuRztD4YIy0b+52OxAcBqvhOU39A4ego9fUpVaqqrQrDOVuXmh/MYwC82aYuJkfQ==",
+				"shasum": "49697e9d301eabf73fa613d08882731d40fd4aca",
+				"tarball": "https://registry.npmjs.org/postcss-image-set-function/-/postcss-image-set-function-5.0.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 23390,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCdPHUFSJuzPFypV/exakxW1bKmgnQyTA7MxaZ57XLRiwIgeYyt8c1/R0M7TFyZkePFnavw956+SDinDMW0bf53iJw="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6ASACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrQnw/+M6Ua62DsNStQWJdmE5hnRmDCk9T7omu887WUfn4RyGcrAtkN\r\njtALlr0zfUn9T4gxcZXLQ7pTgtXcgtqBUexbv+VVOzdvViw6Hf/DpGbdcyQ2\r\nTntgteGCmt1gPdHETwzGxdiZiDFFjuTQDZT8pNr4p0hzqoylCBwene5mSKdX\r\ntFgaWxtcUngF64x5o6f6Ev7zXG9HMq/X4/zCijaB0kR/z46FDGJt3Ux2Qu7Q\r\nTkigOoJMrhrXgKO7iv4w+ZIg845JzrTYe0oFWmmDiqVCTDDfWFqU8Rct92RS\r\nx8IIS7bIGbE6cWXbVKztRijA/DImj7oTkx0xIIoM5UAy/I5UzXxuWNIwbD54\r\naeA/rG+liIn27k1Up5eJkPsmRrziutWRRwRaZOWNTPTR/I3EyeLSy1AhbJwJ\r\n3XP661oBSZineFFOezhXPbiV9A1zB2MMJ29pe3m1RJduIKNyomL7Ic7R+P0l\r\n/2+pqCEPEN0FCEsqModl/IrdeRxMbXG4n3I1J3nb9qYi60bNLYwes0avL1nl\r\nEWWx1JG3R8aXk8Z00cu2yizKEMzjdH/sME02d6V3AhqCF6PFE8jE8cl7tIcm\r\n1rE7E1uWsMQAcvNhoBOPRDsaqDRxrPYDdgnjDQHx32+PQBCTZnzC0RdgHrWT\r\n77CHhc/TYEXFB/Rp8QRsoKTRCsZl8E+nLgM=\r\n=/hdo\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-image-set-function_5.0.0_1674551313877_0.6719167964771833"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-05-07T09:03:27.982Z",
 		"1.0.0": "2018-05-07T09:03:28.070Z",
-		"modified": "2022-07-08T16:52:58.536Z",
+		"modified": "2023-01-24T09:08:34.181Z",
 		"2.0.0": "2018-05-08T00:42:42.549Z",
 		"3.0.0": "2018-09-18T04:04:08.129Z",
 		"3.0.1": "2018-09-18T15:59:44.449Z",
@@ -1186,7 +1298,8 @@
 		"4.0.4": "2022-01-02T15:34:02.714Z",
 		"4.0.5": "2022-01-31T07:54:51.773Z",
 		"4.0.6": "2022-02-05T17:12:03.860Z",
-		"4.0.7": "2022-07-08T16:52:58.443Z"
+		"4.0.7": "2022-07-08T16:52:58.443Z",
+		"5.0.0": "2023-01-24T09:08:34.042Z"
 	},
 	"maintainers": [
 		{
@@ -1225,7 +1338,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS image-set() Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![CSS Standard Status][css-img]][css-url]\n[![Build Status][cli-img]][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS image-set() Function] lets you display resolution-dependent images\nusing the `image-set()` function in CSS, following the [CSS Images]\nspecification.\n\n[!['Can I use' table](https://caniuse.bitsofco.de/image/css-image-set.png)](https://caniuse.com/#feat=css-image-set)\n\n```pcss\n.example {\n  background-image: image-set(\n    url(img.png) 1x,\n    url(img@2x.png) 2x,\n    url(img@print.png) 600dpi\n  );\n}\n\n/* becomes */\n\n.example {\n  background-image: url(img.png);\n}\n\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n  .example {\n    background-image: url(img@2x.png);\n  }\n}\n\n\n@media (-webkit-min-device-pixel-ratio: 6.25), (min-resolution: 600dpi) {\n  .example {\n    background-image: url(my@print.png);\n  }\n}\n\n.example {\n  background-image: image-set(\n    url(img.png) 1x,\n    url(img@2x.png) 2x,\n    url(img@print.png) 600dpi\n  );\n}\n```\n\n## Usage\n\nAdd [PostCSS image-set() Function] to your project:\n\n```bash\nnpm install postcss-image-set-function --save-dev\n```\n\nUse [PostCSS image-set() Function] as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssImageSetFunction = require('postcss-image-set-function');\n\npostcss([\n  postcssImageSetFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS image-set() Function] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original declaration using\n`image-set()` is preserved. By default, it is preserved.\n\n```js\npostcssImageSetFunction({ preserve: false })\n```\n\n```pcss\n.example {\n  background-image: image-set(\n    url(img.png) 1x,\n    url(img@2x.png) 2x,\n    url(img@print.png) 600dpi\n  );\n}\n\n/* becomes */\n\n@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {\n  .example {\n    background-image: url(img.png);\n  }\n}\n\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n  .example {\n    background-image: url(img@2x.png);\n  }\n}\n\n\n@media (-webkit-min-device-pixel-ratio: 6.25), (min-resolution: 600dpi) {\n  .example {\n    background-image: url(my@print.png);\n  }\n}\n```\n\n### onvalid\n\nThe `oninvalid` option determines how invalid usage of `image-set()` should be\nhandled. By default, invalid usages of `image-set()` are ignored. They can be\nconfigured to display a `warning` or `throw` an error.\n\n```js\npostcssImageSetFunction({ oninvalid: 'warning' }) // warn on invalid usages\n```\n\n```js\npostcssImageSetFunction({ oninvalid: 'throw' }) // throw on invalid usages\n```\n\n## Image Resolution\n\nThe `image-set()` function allows an author to provide multiple resolutions of\nan image and let the browser decide which is most appropriate in a given\nsituation. The `image-set()` also never fails to choose an image; the\n`<resolution>` just helps determine which of the images is chosen.\n\nSince this plugin is not a browser, the image options are sorted by device\npixel ratio and the lowest ratio is used as the default, while the remaining\nimages are pushed behind media queries.\n\nTherefore, this plugin can only approximate native browser behavior. While\nimages should typically match the resolution as the device they’re being viewed\nin, other factors can affect the chosen image. For example, if the user is on a\nslow mobile connection, the browser may prefer to select a lower-res image\nrather than wait for a larger, resolution-matching image to load.\n\n[cli-img]: https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-img]: https://cssdb.org/images/badges/image-set-function.svg\n[css-url]: https://cssdb.org/#image-set-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-img]: https://img.shields.io/npm/v/postcss-image-set-function.svg\n[npm-url]: https://www.npmjs.com/package/postcss-image-set-function\n\n[CSS Images]: https://drafts.csswg.org/css-images-4/#image-set-notation\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS image-set() Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-image-set-function\n",
+	"readme": "# PostCSS image-set() Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![CSS Standard Status][css-img]][css-url]\n[![Build Status][cli-img]][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS image-set() Function] lets you display resolution-dependent images\nusing the `image-set()` function in CSS, following the [CSS Images]\nspecification.\n\n[!['Can I use' table](https://caniuse.bitsofco.de/image/css-image-set.png)](https://caniuse.com/#feat=css-image-set)\n\n```pcss\n.example {\n  background-image: image-set(\n    url(img.png) 1x,\n    url(img@2x.png) 2x,\n    url(img@print.png) 600dpi\n  );\n}\n\n/* becomes */\n\n.example {\n  background-image: url(img.png);\n}\n\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n  .example {\n    background-image: url(img@2x.png);\n  }\n}\n\n\n@media (-webkit-min-device-pixel-ratio: 6.25), (min-resolution: 600dpi) {\n  .example {\n    background-image: url(my@print.png);\n  }\n}\n\n.example {\n  background-image: image-set(\n    url(img.png) 1x,\n    url(img@2x.png) 2x,\n    url(img@print.png) 600dpi\n  );\n}\n```\n\n## Usage\n\nAdd [PostCSS image-set() Function] to your project:\n\n```bash\nnpm install postcss-image-set-function --save-dev\n```\n\nUse [PostCSS image-set() Function] as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssImageSetFunction = require('postcss-image-set-function');\n\npostcss([\n  postcssImageSetFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS image-set() Function] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original declaration using\n`image-set()` is preserved. By default, it is preserved.\n\n```js\npostcssImageSetFunction({ preserve: false })\n```\n\n```pcss\n.example {\n  background-image: image-set(\n    url(img.png) 1x,\n    url(img@2x.png) 2x,\n    url(img@print.png) 600dpi\n  );\n}\n\n/* becomes */\n\n@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {\n  .example {\n    background-image: url(img.png);\n  }\n}\n\n@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n  .example {\n    background-image: url(img@2x.png);\n  }\n}\n\n\n@media (-webkit-min-device-pixel-ratio: 6.25), (min-resolution: 600dpi) {\n  .example {\n    background-image: url(my@print.png);\n  }\n}\n```\n\n### onInvalid\n\nThe `onInvalid` option determines how invalid usage of `image-set()` should be\nhandled. By default, invalid usages of `image-set()` are ignored.\nThey can be configured to emit a warning with `warn` or throw an exception with `throw`.\n\n```js\npostcssImageSetFunction({ onInvalid: 'warn' }) // warn on invalid usages\n```\n\n```js\npostcssImageSetFunction({ onInvalid: 'throw' }) // throw on invalid usages\n```\n\n## Image Resolution\n\nThe `image-set()` function allows an author to provide multiple resolutions of\nan image and let the browser decide which is most appropriate in a given\nsituation. The `image-set()` also never fails to choose an image; the\n`<resolution>` just helps determine which of the images is chosen.\n\nSince this plugin is not a browser, the image options are sorted by device\npixel ratio and the lowest ratio is used as the default, while the remaining\nimages are pushed behind media queries.\n\nTherefore, this plugin can only approximate native browser behavior. While\nimages should typically match the resolution as the device they’re being viewed\nin, other factors can affect the chosen image. For example, if the user is on a\nslow mobile connection, the browser may prefer to select a lower-res image\nrather than wait for a larger, resolution-matching image to load.\n\n[cli-img]: https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-img]: https://cssdb.org/images/badges/image-set-function.svg\n[css-url]: https://cssdb.org/#image-set-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-img]: https://img.shields.io/npm/v/postcss-image-set-function.svg\n[npm-url]: https://www.npmjs.com/package/postcss-image-set-function\n\n[CSS Images]: https://drafts.csswg.org/css-images-4/#image-set-notation\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS image-set() Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-image-set-function\n",
 	"readmeFilename": "README.md",
-	"_downloads": 25209266
+	"_downloads": 24966145
 }

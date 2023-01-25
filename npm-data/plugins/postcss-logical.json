@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-logical",
-	"_rev": "18-a1330c17e37ac9319af700bc77d2eeb6",
+	"_rev": "19-c85f76035c89fc61a1a2014d8af54917",
 	"name": "postcss-logical",
 	"description": "Use logical properties and values in CSS",
 	"dist-tags": {
-		"latest": "5.0.4"
+		"latest": "6.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1580,9 +1580,148 @@
 				"tmp": "tmp/postcss-logical_5.0.4_1644081544859_0.80097481528536"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.0": {
+			"name": "postcss-logical",
+			"description": "Use logical properties and values in CSS",
+			"version": "6.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-logical"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"align",
+				"block",
+				"border",
+				"css",
+				"dir",
+				"directional",
+				"directions",
+				"end",
+				"flow",
+				"inline",
+				"logical",
+				"ltr",
+				"margin",
+				"padding",
+				"postcss",
+				"postcss-plugin",
+				"properties",
+				"property",
+				"relative",
+				"rtl",
+				"size",
+				"start",
+				"text",
+				"values"
+			],
+			"csstools": {
+				"cssdbId": "logical-properties-and-values",
+				"exportName": "postcssLogical",
+				"humanReadableName": "PostCSS Logical Properties and Values",
+				"specUrl": "https://www.w3.org/TR/css-logical-1/"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "f0ecb88b3eba38248c086703eb65b554498d3219",
+			"_id": "postcss-logical@6.0.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-pn50jY5c+PmpYiTZ7KfYQ4aKXAVaFfZgNevtUwXglD22TxfLrrYD5d8m7UDQkT9CAfYvBgSkzPSBWTyE0WuQmA==",
+				"shasum": "065b196c0935f4124996748a2382ec0c880615d2",
+				"tarball": "https://registry.npmjs.org/postcss-logical/-/postcss-logical-6.0.0.tgz",
+				"fileCount": 19,
+				"unpackedSize": 37022,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC4+BTwYbMEIviQqJqsvJ6l6UZtZbjfDJUz4CEgiRGsbgIhAJR9uerNYsKEosB1WKq91JPkXSgMN5TPOW9dgYlr6z/+"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6BwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpZ3Q/+PRizbjGOQDVm2JkIXvSJ0cncQYKAwN3eWJSxM7Qn2fbI85jx\r\nb501GEaiy8XWZN0SfmM/xQo32cwzaia2yQrAYjqI2yGU1NSE/PpX8VnFEV1v\r\ngSCwZOhM1BwOAOjPmnqmr2giA0RLeJ81eHmnGOlNguDaPR+wZoU3k7W7zyFZ\r\n7hAaOIQGZ8VkBktd3bk4H0dBGe1yw1MaVqJg0o0W5tAy5eG+Rccw51z78unl\r\n+B4pQq45LQ6CMLzZ9hlLIYtxr7gUgTV3JRAQ0bYxUh2CRM7kbQwjY0NQUixn\r\nfHB4EQpP5Dc5CAsrRZBZu+yXA8s1AhhJhvzsh0dIuGK5gX3hi99KXMOWOhK/\r\n/xfGLnM2Kzf+FFJ9DtJqS+lXA7xnQI++H29EC1wZNZWef1rNbnIsVu43d+UU\r\noq1ZLuKu4Pw+VjXpyN4O+IMkIf+bmQsLT6/raOawyzvyVg44NMmMNyWaJJri\r\nND9sO6QxvGojpjb6bT04gDlpQ60uDc11m3VsPBspzeQ8+m0SeGOHrRaMNnbK\r\nvGLjWqVWKhyvjUKUptEwWg+nCbEdmSlF/2km0B1sqI1St4ILTM88oajp76iY\r\nJGKsXz1oqsodLiDYeDrJEQLeT7y6+Aku1FuJGpRheu4hOgx77zewehI1wBa/\r\nhS7NnFrxCyhsCYPfl8kPyP+gR5tSgk4O1Zg=\r\n=mS1a\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical_6.0.0_1674551408633_0.44288939570025265"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Logical Properties and Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![CSS Standard Status][css-img]][css-url]\n[![Build Status][cli-img]][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Logical Properties and Values] lets you use logical, rather than\nphysical, direction and dimension mappings in CSS, following the\n[CSS Logical Properties and Values] specification.\n\n[!['Can I use' table](https://caniuse.bitsofco.de/image/css-logical-props.png)](https://caniuse.com/#feat=css-logical-props)\n\n```pcss\n.banner {\n  color: #222222;\n  inset: logical 0 5px 10px;\n  padding-inline: 20px 40px;\n  resize: block;\n  transition: color 200ms;\n}\n\n/* becomes */\n\n.banner:dir(ltr) {\n  padding-left: 20px;\n  padding-right: 40px;\n}\n.banner:dir(rtl) {\n  padding-right: 20px;\n  padding-left: 40px;\n}\n.banner {\n  color: #222222;\n  top: 0;\n  left: 5px;\n  bottom: 10px;\n  right: 5px;\n  resize: vertical;\n  transition: color 200ms;\n}\n\n/* or, when used with { dir: 'ltr' } */\n\n.banner {\n  color: #222222;\n  top: 0;\n  left: 5px;\n  bottom: 10px;\n  right: 5px;\n  padding-left: 20px;\n  padding-right: 40px;\n  resize: vertical;\n  transition: color 200ms;\n}\n\n/* or, when used with { preserve: true } */\n\n.banner:dir(ltr) {\n  padding-left: 20px;\n  padding-right: 40px;\n}\n.banner:dir(rtl) {\n  padding-right: 20px;\n  padding-left: 40px;\n}\n.banner {\n  color: #222222;\n  top: 0;\n  left: 5px;\n  bottom: 10px;\n  right: 5px;\n  inset: logical 0 5px 10px;\n  padding-inline: 20px 40px;\n  resize: vertical;\n  resize: block;\n  transition: color 200ms;\n}\n```\n\nThese shorthand properties set values for physical properties by default.\nSpecifying the `logical` keyboard at the beginning of the property value will\ntransform the flow-relative values afterward into both physical LTR and RTL\nproperties:\n\n#### Logical Borders\n\n- `border`, `border-block`, `border-block-start`, `border-block-end`,\n  `border-inline`, `border-inline-start`, `border-inline-end`, `border-start`,\n  `border-end`, `border-color`, `border-block-color`,\n  `border-block-start-color`, `border-block-end-color`, `border-inline-color`,\n  `border-inline-start-color`, `border-inline-end-color`, `border-start-color`,\n  `border-end-color`, `border-style`, `border-block-style`,\n  `border-block-start-style`, `border-block-end-style`, `border-inline-style`,\n  `border-inline-start-style`, `border-inline-end-style`, `border-start-style`,\n  `border-end-style`, `border-width`, `border-block-width`,\n  `border-block-start-width`, `border-block-end-width`, `border-inline-width`,\n  `border-inline-start-width`, `border-inline-end-width`, `border-start-width`,\n  `border-end-width`, `border-start-start-radius`, `border-start-end-radius`,\n  `border-end-start-radius`, `border-end-end-radius`\n\n#### Logical Offsets\n\n- `inset`, `inset-block`, `inset-block-start`, `inset-block-end`,\n  `inset-inline`, `inset-inline-start`, `inset-inline-end`, `inset-start`,\n  `inset-end`\n\n#### Logical Margins\n\n- `margin`, `margin-block`, `margin-block-start`, `margin-block-end`,\n  `margin-inline`, `margin-inline-start`, `margin-inline-end`, `margin-start`,\n  `margin-end`\n\n#### Logical Paddings\n\n- `padding`, `padding-block`, `padding-block-start`, `padding-block-end`,\n  `padding-inline`, `padding-inline-start`, `padding-inline-end`,\n  `padding-start`, `padding-end`\n\n#### Logical Sizes\n\n- `block-size`, `max-block-size`, `min-block-size`, `inline-size`, `max-inline-size`, `min-inline-size`\n\n#### Flow-Relative Values\n\n- `clear: inline-start`, `clear: inline-end`, `float: inline-start`,\n  `float: inline-end`, `text-align: start`, `text-align: end`\n\n---\n\nBy default, [PostCSS Logical Properties and Values] creates fallback selectors\nwhich require at least one `[dir]` attribute in your HTML. If you don’t have\nany `[dir]` attributes, consider using the following JavaScript:\n\n```js\n// force at least one dir attribute (this can run at any time)\ndocument.documentElement.dir = document.documentElement.dir || 'ltr';\n```\n\nOtherwise, consider using the `dir` option to transform all logical properties\nand values to a specific direction.\n\n```js\nrequire('postcss-logical')({\n  dir: 'ltr'\n});\n```\n\n## Usage\n\nAdd [PostCSS Logical Properties and Values] to your project:\n\n```bash\nnpm install postcss-logical --save-dev\n```\n\nUse [PostCSS Logical Properties and Values] as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLogical = require('postcss-logical');\n\npostcss([\n  postcssLogical(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Logical Properties and Values] runs in all Node environments, with\nspecial instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### dir\n\nThe `dir` option determines how directional fallbacks should be added to CSS.\nBy default, fallbacks replace the logical declaration with nested `:dir`\npseudo-classes. If `dir` is defined as `ltr` or `rtl` then only the left or\nright directional fallbacks will replace the logical declarations. If\n`preserve` is defined as `true`, then the `dir` option will be ignored.\n\n### preserve\n\nThe `preserve` option determines whether directional fallbacks should be added\nbefore logical declarations without replacing them. By default, directional\nfallbacks replace logical declaration. If `preserve` is defined as `true`, then\nthe `dir` option will be ignored.\n\n## :dir() pseudo class\n\nThis plugin transforms using the `:dir(ltr)` pseudo class.\nUse [postcss-dir-pseudo-class](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-dir-pseudo-class#readme) to further transform to `[dir=\"ltr\"]`.\n\nCurrently `:dir(ltr)` doesn't have great browser support but this will improve over time.\n\n[css-img]: https://cssdb.org/images/badges/logical-properties-and-values.svg\n[css-url]: https://cssdb.org/#logical-properties-and-values\n[cli-img]: https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-img]: https://img.shields.io/npm/v/postcss-logical.svg\n[npm-url]: https://www.npmjs.com/package/postcss-logical\n\n[CSS Logical Properties and Values]: https://drafts.csswg.org/css-logical/\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Logical Properties and Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical\n",
+	"readme": "# PostCSS Logical Properties and Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-logical.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/logical-properties-and-values.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Logical Properties and Values]  lets you use logical, rather than physical, direction and dimension mappings in CSS, following the [CSS Logical Properties and Values] specification.\n\n```pcss\n.element {\n\tblock-size: 100px;\n\tinline-size: 200px;\n\tpadding-block: 10px 20px;\n\tmargin-inline: auto;\n\tborder-block-width: 2px;\n\tborder-block-style: solid;\n}\n\n/* becomes */\n\n.element {\n\theight: 100px;\n\twidth: 200px;\n\tpadding-top: 10px;\n\tpadding-bottom: 20px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tborder-top-width: 2px;\n\tborder-bottom-width: 2px;\n\tborder-top-style: solid;\n\tborder-bottom-style: solid;\n}\n```\n\n## Usage\n\nAdd [PostCSS Logical Properties and Values] to your project:\n\n```bash\nnpm install postcss postcss-logical --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLogical = require('postcss-logical');\n\npostcss([\n\tpostcssLogical(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Logical Properties and Values] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### blockDirection & inlineDirection\n\nThe `blockDirection` and `inlineDirection` options allow you to specify the direction of the block and inline axes. The default values are `top-to-bottom` and `left-to-right` respectively which would match any latin language.\n\nYou might want to tweak these values if you are using a different writing system, such as Arabic, Hebrew or Chinese for example.\n\n```js\npostcssLogical({\n\tblockDirection: 'right-to-left',\n\tinlineDirection: 'top-to-bottom'\n})\n```\n\n```pcss\n.element {\n\tblock-size: 100px;\n\tinline-size: 200px;\n\tpadding-block: 10px 20px;\n\tmargin-inline: auto;\n\tborder-block-width: 2px;\n\tborder-block-style: solid;\n}\n\n/* becomes */\n\n.element {\n\twidth: 100px;\n\theight: 200px;\n\tpadding-right: 10px;\n\tpadding-left: 20px;\n\tmargin-top: auto;\n\tmargin-bottom: auto;\n\tborder-right-width: 2px;\n\tborder-left-width: 2px;\n\tborder-right-style: solid;\n\tborder-left-style: solid;\n}\n```\n\nEach direction must be one of the following:\n\n- `top-to-bottom`\n- `bottom-to-top`\n- `left-to-right`\n- `right-to-left`\n\nYou can't mix two vertical directions or two horizontal directions so for example `top-to-bottom` and `right-to-left` are valid, but `top-to-bottom` and `bottom-to-top` are not.\n\nPlease do note that `text-align` won't be transformed if `inlineDirection` becomes vertical.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#logical-properties-and-values\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-logical\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Logical Properties and Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical\n[CSS Logical Properties and Values]: https://www.w3.org/TR/css-logical-1/\n",
 	"maintainers": [
 		{
 			"name": "alaguna",
@@ -1594,7 +1733,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:18:54.409Z",
+		"modified": "2023-01-24T09:10:08.922Z",
 		"created": "2017-08-09T17:03:26.036Z",
 		"1.0.0": "2017-08-09T17:03:26.036Z",
 		"1.0.2": "2017-08-15T19:58:26.513Z",
@@ -1609,50 +1748,60 @@
 		"5.0.1": "2021-12-13T09:43:23.468Z",
 		"5.0.2": "2022-01-02T15:30:39.724Z",
 		"5.0.3": "2022-01-12T09:57:24.993Z",
-		"5.0.4": "2022-02-05T17:19:05.006Z"
+		"5.0.4": "2022-02-05T17:19:05.006Z",
+		"6.0.0": "2023-01-24T09:10:08.811Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical#readme",
 	"keywords": [
-		"postcss",
-		"css",
-		"postcss-plugin",
-		"logical",
-		"flow",
-		"relative",
-		"property",
-		"properties",
-		"values",
-		"ltr",
-		"rtl",
-		"dir",
-		"directions",
-		"directional",
-		"inline",
-		"block",
-		"start",
-		"end",
 		"align",
+		"block",
 		"border",
-		"clear",
-		"float",
+		"css",
+		"dir",
+		"directional",
+		"directions",
+		"end",
+		"flow",
+		"inline",
+		"logical",
+		"ltr",
 		"margin",
 		"padding",
+		"postcss",
+		"postcss-plugin",
+		"properties",
+		"property",
+		"relative",
+		"rtl",
 		"size",
-		"text"
+		"start",
+		"text",
+		"values"
 	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/csstools/postcss-plugins.git",
 		"directory": "plugins/postcss-logical"
 	},
-	"author": {
-		"name": "Jonathan Neal",
-		"email": "jonathantneal@hotmail.com"
-	},
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 22921811
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_downloads": 24756991
 }

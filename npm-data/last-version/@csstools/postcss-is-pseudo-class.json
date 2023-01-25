@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-is-pseudo-class",
 	"description": "A pseudo-class for matching elements in a selector list",
-	"version": "2.0.7",
+	"version": "3.0.0",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -12,7 +12,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -29,14 +29,15 @@
 		"postcss-selector-parser": "^6.0.10"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"devDependencies": {
-		"puppeteer": "^15.1.1"
+		"puppeteer": "^19.5.2"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -74,23 +75,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "cc4034504d92faec8c4b847c2d815a6a80074c16",
-	"_id": "@csstools/postcss-is-pseudo-class@2.0.7",
+	"gitHead": "c3f6751f08ee19f2097830ebb3c8277fb43c1689",
+	"_id": "@csstools/postcss-is-pseudo-class@3.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-7JPeVVZHd+jxYdULl87lvjgvWldYu+Bc62s9vD/ED6/QTGjy0jy0US/f6BG53sVMTBJ1lzKZFpYmofBN9eaRiA==",
-		"shasum": "846ae6c0d5a1eaa878fce352c544f9c295509cd1",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-2.0.7.tgz",
+		"integrity": "sha512-rz3Ch3gxMeOdMDppuikEmlI3jhnkQd/OM/xAmSjPeCfhYPy37BlNTgsxpaPVizkhkMOfibH/eMkzeXNbXdBBXw==",
+		"shasum": "b6c1296988898b25f03866e899d936121e09d4ef",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-3.0.0.tgz",
 		"fileCount": 12,
-		"unpackedSize": 29488,
+		"unpackedSize": 31048,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCyYZzQV9ISkno2KqJxIYgtcLgAdDgNcqScehcOe4911QIhAJCzj9oh34nGBBAO7I95l81Vzad83QKf3XdbpX6eYjUr"
+				"sig": "MEYCIQDcw/RD/7+JrrX9eWz7u1tSNKNZOTAVihLZhR6J5R+u/gIhAP/EkzFZuGveq8Jpq/mGU852FWoTRyabTgLm0JPTEhHu"
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGF/ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoBXBAAihzn2KqQyMLoJPPvUYKIAgwhFJa8EN8niW6lTN84tj5YWtgQ\r\n2XOmthyIY3/f9DVhQ4ShFmJBEza+f31QHb6k6O5haDjFyAzVGWI3PJPfeiJZ\r\nIKZxcOarudXSLrBnhNMouMziXQ954XXQezb2s5Qjsco2b3W9f7g5Z5wGh/Jk\r\noPimPPY6dg8J9jhoUGHzO94r9EICt4KoAUh3fBFlYheBdkPw1GHRFsoP+gAE\r\nOsY/49g6InRHns7vZtqPoWuglwhtyx6IydsYJWW4uVI2kHKITZE8MFJ/BS3+\r\n3zPOA6kBVndArBbqPP6XzhKKdUgRkOkxe1cx86nqQaTeQe/kRjt+zwrhfX2a\r\nri+izNrD8ZbIHsjswiBMtLYmWOf8xiQQ/W+olwh9bXUx+X9jdE6bKdJ8eIHk\r\nfXE/vAXoMjLVqv5K66nH3LP1MeAHFsmUhjqRLV9NhnDVd/74BfHgQLBxZRLK\r\n7G0LmO0R9O69ObfSX4fsFi2T/vqUDQxyz/QTI6xs1hVjtoSpEv/9LjAuTz4O\r\nStWM9kqGVkspxL5ioS031N2i4W8C12vg6ac0/TR0ptUxiKseXmPm2VPuJry3\r\nGqKpgs8uG8JIGY9JSIZL51CUto/l3FFm5qu4terae3iBo9ll+/1nTtazZYXG\r\nxFEgldBXWbyAcHtHpUBTjbI21DPSSNATMKY=\r\n=7afT\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6AxACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmoi5Q/5AEs3KEGhxt2eCDQuU8HDiIdxkbzYkzvbxKb1vkYvzuX/N0pn\r\n2sTVj0SyuK2NAp1F0ieFpKG4Tp/eOAhh68RAGmbc4vGNIGKv8GJPUl7ug9WJ\r\nIzwoY5UNqXDbYrDUYsvoRXJec9UBNuLaybn7PqlwtcBNM3/ESCN1bi90t1bM\r\nXnp9Jk97FQW4B9D16tsCcgTKekZ/o7WXljQWPO+5KHV7Ayk2xrfkhC9LYD8Y\r\noB1HSTOc76kKVnckF7usljbbDN3CgCO43ee+uWYYuicCvfKSKgAThecCkqJX\r\nHSmEo3Wgl6A4zQQsKIGpsVp7K9dV+W1u/Sn5faO6slAoObBB66cv3HxFHeo0\r\nMlfrbqdK6hMYGLGfjBnFUkH68ZFIuIAJsEBKOXoyylnXLrwnUzJRA+eA+7XG\r\nkVDwN07+S3UygccCDx85FVOOj/fYwgsFwCvZXR7s3CDt8hFEFt0X/sImU4+D\r\n/E7rJ9q5N+AGFkAuMg1vl7t+14//73KOFJJ93i2rY1CREVG1Lkkujizp7dWn\r\nJl74Un5eMuNYJlrflXB3d+KbXRT4GHDepv1pBhfXdqaWnqJZ/811m1wMTwKl\r\n4KZEHsX6wuy6v+/lrmC0yKtAK+KD2IMjNjRjcDbKw/D8UCX3z9WrCdVMqriC\r\nLIcwJSkeE4XCcePnfneauqrn+XgOxnxjxU0=\r\n=jS3E\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -109,8 +110,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-is-pseudo-class_2.0.7_1657299326914_0.6095091378419049"
+		"tmp": "tmp/postcss-is-pseudo-class_3.0.0_1674551345575_0.003658926005434493"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T16:55:27.181Z"
+	"_time": "2023-01-24T09:09:05.757Z"
 }
