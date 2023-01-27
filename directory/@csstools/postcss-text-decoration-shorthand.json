@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-text-decoration-shorthand",
 	"description": "Use text-decoration in it's shorthand form in CSS",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -19,7 +19,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -35,14 +35,15 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.8"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -77,23 +78,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "4acfc53935caa7ac5192745495d54d749034c8f1",
-	"_id": "@csstools/postcss-text-decoration-shorthand@1.0.0",
+	"gitHead": "259cd930736800cd876bc785af78fd7b636c6ca8",
+	"_id": "@csstools/postcss-text-decoration-shorthand@2.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-c1XwKJ2eMIWrzQenN0XbcfzckOLLJiczqy+YvfGmzoVXd7pT9FfObiSEfzs84bpE/VqfpEuAZ9tCRbZkZxxbdw==",
-		"shasum": "ea96cfbc87d921eca914d3ad29340d9bcc4c953f",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-text-decoration-shorthand/-/postcss-text-decoration-shorthand-1.0.0.tgz",
+		"integrity": "sha512-+Ce+VVbEj2/TJUGUULiMyC/30JruYpCcADwWSW8kLUoO35XWQWQW09MCRFhTS50AHvIuzYG8lZ5TeFXuVAt/uw==",
+		"shasum": "af5c3fff36c41c72b4b92d033b21653aca01a42a",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-text-decoration-shorthand/-/postcss-text-decoration-shorthand-2.0.0.tgz",
 		"fileCount": 7,
-		"unpackedSize": 20871,
+		"unpackedSize": 21352,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCICmIBOy83NWYvRTMC8TYDea18ezUaFRHigXbVSsmgxQvAiA8uXKJRhfOZ/eRRabTyxoYRB81XIdpDm4VrZgR6RvLwg=="
+				"sig": "MEQCIHbFuoOz9Gun0jROHjYk/n+xa7usHFiJjKMlQs3F0+KfAiAzrMy1/8IrqWkqs3JsIlkuQWj/1GvfA2goqRPV/R1I6g=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi+gUgACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpluw//fCs9nVaIKPxSh+UZSnVPnyfsHtam/SFotBrc7buLEuWYB4+j\r\npWQhjKJ9pBhvUzUpQmPJdevYSaUvTXSOd3k0Ahu/XQEZMfBEKY7i1ej4GqKa\r\n9LUemnxb/epzhmN+3b4w/fTq/K8hH1iKi9WoGw/R/uY9xrOfqGz2NGtAe9jk\r\nDtL9rUD5l4rp6ya5Iz/qJXG7sQ8rhXKEwNnv0KRQxDoW3V8FX96RS4p2zICu\r\nDrpbdi2HGuuXFIfxi6YMCXK8xp3XvaYwILiucblVpWR/YVikhjd4FmubgndP\r\nLH2dXIOO8YX5bQi0ysFJKS5QHGNE8stVY93EnCsc0Ly/Bw1J8mxlud2mkglp\r\nPFEw1wMcAEJlIck+wFPSHhSGZxl/H/u1IL/yKqV1XDJVNa8EwvTYCC87vTS8\r\n2CptOHB7Oy1XLtbBe+xZgqrPriv5BowTM0ZtHKF1rDvdR8FBLjsNdQErdGp2\r\nfPWYphMQoagec9I2Z9S8pw+a+Erc8bAQxxb+xiH62maHmBQwoJRXxGMNgEQ7\r\ng1p0AkvvcC7bjMBz6kpHnJxQA7FbZB9+vf1uu90937vv9lO/2T52ACPaj3WB\r\nB0urrsQs7NzorDmODHS+IEpoiZC8PFVTQFfZU8aXM0qXk1iB5i1kkgQ4+q16\r\no+j1a4A2oFzkKJ1gyJogsqAvpcsVy/QdhZE=\r\n=WDjf\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz6JPACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoFYg/9HN7n2EO/W6DsWZcNTO/WMjhFX0B6Ifzr3yv6D/Imu5T7eIE2\r\namOJRvHRQUMBtCKQS1MDiAY3EUdFKMffjX+fRv/2A7mP5mfhvafvIfihRT03\r\nrUC5mTQzFyhwRvrRc3l0uX+qIPZqD8I1HSRxglhyrlWQPRIuZn4wyv+24ETf\r\njIGRkCLkZt3VxlQQBa9REEQjKgmqajQQKSbvIyFaRJ7z3NBq1yt8I+Ei+3BV\r\nfmuXcTXYRZSVBUr2l0917tTn8qr+GgSRUVimFZ9SzaMEJ5S8ZXWUxPGKuun1\r\noa/71irKf0pu9Dvjtb+D7uEHszPprBKrKMIVcZza1S3XC9mek+pc4T6YSq+/\r\n671yFB9ZWGCipjyNRYqrd26O5KvvtNS3pHbhEJIyIvsyhEQIYz1KeiCasrTa\r\nYFORvkbzK7NB7bY3feuGEnCQoU4Tc78AiPT97iDifJcutC+1jWsTvGLILvb7\r\nX/WjI7+b/ha0shHzNPiIqrp08bZYFYfX4HGJKYAudHtFJjlNMphWg55zf1BJ\r\nSRs4wSFJcKto4j4F3+fTOxMLE4gNBAGu15M2KgCRx2FDG4YEuZvJI3pc7Ur9\r\nMAgPsq4rzHL317/xZn7+BSXfUyERcL+tymYjF48QZKI453m+qQZQXPvDyPTZ\r\nxCU+rmJy0Xk6mwosKc9+l3Q1Kcbq1LUrt8M=\r\n=wMVz\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -112,8 +113,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-text-decoration-shorthand_1.0.0_1660552480600_0.25542935525623056"
+		"tmp": "tmp/postcss-text-decoration-shorthand_2.0.0_1674551887701_0.45629880029812586"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-08-15T08:34:40.768Z"
+	"_time": "2023-01-24T09:18:07.838Z"
 }
