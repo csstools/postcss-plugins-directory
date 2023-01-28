@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-stepped-value-functions",
-	"_rev": "2-d1aad3edd7f64c7eebce7f8a6fff89cf",
+	"_rev": "3-5c516653d9fa47f30c986cf86ac57216",
 	"name": "@csstools/postcss-stepped-value-functions",
 	"dist-tags": {
-		"latest": "2.0.0"
+		"latest": "2.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -354,14 +354,133 @@
 				"tmp": "tmp/postcss-stepped-value-functions_2.0.0_1674551859549_0.4435062323263379"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "@csstools/postcss-stepped-value-functions",
+			"description": "Use round, rem and mod functions in CSS",
+			"version": "2.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-stepped-value-functions#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-stepped-value-functions"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"css",
+				"modulus",
+				"postcss-plugin",
+				"remainder",
+				"round",
+				"stepped"
+			],
+			"csstools": {
+				"cssdbId": "stepped-value-functions",
+				"exportName": "postcssSteppedValueFunctions",
+				"humanReadableName": "PostCSS Stepped Value Functions",
+				"specUrl": "https://www.w3.org/TR/css-values-4/#round-func"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "c9f96e03617a2ca3daba02b2b224cc13fa0ce99e",
+			"_id": "@csstools/postcss-stepped-value-functions@2.0.1",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-VimD+M69GsZF/XssivjUwo6jXLgi86ar/gRSH7bautnCULSLxCr/HuY32N4rLRUr7qWF8oF/JTv06ceb66Q1jA==",
+				"shasum": "674bfca93d063d9ea3262c773d0e1cec3e07d2eb",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-stepped-value-functions/-/postcss-stepped-value-functions-2.0.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 22961,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCx67x3dxA14nT5bmQ56fEQeBwGFTosy1QneV67BtuK/AIgWg1LMvT9Fl25Utqzw323k2SLVA6E7O6RqDFhda+5Hgo="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NXnACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpKnw/5AcacQZTjnEmbJIDrtyQVJ91S7Er8CvGMH3Dx5EB+3Rj9QO8g\r\nua3SxwZMfd8ymQsiLXsTmcf0As9gb1pxAc3fGPMXxbtn81X2dDALZVEGj+x4\r\n+NIFXoCfozeIQuRk+ye8EAttjxfs7oHZ0iSpOJtngajBlHQOwau4Yyo/LGE5\r\nmEoTjuf44315YyY8DCSYGnPoTNrD9N3kg5ERE0UbNtRhqKiCb6219kRKhFjq\r\n4g+Uo7/OuzNkP3FnpnEkRsf6X0587Za86Eib08exv0tzE2tDdbbwRbFEv1So\r\ndAcKliPIAJXX0gDuf2yMRDYA7wkq+I+rhNh6OBSlpk8O5r47glc9ArMafgjT\r\nFzmIRi2Hnm9XpSTRUTWV1Z8tQMR3JrGZ0yepqm8bBaznGlN988PVkAYOiEx4\r\n9FUEsGbN25R3U6Z35llW2y52dimhT1S0bvOyQo89pbWTbah7CagJ2SzGvEI7\r\n1YAqh4rLr4ukgSF9k9cav5zyVbvZGZKk8itpHO6WAIvGf7DTJmoa696bpO5R\r\nUhSYr5VpJB4GGMaALlu+j52hXKN2U7KvKK4wM4NJ1Wat9wnd4irBcQ3pyvwb\r\nQvP2nr6H7xCuhqWqaYx/T7PJ+Y17b02lHaMqGWUu8U7C3+u2ej4ffW/zjDLC\r\n8DuNbp6Pv4KY3eigSapw2deLq7ZwrgmCkjo=\r\n=Hsd/\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-stepped-value-functions_2.0.1_1674892775546_0.27352639163290804"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-05-02T12:06:36.033Z",
 		"1.0.0": "2022-05-02T12:06:36.264Z",
-		"modified": "2023-01-24T09:17:39.799Z",
+		"modified": "2023-01-28T07:59:35.829Z",
 		"1.0.1": "2022-07-08T17:08:04.573Z",
-		"2.0.0": "2023-01-24T09:17:39.677Z"
+		"2.0.0": "2023-01-24T09:17:39.677Z",
+		"2.0.1": "2023-01-28T07:59:35.723Z"
 	},
 	"maintainers": [
 		{
@@ -405,5 +524,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Stepped Value Functions [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-stepped-value-functions.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/stepped-value-functions.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Stepped Value Functions] lets you use `round`, `rem` and `mod` stepped value functions, following the [CSS Values 4].\n\n```pcss\n.test-functions {\n\tpadding: 8px mod(18px, 5px) 1px calc(rem(15px, 6px) + 50%);\n\ttransform: rotate(mod(-140deg, -90deg));\n\ttop: round(15px, 4px);\n\tright: round(nearest, 15px, 4px);\n\tbottom: round(up, 15px, 7px);\n\tleft: round(down, 15px, 4px);\n\twidth: round(to-zero, 15px, 4px);\n}\n\n/* becomes */\n\n.test-functions {\n\tpadding: 8px 3px 1px calc(3px + 50%);\n\ttransform: rotate(-50deg);\n\ttop: 16px;\n\tright: 16px;\n\tbottom: 21px;\n\tleft: 12px;\n\twidth: 12px;\n}\n```\n\n## Usage\n\nAdd [PostCSS Stepped Value Functions] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-stepped-value-functions --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssSteppedValueFunctions = require('@csstools/postcss-stepped-value-functions');\n\npostcss([\n\tpostcssSteppedValueFunctions(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Stepped Value Functions] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## ⚠️ About custom properties\n\nGiven the dynamic nature of custom properties it's impossible to know what the variable value is, which means the plugin can't compute a final value for the stylesheet. \n\nBecause of that, any usage that contains a `var` is skipped.\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssSteppedValueFunctions({ preserve: true })\n```\n\n```pcss\n.test-functions {\n\tpadding: 8px mod(18px, 5px) 1px calc(rem(15px, 6px) + 50%);\n\ttransform: rotate(mod(-140deg, -90deg));\n\ttop: round(15px, 4px);\n\tright: round(nearest, 15px, 4px);\n\tbottom: round(up, 15px, 7px);\n\tleft: round(down, 15px, 4px);\n\twidth: round(to-zero, 15px, 4px);\n}\n\n/* becomes */\n\n.test-functions {\n\tpadding: 8px 3px 1px calc(3px + 50%);\n\tpadding: 8px mod(18px, 5px) 1px calc(rem(15px, 6px) + 50%);\n\ttransform: rotate(-50deg);\n\ttransform: rotate(mod(-140deg, -90deg));\n\ttop: 16px;\n\ttop: round(15px, 4px);\n\tright: 16px;\n\tright: round(nearest, 15px, 4px);\n\tbottom: 21px;\n\tbottom: round(up, 15px, 7px);\n\tleft: 12px;\n\tleft: round(down, 15px, 4px);\n\twidth: 12px;\n\twidth: round(to-zero, 15px, 4px);\n}\n```\n\n### onInvalid\n\n`onInvalid` option allows you to assign the `warn` value so you can get warnings when the usage of the functions is wrong.\n\n```js\npostcssSteppedValueFunctions({ onInvalid: 'warn' })\n```\n\n```pcss\n.invalid {\n\tfont-size: mod(18px, 5rem);\n}\n```\n\nWill produce on the terminal:\n\n```txt\n[postcss-stepped-value-functions]: Failed to transform mod(18px, 5rem) as the units don't match\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#stepped-value-functions\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-stepped-value-functions\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Stepped Value Functions]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-stepped-value-functions\n[CSS Values 4]: https://www.w3.org/TR/css-values-4/#round-func\n",
 	"readmeFilename": "README.md",
-	"_downloads": 10457286
+	"_downloads": 11689449
 }

@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-cascade-layers",
-	"_rev": "10-7ad6e17e9e786cf68607b746f389f50a",
+	"_rev": "11-d1aed401818f6d894a6d007177f422be",
 	"name": "@csstools/postcss-cascade-layers",
 	"dist-tags": {
-		"latest": "3.0.0"
+		"latest": "3.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1444,12 +1444,146 @@
 				"tmp": "tmp/postcss-cascade-layers_3.0.0_1674549991903_0.05866871229763815"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "@csstools/postcss-cascade-layers",
+			"description": "Use cascade layers in CSS",
+			"version": "3.0.1",
+			"contributors": [
+				{
+					"name": "Olu Niyi-Awosusi",
+					"email": "o.niyiawosusi@gmail.com"
+				},
+				{
+					"name": "Sana Javed",
+					"email": "sanajaved7@gmail.com"
+				},
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/selector-specificity": "^2.0.2",
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"postcss-import": "^15.0.0",
+				"puppeteer": "^19.5.2"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-cascade-layers#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-cascade-layers"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"cascade",
+				"css",
+				"layers",
+				"postcss",
+				"postcss-plugin",
+				"selectors",
+				"specificity"
+			],
+			"csstools": {
+				"assumesToProcessBundledCSS": true,
+				"cssdbId": "cascade-layers",
+				"exportName": "postcssCascadeLayers",
+				"humanReadableName": "PostCSS Cascade Layers",
+				"specUrl": "https://www.w3.org/TR/css-cascade-5/#layering"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "80908f5f797e01e2947548910be5a99c2d9dfecc",
+			"_id": "@csstools/postcss-cascade-layers@3.0.1",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-dD8W98dOYNOH/yX4V4HXOhfCOnvVAg8TtsL+qCGNoKXuq5z2C/d026wGWgySgC8cajXXo/wNezS31Glj5GcqrA==",
+				"shasum": "d839386e90428b448e3f75276bc01d516e852a0d",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-3.0.1.tgz",
+				"fileCount": 21,
+				"unpackedSize": 41431,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCafrnV9y1T8MdZYzNrP/3D5S0YmojXiRkcQBK3ZMZc0gIhAJF88dcCUwJcdW060GVGTbIxyn0JFLkahtIT8FyFl2Yb"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1M7AACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmotMxAAmSev2NI5AHfNY/vlVbOZ+dj6sVYASlZ/wxl9SBIVw7Ml5Zv3\r\nGmgmVr3TZHldqSWQYJXmN5qhTjr/ZXB8QrG7KTXH/CH6zEI8NtEPMO1Uvd4u\r\nV/9RN49EWPwHjFrP4gRTSuJSmjqdCCOf43LrxELi6EmC5eaiI4a01ztzccDr\r\nmjU1mV/kq9xmCuxqaKKGOVaGW77ZF6vIjPtBI2TdVsoqRCHbjfEsaQSzT8dV\r\nls0Ph7cKlBJihggsO+rEU/FUz8aRKu2Irr6wsFpf5UTxlvoAY+cY2IV1jNF+\r\nwyWXkJQEggDPzwFdvQLgWJCZok7lNPFlKXCN0J6jwkvoM73voQK0met34JJJ\r\n9fV2uAs5gSAyu1W0Hvqgtkj2uML8fgv1wpFQbVQcGJpYIAW9QQMf6fHhds3Z\r\n7wDVmqrR5kDq+t7OeIpNJvnxYNRa8Q50SwKoaigWeyuIIekPt5MqYHwBhYf4\r\nFt2UQxDXCHX4kTxV+akJLTUgmgPKObmeKo9gO2TDr0cgcCjCiHwYYgZ+zNsz\r\nsRUjHkzUu5ABkXi7ZJRLzDAUM5odOmyXs5wCJUuIPCLLz01Hp2JK58gpmbq+\r\nIzqI5jFhpRWJ8b64R5KVHlAr0bEfl5+gBjCOxnVajjXsYK6kRWP+xOP1EuVj\r\nurSYMLp23Wfd2KFpFNXDHlwERPSAJazyl1k=\r\n=v/YO\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-cascade-layers_3.0.1_1674890943965_0.36474040589504897"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-05-12T13:10:05.799Z",
 		"1.0.0": "2022-05-12T13:10:06.064Z",
-		"modified": "2023-01-24T08:46:32.278Z",
+		"modified": "2023-01-28T07:29:04.236Z",
 		"1.0.1": "2022-05-17T05:23:52.583Z",
 		"1.0.2": "2022-05-20T08:44:01.417Z",
 		"1.0.3": "2022-06-04T07:15:16.360Z",
@@ -1459,7 +1593,8 @@
 		"1.1.0": "2022-09-14T18:04:29.395Z",
 		"1.1.1": "2022-09-17T09:44:28.261Z",
 		"2.0.0": "2022-11-14T09:50:59.106Z",
-		"3.0.0": "2023-01-24T08:46:32.154Z"
+		"3.0.0": "2023-01-24T08:46:32.154Z",
+		"3.0.1": "2023-01-28T07:29:04.127Z"
 	},
 	"maintainers": [
 		{
@@ -1512,5 +1647,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Cascade Layers [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-cascade-layers.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/cascade-layers.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Cascade Layers] lets you use `@layer` following the [Cascade Layers Specification]. For more information on layers, checkout [A Complete Guide to CSS Cascade Layers] by Miriam Suzanne.\n\n```pcss\n\ntarget {\n\tcolor: purple;\n}\n\n@layer {\n\ttarget {\n\t\tcolor: green;\n\t}\n}\n\n\n/* becomes */\n\n\ntarget:not(#\\#) {\n\tcolor: purple;\n}\n\ntarget {\n\t\tcolor: green;\n\t}\n\n```\n\n## How it works\n\n[PostCSS Cascade Layers] creates \"layers\" of specificity.\n\nIt applies extra specificity on all your styles based on :\n- the most specific selector found\n- the order in which layers are defined\n\n```css\n@layer A, B;\n\n@layer B {\n\t.a-less-specific-selector {\n\t\t/* styles */\n\t}\n}\n\n@layer A {\n\t#something #very-specific {\n\t\t/* styles */\n\t}\n}\n\n@layer C {\n\t.a-less-specific-selector {\n\t\t/* styles */\n\t}\n}\n```\n\nmost specific selector :\n- `#something #very-specific`\n- `[2, 0, 0]`\n- `2 + 1` -> `3` to ensure there is no overlap\n\nthe order in which layers are defined :\n- `A`\n- `B`\n- `C`\n\n| layer | previous adjustment | specificity adjustment | selector |\n| ------ | ------ | ----------- | --- |\n| `A` | `0` | `0 + 0 = 0` | N/A |\n| `B` | `0` | `0 + 3 = 3` | `:not(#\\#):not(#\\#):not(#\\#)` |\n| `C` | `3` | `3 + 3 = 6` | `:not(#\\#):not(#\\#):not(#\\#):not(#\\#):not(#\\#):not(#\\#)` |\n\nThis approach lets more important (later) layers always override less important (earlier) layers.<br>\nAnd layers have enough room internally so that each selector works and overrides as expected.\n\nMore layers with more specificity will cause longer `:not(...)` selectors to be generated.\n\n⚠️ For this to work the plugin needs to analyze your entire stylesheet at once.<br>\nIf you have different assets that are unaware of each other it will not work correctly as the analysis will be incorrect.\n\n## Usage\n\nAdd [PostCSS Cascade Layers] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-cascade-layers --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssCascadeLayers = require('@csstools/postcss-cascade-layers');\n\npostcss([\n\tpostcssCascadeLayers(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Cascade Layers] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### onRevertLayerKeyword\n\nThe `onRevertLayerKeyword` option enables warnings if `revert-layer` is used.\nTransforming `revert-layer` for older browsers is not possible in this plugin.\n\nDefaults to `warn`\n\n```js\npostcssCascadeLayers({ onRevertLayerKeyword: 'warn' }) // 'warn' | false\n```\n\n```pcss\n/* [postcss-cascade-layers]: handling \"revert-layer\" is unsupported by this plugin and will cause style differences between browser versions. */\n@layer {\n\t.foo {\n\t\tcolor: revert-layer;\n\t}\n}\n```\n\n### onConditionalRulesChangingLayerOrder\n\nThe `onConditionalRulesChangingLayerOrder` option enables warnings if layers are declared in multiple different orders in conditional rules.\nTransforming these layers correctly for older browsers is not possible in this plugin.\n\nDefaults to `warn`\n\n```js\npostcssCascadeLayers({ onConditionalRulesChangingLayerOrder: 'warn' }) // 'warn' | false\n```\n\n```pcss\n/* [postcss-cascade-layers]: handling different layer orders in conditional rules is unsupported by this plugin and will cause style differences between browser versions. */\n@media (min-width: 10px) {\n\t@layer B {\n\t\t.foo {\n\t\t\tcolor: red;\n\t\t}\n\t}\n}\n\n@layer A {\n\t.foo {\n\t\tcolor: pink;\n\t}\n}\n\n@layer B {\n\t.foo {\n\t\tcolor: red;\n\t}\n}\n```\n\n### onImportLayerRule\n\nThe `@import` at-rule can also be used with cascade layers, specifically to create a new layer like so: \n```css\n@import 'theme.css' layer(utilities);\n```\nIf your CSS uses `@import` with layers, you will also need the [postcss-import] plugin. This plugin alone will not handle the `@import` at-rule.  \n\nThis plugin will warn you when it detects that [postcss-import] did not transform`@import` at-rules.\n\n```js\npostcssCascadeLayers({ onImportLayerRule: 'warn' }) // 'warn' | false\n```\n\n### Contributors\nThe contributors to this plugin were [Olu Niyi-Awosusi] and [Sana Javed] from [Oddbird] and Romain Menke.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#cascade-layers\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-cascade-layers\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Cascade Layers]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-cascade-layers\n[Cascade Layers Specification]: https://www.w3.org/TR/css-cascade-5/#layering\n[A Complete Guide to CSS Cascade Layers]: https://css-tricks.com/css-cascade-layers/\n[Olu Niyi-Awosusi]: https://github.com/oluoluoxenfree\n[Sana Javed]: https://github.com/sanajaved7\n[Oddbird]: https://github.com/oddbird\n[postcss-import]: https://github.com/postcss/postcss-import\n",
 	"readmeFilename": "README.md",
-	"_downloads": 10165650
+	"_downloads": 11360794
 }

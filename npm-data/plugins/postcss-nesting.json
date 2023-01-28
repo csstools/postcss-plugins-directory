@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-nesting",
-	"_rev": "50-5a4b6eba8fc9516b49ac92c4ae6db8c5",
+	"_rev": "51-dd34826a3cc5a95d9e24420c58ea1fe1",
 	"name": "postcss-nesting",
 	"description": "Nest rules inside each other in CSS",
 	"dist-tags": {
-		"latest": "11.0.0"
+		"latest": "11.0.1"
 	},
 	"versions": {
 		"0.1.0": {
@@ -4527,6 +4527,128 @@
 				"tmp": "tmp/postcss-nesting_11.0.0_1674551567308_0.6905129364852756"
 			},
 			"_hasShrinkwrap": false
+		},
+		"11.0.1": {
+			"name": "postcss-nesting",
+			"description": "Nest rules inside each other in CSS",
+			"version": "11.0.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"jsdelivr": "dist/index.mjs",
+			"unpkg": "dist/index.mjs",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/selector-specificity": "^2.0.0",
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-nesting"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"atrules",
+				"child",
+				"children",
+				"css",
+				"cssnext",
+				"csswg",
+				"nested",
+				"nestings",
+				"postcss",
+				"postcss-plugin",
+				"rules",
+				"selectors",
+				"specifications",
+				"specs",
+				"syntax",
+				"w3c"
+			],
+			"csstools": {
+				"exportName": "postcssNesting",
+				"humanReadableName": "PostCSS Nesting"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "112092bc19bd0a122ee49ce61f3393a7790d6566",
+			"_id": "postcss-nesting@11.0.1",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-p/XiegrifL9CBwBiuJtFuUUvp8AgmxdyjNagmIjLEyJDUuo0JwbEgUsnQ99SzE7TRRXqXml7BFXkZpRhonE8rQ==",
+				"shasum": "9eca3dfea03ae8b9450493c4640e1fed8b24d82d",
+				"tarball": "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-11.0.1.tgz",
+				"fileCount": 23,
+				"unpackedSize": 31212,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFGdG15Sge9yHNQlQGnh2eGvJBUp18yASjq0sHq1yMUUAiBw02FMXhK130FKsdxbaRPovzYe8kITKlJ/r6B5hMRQww=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NLhACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrxhQ/7BaXOE4W8oprQOshNbTllJY+xNk1SJDTERE/brBk88nDQhwxW\r\n5coiwTGaliaa3kbw2JrUbw0yFsNq+O99Qnqq9UbkyyHfltbj8uU5A8/ZeD7r\r\nG4g/3KwXj6cOprjeLFtcNu0hiBfF6dWQg/NEgz+28I3I8P1T5ctOf/mDsIjP\r\ncPCe8ukY6/iFL+a+M5pBm9GmaqHyaABt50jR0ydqmVgPlFFWqOiqn67IwDS0\r\nRMMjAk+9F5AojAKHkkO9fqhjmkShTAMwfhJ4FpX1cA6ZXvCACZdzlYuRj2Xl\r\nLkJNxnTp4FCuxFOwFcdTYCrVckxkk+BMrD09tGYTwFqgdWkxGN3rCzqi7f0Y\r\n2r/mxnHVxWyofn3YQb2yD7Apcqi8FaG+RsugTtgJibAEa4R+wEo30q+RPZI2\r\ngAfG9hkNxXFTDXvRkjqQmiFAx4r/QYYhJL3TQR0QYNRRTv8iLAfltGJogp+8\r\nyZDaD0xEfJ6lKD4zz2BFr3FzN2ofpIL8c+W2gn+/YQJL8cV+iXvcGEBVo0VQ\r\nU7o3N+2Qz0rLslmCBZ8G0L/5s9qpwUVOUASLe9cUDbmksMO/u7f6aPoy2Gxi\r\nQv/JZZ5xrJ3ituylZttXG0jC0og72JCVHBfohexJ/Sd+vVj51t7wGt/nxJRI\r\nz6ee6PXw7ClYmMMM6ICyDK2o/ijK3snPqfs=\r\n=hOR3\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-nesting_11.0.1_1674892001077_0.40231395247476365"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Nesting [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![CSS Standard Status][css-img]][css-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Nesting] lets you nest style rules inside each other, following the\n[CSS Nesting] specification. If you want nested rules the same way [Sass] works\nyou might want to use [PostCSS Nested] instead.\n\n```pcss\na, b {\n\tcolor: red;\n\n\t/* \"&\" comes first */\n\t& c, & d {\n\t\tcolor: white;\n\t}\n\n\t/* \"&\" comes later, requiring \"@nest\" */\n\t@nest e & {\n\t\tcolor: yellow;\n\t}\n}\n\n/* becomes */\n\na, b {\n\tcolor: red;\n}\n\na c, a d, b c, b d {\n\tcolor: white;\n}\n\ne a, e b {\n\tcolor: yellow;\n}\n```\n\n## Usage\n\nAdd [PostCSS Nesting] to your project:\n\n```bash\nnpm install postcss-nesting --save-dev\n```\n\nUse [PostCSS Nesting] as a [PostCSS] plugin:\n\n```js\nimport postcss from 'postcss';\nimport postcssNesting from 'postcss-nesting';\n\npostcss([\n  postcssNesting(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Nesting] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- |\n\n## Options\n\n### noIsPseudoSelector\n\n#### Specificity\n\nBefore :\n\n```css\n#alpha,\n.beta {\n\t&:hover {\n\t\torder: 1;\n\t}\n}\n```\n\nAfter **without** the option :\n\n```js\npostcssNesting()\n```\n\n```css\n:is(#alpha,.beta):hover {\n\torder: 1;\n}\n```\n\n_`.beta:hover` has specificity as if `.beta` where an id selector, matching the specification._\n\n[specificity: 1, 1, 0](https://polypane.app/css-specificity-calculator/#selector=%3Ais(%23alpha%2C.beta)%3Ahover)\n\nAfter **with** the option :\n\n```js\npostcssNesting({\n\tnoIsPseudoSelector: true\n})\n```\n\n```css\n#alpha:hover, .beta:hover {\n\torder: 1;\n}\n```\n\n_`.beta:hover` has specificity as if `.beta` where a class selector, conflicting with the specification._\n\n[specificity: 0, 2, 0](https://polypane.app/css-specificity-calculator/#selector=.beta%3Ahover)\n\n\n#### Complex selectors\n\nBefore :\n\n```css\n.alpha > .beta {\n\t& + & {\n\t\torder: 2;\n\t}\n}\n```\n\nAfter **without** the option :\n\n```js\npostcssNesting()\n```\n\n```css\n:is(.alpha > .beta) + :is(.alpha > .beta) {\n\torder: 2;\n}\n```\n\nAfter **with** the option :\n\n```js\npostcssNesting({\n\tnoIsPseudoSelector: true\n})\n```\n\n```css\n.alpha > .beta + .alpha > .beta {\n\torder: 2;\n}\n```\n\n_this is a different selector than expected as `.beta + .alpha` matches `.beta` followed by `.alpha`._<br>\n_avoid these cases when you disable `:is()`_<br>\n_writing the selector without nesting is advised here_\n\n```css\n/* without nesting */\n.alpha > .beta + .beta {\n\torder: 2;\n}\n```\n\n### ⚠️ Spec disclaimer\n\nThe [CSS Nesting Module] spec states on nesting that \"Declarations occurring after a nested rule are invalid and ignored.\".\nWhile we think it makes sense on browsers, enforcing this at the plugin level introduces several constraints that would\ninterfere with PostCSS' plugin nature such as with `@mixin`\n\n[css-img]: https://cssdb.org/images/badges/nesting-rules.svg\n[css-url]: https://cssdb.org/#nesting-rules\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-img]: https://img.shields.io/npm/v/postcss-nesting.svg\n[npm-url]: https://www.npmjs.com/package/postcss-nesting\n\n[CSS Nesting]: https://drafts.csswg.org/css-nesting-1/\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Nesting]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting\n[PostCSS Nested]: https://github.com/postcss/postcss-nested\n[Sass]: https://sass-lang.com/\n[CSS Nesting Module]: https://www.w3.org/TR/css-nesting-1/\n",
@@ -4541,7 +4663,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-01-24T09:12:47.677Z",
+		"modified": "2023-01-28T07:46:41.327Z",
 		"created": "2015-06-17T16:27:22.458Z",
 		"0.1.0": "2015-06-17T16:27:22.458Z",
 		"1.0.0": "2015-09-15T13:26:47.407Z",
@@ -4585,7 +4707,8 @@
 		"10.1.9": "2022-06-23T13:04:05.402Z",
 		"10.1.10": "2022-06-30T10:20:29.115Z",
 		"10.2.0": "2022-09-14T18:01:00.057Z",
-		"11.0.0": "2023-01-24T09:12:47.513Z"
+		"11.0.0": "2023-01-24T09:12:47.513Z",
+		"11.0.1": "2023-01-28T07:46:41.227Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting#readme",
 	"keywords": [
@@ -4625,5 +4748,5 @@
 		"jaevans36": true,
 		"nuwaio": true
 	},
-	"_downloads": 27103596
+	"_downloads": 30069239
 }

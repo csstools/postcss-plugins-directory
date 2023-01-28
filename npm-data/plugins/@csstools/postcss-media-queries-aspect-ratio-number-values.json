@@ -1,8 +1,9 @@
 {
 	"_id": "@csstools/postcss-media-queries-aspect-ratio-number-values",
+	"_rev": "1-8d8da4689deaab4b90df936d1c13f74b",
 	"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -117,12 +118,128 @@
 				"tmp": "tmp/postcss-media-queries-aspect-ratio-number-values_1.0.0_1668416721209_0.4345927054307166"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
+			"description": "Use number values in aspect-ratio media queries.",
+			"version": "1.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-parser-algorithms": "^2.0.0",
+				"@csstools/css-tokenizer": "^2.0.0",
+				"@csstools/media-query-list-parser": "^2.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-queries-aspect-ratio-number-values#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-media-queries-aspect-ratio-number-values"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"postcss-plugin"
+			],
+			"csstools": {
+				"cssdbId": "media-queries-aspect-ratio-number-values",
+				"exportName": "postcssMediaQueriesAspectRatioNumberValues",
+				"humanReadableName": "PostCSS Media Queries Aspect-Ratio Number Values",
+				"specUrl": "https://www.w3.org/TR/mediaqueries-4/#aspect-ratio"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "3e73e975115b2fd06cc42cc8d61f54767900b67d",
+			"_id": "@csstools/postcss-media-queries-aspect-ratio-number-values@1.0.1",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-V9yQqXdje6OfqDf6EL5iGOpi6N0OEczwYK83rql9UapQwFEryXlAehR5AqH8QqLYb6+y31wUXK6vMxCp0920Zg==",
+				"shasum": "fd6a8e50c2d6d46a5c95b6cdc5563a091fa2f0fa",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-media-queries-aspect-ratio-number-values/-/postcss-media-queries-aspect-ratio-number-values-1.0.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 24264,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCZ7Jkd0/wsEU83piAsLbL7o69hZfhds8BEOzjQNqCnMAIgcx7otSIUJsyyROSa8S5KpRR5KJWpnbREdO/wbwWA5Ug="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NKfACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo26Q/9GTrhMDXixStwA0Awch+oi9kmy2nO1hvgSHogHbDFm2eu6Tv4\r\n4oVWBAXoi0W2L1Tx4GPXH9nZeGP0ilZN90qf+SnQ35+HUry/NOUg7oErOGRU\r\n6JQgiXiYUJLHYyk5Frbz2sOx/fq3x5ppqcQwOAxUGFhOf4XNYgRuzy/ALcmb\r\nqq/biIG1K0ABpRSA8QRrUn3MHuTpU9GF79zUzah2kK+xdLda1ttht4sNkl7T\r\nfF2DLrnOswst4rhMXiXwwr3pbbjPFw4uYnRdECRaG4Ae+51sfVeqoYebRMRl\r\nk80pGFx+u/Ulo0VO82OUsNOREW0yy4ONztCjcb5MFg0YAySZarnpX7VXEMQB\r\nhmULWyIai7liDR7VQ3sXGTluqpxvpd/C2wEewSY4zZxo2SW0SDY2qLpkiARs\r\n5nJ+xvS0KGQ6iJM32AZajXio3XucskYyk2T+Oe7PNWCtx1P4y2KFMgBhzUxo\r\nLD7GfRaIuW+67aNK3Nj+bzWQQ/ash1wb5ZJ0loxoqz0fGMH3Uoj54QPRMC6G\r\n7UTm9NJee1eRaSLl0OZnFpru7XDSk9epDqJ97FhilItcsdkqNCc9vysT5izX\r\nN/9FRMLKtRFUaHeVq2YfIdQlOE0/5bNEkPfxuOOzL6CK92W4tpE4sgM7SBP2\r\n8KXYcARzr+HyYBNXjD/7KaOC3RNky+Nti34=\r\n=2yDU\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-media-queries-aspect-ratio-number-values_1.0.1_1674891934921_0.2190109014571442"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-11-14T09:05:21.153Z",
 		"1.0.0": "2022-11-14T09:05:21.403Z",
-		"modified": "2022-11-14T09:05:21.664Z"
+		"modified": "2023-01-28T07:45:35.200Z",
+		"1.0.1": "2023-01-28T07:45:35.088Z"
 	},
 	"maintainers": [
 		{
@@ -159,7 +276,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Media Queries Aspect-Ratio Number Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-media-queries-aspect-ratio-number-values.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/TODO.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Media Queries Aspect-Ratio Number Values] lets you use non-integer numbers and `calc()` in `aspect-ratio` feature queries following the [Media Queries 4 Specification].\n\n```pcss\n@media (min-aspect-ratio: 1.77) {}\n\n/* becomes */\n\n@media (min-aspect-ratio: 177/100) {}\n```\n\n## Usage\n\nAdd [PostCSS Media Queries Aspect-Ratio Number Values] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-media-queries-aspect-ratio-number-values --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssMediaQueriesAspectRatioNumberValues = require('@csstools/postcss-media-queries-aspect-ratio-number-values');\n\npostcss([\n\tpostcssMediaQueriesAspectRatioNumberValues(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Media Queries Aspect-Ratio Number Values] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssMediaQueriesAspectRatioNumberValues({ preserve: true })\n```\n\n```pcss\n@media (min-aspect-ratio: 1.77) {}\n\n/* becomes */\n\n@media (min-aspect-ratio: 1.77),(min-aspect-ratio: 177/100) {}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#TODO\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-media-queries-aspect-ratio-number-values\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Media Queries Aspect-Ratio Number Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-queries-aspect-ratio-number-values\n[Media Queries 4 Specification]: https://www.w3.org/TR/mediaqueries-4/#aspect-ratio\n",
+	"readme": "# PostCSS Media Queries Aspect-Ratio Number Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-media-queries-aspect-ratio-number-values.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/media-queries-aspect-ratio-number-values.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Media Queries Aspect-Ratio Number Values] lets you use non-integer numbers and `calc()` in `aspect-ratio` feature queries following the [Media Queries 4 Specification].\n\n```pcss\n@media (min-aspect-ratio: 1.77) {}\n\n/* becomes */\n\n@media (min-aspect-ratio: 177/100) {}\n```\n\n## Usage\n\nAdd [PostCSS Media Queries Aspect-Ratio Number Values] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-media-queries-aspect-ratio-number-values --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssMediaQueriesAspectRatioNumberValues = require('@csstools/postcss-media-queries-aspect-ratio-number-values');\n\npostcss([\n\tpostcssMediaQueriesAspectRatioNumberValues(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Media Queries Aspect-Ratio Number Values] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssMediaQueriesAspectRatioNumberValues({ preserve: true })\n```\n\n```pcss\n@media (min-aspect-ratio: 1.77) {}\n\n/* becomes */\n\n@media (min-aspect-ratio: 1.77),(min-aspect-ratio: 177/100) {}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#media-queries-aspect-ratio-number-values\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-media-queries-aspect-ratio-number-values\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Media Queries Aspect-Ratio Number Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-queries-aspect-ratio-number-values\n[Media Queries 4 Specification]: https://www.w3.org/TR/mediaqueries-4/#aspect-ratio\n",
 	"readmeFilename": "README.md",
-	"_downloads": 6
+	"_downloads": 21926
 }

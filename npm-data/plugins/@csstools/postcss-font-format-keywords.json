@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-font-format-keywords",
-	"_rev": "3-4a8eac8c9e30cbc2f1598cc29d95fdd2",
+	"_rev": "4-b8e7928be15a3e6718c6952985de1e72",
 	"name": "@csstools/postcss-font-format-keywords",
 	"dist-tags": {
-		"latest": "2.0.0"
+		"latest": "2.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -328,14 +328,128 @@
 				"tmp": "tmp/postcss-font-format-keywords_2.0.0_1674551154758_0.08833004555110802"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "@csstools/postcss-font-format-keywords",
+			"description": "Use unquoted format on @font-face CSS definitions.",
+			"version": "2.0.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-format-keywords#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-font-format-keywords"
+			},
+			"keywords": [
+				"css",
+				"embedded-opentype",
+				"font",
+				"font-format-keywords",
+				"format",
+				"opentype",
+				"postcss-plugin",
+				"truetype",
+				"woff",
+				"woff2"
+			],
+			"csstools": {
+				"exportName": "postcssFontFormatKeywords",
+				"humanReadableName": "PostCSS Font Format Keywords"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "87bca1d7e24740cdf29ea86e12da9ead5f70c4fb",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"_id": "@csstools/postcss-font-format-keywords@2.0.1",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-NRwT5g/L+lDkridDiHfjNGyHvdSHJOdcXPPZXZOpSfr/AwRxTJ+wsbKAzyBb1stalkr9KjICDr+ofpkk96r0Wg==",
+				"shasum": "47d2de91a3342bff3049c698e508215702db2f7e",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-font-format-keywords/-/postcss-font-format-keywords-2.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 13977,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGNS5RY3erZ7gh0e/Q/kd1UzwCHVKqb0hbeDlXw1Ju7sAiEAuBx9F324JDkQ64ZVP6/XzWTW4R6KBUo3VkUyc/S9FJg="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NE3ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp7Rg//XWFEEXTMtpz+ktXwEdqa5MSIgvBoLw7D3PxZp7YlCixaClje\r\noNqEPtAT4HU8R/fBGjJyihVOIUSzfiX46+ioQQgatPwiRPhnbptzYnaYdGxx\r\nIB+LizTuMlAkUkN1zHpdtDuRKuz/klLIqozLeYirMCy6daw2Rj1OCXLRjbBV\r\nrRQ2wpaE1nq7Algs+a2lV3ajtIL94VC84TEv8ZlX2EzRlDSLr88Yy6dE0eYv\r\naArLOtjNq7AvgWzrbH5c8sm3yjMIl7X98tqtjxjBJh49MXdTv+WN42WLqAeI\r\nxfxpkr371VyiEHhIDxpa3BXhuO89N8xpixJzGd3zlvHyoXnYqSWv3TOlS0PR\r\nwuxUQ4Hcg+lD73L1lVXNn4DCdxNLJYTv+622WsfqAgOxd57yheZXC6rvQc0o\r\nhkgDKZndcHHE0t/UxKgANvbbhvOKCfiHNHBOALdnQo1Wo0e5Jqes7VIIdtW+\r\nUZty2oGl19VqwwJeq9mS1VBwERQF6vv5Uhf+4UjEFER1265TNWCcAIZFyjRp\r\n1/lDNS9P8YEc26COKT5LEhyiR+YU0bmeNu3f3Kjmxa4sUaNsny5dJ6ozrD9A\r\nJrjy5A9Wlqe1Fx/H6522xaBKPgbZml96nPtwAUSZ5u81bWewWW/iZw/UnUYJ\r\nCnVOFWgtyF+rVNviubo6XYdKLHSIks8DNV4=\r\n=WC0R\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-font-format-keywords_2.0.1_1674891575589_0.46027924768392325"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-01-25T19:00:23.374Z",
 		"1.0.0": "2022-01-25T19:00:23.541Z",
-		"modified": "2023-01-24T09:05:55.055Z",
+		"modified": "2023-01-28T07:39:35.845Z",
 		"1.0.1": "2022-07-08T16:21:33.050Z",
-		"2.0.0": "2023-01-24T09:05:54.962Z"
+		"2.0.0": "2023-01-24T09:05:54.962Z",
+		"2.0.1": "2023-01-28T07:39:35.752Z"
 	},
 	"maintainers": [
 		{
@@ -376,5 +490,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Font Format [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-font-format-keywords.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/font-format-keywords.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Font Format Keywords] lets you specify font formats as keywords, following the [CSS Fonts] specification.\n\n```pcss\n@font-face {\n  src: url(file.woff2) format(woff2);\n}\n\n/* becomes */\n\n@font-face {\n  src: url(file.woff2) format(\"woff2\");\n}\n```\n\n_See prior work by [valtlai](https://github.com/valtlai) here [postcss-font-format-keywords](https://github.com/valtlai/postcss-font-format-keywords)\nTo ensure long term maintenance and to provide the needed features this plugin was recreated based on valtlai's work._\n\n## Usage\n\nAdd [PostCSS Font Format Keywords] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-font-format-keywords --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssFontFormatKeywords = require('@csstools/postcss-font-format-keywords');\n\npostcss([\n  postcssFontFormatKeywords(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Font Format Keywords] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original source\nis preserved. By default, it is not preserved.\n\n```js\npostcssFontFormatKeywords({ preserve: true })\n```\n\n```pcss\n@font-face {\n  src: url(file.woff2) format(woff2);\n}\n\n/* becomes */\n\n@font-face {\n  src: url(file.woff2) format(\"woff2\");\n  src: url(file.woff2) format(woff2);\n}\n```\n\n[postcss]: https://github.com/postcss/postcss\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#font-format-keywords\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-font-format-keywords\n\n[CSS Fonts]: https://www.w3.org/TR/css-fonts-4/#font-format-values\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Font Format Keywords]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-format-keywords\n",
 	"readmeFilename": "README.md",
-	"_downloads": 11560762
+	"_downloads": 12923983
 }

@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-color-hex-alpha",
-	"_rev": "30-90c2a9e2cb7dfa4a577b49d23b796892",
+	"_rev": "31-d527abb44a06326293ea8ab176ff7285",
 	"name": "postcss-color-hex-alpha",
 	"description": "Use 4 & 8 character hex color notation in CSS",
 	"dist-tags": {
-		"latest": "9.0.0"
+		"latest": "9.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -2009,6 +2009,147 @@
 				"tmp": "tmp/postcss-color-hex-alpha_9.0.0_1674550090954_0.42977285000223153"
 			},
 			"_hasShrinkwrap": false
+		},
+		"9.0.1": {
+			"name": "postcss-color-hex-alpha",
+			"description": "Use 4 & 8 character hex color notation in CSS",
+			"version": "9.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Maxime Thirouin"
+				}
+			],
+			"license": "MIT",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-hex-alpha#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-hex-alpha"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"4-digit",
+				"8-digit",
+				"alpha",
+				"color",
+				"css",
+				"csswg",
+				"hex",
+				"postcss",
+				"postcss-plugin",
+				"spec",
+				"specification",
+				"transparency",
+				"transparent",
+				"w3c"
+			],
+			"csstools": {
+				"cssdbId": "hexadecimal-alpha-notation",
+				"exportName": "postcssColorHexAlpha",
+				"humanReadableName": "PostCSS Color Hex Alpha",
+				"specUrl": "https://www.w3.org/TR/css-color-4/#hex-notation"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "8d20cc7af1fee7936ab76a97731596baf6620ed1",
+			"_id": "postcss-color-hex-alpha@9.0.1",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-1ZTJvmOZXTCsedKeY+Puqwx6AgoyB1KnzSD/CGDIl1NWvDfxi1jYky4R9konw2SAYw0SOeU33EU27ihE59Fp8Q==",
+				"shasum": "2dbb1b7a64428ee291465171601ffff0d057b455",
+				"tarball": "https://registry.npmjs.org/postcss-color-hex-alpha/-/postcss-color-hex-alpha-9.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 10332,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC3N5UmA7hGMDzpfDfWjjI0SE7lz65bVO+nqpd7CeGtlQIgZCefhbYBdundrVSqjgUTJ9ZMs27jRpqWG2Tes7JEyAk="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1M+YACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpEVA/+MsOGBQ+NwY014KLD+qUyJ8feEi5sqvbeo54K4MTOwS+JOYIh\r\nfiOM+I6S25z9ugiEaJTWfw/MYZqilAhO2W0B2QEEzS1P7ICdiw8WIFK3n4d7\r\n5OU9gR/dU+9iyH7KcwGkdlbU+vMsbDbCDjtEGxgYX931VQrRslrEptGXT+Pv\r\n9YwSrASoZsU9wPqb5+C5rfkjYl7BS6RK7VzwndOEeb3IfBCASqZvePPylDt6\r\ndjfU+cbwkTxDthI6KS8yOsbAux2qbDjEuB7ClEmD+W8JATTO+dfoGdS8tmqk\r\nJ7ySHPvvaar8L4IzYKkXPY0kPLcXC5dIYUxRMo/tEpJwtJnA/4KkW6F17b1W\r\nmC9lk7CSjmV4h9VeOFSsg0QFVp+y7AOrC4EbUrhjlYoP8dcY7rUuGMrnB0Pe\r\n5UQ7GzJfZk2AMj5gD3Wp+RGCKbfqhdMR/SXF82ykbVCG0hVFq1/KVBi1I3DV\r\nnJWzQZlz2ja724Rid6aYMG/tYcA4te3T9F63qVk3erYLyJtTZnBVWuCL37IT\r\nJe1ABBRK0/IWl+8+9yG2wEqqDPYh1QVRQ2aLFZW6r7PnYogGW2h3pFMzVtyZ\r\nLmKYvYzlazBt+4iIebVuK6VkSM30xeOXJ5kRfcHxQB8+eETXRxSlOKj161gO\r\niE0I+gDEZ7+V9vFUeP+BxEqijYWGZXwqMa0=\r\n=L0M0\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-hex-alpha_9.0.1_1674891160166_0.945198552080238"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Color Hex Alpha [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-color-hex-alpha.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/hexadecimal-alpha-notation.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Color Hex Alpha] lets you use 4 & 8 character hex color notation in\nCSS, following the [CSS Color Module] specification.\n\n```pcss\nbody {\n\tbackground: #9d9c;\n}\n\n/* becomes */\n\nbody {\n\tbackground: rgba(153,221,153,0.8);\n}\n```\n\n## Usage\n\nAdd [PostCSS Color Hex Alpha] to your project:\n\n```bash\nnpm install postcss postcss-color-hex-alpha --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssColorHexAlpha = require('postcss-color-hex-alpha');\n\npostcss([\n\tpostcssColorHexAlpha(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Color Hex Alpha] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssColorHexAlpha({ preserve: true })\n```\n\n```pcss\nbody {\n\tbackground: #9d9c;\n}\n\n/* becomes */\n\nbody {\n\tbackground: rgba(153,221,153,0.8);\n\tbackground: #9d9c;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#hexadecimal-alpha-notation\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-color-hex-alpha\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Color Hex Alpha]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-hex-alpha\n[CSS Color Module]: https://www.w3.org/TR/css-color-4/#hex-notation\n",
@@ -2031,7 +2172,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-01-24T08:48:11.204Z",
+		"modified": "2023-01-28T07:32:40.426Z",
 		"created": "2014-10-04T06:06:14.491Z",
 		"1.0.0": "2014-10-04T06:06:14.491Z",
 		"1.1.0": "2014-11-25T07:46:30.250Z",
@@ -2051,7 +2192,8 @@
 		"8.0.2": "2022-01-02T15:45:40.887Z",
 		"8.0.3": "2022-02-05T17:00:07.407Z",
 		"8.0.4": "2022-06-10T07:39:26.851Z",
-		"9.0.0": "2023-01-24T08:48:11.118Z"
+		"9.0.0": "2023-01-24T08:48:11.118Z",
+		"9.0.1": "2023-01-28T07:32:40.328Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-hex-alpha#readme",
 	"keywords": [
@@ -2098,5 +2240,5 @@
 			"name": "Maxime Thirouin"
 		}
 	],
-	"_downloads": 25615385
+	"_downloads": 28454100
 }

@@ -1,9 +1,9 @@
 {
 	"_id": "css-prefers-color-scheme",
-	"_rev": "15-365a0a07a8e08d6aa9725e2a0de46215",
+	"_rev": "16-f746cecd69a9a29a2f49516d7a20727b",
 	"name": "css-prefers-color-scheme",
 	"dist-tags": {
-		"latest": "8.0.0"
+		"latest": "8.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1648,12 +1648,151 @@
 				"tmp": "tmp/css-prefers-color-scheme_8.0.0_1674549906598_0.05812765409243981"
 			},
 			"_hasShrinkwrap": false
+		},
+		"8.0.1": {
+			"name": "css-prefers-color-scheme",
+			"description": "Use light and dark color schemes in all browsers",
+			"version": "8.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"puppeteer": "^19.5.2"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-prefers-color-scheme#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/css-prefers-color-scheme"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"css",
+				"dark",
+				"interface",
+				"light",
+				"media",
+				"mode",
+				"no-preference",
+				"postcss",
+				"postcss-plugin",
+				"prefers",
+				"queries",
+				"query",
+				"scheme"
+			],
+			"csstools": {
+				"cssdbId": "prefers-color-scheme-query",
+				"exportName": "prefersColorScheme",
+				"humanReadableName": "Prefers Color Scheme",
+				"specUrl": "https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "877f7484279ebc8a80a3d4db2f21d71d436831f4",
+			"_id": "css-prefers-color-scheme@8.0.1",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-RPRyqJsk5KIjP2+WGhcGCaAJB8ojLbX1mVE8fG9127jQmnp1FNMfNMkERk/w6c4smgC/i5KxcY+Rtaa6/bMdKQ==",
+				"shasum": "fc7217734df3d8e5337d614921e1fa1d10b1fa38",
+				"tarball": "https://registry.npmjs.org/css-prefers-color-scheme/-/css-prefers-color-scheme-8.0.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 47770,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQD3g+5/660y1+ICR1immOEOV345/mESp82I2AmObswt2QIgRhgpVIoCXprGyMOxSZxf9hDmzqWtNjpYl63dp0D8MuM="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1M6EACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoINA/7BVzCtXTPd47o/xEejII58okM5hHMwM6Q16HQGxtRKUh+WH2Q\r\n/lZvNNBXe8UVSDuTO0nINouIW0HmzD98reWCwR9aUuV0KPEP59w2MtFB1pfU\r\nXkdWYJsXXulYcWo88NJeaXn7V7YjyCj0iHyENcT7iGedSZjc6Ofm/Ku5Fvvl\r\nhFPdMfKjdDz6+Jcm4FhxCA71mZvDHHzOXRWFZnvwAr6QpS5xMXKt+PpPrq5c\r\nImmVWoIMU26UWGXpfZggk/f6pERUM9fIlBzh9Vt0uyoaCK2I/f57Yi0zEJD+\r\nyJrRdOG6qrWQkkXrdJ+baBk8W32JdstMjVzKZ7Wbr8K0yJq8E2U/mHo2Sti6\r\nYFtD6VrZmqX8iUZWndYx+80CVoQZwsb7oOEbOmj4yo95g5ZYkTBCcPb+gnnd\r\nc7zAhHtwCkAALGZdK9OQBG/Im5dCOxU2jI7PWmHL+vqzuVuoLG57IBVzM9AK\r\nWQ6FBiIJtK3GN28yyGQ0gQVaG6PdEr0bJwwIBcrXxdaDq/UdyLW+rJqW0TW6\r\ngQ/AbWbAbV+dGGxjXer/qXiiwAq6OUkFmM7C4w/pNwEmNZGWaS9Oj8MMWmny\r\niq76kXUb6yEfMol5BMw5AixvqF+r/ZAZwerNXWProwubHdw8vAJCFbyMC0SX\r\n8bqdtttyO+2BVyTZQwjB5z4j6omL2hrbteA=\r\n=2APm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-prefers-color-scheme_8.0.1_1674890884415_0.1689848490103154"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-09-25T03:33:24.987Z",
 		"1.0.0": "2018-09-25T03:33:25.157Z",
-		"modified": "2023-01-24T08:45:06.827Z",
+		"modified": "2023-01-28T07:28:04.702Z",
 		"2.0.0": "2018-11-04T05:03:55.053Z",
 		"3.0.0": "2018-11-04T16:41:18.891Z",
 		"3.1.0": "2018-11-10T21:15:03.175Z",
@@ -1666,7 +1805,8 @@
 		"6.0.3": "2022-01-31T07:52:24.340Z",
 		"7.0.0": "2022-07-08T17:29:40.876Z",
 		"7.0.1": "2022-08-23T20:52:32.916Z",
-		"8.0.0": "2023-01-24T08:45:06.744Z"
+		"8.0.0": "2023-01-24T08:45:06.744Z",
+		"8.0.1": "2023-01-28T07:28:04.607Z"
 	},
 	"maintainers": [
 		{
@@ -1705,7 +1845,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# Prefers Color Scheme [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/css-prefers-color-scheme.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/prefers-color-scheme-query.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[Prefers Color Scheme] lets you use light and dark color schemes in all browsers, following the [Media Queries] specification.\n\n```pcss\n@media (prefers-color-scheme: dark) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (prefers-color-scheme: light) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n\n/* becomes */\n\n@media (color: 48842621) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (prefers-color-scheme: dark) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (color: 70318723) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n\n@media (prefers-color-scheme: light) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n```\n\n## Usage\n\nAdd [Prefers Color Scheme] to your project:\n\n```bash\nnpm install postcss css-prefers-color-scheme --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst prefersColorScheme = require('css-prefers-color-scheme');\n\npostcss([\n\tprefersColorScheme(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[Prefers Color Scheme] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\nprefersColorScheme({ preserve: false })\n```\n\n```pcss\n@media (prefers-color-scheme: dark) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (prefers-color-scheme: light) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n\n/* becomes */\n\n@media (color: 48842621) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (color: 70318723) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n```\n\n## Browser\n\n```js\n// initialize prefersColorScheme (applies the current OS color scheme, if available)\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit();\n\n// apply \"dark\" queries (you can also apply \"light\")\nprefersColorScheme.scheme = 'dark';\n```\n\nor\n\n```html\n<!-- When using a CDN url you will have to manually update the version number -->\n<script src=\"https://unpkg.com/css-prefers-color-scheme@8.0.0/dist/browser-global.js\"></script>\n<script>prefersColorSchemeInit()</script>\n```\n\n⚠️ Please use a versioned url, like this : `https://unpkg.com/css-prefers-color-scheme@8.0.0/dist/browser-global.js`\nWithout the version, you might unexpectedly get a new major version of the library with breaking changes.\n\n[Prefers Color Scheme] works in all major browsers, including Safari 6+ and\nInternet Explorer 9+ without any additional polyfills.\n\nTo maintain compatibility with browsers supporting `prefers-color-scheme`, the\nlibrary will remove `prefers-color-scheme` media queries in favor of\ncross-browser compatible `color` media queries. This ensures a seamless\nexperience, even when JavaScript is unable to run.\n\n### Browser Usage\n\nUse [Prefers Color Scheme] to activate your `prefers-color-scheme` queries:\n\n```js\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit();\n```\n\nBy default, the current OS color scheme is applied if your browser supports it.\nOtherwise, the light color scheme is applied. You may override this by passing\nin a color scheme.\n\n```js\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit('dark');\n```\n\nThe `prefersColorScheme` object returns the following properties — `scheme`,\n`hasNativeSupport`, `onChange`, and `removeListener`.\n\n#### scheme\n\nThe `scheme` property returns the currently preferred color scheme, and it can\nbe changed.\n\n```js\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit();\n\n// log the preferred color scheme\nconsole.log(prefersColorScheme.scheme);\n\n// apply \"dark\" queries\nprefersColorScheme.scheme = 'dark';\n```\n\n#### hasNativeSupport\n\nThe `hasNativeSupport` boolean represents whether `prefers-color-scheme` is\nsupported by the browser.\n\n#### onChange\n\nThe optional `onChange` function is run when the preferred color scheme is\nchanged, either from the OS or manually.\n\n#### removeListener\n\nThe `removeListener` function removes the native `prefers-color-scheme`\nlistener, which may or may not be applied, depending on your browser support.\nThis is provided to give you complete control over plugin cleanup.\n\n#### debug\n\nIf styles are not applied you can enable debug mode to log exceptions.\n\n```js\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit('light', { debug: true });\n```\n\n```html\n<script src=\"https://unpkg.com/css-prefers-color-scheme@8.0.0/dist/browser-global.js\"></script>\n<script>prefersColorSchemeInit('light', { debug: true })</script>\n```\n\n\n### Browser Dependencies\n\nWeb API's:\n\n- [Window.matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)\n\nECMA Script:\n\n- `Object.defineProperty`\n- `Array.prototype.forEach`\n- `Array.prototype.indexOf`\n- `RegExp.prototype.exec`\n- `String.prototype.match`\n- `String.prototype.replace`\n\n## CORS\n\n⚠️ Applies to you if you load CSS from a different domain than the page.\n\nIn this case the CSS is treated as untrusted and will not be made available to the JavaScript polyfill.\nThe polyfill will not work without applying the correct configuration for CORS.\n\nExample :\n\n| page | css | CORS applies |\n| --- | --- | --- |\n| https://example.com/ | https://example.com/style.css | no |\n| https://example.com/ | https://other.com/style.css | yes |\n\n\n**You might see one of these error messages :**\n\nChrome :\n\n> DOMException: Failed to read the 'cssRules' property from 'CSSStyleSheet': Cannot access rules\n\nSafari :\n\n> SecurityError: Not allowed to access cross-origin stylesheet\n\nFirefox :\n\n> DOMException: CSSStyleSheet.cssRules getter: Not allowed to access cross-origin stylesheet\n\nTo resolve CORS errors you need to take two steps :\n\n- add an HTTP header `Access-Control-Allow-Origin: <your-value>` when serving your CSS file.\n- add `crossorigin=\"anonymous\"` to the `<link rel=\"stylesheet\">` tag for your CSS file.\n\nIn a node server setting the HTTP header might look like this :\n\n```js\n// http://localhost:8080 is the domain of your page!\nres.setHeader('Access-Control-Allow-Origin', 'https://example.com');\n```\n\nYou can also configure a wildcard but please be aware that this might be a security risk.\nIt is better to only set the header for the domain you want to allow and only on the responses you want to allow.\n\nHTML might look like this :\n\n```html\n<link rel=\"stylesheet\" href=\"https://example.com/styles.css\" crossorigin=\"anonymous\">\n```\n\n\n### Using with Next.js\n\nGiven that Next.js imports packages both on the browser and on the server, you need to make sure that the package is only imported on the browser.\n\nAs outlined in the [Next.js documentation](https://nextjs.org/docs/advanced-features/dynamic-import#with-external-libraries), you need to load the package with a dynamic import:\n\n```jsx\nuseEffect(async () => {\n\tconst prefersColorSchemeInit = (await import('css-prefers-color-scheme/browser')).default;\n\tconst prefersColorScheme = prefersColorSchemeInit();\n}, []);\n```\n\n## How does it work?\n\n[Prefers Color Scheme] is a [PostCSS] plugin that transforms `prefers-color-scheme` queries into `color` queries.\nThis changes `prefers-color-scheme: dark` into `(color: 48842621)` and `prefers-color-scheme: light` into `(color: 70318723)`.\n\nThe frontend receives these `color` queries, which are understood in all\nmajor browsers going back to Internet Explorer 9.\nHowever, since browsers can only have a reasonably small number of bits per color,\nour color scheme values are ignored.\n\n[Prefers Color Scheme] uses a [browser script](#browser) to change\n`(color: 48842621)` queries into `(max-color: 48842621)` in order to\nactivate “dark mode” specific CSS, and it changes `(color: 70318723)` queries\ninto `(max-color: 48842621)` to activate “light mode” specific CSS.\n\n```css\n@media (color: 70318723) { /* prefers-color-scheme: light */\n\tbody {\n\t\tbackground-color: white;\n\t\tcolor: black;\n\t}\n}\n```\n\nSince these media queries are accessible to `document.styleSheet`, no CSS\nparsing is required.\n\n### Why does the fallback work this way?\n\nThe value of `48` is chosen for dark mode because it is the keycode for `0`,\nthe hexidecimal value of black. Likewise, `70` is chosen for light mode because\nit is the keycode for `f`, the hexidecimal value of white.\nThese are suffixed with a random large number.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#prefers-color-scheme-query\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/css-prefers-color-scheme\n\n[PostCSS]: https://github.com/postcss/postcss\n[Prefers Color Scheme]: https://github.com/csstools/postcss-plugins/tree/main/plugins/css-prefers-color-scheme\n[Media Queries]: https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme\n",
+	"readme": "# Prefers Color Scheme [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/css-prefers-color-scheme.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/prefers-color-scheme-query.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[Prefers Color Scheme] lets you use light and dark color schemes in all browsers, following the [Media Queries] specification.\n\n```pcss\n@media (prefers-color-scheme: dark) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (prefers-color-scheme: light) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n\n/* becomes */\n\n@media (color: 48842621) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (prefers-color-scheme: dark) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (color: 70318723) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n\n@media (prefers-color-scheme: light) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n```\n\n## Usage\n\nAdd [Prefers Color Scheme] to your project:\n\n```bash\nnpm install postcss css-prefers-color-scheme --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst prefersColorScheme = require('css-prefers-color-scheme');\n\npostcss([\n\tprefersColorScheme(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[Prefers Color Scheme] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\nprefersColorScheme({ preserve: false })\n```\n\n```pcss\n@media (prefers-color-scheme: dark) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (prefers-color-scheme: light) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n\n/* becomes */\n\n@media (color: 48842621) {\n\t:root {\n\t\t--site-bgcolor: #1b1b1b;\n\t\t--site-color: #fff;\n\t}\n}\n\n@media (color: 70318723) {\n\t:root {\n\t\t--site-bgcolor: #fff;\n\t\t--site-color: #222;\n\t}\n}\n```\n\n## Browser\n\n```js\n// initialize prefersColorScheme (applies the current OS color scheme, if available)\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit();\n\n// apply \"dark\" queries (you can also apply \"light\")\nprefersColorScheme.scheme = 'dark';\n```\n\nor\n\n```html\n<!-- When using a CDN url you will have to manually update the version number -->\n<script src=\"https://unpkg.com/css-prefers-color-scheme@8.0.1/dist/browser-global.js\"></script>\n<script>prefersColorSchemeInit()</script>\n```\n\n⚠️ Please use a versioned url, like this : `https://unpkg.com/css-prefers-color-scheme@8.0.1/dist/browser-global.js`\nWithout the version, you might unexpectedly get a new major version of the library with breaking changes.\n\n[Prefers Color Scheme] works in all major browsers, including Safari 6+ and\nInternet Explorer 9+ without any additional polyfills.\n\nTo maintain compatibility with browsers supporting `prefers-color-scheme`, the\nlibrary will remove `prefers-color-scheme` media queries in favor of\ncross-browser compatible `color` media queries. This ensures a seamless\nexperience, even when JavaScript is unable to run.\n\n### Browser Usage\n\nUse [Prefers Color Scheme] to activate your `prefers-color-scheme` queries:\n\n```js\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit();\n```\n\nBy default, the current OS color scheme is applied if your browser supports it.\nOtherwise, the light color scheme is applied. You may override this by passing\nin a color scheme.\n\n```js\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit('dark');\n```\n\nThe `prefersColorScheme` object returns the following properties — `scheme`,\n`hasNativeSupport`, `onChange`, and `removeListener`.\n\n#### scheme\n\nThe `scheme` property returns the currently preferred color scheme, and it can\nbe changed.\n\n```js\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit();\n\n// log the preferred color scheme\nconsole.log(prefersColorScheme.scheme);\n\n// apply \"dark\" queries\nprefersColorScheme.scheme = 'dark';\n```\n\n#### hasNativeSupport\n\nThe `hasNativeSupport` boolean represents whether `prefers-color-scheme` is\nsupported by the browser.\n\n#### onChange\n\nThe optional `onChange` function is run when the preferred color scheme is\nchanged, either from the OS or manually.\n\n#### removeListener\n\nThe `removeListener` function removes the native `prefers-color-scheme`\nlistener, which may or may not be applied, depending on your browser support.\nThis is provided to give you complete control over plugin cleanup.\n\n#### debug\n\nIf styles are not applied you can enable debug mode to log exceptions.\n\n```js\nimport prefersColorSchemeInit from 'css-prefers-color-scheme/browser';\nconst prefersColorScheme = prefersColorSchemeInit('light', { debug: true });\n```\n\n```html\n<script src=\"https://unpkg.com/css-prefers-color-scheme@8.0.1/dist/browser-global.js\"></script>\n<script>prefersColorSchemeInit('light', { debug: true })</script>\n```\n\n\n### Browser Dependencies\n\nWeb API's:\n\n- [Window.matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)\n\nECMA Script:\n\n- `Object.defineProperty`\n- `Array.prototype.forEach`\n- `Array.prototype.indexOf`\n- `RegExp.prototype.exec`\n- `String.prototype.match`\n- `String.prototype.replace`\n\n## CORS\n\n⚠️ Applies to you if you load CSS from a different domain than the page.\n\nIn this case the CSS is treated as untrusted and will not be made available to the JavaScript polyfill.\nThe polyfill will not work without applying the correct configuration for CORS.\n\nExample :\n\n| page | css | CORS applies |\n| --- | --- | --- |\n| https://example.com/ | https://example.com/style.css | no |\n| https://example.com/ | https://other.com/style.css | yes |\n\n\n**You might see one of these error messages :**\n\nChrome :\n\n> DOMException: Failed to read the 'cssRules' property from 'CSSStyleSheet': Cannot access rules\n\nSafari :\n\n> SecurityError: Not allowed to access cross-origin stylesheet\n\nFirefox :\n\n> DOMException: CSSStyleSheet.cssRules getter: Not allowed to access cross-origin stylesheet\n\nTo resolve CORS errors you need to take two steps :\n\n- add an HTTP header `Access-Control-Allow-Origin: <your-value>` when serving your CSS file.\n- add `crossorigin=\"anonymous\"` to the `<link rel=\"stylesheet\">` tag for your CSS file.\n\nIn a node server setting the HTTP header might look like this :\n\n```js\n// http://localhost:8080 is the domain of your page!\nres.setHeader('Access-Control-Allow-Origin', 'https://example.com');\n```\n\nYou can also configure a wildcard but please be aware that this might be a security risk.\nIt is better to only set the header for the domain you want to allow and only on the responses you want to allow.\n\nHTML might look like this :\n\n```html\n<link rel=\"stylesheet\" href=\"https://example.com/styles.css\" crossorigin=\"anonymous\">\n```\n\n\n### Using with Next.js\n\nGiven that Next.js imports packages both on the browser and on the server, you need to make sure that the package is only imported on the browser.\n\nAs outlined in the [Next.js documentation](https://nextjs.org/docs/advanced-features/dynamic-import#with-external-libraries), you need to load the package with a dynamic import:\n\n```jsx\nuseEffect(async () => {\n\tconst prefersColorSchemeInit = (await import('css-prefers-color-scheme/browser')).default;\n\tconst prefersColorScheme = prefersColorSchemeInit();\n}, []);\n```\n\n## How does it work?\n\n[Prefers Color Scheme] is a [PostCSS] plugin that transforms `prefers-color-scheme` queries into `color` queries.\nThis changes `prefers-color-scheme: dark` into `(color: 48842621)` and `prefers-color-scheme: light` into `(color: 70318723)`.\n\nThe frontend receives these `color` queries, which are understood in all\nmajor browsers going back to Internet Explorer 9.\nHowever, since browsers can only have a reasonably small number of bits per color,\nour color scheme values are ignored.\n\n[Prefers Color Scheme] uses a [browser script](#browser) to change\n`(color: 48842621)` queries into `(max-color: 48842621)` in order to\nactivate “dark mode” specific CSS, and it changes `(color: 70318723)` queries\ninto `(max-color: 48842621)` to activate “light mode” specific CSS.\n\n```css\n@media (color: 70318723) { /* prefers-color-scheme: light */\n\tbody {\n\t\tbackground-color: white;\n\t\tcolor: black;\n\t}\n}\n```\n\nSince these media queries are accessible to `document.styleSheet`, no CSS\nparsing is required.\n\n### Why does the fallback work this way?\n\nThe value of `48` is chosen for dark mode because it is the keycode for `0`,\nthe hexidecimal value of black. Likewise, `70` is chosen for light mode because\nit is the keycode for `f`, the hexidecimal value of white.\nThese are suffixed with a random large number.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#prefers-color-scheme-query\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/css-prefers-color-scheme\n\n[PostCSS]: https://github.com/postcss/postcss\n[Prefers Color Scheme]: https://github.com/csstools/postcss-plugins/tree/main/plugins/css-prefers-color-scheme\n[Media Queries]: https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme\n",
 	"readmeFilename": "README.md",
 	"contributors": [
 		{
@@ -1722,5 +1862,5 @@
 			"email": "jonathantneal@hotmail.com"
 		}
 	],
-	"_downloads": 24527833
+	"_downloads": 27247946
 }

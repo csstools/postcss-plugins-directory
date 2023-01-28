@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-variants",
-	"_rev": "3-29f143bb365fad39694c89cabf095b79",
+	"_rev": "4-e983bf5928481ec5e5e50405339823c1",
 	"name": "postcss-variants",
 	"dist-tags": {
-		"latest": "0.2.0"
+		"latest": "0.3.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -347,14 +347,129 @@
 				"tmp": "tmp/postcss-variants_0.2.0_1645216893193_0.9703105800655227"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.3.0": {
+			"name": "postcss-variants",
+			"version": "0.3.0",
+			"description": "PostCSS plugin for generating functional css variants.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"functional",
+				"atomic",
+				"variants"
+			],
+			"main": "src/index.js",
+			"scripts": {
+				"test": "jest --coverage && eslint ."
+			},
+			"author": {
+				"name": "Ali Gangji",
+				"email": "ali@neonrain.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cogentParadigm/postcss-variants.git"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.1.5"
+			},
+			"devDependencies": {
+				"clean-publish": "^1.1.8",
+				"eslint": "^7.14.0",
+				"eslint-plugin-jest": "^24.1.3",
+				"husky": "^4.3.0",
+				"jest": "^26.4.2",
+				"lint-staged": "^10.4.0",
+				"postcss": "^8.1.5"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged"
+				}
+			},
+			"lint-staged": {
+				"*.js": "eslint --fix"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"testEnvironment": "node",
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.4"
+			},
+			"gitHead": "a5aa41e30996dd48d5d41cf4552174b6ffa55275",
+			"bugs": {
+				"url": "https://github.com/cogentParadigm/postcss-variants/issues"
+			},
+			"homepage": "https://github.com/cogentParadigm/postcss-variants#readme",
+			"_id": "postcss-variants@0.3.0",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "9.1.2",
+			"dist": {
+				"integrity": "sha512-omlzlHzTN2mpTVBne2IusEPxA9BWuHZ6+Xr2iUKEItVaHw169QfuTdpAwfJ23ysKOMr7JOYZX3mNlIk1R1yfVA==",
+				"shasum": "a3b23549345509a1be0d3e3eb8a820f8663a4b49",
+				"tarball": "https://registry.npmjs.org/postcss-variants/-/postcss-variants-0.3.0.tgz",
+				"fileCount": 25,
+				"unpackedSize": 22063,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICfRQTndbcFKdUoC53BHVfU1JU6P+bZuqnh1iw9LwVABAiEAkOsyHt4hnNU8d6QkJIzbZ8/h1h7ZyWFMiavJO34JvOo="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1KULACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrALQ//alTdE+dNX9ur6d0NMXV573+DkLrVcwppGu7CJFVmt1ddelBC\r\nnUY7rKOOuPadaJLTMpDtqcarDmpSv7tPDcyTE02n76JbhPmri5X9EKM+BXdd\r\nxcdQ1MerUu1kMmWX4LGC/+Xcc5MitVM3onMkyGMJGl5khFDW2y371fdOFi5o\r\neMG2Kregp3N42IontWkWrJxmYYb750Nci1VXjl1UlRDd+t6xKczp5taSHqvO\r\nNn+eRZaH6RHC4UVQbwIPPrO4rEbWz+KUELZ0F+7LV9Er7AyrmkMeTskbAT7j\r\nBH2mg2kh9ihSmuFs6Bcu63/nxs+8/CEFb+DR5G2DbfCHgA0gZIbg8OMBHgAc\r\nyzyISd9/wDzOnEgdWxe8EGF27sntQha+hzr4V8jq3x9fJ1to0JUOtYjTil7r\r\nanNDL8Sy1e/5t3SRCjVCpLHPMDgMClL0+W9gaFKQInJhfh1lVXDP9JJq6691\r\nifiMKbVp3jE1xNmePKvsBdS/j9zShwworppH8o5+Ho1L8MxtuKUaeDdx24Gs\r\n9mIQn4RUL4n1P8chFjcSWtKf1aqk7TjFJEwefVHfuHflGexQ7DTyiX1epzVa\r\nJFQRuc+ssEnopSDNiYJrecBW6fbu02KfQ1KadoVJ9ZHEUi6czgOzKB5a0uSp\r\nBf9wSgeoFN+ZmmPXEU5LfPX3WiF2+bbwabo=\r\n=3j4Z\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "agangji",
+				"email": "cogent@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "agangji",
+					"email": "cogent@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-variants_0.3.0_1674880266996_0.170688631079422"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2021-02-22T05:21:18.102Z",
 		"0.1.0": "2021-02-22T05:21:18.320Z",
-		"modified": "2022-05-13T06:54:32.340Z",
+		"modified": "2023-01-28T04:31:07.329Z",
 		"0.1.1": "2021-02-22T15:56:37.059Z",
-		"0.2.0": "2022-02-18T20:41:33.326Z"
+		"0.2.0": "2022-02-18T20:41:33.326Z",
+		"0.3.0": "2023-01-28T04:31:07.187Z"
 	},
 	"maintainers": [
 		{
@@ -384,7 +499,7 @@
 		"url": "https://github.com/cogentParadigm/postcss-variants/issues"
 	},
 	"license": "MIT",
-	"readme": "# PostCSS Variants\n\n[PostCSS] plugin for generating variants of functional CSS. Variant types are pluggable with included plugins to generate `responsive` and `hover` variants.\n\n[PostCSS]: https://github.com/postcss/postcss\n\nHere's an example using the built-in hover variant.\n\n```css\n@variants hover {\n  .black { color: black; }\n}\n```\n\n```css\n.black { color: black; }\n.hover-black:hover { color: black; }\n```\n\nHere's an example using the built-in responsive variant.\n\n```css\n@variants responsive {\n  .black { color: black; }\n}\n```\n\n```css\n.black { color: black; }\n@media (--breakpoint-sm) {\n  .black-sm { color: black; }\n}\n@media (--breakpoint-md) {\n  .black-md { color: black; }\n}\n@media (--breakpoint-lg) {\n  .black-lg { color: black; }\n}\n@media (--breakpoint-xl) {\n  .black-xl { color: black; }\n}\n```\n\nThey can be combined to generate both.\n\n```css\n@variants hover, responsive {\n  .black { color: black; }\n}\n```\n\n```css\n.black { color: black; }\n.hover-black:hover { color: black; }\n@media (--breakpoint-sm) {\n  .black-sm { color: black; }\n}\n@media (--breakpoint-md) {\n  .black-md { color: black; }\n}\n@media (--breakpoint-lg) {\n  .black-lg { color: black; }\n}\n@media (--breakpoint-xl) {\n  .black-xl { color: black; }\n}\n```\n\nThey can also be nested to apply them combinatorially.\n\n```css\n@variants responsive {\n  @variants hover {\n    .black { color: black; }\n  }\n}\n```\n\n```css\n.black { color: black; }\n.hover-black:hover { color: black; }\n@media (--breakpoint-sm) {\n  .black-sm { color: black; }\n  .hover-black-sm:hover { color: black; }\n}\n@media (--breakpoint-md) {\n  .black-md { color: black; }\n  .hover-black-md:hover { color: black; }\n}\n@media (--breakpoint-lg) {\n  .black-lg { color: black; }\n  .hover-black-lg:hover { color: black; }\n}\n@media (--breakpoint-xl) {\n  .black-xl { color: black; }\n  .hover-black-xl:hover { color: black; }\n}\n```\n\n## Usage\n\nInstall package:\n\n```sh\nnpm install --save-dev postcss-variants\n```\n\nUse postcss-variants as a plugin to PostCSS:\n\n```js\npostcss([\n  require('postcss-variants')()\n]).process(YOUR_CSS)\n```\n",
+	"readme": "# PostCSS Variants\n\n[PostCSS] plugin for generating variants of functional CSS. Variant types are pluggable with included plugins to generate `responsive` and `hover` variants.\n\n[PostCSS]: https://github.com/postcss/postcss\n\nHere's an example using the built-in hover variant.\n\n```css\n@variants hover {\n  .black { color: black; }\n}\n```\n\n```css\n.black { color: black; }\n.hover-black:hover { color: black; }\n```\n\nHere's an example using the built-in responsive variant.\n\n```css\n@variants responsive {\n  .black { color: black; }\n}\n```\n\n```css\n.black { color: black; }\n@media (--breakpoint-sm) {\n  .black-sm { color: black; }\n}\n@media (--breakpoint-md) {\n  .black-md { color: black; }\n}\n@media (--breakpoint-lg) {\n  .black-lg { color: black; }\n}\n@media (--breakpoint-xl) {\n  .black-xl { color: black; }\n}\n```\n\nThey can be combined to generate both.\n\n```css\n@variants hover, responsive {\n  .black { color: black; }\n}\n```\n\n```css\n.black { color: black; }\n.hover-black:hover { color: black; }\n@media (--breakpoint-sm) {\n  .black-sm { color: black; }\n}\n@media (--breakpoint-md) {\n  .black-md { color: black; }\n}\n@media (--breakpoint-lg) {\n  .black-lg { color: black; }\n}\n@media (--breakpoint-xl) {\n  .black-xl { color: black; }\n}\n```\n\nThey can also be nested to apply them combinatorially.\n\n```css\n@variants responsive {\n  @variants hover {\n    .black { color: black; }\n  }\n}\n```\n\n```css\n.black { color: black; }\n.hover-black:hover { color: black; }\n@media (--breakpoint-sm) {\n  .black-sm { color: black; }\n  .hover-black-sm:hover { color: black; }\n}\n@media (--breakpoint-md) {\n  .black-md { color: black; }\n  .hover-black-md:hover { color: black; }\n}\n@media (--breakpoint-lg) {\n  .black-lg { color: black; }\n  .hover-black-lg:hover { color: black; }\n}\n@media (--breakpoint-xl) {\n  .black-xl { color: black; }\n  .hover-black-xl:hover { color: black; }\n}\n```\n\n## Usage\n\nInstall package:\n\n```sh\nnpm install --save-dev postcss-variants\n```\n\nUse postcss-variants as a plugin to PostCSS:\n\n```js\npostcss([\n  require('postcss-variants')()\n]).process(YOUR_CSS)\n```\n\n## Customize transform function\n\nUse the transform param to customize the selector structure\n\n```js\npostcss([\n  require('postcss-variants')({\n    transform: (selector, suffix) => `${suffix}-${selector}`\n  })\n]).process(YOUR_CSS)\n```",
 	"readmeFilename": "README.md",
-	"_downloads": 15
+	"_downloads": 51
 }

@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-selector-not",
-	"_rev": "23-be066da4326f808c05bd11f57bc4cc50",
+	"_rev": "24-90b0360d2be0a763a693c21b6c2366e3",
 	"name": "postcss-selector-not",
 	"description": "PostCSS plugin to transform :not() W3C CSS level 4 pseudo class to :not() CSS level 3 selectors",
 	"dist-tags": {
-		"latest": "7.0.0"
+		"latest": "7.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1335,6 +1335,133 @@
 				"tmp": "tmp/postcss-selector-not_7.0.0_1674551836017_0.21905371393111417"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.1": {
+			"name": "postcss-selector-not",
+			"description": "PostCSS plugin to transform :not() W3C CSS level 4 pseudo class to :not() CSS level 3 selectors",
+			"version": "7.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Maxime Thirouin"
+				}
+			],
+			"license": "MIT",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-selector-not#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-selector-not"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"Not",
+				"postcss",
+				"postcss-plugin",
+				"selector"
+			],
+			"csstools": {
+				"cssdbId": "not-pseudo-class",
+				"exportName": "postcssSelectorNot",
+				"humanReadableName": "PostCSS Selector Not",
+				"specUrl": "https://www.w3.org/TR/selectors-4/#negation-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "8e4a63cafba55792cc358096ac228a864056e8f6",
+			"_id": "postcss-selector-not@7.0.1",
+			"_nodeVersion": "18.8.0",
+			"_npmVersion": "8.18.0",
+			"dist": {
+				"integrity": "sha512-1zT5C27b/zeJhchN7fP0kBr16Cc61mu7Si9uWWLoA3Px/D9tIJPKchJCkUH3tPO5D0pCFmGeApAv8XpXBQJ8SQ==",
+				"shasum": "8142e90c8eb6c8c5faecb3e9d96d4353d02e94fb",
+				"tarball": "https://registry.npmjs.org/postcss-selector-not/-/postcss-selector-not-7.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 9711,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIH0dTWPio9FKUywjgjpezlLXqwsLxbK2PhqrpeSLY4uWAiEA+dSCaweZ+20GWCDqCg4d6CMTxJkCIOxkK9jWj1vHlFY="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NXIACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrM/xAAmtxn5cr7MBe1yOO571S5PIhPXg8bg5ga4AqblGqgoQXkacue\r\nXbtgTm1z9uI9twV2gr+xRg8ehJtcSPHKt5VivAJ1sb+dFYie8RG2BjDxUx6+\r\nIBROegeb6eNPiDQO9rFqw5Mmj0mkxuUrF0Arp6mLUyso8dUaXtb+fIC/9BZN\r\nbMmsiJwZo7EO3PTHxom2PBT/YPJDQLKl1JwttWIG4jh5L1kO6+XVa1yNiaHp\r\ndhxHFwco2M4P+91gZzgieWXCpnnVNYUmVaCpfdpC1qsVRynSVF2wBCqsj+iA\r\n8sokNBDHqxbLNR20yR9NTp0/aAv6vIhS0ORkPwJYMMdNux9ZNQLDhkjuMz1Z\r\nWKVHR3r0lg3rFpZ8xWO5fjLaNXDfVPSp6OTEOI/+h5qVonKGbzJtozfTCTai\r\n04jFWQnqpT4pXLAK1qzqu6YxB6SRctnNyIRknblRoejQozCWb5rjn5on9UcI\r\nzZfL1i09myANPohSXklm+9dWLfiPohT3NBWZJ2qigO2P7uqgKy2PnG2ocmPJ\r\n3lHS35GiQLWGgeLvPsZ6Uso7Egk7GErVAHHZBnDQTh9CLnnVihSjruyT2j3o\r\n6GYNKFvArZg+yywk25ZTVgsiGrPSxOuHPDbnYk8Vnz/+FN03FeqCsM0JeETV\r\nV9WdQdiAl/W3mAQYOa8mqLOTA9c/0wSkxDk=\r\n=segH\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-selector-not_7.0.1_1674892744018_0.40296978778778847"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Selector Not [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-selector-not.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/not-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Selector Not] transforms :not() W3C CSS level 4 pseudo classes to :not() CSS level 3 selectors following the [Selectors 4 Specification].\n\n```pcss\np:not(:first-child, .special) {\n\tcolor: red;\n}\n\n/* becomes */\n\np:not(:first-child):not(.special) {\n\tcolor: red;\n}\n```\n\n⚠️ Only lists of simple selectors (`:not(.a, .b)`) will work as expected.\nComplex selectors (`:not(.a > .b, .c ~ .d)`) can not be downgraded.\n\n## Usage\n\nAdd [PostCSS Selector Not] to your project:\n\n```bash\nnpm install postcss postcss-selector-not --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssSelectorNot = require('postcss-selector-not');\n\npostcss([\n\tpostcssSelectorNot(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Selector Not] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#not-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-selector-not\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Selector Not]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-selector-not\n[Selectors 4 Specification]: https://www.w3.org/TR/selectors-4/#negation-pseudo\n",
@@ -1357,7 +1484,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-01-24T09:17:16.254Z",
+		"modified": "2023-01-28T07:59:04.296Z",
 		"created": "2015-04-30T05:41:51.937Z",
 		"1.0.0": "2015-04-30T05:41:51.937Z",
 		"1.0.1": "2015-04-30T06:45:01.145Z",
@@ -1373,7 +1500,8 @@
 		"5.0.0": "2021-01-31T12:29:34.875Z",
 		"6.0.0": "2022-06-03T05:40:43.053Z",
 		"6.0.1": "2022-07-08T17:07:33.250Z",
-		"7.0.0": "2023-01-24T09:17:16.176Z"
+		"7.0.0": "2023-01-24T09:17:16.176Z",
+		"7.0.1": "2023-01-28T07:59:04.187Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-selector-not#readme",
 	"keywords": [
@@ -1410,5 +1538,5 @@
 			"name": "Maxime Thirouin"
 		}
 	],
-	"_downloads": 26191677
+	"_downloads": 29088768
 }
