@@ -1,7 +1,7 @@
 {
 	"name": "css-prefers-color-scheme",
 	"description": "Use light and dark color schemes in all browsers",
-	"version": "7.0.1",
+	"version": "8.0.0",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -23,7 +23,7 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -44,14 +44,15 @@
 		}
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"devDependencies": {
-		"puppeteer": "^16.0.0"
+		"puppeteer": "^19.5.2"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -96,23 +97,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "2d5689c302ce06a7411c88daebb88cc9d3762beb",
-	"_id": "css-prefers-color-scheme@7.0.1",
+	"gitHead": "e94b860e8805b108404d46a34e8f22480e280565",
+	"_id": "css-prefers-color-scheme@8.0.0",
 	"_nodeVersion": "16.13.1",
 	"_npmVersion": "8.1.2",
 	"dist": {
-		"integrity": "sha512-vacLYKcuRVtNJyPzP7yL55D9glTNcBEuTR2+EuJaO1tCg81U7+fKHO6rI+EvPAmrYH0uaOM64pEj2Iau+Cf6Cg==",
-		"shasum": "6224cfc0bf9d6c0c52ded7d2cea3ed18e82c8867",
-		"tarball": "https://registry.npmjs.org/css-prefers-color-scheme/-/css-prefers-color-scheme-7.0.1.tgz",
+		"integrity": "sha512-Fb6GOyJRTI3YZ1v0ySi/X+at+ImRGgySsHvAXYsFo62aTa+ClaMi8E9R/oQmJmD8WPpNHgZXQ1nhkXbCCCne3g==",
+		"shasum": "e5db0bbaefc824b1606a5e8215925db6592dff60",
+		"tarball": "https://registry.npmjs.org/css-prefers-color-scheme/-/css-prefers-color-scheme-8.0.0.tgz",
 		"fileCount": 13,
-		"unpackedSize": 46523,
+		"unpackedSize": 47658,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDc/eHVeb9Nc/Ffoe8raN8gQlQwywLOayw9veQmSohi8AIhAIZvPY6Fd2JowLMWiZ/QiXE/r0OFLuQY6xLbwaFpU9wL"
+				"sig": "MEQCIA7u3cdx0oQ3HdExpR5LS/DOymXF4I8BiZQhUMnu9k8LAiBratFLV880DKsojT7PSskMZUEIvROLc7aTJuffHULdXg=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjBT4QACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoXcg//VY9QvweSYGuxd41UXADKf+kVfgzMjazv//qBLlKgoSgGtZYv\r\nKm3qvUNCvBKoGBDtyAVnXHJeOsJ67b3KyXEuPxrLKvXZVDJDVA/zQKthDZYi\r\nweKt/JcdDDAvYT9YHtZv2fYa3xTeWekH9lvJH7qmk26bwCEYkWHZdoe4K98y\r\nCLwIefZ3Pdu1rqyIShtIg74ZIzNQx51daOCK8jGodNh/m1vSPG8Xa88ps7cu\r\nn+JOvd9u/lBIgfekseyLqnDizZh6k/nPiB09nmlNKy5dz/vROUnJrNs4Ihwm\r\n6u3kx8Q0G8QE5QCfX+WXJtdgntP015T396mJZbX9j3KNg9MQEs6Ln2zPUW0K\r\nLUDhQX6121zS4vCE6OFPZwMMATC8ug43xiv/DSwcMohQuRepC1yyAE08m98a\r\nMPY+95/aYD7RWw1BqdNUE7Du5XZM3pONCw3RXIlhZV75BVZ398d9z4a+tglX\r\nk3KN8fAZuny9sxpKhNj+yxvLxrMeLGr2UVQuqXk8Q1oXEE1azqvj/1ylpst0\r\n2hJfsCzSGmq+J8RuzRVCX+rQfgcjPL6OVy3ylwADQ03chtunnwAohwTQhhqz\r\nrS4unSpCG25fKfB4Ee/bXddCqI205AQ311A/P1PtVb5dL6pk3UIxOm36kmOV\r\nLwLI6kKF6PK3YIYS0Zj/4VReJ+bSJCzmgeg=\r\n=YGTw\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjz5qSACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrZWRAAi0zCPt/f7QHA3AfPIHYd5RhjRexUkXQD0ZvnInrlZ6Sk3Cn6\r\neHeUUqVU9Bp5wxa/tZ+5ck51b0FQgeDwigy5GBhBAyxoe1wvLfPcF7ll9U/z\r\nRhFa1O0Uv18xYM+HFA8kelJe7/akznW49fIUSiAhAUIS8wWrZR9XNE8yKu/I\r\nzRw/c/kLjOFNEwXGQGMdNp7Klxx0wegKe0L6VdwsHt/iH7tDwPTs9gW7CYh7\r\neuLqr56//C2vfVwAiS2TF5Pu7HAWCnn5XJmdw96psyxPwtB/DrGkesrsjcPJ\r\nNEaDXcv8m4+Ed0w1YPh1nG6livWRkeMtWHZ03rTaNApmy1ml1e2MhHZVMWnv\r\nwcUvXTxZdd/JbovCNWNbTw7SJ7X7GKNXpG9wczhyeaJttS8tF/bxnR9Hy5YA\r\nKgOqwZPnsUwuum7ORz3bZNCVKjO/MttrQPiHYDRdIotzdH0j1i/ZQY7yJzTe\r\nt6x0XH+yafvZtXiAWo78kjvExETzeTpYk4FQVljICEMQukECNmUDiTJHGSnN\r\ncBQvh24feEJSW2fNKmiI2VLJ80rFERrGX6pn4BfoLsUZPXA4NnIgiBbh0EPz\r\nvHTGnyDmxi4176MBnQxhY23iAP4qAm0U7JnM0pj+Q9Av3hErabJZ+m7EPJoZ\r\nSOir1KkVYhPBidt8GJsCt18kUzAaCObNH4o=\r\n=yu+1\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -131,8 +132,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/css-prefers-color-scheme_7.0.1_1661287952779_0.742571379407335"
+		"tmp": "tmp/css-prefers-color-scheme_8.0.0_1674549906598_0.05812765409243981"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-08-23T20:52:32.916Z"
+	"_time": "2023-01-24T08:45:06.744Z"
 }
