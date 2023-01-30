@@ -1,7 +1,7 @@
 {
 	"name": "postcss-attribute-case-insensitive",
 	"description": "Enable support for case insensitive attribute matching in selectors",
-	"version": "5.0.2",
+	"version": "6.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -22,13 +22,14 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
+			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.cjs",
 			"default": "./dist/index.mjs"
@@ -38,11 +39,12 @@
 		"postcss-selector-parser": "^6.0.10"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -62,9 +64,9 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"keywords": [
-		"CSS4",
 		"attribute",
 		"css",
+		"CSS4",
 		"insensitive",
 		"postcss",
 		"postcss-plugin",
@@ -79,23 +81,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "3fc4ddf7f5c7cd789ef5454186a89c6ddf4b8ed0",
-	"_id": "postcss-attribute-case-insensitive@5.0.2",
-	"_nodeVersion": "16.13.1",
-	"_npmVersion": "8.1.2",
+	"gitHead": "df1d1632f6ab207f9067a54c84923a81fbbfb06a",
+	"_id": "postcss-attribute-case-insensitive@6.0.1",
+	"_nodeVersion": "18.8.0",
+	"_npmVersion": "8.18.0",
 	"dist": {
-		"integrity": "sha512-XIidXV8fDr0kKt28vqki84fRK8VW8eTuIa4PChv2MqKuT6C9UjmSKzen6KaWhWEoYvwxFCa7n/tC1SZ3tyq4SQ==",
-		"shasum": "03d761b24afc04c09e757e92ff53716ae8ea2741",
-		"tarball": "https://registry.npmjs.org/postcss-attribute-case-insensitive/-/postcss-attribute-case-insensitive-5.0.2.tgz",
+		"integrity": "sha512-XNVoIdu/Pskb5OhkM+iHicEVuASeqAjOTCaW8Wcbrd1UVwRukOJr5+zWzFjYxJj55Z/67ViVm9n/1hwF7MGByQ==",
+		"shasum": "69f521cf99aa4fe280943290032c69e3b51df5c0",
+		"tarball": "https://registry.npmjs.org/postcss-attribute-case-insensitive/-/postcss-attribute-case-insensitive-6.0.1.tgz",
 		"fileCount": 7,
-		"unpackedSize": 9553,
+		"unpackedSize": 11981,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCNhUy42sHdicwscF3WI2B4IWpDdZ9N1uyiFOmJv9EWzQIgBzC/YYmYY7IvspDwO2jGF9Rg/OQxoSiIKWb/EWXs4vY="
+				"sig": "MEQCIEwv7araXYjKqgaaVMrSdREfBosuORai318M65ZwmqbIAiAvWpz/u+d75PLzZDqFPLMtDj01Jwo1hCOZzdR6iv6P3A=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyFL2ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrN1w/9GdEIVmzyxrRYQNk2cPi2KQNV+cwsxJcmvQVFyKcBB+IQjncz\r\nU/7rPsznVqjwLCbEhGK9nd8CoHT6ygz3vemgH3JFE5qdTENFzvrzWWI9vijN\r\nYs3ROHiIiE7U2LlNpgfc8XAiNfh5N2EyGWbsQoiRdFMBWSRuVa6mFdEuMjHd\r\n+xJqem/9Iuk0lzTxz5HhRtDi/tMNwSmJdf6CJafIe5Sare7hMkE93FmYuJIK\r\ntb0ffN68e5PeApYeUdi0/eYKt9e4zwd0+N/0Q77DlMzXphNkKzNuRqaQGLFn\r\ndzR4IQtip1W+1mStRp1QCdh5l9VuIelVtmYZv4M78hPApRcYsyXqGiM53wzV\r\nilvrNQgOVn7e+zm0QfMhRx1zDTI33oDZV8aLNosSxLoaalec7MfXcLY89vx9\r\ndqN7wW/cg/0s7AaIOOVnWnVhaTAOKjy8YR0f6T8xY0IUdSt3spQzUM83joWQ\r\naoILALCi4xGQSeCeq/BSngwDlay+huhvOkQmoTRbXo+4dEYnCQ2KwvVvcpwl\r\n+2Pm6STwFqGY7+Lr8JomuGIOvL2KwhF1DJ3TUtqYQZApQSBTq/7SXpKMyE81\r\nL62zE2bUKcoiuI0OV8Wr9rA67espu69I/A7/O0dhapA0csf9g7HIUQwB96fI\r\nfww9ebd6+m5ddtppvmY8Tj+rd9uqCzJikpE=\r\n=ZeMu\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1M6kACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqXrA//ViuiJvzHDZPmaKXNlgKq5LDqsTe8YhXodMFxgCSKqJVkB3T1\r\nApPwUhKgspsPsMPw2hpOTgKk6ni1iToyPrbEo2Oqp5K+OzvKFuXaM0pbTJwk\r\nJFd+iVPDQdzSQKXMve2B6zStiq0LLkBdYzP8lofh7iAMd9ttUtXWvTqum47a\r\nSTIFgYjQnk55ZBwJvOE4NtbCUGcgZT4ZHrBpzoIM7iAkvEZeeT3gVnSfzCcq\r\nNUtpcEeuAujcdu4iSlqPu9amT5/Ef6amwTWaSGth+Pp/Lc1G8g08M57+Wzmz\r\nVn0mDbHECkP4bPBcSLAIERL42D0zYo4Lwos9KzKXtU4qkADPFjOtqI+mlfqz\r\nCKQQxj+exx/BjspWZncPbkDcW9PRLdQiGT/dGg9362P8cmPRTWtGwK50LZdi\r\nzOIG3VgquwOc5vvey4MxDjGNZIDPBjrYmGC8/Xj2GL/KykTPACeiPWEq8Nnu\r\nmGHIBKLzuFN8M2J5NRM0YRixzQUiZxe69XWthbm2Llk3ihucLVei2WUXzENk\r\nxPjIZMRh9heMM/pUwoDPe57ZAjZaSm3u8K7wDH/Sp/a3Ys8rfqWimjfEot5L\r\nAGK+0L16KPZrhDkljor5AVQyli2FuFcZbOCRMvwo4S64HFwuITLjjweJmxBA\r\n2f+cSlxS87087bzQ7jyWH1RTUBGAMKKUZhM=\r\n=wEz7\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -118,8 +120,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-attribute-case-insensitive_5.0.2_1657295605904_0.8371530554918116"
+		"tmp": "tmp/postcss-attribute-case-insensitive_6.0.1_1674890916096_0.9965334296402957"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T15:53:26.039Z"
+	"_time": "2023-01-28T07:28:36.317Z"
 }
