@@ -1,7 +1,7 @@
 {
 	"name": "postcss-image-set-function",
 	"description": "Display resolution-dependent images using the image-set() function in CSS",
-	"version": "4.0.7",
+	"version": "5.0.1",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -12,13 +12,14 @@
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
+			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.cjs",
 			"default": "./dist/index.mjs"
@@ -28,11 +29,12 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
@@ -70,23 +72,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "3ea4185210582f6e032e991f4356660a6e337d0b",
-	"_id": "postcss-image-set-function@4.0.7",
-	"_nodeVersion": "16.13.1",
-	"_npmVersion": "8.1.2",
+	"gitHead": "dc46a64e29807416dc5477e1d3781e7ef0a575a6",
+	"_id": "postcss-image-set-function@5.0.1",
+	"_nodeVersion": "18.8.0",
+	"_npmVersion": "8.18.0",
 	"dist": {
-		"integrity": "sha512-9T2r9rsvYzm5ndsBE8WgtrMlIT7VbtTfE7b3BQnudUqnBcBo7L758oc+o+pdj/dUV0l5wjwSdjeOH2DZtfv8qw==",
-		"shasum": "08353bd756f1cbfb3b6e93182c7829879114481f",
-		"tarball": "https://registry.npmjs.org/postcss-image-set-function/-/postcss-image-set-function-4.0.7.tgz",
+		"integrity": "sha512-JnmN9Wo7WjlvM7fg00wzC4d/1kOqau+6v6hteLLqEyBjCuzoFZUU0Te3JphDyxc65RtPNsCujDwYbbs6+vYxCQ==",
+		"shasum": "115454817f5f4b795066640b646882effd0428af",
+		"tarball": "https://registry.npmjs.org/postcss-image-set-function/-/postcss-image-set-function-5.0.1.tgz",
 		"fileCount": 12,
-		"unpackedSize": 22212,
+		"unpackedSize": 23502,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCfcLyRGNJTfvmEuHGKckVR4uqjl8PoFuWRs/hpkYF5kgIgWVfH3EmWnofyD3b7OdQzP6FzbjiJcgCu6IUSA5N4Ct8="
+				"sig": "MEQCIBmxA7pqVgMqROOyxCC+0r30Kd1IOer5xputI53cDxL6AiB27p7VJ0Xk2uoi94qt58NQuj3+RTTp5uPJHvlKKgpA6w=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGDqACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmre7RAAloMCTdcOwoFzxUaoOPIzy+Oq7AWFNAUAarTrYaQSFgTYi3OU\r\nfBA51fUemYliTMqPVR3kMRCZCfJrvZtpuHmzk+QGE2RxlWofG/GLvl6VqY2+\r\nGslJcnMFE3FT8PN1FihAd6IzBOS+dCiq620kIiTHXxBLeH/v8pUsYx9BvXKS\r\n2O3cVCxMGdnie1los+XgwoEXrxm2WCN/wxRj4Qo6wzLncLKgl6BXnc7MRb+V\r\nzlMDgtmx0pZ4kuuCFvfl1xkp9GmFwN6ryJzT85ufXfnH3Wm5chrYNTjP+J+P\r\n1MlctTBGF7K1ekOPvjBJ8EBxFl/3spbbgvz5nQ9aLlnhPVUR1iFt1TNVeXzM\r\n1VmnF3Dgz1WA3faLncTydNqicZOpziAEPmoMqKy91dOwpJEjnO+tVaUOnlfQ\r\n17WgYOwjqrd5rdWuZHJpPRXkPP0+lQz3ZILRG2z9Hc+++XQZFtn8Hf3RaeHp\r\nUVWpepYCpQbY5owC4MS4kPx0xs5N51rSe358qVseGZNB5i6rnpdEckPa6zko\r\nP1Zwnbh95a/lTAlAsX4lgFnhiszn8/Yv5ZO8Q49qD8tblzo7S8JNrxGCUiQD\r\nZIDEx7FB2rOoY86nsAbIyHb2ig3dORqKCJlB5x3CnXwBEBixir+NDNY3GKc3\r\nm4OPjm57nLQrvuIfyA5164TxcPlHrjkZCpE=\r\n=pIRx\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NHPACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrFnw//Rv1cLxWHM4YdoAQmhC9SCXmBanWUJZG6eQUpbZwPw7URyxzP\r\noiIcST6OZ4OVkNJE2HM8Hd4N92d0iwIIeZiFPFp3GjFkA7zBaVHNY+MobLCL\r\nVZhvqjePDa9VDyLZgOsBOfqLwsPAMHoqM01ayn6RaUKesNji4sO+Op6gVVDU\r\nJ80J2PTKfWUrP/Gxrj/e5pE8JrEH5M1/+/BnijaQTzFU0nq8li5XU8JJCkWt\r\n8tc27WdocjT86bPboAd+1hyy4wkWMOejUFsQm3q8yUmdxIIM/8ZNKW2E+EVt\r\nTk2/IBQDjH/URdml+3pMGCYw10C7OiM5rm0Fnl+gc/wtQCUqG3JEuZ9NJSbJ\r\nuBLz+eNMoEC7Fv/0JWvJJhSwBzsDjHoadQVE0BQeTtqVBiBH9isFNGVsCk+m\r\n3D2vZ1F5DQtnZhlfXENDVVYjNQSkk3z64gWnrwo4plZ4xJ37RI6WBonLbY2w\r\nEAc9plonmJne4nY87YnVy3Kt6CBYhs2YtZ+MxOJTHi/h3bT27bqCJTiVGGUm\r\n4JXwEl/P6K3lMHsMUDuRsu1ESEmciDz1SOf7x8vnsCbyrAX+KiMdA2g8x/AX\r\nEQNd3fY+SV7G4OOifUSGdKepBqqX55W09p8y6rePG8aj4Rsv/4/cGFQJCn+/\r\nlvks78Spp1DA0v6o0ZKYiTryMKDf404soto=\r\n=l/l1\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -105,8 +107,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-image-set-function_4.0.7_1657299178211_0.3875381813832932"
+		"tmp": "tmp/postcss-image-set-function_5.0.1_1674891726812_0.7267863095286577"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-08T16:52:58.443Z"
+	"_time": "2023-01-28T07:42:07.011Z"
 }
