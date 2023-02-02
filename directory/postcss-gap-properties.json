@@ -1,35 +1,49 @@
 {
 	"name": "postcss-gap-properties",
 	"description": "Use the gap, column-gap, and row-gap shorthand properties in CSS",
-	"version": "3.0.5",
-	"author": {
-		"name": "Jonathan Neal",
-		"email": "jonathantneal@hotmail.com"
-	},
+	"version": "4.0.1",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Jonathan Neal",
+			"email": "jonathantneal@hotmail.com"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
 	"license": "CC0-1.0",
 	"funding": {
 		"type": "opencollective",
 		"url": "https://opencollective.com/csstools"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": "^14 || ^16 || >=18"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
+			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.cjs",
 			"default": "./dist/index.mjs"
 		}
 	},
 	"peerDependencies": {
-		"postcss": "^8.2"
+		"postcss": "^8.4"
 	},
 	"scripts": {
-		"build": "rollup -c ../../rollup/default.js",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
 		"lint": "npm run lint:eslint && npm run lint:package-json",
 		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
 		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
@@ -60,29 +74,31 @@
 		"shorthands"
 	],
 	"csstools": {
+		"cssdbId": "gap-properties",
 		"exportName": "postcssGapProperties",
-		"humanReadableName": "PostCSS Gap Properties"
+		"humanReadableName": "PostCSS Gap Properties",
+		"specUrl": "https://www.w3.org/TR/css-grid-1/#gutters"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "ee108981ac4c6b42df5df944daf05efd21edde17",
-	"_id": "postcss-gap-properties@3.0.5",
-	"_nodeVersion": "16.13.1",
-	"_npmVersion": "8.1.2",
+	"gitHead": "02722b46c71cc1e69bec2c3fc74c51d81e5103f8",
+	"_id": "postcss-gap-properties@4.0.1",
+	"_nodeVersion": "18.8.0",
+	"_npmVersion": "8.18.0",
 	"dist": {
-		"integrity": "sha512-IuE6gKSdoUNcvkGIqdtjtcMtZIFyXZhmFd5RUlg97iVEvp1BZKV5ngsAjCjrVy+14uhGBQl9tzmi1Qwq4kqVOg==",
-		"shasum": "f7e3cddcf73ee19e94ccf7cb77773f9560aa2fff",
-		"tarball": "https://registry.npmjs.org/postcss-gap-properties/-/postcss-gap-properties-3.0.5.tgz",
-		"fileCount": 6,
-		"unpackedSize": 13033,
+		"integrity": "sha512-V5OuQGw4lBumPlwHWk/PRfMKjaq/LTGR4WDTemIMCaMevArVfCCA9wBJiL1VjDAd+rzuCIlkRoRvDsSiAaZ4Fg==",
+		"shasum": "0347d6a84a46bfbe88bedc542cc4b354e04a8338",
+		"tarball": "https://registry.npmjs.org/postcss-gap-properties/-/postcss-gap-properties-4.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 14213,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQC9AelKHrtxKY030byL7q9+PDR7LVgqvJIhPiVS85MfUQIhAJZQJbAok7zeKwc3Fsa2QL3Wk1GB289AkR0wUKwLklsk"
+				"sig": "MEQCIFTyvf8wF4XBK85b7mAGaK1L21kNMCSmWWh5QSSvx0MpAiAgSY7sUJhJ966EL2CsIhL9T+Lfwia3BFH3FOW8JC1evw=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJizU5UACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmonUQ/9HfyQdOO9/Z6c5xipN0EpRRZi01aIkDb3r+m0ylu4bIM+2I4y\r\noLQdMN5hW/mRa46bsDCSY+IN9CkEN3WMZtY++m7VIRjsidgVH64QKgvj/OnI\r\nhr6IodxvrJ/Acsg1x+X7yDW+wxNZVPhs026E8fUP21xQDI3ch3V4+ZfBD1xf\r\n4HDo3BguuGwfGvz2KEzK2ZKIwKFxwlU6cGPTHvBH/5jFr5UP8V2lIJw/E2uD\r\ncxHO3CTZMeYUxLQU+OQedRXWip84vvHjl3LQ/Hb8i0mBLik5vHimfith4IvL\r\nO4e11MkSaQo6ni6VvFvG0SenmjZMAiQCDJYoxJXe5z/V+diyuDHGSNyPYDzW\r\nmR8uU5SD4kF9uvOn6e8CQqytLQL9CZPEl/1l9rJGewCdtMH1JdFaSrq9Mgzv\r\n/IlQYJK5K7CRoUEKpnuvnUsek7jvE1J6bH1uM9ulZcVDxA6G5BAsYNg/lfoE\r\nj2LytTP3LR3EhF1JFLIpEDtPOw2nowK/kFxkJh8bzDNJfgVWNZyTbFSRTblF\r\nRaYSm/ehGQohF4G5Kfca3y2CYRuDkY93RrOSy6hsZz5qaI1TqREqboiX/OPg\r\nk4pEX6QLNPz98tG7HA6wUVZXK63I5Egy2DFeHIGMwzKRxHoxMNpZbvvLq2AO\r\nxhRyh0VadctC8wSl1b/TbsXiwQwdJLkWD4I=\r\n=+Y16\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NFUACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqIPQ//V5sB96RCIxQ9KzBsuby2War/SKT2flQuhCp7G0iswaCSUmcK\r\n8J2uwe3w8VYgOjN5t7kdn2V1T346fhAJc+XjGwxVxnA60kNUynOdgrP9QCir\r\nmd3sCLQzUwyxg37dID6Fhn4l1k2Jt5nukUGPOGaEt0jMKeYm3PLT7W7CRNfk\r\nZjPZaAAHTa0i+C0gXRtVUpkv/9TAUfukSBXrG5dvB7/lXXOvbB45rm+vSQa7\r\n+C0HtIFZ6+t/ZnEACwAhkfyyfM8EUX7KO30gBDfa0BwXD+q5B7UFp34c3dKu\r\n9XstgYAHxs0jAvf+tyV9a7fPZd661/tV3IoTFqiys8ilBZm9RK8bAcTz2QCD\r\noUnSvolaUebWtPy5mIgg4DsOJ5iuLZ90Wgb26Y+AGOhsOOEFZMka98eKtsA5\r\nv6qfldyNZi7eQUuA0yZebTPvQ9o1hx03++CjDVvv8scVufTiLgEjbPMQeOj1\r\nFiQb4YFmP+P7UFJ6g9BzqmSPdOmocWDyv4Jh+ywHF61KzEEm4Y0FI51IXAZq\r\nvbLaOg92OdSRu2h2nKHdgs5/5xC65pr6t2w5+iyR3wzdd8doPGn4kUz1jWa/\r\nRs/AEj4wTcna+H/xAdLwRevHa9SFHK5cLdiboRacykxG11SZnTaLGuwX4/6x\r\nD6fP1ueMaICRU4mJj1FLYjaN2AHLODZjU8s=\r\n=JBY4\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -101,8 +117,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-gap-properties_3.0.5_1657622099795_0.9490675796962484"
+		"tmp": "tmp/postcss-gap-properties_4.0.1_1674891604433_0.12670850237220277"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-07-12T10:35:00.007Z"
+	"_time": "2023-01-28T07:40:04.594Z"
 }
