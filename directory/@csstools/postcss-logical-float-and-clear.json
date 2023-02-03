@@ -1,0 +1,118 @@
+{
+	"name": "@csstools/postcss-logical-float-and-clear",
+	"description": "Use flow-relative (inline-start and inline-end) values for float and clear",
+	"version": "1.0.1",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"scripts": {
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-float-and-clear#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-logical-float-and-clear"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"block",
+		"clear",
+		"css",
+		"float",
+		"inline",
+		"logical",
+		"postcss",
+		"postcss-plugin"
+	],
+	"csstools": {
+		"cssdbId": "float-clear-logical-values",
+		"exportName": "postcssLogicalFloatAndClear",
+		"humanReadableName": "PostCSS Logical Float And Clear",
+		"specUrl": "https://www.w3.org/TR/css-logical-1/#float-clear"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "85d2cd3675e646e1364e8f85fc513c03269533a8",
+	"_id": "@csstools/postcss-logical-float-and-clear@1.0.1",
+	"_nodeVersion": "18.8.0",
+	"_npmVersion": "8.18.0",
+	"dist": {
+		"integrity": "sha512-eO9z2sMLddvlfFEW5Fxbjyd03zaO7cJafDurK4rCqyRt9P7aaWwha0LcSzoROlcZrw1NBV2JAp2vMKfPMQO1xw==",
+		"shasum": "d255ea7aad18880930b63d8a04164f56182f2ecf",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-float-and-clear/-/postcss-logical-float-and-clear-1.0.1.tgz",
+		"fileCount": 10,
+		"unpackedSize": 16125,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQDrph9kMNAixW9/AGHq/+OJQdsUFcNVZYWpt2G3qkDcKQIgFh0FfVhSVPKdahje1BBZiRRm9hcnOy/rYr8HewNN/YA="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NIoACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqtNxAAiLc6AzNGSM5zGPX1NbSSb8R4FLFZ9ai9CFGO18pC8Cttb8AE\r\nKHDcrE+HJlh7v6DtfveW+4ZZP+KTR6JEthTy8gPpGeO5GcP5xb835Pgo+xY3\r\ncGvbW//eri4MVNvdTBmAG8lzExNhk4P7wEv4/rLGr/4dSPyPGnbYQZ7rIOwj\r\nEg2tBhiiH0q3UWU4WQZQ4xQwEDZ0Um/KhmJNxFt4ryJrfrFZ8FKvcIoOS3yF\r\nbonjaSS8/SECTnH3lpzcWCkDAmr/8dswRWLjwjQeH5jqbgPD1SG/K8LYwXgT\r\nZOQBx12UkahPjs2RuJVNsNkgDfxZI1tdtCBIKTfKn58GeIzSG/jqRkXKkiI7\r\nXR/LX3VRK5JJVr4tPO+PJyig8k+ebOXHJi3LeQufPpmm+GYjHFEiM7/6RBAH\r\nstTeRJ83eTAaW+3Mc18a/zuhMTvE0pYmajo2hSYzWQ99WrLPS+3g4ZDewZdl\r\n2g2mZrB2ifNU0TuTlfHGjvUp9e29L2W+6teiNt6XOymnnW3OG9DlT4nOZRyh\r\ntJd8MF4ZLWnIRyF0eOQTppuLANnQMpR/E1AMCIa0YHKzOtT6eYsWdbvox1vI\r\n6yE+Lv8EC4zUuDuLvmYEHILe0bNJmpi2bNwg2c8cQQEni0bfAHzeihW4Nwtg\r\n+8mh8xAIu00DoXTCnzBnIE7AmkUfi+nNzDI=\r\n=NNtx\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-logical-float-and-clear_1.0.1_1674891816430_0.08413692858856381"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-01-28T07:43:36.597Z"
+}
