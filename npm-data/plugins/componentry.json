@@ -1,10 +1,10 @@
 {
 	"_id": "componentry",
-	"_rev": "110-70968cdb940fe1a0f0332235c1912a37",
+	"_rev": "111-164e912498e90c1d918a0204caf08530",
 	"name": "componentry",
 	"description": "React component library for building custom design systems",
 	"dist-tags": {
-		"latest": "6.4.0",
+		"latest": "6.5.0",
 		"next": "6.0.0-beta.0"
 	},
 	"versions": {
@@ -14462,6 +14462,172 @@
 				"tmp": "tmp/componentry_6.4.0_1673046426059_0.10410665333257207"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.5.0": {
+			"name": "componentry",
+			"version": "6.5.0",
+			"description": "React component library for building custom design systems",
+			"keywords": [
+				"accessibility",
+				"components-library",
+				"design-systems",
+				"postcss-plugin",
+				"react",
+				"tailwindcss",
+				"typescript"
+			],
+			"contributors": [
+				{
+					"name": "Dan Hedgecock",
+					"email": "hedgecock.d@gmail.com"
+				},
+				{
+					"name": "Phillip Sauerbeck",
+					"email": "psauerbeck@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/crystal-ball/componentry.git"
+			},
+			"license": "MIT",
+			"exports": {
+				"./babel": "./dist/commonjs/plugin-babel/index.js",
+				"./postcss": "./dist/commonjs/plugin-postcss/index.js",
+				"./api-docs": "./dist/api-docs.json",
+				".": {
+					"browser": {
+						"import": "./dist/browser/index.js",
+						"require": "./dist/commonjs/index.js"
+					},
+					"node": {
+						"import": "./dist/browser/index.js",
+						"require": "./dist/commonjs/index.js"
+					},
+					"default": "./dist/browser/index.js"
+				}
+			},
+			"main": "./dist/commonjs/index.js",
+			"module": "./dist/browser/index.js",
+			"types": "./types/index.d.ts",
+			"sideEffects": false,
+			"scripts": {
+				"start": "start-storybook -p 6006 --no-open",
+				"babel:watch": "BABEL_ENV=browser babel src --watch --out-dir dist/browser --ignore '**/*.spec.js'",
+				"build-storybook": "build-storybook",
+				"test": "npm run test:lint && npm run test:types && npm run test:unit",
+				"test:lint": "NODE_ENV=test eslint --format=pretty .",
+				"test:types": "tsc",
+				"test:unit": "BABEL_ENV=test NODE_ENV=test jest",
+				"test:watch": "BABEL_ENV=test NODE_ENV=test JEST_NOTIFY=true jest --watch",
+				"type-check": "tsc --noEmit",
+				"type-check:watch": "tsc --noEmit --watch",
+				"format": "prettier --write . !CHANGELOG.md !coverage",
+				"prepublishOnly": "npm run clean && npm run compile && npm run types && npm run typedoc",
+				"postpublish": "npm run clean",
+				"compile": "npm run compile:browser && npm run compile:commonjs",
+				"compile:browser": "BABEL_ENV=browser babel src -x '.ts,.tsx' --out-dir dist/browser",
+				"compile:commonjs": "BABEL_ENV=commonjs babel src -x '.ts,.tsx' --out-dir dist/commonjs",
+				"types": "tsc",
+				"typedoc": "typedoc ./src/api-types.ts --json dist/api-docs.json",
+				"clean": "rm -rf dist types"
+			},
+			"overrides": {
+				"@mdx-js/react": {
+					"react": "$react",
+					"react-dom": "$react-dom"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "8",
+				"postcss-js": "4",
+				"postcss-nested": "5 || 6",
+				"react": ">=16.14"
+			},
+			"dependencies": {
+				"@babel/runtime": "^7.17",
+				"clsx": "^1.1",
+				"lilconfig": "^2.0",
+				"nanoid": "^3.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "7.20.7",
+				"@babel/core": "7.20.12",
+				"@babel/plugin-transform-runtime": "7.19.6",
+				"@babel/preset-typescript": "7.18.6",
+				"@crystal-ball/prettier-base": "2.13.0",
+				"@storybook/addon-essentials": "6.5.16",
+				"@storybook/addon-links": "6.5.16",
+				"@storybook/addon-postcss": "2.0.0",
+				"@storybook/addons": "6.5.16",
+				"@storybook/builder-webpack5": "6.5.16",
+				"@storybook/manager-webpack5": "6.5.16",
+				"@storybook/react": "6.5.16",
+				"@storybook/theming": "6.5.16",
+				"@testing-library/dom": "8.20.0",
+				"@testing-library/jest-dom": "5.16.5",
+				"@testing-library/react": "13.4.0",
+				"@testing-library/user-event": "14.4.3",
+				"@types/react": "18.0.27",
+				"@types/react-dom": "18.0.10",
+				"autoprefixer": "10.4.13",
+				"babel-plugin-tester": "11.0.4",
+				"chromatic": "6.15.0",
+				"eslint-config-eloquence": "22.1.0",
+				"jest": "29.4.1",
+				"jest-environment-jsdom": "29.4.1",
+				"node-notifier": "10.0.1",
+				"postcss": "8.4.21",
+				"prettier": "2.8.3",
+				"react": "18.2.0",
+				"react-dom": "18.2.0",
+				"tailwindcss": "3.2.4",
+				"typedoc": "0.23.24",
+				"typescript": "4.9.5",
+				"webpack": "5.75.0"
+			},
+			"gitHead": "9cd2f9216323f34fe6d6cf7e13ad1fa5e9366376",
+			"bugs": {
+				"url": "https://github.com/crystal-ball/componentry/issues"
+			},
+			"homepage": "https://github.com/crystal-ball/componentry#readme",
+			"_id": "componentry@6.5.0",
+			"_nodeVersion": "18.12.0",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-l/0cmBOqyLrLCb3P+5WD4mPxzUSGqAZzJ11wc5U/NMmCtKdYgQ/hCIyNg8+Y1I40FLEyTPXTN099H1OXZCL3PQ==",
+				"shasum": "82dafb0b223e32e76d3d3b51cd82f65d0873eda7",
+				"tarball": "https://registry.npmjs.org/componentry/-/componentry-6.5.0.tgz",
+				"fileCount": 239,
+				"unpackedSize": 553862,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCsWCxAiBgu6A2A859ZNGRcguTgUG35+rK33sz6UU+8fgIhAMtYCOyLw0dVJiWj/Haf9WUbZcGhhNJNirmix/pC6Pfu"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj27w+ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoXwRAAnDOLPG9J9gVlEXcxPMkPzGJtWeWGGjSu4zjeHPtwMfQXoQY/\r\nhuXak2mU/a8cSfySFFN3mee966NyVwchUAF25RBxPMmmjZTvuPe94V538FXH\r\nPSdTsnJqpgXG6ZGCHk8rVI/ROF1iLMgo1ilx7ikME9T7KRWFHE3lJkT9IdJ8\r\n3MzbKcVW7roZJhSMmbNlH8k3Vodiph+mCJ8gFxlaKY9DxE5SRhbcKWACcvLQ\r\nPVR2I7b625ZATbgbBtzwJpd+I7EM74d6rhrjAWB5ol0mxwaX22JutA7OfG2j\r\nn7VY/IOZ5RjmDv6TFtKq1XhBkAdq7K/vS5XV08ENoCrw1BZjiBSM1u6w9JDZ\r\nj08+gA0U/h05rRcfPkzxliGa2bNBopyj4qvQh8kqY09IzwgNjAWp7ctE0CX5\r\naio2RwGKhH4Nrc7XOLRaKCmDqHSxvQi7CVPXsF0vgVSs4a1ffP+eDug1a/lQ\r\nFTJEej1rVVrXkOXJEvzekPT16I7pIElgyM/47M01BbuZsChQinVkzkNY9sxV\r\nBp942qNxTxlPtwfSEB8Tu6MIUVEY9OVvT2phqq58GDgutkonYd7HkgtF29Xy\r\n9/donsGLGD47Kc86iYttePiP9m/HHmXe6HgfVDQR2wHyb6CqL/pK62PezqxR\r\nNIBCi5UOGx0qJPpmt/JbDiOEiFLmbUhxeUE=\r\n=WMmM\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "dhedgecock",
+				"email": "hedgecock.D@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "dhedgecock",
+					"email": "hedgecock.D@gmail.com"
+				},
+				{
+					"name": "crystal-ball-ci",
+					"email": "hedgecock.d+crystal-ball-ci@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/componentry_6.5.0_1675344958484_0.4712374042761893"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "<br />\n<div align=\"center\">\n  <img src=\"./docs/assets/componentry.png\" width=\"727\" alt=\"Componentry\" />  \n</div>\n\n<h4 align=\"center\">\n  <em>A React component library for building highly performant, completely customizable design systems.</em>\n</h4>\n\n---\n\n### Features\n\n- Feather light 12kB footprint\n- Zero runtime, 100% customizable component styles\n- A++ accessibility built in to every component\n- Designed for flexibility and component composition\n\n### Documentation\n\nFull documentation is available at\n[componentry.design](https://componentry.design)\n\n<a href=\"https://vercel.com/?utm_source=crystal-ball&utm_campaign=oss\" alt=\"Powered by Vercel\">\n  <img src=\"https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg\">\n</a>\n\n### Contributing\n\nComponentry is an open source project that welcomes and appreciates\ncontributions from everyone 🙌. <br /> Please read the\n[Code of Conduct](./CODE_OF_CONDUCT.md) and\n[Contributing](./.github/CONTRIBUTING.md) guidelines to get started.\n",
@@ -14476,7 +14642,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-01-06T23:07:06.369Z",
+		"modified": "2023-02-02T13:35:58.800Z",
 		"created": "2017-03-18T15:30:06.482Z",
 		"1.0.0": "2017-03-18T15:30:06.482Z",
 		"1.1.0": "2017-04-26T00:58:56.132Z",
@@ -14577,7 +14743,8 @@
 		"6.1.0": "2022-10-13T12:12:27.556Z",
 		"6.2.0": "2022-11-15T15:00:00.506Z",
 		"6.3.0": "2022-11-17T15:23:09.369Z",
-		"6.4.0": "2023-01-06T23:07:06.255Z"
+		"6.4.0": "2023-01-06T23:07:06.255Z",
+		"6.5.0": "2023-02-02T13:35:58.710Z"
 	},
 	"homepage": "https://github.com/crystal-ball/componentry#readme",
 	"keywords": [
@@ -14611,5 +14778,5 @@
 			"email": "psauerbeck@gmail.com"
 		}
 	],
-	"_downloads": 972
+	"_downloads": 1161
 }

@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-text-decoration-shorthand",
-	"_rev": "3-dad177f41e3c2049e93d7745b4b5d6fd",
+	"_rev": "4-2fc4dd0b8a900fa96bf51e24381d9b30",
 	"name": "@csstools/postcss-text-decoration-shorthand",
 	"dist-tags": {
-		"latest": "2.1.0"
+		"latest": "2.2.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -482,15 +482,137 @@
 				"tmp": "tmp/postcss-text-decoration-shorthand_2.1.0_1674895773049_0.6926411912028503"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.2.0": {
+			"name": "@csstools/postcss-text-decoration-shorthand",
+			"description": "Use text-decoration in it's shorthand form in CSS",
+			"version": "2.2.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/color-helpers": "^1.0.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"autoprefixer": "^10.4.8"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-text-decoration-shorthand#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-text-decoration-shorthand"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"css",
+				"postcss-plugin",
+				"shorthand",
+				"text-decoration",
+				"text-decoration-thickness"
+			],
+			"csstools": {
+				"cssdbId": "text-decoration-shorthand",
+				"exportName": "postcssTextDecorationShorthand",
+				"humanReadableName": "PostCSS Text Decoration Shorthand",
+				"specUrl": "https://drafts.csswg.org/css-text-decor-4/#text-decoration-property"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "de8cb9eaf7af0e2cfb0ca2679a61c40744df680a",
+			"_id": "@csstools/postcss-text-decoration-shorthand@2.2.0",
+			"_nodeVersion": "16.17.1",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-++RtufygqFaeheLH1g8Y2Oi/l+xSt61+c0lQGjrpLUW4hhFo77V4Zsshm0oof7lqnpVXPaizlU0SnXf+f4GA7A==",
+				"shasum": "41a2de9e041a22f738ef110807227f6e83acb107",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-text-decoration-shorthand/-/postcss-text-decoration-shorthand-2.2.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 19268,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBQmZSA/wwEk8jifXltETGQJ8Odpmzikbv4GjR5hhN0ZAiEAqPZ2j6el+4GZgwoRrCxy+7dvsXs3m6pVni/IDOLSCKg="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj23iVACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr/Wg/+LSScmT8d0hKHQy95jIFEC9Kf48EicT6Qo1iQqrRvtBJ85qJ4\r\nNbCizXSMHyktiQePE0roRgEN8wZyyKrm3olq9TKgiYSsoBVqc0QaixH1vw4c\r\nqlP03N4m1pYIF3fa2FFoJczj6WHIz7/7rum+OAw8NgMcl3pOdDH6g6IUyK9I\r\nBNmF9D8JjEfmldDxhk2mncDmZqGLMk26DlZqPuKTamCidRsirPSjQQGql02V\r\n9sXpkPErK8VTXh8AyVo0xfCYy0WUJu6gOj67+W8zObKL6ggu4Zm2glZ2TOjh\r\nveUSyAh9DqsmlxZD8AKorF57KsefTnEEVIso/ps/5GPIinILQ24py4G9u6uC\r\nNLF1kUi9Y6UVEwBJSR3oUzBtXifbUm2kIidETQd6nA/BzixJuxCLS6aAOYli\r\nPzhJpSQvpo6rdpUxdKzpxqDcINr4jDf2ytmXQ2YjlFZd/VZCDIk/zdHR9vCY\r\ndCHw4fl69uRTt9ddfFXJR2qfPBVS9qF7FgNNNWlUsVGpZfCsLO8qYMk7rtAY\r\nsz9C8kVynr/qyS/hjji3UX9sS/NPnWoFKXyY1jRrdiEmP9e8vzqnNAoWIKAM\r\niMF1FpwtO505EO9b38ZqDOBBw+l2yHSonS3ObXs9FYbzLOCOlzOs6C4o7YTi\r\n75AiqEQDwcX3bdwK/gtQd8A7wMJewUtgfQ4=\r\n=VLjh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-text-decoration-shorthand_2.2.0_1675327637175_0.3762521893418549"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-08-15T08:34:40.539Z",
 		"1.0.0": "2022-08-15T08:34:40.768Z",
-		"modified": "2023-01-28T08:49:33.414Z",
+		"modified": "2023-02-02T08:47:17.491Z",
 		"2.0.0": "2023-01-24T09:18:07.838Z",
 		"2.0.1": "2023-01-28T08:00:06.367Z",
-		"2.1.0": "2023-01-28T08:49:33.273Z"
+		"2.1.0": "2023-01-28T08:49:33.273Z",
+		"2.2.0": "2023-02-02T08:47:17.359Z"
 	},
 	"maintainers": [
 		{
@@ -533,5 +655,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Text Decoration Shorthand [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-text-decoration-shorthand.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/text-decoration-shorthand.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Text Decoration Shorthand] lets you use `text-decoration` as a shorthand following the [Text Decoration Specification].\n\n```pcss\n.example {\n\ttext-decoration: wavy underline purple 25%;\n}\n\n/* becomes */\n\n.example {\n\ttext-decoration: underline;\n\ttext-decoration: underline wavy purple;\n\ttext-decoration-thickness: calc(0.01em * 25);\n}\n```\n\n## Usage\n\nAdd [PostCSS Text Decoration Shorthand] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-text-decoration-shorthand --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssTextDecorationShorthand = require('@csstools/postcss-text-decoration-shorthand');\n\npostcss([\n\tpostcssTextDecorationShorthand(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Text Decoration Shorthand] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssTextDecorationShorthand({ preserve: true })\n```\n\n```pcss\n.example {\n\ttext-decoration: wavy underline purple 25%;\n}\n\n/* becomes */\n\n.example {\n\ttext-decoration: underline;\n\ttext-decoration: underline wavy purple;\n\ttext-decoration-thickness: calc(0.01em * 25);\n\ttext-decoration: wavy underline purple 25%;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#text-decoration-shorthand\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-text-decoration-shorthand\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Text Decoration Shorthand]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-text-decoration-shorthand\n[Text Decoration Specification]: https://drafts.csswg.org/css-text-decor-4/#text-decoration-property\n",
 	"readmeFilename": "README.md",
-	"_downloads": 9218151
+	"_downloads": 10015421
 }
