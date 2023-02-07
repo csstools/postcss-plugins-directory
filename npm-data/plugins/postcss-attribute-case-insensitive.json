@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-attribute-case-insensitive",
-	"_rev": "18-7f8deb0c671af7fca4b55c96a5cb2a94",
+	"_rev": "19-ecde46503e159a9cce1f324b278fa6da",
 	"name": "postcss-attribute-case-insensitive",
 	"description": "Enable support for case insensitive attribute matching in selectors",
 	"dist-tags": {
-		"latest": "6.0.1"
+		"latest": "6.0.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1236,6 +1236,132 @@
 				"tmp": "tmp/postcss-attribute-case-insensitive_6.0.1_1674890916096_0.9965334296402957"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.2": {
+			"name": "postcss-attribute-case-insensitive",
+			"description": "Enable support for case insensitive attribute matching in selectors",
+			"version": "6.0.2",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Dmitry Semigradsky"
+				}
+			],
+			"license": "MIT",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-attribute-case-insensitive#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-attribute-case-insensitive"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"attribute",
+				"css",
+				"CSS4",
+				"insensitive",
+				"postcss",
+				"postcss-plugin",
+				"sensitive"
+			],
+			"csstools": {
+				"cssdbId": "case-insensitive-attributes",
+				"exportName": "postcssAttributeCaseInsensitive",
+				"humanReadableName": "PostCSS Attribute Case Insensitive",
+				"specUrl": "https://www.w3.org/TR/selectors4/#attribute-case"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "76f785c9d691c9df7d55278a4edb0d9aecab4d87",
+			"_id": "postcss-attribute-case-insensitive@6.0.2",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-IRuCwwAAQbgaLhxQdQcIIK0dCVXg3XDUnzgKD8iwdiYdwU4rMWRWyl/W9/0nA4ihVpq5pyALiHB2veBJ0292pw==",
+				"shasum": "e843091859323342e461878d201ee70278809e01",
+				"tarball": "https://registry.npmjs.org/postcss-attribute-case-insensitive/-/postcss-attribute-case-insensitive-6.0.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12193,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFsgA3XbfRLvXpmn/F/vYOntvQRfZC8P2cYD5Ks3TA08AiEAmK73lJJPK0PqUifuqLWR4ossVXAghFDVb0mUZRJyheY="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj4TZBACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrINg//X/Fj1cJOdP6WqhLJItK/VbvFH9pZ/9J20++LSb3ZpmJEAegj\r\nhdrBaOxCtvRGKmCuRAP/Ych/veW4cCLbDSjf3lRQxA9FcD3KFi39WwNO27Nr\r\nd5X6NC4W3Fj7WiKstLZezsTOhsNP9Docg+cpixszYcjMQqKrL0d1ev+h9KKX\r\nj4IyjnKRA0TK0guTmxbIePADY/nU1FaoCukRoysbMiiRSorvEXrOdsS5V3Ux\r\nBlbh9mMW2geTd1+O7vjwMwvTQzHePseUECXZ0aLxFAl8ZuUWeNZK0lmK6APB\r\n2p3y5iO+rPiTXWlhXCTfZuv9iEIS5pQ/+z5yqntl1GDDyY5OAwP+9Py9GJ5F\r\n685NF0lsqgT3BesEF2SL48X9nYuuqlW7utGzwbZ17r8liHry2cwup/zyr1tI\r\nXjaInZZYj+Qxsd7mKA6BS5ryVXfARO1aBi0mAotZkvVV98zuQXudIvGuxw6/\r\npVxVbbJwDkjYTHa14pLdA1uDadThW1K1W1yOyiwA+Hq+eV37JDZZn7xCNtq3\r\nbVV4fbh2PUqf35WSflB/+IBZnTZSw/IaWhDRUQKvA0zW0OToJfoodTVaFK6S\r\nPnOPfG9ynTZ9bKscPFZF3+p2dNW76PrkdmXWh0PeObnu5yU/ZpnoAklJis2M\r\nVlvAUkV5OObAfaF1NHcThKQw51mm7Vdzs0c=\r\n=WjnG\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-attribute-case-insensitive_6.0.2_1675703873359_0.9870703498475419"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Attribute Case Insensitive [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-attribute-case-insensitive.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/case-insensitive-attributes.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Attribute Case Insensitive] enables support for [Case Insensitive Attribute] matching in selectors.\n\n```pcss\n[frame=hsides i] {\n\tborder-style: solid none;\n}\n\n/* becomes */\n\n[frame=hsides],[frame=Hsides],[frame=hSides],[frame=HSides],[frame=hsIdes],[frame=HsIdes],[frame=hSIdes],[frame=HSIdes],[frame=hsiDes],[frame=HsiDes],[frame=hSiDes],[frame=HSiDes],[frame=hsIDes],[frame=HsIDes],[frame=hSIDes],[frame=HSIDes],[frame=hsidEs],[frame=HsidEs],[frame=hSidEs],[frame=HSidEs],[frame=hsIdEs],[frame=HsIdEs],[frame=hSIdEs],[frame=HSIdEs],[frame=hsiDEs],[frame=HsiDEs],[frame=hSiDEs],[frame=HSiDEs],[frame=hsIDEs],[frame=HsIDEs],[frame=hSIDEs],[frame=HSIDEs],[frame=hsideS],[frame=HsideS],[frame=hSideS],[frame=HSideS],[frame=hsIdeS],[frame=HsIdeS],[frame=hSIdeS],[frame=HSIdeS],[frame=hsiDeS],[frame=HsiDeS],[frame=hSiDeS],[frame=HSiDeS],[frame=hsIDeS],[frame=HsIDeS],[frame=hSIDeS],[frame=HSIDeS],[frame=hsidES],[frame=HsidES],[frame=hSidES],[frame=HSidES],[frame=hsIdES],[frame=HsIdES],[frame=hSIdES],[frame=HSIdES],[frame=hsiDES],[frame=HsiDES],[frame=hSiDES],[frame=HSiDES],[frame=hsIDES],[frame=HsIDES],[frame=hSIDES],[frame=HSIDES] {\n\tborder-style: solid none;\n}\n```\n\n## Usage\n\nAdd [PostCSS Attribute Case Insensitive] to your project:\n\n```bash\nnpm install postcss postcss-attribute-case-insensitive --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssAttributeCaseInsensitive = require('postcss-attribute-case-insensitive');\n\npostcss([\n\tpostcssAttributeCaseInsensitive(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Attribute Case Insensitive] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssAttributeCaseInsensitive({ preserve: true })\n```\n\n```pcss\n[frame=hsides i] {\n\tborder-style: solid none;\n}\n\n/* becomes */\n\n[frame=hsides],[frame=Hsides],[frame=hSides],[frame=HSides],[frame=hsIdes],[frame=HsIdes],[frame=hSIdes],[frame=HSIdes],[frame=hsiDes],[frame=HsiDes],[frame=hSiDes],[frame=HSiDes],[frame=hsIDes],[frame=HsIDes],[frame=hSIDes],[frame=HSIDes],[frame=hsidEs],[frame=HsidEs],[frame=hSidEs],[frame=HSidEs],[frame=hsIdEs],[frame=HsIdEs],[frame=hSIdEs],[frame=HSIdEs],[frame=hsiDEs],[frame=HsiDEs],[frame=hSiDEs],[frame=HSiDEs],[frame=hsIDEs],[frame=HsIDEs],[frame=hSIDEs],[frame=HSIDEs],[frame=hsideS],[frame=HsideS],[frame=hSideS],[frame=HSideS],[frame=hsIdeS],[frame=HsIdeS],[frame=hSIdeS],[frame=HSIdeS],[frame=hsiDeS],[frame=HsiDeS],[frame=hSiDeS],[frame=HSiDeS],[frame=hsIDeS],[frame=HsIDeS],[frame=hSIDeS],[frame=HSIDeS],[frame=hsidES],[frame=HsidES],[frame=hSidES],[frame=HSidES],[frame=hsIdES],[frame=HsIdES],[frame=hSIdES],[frame=HSIdES],[frame=hsiDES],[frame=HsiDES],[frame=hSiDES],[frame=HSiDES],[frame=hsIDES],[frame=HsIDES],[frame=hSIDES],[frame=HSIDES] {\n\tborder-style: solid none;\n}\n[frame=hsides i] {\n\tborder-style: solid none;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#case-insensitive-attributes\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-attribute-case-insensitive\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Attribute Case Insensitive]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-attribute-case-insensitive\n[Case Insensitive Attribute]: https://www.w3.org/TR/selectors4/#attribute-case\n",
@@ -1254,7 +1380,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-01-28T07:28:36.394Z",
+		"modified": "2023-02-06T17:17:53.684Z",
 		"created": "2016-08-10T09:12:35.164Z",
 		"1.0.0": "2016-08-10T09:12:35.164Z",
 		"1.0.1": "2016-08-19T14:18:33.749Z",
@@ -1268,7 +1394,8 @@
 		"5.0.1": "2022-06-03T05:20:26.762Z",
 		"5.0.2": "2022-07-08T15:53:26.039Z",
 		"6.0.0": "2023-01-24T08:45:38.217Z",
-		"6.0.1": "2023-01-28T07:28:36.317Z"
+		"6.0.1": "2023-01-28T07:28:36.317Z",
+		"6.0.2": "2023-02-06T17:17:53.556Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-attribute-case-insensitive#readme",
 	"keywords": [
@@ -1304,5 +1431,5 @@
 			"name": "Dmitry Semigradsky"
 		}
 	],
-	"_downloads": 28551958
+	"_downloads": 29563919
 }
