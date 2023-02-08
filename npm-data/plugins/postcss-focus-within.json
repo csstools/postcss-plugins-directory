@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-focus-within",
-	"_rev": "16-a42513e1cb480f649f2ce0d194378f6a",
+	"_rev": "17-28b964179b6838fc60b485b264a29f31",
 	"name": "postcss-focus-within",
 	"dist-tags": {
-		"latest": "7.0.1"
+		"latest": "7.0.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1690,12 +1690,149 @@
 				"tmp": "tmp/postcss-focus-within_7.0.1_1674891544147_0.762325336600675"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.2": {
+			"name": "postcss-focus-within",
+			"description": "Use the :focus-within pseudo-selector in CSS",
+			"version": "7.0.2",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-focus-within#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-focus-within"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"a11y",
+				"accessibility",
+				"ancestors",
+				"css",
+				"descendants",
+				"focus",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudos",
+				"selectors",
+				"within"
+			],
+			"csstools": {
+				"cssdbId": "focus-within-pseudo-class",
+				"exportName": "postcssFocusWithin",
+				"humanReadableName": "PostCSS Focus Within",
+				"specUrl": "https://www.w3.org/TR/selectors-4/#the-focus-within-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "4f487af70e9abb9c15fd8a7c110995e8f01be88f",
+			"_id": "postcss-focus-within@7.0.2",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-AHAJ89UQBcqBvFgQJE9XasGuwMNkKsGj4D/f9Uk60jFmEBHpAL14DrnSk3Rj+SwZTr/WUG+mh+Rvf8fid/346w==",
+				"shasum": "5d2c866030e66ed22b204c9506de640943310b1c",
+				"tarball": "https://registry.npmjs.org/postcss-focus-within/-/postcss-focus-within-7.0.2.tgz",
+				"fileCount": 13,
+				"unpackedSize": 41924,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFRxo1d3608GNOSQhdqGW4b3VTu+NIoEONAT1IF+jAyCAiAVimBT41+DG+eFvi53j9sNortNwUxDYpYNxrlT+EKVUg=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj418VACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqqVRAAk5n3kW3OCjh/CIFyqrvEcacymP1ejPFAUIssFXAGadwUYd4T\r\n+NigwB3Hvs7WG/XzE8kPBzZGR3rxdjWWkeeHjvOa82ja6NUSgJqGKwTmfYCA\r\nY+sq6L2lHvvoEXQCu5K5pP1HiIXyrvlHFmkTpujzhJij2H+Pyq8AYIcXxF00\r\nUzxV5EafBcGL3ZQabWlpblt7HXrpMQIQj3STPNLd/0Xv5emfEErOvPP6qr6l\r\naTvqunBoT8OOVmy3/8F9U4BBt+wVPnZObqYZhK+6EZ7N2cXhI2oiYf0IC3sN\r\n6lCxQ+cR7SotTQkYm4RHipzXHWtSxCroO/qM/S3nP57CVe4yRyh98MVOfRZv\r\ntAtEn5ZNGavaT4kjWymCti2kPVIVK+BxEJKY/uYJ0a+sdCjAamUDBZQCpyQe\r\nQXpqN8s+ziCm3ncpwTfKajGm8RV7GG0NVL1nLWBVC9+7qPA/Tb7oWnFfcTTZ\r\nmCNc0H0Cpy6l40J1b4gCUbP2OTtvckPOmU5SiyC5kRLNHHQ2uxZ06T/1aR1J\r\n6EuvjriP0H0MooqRwPd2RQeOUfO16Db+Al63C1MxPmYy2Han72W+iatyxttf\r\nBDPu4lGds1iEHTC9SavrLDORp1AHlRd8EUmIqxlYwebOsKBi261B+s++47wU\r\nLEUgeyEmJetzVuZboJph2jQqLlH+XoVeOg4=\r\n=BDkH\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-focus-within_7.0.2_1675845397357_0.24708871793684595"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-02-17T23:27:38.056Z",
 		"1.0.0": "2018-02-17T23:27:38.113Z",
-		"modified": "2023-01-28T07:39:04.396Z",
+		"modified": "2023-02-08T08:36:37.623Z",
 		"2.0.0": "2018-04-08T01:55:22.443Z",
 		"3.0.0": "2018-09-18T03:54:54.810Z",
 		"4.0.0": "2020-04-13T13:40:33.531Z",
@@ -1708,7 +1845,8 @@
 		"6.1.0": "2022-07-30T17:38:59.841Z",
 		"6.1.1": "2022-08-23T20:53:16.814Z",
 		"7.0.0": "2023-01-24T09:05:20.505Z",
-		"7.0.1": "2023-01-28T07:39:04.310Z"
+		"7.0.1": "2023-01-28T07:39:04.310Z",
+		"7.0.2": "2023-02-08T08:36:37.525Z"
 	},
 	"maintainers": [
 		{
@@ -1745,7 +1883,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Focus Within [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-focus-within.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/focus-within-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Focus Within] lets you use the `:focus-within` pseudo-class in CSS, \nfollowing the [Selectors Level 4 specification].\n\n```pcss\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.my-form-field[focus-within].js-focus-within label, .js-focus-within .my-form-field[focus-within] label {\n\tbackground-color: yellow;\n}\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n```\n\n[PostCSS Focus Within] duplicates rules using the `:focus-within` pseudo-class\nwith a `[focus-within]` attribute selector, the same selector used by the\nfocus-within polyfill. This replacement selector can be changed using the\n`replaceWith` option. Also, the preservation of the original `:focus-within`\nrule can be disabled using the `preserve` option.\n\n## Usage\n\nAdd [PostCSS Focus Within] to your project:\n\n```bash\nnpm install postcss postcss-focus-within --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssFocusWithin = require('postcss-focus-within');\n\npostcss([\n\tpostcssFocusWithin(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Focus Within] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssFocusWithin({ preserve: false })\n```\n\n```pcss\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.my-form-field[focus-within].js-focus-within label, .js-focus-within .my-form-field[focus-within] label {\n\tbackground-color: yellow;\n}\n```\n\n### replaceWith\n\nThe `replaceWith` option defines the selector to replace `:focus-within`. By\ndefault, the replacement selector is `[focus-within]`.\nPlease note that using a class, leverages `classList` under the hood which\nmight  not be supported on some old browsers such as IE9, so you may need\nto polyfill `classList` in those cases.\n\n```js\npostcssFocusWithin({ replaceWith: '.focus-within' });\n```\n\n```pcss\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.my-form-field.focus-within.js-focus-within label, .js-focus-within .my-form-field.focus-within label {\n\tbackground-color: yellow;\n}\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n```\n\nNote that changing this option implies that it needs to be passed to the\nbrowser polyfill as well.\n\n### disablePolyfillReadyClass\n\nThe `disablePolyfillReadyClass` option determines if selectors are prefixed with an indicator class.\nThis class is only set on your document if the polyfill loads and is needed.\n\nBy default this option is `false`.\nSet this to `true` to prevent the class from being added.\n\n```js\npostcssFocusWithin({ disablePolyfillReadyClass: true })\n```\n\n```pcss\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.my-form-field[focus-within] label, .my-form-field[focus-within] label {\n\tbackground-color: yellow;\n}\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n```\n\n## Browser\n\n```js\nimport focusWithinInit from 'postcss-focus-within/browser';\n\nfocusWithinInit();\n```\n\nor\n\n```html\n<!-- When using a CDN url you will have to manually update the version number -->\n<script src=\"https://unpkg.com/postcss-focus-within@7.0.1/dist/browser-global.js\"></script>\n<script>focusWithinInit()</script>\n```\n\n[PostCSS Focus Within] works in all major browsers, including Safari 6+ and\nInternet Explorer 9+ without any additional polyfills.\n\n### Browser Usage\n\n#### force\n\nThe `force` option determines whether the library runs even if the browser\nsupports the selector or not. By default, it won't run if the browser does\nsupport the selector.\n\n```js\nfocusWithinInit({ force: true });\n```\n\n#### replaceWith\n\nSimilar to the option for the PostCSS Plugin, `replaceWith` determines the\nattribute or class to apply to an element when it's considered to be `:focus-within`.\n\n```js\nfocusWithinInit({ replaceWith: '.focus-within });\n```\n\nThis option should be used if it was changed at PostCSS configuration level.\n\n### Using with Next.js\n\nGiven that Next.js imports packages both on the browser and on the server, you need to make sure that the package is only imported on the browser.\n\nAs outlined in the [Next.js documentation](https://nextjs.org/docs/advanced-features/dynamic-import#with-external-libraries), you need to load the package with a dynamic import:\n\n```jsx\nuseEffect(async () => {\n\tconst focusWithinInit = (await import('postcss-focus-within/browser')).default;\n\tfocusWithinInit();\n}, []);\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#focus-within-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-focus-within\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Focus Within]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-focus-within\n[Selectors Level 4 specification]: https://www.w3.org/TR/selectors-4/#the-focus-within-pseudo\n",
+	"readme": "# PostCSS Focus Within [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-focus-within.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/focus-within-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Focus Within] lets you use the `:focus-within` pseudo-class in CSS, \nfollowing the [Selectors Level 4 specification].\n\n```pcss\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.my-form-field[focus-within].js-focus-within label, .js-focus-within .my-form-field[focus-within] label {\n\tbackground-color: yellow;\n}\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n```\n\n[PostCSS Focus Within] duplicates rules using the `:focus-within` pseudo-class\nwith a `[focus-within]` attribute selector, the same selector used by the\nfocus-within polyfill. This replacement selector can be changed using the\n`replaceWith` option. Also, the preservation of the original `:focus-within`\nrule can be disabled using the `preserve` option.\n\n## Usage\n\nAdd [PostCSS Focus Within] to your project:\n\n```bash\nnpm install postcss postcss-focus-within --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssFocusWithin = require('postcss-focus-within');\n\npostcss([\n\tpostcssFocusWithin(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Focus Within] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssFocusWithin({ preserve: false })\n```\n\n```pcss\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.my-form-field[focus-within].js-focus-within label, .js-focus-within .my-form-field[focus-within] label {\n\tbackground-color: yellow;\n}\n```\n\n### replaceWith\n\nThe `replaceWith` option defines the selector to replace `:focus-within`. By\ndefault, the replacement selector is `[focus-within]`.\nPlease note that using a class, leverages `classList` under the hood which\nmight  not be supported on some old browsers such as IE9, so you may need\nto polyfill `classList` in those cases.\n\n```js\npostcssFocusWithin({ replaceWith: '.focus-within' });\n```\n\n```pcss\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.my-form-field.focus-within.js-focus-within label, .js-focus-within .my-form-field.focus-within label {\n\tbackground-color: yellow;\n}\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n```\n\nNote that changing this option implies that it needs to be passed to the\nbrowser polyfill as well.\n\n### disablePolyfillReadyClass\n\nThe `disablePolyfillReadyClass` option determines if selectors are prefixed with an indicator class.\nThis class is only set on your document if the polyfill loads and is needed.\n\nBy default this option is `false`.\nSet this to `true` to prevent the class from being added.\n\n```js\npostcssFocusWithin({ disablePolyfillReadyClass: true })\n```\n\n```pcss\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\n.my-form-field[focus-within] label {\n\tbackground-color: yellow;\n}\n.my-form-field:focus-within label {\n\tbackground-color: yellow;\n}\n```\n\n## Browser\n\n```js\nimport focusWithinInit from 'postcss-focus-within/browser';\n\nfocusWithinInit();\n```\n\nor\n\n```html\n<!-- When using a CDN url you will have to manually update the version number -->\n<script src=\"https://unpkg.com/postcss-focus-within@7.0.2/dist/browser-global.js\"></script>\n<script>focusWithinInit()</script>\n```\n\n[PostCSS Focus Within] works in all major browsers, including Safari 6+ and\nInternet Explorer 9+ without any additional polyfills.\n\n### Browser Usage\n\n#### force\n\nThe `force` option determines whether the library runs even if the browser\nsupports the selector or not. By default, it won't run if the browser does\nsupport the selector.\n\n```js\nfocusWithinInit({ force: true });\n```\n\n#### replaceWith\n\nSimilar to the option for the PostCSS Plugin, `replaceWith` determines the\nattribute or class to apply to an element when it's considered to be `:focus-within`.\n\n```js\nfocusWithinInit({ replaceWith: '.focus-within });\n```\n\nThis option should be used if it was changed at PostCSS configuration level.\n\n### Using with Next.js\n\nGiven that Next.js imports packages both on the browser and on the server, you need to make sure that the package is only imported on the browser.\n\nAs outlined in the [Next.js documentation](https://nextjs.org/docs/advanced-features/dynamic-import#with-external-libraries), you need to load the package with a dynamic import:\n\n```jsx\nuseEffect(async () => {\n\tconst focusWithinInit = (await import('postcss-focus-within/browser')).default;\n\tfocusWithinInit();\n}, []);\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#focus-within-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-focus-within\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Focus Within]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-focus-within\n[Selectors Level 4 specification]: https://www.w3.org/TR/selectors-4/#the-focus-within-pseudo\n",
 	"readmeFilename": "README.md",
 	"contributors": [
 		{
@@ -1762,5 +1900,5 @@
 			"email": "jonathantneal@hotmail.com"
 		}
 	],
-	"_downloads": 29114791
+	"_downloads": 30545478
 }

@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-focus-visible",
-	"_rev": "15-30f1088182d5e87cb90d386d89b308b9",
+	"_rev": "16-5a661443e3fe19343a97a057d1ff5d1c",
 	"name": "postcss-focus-visible",
 	"dist-tags": {
-		"latest": "8.0.1"
+		"latest": "8.0.2"
 	},
 	"versions": {
 		"2.0.0": {
@@ -1688,12 +1688,152 @@
 				"tmp": "tmp/postcss-focus-visible_8.0.1_1674891514336_0.342959155712252"
 			},
 			"_hasShrinkwrap": false
+		},
+		"8.0.2": {
+			"name": "postcss-focus-visible",
+			"description": "Use the :focus-visible pseudo-selector in CSS",
+			"version": "8.0.2",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"puppeteer": "^19.5.2"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-focus-visible#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-focus-visible"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"a11y",
+				"accessibility",
+				"button",
+				"contenteditable",
+				"css",
+				"cursor",
+				"focus",
+				"input",
+				"javascript",
+				"js",
+				"keyboards",
+				"mice",
+				"mouse",
+				"pen",
+				"pointer",
+				"postcss",
+				"postcss-plugin",
+				"pseudos",
+				"ring",
+				"select",
+				"selectors",
+				"textarea",
+				"touch",
+				"trackpad"
+			],
+			"csstools": {
+				"cssdbId": "focus-visible-pseudo-class",
+				"exportName": "postcssFocusVisible",
+				"humanReadableName": "PostCSS Focus Visible",
+				"specUrl": "https://www.w3.org/TR/selectors-4/#the-focus-visible-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "b50005d81d41dd626c434c323c31de48533ff3f8",
+			"_id": "postcss-focus-visible@8.0.2",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-f/Vd+EC/GaKElknU59esVcRYr/Y3t1ZAQyL4u2xSOgkDy4bMCmG7VP5cGvj3+BTLNE9ETfEuz2nnt4qkZwTTeA==",
+				"shasum": "a7ac26ffe3e9c2bd17d7200d75e2d79ee8110891",
+				"tarball": "https://registry.npmjs.org/postcss-focus-visible/-/postcss-focus-visible-8.0.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 19158,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBefJPZpIvyuTCLMTIugMj4zMv3Mhiv4x4t1PCWgAVkvAiEArQ8Z/qyYFtfgVpduz+Pg3ryfuJm7XnVaNz6jOrxTyeI="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj418MACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpQIQ/+MdzkDcLAzqwmwg6dck8WKYchtecNt44MHq1F8uHFhj+EY9oX\r\nhoAu+fxR9W4GLVnIcZyODBXTq7/UMOj30UUX2NA5Qj65A3y1xk+B0ya87DJX\r\nP9/WpbTb3GATdlU3flKdOhBA0FWKWF+pNuspovSSmfeTXqIoF3X19YKercxk\r\nDE83sQbPDLOPrMNR+Czm/HkZfuDj59BAOOz8xYZLsWBbq+Md1IG97Q9vEzdn\r\nlForhpfVQGFIVqfPmH/HQa4i0DpTOUfzpV+r/8Ca2T9ngGn6P+dgCOQZ0F/C\r\nkuMbXaPXItyrfDbb7Oj1SXmyTVJjIo6Q6BwSPUsLoLAWh86LaOVIhsC9fXVC\r\nmSEU5NYtD3BNLu9ibtQ+4zEua54IhI9fTRrf0vZIVB70EEcf0hfro4HLs4iQ\r\nsV5FxG0Xgysl3cMHWH3NZDb0PjHjAdju9scXgXFlofiIBFTjU+1EjWZyZ+Ii\r\ndrvlVEZWjqnMEVPlMfahHQYZA/J7v/7eiP4SufXUcg91aLdcbgdL9xu93Zxi\r\n/PUUkwFZAAwvQNztqe5h3stmd4q4Dq8sQ55dgHQcQ3/bUqLUuNRGyBJQH4zN\r\nOYyeV2e01AorI0THVNKCuBvMBiyRAcCazjWdyM+27S4s+gk5gKb4SjSqqoso\r\nlMsP8gfFPdy3IDWeF4GMANa8lXyDoZipOdA=\r\n=JHEH\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-focus-visible_8.0.2_1675845388574_0.33489333166986013"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-02-17T16:56:45.821Z",
 		"2.0.0": "2018-02-17T16:56:45.872Z",
-		"modified": "2023-01-28T07:38:34.601Z",
+		"modified": "2023-02-08T08:36:28.856Z",
 		"3.0.0": "2018-04-08T02:38:08.592Z",
 		"4.0.0": "2018-09-18T03:45:48.899Z",
 		"5.0.0": "2020-04-14T04:44:36.756Z",
@@ -1705,7 +1845,8 @@
 		"7.0.0": "2022-07-08T17:31:16.987Z",
 		"7.1.0": "2022-07-30T17:38:15.958Z",
 		"8.0.0": "2023-01-24T09:04:45.668Z",
-		"8.0.1": "2023-01-28T07:38:34.509Z"
+		"8.0.1": "2023-01-28T07:38:34.509Z",
+		"8.0.2": "2023-02-08T08:36:28.772Z"
 	},
 	"maintainers": [
 		{
@@ -1754,7 +1895,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Focus Visible [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-focus-visible.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/focus-visible-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Focus Visible] lets you use the `:focus-visible` pseudo-class in CSS, \nfollowing the [Selectors Level 4 specification].\n\nIt is the companion to the [focus-visible polyfill]. Note that this plugin\nalone **is not** sufficient to polyfill for `:focus-visible` and that you need\nthe browser's polyfill as well.\n\n[!['Can I use' table](https://caniuse.bitsofco.de/image/css-focus-visible.png)](https://caniuse.com/#feat=css-focus-visible)\n\n```css\n\n```pcss\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n\n/* becomes */\n\n:focus:not(.focus-visible).js-focus-visible, .js-focus-visible :focus:not(.focus-visible) {\n\toutline: none;\n}\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n```\n\n[PostCSS Focus Visible] duplicates rules using the `:focus-visible` pseudo-class\nwith a `.focus-visible` class selector, the same selector used by the\n[focus-visible polyfill].\n\n## Usage\n\nAdd [PostCSS Focus Visible] to your project:\n\n```bash\nnpm install postcss postcss-focus-visible --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssFocusVisible = require('postcss-focus-visible');\n\npostcss([\n\tpostcssFocusVisible(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Focus Visible] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssFocusVisible({ preserve: false })\n```\n\n```pcss\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n\n/* becomes */\n\n:focus:not(.focus-visible).js-focus-visible, .js-focus-visible :focus:not(.focus-visible) {\n\toutline: none;\n}\n```\n\n### replaceWith\n\nThe `replaceWith` option defines the selector to replace `:focus-visible`. By\ndefault, the replacement selector is `.focus-visible`.\n\n```js\npostcssFocusVisible({ replaceWith: '[data-focus-visible-added]' })\n```\n\n```pcss\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n\n/* becomes */\n\n<example.preserve-true.expect.css>\n```\n\nNote that if you want to keep using [focus-visible polyfill], the only \nacceptable value would be `[data-focus-visible-added]`,\ngiven that the polyfill does not support arbitrary values.\n\n### disablePolyfillReadyClass\n\nThe `disablePolyfillReadyClass` option determines if selectors are prefixed with an indicator class.\nThis class is only set on your document if the polyfill loads and is needed.\n\nBy default this option is `false`.\nSet this to `true` to prevent the class from being added.\n\n```js\npostcssFocusVisible({ disablePolyfillReadyClass: true })\n```\n\n```pcss\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n\n/* becomes */\n\n:focus:not(.focus-visible), :focus:not(.focus-visible) {\n\toutline: none;\n}\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#focus-visible-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-focus-visible\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Focus Visible]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-focus-visible\n[Selectors Level 4 specification]: https://www.w3.org/TR/selectors-4/#the-focus-visible-pseudo\n[focus-visible polyfill]: https://github.com/WICG/focus-visible\n",
+	"readme": "# PostCSS Focus Visible [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-focus-visible.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/focus-visible-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Focus Visible] lets you use the `:focus-visible` pseudo-class in CSS, \nfollowing the [Selectors Level 4 specification].\n\nIt is the companion to the [focus-visible polyfill]. Note that this plugin\nalone **is not** sufficient to polyfill for `:focus-visible` and that you need\nthe browser's polyfill as well.\n\n[!['Can I use' table](https://caniuse.bitsofco.de/image/css-focus-visible.png)](https://caniuse.com/#feat=css-focus-visible)\n\n```css\n\n```pcss\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n\n/* becomes */\n\n:focus:not(.focus-visible).js-focus-visible, .js-focus-visible :focus:not(.focus-visible) {\n\toutline: none;\n}\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n```\n\n[PostCSS Focus Visible] duplicates rules using the `:focus-visible` pseudo-class\nwith a `.focus-visible` class selector, the same selector used by the\n[focus-visible polyfill].\n\n## Usage\n\nAdd [PostCSS Focus Visible] to your project:\n\n```bash\nnpm install postcss postcss-focus-visible --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssFocusVisible = require('postcss-focus-visible');\n\npostcss([\n\tpostcssFocusVisible(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Focus Visible] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssFocusVisible({ preserve: false })\n```\n\n```pcss\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n\n/* becomes */\n\n:focus:not(.focus-visible).js-focus-visible, .js-focus-visible :focus:not(.focus-visible) {\n\toutline: none;\n}\n```\n\n### replaceWith\n\nThe `replaceWith` option defines the selector to replace `:focus-visible`. By\ndefault, the replacement selector is `.focus-visible`.\n\n```js\npostcssFocusVisible({ replaceWith: '[data-focus-visible-added]' })\n```\n\n```pcss\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n\n/* becomes */\n\n<example.preserve-true.expect.css>\n```\n\nNote that if you want to keep using [focus-visible polyfill], the only \nacceptable value would be `[data-focus-visible-added]`,\ngiven that the polyfill does not support arbitrary values.\n\n### disablePolyfillReadyClass\n\nThe `disablePolyfillReadyClass` option determines if selectors are prefixed with an indicator class.\nThis class is only set on your document if the polyfill loads and is needed.\n\nBy default this option is `false`.\nSet this to `true` to prevent the class from being added.\n\n```js\npostcssFocusVisible({ disablePolyfillReadyClass: true })\n```\n\n```pcss\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n\n/* becomes */\n\n:focus:not(.focus-visible) {\n\toutline: none;\n}\n:focus:not(:focus-visible) {\n\toutline: none;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#focus-visible-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-focus-visible\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Focus Visible]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-focus-visible\n[Selectors Level 4 specification]: https://www.w3.org/TR/selectors-4/#the-focus-visible-pseudo\n[focus-visible polyfill]: https://github.com/WICG/focus-visible\n",
 	"readmeFilename": "README.md",
 	"contributors": [
 		{
@@ -1767,5 +1908,5 @@
 			"email": "romainmenke@gmail.com"
 		}
 	],
-	"_downloads": 27611528
+	"_downloads": 30740424
 }
