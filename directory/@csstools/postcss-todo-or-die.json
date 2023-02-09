@@ -1,0 +1,115 @@
+{
+	"name": "@csstools/postcss-todo-or-die",
+	"description": "Write TODOs in CSS that ensure you actually do them.",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-parser-algorithms": "^2.0.0",
+		"@csstools/css-tokenizer": "^2.0.0",
+		"browserslist": "^4.21.4"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"scripts": {
+		"prebuild": "npm run clean",
+		"build": "rollup -c ../../rollup/default.mjs",
+		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "npm run lint:eslint && npm run lint:package-json",
+		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "node .tape.mjs && npm run test:exports",
+		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-todo-or-die#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-todo-or-die"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"code quality",
+		"postcss-plugin",
+		"productivity"
+	],
+	"csstools": {
+		"exportName": "postcssTodoOrDie",
+		"humanReadableName": "PostCSS Todo or Die"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "b53fe6db93130f076c00e19da3c1a3c59819f63c",
+	"_id": "@csstools/postcss-todo-or-die@1.0.0",
+	"_nodeVersion": "18.13.0",
+	"_npmVersion": "9.4.1",
+	"dist": {
+		"integrity": "sha512-KP/Zsz/r8YYQ+K38gpZLnUV/TFdWxos9XAKqr0n/1/u9j68y++Tg56DlO9VfHVSeBE+9GYOZ8Xvzam8srExFww==",
+		"shasum": "25cefed9133337a3063dcc0bd40abd70961ed5c8",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-todo-or-die/-/postcss-todo-or-die-1.0.0.tgz",
+		"fileCount": 16,
+		"unpackedSize": 24603,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQDfOULZqa9yFvr15TZHjakHgzfxkZ/sn+gyPa4uTvWNkwIgC+TDmIhSrZS9GbYqU8Pf3C2nSZ57+nCTGGdEkusbYGI="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj4TacACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqJnA/+I01okjH2pzqndRZDaLglvzVTPvxOljYevaVtD9qTMwXLmEpw\r\n+OOgIntgBaOY20qGEtnxXhzh5kDAk8eY6Xw+/6uzLFQVT7GmPE+jI2ykdxnH\r\nsdnLu76vp/RHUv/ZXH8VhdJUj7JpmqsD7HZUXHOPv7xFPr2EiiH2ZzM2qovw\r\nrncDzq5f16vepEpg8SlqE3OkKw2IWxXcIEE0UGDRhDVWGZOx5Cqd5wv6xDU/\r\nloKZ837wirK1zhHmZ6L9pAAUs17HKBihZtJUop04NZUFm2jfdXDCGHdgbXdx\r\nFjJLtlz7FWQOkfgn9akqiYyTPSDEWU1X18hHSkkLw3jvNl9D9csxoef/eUsx\r\njesi6eYN1Pem3YAUyVrU+4/L0oEqAAxwKLpvBRKnFWzsmWE6OHTWkHNuYPLx\r\n6sTEBWZaW3OVfpjgzmtg2ZbD76iiFyg0WiFdQgbU/94jwqq//hX7qSy/EmTD\r\nkFdFCLNQ/iak80JijL4C/HnGbecTbDTS6SG0I5sbv8rydjjY3rSdPXLY5Dyt\r\n0JO7ItV08ZqrYBIr21j/d2tA7l+Rh/VwgsWbYpboFCXGIPPR/ujxgAhKAGqi\r\n6/lunBjrMkk+coNyWDrX58AXMn8+zhjQPtjB31o+9HLUyBOsCQTMs1uwVmyC\r\nnyi20iC2yrGT+C0oUed2dWX1i/PgqiIoUkI=\r\n=jHey\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-todo-or-die_1.0.0_1675703964655_0.46810716245744266"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-02-06T17:19:24.838Z"
+}
