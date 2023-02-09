@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-pxtransform",
-	"_rev": "510-1f2de2d4ef43ebb33523b11d266f5044",
+	"_rev": "512-ad5df6118c17d93ac37c24f10f3eb057",
 	"name": "postcss-pxtransform",
 	"dist-tags": {
-		"latest": "3.6.0",
+		"latest": "3.6.1",
 		"beta": "3.6.0-beta.4",
 		"canary": "3.6.0-canary.13",
 		"next": "3.3.0-alpha.0",
@@ -11,7 +11,7 @@
 		"2.x": "2.2.19",
 		"1.x": "1.3.46",
 		"3.0": "3.0.29",
-		"alpha": "3.6.0-alpha.4",
+		"alpha": "3.6.1-alpha.0",
 		"theta": "3.5.0-theta.1"
 	},
 	"versions": {
@@ -38299,12 +38299,168 @@
 				"tmp": "tmp/postcss-pxtransform_3.6.0_1675303330742_0.9020163842004114"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.6.1-alpha.0": {
+			"name": "postcss-pxtransform",
+			"version": "3.6.1-alpha.0",
+			"description": "PostCSS plugin px 转小程序 rpx及h5 rem 单位",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"pxtransform"
+			],
+			"author": {
+				"name": "Pines-Cheng",
+				"email": "spider.cs.nuc@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NervJS/taro.git"
+			},
+			"bugs": {
+				"url": "https://github.com/NervJS/taro/issues"
+			},
+			"homepage": "https://github.com/NervJS/taro#readme",
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.18"
+			},
+			"scripts": {
+				"test": "jest"
+			},
+			"readme": "# PostCSS Pxtransform \n\n[PostCSS](https://github.com/ai/postcss) 单位转换插件，目前已支持小程序端（px 转rpx），H5 端（px 转 rem）及 RN 端。\n\n基于 [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem/)。\n\n## Install\n\n```shell\n$ npm install postcss-pxtransform --save-dev\n```\n\n## Usage\n\n### 小程序\n```js\noptions = {\n    platform: 'weapp',\n    designWidth: 750,\n}\n```\n\n### H5\n```js\noptions = {\n    platform: 'h5',\n    designWidth: 750,\n}\n```\n\n### RN\n```js\noptions = {\n    platform: 'rn',\n    designWidth: 750,\n}\n```\n\n### 动态计算designWidth\n\n基础组件库一般是`375`，如果业务系统UI设计是`750`，可以如下配置后`1:1`切图，小程序、H5、RN时有效\n\n```js\noptions = {\n    platform: 'h5',\n    designWidth (input) {\n      if (input.file.replace(/\\\\+/g, '/').indexOf('@nutui/nutui-taro') > -1) {\n        return 375\n      }\n      return 750\n    },\n}\n```\n\n### 输入/输出\n\n默认配置下，所有的 px 都会被转换。\n\n```css\n/* input */\nh1 {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n/* weapp output */\nh1 {\n    margin: 0 0 20rpx;\n    font-size: 32rpx;\n    line-height: 1.2;\n    letter-spacing: 1rpx;\n}\n\n/* h5 output */\nh1 {\n    margin: 0 0 0.5rem;\n    font-size: 1rem;\n    line-height: 1.2;\n    letter-spacing: 0.025rem;\n}\n\n/* rn output */\nh1 {\n    margin: 0 0 10px;\n    font-size: 16px;\n    line-height: 1.2;\n    letter-spacing: 0.5px;\n}\n\n```\n\n### example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxtorem = require('postcss-pxtransform');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxtorem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n## 配置 **options** \n参数默认值如下：\n\n```js\n{\n    unitPrecision: 5,\n    propList: ['*'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0\n}\n```\n\nType: `Object | Null`\n\n###  `platform` （String）（必填）\n`weapp` 或 `h5` 或 `rn`\n\n### `designWidth`（Number|Function）（必填）\n`640` 或 `750` 或 `828`\n\n### `unitPrecision` (Number) \nThe decimal numbers to allow the REM units to grow to.\n\n### `propList` (Array) \nThe properties that can change from px to rem.\n\n- Values need to be exact matches.\n- Use wildcard `*` to enable all properties. Example: `['*']`\n- Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n- Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n- Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n \n### `selectorBlackList`\n(Array) The selectors to ignore and leave as px.\n- If value is string, it checks to see if selector contains the string.\n  - `['body']` will match `.body-class`\n- If value is regexp, it checks to see if the selector matches the regexp.\n  - `[/^body$/]` will match `body` but not `.body`\n\n### `replace` (Boolean) \nreplaces rules containing rems instead of adding fallbacks.\n\n### `mediaQuery` (Boolean) \nAllow px to be converted in media queries.\n\n### `minPixelValue` (Number) \nSet the minimum pixel value to replace.\n\n\n## 忽略\n### 属性\n当前忽略单个属性的最简单的方法，就是 px 单位使用大写字母。\n\n```css\n /*`px` is converted to `rem`*/\n.convert {\n    font-size: 16px; // converted to 1rem\n}\n\n /* `Px` or `PX` is ignored by `postcss-pxtorem` but still accepted by browsers*/\n.ignore {\n    border: 1Px solid; // ignored\n    border-width: 2PX; // ignored\n}\n```\n\n### 文件\n对于头部包含注释`/*postcss-pxtransform disable*/` 的文件，插件不予处理。\n\n## 剔除\n`/*postcss-pxtransform rn eject enable*/` 与 `/*postcss-pxtransform rn eject disable*/` 中间的代码，\n在编译成 RN 端的样式的时候，会被删除。建议将 RN 不支持的但 H5 端又必不可少的样式放到这里面。如：样式重制相关的代码。\n```css\n/*postcss-pxtransform rn eject enable*/\n\n.test {\n  color: black;\n}\n\n/*postcss-pxtransform rn eject disable*/\n```\n\n",
+			"readmeFilename": "README.md",
+			"_id": "postcss-pxtransform@3.6.1-alpha.0",
+			"_integrity": "sha512-wOFRFkzbNaSA0UiKpfepZIMVntKMvcyEvIBeznWVdmhx947yVfWcl1RXD+b1xPHsOkvzGLkXn2lmrokUvLUqZw==",
+			"_resolved": "/tmp/80edad7c62d32cee7da1c6c544faadf2/postcss-pxtransform-3.6.1-alpha.0.tgz",
+			"_from": "file:postcss-pxtransform-3.6.1-alpha.0.tgz",
+			"_nodeVersion": "16.19.0",
+			"_npmVersion": "8.19.3",
+			"dist": {
+				"integrity": "sha512-wOFRFkzbNaSA0UiKpfepZIMVntKMvcyEvIBeznWVdmhx947yVfWcl1RXD+b1xPHsOkvzGLkXn2lmrokUvLUqZw==",
+				"shasum": "fce6bd3fd287d9d8ef178ec184b7e286a7d31d4d",
+				"tarball": "https://registry.npmjs.org/postcss-pxtransform/-/postcss-pxtransform-3.6.1-alpha.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 43575,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIE4VvGJhXzZH3OpoldxdEhBf4Wn2Y8ly+PQ9dXUOipNFAiEAotjYCHVIk9Ur/ZWKkhBcmaasAeGo6p+yZFulzro9vCo="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5Mf1ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoQeA//VlHz8aT2bDikjskuqJeMUj5R2JvQTPJn5Ik8fh600eI5bIj3\r\nFa2MI0EZsZPrXoV7GnB0poUmjbisWSPAuYuJv8uMmvHyxKQzuYAIrJ436MCZ\r\nxFWe2ll2NvhVvaOX7HlgWZQBktyYJvdJxA77cp1EcgPsr4kzkirjUxPHdxmy\r\nmNQq9idzf16sXRkskadnRj2PCtTa6+OXGRocTF/zfyHBfc7/DoF0Abqjk6fA\r\nXm8N7Stn24n8YdrtIRj5KxwiP9cAwqXPvhe2BWYDOhYDRRfF+kuk+Wd9ysnY\r\nIo+EfFTC+3aeFl7JDj/12+pxF/dDtg5F8P065yxXIfZfi1Whv+IcGXE7i3nK\r\n3LgXJQqXHTiJ29KCALKrGQRWeYjgAt0JA+57T2ZszsfNnqr22naujGLWdnxy\r\nsqTl3WjQ62BInjdE7E9SjyOcAbahKAzkPQbznW6XgMEvAfawVLzIB2AHhXSY\r\nYiYyNz3RTg8U41ZTE9ylVa4FkOURHvZdb9/VdNZfm5bXuWXdV439zNGntdhd\r\nN8kY8+C0SMQ8mKXSA5YgHK5qNQIBJhQOKIEH/lkApzsCDlButwMTRBlGLsln\r\nejNj3tskCKqfRvmUvOUzOk3jn6fIhjWN1BZTcLa7uT1BlbYZxmqEq1j8XWFO\r\nHs9raEtiD8TnccYQQDu43b8az/ncrukIFaQ=\r\n=b4eC\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "defaultlee",
+				"email": "weitaozsh@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "defaultlee",
+					"email": "weitaozsh@gmail.com"
+				},
+				{
+					"name": "yuche",
+					"email": "i@yuche.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pxtransform_3.6.1-alpha.0_1675937780904_0.5530153802943554"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.6.1": {
+			"name": "postcss-pxtransform",
+			"version": "3.6.1",
+			"description": "PostCSS plugin px 转小程序 rpx及h5 rem 单位",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"pxtransform"
+			],
+			"author": {
+				"name": "Pines-Cheng",
+				"email": "spider.cs.nuc@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NervJS/taro.git"
+			},
+			"bugs": {
+				"url": "https://github.com/NervJS/taro/issues"
+			},
+			"homepage": "https://github.com/NervJS/taro#readme",
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.18"
+			},
+			"scripts": {
+				"test": "jest"
+			},
+			"_id": "postcss-pxtransform@3.6.1",
+			"_integrity": "sha512-GE5U7w2oKFO0qWi/qkZ3c8+EmNOmFkaADl6peNY5Arbdufx9HdFbdq4/xvMIg9cKFZwE6w1VwNXVi16TNMwxdA==",
+			"_resolved": "/tmp/19b412013fac533ecbf73cb623872e90/postcss-pxtransform-3.6.1.tgz",
+			"_from": "file:postcss-pxtransform-3.6.1.tgz",
+			"_nodeVersion": "16.19.0",
+			"_npmVersion": "8.19.3",
+			"dist": {
+				"integrity": "sha512-GE5U7w2oKFO0qWi/qkZ3c8+EmNOmFkaADl6peNY5Arbdufx9HdFbdq4/xvMIg9cKFZwE6w1VwNXVi16TNMwxdA==",
+				"shasum": "5fb1fbc3f3fde9055bb51f41687d642beda86168",
+				"tarball": "https://registry.npmjs.org/postcss-pxtransform/-/postcss-pxtransform-3.6.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 43567,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDqSJ9Jji5UyPoPgKCg4p9XXM3ZFYxLa81Lm8piW9pQzgIhAKYH4AEM75k8FEOpJwRD6do/CrQKjMg42t+JkMi6FHxb"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5NMuACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoSVg/+K2kFBL9vnM5w3pbSMc0l+bB5Ftd49qx6vflwkysSE3Gjq90z\r\nBA5HguzOJYpgstpwoYKo3+T9OEqYzUDusj0Hw72gIBz71kvmaNjiY1ZoYjXe\r\nEJGIMF98uMKRcfpiWx71HgUJvb4SBj8YAPsnR77UjT7o+Cpzzrjl4BM4uo2G\r\nS8dGI7vviHJNq4G1xQWLdeYZye23dc9yN0tJvQv8q+lcpfwvOAQ6XykVIf1P\r\nyVA3nk8Ba+jwipt3YKMCslmeYKw7Z8uQZcNrAEdebGMpEei5rdv1eCzmZRSC\r\nN1yT9wL0WTWlvHvDRI8iktjIhjnouHm95d+4dJjDK42kZnfFLhBKghIGj28j\r\nK8TsYzfTzgECWZtPsNEW2Ab9ZarXZPspzd3Xr9tN0XkzRZSgB0S9dUO2LOW5\r\ns6jJ0ExdWSKS8aoPiKK3GKqnaVNSHCdwYVFlITjoFEzLnu+wHv0y8TKHHfl5\r\ndVncfsbHu9vmjFyo4T5gVqCyr1HJzef+snE+9+G1q+jQcHXCKsAzUFaM7SL3\r\n6MLLSCaYwqKQM05XZzZCLZcGzOZk69x5V8Ba4uEGSYKeJ1Ja9cApstJcE/fY\r\nqJaJaIlTnw249S4i8BwqM6bwXtoanrXn3ufOUu/NillmhTU9NNfIxvxZUvxM\r\nD4lGja8MNSzdGpuc5ucZ3RjPcdexCQ9mmQs=\r\n=bWhb\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "defaultlee",
+				"email": "weitaozsh@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "defaultlee",
+					"email": "weitaozsh@gmail.com"
+				},
+				{
+					"name": "yuche",
+					"email": "i@yuche.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pxtransform_3.6.1_1675940654297_0.48847416522522447"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-03-29T07:33:17.001Z",
 		"0.0.1": "2018-03-29T07:33:17.091Z",
-		"modified": "2023-02-02T02:02:11.122Z",
+		"modified": "2023-02-09T11:04:14.599Z",
 		"0.0.46": "2018-06-11T13:26:14.785Z",
 		"0.0.47": "2018-06-12T16:37:38.173Z",
 		"0.0.49": "2018-06-13T16:48:10.848Z",
@@ -38809,7 +38965,9 @@
 		"3.6.0-beta.2": "2023-01-17T14:57:59.111Z",
 		"3.6.0-beta.3": "2023-01-31T12:38:33.020Z",
 		"3.6.0-beta.4": "2023-02-01T09:12:13.400Z",
-		"3.6.0": "2023-02-02T02:02:10.984Z"
+		"3.6.0": "2023-02-02T02:02:10.984Z",
+		"3.6.1-alpha.0": "2023-02-09T10:16:21.047Z",
+		"3.6.1": "2023-02-09T11:04:14.488Z"
 	},
 	"maintainers": [
 		{
@@ -38843,5 +39001,5 @@
 	"bugs": {
 		"url": "https://github.com/NervJS/taro/issues"
 	},
-	"_downloads": 10365
+	"_downloads": 10237
 }
