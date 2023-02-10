@@ -1,8 +1,9 @@
 {
 	"_id": "@csstools/postcss-global-data",
+	"_rev": "1-50fc3278d54b995a3fca7ce04ecaef6a",
 	"name": "@csstools/postcss-global-data",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -118,12 +119,127 @@
 				"tmp": "tmp/postcss-global-data_1.0.0_1675782237807_0.2783098653740068"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-global-data",
+			"description": "PostCSS plugin to define global data that will be injected into PostCSS for use in other plugins.",
+			"version": "1.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"postcss-custom-media": "^9.0.0"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-global-data"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"css injection",
+				"global data",
+				"postcss-plugin",
+				"productivity"
+			],
+			"csstools": {
+				"exportName": "postcssGlobalData",
+				"humanReadableName": "PostCSS Global Data"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "90eb44df0b5bf20d66bc8547b9e24c5174d2812b",
+			"_id": "@csstools/postcss-global-data@1.0.1",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-0StaHO7xWGnUJhhiQH0ZlJRW3izRqESuI/lhNZL0weOcWcu3quuyGKp/xB6Y78U0NfVw3FDl91W6Vrsi255jBg==",
+				"shasum": "a5564588ed695e329f889aae852650c3645554b7",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-global-data/-/postcss-global-data-1.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 13773,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDTw6ltHA7j+CGuSvk6iCf2xKdtZyi9csERt2qFyO/aNgIhAOB8G47iUws32AKe377JBjMhUKjWLlvpUJBLO/GomUr7"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5TmcACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqtbxAAnzQaXG28NxDJO/nq8JNNQJJRWCq8aEZlsZAKAM0GhoYel74j\r\nq7syxUw0v/1ODEZCVAIY59kVFWcPKdA/wZEwCGdCtkizV78AN9wFgm3fO79a\r\ncgreNLoVPDpY8D1pRD7WU7upHHz3GW1I3NkGQJbdQIGa0nCQ7ikJ8Ew5i80+\r\nwOkMYhv5MfydiC4wVT9vdc3wt8rW9+1JWyjbvMeHzIst7jzAlD06xEavMeh0\r\nIpdTKWtNxjbDGxRXVFIkHrbxgS2QzmMyN1JNNs3S+z8PWFJkeocG8uMxPHa0\r\nKY6zDFpVG2dYV12QQxxq83x8cjXrcURNijSvD7nfxt85NTG8E0UfUa2HFytN\r\nKYFwkuwsFTgaZcm7wN2rHUudXXXm1an6ul2WzUtsRwhQNJsUmoPt4qOHtCgD\r\ntMflFr/zaBldgIOaba8NPnd6VXGQIE2/KNjDJSXF6aW3NUNBKqCbX+gJUTBt\r\n/dmOQ8xs62FkNc85zUSQvX6hL6FCpbyCDi516aJS70KyPs+sK0ypxewzwHsv\r\nN0VAVZC1Pqsf50z4xZJoDduhHrOQ7Mizl9u8TtsMd7gCYbrOig/exNmceJ9o\r\nYPcvo4CjFXwyl4FRxeKCVFQ6ETzPkgJDAxV6QB2yOLnbGgUYYQ5SXIHxtrqy\r\nSjmcTL1ebPzX8EGKforiDXukCx+AtZzMWzk=\r\n=V4Ar\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-global-data_1.0.1_1675966876701_0.15739481264746158"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-02-07T15:03:57.731Z",
 		"1.0.0": "2023-02-07T15:03:57.968Z",
-		"modified": "2023-02-07T15:03:58.136Z"
+		"modified": "2023-02-09T18:21:16.961Z",
+		"1.0.1": "2023-02-09T18:21:16.822Z"
 	},
 	"maintainers": [
 		{
@@ -165,5 +281,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Global Data [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-global-data.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Global Data] lets you inject CSS that is removed again before the final output. This is useful for  plugins that use global CSS as data.\n\nFor example, in the case of CSS Modules with [PostCSS Custom Media](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media), rules are usually not imported by every single file, so PostCSS Custom Media cannot generate fallbacks.\nBy providing a list of files, this plugin will inject the global CSS as data so that PostCSS Custom Media can generate fallbacks.\n\nIt is important that [PostCSS Global Data] is used before the plugin that actually needs the data.\n\nPlease note that [PostCSS Global Data] does not add anything to the output of your CSS. It only injects data into PostCSS so that other plugins\ncan actually use it.\n\n## Usage\n\nAdd [PostCSS Global Data] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-global-data --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGlobalData = require('@csstools/postcss-global-data');\n\npostcss([\n\tpostcssGlobalData(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Global Data] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### files\n\nThe `files` option determines which files to inject into PostCSS.\n\n```js\npostcssGlobalData({ \n\tfiles: [\n\t\t'./src/css/variables.css',\n\t\t'./src/css/media-queries.css',\n\t],\n});\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-global-data\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Global Data]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data\n",
 	"readmeFilename": "README.md",
-	"_downloads": 45
+	"_downloads": 91
 }

@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-scope-pseudo-class",
-	"_rev": "2-39bdd42364bcc809cdf75a399e5ee682",
+	"_rev": "3-dfa4efe13f72b3ac30fad5b98276f595",
 	"name": "@csstools/postcss-scope-pseudo-class",
 	"dist-tags": {
-		"latest": "2.0.1"
+		"latest": "2.0.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -341,14 +341,128 @@
 				"tmp": "tmp/postcss-scope-pseudo-class_2.0.1_1674892714810_0.5225606905606708"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.2": {
+			"name": "@csstools/postcss-scope-pseudo-class",
+			"description": "The Reference Element Pseudo-class: :scope",
+			"version": "2.0.2",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-scope-pseudo-class#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-scope-pseudo-class"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"postcss-plugin"
+			],
+			"csstools": {
+				"cssdbId": "scope-pseudo-class",
+				"exportName": "postcssScopePseudoClass",
+				"humanReadableName": "PostCSS Scope Pseudo Class",
+				"specUrl": "https://www.w3.org/TR/selectors-4/#the-scope-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "311cf84fbe3e82f992b05ee3ff3540a5f97289b5",
+			"_id": "@csstools/postcss-scope-pseudo-class@2.0.2",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-6Pvo4uexUCXt+Hz5iUtemQAcIuCYnL+ePs1khFR6/xPgC92aQLJ0zGHonWoewiBE+I++4gXK3pr+R1rlOFHe5w==",
+				"shasum": "6325e1e3b321093c59b008ec670bb772e17f06fe",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-scope-pseudo-class/-/postcss-scope-pseudo-class-2.0.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 13791,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCnOsi6UKwW2e58rLLGd84lDXTTEBO5G5TvdmurZJNa1QIhAMb+ZGfVa21D3GH49Lw/g85gzcmwyOQFl53XOb7lgB2B"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5Tm/ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqBgQ/7BMmZNv2ia1kwwS5s5URc8Zjvbz2YSwits8oSy+e/wvyQ0krg\r\nmRq4wqso776iN/IOcM6PQRAO6i07lN3uwObmJxbrsgkAYs38+Ee2aZMFtfpH\r\nPHmciqj5V0vBAVslgtIl2mU7BpmehzgVECNeV5UczFAb9YI151GfLSLLxi4y\r\n8qTbcPNLjKEQrnB97//mjnGBgNxGtcQzrfBgPoQ8B5lktycTwnWtqSEGKbOV\r\neSAQsWbfzLXq4eH7vN4vMZIWTIAjA/JHOCLE3QPnLJn4wQd36Fdqgz1/hctF\r\nA20oTY7pozf7Th9/vRvnECJae6YwtgTU+zfosCSYUXY3okxgM1RLjMWfm87E\r\nRZSEgn61LX7BInKNVAnsnRtz0jFSvts9/hj7FFDqAWkrQwvRJWdA5+XdFL2t\r\ng81p64myb0BlTI3xDM//Pw39dtiAd1c0WGp4yHO53OBdWC8o1p7JTl1anDqa\r\n4+gwWubPTCVsBK4/ECbx3vk2yRSUMIFnPFhH3OfjRNNgPuY8nan1NzgJZR1O\r\nCH86rBTxb4Dm4Zwwk7lzh/wL4bwPEjjSBqIau1ebcUesktOLSo0T3wNNa40E\r\nOem2sS3IgxUz1y3OO/oFv+PWNhz3oJzxGQnEsmPnEsOiomMYk1+6d63x2pAy\r\ngKcLpAzPThT3uHJzFDAePjnFttXHVTy4HlI=\r\n=URLg\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-scope-pseudo-class_2.0.2_1675966911190_0.18917861248176915"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-11-04T16:39:00.423Z",
 		"1.0.0": "2022-11-04T16:39:00.692Z",
-		"modified": "2023-01-28T07:58:35.049Z",
+		"modified": "2023-02-09T18:21:51.453Z",
 		"2.0.0": "2023-01-24T09:16:43.595Z",
-		"2.0.1": "2023-01-28T07:58:34.948Z"
+		"2.0.1": "2023-01-28T07:58:34.948Z",
+		"2.0.2": "2023-02-09T18:21:51.362Z"
 	},
 	"maintainers": [
 		{
@@ -387,5 +501,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Scope Pseudo Class [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-scope-pseudo-class.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/scope-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Scope Pseudo Class] lets you use the `:scope` Pseudo-class following the [Selectors 4 specification].\n\n```pcss\n:scope {\n\tcolor: green;\n}\n\n/* becomes */\n\n:root {\n\tcolor: green;\n}\n```\n\n## Usage\n\nAdd [PostCSS Scope Pseudo Class] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-scope-pseudo-class --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssScopePseudoClass = require('@csstools/postcss-scope-pseudo-class');\n\npostcss([\n\tpostcssScopePseudoClass(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Scope Pseudo Class] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssScopePseudoClass({ preserve: true })\n```\n\n```pcss\n:scope {\n\tcolor: green;\n}\n\n/* becomes */\n\n:root {\n\tcolor: green;\n}\n:scope {\n\tcolor: green;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#scope-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-scope-pseudo-class\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Scope Pseudo Class]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-scope-pseudo-class\n[Selectors 4 specification]: https://www.w3.org/TR/selectors-4/#the-scope-pseudo\n",
 	"readmeFilename": "README.md",
-	"_downloads": 132596
+	"_downloads": 186466
 }

@@ -1,7 +1,7 @@
 {
-	"name": "@csstools/postcss-nested-calc",
-	"description": "Use nested calc() expressions in CSS",
-	"version": "2.0.2",
+	"name": "@csstools/postcss-global-data",
+	"description": "PostCSS plugin to define global data that will be injected into PostCSS for use in other plugins.",
+	"version": "1.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -32,11 +32,11 @@
 			"default": "./dist/index.mjs"
 		}
 	},
-	"dependencies": {
-		"postcss-value-parser": "^4.2.0"
-	},
 	"peerDependencies": {
 		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"postcss-custom-media": "^9.0.0"
 	},
 	"scripts": {
 		"prebuild": "npm run clean",
@@ -51,48 +51,45 @@
 		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
-	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc#readme",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/csstools/postcss-plugins.git",
-		"directory": "plugins/postcss-nested-calc"
+		"directory": "plugins/postcss-global-data"
 	},
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"keywords": [
-		"calc",
-		"css",
-		"math",
-		"nested",
-		"postcss-plugin"
+		"css injection",
+		"global data",
+		"postcss-plugin",
+		"productivity"
 	],
 	"csstools": {
-		"cssdbId": "nested-calc",
-		"exportName": "postcssNestedCalc",
-		"humanReadableName": "PostCSS Nested Calc",
-		"specUrl": "https://www.w3.org/TR/css-values/#calc-func"
+		"exportName": "postcssGlobalData",
+		"humanReadableName": "PostCSS Global Data"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "a0e5c3970940e56134e739d95e666b27dcff51e9",
-	"_id": "@csstools/postcss-nested-calc@2.0.2",
+	"gitHead": "90eb44df0b5bf20d66bc8547b9e24c5174d2812b",
+	"_id": "@csstools/postcss-global-data@1.0.1",
 	"_nodeVersion": "18.13.0",
 	"_npmVersion": "9.4.1",
 	"dist": {
-		"integrity": "sha512-jbwrP8rN4e7LNaRcpx3xpMUjhtt34I9OV+zgbcsYAAk6k1+3kODXJBf95/JMYWhu9g1oif7r06QVUgfWsKxCFw==",
-		"shasum": "a0857650ef88b1aa7b094c7ea8ea1378c35695e0",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-nested-calc/-/postcss-nested-calc-2.0.2.tgz",
-		"fileCount": 9,
-		"unpackedSize": 14175,
+		"integrity": "sha512-0StaHO7xWGnUJhhiQH0ZlJRW3izRqESuI/lhNZL0weOcWcu3quuyGKp/xB6Y78U0NfVw3FDl91W6Vrsi255jBg==",
+		"shasum": "a5564588ed695e329f889aae852650c3645554b7",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-global-data/-/postcss-global-data-1.0.1.tgz",
+		"fileCount": 8,
+		"unpackedSize": 13773,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDW/7xhLOexWojWMhimieQDQNqd/VSophndpbcQ1lCNowIhAPWLmHqhgT0cTn+LxU7Jr+KwPRZwI9pk/Qw3nAMdt+13"
+				"sig": "MEYCIQDTw6ltHA7j+CGuSvk6iCf2xKdtZyi9csERt2qFyO/aNgIhAOB8G47iUws32AKe377JBjMhUKjWLlvpUJBLO/GomUr7"
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5TmsACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqeUg//R/Vxhy0SLxXaIlrSg3+8KVXiXiR716KxltfLxM68FsQUxeuu\r\ngZqfkZ8ZJneiyuIwq7YMqG2RYajGiLsJvOr1C5RRDtjXbia1xCKAg9IsZJz2\r\ngG/7RDAdwmgqu07dv0jiMYp2/AR9QLgE5PY6ZBV4Rpq7Ui+vr9PZ2Ikbi8uy\r\nTYJRXdZxs0sVVoyEXWc1paN6oxxAg7zChEzqJBq/+9+dh5KBPb+RFhcGmT3n\r\nUT95ZsbJ2HZdwC02vwy07cw/DsWwoL3CpHTeCqSXdBa2nk19ojwWO+bIZo/4\r\nRIi995p88aaC9G2HPGA1nFzc0d5U4g/01+rKLxbSbyjhvZDrcQwIIb/3jJ2c\r\nLryqwv6Phtl3mVVExvsXHr1MNJskzusYTug3Ps89QcSxzwla/w2LxBbOLOZg\r\nDfGLOxewA8H+3IE9HAN245Oa4z4iar3UUW13Bv0tm8UNuJIERUDqzVtX60op\r\nclzr43Fz0lJsaeBgfjaik7kC5+HL7bNv7Z6SmwGYdAHHPz6tCORarav0fd+D\r\n4miII9OaZlCufRMS6f4hLMIuMuuqbX8bTOs5QotFasKGiP9BOpZxuvpgVFkM\r\nVAkhsvfby4hMjls6aN31iLYz+VaJ982mRUHtipPhXD+zXhD/nH/gj9KD5Wqk\r\nfOp24CtaZ+XZDbYhlHQji9UoMMRmUWHF3D0=\r\n=Xmo6\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5TmcACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqtbxAAnzQaXG28NxDJO/nq8JNNQJJRWCq8aEZlsZAKAM0GhoYel74j\r\nq7syxUw0v/1ODEZCVAIY59kVFWcPKdA/wZEwCGdCtkizV78AN9wFgm3fO79a\r\ncgreNLoVPDpY8D1pRD7WU7upHHz3GW1I3NkGQJbdQIGa0nCQ7ikJ8Ew5i80+\r\nwOkMYhv5MfydiC4wVT9vdc3wt8rW9+1JWyjbvMeHzIst7jzAlD06xEavMeh0\r\nIpdTKWtNxjbDGxRXVFIkHrbxgS2QzmMyN1JNNs3S+z8PWFJkeocG8uMxPHa0\r\nKY6zDFpVG2dYV12QQxxq83x8cjXrcURNijSvD7nfxt85NTG8E0UfUa2HFytN\r\nKYFwkuwsFTgaZcm7wN2rHUudXXXm1an6ul2WzUtsRwhQNJsUmoPt4qOHtCgD\r\ntMflFr/zaBldgIOaba8NPnd6VXGQIE2/KNjDJSXF6aW3NUNBKqCbX+gJUTBt\r\n/dmOQ8xs62FkNc85zUSQvX6hL6FCpbyCDi516aJS70KyPs+sK0ypxewzwHsv\r\nN0VAVZC1Pqsf50z4xZJoDduhHrOQ7Mizl9u8TtsMd7gCYbrOig/exNmceJ9o\r\nYPcvo4CjFXwyl4FRxeKCVFQ6ETzPkgJDAxV6QB2yOLnbGgUYYQ5SXIHxtrqy\r\nSjmcTL1ebPzX8EGKforiDXukCx+AtZzMWzk=\r\n=V4Ar\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -111,8 +108,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-nested-calc_2.0.2_1675966891817_0.3245941698510828"
+		"tmp": "tmp/postcss-global-data_1.0.1_1675966876701_0.15739481264746158"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-09T18:21:31.970Z"
+	"_time": "2023-02-09T18:21:16.822Z"
 }
