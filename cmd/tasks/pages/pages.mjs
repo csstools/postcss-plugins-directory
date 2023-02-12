@@ -71,6 +71,7 @@ export async function pages() {
 		}
 	})
 
+	let counter = 0;
 	for (let i = 0; i < allPluginData.length; i++) {
 		const pluginData = allPluginData[i];
 
@@ -109,11 +110,12 @@ export async function pages() {
 			allKeywords.add(pluginData.keywords[j]);
 		}
 
+		counter++;
 		result += renderPlugin(pluginData);
 	}
 
 	const allKeywordsSorted = Array.from(allKeywords);
 	allKeywordsSorted.sort((a, b) => a.localeCompare(b));
 
-	await fs.writeFile(PAGES_INDEX_HTML_FILE_PATH, renderPage(result, searchData, allKeywordsSorted));
+	await fs.writeFile(PAGES_INDEX_HTML_FILE_PATH, renderPage(result, counter, searchData, allKeywordsSorted));
 }

@@ -1,7 +1,7 @@
 import he from 'he';
 import { html } from "../util/html.mjs";
 
-export function renderPage(body, searchData, allKeywords) {
+export function renderPage(body, numberOfPlugins, searchData, allKeywords) {
 	return html`<!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@ export function renderPage(body, searchData, allKeywords) {
 	<div class="header">
 		<img src="./postcss.svg" width="100" height="100" alt="PostCSS logo">
 		<h1>PostCSS Plugin Directory</h1>
-		<p>A directory of PostCSS plugins.<br>This list aims to only show plugins that you can use today.</p>
+		<p>A directory with ${numberOfPlugins} PostCSS plugins.<br>This list aims to only show plugins that you can use today.</p>
 	</div>
 
 	<h2>Criteria</h2>
