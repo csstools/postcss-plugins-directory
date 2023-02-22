@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-custom-properties",
-	"_rev": "94-8fbf7a4ff36af87b2ca12a7606cc6d12",
+	"_rev": "95-46c5f84f15cd30d9b7c0e4fa01668923",
 	"name": "postcss-custom-properties",
 	"description": "Use Custom Properties Queries in CSS",
 	"dist-tags": {
-		"latest": "13.1.3"
+		"latest": "13.1.4"
 	},
 	"versions": {
 		"0.1.0": {
@@ -7118,9 +7118,145 @@
 				"tmp": "tmp/postcss-custom-properties_13.1.3_1675845357381_0.24506225636068257"
 			},
 			"_hasShrinkwrap": false
+		},
+		"13.1.4": {
+			"name": "postcss-custom-properties",
+			"description": "Use Custom Properties Queries in CSS",
+			"version": "13.1.4",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Maxime Thirouin"
+				}
+			],
+			"license": "MIT",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/cascade-layer-name-parser": "^1.0.0",
+				"@csstools/css-parser-algorithms": "^2.0.0",
+				"@csstools/css-tokenizer": "^2.0.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"postcss-import": "^15.0.0"
+			},
+			"scripts": {
+				"prebuild": "npm run clean",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-properties#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-custom-properties"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"css",
+				"csswg",
+				"custom",
+				"declarations",
+				"postcss",
+				"postcss-plugin",
+				"properties",
+				"specification",
+				"variables",
+				"vars",
+				"w3c"
+			],
+			"csstools": {
+				"assumesToProcessBundledCSS": true,
+				"cssdbId": "custom-properties",
+				"exportName": "postcssCustomProperties",
+				"humanReadableName": "PostCSS Custom Properties",
+				"specUrl": "https://www.w3.org/TR/css-variables-1/"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "0a92bd0ef05c9a0a73b3983258c2c0191f2b59a3",
+			"_id": "postcss-custom-properties@13.1.4",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-iSAdaZrM3KMec8cOSzeTUNXPYDlhqsMJHpt62yrjwG6nAnMtRHPk5JdMzGosBJtqEahDolvD5LNbcq+EZ78o5g==",
+				"shasum": "590e5770137011001602806da51243b6c82c1cde",
+				"tarball": "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-13.1.4.tgz",
+				"fileCount": 15,
+				"unpackedSize": 36924,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDkOjKoVFoa3yzMeiqoYdXweWwnPaR5yjbojEuKotVZcgIgBK+/dHShKOp3XMhkM9ioeTDJB2CTWpjZwuRAvbEXXO4="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj9PBDACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrdJhAAkPcJ1fr9TVB9Ba+TPNO8iMWklxg1T3EgtljiGxKh0+A7C4K0\r\npZe2+VtkxXG7lSVeLB9/ozfsn5Fypi3UUIQ48GNgKZCe3ZGuLFWda6L2aV6G\r\nWEF5n2iqKL77+nL7VM1E4CBOYyddXR9D3PBSMTzqO+G76uq3QXU5sPm15JAf\r\n2w5gggEJUam/5OPXI0T/KO4qhdwhhplJFWd/2Xd4u/0gzvrhei5B8lLDgqi+\r\nfLawllPJtIX0QV15QU3BdrvRk5hRqBbZw4SEkKXnoth9z5KT//f/hx4HN0pG\r\n8j1QOcezyNt0kn15UzQ9FyIxkuWVGMqnGtZZmhnBsdO+4lOJR1yPlfQNGg0i\r\nseDFetDlYyFW8bqPnjUqEndVVEF/bJvaHrSrXzTO8sAvfuYQneeoNC34oAZ8\r\nKpeJxNEuP4ZslccHz0vgit82p1AcL+z/zUucvcOJScOPHYvFqrqQh54hBK+H\r\n7/SWLopMS33Q12bdwZql7b5sH+jiDyPZv6un905eC77+zZa/U3A5vXKgtW8Q\r\nMiy8xqlkHjvRF24fHao+h7Zw3Oml3InK+d0HEjEjIzuetkCRHrkIP3f07VNb\r\nOCp6VF9BvdP6rkhFcF8c6AaK4zm8T8NHmpEi1uMVonOWRNNVnAwnSPDTt691\r\nE5hq/1IFkeN37e7TrxmkllqIRCo4FClRY14=\r\n=UpdI\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-properties_13.1.4_1676996675135_0.683189354572254"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Custom Properties [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-custom-properties.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/custom-properties.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Custom Properties] lets you use Custom Properties in CSS, following\nthe [CSS Custom Properties] specification.\n\n[!['Can I use' table](https://caniuse.bitsofco.de/image/css-variables.png)](https://caniuse.com/#feat=css-variables)\n\n```pcss\n:root {\n\t--color-blue-dark: rgb(0, 61, 184);\n\t--color-blue-light: rgb(0, 217, 255);\n\t--color-pink: rgb(255, 192, 211);\n\t--text-color: var(--color-pink);\n}\n\n.element {\n\t/* custom props */\n\t--border-color: var(--color-blue-light);\n\n\t/* props */\n\tborder: 1px solid var(--border-color);\n\tcolor: var(--text-color);\n}\n\n.element--dark {\n\t--border-color: var(--color-blue-dark);\n}\n\n/* becomes */\n\n:root {\n\t--color-blue-dark: rgb(0, 61, 184);\n\t--color-blue-light: rgb(0, 217, 255);\n\t--color-pink: rgb(255, 192, 211);\n\t--text-color: var(--color-pink);\n}\n\n.element {\n\t/* custom props */\n\t--border-color: var(--color-blue-light);\n\n\t/* props */\n\tborder: 1px solid rgb(0, 217, 255);\n\tborder: 1px solid var(--border-color);\n\tcolor: rgb(255, 192, 211);\n\tcolor: var(--text-color);\n}\n\n.element--dark {\n\t--border-color: var(--color-blue-dark);\n}\n```\n\n**Note:** \n- Only processes variables that were defined in the `:root` or `html` selector.\n- Locally defined variables will be used as fallbacks only within the same rule, but not elsewhere.\n- Fallback values in `var()` will be used if the variable was not defined in the `:root` or `html` selector.\n\n## Usage\n\nAdd [PostCSS Custom Properties] to your project:\n\n```bash\nnpm install postcss postcss-custom-properties --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomProperties = require('postcss-custom-properties');\n\npostcss([\n\tpostcssCustomProperties(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Custom Properties] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether properties using\ncustom properties should be preserved in their original form. By default these are preserved.\n\nCustom property declarations are always preserved only `var()` functions can be omitted.\n\n```js\npostcssCustomProperties({ preserve: false })\n```\n\n```pcss\n:root {\n\t--color-blue-dark: rgb(0, 61, 184);\n\t--color-blue-light: rgb(0, 217, 255);\n\t--color-pink: rgb(255, 192, 211);\n\t--text-color: var(--color-pink);\n}\n\n.element {\n\t/* custom props */\n\t--border-color: var(--color-blue-light);\n\n\t/* props */\n\tborder: 1px solid var(--border-color);\n\tcolor: var(--text-color);\n}\n\n.element--dark {\n\t--border-color: var(--color-blue-dark);\n}\n\n/* becomes */\n\n:root {\n\t--color-blue-dark: rgb(0, 61, 184);\n\t--color-blue-light: rgb(0, 217, 255);\n\t--color-pink: rgb(255, 192, 211);\n\t--text-color: var(--color-pink);\n}\n\n.element {\n\t/* custom props */\n\t--border-color: var(--color-blue-light);\n\n\t/* props */\n\tborder: 1px solid var(--border-color);\n\tcolor: rgb(255, 192, 211);\n}\n\n.element--dark {\n\t--border-color: var(--color-blue-dark);\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#custom-properties\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-custom-properties\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Custom Properties]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-properties\n[CSS Custom Properties]: https://www.w3.org/TR/css-variables-1/\n",
+	"readme": "# PostCSS Custom Properties [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-custom-properties.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/custom-properties.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Custom Properties] lets you use Custom Properties in CSS, following\nthe [CSS Custom Properties] specification.\n\n[!['Can I use' table](https://caniuse.bitsofco.de/image/css-variables.png)](https://caniuse.com/#feat=css-variables)\n\n```pcss\n:root {\n\t--color-blue-dark: rgb(0, 61, 184);\n\t--color-blue-light: rgb(0, 217, 255);\n\t--color-pink: rgb(255, 192, 211);\n\t--text-color: var(--color-pink);\n}\n\n.element {\n\t/* custom props */\n\t--border-color: var(--color-blue-light);\n\n\t/* props */\n\tborder: 1px solid var(--border-color);\n\tcolor: var(--text-color);\n}\n\n.element--dark {\n\t--border-color: var(--color-blue-dark);\n}\n\n/* becomes */\n\n:root {\n\t--color-blue-dark: rgb(0, 61, 184);\n\t--color-blue-light: rgb(0, 217, 255);\n\t--color-pink: rgb(255, 192, 211);\n\t--text-color: var(--color-pink);\n}\n\n.element {\n\t/* custom props */\n\t--border-color: var(--color-blue-light);\n\n\t/* props */\n\tborder: 1px solid rgb(0, 217, 255);\n\tborder: 1px solid var(--border-color);\n\tcolor: rgb(255, 192, 211);\n\tcolor: var(--text-color);\n}\n\n.element--dark {\n\t--border-color: var(--color-blue-dark);\n}\n```\n\n**Note:** \n- Only processes variables that were defined in the `:root` or `html` selector.\n- Locally defined variables will be used as fallbacks only within the same rule, but not elsewhere.\n- Fallback values in `var()` will be used if the variable was not defined in the `:root` or `html` selector.\n\n## Usage\n\nAdd [PostCSS Custom Properties] to your project:\n\n```bash\nnpm install postcss postcss-custom-properties --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomProperties = require('postcss-custom-properties');\n\npostcss([\n\tpostcssCustomProperties(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Custom Properties] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether properties using\ncustom properties should be preserved in their original form. By default these are preserved.\n\nCustom property declarations are always preserved only `var()` functions can be omitted.\n\n```js\npostcssCustomProperties({ preserve: false })\n```\n\n```pcss\n:root {\n\t--color-blue-dark: rgb(0, 61, 184);\n\t--color-blue-light: rgb(0, 217, 255);\n\t--color-pink: rgb(255, 192, 211);\n\t--text-color: var(--color-pink);\n}\n\n.element {\n\t/* custom props */\n\t--border-color: var(--color-blue-light);\n\n\t/* props */\n\tborder: 1px solid var(--border-color);\n\tcolor: var(--text-color);\n}\n\n.element--dark {\n\t--border-color: var(--color-blue-dark);\n}\n\n/* becomes */\n\n:root {\n\t--color-blue-dark: rgb(0, 61, 184);\n\t--color-blue-light: rgb(0, 217, 255);\n\t--color-pink: rgb(255, 192, 211);\n\t--text-color: var(--color-pink);\n}\n\n.element {\n\t/* custom props */\n\t--border-color: var(--color-blue-light);\n\n\t/* props */\n\tborder: 1px solid var(--border-color);\n\tcolor: rgb(255, 192, 211);\n}\n\n.element--dark {\n\t--border-color: var(--color-blue-dark);\n}\n```\n\n## Modular CSS Processing\n\nIf you're using Modular CSS such as, CSS Modules, `postcss-loader` or `vanilla-extract` to name a few, you'll probably\nnotice that custom properties are not being resolved. This happens because each file is processed separately so\nunless you import the custom properties definitions in each file, they won't be resolved.\n\nTo overcome this, we recommend using the [PostCSS Global Data](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data#readme)\nplugin which allows you to pass a list of files that will be globally available. The plugin won't inject any extra code\nin the output but will provide the context needed to resolve custom properties.\n\nFor it to run it needs to be placed before the [PostCSS Custom Properties] plugin.\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomProperties = require('postcss-custom-properties');\nconst postcssGlobalData = require('@csstools/postcss-global-data');\n\npostcss([\n\tpostcssGlobalData({\n\t\tfiles: [\n\t\t\t'path/to/your/custom-selectors.css'\n\t\t]\n\t}),\n\tpostcssCustomProperties(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#custom-properties\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-custom-properties\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Custom Properties]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-properties\n[CSS Custom Properties]: https://www.w3.org/TR/css-variables-1/\n",
 	"maintainers": [
 		{
 			"name": "alaguna",
@@ -7140,7 +7276,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-02-08T08:35:57.819Z",
+		"modified": "2023-02-21T16:24:35.442Z",
 		"created": "2014-08-01T08:04:03.707Z",
 		"0.1.0": "2014-08-01T08:04:03.707Z",
 		"0.2.0": "2014-08-22T04:13:46.128Z",
@@ -7211,7 +7347,8 @@
 		"13.1.0": "2023-01-24T08:51:46.584Z",
 		"13.1.1": "2023-01-28T07:34:45.663Z",
 		"13.1.2": "2023-02-07T15:03:48.743Z",
-		"13.1.3": "2023-02-08T08:35:57.682Z"
+		"13.1.3": "2023-02-08T08:35:57.682Z",
+		"13.1.4": "2023-02-21T16:24:35.352Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-properties#readme",
 	"keywords": [
@@ -7250,5 +7387,5 @@
 			"name": "Maxime Thirouin"
 		}
 	],
-	"_downloads": 33507621
+	"_downloads": 32673023
 }
