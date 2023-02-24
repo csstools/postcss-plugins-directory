@@ -1,15 +1,11 @@
 import fs from 'fs/promises';
 import path from 'path';
 import he from 'he';
-import { html } from '../util/html.mjs';
 import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, PAGES_INDEX_HTML_FILE_PATH } from '../constants.mjs';
 import { normalizeKeyword } from '../../config/normalize-keywords.mjs';
 import { excludedKeywords } from '../../config/excluded-keywords.mjs';
 import { traverseDir } from '../util/traverse-dir.mjs';
 import { renderPage } from './render-page.mjs';
-import { renderKeywords } from './render-keywords.mjs';
-import { renderFunding } from './render-funding.mjs';
-import { renderScope } from './render-scope.mjs';
 import { renderPlugin } from './render-plugin.mjs';
 
 export async function pages() {

@@ -5,6 +5,7 @@ const normalizeKeywordMappings = new Map(
 		['browserlists', 'browserslists'],
 		['classes', 'class'],
 		['colors', 'color'],
+		['compatability', 'compatibility']
 		['components-library', 'components'],
 		['compression', 'compress'],
 		['conditionals', 'conditional'],
@@ -15,6 +16,7 @@ const normalizeKeywordMappings = new Map(
 		['descendants', 'descendant'],
 		['extensions', 'extension'],
 		['faces', 'face'],
+		['fallbacks', 'fallback'],
 		['features', 'feature'],
 		['flexbox', 'flex'],
 		['gaps', 'gap'],
