@@ -5,7 +5,7 @@ const normalizeKeywordMappings = new Map(
 		['browserlists', 'browserslists'],
 		['classes', 'class'],
 		['colors', 'color'],
-		['compatability', 'compatibility']
+		['compatability', 'compatibility'],
 		['components-library', 'components'],
 		['compression', 'compress'],
 		['conditionals', 'conditional'],
