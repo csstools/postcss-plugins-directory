@@ -28,6 +28,7 @@ export const invalidForks = [
 	'@zhbhun/postcss-pxtorem',
 	'fix-postcss-flexibility-mao',
 	'postcss-8-px-to-viewport-',
+	'postcss-class-rename-postcss8',
 	'postcss-custom-media-with-spaces',
 	'postcss-custom-media2',
 	'postcss-custom-properties-nested',
