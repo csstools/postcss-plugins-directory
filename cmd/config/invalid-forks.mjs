@@ -32,5 +32,6 @@ export const invalidForks = [
 	'postcss-custom-media2',
 	'postcss-custom-properties-nested',
 	'postcss-mpxtorem',
+	'postcss-px-to-viewport-ng',
 	'postcss-vwtorem',
 ];

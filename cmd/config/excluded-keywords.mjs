@@ -61,4 +61,5 @@ export const excludedKeywords = new Set([
 	'preprocessor',
 	'spritesmith',
 	'style',
+	'w3c',
 ]);

@@ -77,7 +77,6 @@ export function renderPage(body, numberOfPlugins, searchData, allKeywords) {
 		${body}
 	</div>
 </body>
-
 </html>
 `;
 }
