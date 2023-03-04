@@ -298,5 +298,5 @@
 	"license": "MIT",
 	"readme": "# @suyunfe/postcss-px2rem-extend\r\n## 参数\r\n[其他属性参考](https://github.com/songsiqi/px2rem)\r\n|属性|值|解释|\r\n|---|---|---|\r\n|exclude|`string`|忽略该文件，不进行px2rem|\r\n|rule|`Array`|自定义规则，优先级低于exclude，数组中每个对象包含`name option`字段，`name`为字符串，`option`为重新定义的配置|\r\n\r\n## 用法\r\n1、syt组件库下的样式不进行rem转化\r\n\r\n```javascript\r\nmodule.exports = {\r\n  plugins: {\r\n    '@suyunfe/postcss-px2rem-extend': {\r\n      remUnit: projectConfig.css.rem.remUnit * 2,\r\n      exclude: 'node_modules/syt/**/*.css'\r\n    }\r\n  }\r\n};\r\n```\r\n\r\n2、为不同的样式库制定不同的rem转换规则\r\n\r\n```javascript\r\nmodule.exports = {\r\n  plugins: {\r\n    '@suyunfe/postcss-px2rem-extend': {\r\n      remUnit: projectConfig.css.rem.remUnit * 2,\r\n      rule: [{\r\n        name: 'node_modules/syt/**/*.css',\r\n        option: {\r\n          remUnit: projectConfig.css.rem.remUnit\r\n        }\r\n      }]\r\n    }\r\n  }\r\n};\r\n```",
 	"readmeFilename": "README.MD",
-	"_downloads": 17
+	"_downloads": 9
 }
