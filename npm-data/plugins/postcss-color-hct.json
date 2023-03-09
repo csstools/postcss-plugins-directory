@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-color-hct",
-	"_rev": "1-6dcc2b0b0b331d5e27b2b4811fe50961",
+	"_rev": "2-051cef2b1b5ae39d72fc35037ee04e83",
 	"name": "postcss-color-hct",
 	"dist-tags": {
-		"latest": "0.0.2"
+		"latest": "0.0.3"
 	},
 	"versions": {
 		"0.0.1": {
@@ -161,13 +161,117 @@
 				"tmp": "tmp/postcss-color-hct_0.0.2_1653595897000_0.07051832691166204"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.0.3": {
+			"name": "postcss-color-hct",
+			"version": "0.0.3",
+			"description": "PostCSS plugin to transform hct() function to more compatible CSS (rgb() or rgba()).",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"color",
+				"rgb",
+				"hct"
+			],
+			"main": "./dist/postcss-color-hct.cjs.js",
+			"module": "./dist/postcss-color-hct.es.js",
+			"types": "./dist/postcss-color-hct.d.ts",
+			"author": {
+				"name": "Rody Davis",
+				"email": "rody.davis.jr@gmail.com"
+			},
+			"license": "Apache 2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rodydavis/postcss-color-hct.git"
+			},
+			"dependencies": {
+				"@material/material-color-utilities": "^0.1.2",
+				"postcss": "5",
+				"reduce-function-call": "1"
+			},
+			"devDependencies": {
+				"@types/node": "^17.0.35",
+				"tap-spec": "^3.0.0",
+				"tape": "^4.0.0",
+				"typescript": "^4.7.2",
+				"vite": "^2.9.9",
+				"wireit": "^0.9.5"
+			},
+			"scripts": {
+				"build": "wireit",
+				"test": "wireit"
+			},
+			"wireit": {
+				"build": {
+					"dependencies": [
+						"build:ts",
+						"build:types"
+					]
+				},
+				"test": {
+					"command": "node test/test.js | tap-spec",
+					"dependencies": [
+						"build"
+					]
+				},
+				"build:ts": {
+					"command": "vite build"
+				},
+				"build:types": {
+					"command": "tsc src/index.ts --declaration --emitDeclarationOnly --skipLibCheck --esModuleInterop --outFile dist/postcss-color-hct.d.ts",
+					"dependencies": [
+						"build:ts"
+					]
+				}
+			},
+			"gitHead": "33f3db265e94bbd102f44b8194e41f3437995ff5",
+			"bugs": {
+				"url": "https://github.com/rodydavis/postcss-color-hct/issues"
+			},
+			"homepage": "https://github.com/rodydavis/postcss-color-hct#readme",
+			"_id": "postcss-color-hct@0.0.3",
+			"_nodeVersion": "18.10.0",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-Kn4mz1+dv8dGhtFi1/6OI0z7sv6Z5hf/dlIoUTq+B8jiGbNVwbK9qjAWPpT5Nqtg6WsSx04WWXsqivm1WmNBWg==",
+				"shasum": "99d1d7e47a17ef364c2273d7fb99c089a990d92f",
+				"tarball": "https://registry.npmjs.org/postcss-color-hct/-/postcss-color-hct-0.0.3.tgz",
+				"fileCount": 8,
+				"unpackedSize": 57646,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDIjl7IdybqQblOu/mh0d+wU1w8y9i11bJrqIN0Wdc7DAiAsGqnNOD7W7YpZuPgE9iIBfxMDdIv7YgR9P6IYFPbFUQ=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkCOu4ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoyEQ/+LnT1G2zqX7zqmVuroG/iTiCZbfr00aVQmkyG6onX1w8Vrah0\r\n73B/i90tnkIteyb68n6u+Kj65g1OOt2Yj6rFgdcuV1u6apfFOXttHifCmIO8\r\nqVhcsx1JuN5t5Wgt6HoHAdgaVwnUTyOxt4tfmwB4AGQFcgmj76Ai35c8ml2v\r\nE472M07+r9GdwVZ6Ou+n6AKjaGiZ23+Y0vmcHbVTalW1D470IiOKpr0lD/3u\r\nItdDXLcn2P7BhJ1IW7mRAELRpsAX+EHpfoEghph9Aq+giO29+jdDiYHvBjKz\r\n128qmAymMi2Mvj5g9JiUZfs1hVguqLeaTvzQs7QI8LcESi61ZpnVHQEnWl4P\r\nUNIZUvkcaMN9aKhxAEzh1YM4TqEOrrQBFFmAb0s/C1BzuLd/YtxX7SKQkz6p\r\nJKCfgW2F33yO+M48dSeFnsfwUxzc5/zmBR1gJgy02FYVctRr7e3Qo5Qrc1AW\r\nwggoPjsyndrrZp35gJmmYCLVoVCKkpzbCOl10R0FMPxlvRW11Tc2XvPAc8vj\r\nDgfXBAe/AnO6i6o6YJprcMxCNZqeE+U/lbofecxo21TQ94HpG+O2cBq+UdR9\r\n73gkZU++jzIAR718OGOqpy76nR2Jxg8L73f71iEfFF6/bbCpxxTrqsMKlSQf\r\nAQ693w8thHsHfkAdFsEAsXi2LUnl2+lc52k=\r\n=wtB6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "rodydavis",
+				"email": "rody.davis.jr@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "rodydavis",
+					"email": "rody.davis.jr@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-hct_0.0.3_1678306231778_0.4284658300517947"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-05-26T01:57:27.641Z",
 		"0.0.1": "2022-05-26T01:57:27.784Z",
-		"modified": "2022-05-26T20:11:37.312Z",
-		"0.0.2": "2022-05-26T20:11:37.247Z"
+		"modified": "2023-03-08T20:10:32.170Z",
+		"0.0.2": "2022-05-26T20:11:37.247Z",
+		"0.0.3": "2023-03-08T20:10:32.078Z"
 	},
 	"maintainers": [
 		{
@@ -197,7 +301,7 @@
 		"url": "https://github.com/rodydavis/postcss-color-hct/issues"
 	},
 	"license": "Apache 2.0",
-	"readme": "# postcss-color-hct\n\n[![Tests](https://github.com/rodydavis/postcss-color-hct/actions/workflows/tests.yml/badge.svg)](https://github.com/rodydavis/postcss-color-hct/actions/workflows/tests.yml)\n[![npm package](https://badgen.net/npm/v/postcss-color-hct)](https://npmjs.com/package/postcss-color-hct)\n\n> [PostCSS](https://github.com/postcss/postcss) plugin to transform [hct() color](https://www.npmjs.com/package/@material/material-color-utilities) to compatible CSS (#hex or rgba()).\n\n## Overview\n\nUsing the new [HCT](https://www.npmjs.com/package/@material/material-color-utilities) color space for [Material 3](https://m3.material.io/styles/color/overview) this plugin convert the hct color syntax to compatible CSS.\n\nImplementation based on the [postcss-color-hcl](https://github.com/devgru/postcss-color-hcl) plugin.\n\nCSS Custom properties are **not supported** as input for values:\n\n```css\nbody {\n  --hue: 20;\n  color: hct(var(--hue), 70%, 50%, 0.5);\n}\n```\n\nUsing the HCT color space at runtime can be done with the [Material Color Utilities](https://www.npmjs.com/package/@material/material-color-utilities) package for use in javascript.\n\n## Installation\n\n```bash\n$ npm install postcss-color-hct\n```\n\n## Usage\n\n```js\n// dependencies\nvar fs = require(\"fs\");\nvar postcss = require(\"postcss\");\nvar colorHct = require(\"postcss-color-hct\");\n\n// css to be processed\nvar css = fs.readFileSync(\"input.css\", \"utf8\");\n\n// process css\nvar output = postcss().use(colorHct()).process(css).css;\n```\n\nUsing this `input.css`:\n\n```css\nbody {\n  color: hct(21, 70%, 50%, 0.5);\n  background: hct(0, 0%, 50%);\n}\n```\n\nyou will get:\n\n```css\nbody {\n  color: rgba(221, 52, 80, 0.5);\n  background: rgb(119, 119, 119);\n}\n```\n\nCheckout [tests](test) for more examples.\n\n---\n\n## Contributing\n\nWork on a branch, install dev-dependencies, respect coding style & run tests before submitting a bug fix or a feature.\n\n    $ git clone https://github.com/rodydavis/postcss-color-hct.git\n    $ git checkout -b patch-1\n    $ npm install\n    $ npm test\n\n## [Changelog](CHANGELOG.md)\n\n## [License](LICENSE)\n",
+	"readme": "# postcss-color-hct\n\n[![Tests](https://github.com/rodydavis/postcss-color-hct/actions/workflows/tests.yml/badge.svg)](https://github.com/rodydavis/postcss-color-hct/actions/workflows/tests.yml)\n[![npm package](https://badgen.net/npm/v/postcss-color-hct)](https://npmjs.com/package/postcss-color-hct)\n\n> [PostCSS](https://github.com/postcss/postcss) plugin to transform [hct() color](https://www.npmjs.com/package/@material/material-color-utilities) to compatible CSS (#hex or rgba()).\n\n## Overview\n\nUsing the new [HCT](https://www.npmjs.com/package/@material/material-color-utilities) color space for [Material 3](https://m3.material.io/styles/color/overview) this plugin convert the hct color syntax to compatible CSS.\n\nImplementation based on the [postcss-color-hcl](https://github.com/devgru/postcss-color-hcl) plugin.\n\nCSS Custom properties are **not supported** as input for values:\n\n```css\nbody {\n  --hue: 20;\n  color: hct(var(--hue), 70%, 50%, 0.5);\n}\n```\n\nUsing the HCT color space at runtime can be done with the [Material Color Utilities](https://www.npmjs.com/package/@material/material-color-utilities) package for use in javascript.\n\n## Installation\n\n```bash\n$ npm install postcss-color-hct\n```\n\n## Usage\n\n```js\n// dependencies\nvar fs = require(\"fs\");\nvar postcss = require(\"postcss\");\nvar colorHct = require(\"postcss-color-hct\");\n\n// css to be processed\nvar css = fs.readFileSync(\"input.css\", \"utf8\");\n\n// process css\nvar output = postcss().use(colorHct()).process(css).css;\n```\n\nUsing this `input.css`:\n\n```css\nbody {\n  color: hct(21, 70%, 50%, 0.5);\n  background: hct(0, 0%, 50%);\n}\n```\n\nyou will get:\n\n```css\nbody {\n  color: rgb(221 52 80 / 0.5);\n  background: rgb(119, 119, 119);\n}\n```\n\nCheckout [tests](test) for more examples.\n\n---\n\n## Contributing\n\nWork on a branch, install dev-dependencies, respect coding style & run tests before submitting a bug fix or a feature.\n\n    $ git clone https://github.com/rodydavis/postcss-color-hct.git\n    $ git checkout -b patch-1\n    $ npm install\n    $ npm test\n\n## [Changelog](CHANGELOG.md)\n\n## [License](LICENSE)\n",
 	"readmeFilename": "README.md",
-	"_downloads": 50
+	"_downloads": 34
 }
