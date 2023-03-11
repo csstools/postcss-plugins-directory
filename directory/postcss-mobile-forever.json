@@ -1,7 +1,7 @@
 {
 	"name": "postcss-mobile-forever",
-	"version": "2.3.3",
-	"description": "用于在桌面端和移动端横屏展示移动端设计视图的 postcss 插件。",
+	"version": "2.4.1",
+	"description": "一款 postcss 插件，让移动端视图处处可访问。To adapt different displays by one mobile viewport.",
 	"main": "index.js",
 	"types": "postcss-mobile-forever.d.ts",
 	"scripts": {
@@ -23,7 +23,9 @@
 		"mobile",
 		"desktop",
 		"media-query",
-		"mobile-forever"
+		"mobile-forever",
+		"mobile-first",
+		"css-scale"
 	],
 	"author": {
 		"name": "wswmsword"
@@ -40,23 +42,23 @@
 	"peerDependencies": {
 		"postcss": "^8.0.0"
 	},
-	"gitHead": "73a9afc15ee8c48d10e281f6e562acc3c5388348",
-	"_id": "postcss-mobile-forever@2.3.3",
+	"gitHead": "191ebea03fd148468b0a4f95f5b9cfd35fa3fff2",
+	"_id": "postcss-mobile-forever@2.4.1",
 	"_nodeVersion": "18.14.0",
 	"_npmVersion": "9.3.1",
 	"dist": {
-		"integrity": "sha512-Zch37T6oxypIQcz/SXHZvEeCGC5Grk0dfMCwY3MGEuRGc1syvvzQKIbAyel+r//45EZlsWzs+Zs5TkCQRAVZ7A==",
-		"shasum": "2280962c0d0f946f59060bcad91dee2ef211791d",
-		"tarball": "https://registry.npmjs.org/postcss-mobile-forever/-/postcss-mobile-forever-2.3.3.tgz",
-		"fileCount": 87,
-		"unpackedSize": 1083247,
+		"integrity": "sha512-yx2erVS8QfIe0usqUdD3UZMfcUkAzDxXe9xw6YAusYdbzaDOrsdICKTaUlg/OhxdBpbtPnI1JWVSomIz9x9Pgw==",
+		"shasum": "99b07092ebdce634942b2dd37860d31e574a0bfd",
+		"tarball": "https://registry.npmjs.org/postcss-mobile-forever/-/postcss-mobile-forever-2.4.1.tgz",
+		"fileCount": 99,
+		"unpackedSize": 1358020,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDpj+nLdhxLrx/oSJ1DRp47Zx02d5vV1CY4eq7CJm7/wAIhAKqLtWCdrj6c/nMmGON3XipreiLLQEkkUBHkG1uEh8oT"
+				"sig": "MEUCIC+MywPLqsLL/YE4f1wBJ6wz62b2TeOV/tPAYf3GPmNoAiEAjU1fNaKOibrbUDhoajcVjIsVhUA5r3/0nLbwt4EUxEI="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkBhC8ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqXdg//SqaVKXwi2JvXnXfVR7hcNkEN0oq2SYqCnaiuaO7nhXAXvpjm\r\nVcwNRCuPUKAYfZQ73bns5GQ+s1z9iqE/wRLuDB2WV7ihHlDsbdlrXJcGbNwD\r\nNtfTlxy9B/JtumX1Ce7EGVU5R8juNCHXvj9sIt2hGg67FON7IWIzMhmFAwJb\r\nzK3M/OX5AHJUjLQYXxbsYfCcnDEFhJmQPCsdlfNHUheB+mjbUzCH7RTuMgI+\r\ndGudF+SniW2wF1jnlIL2IVbccje7y5DCE+03FUKCBJfVrjcPz6XtfYSuETRC\r\n+zV+eaPGB0Yrp+0csWUU82tGjtonBIYaSATTigrwEkQiRwsDmVEkMoJH+F6R\r\nTvWlXCmLAIvmRheIvpyAVnpj/joHMY8UonVM9OrTnYsPQNMrv353sbwV/0MR\r\nxduXzrC9dVJQ4If2aiawpgu69+qim8ZMk06Y5s9UInXDzKGnWgxKvicGC6IB\r\nXJTBMIyisjydFA2HakvTYMcAnnMJed5IK5tmJH03Y4P89KRhkaiuh1/spGCC\r\nZnXFCOqofh12tcKOz2kH7xtrXHCTghC0ak1deSEOEvCVRqAYTWjb49sFD4S2\r\nIqDRkmZGxz2jpfP5aaEIShx4JBLbO0scMsdolQ06ZMF12djz9IiT9S+DlJQm\r\nIOoPB6UQA6xcNdS0fhZOltHfomDeVGyu/8Q=\r\n=0aIh\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkC/qTACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp0YA/8DcmanMm1Xo7TJbmwzSA8DS+h4SPIoVxbO3H3+L5QFN/54ylA\r\nKdXsXCiETwMOZcI1qppGc5j1orELISc662jLV0xa0PnoGpPWiDXgYz+YH7A2\r\nhMC+ryc4h4qTTWlrObOzv4DuW00ZSjWzFILlVvKAMOwfBNSyAXdtnPAOFgd2\r\n8UzEOtH4OHiSR/wok9vNx4Wtzli5h+mpWpj21oWatEmOf0h4T+q1teqlp5KD\r\nCUncyVyeHfMKprdwPX+uJrjwqW7zyVcDooK6YQk3z24C0qRM5b9UlK9LJend\r\nmS4itcO0kptXufXTNWO3tpRucKUVRaIbo6LL/ALpSK0SnSjFCT42FJ/Jz2oz\r\nylMWGqE1ytig4qacaO6IKzEdvhqusUJFd1EGXgE3D953cJBT7Zw8LA4QQg3W\r\nVilIruHRWQPFZ7ImOo1tuHjqGZJL5eXaHOIfNiQZSB7f9UlrsHTmJ8ssiigZ\r\nUis3rCMplD7OBW1p8Fdx8X0kdh+LDGeedLqVe0bcAp2SXQTbFhAd6ZRuVdh9\r\nlhoCdNCrDvfmXpYfJlNBRYQ8Lczes926mHArttIwZiBn1nibmd5ZpRgI4Fwz\r\niDSK8rfDnZGzaw6SR6sIOA/cCCnFH3Hy2QAwB7e2cjvuq1e3Ci8wfXf43vXQ\r\nxreILuEh3FhkLXeqwiluC27c3rAXete/dLs=\r\n=Lh0r\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "wswmsword",
@@ -71,8 +73,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-mobile-forever_2.3.3_1678119100343_0.8414013648410821"
+		"tmp": "tmp/postcss-mobile-forever_2.4.1_1678506642772_0.32620878518007923"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-03-06T16:11:40.719Z"
+	"_time": "2023-03-11T03:50:42.980Z"
 }
