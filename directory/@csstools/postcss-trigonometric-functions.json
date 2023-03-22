@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-trigonometric-functions",
 	"description": "Use sin(), cos(), tan(), acos(), atan(), and atan2() to compute trigonometric relationships",
-	"version": "2.0.1",
+	"version": "2.1.0",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -33,22 +33,22 @@
 		}
 	},
 	"dependencies": {
-		"postcss-value-parser": "^4.2.0"
+		"@csstools/css-calc": "^1.0.0",
+		"@csstools/css-parser-algorithms": "^2.0.1",
+		"@csstools/css-tokenizer": "^2.0.1"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-trigonometric-functions#readme",
@@ -81,23 +81,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "d9eacdc8493c780f2cdb075ae7f48b85fb3a1b49",
-	"_id": "@csstools/postcss-trigonometric-functions@2.0.1",
-	"_nodeVersion": "18.8.0",
-	"_npmVersion": "8.18.0",
+	"gitHead": "a5b7b8a35016b45f07b930c44d1117c24db1d9cf",
+	"_id": "@csstools/postcss-trigonometric-functions@2.1.0",
+	"_nodeVersion": "18.13.0",
+	"_npmVersion": "9.4.1",
 	"dist": {
-		"integrity": "sha512-uGmmVWGHozyWe6+I4w321fKUC034OB1OYW0ZP4ySHA23n+r9y93K+1yrmW+hThpSfApKhaWySoD4I71LLlFUYQ==",
-		"shasum": "2ecede7066187cf08423f8318ef5796cda75351f",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-trigonometric-functions/-/postcss-trigonometric-functions-2.0.1.tgz",
-		"fileCount": 15,
-		"unpackedSize": 32464,
+		"integrity": "sha512-Ly7YczO+QdnByYeGqlppJoA2Tb2vsFfj5gSrszPTXJ+/4g3nnEZnG0VSeTK/WA8y7fzyL/qVNkkdEeOnruNWFQ==",
+		"shasum": "5a489975d445b9e79c6cb5f0f01ae711ec86639d",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-trigonometric-functions/-/postcss-trigonometric-functions-2.1.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 18021,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQD6PaYOSigbZUdOaJetD7FmEygfhuAg387zxbLcEk2a5QIgNr5W/hK9ihkdWSqYGMvUo+9NsXH+RL+H8cv7Fb7o8tU="
+				"sig": "MEYCIQCEiTO8+8OwiK9VfHD5m9J3oK/i3XTNv3baDUg86uXN7wIhAOADOWmpWQy3NMHmoqnp6UUdoXUdKOJJlBnYpZTAQixv"
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NYmACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq6ZA//VHgFJjl2Md0yLp7JrfnRHcF9Ff3IRtVHi7K8cT4dWHy0SF2m\r\nlYoElqq6nogkgyIOc9UALMkqpMliIIShejU72gv5A9/d7FQMHnwG0qwT5pjL\r\noTMb+bFJX8uIhhobsUEJnKtKYqYW3CoGQ7EJ4MnJlQDJXlaPUwhLkMygWH7t\r\nWbe5ZD0VnIrVcVgRDmyjkLpC7rXBeHcZk8DCEy8lVyn2n46UFHto0kmCiXG8\r\nXfnicJfuKhoCx7AfK/wAv5OVUsYL1uIfnCKxKOl8+dMYD53klzR1oYVo772a\r\nqUdnwO9yOB/TxgQnlxhsBtteXrZWrqrB3qDMZ6tBWG9Vkkoom/s9mfsEyWsk\r\neZ9j8rax2psdiwX96+V5I9mmYKSY8QEmsxuFwiIPmA7i6hZuspZSTVrGLKd8\r\n2N+TmxtfQNJL66JqL3SJqyMjbM9O92xIgJmaRemKn6m165b58Awa7sD3ln22\r\noOPmNokM37V/9rxM94APUPxXf3SSSQ+Fkb41ILls49muABgfgB2zgAxoNl4t\r\nrBJwec7QxnWWl9KtCNFM0D3wQe/RemTrGpbtDGNIaE4JfC16Q08VoCan4qgh\r\ncaYRM3AAz0jdpoki4mzuzV/7XCUd/svC9oDWHTxeBYp+MMOry4xijrXk54g7\r\nxZYbSonxWlSrmGm1XLm/gnb73AbcDKW6ZQ8=\r\n=bGYB\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkGXP9ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrZnw//anu3/4suUhvDyeso6b9qNul6hkl7j6ZuBusBbtD2VZ7PRKO4\r\ndhfHeKuXRaHe93GZgO/CilEpJl0BTTfaHgkspp5PKmaL1ooowypraiQN4zNn\r\n2Oq/o70SKJyYsIGXTVyTK6gpGo1uQpyPVr3VQbWh1TBdRih0emFoJcYrpMso\r\nJFbC9A0tWZ9DXeYzMp5Oja6qjKO8TA4O/e26DTtw/kpPnyvo81Exyz8OwwxD\r\nnUHJdJeDbekRaaWBD4OSLGwY7JPjkVX0+tKTC/IfKrY+yjXL+S2dof6CxLjW\r\nKwgt5pj82HPynzCZX/AjuS8397TiwOo80FjCRKUdFrjlauhlJmHQp2hRvzp3\r\nEYfc1ETva8yKKigQ46NIEpfF7HwVsbjQ1gHLK0zPf4EOLZf6D34QAsfeSrSP\r\np2vpctXH41vairC1o/XL+UGWH9Wln0ZWOSorPCoYFE6vi1BCLvBoEaDCfUHN\r\nkXV3ngvZc0jNDSnQux6AIjFc8CVRUIV0hbj9JRYuhxxYFpCNE0yFTQxySKov\r\nJTacmUlWJc1RCHRcLpWrRygZ0sgke9thPj5qrdujJ7YLUgyULZt4iGIGXu1f\r\nusVb2mGW9uN4D8LhyZ4Tr+wLKZgZ5tKqCnsXnauZkIPqsh7i1fvlmqeBYFC8\r\nlYq+eFmdjsyY5chALub+gAV+tFnYcZ6df5Q=\r\n=XDkt\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -116,8 +116,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-trigonometric-functions_2.0.1_1674892838194_0.6201753914118107"
+		"tmp": "tmp/postcss-trigonometric-functions_2.1.0_1679389693093_0.03287044294878094"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-01-28T08:00:38.363Z"
+	"_time": "2023-03-21T09:08:13.298Z"
 }
