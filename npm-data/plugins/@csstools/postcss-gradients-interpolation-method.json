@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-gradients-interpolation-method",
-	"_rev": "4-8927dc9f2982575ddcd51ebf8352b4ee",
+	"_rev": "5-9ae60c2b534b2524e4c4220b911517b0",
 	"name": "@csstools/postcss-gradients-interpolation-method",
 	"dist-tags": {
-		"latest": "2.0.1"
+		"latest": "3.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -460,15 +460,133 @@
 				"tmp": "tmp/postcss-gradients-interpolation-method_2.0.1_1674891633732_0.6393898818371808"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "@csstools/postcss-gradients-interpolation-method",
+			"description": "Use interpolation methods in CSS gradient functions",
+			"version": "3.0.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-color-parser": "^1.0.0",
+				"@csstools/css-parser-algorithms": "^2.1.0",
+				"@csstools/css-tokenizer": "^2.1.0",
+				"@csstools/postcss-progressive-custom-properties": "^2.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-gradients-interpolation-method"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"conic",
+				"css",
+				"gradients",
+				"interpolation",
+				"linear",
+				"postcss",
+				"postcss-plugin",
+				"radial",
+				"repeating",
+				"syntax"
+			],
+			"csstools": {
+				"cssdbId": "gradients-interpolation-method",
+				"exportName": "postcssGradientsInterpolationMethod",
+				"humanReadableName": "PostCSS Gradients Interpolation Method",
+				"specUrl": "https://drafts.csswg.org/css-images-4/#linear-gradients"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "a2d8d2d782dd1a74defe334192c292328d663cda",
+			"_id": "@csstools/postcss-gradients-interpolation-method@3.0.0",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-m0inIqAb5P/zrEyOR8ug5Rrvs/cpzFT6icSK8c673aotwaGU87VK8+Zy27eKXp8K/hu1sC1GKRHATjYnevLMCA==",
+				"shasum": "f4c1c4be46b2662b45087b31171468ef25274903",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-3.0.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 28815,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAyx/K9L3w0V1tG/qfIu+tY9YMGgr6pkBkMyrYbCazR2AiAh0e59C87o0oTyxdx469iQYOVnY/DIbD30E3hWuyQBZA=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkHqtLACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp1QA//eDUCoxz6S0QzSPQGBHfLSOdkMIkBk5HWFqhetJhanZiXL0ch\r\n0Iu37GiOhWPLkhMW1A9RWR9wvALQbMwEHPP/J/Vlnqj1tMsZVG98qvF8rTan\r\nBRWUNSlNe7jtJDRqpnNWYwlciGD3PYU4SkZnWpwGqMQ6j05HTN3aUYuWBiE2\r\nLPZgOzZnwcWRRE0DK0YYEPakZVJRvK2qTrv/hdZVMDR0xEhyhnUahnUm8JL1\r\nPSwPFGJNeFZHN5paJiLRvfZtSsPHk5xwdHFUXqnxirLv5tqaPawVtZnr0yHv\r\nrURb60CeAPGD+o1FP5u4Pld4KJ9bd1rnzdgeEUUnFJv3QbCXxLD1y2wJ2HUW\r\ntvISREnxCzLxu0Ctd6/nn19sCo9UZdMasJGf2FisKonyXpOp8D/+aOil/Skz\r\nM/InWRNU9Wes/1hTreeDulihOTH7wljkHwXYcIjlh1n9Nxhmj7qdK+j7qdZQ\r\nZIekMiohrT4dN44m9RAaG1/8NGBHkaGVNAUEhIkDphDzCTTEzrGaqgok1wjq\r\nSbfFfcXiskL+lyQT8gGzHJuA9orinXJ7wEp/HNpi5xasNncGgu89vuGthwAU\r\nuK2oCQBOw9nK1kKVr6zUDem/bSwU7A2i8VU0Qq6XPaXCmFUB6SHoNeEnniKp\r\nr5XRMvhPJx2t8A55Q95hX/veL99Lp1m5LhE=\r\n=zCgc\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-gradients-interpolation-method_3.0.0_1679731530805_0.6817519159037408"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-03-04T21:14:36.197Z",
 		"1.0.0": "2022-03-04T21:14:36.602Z",
-		"modified": "2023-01-28T07:40:34.001Z",
+		"modified": "2023-03-25T08:05:31.151Z",
 		"1.0.1": "2022-03-07T11:06:24.369Z",
 		"2.0.0": "2023-01-24T09:07:00.965Z",
-		"2.0.1": "2023-01-28T07:40:33.906Z"
+		"2.0.1": "2023-01-28T07:40:33.906Z",
+		"3.0.0": "2023-03-25T08:05:30.993Z"
 	},
 	"maintainers": [
 		{
@@ -508,7 +626,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "CC0-1.0",
-	"readme": "# PostCSS Gradients Interpolation Method [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-gradients-interpolation-method.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/TODO.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Gradients Interpolation Method] lets you use different interpolation methods in CSS gradient functions following [CSS Specification].\n\n```pcss\n.oklch {\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n\n/* becomes */\n\n.oklch {\n\tbackground: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n}\n\n@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) {\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n}\n```\n\n## Warnings\n\n⚠️ This plugin assumes you have a separate plugin to transform `color-mix()` to something older browsers can understand.\n\n⚠️ Color stops with only a color and Interpolation hints are not supported.\nWe can not statically check if a certain value is a single color or an interpolation hint.\n\nThese are equivalent in PostCSS :\n\n```pcss\n\t--red: red;\n\t/* Color stop variable */\n\tbackground-image: linear-gradient(90deg, black, var(--red), blue);\n\n\t--perc-10: 10%;\n\t/* Interpolation hint */\n\tbackground-image: linear-gradient(90deg, black, var(--perc-10), blue);\n```\n\n## Usage\n\nAdd [PostCSS Gradients Interpolation Method] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-gradients-interpolation-method --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGradientsInterpolationMethod = require('@csstools/postcss-gradients-interpolation-method');\n\npostcss([\n\tpostcssGradientsInterpolationMethod(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gradients Interpolation Method] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssGradientsInterpolationMethod({ preserve: true })\n```\n\n```pcss\n.oklch {\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n\n/* becomes */\n\n.oklch {\n\tbackground: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n}\n\n@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) {\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssGradientsInterpolationMethod({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n.oklch {\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n\n/* becomes */\n\n.oklch {\n\tbackground: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n\tbackground: linear-gradient(in oklch 90deg, black 25% , blue 75%);\n}\n\n:root {\n\t--background: linear-gradient(90deg ,black 25%,color-mix(in oklch, black 90%, blue 10%) calc(25% + ((75% - 25%) * 0.1)),color-mix(in oklch, black 80%, blue 20%) calc(25% + ((75% - 25%) * 0.2)),color-mix(in oklch, black 70%, blue 30%) calc(25% + ((75% - 25%) * 0.3)),color-mix(in oklch, black 60%, blue 40%) calc(25% + ((75% - 25%) * 0.4)),color-mix(in oklch, black 50%, blue 50%) calc(25% + ((75% - 25%) * 0.5)),color-mix(in oklch, black 40%, blue 60%) calc(25% + ((75% - 25%) * 0.6)),color-mix(in oklch, black 30%, blue 70%) calc(25% + ((75% - 25%) * 0.7)),color-mix(in oklch, black 20%, blue 80%) calc(25% + ((75% - 25%) * 0.8)),color-mix(in oklch, black 10%, blue 90%) calc(25% + ((75% - 25%) * 0.9)),blue 75%);\n\t--background: linear-gradient(in oklch 90deg, black 25%, blue 75%);\n}\n```\n\n_Custom properties do not fallback to the previous declaration_\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#TODO\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-gradients-interpolation-method\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Gradients Interpolation Method]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method\n[CSS Specification]: https://drafts.csswg.org/css-images-4/#linear-gradients\n",
+	"readme": "# PostCSS Gradients Interpolation Method [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-gradients-interpolation-method.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/gradients-interpolation-method.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Gradients Interpolation Method] lets you use different interpolation methods in CSS gradient functions following [CSS Specification].\n\n```pcss\n.example {\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n.example {\n\tbackground-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n\n/* becomes */\n\n.example {\n\tbackground-image: linear-gradient(rgb(245, 137, 137) 0%, rgb(248, 146, 114), rgb(244, 158, 94), rgb(235, 171, 82), rgb(220, 185, 81), rgb(201, 199, 95), rgb(177, 211, 118), rgb(151, 221, 146), rgb(125, 229, 177), rgb(103, 235, 208), rgb(94, 237, 237) 100%);\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n.example {\n\tbackground-image: linear-gradient(rgb(56, 87, 35) 0%, rgb(64, 83, 46), rgb(70, 79, 54), rgb(76, 74, 62), rgb(82, 69, 68), rgb(86, 64, 75), rgb(91, 58, 81), rgb(95, 51, 87), rgb(99, 44, 93), rgb(103, 34, 98), rgb(106, 21, 104) 100%);\n\tbackground-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n```\n\n## Shortcomings\n\n⚠️ Color stops with only a color or only an interpolation hint are not supported.\n\nFor best results you should always provide at least the color and position for each color stop.\nDouble position color stops are supported.\n\n```pcss\n.foo {\n\t/* Only a color: can't transform */\n\tbackground-image: linear-gradient(in oklch, black 0%, green, blue 100%);\n\n\t/* Only an interpolation hint: can't transform */\n\tbackground-image: linear-gradient(in oklch, black 0%, 25%, blue 100%);\n}\n```\n\n⚠️ Variable colors are also not supported.\nWe can not mix colors when the color is a variable.\n\n```pcss\n.foo {\n\t--red: red;\n\t/* Color stop variable : can't transform */\n\tbackground-image: linear-gradient(in oklch, black 0%, var(--red), blue 100%);\n}\n```\n\n## Usage\n\nAdd [PostCSS Gradients Interpolation Method] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-gradients-interpolation-method --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGradientsInterpolationMethod = require('@csstools/postcss-gradients-interpolation-method');\n\npostcss([\n\tpostcssGradientsInterpolationMethod(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gradients Interpolation Method] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssGradientsInterpolationMethod({ preserve: true })\n```\n\n```pcss\n.example {\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n.example {\n\tbackground-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n\n/* becomes */\n\n.example {\n\tbackground-image: linear-gradient(rgb(245, 137, 137) 0%, rgb(248, 146, 114), rgb(244, 158, 94), rgb(235, 171, 82), rgb(220, 185, 81), rgb(201, 199, 95), rgb(177, 211, 118), rgb(151, 221, 146), rgb(125, 229, 177), rgb(103, 235, 208), rgb(94, 237, 237) 100%);\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n.example {\n\tbackground-image: linear-gradient(rgb(56, 87, 35) 0%, rgb(64, 83, 46), rgb(70, 79, 54), rgb(76, 74, 62), rgb(82, 69, 68), rgb(86, 64, 75), rgb(91, 58, 81), rgb(95, 51, 87), rgb(99, 44, 93), rgb(103, 34, 98), rgb(106, 21, 104) 100%);\n\tbackground-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssGradientsInterpolationMethod({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n.example {\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n.example {\n\tbackground-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n\n/* becomes */\n\n.example {\n\tbackground-image: linear-gradient(rgb(245, 137, 137) 0%, rgb(248, 146, 114), rgb(244, 158, 94), rgb(235, 171, 82), rgb(220, 185, 81), rgb(201, 199, 95), rgb(177, 211, 118), rgb(151, 221, 146), rgb(125, 229, 177), rgb(103, 235, 208), rgb(94, 237, 237) 100%);\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n.example {\n\tbackground-image: linear-gradient(rgb(56, 87, 35) 0%, rgb(64, 83, 46), rgb(70, 79, 54), rgb(76, 74, 62), rgb(82, 69, 68), rgb(86, 64, 75), rgb(91, 58, 81), rgb(95, 51, 87), rgb(99, 44, 93), rgb(103, 34, 98), rgb(106, 21, 104) 100%);\n\tbackground-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n```\n\n_Custom properties do not fallback to the previous declaration_\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#gradients-interpolation-method\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-gradients-interpolation-method\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Gradients Interpolation Method]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method\n[CSS Specification]: https://drafts.csswg.org/css-images-4/#linear-gradients\n",
 	"readmeFilename": "README.md",
-	"_downloads": 20
+	"_downloads": 21
 }

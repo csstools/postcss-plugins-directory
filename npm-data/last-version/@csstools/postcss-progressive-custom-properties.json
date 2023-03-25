@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-progressive-custom-properties",
 	"description": "Correctly declare progressive enhancements for CSS Custom Properties.",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -31,17 +31,15 @@
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "node ./generate/matchers.mjs && eslint --fix ./src/matchers.ts && rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"repository": {
@@ -68,27 +66,27 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "3e666fdb8ca78fad08704e95d833439e17a8ec1b",
+	"gitHead": "db026c71064b11c7c35dea3ffb2e387b9febfe7d",
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins#readme",
-	"_id": "@csstools/postcss-progressive-custom-properties@2.1.0",
-	"_nodeVersion": "16.17.1",
+	"_id": "@csstools/postcss-progressive-custom-properties@2.1.1",
+	"_nodeVersion": "18.13.0",
 	"_npmVersion": "9.4.1",
 	"dist": {
-		"integrity": "sha512-tRX1rinsXajZlc4WiU7s9Y6O9EdSHScT997zDsvDUjQ1oZL2nvnL6Bt0s9KyQZZTdC3lrG2PIdBqdOIWXSEPlQ==",
-		"shasum": "df35da0e85a6d5e1d8e4c9a0ba9032e8486e8b9d",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-progressive-custom-properties/-/postcss-progressive-custom-properties-2.1.0.tgz",
+		"integrity": "sha512-6p8eO5+j+9hn4h2Klr9dbmya0GIb9SRrnPaCxqR1muVlV1waAZq6YkmlApEwXrox9qxggSwGZD5TnLRIY9f7WA==",
+		"shasum": "82df9314451db63bf7f4975a4d32f148e85db490",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-progressive-custom-properties/-/postcss-progressive-custom-properties-2.1.1.tgz",
 		"fileCount": 11,
-		"unpackedSize": 44996,
+		"unpackedSize": 45143,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIEPMhXxLreCZVaxBN86HluW7LpPsoaLSeJUnRZCm4RenAiEAqXsRk9QAqJ1syGPe592JNKdQorBAvx+aam9sHcmjEGw="
+				"sig": "MEQCIHZya2024HCy0033gYIG/UZfT5MvS/0GFaBIjcWBazTCAiBeSqLcoQEvkpLT4sgtToNRRU6yoQIq3b+6Pk8Hvk+OBA=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj23h4ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpWfg//bIHHOheBhsMhBpEjPQ34lF+ncJKueaNNGLvI9WRb+EbRj2Mv\r\n88HBx1wEV/L7e70F8pEGkurE1m3zKIhILpxuHpS/b3GIz0txk618i7UMYFNO\r\nAkV//yv+QG/2tZ4fH9RigJXbkI8cbcb59WLhb873pv25aGaLnyAs35fYRmlD\r\nNK/E8jPQRVZ2fWBxHyXHznFtGEguhP8R2rIGNfIPcZVlTbmD6JmQJTtD12Cr\r\nWcb9Ip0KS8BiX/QtCadodUdjVm67pWpYBFNp1u+QacyI7/PMXTVz+yetx9Ne\r\np3Xm3D4/wREboO690ZhJFr6S5oHorREu9nllU+0Rd3nN/h2ucGUtA94CbgXn\r\ngG+H/a18FBGl81AZtpdj3Z0H5rqngPc/LN3xRfIGsK8GSaNlCQ4Dk+VjN1JH\r\nJi0F723eL/o9tAILB+x9Y6AV3jq+J6x5eRgE/ykh7DixEJmqEe829py960bS\r\n4YMlPFkQ7q2e8aygDQgKECA35ipvJKdGMWCBtgbn6Ymjef4nXqB+uSBnqFOp\r\nT9LUd2qP4m7VZG1rMIYZEfdoArwIJ9aOwEfqqofSoVrpP5UqFSjr89iP6/Qw\r\ni+D4KF/rNmF26edxufXWpiDMzLnlNFDduAlXsMWyIzxX9lBBP4/xdZGFmZ04\r\n6RegaPrK9AOb8CwX3uYjXH1s9obB7ckQuBI=\r\n=kJI8\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkHqhQACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmptFg//ZqXe0QHeFor0xrdKeSJADorF7S/dZeCg+hH7utxVzUOZnX0Z\r\nVUvnmS/FHENl0C7CWwNZZ+WbScC4i9rQ7jdDELGblg9lCTgPiHqcyAqT5WRB\r\nJpcsy7wNlbWe6Nb4hvBb4Avw7lQs4htMIPgFRJALQ523/NB/dnVdpvhPhiA7\r\nJp1h2b8FEhYk9zyCACD/+ds44GNiKnwTYhIiPpD6vm+uUsC1MDe4XGC1le05\r\n4hDCGZkx1Hi78VhkMUOZvB4UfP2KQOu6axwXeRjFOc44de9tt4ix9JDqIUHH\r\n0KRoGtLo+CLoV2QLvxYQ2kCoceqnatjo39ZyZ9ayqJC+gOhg+PdMWED7nnq6\r\nPMqPFWmXNnj+UJ1z8D9Um2r2yzbqlUCSjZlAAoB74BDe7xHzN9UXdPuW3AFF\r\nvBlIsWqfjiQmR6a8x+j6p3h2kM72icrhSpxfMDSjjrL8X7JODlgFSf4dztl4\r\nMB2DLChcpaFNVo4s8VTfRifPTxHoNjEJ4RgTwkWFXifa4v8H8smE5tEQ+q8r\r\nt42nz4AvcZJgxDLiiM+9RxJnn6KVPnMY7rQDaPAqLzVOc7bprPHl+cewU57f\r\nrZJrdJb2G6eYBs3YgosLw5VArAXtkpaKL20QSuwrdbJQ74vhRA+yJjzny3RM\r\nnPlD52KOEpzD1yfQ4TjlzxbeEZvp5uN3oZo=\r\n=ZYzx\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -107,8 +105,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-progressive-custom-properties_2.1.0_1675327608656_0.20558170217286476"
+		"tmp": "tmp/postcss-progressive-custom-properties_2.1.1_1679730767873_0.918393758185464"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-02T08:46:48.847Z"
+	"_time": "2023-03-25T07:52:48.029Z"
 }
