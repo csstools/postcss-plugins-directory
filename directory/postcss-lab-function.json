@@ -1,7 +1,7 @@
 {
 	"name": "postcss-lab-function",
 	"description": "Use lab() and lch() color functions in CSS",
-	"version": "5.1.0",
+	"version": "5.2.0",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -26,24 +26,23 @@
 		}
 	},
 	"dependencies": {
-		"@csstools/color-helpers": "^1.0.0",
-		"@csstools/postcss-progressive-custom-properties": "^2.0.0",
-		"postcss-value-parser": "^4.2.0"
+		"@csstools/css-color-parser": "^1.0.0",
+		"@csstools/css-parser-algorithms": "^2.0.1",
+		"@csstools/css-tokenizer": "^2.1.0",
+		"@csstools/postcss-progressive-custom-properties": "^2.0.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-lab-function#readme",
@@ -79,23 +78,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "b27b72fdc0bda4c507ee136343e49b94b7cfe38a",
-	"_id": "postcss-lab-function@5.1.0",
+	"gitHead": "d7bea8a023c0fa4d0486e24fc7e2fabc1b199834",
+	"_id": "postcss-lab-function@5.2.0",
 	"_nodeVersion": "18.13.0",
 	"_npmVersion": "9.4.1",
 	"dist": {
-		"integrity": "sha512-iZApRTNcpc71uTn7PkzjHtj5cmuZpvu6okX4jHnM5OFi2fG97sodjxkq6SpL65xhW0NviQrAMSX97ntyGVRV0w==",
-		"shasum": "ed3822feb0f7ff229e6d185929583b16861f7753",
-		"tarball": "https://registry.npmjs.org/postcss-lab-function/-/postcss-lab-function-5.1.0.tgz",
-		"fileCount": 11,
-		"unpackedSize": 32495,
+		"integrity": "sha512-ie/k0xFCib22LV56jZoygLuWfM4J4migb89QnEXOjORGh6UwsDVSPW/x+P2MYS+AKFfZ5Npcu5HYEzYcezAAag==",
+		"shasum": "7504de96d5bd21177af241fe7601b5151f2df1a4",
+		"tarball": "https://registry.npmjs.org/postcss-lab-function/-/postcss-lab-function-5.2.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 21767,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIG7/yS3r9Aob/BWd8NJQYHF1zfITcwU5CDlGKO8c9gu3AiA2x0GA8B+N3iYLD7sQacTXswZodZQ2l7yYR6W3ObtEiA=="
+				"sig": "MEQCIAFmfClDZFPaRi7lR3M4chpD445DX+IblcUaZCHuvWUlAiBJBB5QTFmh5nXRtHiMIbFYBMnJM/JwDdFDYwot9Le9lQ=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj4TaDACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqAJQ/9GeBG70YCHSOoTORzMVEhKSvjuWjYgIZEKJXcd+TjmWEhLR6r\r\nUuUkSlUNcF37ntWeX8S/DNkdDT9lSoVqvD6PyOFI4lsu30/q2DtVD06e81Tk\r\nwvKni9DtfmxCv40WbIy4GpwvPcXtBrfVhhmOx6JVC5hSmiRJMWEP49H7EzB4\r\nWgM00h9EroaKLWZL4I2xBDRaLWdtiHp987ojWsq97D3wpUdxT+lMJqJq2pAh\r\nM7Td71e+VhP7UBX4CPCDdS6ve5Cla/SUK/SfTYUVl0Ui2CbrhB0KbkJJ0e+m\r\n1rOh6O7bhboMC+pOjTuMIhkzG1GAVZR8XtkN6zwXGxHAuSQUDnWzoGT8v4Lv\r\nr2nG5CDhj4vwTMFoxMimroyS9uLv3D3+GEy/kRLfY+JmiiENg0LznUETUDjd\r\nFPtgq8v8d/oXoTamPE/NSyqBXL+tcuUkXnsDRMWxJiTMwk2wPgBlocEGETm6\r\n8LgvvfAWpGRHmrSFIvyIUnfvu2I9NFnyhp76FkyOFDZG4gGcrMNQHK1gcm86\r\nqvJWqc8FDhGgNAM3NE5Lo3kVFsKbEY6oA+k8mwyfMsU99JEy/I7YQiWfB3Dj\r\n0RSkOdes+nJZolsKSddTKrQdhOdlo/M9iXg8GSE1823p3MqRaeEaCamlBt9s\r\noSbb3gCJrIUCEAVCrLyNQCmpnVeDKslK9ro=\r\n=F5v0\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkHqteACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoMaA//ZbXj3OsKZtGNYxaBZ6wjWBltMRHq4pGtqBevaEqzeCJhdNGg\r\n1FTtjjFYpxN+6RryRhJaCJ45onEan+ckW/cpcxCV30LFWZAZRi9/6zdrMDeT\r\n5yIr2cfSBhNu4ugvPIeHhS+ybYboRRC2vr41bRI6UV5qWc8Lesnlu4MXEHmR\r\n+SslBiw/rivX3IvYBzecjoMT6SYbnqDQD+A1jIvxGC0QnasFW2ygPLXLeX+G\r\nuaVXQOogj/GtYpyDxAEBSKXzJqlUaPRsXmkMA4WGvJhQwEzlQYSWS2QXXmZx\r\nq90OoTMNt4lTfd10Z2Lmsv1tms6dyGIhv5KXt4F/xMl07KBSni7eiGWXgVRy\r\n/25Nl71iykoZ9nNscqsaB+8+JErvAryI5emrQZ6R5/tLKByEm7JRoDhDMti+\r\nM+QZNFmBgV09/e91OS3n8g09Vh6klJu/0QeU9P/UwlLBvo9bolEjn8Oi4vma\r\n6eIQsmCDddcOXAZaDzw1xQ4JjEg2uxP+VQ7gZSqHjP1ReGLlGB3uq5rpOVY9\r\njKng4wy4xrw8Nojsf488rNQiuHkT9BN6B509HH1LAeiLPBSO46jaBqWmIEfA\r\n9EwrdG0wurjJvp8XyZtMCCj3kz1ROyFyEpXec1N5HDLgWI5wiF5qRd/EJ0MG\r\nq7V5H3SABEyOWMz3IdILajrwK/EdxqHsbCY=\r\n=t+qw\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -114,8 +113,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-lab-function_5.1.0_1675703939210_0.2424990320289011"
+		"tmp": "tmp/postcss-lab-function_5.2.0_1679731550601_0.11994017674040602"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-06T17:18:59.354Z"
+	"_time": "2023-03-25T08:05:50.772Z"
 }
