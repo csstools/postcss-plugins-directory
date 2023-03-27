@@ -1,0 +1,115 @@
+{
+	"name": "@csstools/postcss-color-mix-function",
+	"description": "Use the color-mix function in CSS",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-color-parser": "^1.0.0",
+		"@csstools/css-parser-algorithms": "^2.0.1",
+		"@csstools/css-tokenizer": "^2.1.0",
+		"@csstools/postcss-progressive-custom-properties": "^2.0.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-mix-function#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-color-mix-function"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"postcss-plugin"
+	],
+	"csstools": {
+		"cssdbId": "color-mix",
+		"exportName": "postcssColorMixFunction",
+		"humanReadableName": "PostCSS Color Mix Function",
+		"specUrl": "https://www.w3.org/TR/css-color-5/#color-mix"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "c67aee0470876b5f0a01cd1881f83922bd1c7dba",
+	"_id": "@csstools/postcss-color-mix-function@1.0.0",
+	"_nodeVersion": "18.13.0",
+	"_npmVersion": "9.4.1",
+	"dist": {
+		"integrity": "sha512-JuI8SKpE/XIpfmvALcxvk6flaq36KCJwqQgZ958Jz189r1diQZADq+7xFmjcv+B0vHQ4nSa92gGExtzOZ1iiUg==",
+		"shasum": "8d65782527eefc7228ea6fb9b6fa936e52b9b4ad",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-color-mix-function/-/postcss-color-mix-function-1.0.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 16218,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIG4iQ1klHy+CaUIZBFeD9bROgXqspM9SDqBh9LFGXx8YAiEAvmPkZKfx4DF9FK2UmUacDx8ZB/rBlSpe+W5+FNd0+2I="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkHql6ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpn5g//XgMjZh8e1T9M46hcdNwH7SEUgLEfuu67rnhigYppehFxhPHZ\r\nJ51gWBI0Rq7qhAo7947Z52ZuFsxSwhPS6xpkJA1ru1RaU7RtsiZ5EHpjYUch\r\np7Vt2ol99zua60fDNghbSlV9uqls1v9R0Uw6NYwoxslndKhuNOn2tykjojRO\r\nvScMTfu9fjisMLKpxroBVQhub0nlhfohngkVFlalH2ZcPRIH5AbRh5drrT3q\r\ny8XD7QNG7qjsqXu0Wdsxs8uqeqI71I7WMTTUJyaw48RZBaObf9os2OPMf1X4\r\nNO6IFNTI2QZG7CJqBKu+M6pTltqYzUQg7+oSc+ql+IFR2XtkyGSKPAQvw55R\r\nURjm3t3pvPotNq6+Nn5kIct2aWFBAt0/wmV9/+z3JORLPS9pJdmg5XHKXcbx\r\nZxmxMdLAW3gkPkMhWQcR179CuzPlv6NLeEWg1etIlY2Bni/5hfKjm5O10GbG\r\nPLFVI9s1QqYwRPxDFnX/7dELohA/V15egCKfJpaU780nqzNUqxMGDHQeaUKq\r\nGM9wHcbHqZ5bXu0QI//V0HMtmvNqC2G5kvwSQtENnLzrwUWoUf/AMdjZkgj6\r\neqlV6qDZ+1i2haaZVLOum+Xs++mGbJM/eak65Xm0euGlkr8TJ35iUpTIQHsy\r\nn4SP3AAsRQrZRX+28E7UdoNMq20mwuufFBM=\r\n=tk3h\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-color-mix-function_1.0.0_1679731066131_0.08686770977349423"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-03-25T07:57:46.322Z"
+}
