@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-gradients-interpolation-method",
 	"description": "Use interpolation methods in CSS gradient functions",
-	"version": "2.0.1",
+	"version": "3.0.1",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -26,23 +26,23 @@
 		}
 	},
 	"dependencies": {
-		"@csstools/postcss-progressive-custom-properties": "^2.0.0",
-		"postcss-value-parser": "^4.2.0"
+		"@csstools/css-color-parser": "^1.1.0",
+		"@csstools/css-parser-algorithms": "^2.1.0",
+		"@csstools/css-tokenizer": "^2.1.0",
+		"@csstools/postcss-progressive-custom-properties": "^2.0.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method#readme",
@@ -68,7 +68,7 @@
 		"syntax"
 	],
 	"csstools": {
-		"cssdbId": "TODO",
+		"cssdbId": "gradients-interpolation-method",
 		"exportName": "postcssGradientsInterpolationMethod",
 		"humanReadableName": "PostCSS Gradients Interpolation Method",
 		"specUrl": "https://drafts.csswg.org/css-images-4/#linear-gradients"
@@ -76,23 +76,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "90b230db4bfaef084db55f8824328403a8aae0af",
-	"_id": "@csstools/postcss-gradients-interpolation-method@2.0.1",
-	"_nodeVersion": "18.8.0",
-	"_npmVersion": "8.18.0",
+	"gitHead": "7b8a2fd04c14874f106c03dbd441159b7364984a",
+	"_id": "@csstools/postcss-gradients-interpolation-method@3.0.1",
+	"_nodeVersion": "18.13.0",
+	"_npmVersion": "9.4.1",
 	"dist": {
-		"integrity": "sha512-HGnR7v1fF/KAx/Vo1qW7wUvfFOIv3OQ1pXET3qHQjk2fw/IE4Nf85gLNhD+j80oprAgLz18EvftDOHTYC96Ezw==",
-		"shasum": "ca050e89bb528a948507afb71fa04da437dce846",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-2.0.1.tgz",
-		"fileCount": 10,
-		"unpackedSize": 27931,
+		"integrity": "sha512-sCfFSzL5HRb/GhrGuTEi8IRrxp2bUeKakyXvuXzuBBxL0L2X8kZAljQwkuRkd0W/wIWTsQG/E72REb5XMmRfrA==",
+		"shasum": "e5237dd765f951c1f4b113d29c4bd2438db5dc33",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-3.0.1.tgz",
+		"fileCount": 13,
+		"unpackedSize": 29724,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDfUR6OQUNUNDwKndTaZ2BjCryVXSYegDRFu2OPbeWq+wIgUWbsjw3ul5wZHMTvthY6ZiMvkKBODcsWE82iMGMZzgs="
+				"sig": "MEUCIEmCe4Aue0duzVTDUK0+w9kySQzIaeAg5BLTIrl41hl9AiEAhTWzDDAINEYv6qd1ZFsWoh9LHKCVcf0c0UjFESkOzhc="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1NFxACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoBXA/+I3Z3cffJe4xnVQcmyNJT3hwvGWcKHOWOfKXhtf5Zwn5CvKv9\r\nO6DKLFsPBYknqJkUIa9ouvxTJ9crpEwuehxk63u9WIVq/aUSP98eznCcpt1F\r\ny0D7In6J9rYnJ16ta9KNj1kLV7i58H7QzI8SormaJqThwNJs3Pg7Bmu2T+r+\r\nLpDnMkqU7vyEgQ4FxG7REN6N8AVd0mcK6TMbjb6ziaWKH93fWC92w9eL3aTa\r\nUQ3ip8uyYEBzzltkFGl6MEyjZAXy4Q6oi2+n4GmKs41b7IC4qlOZhTkUDL43\r\nD2jhjAtQ8CAdL7H4GO2vZ6fWwlmMKSvXpWLp/VE07xr4mkepIEnyFxlccS24\r\nmD0o1n9+eOnlvyoJAmvHEnEjTg9YruqrX6263kqAf/VYaXQWeB93UW1SihUN\r\nU1w8qwhETGETCVtCtQxR0DMhgpAwRGwfV/yUSsSISlrLG8jwzWhLxDVATzNy\r\njSDgDgHP9zYmaqoaMdcDWpNMdIyPBPMwlU73Uj9CEmS1sxvLeb66334xtAvO\r\n1Hgy9q9h7NfINpBtPdnvz5l9SOgCNwSXeK9CX5jbD4unIHqke2z086WaKCZm\r\nycDUVz2M09zwe8pXNuvnVqRzI6dWkR6qiLwUL+6g+jSYJ8IcwlFEdiUpWXun\r\nXIgBnz7f7vBdCVTXwrcIOw2VB9qpMT147a0=\r\n=DZWp\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkItFrACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmonvxAAmXd2FWLs0kCRwcHfVp4tG9WNnaNiQ1+l1cNFBh3q7lGVW8kP\r\nArmTNuVEzhcQgjTFYcII7plAE07QaKgSJKgurDBXyq0J53KCpwUGrV3UIt85\r\nyYGjzSKwkrVd1Eb4ldFTfNnD6R57wBB357QDyMjCk6Oc5KYQQTpcvYAg4WlX\r\nAM9NvbUtRmGxN9GU9r6o99EA08pv+x7imY6OTmSrlHAw/2y31e9vqMme6n5r\r\nC1+b1imyWi4JRQFzJnNB75GFerCytUBs8YPC0A/bg+0eD0oSBhx7dTppJhn0\r\n7RBH2eYB6upjcq4n8KUQMf4bmhkYNDvDgAjZxrhP/IQvVf142wWnsBAIjWSZ\r\nzrxKARtXYXRV7XI/F6/TOXxHns+T4fSkYydlSAPMqZvQy8E9ru/KPSfj2A2A\r\nOzKvI48lyfZVvrymJ26lNbQiUFcAax5jM2O1VTz7cBfXKBUGYXfCmmokO0Eb\r\nIrzx+BnAYD9+S0tgppvnMBYGrkRIfnqOCxHqzUrZjvPARStAfUUfs68bdRTL\r\no3Mv1+O/JyLxxSpf9oa72nXNz20rPKp1Pt8nm1TP+n1FU8pOvJVg4ETem8Wd\r\nB8fYKT97Fxpv0F9m1Wr4xFIrHiX6XmfZbji3K+B4nzdZuHFMbxCyi2SXAE9Z\r\nyGc2l4IeUSHychmBkKsaHrg6GqHj779Ac3w=\r\n=hPZV\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -111,8 +111,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-gradients-interpolation-method_2.0.1_1674891633732_0.6393898818371808"
+		"tmp": "tmp/postcss-gradients-interpolation-method_3.0.1_1680003435140_0.7444013705638035"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-01-28T07:40:33.906Z"
+	"_time": "2023-03-28T11:37:15.308Z"
 }
