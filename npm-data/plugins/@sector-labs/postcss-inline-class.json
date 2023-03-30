@@ -1,6 +1,6 @@
 {
 	"_id": "@sector-labs/postcss-inline-class",
-	"_rev": "9-71ec3f934a76c1a364d79a09c1eeffb3",
+	"_rev": "12-a0784583b736f09b3b64d32e8dc14100",
 	"name": "@sector-labs/postcss-inline-class",
 	"dist-tags": {
 		"latest": "0.0.6"
@@ -665,13 +665,21 @@
 	"time": {
 		"created": "2020-04-12T15:06:33.275Z",
 		"0.0.2": "2020-04-12T15:06:33.650Z",
-		"modified": "2022-04-06T22:28:39.298Z",
+		"modified": "2023-03-21T10:17:24.798Z",
 		"0.0.3": "2020-04-13T12:03:45.169Z",
 		"0.0.4": "2020-04-13T14:25:30.978Z",
 		"0.0.5": "2020-04-13T16:02:25.765Z",
 		"0.0.6": "2020-04-14T14:51:10.386Z"
 	},
 	"maintainers": [
+		{
+			"email": "liviu.oltean@sectorlabs.ro",
+			"name": "liviusl"
+		},
+		{
+			"email": "adeel.zahir3@gmail.com",
+			"name": "adeelzahir"
+		},
 		{
 			"email": "cristi.ingineru@gmail.com",
 			"name": "cristi.ingineru"
@@ -711,14 +719,6 @@
 		{
 			"email": "dolha.dan@gmail.com",
 			"name": "dolha.dan"
-		},
-		{
-			"email": "potravlad@gmail.com",
-			"name": "japjappedulap"
-		},
-		{
-			"email": "alexandru.buhai@sectorlabs.ro",
-			"name": "alex-buhai"
 		}
 	],
 	"description": "Inline the declarations of other CSS classes in your CSS classes.",
@@ -746,5 +746,5 @@
 	"license": "MIT",
 	"readme": "# postcss-inline-class\n\nInline CSS classes in other CSS classes using postcss.\n\n## Examples\n\n### Minimal example\n\n```css\n.a {\n    color: red;\n}\n\n.b {\n    @inline .a;\n    font-size: 14px;\n}\n```\nbecomes\n```css\n.a {\n    color: red;\n}\n\n.b {\n    color: red;\n    font-size: 14px;\n}\n```\n\n### Multiple blocks\n\n```css\n.a {\n    color: red;\n}\n\n.a, .b {\n    font-size: 14px\n}\n\n.c {\n    @inline .a;\n}\n```\nbecomes\n```css\n.a {\n    color: red;\n}\n\n.a, .b {\n    font-size: 14px\n}\n\n.c {\n    color: red;\n    font-size: 14px;\n}\n```\n\n### Different files\n\n```css\n/* foo.css */\n\n.a {\n    color: red;\n}\n\n/* bar.css */\n\n.b {\n    @inline .a from './foo.css';\n    font-size: 14px;\n}\n```\nbecomes\n```css\n/* foo.css */\n\n.a {\n    color: red;\n}\n\n/* bar.css */\n\n.b {\n    color: red;\n    font-size: 14px;\n}\n```\n\n### Nested\n\n```css\n.foo + div.a {\n    color: red;\n}\n\n.b {\n    @inline .a;\n    font-size: 14px;\n}\n```\nbecomes \n```css\n.foo + div.a {\n    color: red;\n}\n\n.b {\n    font-size: 14px;\n}\n\n.foo + div.b {\n    color: red;\n}\n```\n\n### Media queries\n\n```css\n.a {\n    color: red;\n}\n\n@media (min-width: 240px) {\n    .a {\n        color: green;\n    }\n}\n\n.b {\n    @inline .a;\n    font-size: 14px;\n}\n```\nbecomes\n```css\n.a {\n    color: red;\n}\n\n@media (min-width: 240px) {\n    .a {\n        color: green;\n    }\n}\n\n.b {\n    color: red;\n    font-size: 14px;\n}\n\n@media (min-width: 240px) {\n    .b {\n        color: green;\n    }\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 9
+	"_downloads": 56
 }
