@@ -40,22 +40,66 @@ async function fetchDetailedDataForOnePlugin(plugin, forced, index, total) {
 }
 
 export async function fetchDetailedPluginData() {
-	let counter = 0;
-	const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
-	for (let i = 0; i < pluginsList.objects.length; i++) {
-		const plugin = pluginsList.objects[i];
-		const didFetch = await fetchDetailedDataForOnePlugin(plugin, false, i, pluginsList.objects.length);
-		if (didFetch) {
-			counter++;
+	const fetched = new Set();
+
+	{
+		let counter = 0;
+		let i = 0;
+		const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
+		const refreshList = shuffle(pluginsList.objects);
+		while (counter < 50 && i < refreshList.length) {
+			const plugin = refreshList[i];
+			i++;
+
+			if (fetched.has(plugin.package.name)) {
+				continue;
+			}
+
+			const didFetch = await fetchDetailedDataForOnePlugin(plugin, false, counter, 50);
+			if (didFetch) {
+				fetched.add(plugin.package.name);
+				counter++
+			}
 		}
 	}
 
-	if (counter < 50) {
-		const refreshList = shuffle(pluginsList.objects).slice(0, 50);
-		for (let i = 0; i < refreshList.length; i++) {
+	{
+		let counter = 0;
+		let i = 0;
+		const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
+		const refreshList = shuffle(pluginsList.objects);
+		while (counter < 50 && i < refreshList.length) {
 			const plugin = refreshList[i];
-			const didFetch = await fetchDetailedDataForOnePlugin(plugin, true, i, refreshList.length);
+			i++;
+
+			if (fetched.has(plugin.package.name)) {
+				continue;
+			}
+
+			const didFetch = await fetchDetailedDataForOnePlugin(plugin, true, counter, 50);
 			if (didFetch) {
+				fetched.add(plugin.package.name);
+				counter++
+			}
+		}
+	}
+
+	{
+		let counter = 0;
+		let i = 0;
+		const pluginsList = JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json'));
+		const refreshList = shuffle(pluginsList.objects);
+		while (counter < 50 && i < refreshList.length) {
+			const plugin = refreshList[i];
+			i++;
+
+			if (fetched.has(plugin.package.name)) {
+				continue;
+			}
+
+			const didFetch = await fetchDetailedDataForOnePlugin(plugin, true, counter, 50);
+			if (didFetch) {
+				fetched.add(plugin.package.name);
 				counter++
 			}
 		}
