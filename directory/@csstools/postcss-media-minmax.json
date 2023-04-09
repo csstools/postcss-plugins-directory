@@ -1,0 +1,121 @@
+{
+	"name": "@csstools/postcss-media-minmax",
+	"description": "Use the range notation in CSS media queries",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "yisi"
+		}
+	],
+	"license": "MIT",
+	"funding": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/csstools"
+	},
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-calc": "^1.0.1",
+		"@csstools/css-parser-algorithms": "^2.1.0",
+		"@csstools/css-tokenizer": "^2.1.0",
+		"@csstools/media-query-list-parser": "^2.0.2"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:browser": "node ./test/_browser.mjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-minmax#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-media-minmax"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"media queries",
+		"postcss-plugin",
+		"range"
+	],
+	"csstools": {
+		"cssdbId": "media-query-ranges",
+		"exportName": "postcssMediaMinMax",
+		"humanReadableName": "PostCSS Media MinMax",
+		"specUrl": "https://www.w3.org/TR/mediaqueries-4/#mq-features"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "daa8fb7046bd737e413a1de577d181106451e177",
+	"_id": "@csstools/postcss-media-minmax@1.0.0",
+	"_nodeVersion": "18.13.0",
+	"_npmVersion": "9.4.1",
+	"dist": {
+		"integrity": "sha512-qXHZ0QVDszKf4SsLazOEzFl+m+IkhHOigqMy/gHNIzAtqB3XeBQUa+dTi1ROmQBDH1HXktGwy+tafFBg9UoaxA==",
+		"shasum": "c9978e3ae65b389d149f66cf0c266b2627cd2ec5",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-media-minmax/-/postcss-media-minmax-1.0.0.tgz",
+		"fileCount": 10,
+		"unpackedSize": 19661,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDpgrL01UYjwlrNuQ+T4yKOPuBVdjFlvfKzLOPAs49kMgIhAPKFeEjHwaaAGsF9fgtfFe2zTVGBVpNo3ggxPsqpTSoY"
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkJXlRACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr6KA/9GVEj7V4YEXbEREhkJdfZhrH8wh3XDeHGXPhj1AP/rRbZAsL9\r\nYwU+5Y6DzzRLoayNYgSVcCmtR43VAjf67CjNiOjvPjrfvNvzYGGyjohZbuCI\r\nz56UZ/slnbjo6CjjrhZvpKrTMSWzX/2uBxN21OX3vVodcXdjg+2JosrFn2+E\r\nLbPhP003fLxGsIR3iMRDKrDVEK+OZokcRhfQYhkS4YsjrVZ7JSucvzuqMvCo\r\n4O/XYonnzSdEi10djzrdUacAClbncZPwPo7XDcyOOFjBPGGfNCcbSIK+Kn1X\r\nic7dBgQJvCvZ8o9r5bIiEOGWgK0SpmLCGNIYyTXCwcMwwOSjyNCkbetzB3tW\r\nYyywfwz5LjTOrOqo0oYWCt49THEKn0O5RcoQfHxoOlGnLL/3n7VGuRbbNNFs\r\nH/oqv5mfecIWeXf7/FKdLrjJ7pYdVP1xglvb9oN+FgBQT7i+IZ1IoOLSiQKQ\r\nob+/EYbJw7gFMIqhK0vZZ9hcuXoI+PBPCErtrnIU85Dgw//e+EGCO5R0shNX\r\nYNtdsAjb3n4xFdM9BVKjLM3uGMngH+0axVTfxPFUlb7soAo6NybZXkiXdbha\r\ncsDPkiaQqU/Szrrs+GaOFvBX87gwi8dtMe+doOSmAGXyKYfDhWW2e5UO/ERK\r\nrtlSlH5+8BhhknMKWxMwzgTkzp5Ke6qqPmo=\r\n=Abo+\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-media-minmax_1.0.0_1680177489093_0.4933680631250521"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-03-30T11:58:09.284Z"
+}
