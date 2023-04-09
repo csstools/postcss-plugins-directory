@@ -41,21 +41,14 @@ export async function pages() {
 		const pluginData = JSON.parse(await fs.readFile(pluginDataFile));
 		pluginData.scope = maintainedPluginsData.get(pluginData.name).package.scope;
 		pluginData.unscopedPackageName = unscopedPackageName(pluginData);
+		pluginData.unPrefixedPackageName = unPrefixPackageName(pluginData);
 		pluginData.repository = maintainedPluginsData.get(pluginData.name).package.links?.repository;
 		allPluginData.push(pluginData);
 	}
 
-	function unscopedPackageName(pluginData) {
-		if (!pluginData.scope || pluginData.scope === 'unscoped') {
-			return pluginData.name;
-		}
-
-		return pluginData.name.slice(`@${pluginData.scope}/`.length);
-	}
-
 	allPluginData.sort((a, b) => {
-		if (a.unscopedPackageName !== b.unscopedPackageName) {
-			return a.unscopedPackageName.localeCompare(b.unscopedPackageName);
+		if (a.unPrefixedPackageName !== b.unPrefixedPackageName) {
+			return a.unPrefixedPackageName.localeCompare(b.unPrefixedPackageName);
 		}
 
 		if (a.scope === 'unscoped') {
@@ -114,4 +107,24 @@ export async function pages() {
 	allKeywordsSorted.sort((a, b) => a.localeCompare(b));
 
 	await fs.writeFile(PAGES_INDEX_HTML_FILE_PATH, renderPage(result, counter, searchData, allKeywordsSorted));
+}
+
+function unscopedPackageName(pluginData) {
+	if (!pluginData.scope || pluginData.scope === 'unscoped') {
+		return pluginData.name;
+	}
+
+	return pluginData.name.slice(`@${pluginData.scope}/`.length);
+}
+
+function unPrefixPackageName(pluginData) {
+	if (pluginData.unscopedPackageName.startsWith('postcss-')) {
+		return pluginData.unscopedPackageName.slice('postcss-'.length);
+	}
+
+	if (pluginData.unscopedPackageName.startsWith('css-')) {
+		return pluginData.unscopedPackageName.slice('css-'.length);
+	}
+
+	return pluginData.unscopedPackageName;
 }
