@@ -1,8 +1,9 @@
 {
 	"_id": "@csstools/postcss-color-mix-function",
+	"_rev": "1-81667636c0d85c982c7ca488a8abc23a",
 	"name": "@csstools/postcss-color-mix-function",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -118,12 +119,138 @@
 				"tmp": "tmp/postcss-color-mix-function_1.0.0_1679731066131_0.08686770977349423"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-color-mix-function",
+			"description": "Use the color-mix function in CSS",
+			"version": "1.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-color-parser": "^1.1.2",
+				"@csstools/css-parser-algorithms": "^2.1.1",
+				"@csstools/css-tokenizer": "^2.1.1",
+				"@csstools/postcss-progressive-custom-properties": "^2.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-mix-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-mix-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color-mix",
+				"css",
+				"display-p3",
+				"interpolation",
+				"postcss-plugin",
+				"prophoto-rgb",
+				"rec2020",
+				"rgb",
+				"rgba",
+				"srgb-linear",
+				"syntax",
+				"xyz"
+			],
+			"csstools": {
+				"cssdbId": "color-mix",
+				"exportName": "postcssColorMixFunction",
+				"humanReadableName": "PostCSS Color Mix Function",
+				"specUrl": "https://www.w3.org/TR/css-color-5/#color-mix"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "4cbc9489b820681f45cc66e537212095973647b6",
+			"_id": "@csstools/postcss-color-mix-function@1.0.1",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-NSVrzjVcI4TMzDfh6GKZXvEuelT81xpXzruuTNJrwKMTZXEBHY9G2gvmr0eC0wwmL8EF1TblXyPPfBbZobvfXg==",
+				"shasum": "587f7df69d40f84c7bb4e9d7f178266cb7f6851b",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-color-mix-function/-/postcss-color-mix-function-1.0.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 16570,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFsrIICBTaHowCRZn/K98LEpmPO9OQtkEBjC8nJ1ND7/AiBOo4Vnhsy+pcoqvr/wxw7mhmHm0Y0jtC94z/vNPDaAug=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkM+2WACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoArQ/+IEaAdiEZFs6e1sDfFsaSCuHjEB6Y3fPFEh2ACZMCn+ChA15E\r\nkxtqOc14aisB1QzTwgQBdRf/aDjcmEv11RJG+nU/h9BHNJAGjSmAjXn8WlgK\r\n9aAzK1mcE8h5jUxwy7BOxq/6f0Gsiq8rEPckqUEG/TC4dd2SBzDdrC83kCMd\r\ntMslzkFBBQQHLWnjWYkclj4+tBrQ7aHS6iLiSTJ1M3ev4ZgjgBTcffSZF3AD\r\ncoVKXO0S2NTiTLOfuvMZX0tSlb3MFHO2kXka4QgPLtqG2prpxsL+TkuhUG4S\r\nWyTCWw2BhWz83qoIzL6fGSv/eCaz3GXKGKqd5zQeEvhv1c2cBkH+7Otk7DqR\r\nb4jS4vbun8MplH6bj5MsCu227CTp3yDk+Df8YS9zRg51WM+ZxFyzw887E5cX\r\nwwX7RS0iYvf2b27zNSjTbN6ZK0SiiPmvHnnVmBwqSJfqOMfceRTvIpwnN7Xg\r\n3+Vsvu8+clcgRAeYSVHHOwD8fC3s3i++oBsiyWnOxcudaoenBBDVnllAAxKQ\r\nG3HVvPvMaQbqi6pLEhkS4x/2XptBjLPgSyzZXNuVwkE5+yi1VjLuTehSzjII\r\nAbacsdaZFMQddQWd6Od/SxgolIw6aCUqyhEneH0W+hZkxcur6rxLA1y4UbgJ\r\nmS3mWrhqSRSXXEIb2/dtC/bahvIHCxxadb4=\r\n=Qphn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-mix-function_1.0.1_1681124758147_0.014834012688454301"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-03-25T07:57:46.048Z",
 		"1.0.0": "2023-03-25T07:57:46.322Z",
-		"modified": "2023-03-25T07:57:46.530Z"
+		"modified": "2023-04-10T11:05:58.423Z",
+		"1.0.1": "2023-04-10T11:05:58.293Z"
 	},
 	"maintainers": [
 		{
@@ -138,7 +265,18 @@
 	"description": "Use the color-mix function in CSS",
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-mix-function#readme",
 	"keywords": [
-		"postcss-plugin"
+		"color-mix",
+		"css",
+		"display-p3",
+		"interpolation",
+		"postcss-plugin",
+		"prophoto-rgb",
+		"rec2020",
+		"rgb",
+		"rgba",
+		"srgb-linear",
+		"syntax",
+		"xyz"
 	],
 	"repository": {
 		"type": "git",
@@ -162,5 +300,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Color Mix Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-color-mix-function.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/color-mix.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Color Mix Function] lets you use the `color-mix()` function following the [CSS Color 5 Specification].\n\n```pcss\n.purple_plum {\n\tcolor: color-mix(in lch, purple 50%, plum 50%);\n}\n\n/* becomes */\n\n.purple_plum {\n\tcolor: rgb(175, 92, 174);\n}\n```\n\n## Usage\n\nAdd [PostCSS Color Mix Function] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-color-mix-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssColorMixFunction = require('@csstools/postcss-color-mix-function');\n\npostcss([\n\tpostcssColorMixFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Color Mix Function] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssColorMixFunction({ preserve: true })\n```\n\n```pcss\n.purple_plum {\n\tcolor: color-mix(in lch, purple 50%, plum 50%);\n}\n\n/* becomes */\n\n.purple_plum {\n\tcolor: rgb(175, 92, 174);\n\tcolor: color-mix(in lch, purple 50%, plum 50%);\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#color-mix\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-color-mix-function\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Color Mix Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-mix-function\n[CSS Color 5 Specification]: https://www.w3.org/TR/css-color-5/#color-mix\n",
 	"readmeFilename": "README.md",
-	"_downloads": 245045
+	"_downloads": 252328
 }

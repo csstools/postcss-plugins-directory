@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-stepped-value-functions",
 	"description": "Use round, rem and mod functions in CSS",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -33,24 +33,22 @@
 		}
 	},
 	"dependencies": {
-		"@csstools/css-calc": "^1.0.0",
-		"@csstools/css-parser-algorithms": "^2.0.1",
-		"@csstools/css-tokenizer": "^2.0.1"
+		"@csstools/css-calc": "^1.1.1",
+		"@csstools/css-parser-algorithms": "^2.1.1",
+		"@csstools/css-tokenizer": "^2.1.1"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-stepped-value-functions#readme",
@@ -79,23 +77,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "b2f6224986cdd29b8d106a8873fe88a52cb794ab",
-	"_id": "@csstools/postcss-stepped-value-functions@2.1.0",
+	"gitHead": "3db6481b1f337c5c1e9ccc298a4da04a649f5260",
+	"_id": "@csstools/postcss-stepped-value-functions@2.1.1",
 	"_nodeVersion": "18.13.0",
 	"_npmVersion": "9.4.1",
 	"dist": {
-		"integrity": "sha512-CkEo9BF8fQeMoXW3biXjlgTLY7PA4UFihn6leq7hPoRzIguLUI0WZIVgsITGXfX8LXmkhCSTjXO2DLYu/LUixQ==",
-		"shasum": "8ca134a7f70e00b14f5796fb32ed33a656ba0b1b",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-stepped-value-functions/-/postcss-stepped-value-functions-2.1.0.tgz",
+		"integrity": "sha512-YCvdF0GCZK35nhLgs7ippcxDlRVe5QsSht3+EghqTjnYnyl3BbWIN6fYQ1dKWYTJ+7Bgi41TgqQFfJDcp9Xy/w==",
+		"shasum": "f31aa0e7bd0ce3e4a0450573e1e27ce5e602b100",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-stepped-value-functions/-/postcss-stepped-value-functions-2.1.1.tgz",
 		"fileCount": 9,
-		"unpackedSize": 16266,
+		"unpackedSize": 16155,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIH3NFMYCeWJEXJiKR1wr9cHli/Mj1/H0DgDh33l5RkEcAiB4DQ7L2q2MwGE+e3cn6lP6USOzCqmywynV5jG9d0G+WQ=="
+				"sig": "MEUCIQCFCBPyf/8x9fHTpAPoO9nG1Lmp1FDcF073KX+wsNZfVAIgAjv+ezzv/x5j+AxgQiwJpdsoWJE90UMJZS+JIo1iNxo="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj9PBVACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmoq5A/8CSsdMXIdLy0YqZwfMsI0BMIfRb3yPgOp+DK8FNo/9BZeJ/ys\r\n+0wVfW2z/fNnolWH0HQ3uz54JtlPXOpl1SjTKm5TrWMSa4UoowYqEnDc2ipx\r\nXkKJ5UPoy30/rOhawB/BTKhuT0RLyo5L35rTlDp+DWLh6vc9mDsefnvZEKW0\r\nwPNra6UFeGe1Md7Le+AHGRm6Ydr+ndg9WjLN0dD9EVpCDxdaEuH1x2BCkuge\r\nmdeL56595ENtxlfZH2P7jiqW+PlwXwbbuyLSI9jcu8VKBTqtrkBitEe7kySH\r\nMYTGKBlfZ9bUHnoQY0/iiI6Gljgzz0JRcuPm0OPeZdaBqG+7qZas0hTayvA3\r\no4YIT+h43gm8KW64Kz10sIA6CbXfJ1xywBLvE077SqDITNAnyNPwfa084WHk\r\nyHNHalVPCM4RJruom3IWcBPlwL6SvdgKdr0YwljRK9iBeO3tP3UMaUZDpCOe\r\n6h25F478AHbm2bKs1Yaa2lVzijT5MbLPaQ3TQvdjG3cNYLtYkMlYJgTnyyCM\r\n9L5K6B0ZggexgygcZXhabW5e5746ABiSHbIQa//AzmX/elX085Jj5NCvEhn+\r\nROsMaJb1FVnR/Y6Uq7pDW9ZwhOIdxqZv+6DyrcmETvxmJrjjDGp7LbyJqLpG\r\nSSpTZDcqvDWLBZV/vl5+ogYeZJHLnpYFlcw=\r\n=svBf\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkM+1oACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpE6w/+Oe8UM3eywW7Yq1THBBjh4QejrZQI8Dh4y8mdYruL6JnOlcfq\r\nUc1aBU5kzWpUFPZFPTNJAFkT7ps70EuBLfYe7X3tLzfjw5ShkFTvXp+bIoIc\r\niG6jDGDoE+IJLHtEbw7Qfq+vV88DV4qo9bCnJoYJhi1jsHsYXZZRi8TpHerd\r\nHh/0m5mAlA1vkAPBX09LhQf11VHetnkkQ6Y835VfHvDEA01JDK/gxjg4Pz/e\r\n1ZBMhxYQAzN8/YV4FdKaGx30bwSwuZDEides9g01hpIWSoTZXWmNEQ5fYiry\r\n4tDNWURq3U734DAdDr8GlqeVo75iOdHngSEKENrgkUzjNBi4EJAojKB0cDsm\r\nc3dMdQr4+gMD8TwsF3nebwMiSzJUqCCwnCynAy36Gb2NRouMO32sOLVWU/eZ\r\nWwj2uKhOd6g8Wxhif5WePQ2aa3WvwCj4ADDqmoUGVqRm1/ETT1BvbMzRguyb\r\nMJpCYnbiHFWm60y0hg3Cb7xXbRSJq+zkOsbuYLQQEjjpVnGkBf3uSmSUZ2Xv\r\nWaUjNkIMeqP6iUJ6vdeu2DJwtvYqTu70Jld/cx/HNigf0jceucHKQkUTsEw/\r\nybEJr5Ld45NPZePGIGrGTsZjEZKbVftjtyEwbEEiqkTGDOFf0tEcltLdsRd0\r\nXdhGu8RzrMMgZQ4C4jq4K0Yik3xftdNLN1s=\r\n=RQrD\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -114,8 +112,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-stepped-value-functions_2.1.0_1676996693234_0.05183055866743169"
+		"tmp": "tmp/postcss-stepped-value-functions_2.1.1_1681124712111_0.6684931472732127"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-21T16:24:53.392Z"
+	"_time": "2023-04-10T11:05:12.310Z"
 }

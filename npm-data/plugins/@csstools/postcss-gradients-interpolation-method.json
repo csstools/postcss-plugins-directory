@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-gradients-interpolation-method",
-	"_rev": "6-8a15a460d2b2d29fecd1ba5a65e0717b",
+	"_rev": "8-ee0e313fc93a8be5558cf6bd91f0bc48",
 	"name": "@csstools/postcss-gradients-interpolation-method",
 	"dist-tags": {
-		"latest": "3.0.1"
+		"latest": "3.0.3"
 	},
 	"versions": {
 		"1.0.0": {
@@ -694,17 +694,253 @@
 				"tmp": "tmp/postcss-gradients-interpolation-method_3.0.1_1680003435140_0.7444013705638035"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.2": {
+			"name": "@csstools/postcss-gradients-interpolation-method",
+			"description": "Use interpolation methods in CSS gradient functions",
+			"version": "3.0.2",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-color-parser": "^1.1.1",
+				"@csstools/css-parser-algorithms": "^2.1.0",
+				"@csstools/css-tokenizer": "^2.1.0",
+				"@csstools/postcss-progressive-custom-properties": "^2.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-gradients-interpolation-method"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"conic",
+				"css",
+				"gradients",
+				"interpolation",
+				"linear",
+				"postcss",
+				"postcss-plugin",
+				"radial",
+				"repeating",
+				"syntax"
+			],
+			"csstools": {
+				"cssdbId": "gradients-interpolation-method",
+				"exportName": "postcssGradientsInterpolationMethod",
+				"humanReadableName": "PostCSS Gradients Interpolation Method",
+				"specUrl": "https://drafts.csswg.org/css-images-4/#linear-gradients"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "04271bb3e6fb872433746cf1c0771675183e367f",
+			"_id": "@csstools/postcss-gradients-interpolation-method@3.0.2",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-M5A0QWFQwB6UGBMr1zLV3ohbbSK7Bq+89TEPZGYEw44yC/TT9zmhLxyYE159avZbSPSh3YMUsw6QPQqyCe/B3g==",
+				"shasum": "d08f36de00699fd77fe74b4b1f8e928709e8284b",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-3.0.2.tgz",
+				"fileCount": 13,
+				"unpackedSize": 29852,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIFGgTU/UJUFtY9mGx2UUeFaOHSCrDoz1ivepCJ7wnQRKAiAOSPhTJsBC96RUnC2nT/G8fV2JdoH5lRI5mqy32McUlw=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkM797ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqy2hAAlMGf0VZfyysGCB6524bIzoclH+/oVee3rgFB8qZPjxAsMVLW\r\n0yjDyUOnr4Q4zDZDS629RX2ljaGt2F4JoQ/e2oW1RlfexUXXSnccafqWThCa\r\nXkvdCkwdr1k0nTTY8oQYW99kdYqgfWx26o8MNmEVBTeWyOhH48/prIBetg6O\r\ngV4lQOOPnDmXdswvMF/Wale5SRdf2oTClr7qSoOts2+nlki4ExM7ORz95WaB\r\n8xQv+1GF23iddhS1wd688EDCYph7p6UuxFKVt6Ii1ah4ka9Sy7TnXuwrCXAV\r\nmVjb3ANhB72OzMoSdbc45jrdH3pKLLTgR2BzAzcmrdCkAystEfkd6KR/8bhR\r\ntJlKqQT5mEPRH8N3KOSYjNbQJUJ+L5RzzfCjobqwLlEGe1YJX5bp5hLv5W9q\r\nbAvuvnDcoqRHxY29hWWlYKvWZGThm11+6AoQyJI1pDMQ8gXh2nnypQATVfg+\r\ntm04KXezVSj1hosnxh29ZvY2RHQ7V2CJcUKXnAOYzo1Uo4q6hp3R4XAaDnC+\r\nsgW/iAOdFg4v0bQ6Vn5pfVDbmCFsbfVAhalxUT90uyJOeYcAcbzRovZlhCha\r\nB6inxJBpbtoLZIvqMzwhuHZuuuI3lkIRZTcG0XzkwOhW4Sixzsd1mUortZVG\r\nGm3Zm/wE9OmCuoUxRutNzZwueIexmK8ExhU=\r\n=C1J3\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-gradients-interpolation-method_3.0.2_1681112955248_0.11833070757621988"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.3": {
+			"name": "@csstools/postcss-gradients-interpolation-method",
+			"description": "Use interpolation methods in CSS gradient functions",
+			"version": "3.0.3",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-color-parser": "^1.1.2",
+				"@csstools/css-parser-algorithms": "^2.1.1",
+				"@csstools/css-tokenizer": "^2.1.1",
+				"@csstools/postcss-progressive-custom-properties": "^2.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-gradients-interpolation-method"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"conic",
+				"css",
+				"gradients",
+				"interpolation",
+				"linear",
+				"postcss",
+				"postcss-plugin",
+				"radial",
+				"repeating",
+				"syntax"
+			],
+			"csstools": {
+				"cssdbId": "gradients-interpolation-method",
+				"exportName": "postcssGradientsInterpolationMethod",
+				"humanReadableName": "PostCSS Gradients Interpolation Method",
+				"specUrl": "https://drafts.csswg.org/css-images-4/#linear-gradients"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "8799cf7716b5223f2690582efb14a4cf69c11089",
+			"_id": "@csstools/postcss-gradients-interpolation-method@3.0.3",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-0i6HQ8V3jcGEEhhGPAQdMemPjXTOct9qDYLIzjsgKHhrHVwhjwBVcUV70658vJJmrJJvVXgZx2qc4S6okKZJpg==",
+				"shasum": "39771e0fc76246a07a5e5e262d133e0cf3920a49",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-3.0.3.tgz",
+				"fileCount": 13,
+				"unpackedSize": 30057,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCt4IQ6R1Z/+c6OkG5zBqIw+GB8MHjUWKdBvU2YaCw2FQIgInPV/8G5khrfM36Cj3+QZk/ybZKhxbHaqgnLO8QozjQ="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkM+2hACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqc6g//bwiwOTqo8ikkxc9/pVldEcYMHQ/UnRTsGcFQlhrv3H4GhK8j\r\nN096JD3GV4n67JIiknB08O7pA0BS8zyDhxIqsy0U1mkivE6/9ONHUyRvdYjI\r\nRKd4CSvk+bUPNo+lPSv7k40jLTQKDH0DkGFURlACMBIyVAnvIVGNeECXCNfw\r\ntymU/Ctk7VXbVV9phvw/jl8sFWEjXAju9PKsc7I+rfZoqC9XKW3tjZgW46Lm\r\nOm4Yy3TnCTS5n6WlWmrdEeGe8FIjYlXEhheZAe7zpYBlp2NqIlHDBvSB7nCC\r\nVnYDY0JpZqBMS/rpSZahuXl5lPiu5HCA+k/rLaKCQQaCEIvOWLfPplVvUoSN\r\nhd2Z5f4M+DUEedXYi7bQVagekg/8UCUPpGEYgZsQBfKKLXnUguGG63koUfTr\r\n/wFwvEM4rqfLZ862pDUmmhkH7cIZpV4vYbK1ICSh8W6T5pYRNcnFVVSvZvEj\r\n2xTXpS3OGatSgeUfR8mgofsR2/3GAGYwHUHJkc7sA1bNY1gFaHtRXlsiy5S4\r\nMIovxatw4pxooDQ1xjbd01sEFCcJOLgbSfnfTG6e9AiC3lb9Ug6kUI+7WzI9\r\nZkFPweVzZ7w1H0dgyhtlLMtdFZR+A/4Sbz4w0L7qppKUgaxOAtXJPHVelfWk\r\nKP58o32FvwwyTUUv7SuVOOS3c7CXYGL2mbc=\r\n=W0js\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-gradients-interpolation-method_3.0.3_1681124768792_0.02954143883146565"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-03-04T21:14:36.197Z",
 		"1.0.0": "2022-03-04T21:14:36.602Z",
-		"modified": "2023-03-28T11:37:15.585Z",
+		"modified": "2023-04-10T11:06:09.180Z",
 		"1.0.1": "2022-03-07T11:06:24.369Z",
 		"2.0.0": "2023-01-24T09:07:00.965Z",
 		"2.0.1": "2023-01-28T07:40:33.906Z",
 		"3.0.0": "2023-03-25T08:05:30.993Z",
-		"3.0.1": "2023-03-28T11:37:15.308Z"
+		"3.0.1": "2023-03-28T11:37:15.308Z",
+		"3.0.2": "2023-04-10T07:49:15.383Z",
+		"3.0.3": "2023-04-10T11:06:08.991Z"
 	},
 	"maintainers": [
 		{
@@ -746,5 +982,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Gradients Interpolation Method [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-gradients-interpolation-method.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/gradients-interpolation-method.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Gradients Interpolation Method] lets you use different interpolation methods in CSS gradient functions following [CSS Specification].\n\n```pcss\n.example {\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n:root {\n\t--background-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n\n/* becomes */\n\n.example {\n\tbackground-image: linear-gradient(rgb(245, 137, 137) 0%, rgb(248, 146, 114), rgb(244, 158, 94), rgb(235, 171, 82), rgb(220, 185, 81), rgb(201, 199, 95), rgb(177, 211, 118), rgb(151, 221, 146), rgb(125, 229, 177), rgb(103, 235, 208), rgb(94, 237, 237) 100%);\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n:root {\n\t--background-image: linear-gradient(rgb(56, 87, 35) 0%, rgb(64, 83, 46), rgb(70, 79, 54), rgb(76, 74, 62), rgb(82, 69, 68), rgb(86, 64, 75), rgb(91, 58, 81), rgb(95, 51, 87), rgb(99, 44, 93), rgb(103, 34, 98), rgb(106, 21, 104) 100%);\n}\n\n@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) and (color: hsl(0 0% 0% / 0)) {\n:root {\n\t--background-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n}\n```\n\n## Shortcomings\n\n⚠️ Color stops with only a color or only an interpolation hint are not supported.\n\nFor best results you should always provide at least the color and position for each color stop.\nDouble position color stops are supported.\n\n```pcss\n.foo {\n\t/* Only a color: can't transform */\n\tbackground-image: linear-gradient(in oklch, black 0%, green, blue 100%);\n\n\t/* Only an interpolation hint: can't transform */\n\tbackground-image: linear-gradient(in oklch, black 0%, 25%, blue 100%);\n}\n```\n\n⚠️ Variable colors are also not supported.\nWe can not mix colors when the color is a variable.\n\n```pcss\n.foo {\n\t--red: red;\n\t/* Color stop variable : can't transform */\n\tbackground-image: linear-gradient(in oklch, black 0%, var(--red), blue 100%);\n}\n```\n\n## Usage\n\nAdd [PostCSS Gradients Interpolation Method] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-gradients-interpolation-method --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGradientsInterpolationMethod = require('@csstools/postcss-gradients-interpolation-method');\n\npostcss([\n\tpostcssGradientsInterpolationMethod(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gradients Interpolation Method] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssGradientsInterpolationMethod({ preserve: false })\n```\n\n```pcss\n.example {\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n:root {\n\t--background-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n\n/* becomes */\n\n.example {\n\tbackground-image: linear-gradient(rgb(245, 137, 137) 0%, rgb(248, 146, 114), rgb(244, 158, 94), rgb(235, 171, 82), rgb(220, 185, 81), rgb(201, 199, 95), rgb(177, 211, 118), rgb(151, 221, 146), rgb(125, 229, 177), rgb(103, 235, 208), rgb(94, 237, 237) 100%);\n}\n\n:root {\n\t--background-image: linear-gradient(rgb(56, 87, 35) 0%, rgb(64, 83, 46), rgb(70, 79, 54), rgb(76, 74, 62), rgb(82, 69, 68), rgb(86, 64, 75), rgb(91, 58, 81), rgb(95, 51, 87), rgb(99, 44, 93), rgb(103, 34, 98), rgb(106, 21, 104) 100%);\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssGradientsInterpolationMethod({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n.example {\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n:root {\n\t--background-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n\n/* becomes */\n\n.example {\n\tbackground-image: linear-gradient(rgb(245, 137, 137) 0%, rgb(248, 146, 114), rgb(244, 158, 94), rgb(235, 171, 82), rgb(220, 185, 81), rgb(201, 199, 95), rgb(177, 211, 118), rgb(151, 221, 146), rgb(125, 229, 177), rgb(103, 235, 208), rgb(94, 237, 237) 100%);\n\tbackground-image: linear-gradient(in oklch, hsl(0deg 85% 75%) 0%, hsl(180deg 80% 65%) 100%);\n}\n\n:root {\n\t--background-image: linear-gradient(rgb(56, 87, 35) 0%, rgb(64, 83, 46), rgb(70, 79, 54), rgb(76, 74, 62), rgb(82, 69, 68), rgb(86, 64, 75), rgb(91, 58, 81), rgb(95, 51, 87), rgb(99, 44, 93), rgb(103, 34, 98), rgb(106, 21, 104) 100%);\n\t--background-image: linear-gradient(in oklab, hsl(96, 42%, 24%) 0%, hsl(302, 67%, 25%) 100%);\n}\n```\n\n_Custom properties do not fallback to the previous declaration_\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#gradients-interpolation-method\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-gradients-interpolation-method\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Gradients Interpolation Method]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method\n[CSS Specification]: https://drafts.csswg.org/css-images-4/#linear-gradients\n",
 	"readmeFilename": "README.md",
-	"_downloads": 187584
+	"_downloads": 194615
 }
