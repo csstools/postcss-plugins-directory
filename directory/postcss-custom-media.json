@@ -1,7 +1,7 @@
 {
 	"name": "postcss-custom-media",
 	"description": "Use Custom Media Queries in CSS",
-	"version": "9.1.2",
+	"version": "9.1.3",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -40,25 +40,23 @@
 		}
 	},
 	"dependencies": {
-		"@csstools/cascade-layer-name-parser": "^1.0.0",
-		"@csstools/css-parser-algorithms": "^2.0.0",
-		"@csstools/css-tokenizer": "^2.0.0",
-		"@csstools/media-query-list-parser": "^2.0.0"
+		"@csstools/cascade-layer-name-parser": "^1.0.2",
+		"@csstools/css-parser-algorithms": "^2.1.1",
+		"@csstools/css-tokenizer": "^2.1.1",
+		"@csstools/media-query-list-parser": "^2.0.4"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media#readme",
@@ -94,23 +92,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "f02647748e9d1799a3d605d108a248d1cfd05cc7",
-	"_id": "postcss-custom-media@9.1.2",
+	"gitHead": "13d3c920e56534bc175d9b89eb2ee439c9bdf6b0",
+	"_id": "postcss-custom-media@9.1.3",
 	"_nodeVersion": "18.13.0",
 	"_npmVersion": "9.4.1",
 	"dist": {
-		"integrity": "sha512-osM9g4UKq4XKimAC7RAXroqi3BXpxfwTswAJQiZdrBjWGFGEyxQrY5H2eDWI8F+MEvEUfYDxA8scqi3QWROCSw==",
-		"shasum": "0e9c34b0b5325edc2c5f42f47543cb64d777764b",
-		"tarball": "https://registry.npmjs.org/postcss-custom-media/-/postcss-custom-media-9.1.2.tgz",
+		"integrity": "sha512-W1C4Fu6KAZ7sKYQCuGMr8gyaE4BtjTQGPLVS4m0WCaWM6l7PgVbvmDeb4ClBc5R/7kdwESYf0hdxGtEPhi9CLA==",
+		"shasum": "68bb2ae377bb07c19f03f252930cc380af894dce",
+		"tarball": "https://registry.npmjs.org/postcss-custom-media/-/postcss-custom-media-9.1.3.tgz",
 		"fileCount": 16,
-		"unpackedSize": 31888,
+		"unpackedSize": 33232,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCENstQuhni1sWwb8EVeSteohDPErQ0ACUXkLVnARTsDAIgATVtSYBepd6jtguzmNeFyrk2s623il32mXy+/g9Ud6E="
+				"sig": "MEUCIB84avZ9Zsd2UsMIcV8Tr1flE0+5R6MIIAFtB2mugrQTAiEAoZOLdJQi3L2i/mMT8xJXSXlBgfZsyPmrwWMhgx3l3Ng="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj417jACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp/jg/+OJdR5U4+KP69Jii+qCg2s+QUETfEPTTfUEho9QGcRgDHs10T\r\nm1VcBqJRcVI3CE1d0ryCOEWvinFR3uQfc+NpNkfxf3h+P7OXPlu0SuTBPUo8\r\n1OyTxOzOUp7LqvmyLFhAJySFAvs17gP1iom6nSjMtuogZsjiWMq8AW/qRiVN\r\nm5N83tCDIeDiuGvkBcbW6u1C5oUn7VidKuaaXXFQoxl6j13lbJAWHHHiRFFa\r\nxYM+445m6Kda1dEqJNBj9fcriJCRf7RhgyeoUzt9b1HNyeR3CUglTwWbjHgz\r\nR7pv7jtWyOkgkOKb6ORMAGcHP+J5I5gf2yjvnVOL5ebfmGmta/FpL2piK9+G\r\n5FUYO7Ra8C8goJfhHiSh1Rxq7PKdl/60JueZMuWYSUD2sj/PClPnSaDnf8ns\r\nteokquTI2S2OjH8wxkpblO/kWS2wHbqybmmeDCfHkMefiipULGsFjPHHimg6\r\neIcgVd0mLPqkkhpiWhbWvhkjQJMu+wx7BcPLF1UJOQ74BOq/6uGboeCn/lBf\r\nKbEQqi5fUjQvePAmXE1OMy/XUNZ7WizM+1LMjgQmINyK5zrvAPLJsMHVxkQy\r\njPCHtJGK3Z4Jh4QfIEuUZrPXNxFLSJEQkn1IczaNe+Ekb7GrFW+0+nbIUBt7\r\nZFm1EVXgAkbNEUuLRJtqOCSA5J86zrCcgVM=\r\n=r12J\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkM+0fACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrJPw//dUvenSNl9Ep8qNO9QPTy7f4GeUxmM5sXyWQCIACe2evdIfF2\r\nV39g9d5xIpcvfFE87DJo9qvm9h/yh6o7dP0MjUQ8vitpJUSt2Uzbj4YMGp5t\r\n0nl+1NXIXH5s0mziRxDZV9EP0AQgjkPJif8XwwI7RdXx5SkU2R004GYF+Ut+\r\noCzv9Dhfy0G+7gP9zvS8FC4Vx6dJaD8/2LZj1/cwu3dSsbEjWFiB4o3Qqzgv\r\nNksAWwihiUqvHECati8qfnEw5Y2jkFusWRFuhsDL05oCI9AMs78hh4VNqGoy\r\nD0y3KrHCVG1QBNT9djQp2GR82IfcBFkjx48zTBu0oPXcnXoZs7S0ognZhDn+\r\nT5n2fmjroKm6x9w6dQTTyFL/+l6OiQAnxwdO9UjXPLw8k3Oo16/4HkD89Wk5\r\nxhia/u9RZXWUPB9/35yGOPN3VNJR130P4e2oXXW+qwb8gTCRUiPYLEJ9u5mr\r\nsp9EX8BpBBXC4CDiuMUb29P6kL1QNiwcoPTBK0eyI9wIlMKsn0DftEObuLw8\r\n+B0RXa5Psu1oTyt9d3rVG0TWYXcEg4y5WhSi+vUcw/6+J19DwcproN5hmyUt\r\nB1dsZ2IEDzgjEqcAiW4IjzbhQ7oICNYnEc3rJMceg/9/6geCq07530HGQh0e\r\nDBwPRllnbSpghAhL8uov9w3DlSDGU8DLf7o=\r\n=JwSH\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -137,8 +135,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-custom-media_9.1.2_1675845347617_0.17709776050794623"
+		"tmp": "tmp/postcss-custom-media_9.1.3_1681124638945_0.6095285838937234"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-08T08:35:47.770Z"
+	"_time": "2023-04-10T11:03:59.143Z"
 }
