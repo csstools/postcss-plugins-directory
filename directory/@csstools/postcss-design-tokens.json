@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-design-tokens",
 	"description": "Use design tokens in your CSS",
-	"version": "2.0.3",
+	"version": "2.0.4",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -33,28 +33,24 @@
 		}
 	},
 	"dependencies": {
-		"@csstools/css-parser-algorithms": "^2.0.0",
-		"@csstools/css-tokenizer": "^2.0.0",
+		"@csstools/css-parser-algorithms": "^2.1.1",
+		"@csstools/css-tokenizer": "^2.1.1",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
 	"devDependencies": {
+		"@csstools/postcss-tape": "*",
 		"postcss-import": "^15.0.0",
 		"style-dictionary-design-tokens-example": "^1.1.0"
 	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-design-tokens#readme",
@@ -78,23 +74,23 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "e89f36d5a4b7e24a68324cae975216d46e41457d",
-	"_id": "@csstools/postcss-design-tokens@2.0.3",
+	"gitHead": "1488806556c2c5b80a3865a761680bdf1dd26572",
+	"_id": "@csstools/postcss-design-tokens@2.0.4",
 	"_nodeVersion": "18.13.0",
 	"_npmVersion": "9.4.1",
 	"dist": {
-		"integrity": "sha512-nCy/gAXp0i65whQGdsm+88OTz2TAAMmFjagmu1gOPzq6j06IbSAuEDQZanLZ7DcLfEOp/PvO+SYIHoSz3mwAHg==",
-		"shasum": "481990a83c3187a4208e3099baedec77dae27356",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-design-tokens/-/postcss-design-tokens-2.0.3.tgz",
+		"integrity": "sha512-lf/LgjGaAeKcCVAeOZJ9kcUkq0JmfqIc61u7u5Z2Lp4GDCQ2yXdn4ZvBcNHIFB7i8a/wYRJgPuPWUG2FNEfPZg==",
+		"shasum": "86b1f4f15abfed7a7f2fe860e1a0401aad852686",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-design-tokens/-/postcss-design-tokens-2.0.4.tgz",
 		"fileCount": 19,
-		"unpackedSize": 45856,
+		"unpackedSize": 45643,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDqOzqfarrkjTbZQ3c4VcAYbEM2xumbQZby8h1izYhsjwIhALxW3Y1E5vStZjrcj+ScJy8WW+eDIzZ6tmZLu81bg5tc"
+				"sig": "MEQCIBSV+MvrRiJ0p3jHuMy4i3mtAlDHLP0agkTcpeCp0XehAiA8yP4kqnZsJ53f2b1xZ8cXgSfQkB81gt3Zo3eGe7wUvw=="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj7JYdACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoMlBAAo/OP7ATQoA0Ef0gQ85PUxV0soh+AEtx3NPT9Xx0JwhThbGpH\r\nbmWTj76O69rUZumJMKHzgRnFPWcnK3AChWu+P+ZNXyr7s7/TfZGCIzl/HOi0\r\nbf4/VjhlLvtpf1itI7t4ToRysyxqVDwzcMnwI0787MmK1yX7JfOj6yndlg1V\r\nZsBqImgB3jDHzXq5bGPSEZBu67Ik0p1lXXlvfkDdrgWCIvzDp0WPMTfhc6Gu\r\nKI95c7l4U2yTs0brr4T3DBUaiynkiYgXw1ExwHhwLPRToIsYK1sfdoYDfiZv\r\nOxLM17Kwal8e394VS9p8Vbsep/sq7564xvVExuBqqX4nz+wJ+6QNtHxP88Rg\r\nR6gpHEULVB89dgI4IDOT41TKIkZRF8dpUwJHaf+Hc8J77o5pIQj3tx15M+Jk\r\nND88HVuT+qYN0QpxMOJXReHfueSaqNHqu1INXIDgtJ3duO2OP8mhr1HSCwrb\r\neCmFhqAjzrah4TvOUhKYhg8+psO+STPr1Q3onkyrNvtKcqqum5Efk2tiIRZ8\r\nFooeYiCRT6Mo60AEkGomG8FWd+xrAGrjRmaXXti3q4P2aLdBT5aMWPQYBR1U\r\njbQnpsHHdDuB+eg1+vqLvNS6RyXxWq/i2KkRfJkasTL7kkYFHTTfhzK1GhGV\r\nmKTDH25bD6EjHvGOxPsyjGe1zpl9gItO3TY=\r\n=euSc\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkM+znACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoLzA/+MWj1a5FoBbkBiFh6zwJtL7qaqOXTdNN3WDTKKv2qB5N0o0cf\r\nQwfHT7TGw2r+otGcm2JRG1EwYJdVST24sj5xqW3kkhaJB5k5xn0A0E4JL2ow\r\nZ9U4SjTZ6i+SDML96aOz2EdLAYO+KLEBay7+bgGICVsVSeM2+GlPzilcntV/\r\nK1iA5iIPfYp5UKODruLAGzS/f4101JKd/BlNUwPA0s3dR7YYTieFwLmDPTcP\r\nC+leckO6kZyKxyED1lPUXhZQL2mUaWsCWaOqNxkxHCOFsHutFQmkl+yBeCcI\r\nelHZk7eJZd3rxXuhpz5+ST7TmIXdtU6ld7WCuQNZ0Y2J+M2Ct+Ck+76jdvQ5\r\ndCyYjSCDSwizt9+giZl1KjoUTDYNImm/+DEX+yYGnywlUmQ3JtXAtS8PZjAn\r\nL4H55mBz7b73PFifcnrL7Td7ZrmR2xrWTxvNSz7B6RbfPG5YaXKHQnOXCfUS\r\ncZX4+CB4VETfrjtuvijZNj+A5mulxtvdhRXkqprYrnjSGk96LdcU1gPAClhT\r\nVU8GqA6H+mhcylNzYL8QiVC/HsFDCWa0vELTxzltSZn/1//nWyAkfveCdPqY\r\n5xwcmTQqbluGeT7EpwZ2CZlmrs84IWqHHXKGcrIIU9Ir6641M/DF3om6odG1\r\nTdkBTE+m284r+m1ksGO5jKlbm7f6r8NiW14=\r\n=XOFq\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -113,8 +109,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-design-tokens_2.0.3_1676449309500_0.9629448962031617"
+		"tmp": "tmp/postcss-design-tokens_2.0.4_1681124583042_0.3914724703050867"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-15T08:21:49.659Z"
+	"_time": "2023-04-10T11:03:03.188Z"
 }
