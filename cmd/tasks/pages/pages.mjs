@@ -8,6 +8,8 @@ import { traverseDir } from '../util/traverse-dir.mjs';
 import { renderPage } from './render-page.mjs';
 import { renderPlugin } from './render-plugin.mjs';
 
+const leadingDigits = /^\d+/;
+
 export async function pages() {
 	const maintainedPluginsRawData = await fs.readFile(NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH);
 
@@ -42,13 +44,14 @@ export async function pages() {
 		pluginData.scope = maintainedPluginsData.get(pluginData.name).package.scope;
 		pluginData.unscopedPackageName = unscopedPackageName(pluginData);
 		pluginData.unPrefixedPackageName = unPrefixPackageName(pluginData);
+		pluginData.unPrefixedPackageNameWithoutLeadingNumbers = pluginData.unPrefixedPackageName.replace(leadingDigits, '');
 		pluginData.repository = maintainedPluginsData.get(pluginData.name).package.links?.repository;
 		allPluginData.push(pluginData);
 	}
 
 	allPluginData.sort((a, b) => {
 		if (a.unPrefixedPackageName !== b.unPrefixedPackageName) {
-			return a.unPrefixedPackageName.localeCompare(b.unPrefixedPackageName);
+			return a.unPrefixedPackageNameWithoutLeadingNumbers.localeCompare(b.unPrefixedPackageNameWithoutLeadingNumbers);
 		}
 
 		if (a.scope === 'unscoped') {
