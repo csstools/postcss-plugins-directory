@@ -1,8 +1,9 @@
 {
 	"_id": "@csstools/postcss-gradient-stop-increments-experimental",
+	"_rev": "1-a06ce9ec3f80c547e0acf079f4f6a5cb",
 	"name": "@csstools/postcss-gradient-stop-increments-experimental",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -116,12 +117,125 @@
 				"tmp": "tmp/postcss-gradient-stop-increments-experimental_1.0.0_1679389702446_0.7271259973500399"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-gradient-stop-increments-experimental",
+			"description": "Increment CSS gradient stops",
+			"version": "1.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-calc": "^1.1.1",
+				"@csstools/css-parser-algorithms": "^2.1.1",
+				"@csstools/css-tokenizer": "^2.1.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradient-stop-increments#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/postcss-gradient-stop-increments"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"postcss-plugin"
+			],
+			"csstools": {
+				"exportName": "postcssGradientStopIncrementsExperimental",
+				"humanReadableName": "PostCSS Gradient Stop Increments",
+				"specUrl": "https://github.com/w3c/csswg-drafts/issues/8616"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "30ab4ec4d48b61ced79d03a9cd7e4dfac709f726",
+			"_id": "@csstools/postcss-gradient-stop-increments-experimental@1.0.1",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-3XN3GgHGY05zExcE/U4e0q9I8/hOZgwYw+rjvfYk8xamoTYmWW5jJmWdu4Hh3Ep17d+yTcJqxwyYPBwAeIHQsw==",
+				"shasum": "3a21c068d7ef7d7df35afc523a98be1d98e48742",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gradient-stop-increments-experimental/-/postcss-gradient-stop-increments-experimental-1.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 18407,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDeKHHr7XGL6ct4O1gmE7DVuxKdDEOQPFkYBZPZg/koFAIhAM+zbVIhSdyDQesFKiabJarJDJWcROaENnZsTyc2hoK9"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkM+14ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmofmw//Wn9SUIFbyLOecYysqggNpcVAF/0MKyhGQ6aRs+Z96gGhp7qg\r\nVwccAGvUbVahXfW6oar5mU4fYpPCz2OlhUCMsA44qAX5KW1Ump5/Be7BNHHa\r\ntrk6gvjG1uiNiaLB0sweJEDt/pme+rWmVikW48oEqVLLuFNvU5QusIT+Zy/7\r\nv8TRZV5fb7mdxllBWtcR6o02auMI/bLrEsXIfELK/hKvkvMI24/cXYMbqQwn\r\nIOqDogW2TJ2T3oPMS9JdRQS8y0hzscDMpGllrFp/wvTG4jENB9BEt3/gMetC\r\nSMCe4/9sZ0S1wg9y3C4y9qrA82iw9j+HuLVXtbGpGyPT726NWu+RCwGjd892\r\nf9Fn1eRMTD39mpjkkoR6HmzsGQa8TOIxgA8a3UN14JriwCM1v3TjYRjWiW02\r\noqezvyxkEQGeq+Y+65i9MeWVDM9+K1oJRYHQ8BaIEml+RqM4Ko+PN0e8gIzE\r\nLl1XzSrMR0r4Ccj43DI5xA9pahFJwTxy+ncToesV0jrqgI0d1bG4IhW5pAtL\r\nzWQ9MzXZUQFnssF9hEo53Nv+abLoGjaLUEHf/TNsnsK3Lv0yVfYP+eayX2mk\r\nACC9oR4r99vZPh73KOghgYTYSWSog8BFLVof/ifW/Vu8VCoOs7+2B3scNQub\r\nl05PTLGmIFXxLlIRO8PjKqYIKKWNuWLGyFI=\r\n=ETJy\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-gradient-stop-increments-experimental_1.0.1_1681124728454_0.10826523079501982"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-03-21T09:08:22.348Z",
 		"1.0.0": "2023-03-21T09:08:22.591Z",
-		"modified": "2023-03-21T09:08:22.785Z"
+		"modified": "2023-04-10T11:05:28.783Z",
+		"1.0.1": "2023-04-10T11:05:28.626Z"
 	},
 	"maintainers": [
 		{
@@ -141,7 +255,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/csstools/postcss-plugins.git",
-		"directory": "plugins/postcss-gradient-stop-increments"
+		"directory": "experimental/postcss-gradient-stop-increments"
 	},
 	"contributors": [
 		{
@@ -160,5 +274,5 @@
 	"license": "CC0-1.0",
 	"readme": "# PostCSS Gradient Stop Increments [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-gradient-stop-increments-experimental.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Gradient Stop Increments] lets you increment gradient stops following the [CSSWG 8616 proposal].\n\n```pcss\n.example-1 {\n\tbackground: linear-gradient(red 50%, blue ++1px);\n}\n\n.example-2 {\n\tbackground: conic-gradient(red ++60deg, blue ++10deg ++50deg, green ++60deg, yellow ++60deg);\n}\n\n.example-3 {\n\tbackground: conic-gradient(pink ++60deg, cyan 0 ++20deg, gold 0 ++10deg);\n}\n\n.example-4 {\n\tbackground: linear-gradient(orange 20px, magenta 2vi, aqua ++2vw);\n}\n\n/* becomes */\n\n.example-1 {\n\tbackground: linear-gradient(red 50%, blue calc(50% + +1px));\n}\n\n.example-2 {\n\tbackground: conic-gradient(red +60deg, blue 70deg 120deg, green 180deg, yellow 240deg);\n}\n\n.example-3 {\n\tbackground: conic-gradient(pink +60deg, cyan 0 80deg, gold 0 90deg);\n}\n\n.example-4 {\n\tbackground: linear-gradient(orange 20px, magenta 2vi, aqua calc(max(20px, 2vi) + +2vw));\n}\n```\n\n## Usage\n\nAdd [PostCSS Gradient Stop Increments] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-gradient-stop-increments-experimental --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGradientStopIncrementsExperimental = require('@csstools/postcss-gradient-stop-increments-experimental');\n\npostcss([\n\tpostcssGradientStopIncrementsExperimental(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gradient Stop Increments] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssGradientStopIncrementsExperimental({ preserve: true })\n```\n\n```pcss\n.example-1 {\n\tbackground: linear-gradient(red 50%, blue ++1px);\n}\n\n.example-2 {\n\tbackground: conic-gradient(red ++60deg, blue ++10deg ++50deg, green ++60deg, yellow ++60deg);\n}\n\n.example-3 {\n\tbackground: conic-gradient(pink ++60deg, cyan 0 ++20deg, gold 0 ++10deg);\n}\n\n.example-4 {\n\tbackground: linear-gradient(orange 20px, magenta 2vi, aqua ++2vw);\n}\n\n/* becomes */\n\n.example-1 {\n\tbackground: linear-gradient(red 50%, blue calc(50% + +1px));\n\tbackground: linear-gradient(red 50%, blue ++1px);\n}\n\n.example-2 {\n\tbackground: conic-gradient(red +60deg, blue 70deg 120deg, green 180deg, yellow 240deg);\n\tbackground: conic-gradient(red ++60deg, blue ++10deg ++50deg, green ++60deg, yellow ++60deg);\n}\n\n.example-3 {\n\tbackground: conic-gradient(pink +60deg, cyan 0 80deg, gold 0 90deg);\n\tbackground: conic-gradient(pink ++60deg, cyan 0 ++20deg, gold 0 ++10deg);\n}\n\n.example-4 {\n\tbackground: linear-gradient(orange 20px, magenta 2vi, aqua calc(max(20px, 2vi) + +2vw));\n\tbackground: linear-gradient(orange 20px, magenta 2vi, aqua ++2vw);\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-gradient-stop-increments-experimental\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Gradient Stop Increments]: https://github.com/csstools/postcss-plugins/tree/main/experimental/postcss-gradient-stop-increments\n[CSSWG 8616 proposal]: https://github.com/w3c/csswg-drafts/issues/8616\n",
 	"readmeFilename": "README.md",
-	"_downloads": 52
+	"_downloads": 76
 }

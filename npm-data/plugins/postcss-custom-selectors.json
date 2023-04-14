@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-custom-selectors",
-	"_rev": "35-0156681d1ee53aa33c890e80c4f8ce4f",
+	"_rev": "36-b7c59b98901b79e81d027948ce0043e4",
 	"name": "postcss-custom-selectors",
 	"description": "Use Custom Selectors in CSS",
 	"dist-tags": {
-		"latest": "7.1.2"
+		"latest": "7.1.3"
 	},
 	"versions": {
 		"1.0.0": {
@@ -2515,9 +2515,158 @@
 				"tmp": "tmp/postcss-custom-selectors_7.1.2_1675845370616_0.5892953319371608"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.1.3": {
+			"name": "postcss-custom-selectors",
+			"description": "Use Custom Selectors in CSS",
+			"version": "7.1.3",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Maxime Thirouin"
+				},
+				{
+					"name": "yisi"
+				}
+			],
+			"license": "MIT",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/cascade-layer-name-parser": "^1.0.2",
+				"@csstools/css-parser-algorithms": "^2.1.1",
+				"@csstools/css-tokenizer": "^2.1.1",
+				"postcss-selector-parser": "^6.0.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-selectors#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-custom-selectors"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"at-rule",
+				"atrule",
+				"css",
+				"csswg",
+				"custom",
+				"declarative",
+				"extensions",
+				"postcss",
+				"postcss-plugin",
+				"rule",
+				"selectors",
+				"specification",
+				"w3c"
+			],
+			"csstools": {
+				"assumesToProcessBundledCSS": true,
+				"cssdbId": "custom-selectors",
+				"exportName": "postcssCustomSelectors",
+				"humanReadableName": "PostCSS Custom Selectors",
+				"specUrl": "https://drafts.csswg.org/css-extensions/#custom-selectors"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "9fd6c72e20f0d43826ce65e579ff4d50a67e38dc",
+			"_id": "postcss-custom-selectors@7.1.3",
+			"_nodeVersion": "18.13.0",
+			"_npmVersion": "9.4.1",
+			"dist": {
+				"integrity": "sha512-GTVscax6O/8s7agFF0HsOoIyjrnAbLjgCUle8tn+0oDGJuVx7p56U7ClSRoC49poxFuMfu2B4Q8GnxSCOeuFKw==",
+				"shasum": "047e2bc4726fe8e448c23047c99785fcdbe1ef87",
+				"tarball": "https://registry.npmjs.org/postcss-custom-selectors/-/postcss-custom-selectors-7.1.3.tgz",
+				"fileCount": 11,
+				"unpackedSize": 18955,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDRIBS5qlz2IyJ8jhYU0vLpl3K2yGzJzZAQGmsXGFMpUAiBmZBkxSsnwQYe/UnvivWhfH9WbZsdx1kBoYC1j5n9pEA=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkM+1NACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpFLw//bt0oCbOJwLeuAsYBv6IRvqprUZ3AoCQOIF9GP3pXJWuCbAHR\r\n6rtXpgPwjTc2SD0P87i9xrqXGINpPLxdbYGGqxZchanCRlcFBGC2MeAbZzK2\r\nq2KwanugI9tlYeOZ5U9MPa7L7r9RW+4nC8HbtdnfDwyuwYjNrcsUfCjWh4cC\r\nL9OviAM/Fu79ZnlfyJUm/sWCJcZwYsZam1goRh/kJKu7QC9ZJIMvDg33tzS/\r\niDQo+y5r9Vptk2AgQr9QKZXpsD9XrNq5DrN05iKVH/JisbbYqFDSglLPY9z6\r\nn/wzy++NkSpSA/BA6/QD7y5/SHdFSOCrBZ4JKsNZoBR0RPevSJPjawa4UpRp\r\ntesK4HS+J/LVG++Oq3/bDSxlfCAVCArtaf3Q4yusBOt7Nm21NJMWf6bj9/az\r\ncOX/UQPlyZAaO77bfHIS3Wkjvm5S9BCrhJ/tOGvI/dtdGWpbodK50FhHExTz\r\nJdQ5fFmaVPSMi6gZ94tEDEG5t276lHBiF9F1KYY43M3L8ryy2Yxb+J2AscV5\r\nKTA9p+Cf0EZI/WhuN/VgX9fjFA0mc6WB3FekYQIgsS25LJdbZpeIVFmXAjXh\r\n1XIr57wnrnR8UlLrwvDAABsT4aU5ibGScu3KGNvb8mlmsuN8kLQv1fEN1V7P\r\nunVMMDShZUUDwyF+H32RPGKPIobRb6at0EE=\r\n=1YNH\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "yisi",
+					"email": "yiorsi@gmail.com"
+				},
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-selectors_7.1.3_1681124685214_0.43847150467607454"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Custom Selectors [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-custom-selectors.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/custom-selectors.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Custom Selectors] lets you define `@custom-selector` in CSS following the [Custom Selectors Specification].\n\n```pcss\n@custom-selector :--heading h1, h2, h3;\n\narticle :--heading + p {\n\tmargin-top: 0;\n}\n\n/* becomes */\n\narticle :is(h1, h2, h3) + p {\n\tmargin-top: 0;\n}\n```\n\n## Usage\n\nAdd [PostCSS Custom Selectors] to your project:\n\n```bash\nnpm install postcss postcss-custom-selectors --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomSelectors = require('postcss-custom-selectors');\n\npostcss([\n\tpostcssCustomSelectors(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Custom Selectors] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssCustomSelectors({ preserve: true })\n```\n\n```pcss\n@custom-selector :--heading h1, h2, h3;\n\narticle :--heading + p {\n\tmargin-top: 0;\n}\n\n/* becomes */\n\n@custom-selector :--heading h1, h2, h3;\n\narticle :is(h1, h2, h3) + p {\n\tmargin-top: 0;\n}\n\narticle :--heading + p {\n\tmargin-top: 0;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#custom-selectors\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-custom-selectors\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Custom Selectors]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-selectors\n[Custom Selectors Specification]: https://drafts.csswg.org/css-extensions/#custom-selectors\n",
+	"readme": "# PostCSS Custom Selectors [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-custom-selectors.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/custom-selectors.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Custom Selectors] lets you define `@custom-selector` in CSS following the [Custom Selectors Specification].\n\n```pcss\n@custom-selector :--heading h1, h2, h3;\n\narticle :--heading + p {\n\tmargin-top: 0;\n}\n\n/* becomes */\n\narticle :is(h1, h2, h3) + p {\n\tmargin-top: 0;\n}\n```\n\n## Usage\n\nAdd [PostCSS Custom Selectors] to your project:\n\n```bash\nnpm install postcss postcss-custom-selectors --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomSelectors = require('postcss-custom-selectors');\n\npostcss([\n\tpostcssCustomSelectors(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Custom Selectors] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssCustomSelectors({ preserve: true })\n```\n\n```pcss\n@custom-selector :--heading h1, h2, h3;\n\narticle :--heading + p {\n\tmargin-top: 0;\n}\n\n/* becomes */\n\n@custom-selector :--heading h1, h2, h3;\n\narticle :is(h1, h2, h3) + p {\n\tmargin-top: 0;\n}\n\narticle :--heading + p {\n\tmargin-top: 0;\n}\n```\n\n## Modular CSS Processing\n\nIf you're using Modular CSS such as, CSS Modules, `postcss-loader` or `vanilla-extract` to name a few, you'll probably\nnotice that custom selectors are not being resolved. This happens because each file is processed separately so\nunless you import the custom selector definitions in each file, they won't be resolved.\n\nTo overcome this, we recommend using the [PostCSS Global Data](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data#readme)\nplugin which allows you to pass a list of files that will be globally available. The plugin won't inject any extra code\nin the output but will provide the context needed to resolve custom selectors.\n\nFor it to run it needs to be placed before the [PostCSS Custom Selectors] plugin.\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomSelectors = require('postcss-custom-selectors');\nconst postcssGlobalData = require('@csstools/postcss-global-data');\n\npostcss([\n\tpostcssGlobalData({\n\t\tfiles: [\n\t\t\t'path/to/your/custom-selectors.css'\n\t\t]\n\t}),\n\tpostcssCustomSelectors(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#custom-selectors\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-custom-selectors\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Custom Selectors]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-selectors\n[Custom Selectors Specification]: https://drafts.csswg.org/css-extensions/#custom-selectors\n",
 	"maintainers": [
 		{
 			"name": "yisi",
@@ -2541,7 +2690,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-02-08T08:36:10.865Z",
+		"modified": "2023-04-10T11:04:45.505Z",
 		"created": "2014-12-05T15:33:46.543Z",
 		"1.0.0": "2014-12-05T15:33:46.543Z",
 		"1.1.0": "2014-12-13T00:40:15.074Z",
@@ -2566,7 +2715,8 @@
 		"7.0.0": "2022-11-14T09:48:45.363Z",
 		"7.1.0": "2023-01-24T08:52:15.841Z",
 		"7.1.1": "2023-01-28T07:35:03.292Z",
-		"7.1.2": "2023-02-08T08:36:10.773Z"
+		"7.1.2": "2023-02-08T08:36:10.773Z",
+		"7.1.3": "2023-04-10T11:04:45.396Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-selectors#readme",
 	"keywords": [
@@ -2619,5 +2769,5 @@
 			"name": "yisi"
 		}
 	],
-	"_downloads": 29481543
+	"_downloads": 28520014
 }
