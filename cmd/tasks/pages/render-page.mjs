@@ -38,21 +38,6 @@ export function renderPage(body, numberOfPlugins, searchData, allKeywords) {
 		<li>package version greater than 1.0.0</li>
 	</ul>
 
-	<h2>Disclaimer</h2>
-	<p>
-		PostCSS plugins are created and maintained by many different authors.
-		This is not a list of plugins created by "PostCSS".
-	</p>
-
-	<p>
-		It is not possible to audit each plugin for security or interoperability issues.
-		It remains your responsibility to choose the best dependencies for your project.
-	</p>
-
-	<p>
-		<a href="https://github.com/csstools/postcss-plugins-directory">For support and issues you can open an issue on GitHub.</a>
-	</p>
-
 	<hr>
 
 	<h2>Directory</h2>
@@ -76,6 +61,23 @@ export function renderPage(body, numberOfPlugins, searchData, allKeywords) {
 	<div id="plugin-list">
 		${body}
 	</div>
+
+	<hr style="margin: 3rem 0;">
+
+	<h2>Disclaimer</h2>
+	<p>
+		PostCSS plugins are created and maintained by many different authors.
+		This is not a list of plugins created by "PostCSS".
+	</p>
+
+	<p>
+		It is not possible to audit each plugin for security or interoperability issues.
+		It remains your responsibility to choose the best dependencies for your project.
+	</p>
+
+	<p>
+		<a href="https://github.com/csstools/postcss-plugins-directory">For support and issues you can open an issue on GitHub.</a>
+	</p>
 </body>
 </html>
 `;
