@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import he from 'he';
-import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, PAGES_INDEX_HTML_FILE_PATH } from '../constants.mjs';
+import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, PAGES_INDEX_HTML_FILE_PATH, PAGES_KEYWORDS_FILE_PATH } from '../constants.mjs';
 import { normalizeKeyword } from '../../config/normalize-keywords.mjs';
 import { excludedKeywords } from '../../config/excluded-keywords.mjs';
 import { traverseDir } from '../util/traverse-dir.mjs';
@@ -106,6 +106,7 @@ export async function pages() {
 	const allKeywordsSorted = Array.from(allKeywords);
 	allKeywordsSorted.sort((a, b) => a.localeCompare(b));
 
+	await fs.writeFile(PAGES_KEYWORDS_FILE_PATH, JSON.stringify(allKeywordsSorted, null, 2));
 	await fs.writeFile(PAGES_INDEX_HTML_FILE_PATH, renderPage(result, counter, searchData, allKeywordsSorted));
 }
 

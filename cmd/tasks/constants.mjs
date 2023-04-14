@@ -15,3 +15,4 @@ export const PLUGIN_MINIMUM_VERSION = '1.0.0'
 export const THIS_REPOSITORY = 'csstools/postcss-plugins-directory';
 
 export const PAGES_INDEX_HTML_FILE_PATH = './docs/index.html';
+export const PAGES_KEYWORDS_FILE_PATH = './docs/keywords.json';

@@ -1,5 +1,7 @@
 const normalizeKeywordMappings = new Map(
 	[
+		['@counter-style', 'counter-style'],
+		['@keyframes', 'keyframes'],
 		['aligns', 'align'],
 		['ancestors', 'ancestor'],
 		['browserlists', 'browserslists'],
