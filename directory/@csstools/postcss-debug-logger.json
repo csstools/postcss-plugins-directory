@@ -1,0 +1,115 @@
+{
+	"name": "@csstools/postcss-debug-logger",
+	"description": "Log the AST nodes PostCSS is processing",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-debug-logger#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-debug-logger"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"debug",
+		"postcss-plugin",
+		"utility"
+	],
+	"csstools": {
+		"exportName": "postcssDebugLogger",
+		"humanReadableName": "PostCSS Debug Logger"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "f28e1d1dde18293257fa7bf374de2afdc78ba69e",
+	"_id": "@csstools/postcss-debug-logger@1.0.0",
+	"_nodeVersion": "18.13.0",
+	"_npmVersion": "9.4.1",
+	"dist": {
+		"integrity": "sha512-Qk2Dl2FWQpi/VYSYt7lRXdmYIabX2lzxOtsi3R/gutS+sgQJvmOETdLBLHEDsGcvw9ybhwXLxE/SK4BN7SfYrg==",
+		"shasum": "940c23f79f72fee6c916a51af3db6d4df6f75513",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-debug-logger/-/postcss-debug-logger-1.0.0.tgz",
+		"fileCount": 7,
+		"unpackedSize": 16224,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIFqVvpbkTuttcwTwdB+rnkoiPb85A5rF8mDtlvXCDlOQAiEAuGZogzmgaKrU2hw9zGvnIAg2QAHp7PRAj/qKDbKcTZU="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkPOKrACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoZtA//RDqJO8PA5yda+L/gr3eeVLotaIq6C7Bfer4mbLfMzcIjsvr8\r\nrRo0/avmFh4w9Vft/ssWnhQ3K8eTIzt6rOL5Gv8DPtdC9x9hWAwklMXzQO7x\r\nNEUvU66/0SOEMBh3HIvky9ebAHUGft+Lc7Tmheq7XZdM/Zp0pjHsysDMHZ+j\r\ngn6MHbAhfKfY2JhnGYd4aCjJSvh6KTVEBv4LBspqEXWeOA3QUrc8gLhfDyaV\r\nw51XoH5+JHuUTFWVMI9L4yPXVEWxdvjZGZgbT4aEMwEfK4PmqoIf4/UA+O9l\r\nPHIbloHgEhJFfRurdZIOMW4+ovBuApI3608+XatZo6GiXDIM77JK1ImdFGDr\r\ngA+tkuEhLPCOGvrfK6FqbWsMkQ2P+J4/F1s6zJuo8HzmHMUf8QB3o7lwTbeM\r\nBe4Ah3QAwGRdyNaJndkC+3lOUWL7NPWzMq5mhNMbMnHCuWtkPll+o58dAvmZ\r\nUA4CUqacFmxpBnVmBM2ngHx3qChf7/6mfdEjo1PSpspW9BthDKlahwtxbEsl\r\nMbE7QQKA/d+Ky34vSaZeR3yBeTL2hAIWzlUGqygZKwbYGnzp2TNI9g26opCB\r\ni5092nycTkFQWAR+Ki/mY59YRZY0FD0IJJKrp7yQcDvsMQFsnghfwgQguqn2\r\nTyXPwOhR87hTC92W9muAij5z/0Y/Em7aDjg=\r\n=Ga+C\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-debug-logger_1.0.0_1681711787527_0.5264865032895742"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-04-17T06:09:47.709Z"
+}
