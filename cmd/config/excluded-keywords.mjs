@@ -239,6 +239,7 @@ export const excludedKeywords = new Set([
 	'postcss-design-tokens',
 	'postcss-each-in-map',
 	'postcss-extract-css-variables',
+	'postcss-fluid',
 	'postcss-inline-base64',
 	'postcss-merge-rules-plus',
 	'postcss-nested',
@@ -369,6 +370,7 @@ export const excludedKeywords = new Set([
 	'woff2',
 	'word-wrap',
 	'wordpress',
+	'workleap',
 	'xyz',
 	'zindex',
 ]);
