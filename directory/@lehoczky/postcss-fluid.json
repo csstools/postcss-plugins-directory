@@ -1,14 +1,16 @@
 {
 	"name": "@lehoczky/postcss-fluid",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"private": false,
 	"description": "PostCSS plugin that makes it easier to work with fluid css values.",
 	"scripts": {
 		"build": "tsc",
-		"lint": "npm run eslint:check && npm run format:check",
-		"eslint:check": "eslint . --ext .ts --max-warnings=0 --ignore-path=.gitignore",
-		"format:check": "prettier \"./**\" --check --ignore-path=.gitignore --ignore-unknown",
-		"test": "vitest run --coverage"
+		"lint": "npm run eslint:check && npm run styles:check && npm run format:check",
+		"eslint:check": "eslint . --ext .ts,js,vue --max-warnings=0 --ignore-path=.gitignore",
+		"styles:check": "stylelint \"./**/*.{css,vue}\" --ignore-path=.gitignore",
+		"format:check": "prettier \"./**\" --check --ignore-unknown",
+		"test": "vitest run",
+		"test:coverage": "vitest run --coverage"
 	},
 	"main": "dist/index.js",
 	"typings": "dist/index.d.ts",
@@ -22,17 +24,25 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"devDependencies": {
-		"@types/node": "^17.0.35",
-		"@typescript-eslint/eslint-plugin": "^5.26.0",
-		"@typescript-eslint/parser": "^5.26.0",
-		"c8": "^7.11.3",
-		"eslint": "^8.16.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-simple-import-sort": "^7.0.0",
-		"postcss": "^8.4.14",
-		"prettier": "^2.6.2",
-		"typescript": "^4.6.4",
-		"vitest": "^0.12.9"
+		"@types/node": "^18.15.13",
+		"@typescript-eslint/eslint-plugin": "^5.59.0",
+		"@typescript-eslint/parser": "^5.59.0",
+		"@vitest/coverage-c8": "^0.30.1",
+		"eslint": "^8.39.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-define-config": "^1.18.0",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"eslint-plugin-vue": "^9.11.0",
+		"postcss": "^8.4.23",
+		"postcss-html": "^1.5.0",
+		"prettier": "^2.8.7",
+		"prettier-plugin-tailwindcss": "^0.2.7",
+		"stylelint": "^14.16.1",
+		"stylelint-config-prettier": "^9.0.5",
+		"stylelint-config-recommended-vue": "^1.4.0",
+		"stylelint-config-standard": "^29.0.0",
+		"typescript": "^5.0.4",
+		"vitest": "^0.30.1"
 	},
 	"keywords": [
 		"postcss",
@@ -50,27 +60,28 @@
 		"url": "git+https://github.com/Lehoczky/postcss-fluid.git",
 		"type": "git"
 	},
-	"gitHead": "a7657dbd1180c55be284023ea8d0b6424cebcb05",
+	"packageManager": "pnpm@8.2.0",
+	"gitHead": "cfcb60d2bc9c37a32ad56d789a1fb98b13fdeb78",
 	"bugs": {
 		"url": "https://github.com/Lehoczky/postcss-fluid/issues"
 	},
 	"homepage": "https://github.com/Lehoczky/postcss-fluid#readme",
-	"_id": "@lehoczky/postcss-fluid@1.0.2",
-	"_nodeVersion": "16.13.0",
-	"_npmVersion": "8.3.2",
+	"_id": "@lehoczky/postcss-fluid@1.0.3",
+	"_nodeVersion": "16.17.1",
+	"_npmVersion": "8.15.0",
 	"dist": {
-		"integrity": "sha512-ANSWdn8Db0/dK8jWjBDLEMon8/FO4kKi0m8gtvI0jqR3U5rqS4q3uynlF6svPXscE8hh6Xe2G1EUuDRoAcxgLg==",
-		"shasum": "2fe1a73376aed41f5a6df8580323c64b7450a1ae",
-		"tarball": "https://registry.npmjs.org/@lehoczky/postcss-fluid/-/postcss-fluid-1.0.2.tgz",
-		"fileCount": 11,
-		"unpackedSize": 16569,
+		"integrity": "sha512-UQhBUGDpMA3wWGTWeVArL+dm2lbBM9LAFUg8U+CAt3gFpCDIdZHjq+mpf3OWos39aZQiYyLrZfRM8ynbPewfUA==",
+		"shasum": "70748728f041cef738464b0f2b992e29951ff083",
+		"tarball": "https://registry.npmjs.org/@lehoczky/postcss-fluid/-/postcss-fluid-1.0.3.tgz",
+		"fileCount": 13,
+		"unpackedSize": 20829,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDm49RYidCJBNdqdj91rsju9VYvjWdpIrk/scBkHEphJAIgN8hb3kIrfOMjPDrofdE58pO5V+cLHqxq5FY9yzy1FrE="
+				"sig": "MEUCIQDnIi+8FYvZrEZI23PLtb+I3jrhqUlKsmmMddKsnAeb8gIgREtoqzOyZbK2mNr/DiuPqEgZqAZuNobLLOqTCquE8is="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiml8KACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqj5g/+MTpwBKiDiwMkSrPu6bzMsfBshOBT1qNRx/iVAtPZz+vWFBVi\r\nyFJRlTBD/evEUXpQZo0TjpdidWo/aglMws7MgM3okVa+A9sQBqPcsUOONeQe\r\nL7wpEbFGv/nLUGk09SMkykTwMlmi/vyzWvZed6FfsJtcc3MT5zvtF+v97jZO\r\nZziSrgbj5TG2rzVAY+ayt1N6Oqj5LGOcbeO72ZcPy8fBp3oLlRSvqku6yQQJ\r\nJQV9mRj6NfvEKqLBNbwWzoaHv6KQ18xP3c0LVq8M317vLoU3TpjtDmMg9MRm\r\nLoIq16V5oQcvLwtDblyWseqT8ERmZrzyWX3F7quV0PesuUiI3yity41Md3h8\r\nH5aRvi2tI7gh19EXyrjULf/fMUto/4FqjpMDE25Heq88pMpj9dUFx81bze2o\r\nc1OddqIUJOFBWC88TaXxEBkMkxfCARHWNZ2KV6AqVUBbv8RzeCAPZ8LW4rdc\r\nk9AU6+4Sb+4tSU7kk0myGqrR4cCC12Wb7zc1DcxGR1kmKopEz2qL37qTFpeg\r\nNZIUKIHPgcGaqrnVLs4EJe6I2oObDCgkFJpHxg/Ydb1rL4ivK5Ok6mmZcJIX\r\nTad5OdWSGXFq6h1tVpaEoBDNZ912FLIpnxifTlheGcX+50XEuQKs/S4hpMwg\r\nnHVSptTs47365iHauBwDOv+H0ezpHQXNa6M=\r\n=e6VH\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkQwLgACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmonDQ//d75Jta4TnKJ2NdaT7/SVjoUS7o9Ay/V8xSUwsH+oWcdo9DNW\r\n5pQ+W7Nf6uJGbd8fdbfJbGIuQOi0A6tnXnwdgsOPQCXqtrTPgw1Vx9MBcinm\r\nSdPF//dmBroQJNZ6rGk3/6K3Uim2K5Wo3K4+abJQycWQwtnBt6z6WNygLiGJ\r\nbi2b9Epb0mj0DxdAGxCZK+RP6TIVLHVsk3g8fm8uAmhcyi9OPYkG84CoU1LZ\r\n3FQ28nnErhwlOkhWNmiyyFajAGg+MTpP+6FYDoKBkQj1YnRsQ5NWXSaziZzm\r\ntMUCTGnIvwXPMhqr7ehOLHmZujnn6InwM37R20ZgSlVC0jXQ5gWDNNEM14Fh\r\nAJQg9zbC9KDSFxEZ3hYFVGBM2qzTokcw2LFFg/vlds1si6xUN1mk0qS2JcMV\r\nhVSMsWK8LkKzyrGaOXTP7Oy/CkhyMECiaK4bvAJgXf8iRpdT13dQOAPoeRde\r\nKBWSUTIutagMV4M+yI7AQpptelKxt+tH6vdn+lY5qeKDyfIbko2mSyoJfhZk\r\nE2umZVqQ62ruR9aOQmvbquwTfHHRkTd4unEP1JGEsX5b65nfSLmfrL2ujS+x\r\nm0anFoKWCaqN4KzXftEkHBP7j+TFW55HwYQzwRxrnEB/acioWwl16nx+b2CD\r\nRgMh+nTtBCmBIIMUOTxRFyg+z3S1Pe76cm8=\r\n=VthN\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "lehoczky",
@@ -85,8 +96,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-fluid_1.0.2_1654284041797_0.5379535968611746"
+		"tmp": "tmp/postcss-fluid_1.0.3_1682113248241_0.8945878422405567"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-06-03T19:20:42.029Z"
+	"_time": "2023-04-21T21:40:48.429Z"
 }
