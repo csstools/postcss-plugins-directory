@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-pxtransform",
-	"_rev": "526-2d89bcd71d7759f0611d9ef6df886155",
+	"_rev": "530-17827c536bec354aafd59c51500e4201",
 	"name": "postcss-pxtransform",
 	"dist-tags": {
 		"latest": "3.6.5",
@@ -11,7 +11,7 @@
 		"2.x": "2.2.19",
 		"1.x": "1.3.46",
 		"3.0": "3.0.29",
-		"alpha": "3.6.5-alpha.2",
+		"alpha": "3.6.6-alpha.1",
 		"theta": "3.5.0-theta.1"
 	},
 	"versions": {
@@ -39586,12 +39586,340 @@
 				"tmp": "tmp/postcss-pxtransform_3.6.5-canary.1_1681461244287_0.8231377927669301"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.7.0-alpha.0": {
+			"name": "postcss-pxtransform",
+			"version": "3.7.0-alpha.0",
+			"description": "PostCSS plugin px 转小程序 rpx及h5 rem 单位",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"pxtransform"
+			],
+			"author": {
+				"name": "Pines-Cheng",
+				"email": "spider.cs.nuc@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NervJS/taro.git"
+			},
+			"bugs": {
+				"url": "https://github.com/NervJS/taro/issues"
+			},
+			"homepage": "https://github.com/NervJS/taro#readme",
+			"jest": {
+				"testEnvironment": "node",
+				"testEnvironmentOptions": {}
+			},
+			"devDependencies": {
+				"jest": "^29.3.1",
+				"jest-cli": "^29.3.1",
+				"postcss": "^8.4.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.18"
+			},
+			"scripts": {
+				"test": "jest"
+			},
+			"readme": "# PostCSS Pxtransform \n\n[PostCSS](https://github.com/ai/postcss) 单位转换插件，目前已支持小程序端（px 转rpx），H5 端（px 转 rem）及 RN 端。\n\n基于 [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem/)。\n\n## Install\n\n```shell\n$ npm install postcss-pxtransform --save-dev\n```\n\n## Usage\n\n### 小程序\n```js\noptions = {\n    platform: 'weapp',\n    designWidth: 750,\n}\n```\n\n### H5\n```js\noptions = {\n    platform: 'h5',\n    designWidth: 750,\n}\n```\n\n### RN\n```js\noptions = {\n    platform: 'rn',\n    designWidth: 750,\n}\n```\n\n### 动态计算designWidth\n\n基础组件库一般是`375`，如果业务系统UI设计是`750`，可以如下配置后`1:1`切图，小程序、H5、RN时有效\n\n```js\noptions = {\n    platform: 'h5',\n    designWidth (input) {\n      if (input.file.replace(/\\\\+/g, '/').indexOf('@nutui/nutui-taro') > -1) {\n        return 375\n      }\n      return 750\n    },\n}\n```\n\n### 输入/输出\n\n默认配置下，所有的 px 都会被转换。\n\n```css\n/* input */\nh1 {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n/* weapp output */\nh1 {\n    margin: 0 0 20rpx;\n    font-size: 32rpx;\n    line-height: 1.2;\n    letter-spacing: 1rpx;\n}\n\n/* h5 output */\nh1 {\n    margin: 0 0 0.5rem;\n    font-size: 1rem;\n    line-height: 1.2;\n    letter-spacing: 0.025rem;\n}\n\n/* rn output */\nh1 {\n    margin: 0 0 10px;\n    font-size: 16px;\n    line-height: 1.2;\n    letter-spacing: 0.5px;\n}\n\n```\n\n### example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxtorem = require('postcss-pxtransform');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxtorem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n## 配置 **options** \n参数默认值如下：\n\n```js\n{\n    unitPrecision: 5,\n    propList: ['*'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0\n}\n```\n\nType: `Object | Null`\n\n###  `platform` （String）（必填）\n`weapp` 或 `h5` 或 `rn`\n\n### `designWidth`（Number|Function）（必填）\n`640` 或 `750` 或 `828`\n\n### `unitPrecision` (Number) \nThe decimal numbers to allow the REM units to grow to.\n\n### `propList` (Array) \nThe properties that can change from px to rem.\n\n- Values need to be exact matches.\n- Use wildcard `*` to enable all properties. Example: `['*']`\n- Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n- Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n- Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n \n### `selectorBlackList`\n(Array) The selectors to ignore and leave as px.\n- If value is string, it checks to see if selector contains the string.\n  - `['body']` will match `.body-class`\n- If value is regexp, it checks to see if the selector matches the regexp.\n  - `[/^body$/]` will match `body` but not `.body`\n\n### `replace` (Boolean) \nreplaces rules containing rems instead of adding fallbacks.\n\n### `mediaQuery` (Boolean) \nAllow px to be converted in media queries.\n\n### `minPixelValue` (Number) \nSet the minimum pixel value to replace.\n\n\n## 忽略\n### 属性\n当前忽略单个属性的最简单的方法，就是 px 单位使用大写字母。\n\n```css\n /*`px` is converted to `rem`*/\n.convert {\n    font-size: 16px; // converted to 1rem\n}\n\n /* `Px` or `PX` is ignored by `postcss-pxtorem` but still accepted by browsers*/\n.ignore {\n    border: 1Px solid; // ignored\n    border-width: 2PX; // ignored\n}\n```\n\n### 文件\n对于头部包含注释`/*postcss-pxtransform disable*/` 的文件，插件不予处理。\n\n## 剔除\n`/*postcss-pxtransform rn eject enable*/` 与 `/*postcss-pxtransform rn eject disable*/` 中间的代码，\n在编译成 RN 端的样式的时候，会被删除。建议将 RN 不支持的但 H5 端又必不可少的样式放到这里面。如：样式重制相关的代码。\n```css\n/*postcss-pxtransform rn eject enable*/\n\n.test {\n  color: black;\n}\n\n/*postcss-pxtransform rn eject disable*/\n```\n\n",
+			"readmeFilename": "README.md",
+			"_id": "postcss-pxtransform@3.7.0-alpha.0",
+			"_integrity": "sha512-y5mnhuKIxl2txljT5Tb8vTcMIpUyU/rFy006W4x2i+fGQZfoIUt9l9c16B9f+eHXQwjjxA8aOfS7VahoySFATQ==",
+			"_resolved": "/tmp/033f1548cd045edeff1c363f196edc79/postcss-pxtransform-3.7.0-alpha.0.tgz",
+			"_from": "file:postcss-pxtransform-3.7.0-alpha.0.tgz",
+			"_nodeVersion": "16.20.0",
+			"_npmVersion": "8.19.4",
+			"dist": {
+				"integrity": "sha512-y5mnhuKIxl2txljT5Tb8vTcMIpUyU/rFy006W4x2i+fGQZfoIUt9l9c16B9f+eHXQwjjxA8aOfS7VahoySFATQ==",
+				"shasum": "3ad031eba90b3a8a5d778c0edb6c0f53f6e57289",
+				"tarball": "https://registry.npmjs.org/postcss-pxtransform/-/postcss-pxtransform-3.7.0-alpha.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 49649,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQD+Hl+loq5ksrbv9CIAmnitAuwelKLNgxMDZz8BJOZM8AIgTY36fT+nSdX5vydZXSijaQTrA1xn7ho3Zv6ouYEiMy4="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkQNcmACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoczQ/+JuOczpM0YwpqSXBW1EGeBuNOG/MOpKMIkykug0WGZMkDUiID\r\nxRR8HNM9VLMXbish/FwhUN+FBbGj6r6k4o6XSJRAvTz4TWl2UKpvKI08v8LU\r\nMT+MfDIV0wcefy4EZvhHzmPBp0p67Axrq/byqp2OsvRVi93NqMKRHynE8s1c\r\njzbLEMrVgblzzDGuwukCMgw14llkOAzxBqObw/UfC410xV5mofgsQ38LWQ/N\r\nSaW0T8XYNYwKRrKO7iSxEvlnFiD6HliiJIAbDaj58gh4r2xlJ7YoFkwqD8QM\r\npos6UIf1BzUAUjGhBgtStJ6VoK4M10MMfApvQzykMuNrtV/eOeYwM7u9Fy9+\r\nwYBRfUqEAhX4NM4ZmCHtJ5VO66wH18vneEwYawO7CB9hITd+I6G2LVYoZYg+\r\nUuocx+T7VIGvjATrft4yz1Jfcs6M3GvsaaQKu6WWlBaGzx2PoCaH4cFMXHVN\r\naSpWa9CmUDjQkhptUJzUNjClzODaSD/M8VaFV78iAT+qCtjml2Bx7EauwKxs\r\n6u9H79YviT+6U5FNuWa2GZuumb7FI7s5ZqnorI4dN0/woFsi8HQICs6d1l9B\r\niFQmH+g/V3x2GxOQvVPpaaPCS3BFh4qLlSAFrXGWRhgA0dhJr1V4VuPjGZkx\r\nfApujGNhyglgGLrN9hLlan9ucMrGUY7rhIc=\r\n=/dub\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "defaultlee",
+				"email": "weitaozsh@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "defaultlee",
+					"email": "weitaozsh@gmail.com"
+				},
+				{
+					"name": "yuche",
+					"email": "i@yuche.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pxtransform_3.7.0-alpha.0_1681970982714_0.3626304579221218"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.7.0-alpha.1": {
+			"name": "postcss-pxtransform",
+			"version": "3.7.0-alpha.1",
+			"description": "PostCSS plugin px 转小程序 rpx及h5 rem 单位",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"pxtransform"
+			],
+			"author": {
+				"name": "Pines-Cheng",
+				"email": "spider.cs.nuc@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NervJS/taro.git"
+			},
+			"bugs": {
+				"url": "https://github.com/NervJS/taro/issues"
+			},
+			"homepage": "https://github.com/NervJS/taro#readme",
+			"jest": {
+				"testEnvironment": "node",
+				"testEnvironmentOptions": {}
+			},
+			"devDependencies": {
+				"jest": "^29.3.1",
+				"jest-cli": "^29.3.1",
+				"postcss": "^8.4.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.18"
+			},
+			"scripts": {
+				"test": "jest"
+			},
+			"readme": "# PostCSS Pxtransform \n\n[PostCSS](https://github.com/ai/postcss) 单位转换插件，目前已支持小程序端（px 转rpx），H5 端（px 转 rem）及 RN 端。\n\n基于 [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem/)。\n\n## Install\n\n```shell\n$ npm install postcss-pxtransform --save-dev\n```\n\n## Usage\n\n### 小程序\n```js\noptions = {\n    platform: 'weapp',\n    designWidth: 750,\n}\n```\n\n### H5\n```js\noptions = {\n    platform: 'h5',\n    designWidth: 750,\n}\n```\n\n### RN\n```js\noptions = {\n    platform: 'rn',\n    designWidth: 750,\n}\n```\n\n### 动态计算designWidth\n\n基础组件库一般是`375`，如果业务系统UI设计是`750`，可以如下配置后`1:1`切图，小程序、H5、RN时有效\n\n```js\noptions = {\n    platform: 'h5',\n    designWidth (input) {\n      if (input.file.replace(/\\\\+/g, '/').indexOf('@nutui/nutui-taro') > -1) {\n        return 375\n      }\n      return 750\n    },\n}\n```\n\n### 输入/输出\n\n默认配置下，所有的 px 都会被转换。\n\n```css\n/* input */\nh1 {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n/* weapp output */\nh1 {\n    margin: 0 0 20rpx;\n    font-size: 32rpx;\n    line-height: 1.2;\n    letter-spacing: 1rpx;\n}\n\n/* h5 output */\nh1 {\n    margin: 0 0 0.5rem;\n    font-size: 1rem;\n    line-height: 1.2;\n    letter-spacing: 0.025rem;\n}\n\n/* rn output */\nh1 {\n    margin: 0 0 10px;\n    font-size: 16px;\n    line-height: 1.2;\n    letter-spacing: 0.5px;\n}\n\n```\n\n### example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxtorem = require('postcss-pxtransform');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxtorem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n## 配置 **options** \n参数默认值如下：\n\n```js\n{\n    unitPrecision: 5,\n    propList: ['*'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0\n}\n```\n\nType: `Object | Null`\n\n###  `platform` （String）（必填）\n`weapp` 或 `h5` 或 `rn`\n\n### `designWidth`（Number|Function）（必填）\n`640` 或 `750` 或 `828`\n\n### `unitPrecision` (Number) \nThe decimal numbers to allow the REM units to grow to.\n\n### `propList` (Array) \nThe properties that can change from px to rem.\n\n- Values need to be exact matches.\n- Use wildcard `*` to enable all properties. Example: `['*']`\n- Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n- Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n- Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n \n### `selectorBlackList`\n(Array) The selectors to ignore and leave as px.\n- If value is string, it checks to see if selector contains the string.\n  - `['body']` will match `.body-class`\n- If value is regexp, it checks to see if the selector matches the regexp.\n  - `[/^body$/]` will match `body` but not `.body`\n\n### `replace` (Boolean) \nreplaces rules containing rems instead of adding fallbacks.\n\n### `mediaQuery` (Boolean) \nAllow px to be converted in media queries.\n\n### `minPixelValue` (Number) \nSet the minimum pixel value to replace.\n\n\n## 忽略\n### 属性\n当前忽略单个属性的最简单的方法，就是 px 单位使用大写字母。\n\n```css\n /*`px` is converted to `rem`*/\n.convert {\n    font-size: 16px; // converted to 1rem\n}\n\n /* `Px` or `PX` is ignored by `postcss-pxtorem` but still accepted by browsers*/\n.ignore {\n    border: 1Px solid; // ignored\n    border-width: 2PX; // ignored\n}\n```\n\n### 文件\n对于头部包含注释`/*postcss-pxtransform disable*/` 的文件，插件不予处理。\n\n## 剔除\n`/*postcss-pxtransform rn eject enable*/` 与 `/*postcss-pxtransform rn eject disable*/` 中间的代码，\n在编译成 RN 端的样式的时候，会被删除。建议将 RN 不支持的但 H5 端又必不可少的样式放到这里面。如：样式重制相关的代码。\n```css\n/*postcss-pxtransform rn eject enable*/\n\n.test {\n  color: black;\n}\n\n/*postcss-pxtransform rn eject disable*/\n```\n\n",
+			"readmeFilename": "README.md",
+			"_id": "postcss-pxtransform@3.7.0-alpha.1",
+			"_integrity": "sha512-Lvo91eBiQmaSpf74bnDkg5w2I8TE70RKI1ZD/9aCLocvxyrxy+Bfa44g2bdggHvbI1r9r2wVMuxcNKgkTX3Fug==",
+			"_resolved": "/tmp/2aa7fb306daa47e8e4b7341be84d2a74/postcss-pxtransform-3.7.0-alpha.1.tgz",
+			"_from": "file:postcss-pxtransform-3.7.0-alpha.1.tgz",
+			"_nodeVersion": "16.20.0",
+			"_npmVersion": "8.19.4",
+			"dist": {
+				"integrity": "sha512-Lvo91eBiQmaSpf74bnDkg5w2I8TE70RKI1ZD/9aCLocvxyrxy+Bfa44g2bdggHvbI1r9r2wVMuxcNKgkTX3Fug==",
+				"shasum": "837bc9c34c387ac81fcad50d82f4bf54684330eb",
+				"tarball": "https://registry.npmjs.org/postcss-pxtransform/-/postcss-pxtransform-3.7.0-alpha.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 49649,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCxCzmMgTqu5qg1TN5Vm1t/P0YKVgKKedFB7e5vilAtPAIhALbBrxpM07zbynLJhhhxkvuqxW+twJcirP9Jlwz/wyWS"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkQOMfACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoSpw//WD7MZuWnLMki6GK6Si9oTDGQTvW7OkW8xaAtFLP4ZZvh4g59\r\nENiw1P2glTYlFNqifl1Uah+UoD7zQnI93quv0sqf4r81EJaZlNAF7QK2jn9r\r\nAVn+rAvwrM8TXBek6iKo0YHPf2aDQG7dsowr8vH88e6NSJZpqFLTW37HxAvm\r\nK46qs9QmD4imAL89QGOZhljWFZarMFojxzbH15sGGEwyGrLYZFR782OyB86A\r\n5SX3xUQfSeAvas7nhPp7EMlidAN0F6njBp0VCcUpUNXnnBovLKiTxv0Ww9Ea\r\n5bdTr2t7abHScxyCP+JnJBMCHmTcqSf5kdecBm5/uCRpmYfea0OBWyyfn+qQ\r\ntt6IoBYK8eyTBZ/1HKfwn7WeSY7WForRJ9nyXBEYJIiw63Hwjk2FhI+IrHKi\r\nlXjBH9qm2U9z2p9zJPKAgp7bfpwFnLJlOECzCC3tajeLwd7elq7aLfpR7Xcb\r\nwxXpOaIbD5FmTtG9qdn73/xzdAYg34uNj4GVHfQV5w4/Arrl2MNkGL2O/q4U\r\nlDD7keuUANvxMem328lVdASiqE9+789NXskkPl0n6x7NzTkscb1QoTaytwpW\r\nSqZxJf+NUNhu2dg6q2IV6OQFNwM7pr1GKbV4BEklEWRfu7j1CXjIXChlsf2g\r\nhgKKPLHwDodk5CewPzv7+fAFylQBK8nlyyA=\r\n=CXz2\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "defaultlee",
+				"email": "weitaozsh@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "defaultlee",
+					"email": "weitaozsh@gmail.com"
+				},
+				{
+					"name": "yuche",
+					"email": "i@yuche.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pxtransform_3.7.0-alpha.1_1681974047179_0.8846852967216341"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.6.6-alpha.0": {
+			"name": "postcss-pxtransform",
+			"version": "3.6.6-alpha.0",
+			"description": "PostCSS plugin px 转小程序 rpx及h5 rem 单位",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"pxtransform"
+			],
+			"author": {
+				"name": "Pines-Cheng",
+				"email": "spider.cs.nuc@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NervJS/taro.git"
+			},
+			"bugs": {
+				"url": "https://github.com/NervJS/taro/issues"
+			},
+			"homepage": "https://github.com/NervJS/taro#readme",
+			"jest": {
+				"testEnvironment": "node",
+				"testEnvironmentOptions": {}
+			},
+			"devDependencies": {
+				"jest": "^29.3.1",
+				"jest-cli": "^29.3.1",
+				"postcss": "^8.4.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.18"
+			},
+			"scripts": {
+				"test": "jest"
+			},
+			"readme": "# PostCSS Pxtransform \n\n[PostCSS](https://github.com/ai/postcss) 单位转换插件，目前已支持小程序端（px 转rpx），H5 端（px 转 rem）及 RN 端。\n\n基于 [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem/)。\n\n## Install\n\n```shell\n$ npm install postcss-pxtransform --save-dev\n```\n\n## Usage\n\n### 小程序\n```js\noptions = {\n    platform: 'weapp',\n    designWidth: 750,\n}\n```\n\n### H5\n```js\noptions = {\n    platform: 'h5',\n    designWidth: 750,\n}\n```\n\n### RN\n```js\noptions = {\n    platform: 'rn',\n    designWidth: 750,\n}\n```\n\n### 动态计算designWidth\n\n基础组件库一般是`375`，如果业务系统UI设计是`750`，可以如下配置后`1:1`切图，小程序、H5、RN时有效\n\n```js\noptions = {\n    platform: 'h5',\n    designWidth (input) {\n      if (input.file.replace(/\\\\+/g, '/').indexOf('@nutui/nutui-taro') > -1) {\n        return 375\n      }\n      return 750\n    },\n}\n```\n\n### 输入/输出\n\n默认配置下，所有的 px 都会被转换。\n\n```css\n/* input */\nh1 {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n/* weapp output */\nh1 {\n    margin: 0 0 20rpx;\n    font-size: 32rpx;\n    line-height: 1.2;\n    letter-spacing: 1rpx;\n}\n\n/* h5 output */\nh1 {\n    margin: 0 0 0.5rem;\n    font-size: 1rem;\n    line-height: 1.2;\n    letter-spacing: 0.025rem;\n}\n\n/* rn output */\nh1 {\n    margin: 0 0 10px;\n    font-size: 16px;\n    line-height: 1.2;\n    letter-spacing: 0.5px;\n}\n\n```\n\n### example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxtorem = require('postcss-pxtransform');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxtorem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n## 配置 **options** \n参数默认值如下：\n\n```js\n{\n    unitPrecision: 5,\n    propList: ['*'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0\n}\n```\n\nType: `Object | Null`\n\n###  `platform` （String）（必填）\n`weapp` 或 `h5` 或 `rn`\n\n### `designWidth`（Number|Function）（必填）\n`640` 或 `750` 或 `828`\n\n### `unitPrecision` (Number) \nThe decimal numbers to allow the REM units to grow to.\n\n### `propList` (Array) \nThe properties that can change from px to rem.\n\n- Values need to be exact matches.\n- Use wildcard `*` to enable all properties. Example: `['*']`\n- Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n- Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n- Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n \n### `selectorBlackList`\n(Array) The selectors to ignore and leave as px.\n- If value is string, it checks to see if selector contains the string.\n  - `['body']` will match `.body-class`\n- If value is regexp, it checks to see if the selector matches the regexp.\n  - `[/^body$/]` will match `body` but not `.body`\n\n### `replace` (Boolean) \nreplaces rules containing rems instead of adding fallbacks.\n\n### `mediaQuery` (Boolean) \nAllow px to be converted in media queries.\n\n### `minPixelValue` (Number) \nSet the minimum pixel value to replace.\n\n\n## 忽略\n### 属性\n当前忽略单个属性的最简单的方法，就是 px 单位使用大写字母。\n\n```css\n /*`px` is converted to `rem`*/\n.convert {\n    font-size: 16px; // converted to 1rem\n}\n\n /* `Px` or `PX` is ignored by `postcss-pxtorem` but still accepted by browsers*/\n.ignore {\n    border: 1Px solid; // ignored\n    border-width: 2PX; // ignored\n}\n```\n\n### 文件\n对于头部包含注释`/*postcss-pxtransform disable*/` 的文件，插件不予处理。\n\n## 剔除\n`/*postcss-pxtransform rn eject enable*/` 与 `/*postcss-pxtransform rn eject disable*/` 中间的代码，\n在编译成 RN 端的样式的时候，会被删除。建议将 RN 不支持的但 H5 端又必不可少的样式放到这里面。如：样式重制相关的代码。\n```css\n/*postcss-pxtransform rn eject enable*/\n\n.test {\n  color: black;\n}\n\n/*postcss-pxtransform rn eject disable*/\n```\n\n",
+			"readmeFilename": "README.md",
+			"_id": "postcss-pxtransform@3.6.6-alpha.0",
+			"_integrity": "sha512-gLG10o4TVqRUuY1mMpti6A1tj2TzNhD9r5S5rrtvKcXfJDSJlLdL8D/hFLwyHLPlV3C38uZTs86BqVLatIs+fw==",
+			"_resolved": "/tmp/abf1c1666c03dd27ba23e3493e2d3c11/postcss-pxtransform-3.6.6-alpha.0.tgz",
+			"_from": "file:postcss-pxtransform-3.6.6-alpha.0.tgz",
+			"_nodeVersion": "16.20.0",
+			"_npmVersion": "8.19.4",
+			"dist": {
+				"integrity": "sha512-gLG10o4TVqRUuY1mMpti6A1tj2TzNhD9r5S5rrtvKcXfJDSJlLdL8D/hFLwyHLPlV3C38uZTs86BqVLatIs+fw==",
+				"shasum": "c9e978c6143dd62fae8cf680f0d3d56f693a1723",
+				"tarball": "https://registry.npmjs.org/postcss-pxtransform/-/postcss-pxtransform-3.6.6-alpha.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 49649,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCkgMN42y6XfG90QiIG5Ax/tZzU0b0tMU1utGU44czpGgIgVO02uI1YKX1wEX+wFYglBt/ff64percA7ucjUUQaYOY="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkQjUBACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmocMA/+NEoJIYuzpcHl2O8XmeHlcjRLTV963yWGkWCXZU5O+c7O3GJv\r\naW/VOlTU2zgeIm0cmzbVFjwQ6NfQiOHRB2gjqbmXqPEjNpWpe49N38CAsOQx\r\n3KXx3hzAr34bpO6AB5uwDc57IJzm3J3l/tik3uzzOsUR3s/pDKP0udxRt7nF\r\nNrP84QCdZSHhheBOELz4rl+xlKclZLTbaz/TR3zCAMBLsS71/rsTwxUDkSx/\r\nTwcnhegrk3DgjHT7PBLmEWQh73QvzaJ0vhBc97Ru6PDlqIQPr5fy13lqaq+0\r\nBMOdiiEYv5hrdd0oOUJYOZZeYeqipWJ4i+cCUVw2Nre4qP1SP3NqDNvoiTUk\r\nV6mVENh/nDayLik4AcB7ZCnYl4/yTYGzYYr0p4vNF/9rrL9L03CWraqqExdT\r\n2Ul9QDtDTUIC0pJOaGBC45cOYrQk2gdL762/sukqMxrhwNGVlHBmxHsbJAxA\r\nskOmrq8F5P8TWVw6r/kxes1Wof0cssXvJbygOcSg2DMNOC/ihHo2XddLWkc6\r\nR/n6CvFsAnloRDD4i6k9fEP3c+tvOHZdIk0DGP+518PsRO2lXnxAsaGT9CCl\r\nusPduwV+Tk2T65gz6MnoWIE/BFiTsQ/FJf8WQ6bU1KLoqPQSZdbQpCvN7E61\r\nou4VNWpUYjCVMVrk6tYwdchrCJ3/iQsWbn0=\r\n=Wd6L\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "defaultlee",
+				"email": "weitaozsh@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "defaultlee",
+					"email": "weitaozsh@gmail.com"
+				},
+				{
+					"name": "yuche",
+					"email": "i@yuche.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pxtransform_3.6.6-alpha.0_1682060545802_0.2742677040840136"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.6.6-alpha.1": {
+			"name": "postcss-pxtransform",
+			"version": "3.6.6-alpha.1",
+			"description": "PostCSS plugin px 转小程序 rpx及h5 rem 单位",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"pxtransform"
+			],
+			"author": {
+				"name": "Pines-Cheng",
+				"email": "spider.cs.nuc@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NervJS/taro.git"
+			},
+			"bugs": {
+				"url": "https://github.com/NervJS/taro/issues"
+			},
+			"homepage": "https://github.com/NervJS/taro#readme",
+			"jest": {
+				"testEnvironment": "node",
+				"testEnvironmentOptions": {}
+			},
+			"devDependencies": {
+				"jest": "^29.3.1",
+				"jest-cli": "^29.3.1",
+				"postcss": "^8.4.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.18"
+			},
+			"scripts": {
+				"test": "jest"
+			},
+			"readme": "# PostCSS Pxtransform \n\n[PostCSS](https://github.com/ai/postcss) 单位转换插件，目前已支持小程序端（px 转rpx），H5 端（px 转 rem）及 RN 端。\n\n基于 [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem/)。\n\n## Install\n\n```shell\n$ npm install postcss-pxtransform --save-dev\n```\n\n## Usage\n\n### 小程序\n```js\noptions = {\n    platform: 'weapp',\n    designWidth: 750,\n}\n```\n\n### H5\n```js\noptions = {\n    platform: 'h5',\n    designWidth: 750,\n}\n```\n\n### RN\n```js\noptions = {\n    platform: 'rn',\n    designWidth: 750,\n}\n```\n\n### 动态计算designWidth\n\n基础组件库一般是`375`，如果业务系统UI设计是`750`，可以如下配置后`1:1`切图，小程序、H5、RN时有效\n\n```js\noptions = {\n    platform: 'h5',\n    designWidth (input) {\n      if (input.file.replace(/\\\\+/g, '/').indexOf('@nutui/nutui-taro') > -1) {\n        return 375\n      }\n      return 750\n    },\n}\n```\n\n### 输入/输出\n\n默认配置下，所有的 px 都会被转换。\n\n```css\n/* input */\nh1 {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n/* weapp output */\nh1 {\n    margin: 0 0 20rpx;\n    font-size: 32rpx;\n    line-height: 1.2;\n    letter-spacing: 1rpx;\n}\n\n/* h5 output */\nh1 {\n    margin: 0 0 0.5rem;\n    font-size: 1rem;\n    line-height: 1.2;\n    letter-spacing: 0.025rem;\n}\n\n/* rn output */\nh1 {\n    margin: 0 0 10px;\n    font-size: 16px;\n    line-height: 1.2;\n    letter-spacing: 0.5px;\n}\n\n```\n\n### example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxtorem = require('postcss-pxtransform');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxtorem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n## 配置 **options** \n参数默认值如下：\n\n```js\n{\n    unitPrecision: 5,\n    propList: ['*'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0\n}\n```\n\nType: `Object | Null`\n\n###  `platform` （String）（必填）\n`weapp` 或 `h5` 或 `rn`\n\n### `designWidth`（Number|Function）（必填）\n`640` 或 `750` 或 `828`\n\n### `unitPrecision` (Number) \nThe decimal numbers to allow the REM units to grow to.\n\n### `propList` (Array) \nThe properties that can change from px to rem.\n\n- Values need to be exact matches.\n- Use wildcard `*` to enable all properties. Example: `['*']`\n- Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n- Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n- Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n \n### `selectorBlackList`\n(Array) The selectors to ignore and leave as px.\n- If value is string, it checks to see if selector contains the string.\n  - `['body']` will match `.body-class`\n- If value is regexp, it checks to see if the selector matches the regexp.\n  - `[/^body$/]` will match `body` but not `.body`\n\n### `replace` (Boolean) \nreplaces rules containing rems instead of adding fallbacks.\n\n### `mediaQuery` (Boolean) \nAllow px to be converted in media queries.\n\n### `minPixelValue` (Number) \nSet the minimum pixel value to replace.\n\n\n## 忽略\n### 属性\n当前忽略单个属性的最简单的方法，就是 px 单位使用大写字母。\n\n```css\n /*`px` is converted to `rem`*/\n.convert {\n    font-size: 16px; // converted to 1rem\n}\n\n /* `Px` or `PX` is ignored by `postcss-pxtorem` but still accepted by browsers*/\n.ignore {\n    border: 1Px solid; // ignored\n    border-width: 2PX; // ignored\n}\n```\n\n### 文件\n对于头部包含注释`/*postcss-pxtransform disable*/` 的文件，插件不予处理。\n\n## 剔除\n`/*postcss-pxtransform rn eject enable*/` 与 `/*postcss-pxtransform rn eject disable*/` 中间的代码，\n在编译成 RN 端的样式的时候，会被删除。建议将 RN 不支持的但 H5 端又必不可少的样式放到这里面。如：样式重制相关的代码。\n```css\n/*postcss-pxtransform rn eject enable*/\n\n.test {\n  color: black;\n}\n\n/*postcss-pxtransform rn eject disable*/\n```\n\n",
+			"readmeFilename": "README.md",
+			"_id": "postcss-pxtransform@3.6.6-alpha.1",
+			"_integrity": "sha512-bymYqMQjjdxKLGg+k3Yt5ovJKko4WTxrqqlwfBqp8+Lzx0rsj1CJI0weLpjeEjyC/besZkVxwacJbbjHjhMx7w==",
+			"_resolved": "/tmp/de84bfc131b42e73d571ca1f343cbb09/postcss-pxtransform-3.6.6-alpha.1.tgz",
+			"_from": "file:postcss-pxtransform-3.6.6-alpha.1.tgz",
+			"_nodeVersion": "16.20.0",
+			"_npmVersion": "8.19.4",
+			"dist": {
+				"integrity": "sha512-bymYqMQjjdxKLGg+k3Yt5ovJKko4WTxrqqlwfBqp8+Lzx0rsj1CJI0weLpjeEjyC/besZkVxwacJbbjHjhMx7w==",
+				"shasum": "096156893766923d61a7a97eb26fcdadf9085ff4",
+				"tarball": "https://registry.npmjs.org/postcss-pxtransform/-/postcss-pxtransform-3.6.6-alpha.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 49649,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCiHNRAS5577vzZUEIZ7M9MIgPLkNDwwm0XUtZBVVTQrwIgfZHOVB/IGqtfpKff3x7pgcctd6/vCRYZl5J4fvIqOLw="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkQlXyACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqy7g/+L4xjSk23EFmE2VRnnHcBC495Gs3SIQ+iJpcI2pxP4n1PSBZc\r\nJ2XpGQa1sBEe0X0UnSeyRF+VO4TarqPRCEwCJIT6A39DAy5QCpLlqNHNnTT7\r\nh6V1EGH5kPEBIsD+H9pYjSo1IOotNtth/SfDcSjEu1n/q6ffWNrCQ5x1Ex+2\r\n0KEHPiq4RA8FaLKv4W6VC/+fhw5Z11JfxQ/TjNG2AEYCEifIoII0kGRVG6pA\r\nfsht79gij4zTC7ibDBDk9uxad70kS7qTH9ILbTHh33cg+oNok0Im/TnOyxRm\r\nzrjTMvdfsFQDcBNeAmwlwYGVR3aIl5Qcm75vmv/ASUc1lLp0ZEkYxo7Fj6pB\r\n2B+ShlYvTYa0oKuKKuqehTF4qD8do7hid19MtiicLyjYgHOm3ogeutXPXYOG\r\nBej8Rc8BJBa9lo4IFNfft0UgHMkVZtc7WqnFqTG20gb5KqWIaa5eRIb9cU04\r\n7qmvvcIZDlljmU+XXWOZD/SkfQJpzhKEr8JUlALNrjU9pEcchE6HWMf2Pgj9\r\nvHCA285OY4e5+m8M8Q/bIxePQCPFIXnNPuN3yt+nMuK5yj85RWHVVOHbulF9\r\ndy9qEKjAm4jnDoiDPvP+GC3x3HtFGbUDtINvsmhVFvTuOn3I1XpFGUzY9pP8\r\nPbxtQrzBHcCp9tohPFLXVCLF6gCUdZbmgp4=\r\n=WKR4\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "defaultlee",
+				"email": "weitaozsh@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "defaultlee",
+					"email": "weitaozsh@gmail.com"
+				},
+				{
+					"name": "yuche",
+					"email": "i@yuche.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pxtransform_3.6.6-alpha.1_1682068977980_0.1597970161141291"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-03-29T07:33:17.001Z",
 		"0.0.1": "2018-03-29T07:33:17.091Z",
-		"modified": "2023-04-14T08:34:04.581Z",
+		"modified": "2023-04-21T09:22:58.273Z",
 		"0.0.46": "2018-06-11T13:26:14.785Z",
 		"0.0.47": "2018-06-12T16:37:38.173Z",
 		"0.0.49": "2018-06-13T16:48:10.848Z",
@@ -40112,7 +40440,11 @@
 		"3.6.5-canary.0": "2023-04-13T11:15:57.212Z",
 		"3.6.5-alpha.2": "2023-04-14T02:57:24.803Z",
 		"3.6.5": "2023-04-14T07:33:02.792Z",
-		"3.6.5-canary.1": "2023-04-14T08:34:04.436Z"
+		"3.6.5-canary.1": "2023-04-14T08:34:04.436Z",
+		"3.7.0-alpha.0": "2023-04-20T06:09:42.924Z",
+		"3.7.0-alpha.1": "2023-04-20T07:00:47.369Z",
+		"3.6.6-alpha.0": "2023-04-21T07:02:25.961Z",
+		"3.6.6-alpha.1": "2023-04-21T09:22:58.161Z"
 	},
 	"maintainers": [
 		{
@@ -40146,5 +40478,5 @@
 	"bugs": {
 		"url": "https://github.com/NervJS/taro/issues"
 	},
-	"_downloads": 18223
+	"_downloads": 19511
 }
