@@ -4,7 +4,7 @@
 		"name": "Workleap"
 	},
 	"description": "Workleap's default PostCSS config.",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"license": "Apache-2.0",
 	"keywords": [
 		"workleap",
@@ -24,7 +24,8 @@
 	},
 	"devDependencies": {
 		"postcss": "8.4.21",
-		"@workleap/typescript-configs": "2.0.1"
+		"tsup": "6.7.0",
+		"@workleap/typescript-configs": "2.1.0"
 	},
 	"peerDependencies": {
 		"postcss": ">=8.4.6"
@@ -33,39 +34,27 @@
 		"access": "public",
 		"provenance": true
 	},
-	"tsup": {
-		"entry": [
-			"./index.ts"
-		],
-		"clean": true,
-		"declaration": true,
-		"format": [
-			"cjs"
-		]
-	},
 	"scripts": {
-		"build": "tsup",
-		"clean": "pnpm dlx rimraf dist node_modules",
-		"lint:types": "tsc --noEmit"
+		"build": "tsup"
 	},
 	"bugs": {
 		"url": "https://github.com/workleap/wl-web-configs/issues"
 	},
 	"homepage": "https://github.com/workleap/wl-web-configs#readme",
-	"_id": "@workleap/postcss-plugin@1.1.1",
-	"_integrity": "sha512-Zgh6CB3GPeYBVApxMzyojPxTG96cAdcVHOJlFZVgXEVt4YDGl6ow9SEpGfBvGyvXBAzRkv8umvoqTveWTozkig==",
-	"_resolved": "/tmp/a8d304d7b674a392e7b9fb657b814297/workleap-postcss-plugin-1.1.1.tgz",
-	"_from": "file:workleap-postcss-plugin-1.1.1.tgz",
+	"_id": "@workleap/postcss-plugin@1.2.0",
+	"_integrity": "sha512-rt6vxS/lNx6Y7sBcepmzNw7Jlu7A8nOBDW/LyqhGeRbf2mvrwtzQQJUP+5mmB59WBSdV5ugkiRCgI+fYPbvgBQ==",
+	"_resolved": "/tmp/289efe4fe8c5d67b67da1688b0797525/workleap-postcss-plugin-1.2.0.tgz",
+	"_from": "file:workleap-postcss-plugin-1.2.0.tgz",
 	"_nodeVersion": "18.16.0",
 	"_npmVersion": "9.5.1",
 	"dist": {
-		"integrity": "sha512-Zgh6CB3GPeYBVApxMzyojPxTG96cAdcVHOJlFZVgXEVt4YDGl6ow9SEpGfBvGyvXBAzRkv8umvoqTveWTozkig==",
-		"shasum": "118a3cb07729385523fbdc2012a491bf76432ed1",
-		"tarball": "https://registry.npmjs.org/@workleap/postcss-plugin/-/postcss-plugin-1.1.1.tgz",
+		"integrity": "sha512-rt6vxS/lNx6Y7sBcepmzNw7Jlu7A8nOBDW/LyqhGeRbf2mvrwtzQQJUP+5mmB59WBSdV5ugkiRCgI+fYPbvgBQ==",
+		"shasum": "abef27c2fa77875a968af31fb41a23838ce4e6d5",
+		"tarball": "https://registry.npmjs.org/@workleap/postcss-plugin/-/postcss-plugin-1.2.0.tgz",
 		"fileCount": 6,
-		"unpackedSize": 17671,
+		"unpackedSize": 17911,
 		"attestations": {
-			"url": "https://registry.npmjs.org/-/npm/v1/attestations/@workleap%2fpostcss-plugin@1.1.1",
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/@workleap%2fpostcss-plugin@1.2.0",
 			"provenance": {
 				"predicateType": "https://slsa.dev/provenance/v0.2"
 			}
@@ -73,10 +62,10 @@
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCICzzFQe7OzGD+UJUpMcEYM8s55IZUd1OF3NHBhY+WB9eAiAVSAhLfBkK5GNYLk4f7wPOJXWyCUCkDSyj41uQjnjh3A=="
+				"sig": "MEUCIDyJYJuQpxEhtI/bs7Ocs73PdIwUC59WLja+4Wbypq39AiEA6Or7eWNbA2qoRCbsB3KzwEFnCHFKOzXgnUR/OlgQNb8="
 			}
 		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkQs3UACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmozGw//U0d6pdAckx68Ju3W7OITga/Y/q0R1RhUKlI+fgYCBaCAi5vA\r\n94jU4srbjSp8eehiq1wT5iPg8jSthxtnN643xpLZc8wepB5vE+MPNcnRxnz+\r\nYdS+f9vQOWXD6NuDA91WO6t33RNUQ7uaCk1tY0gH7asXzhil+ZsH7kHqBsT+\r\ndaqQGDh+S6cU1f+DWFGXgvPXGjCXnRKRgBTLQANSQgLV9jrD2Ga+nGtHk/tT\r\na2AAjEue6d6Sb2EWlu1hNx7VWyIWvSNHSkOTxiFC/U061XfBdoX6d8j44rmW\r\nY6UOvvw2mgNq79CmNh7TbJ0TzX86bCOiK/JAK0jXc0TcAC3y6DT03t1PfWQC\r\nUjgUg6sGOu/JPut0JzsZaGxjvMBR9lmcDUl+oEEGvW2AryhzsZ3NoGUJWXv9\r\no1MyJfYm8KZ+7IKndqKAMcRN8/dpU06ePiQrAfl0O4UNB4sjuVKAZYOE0Vaf\r\nasUDtlkrY2L8qVzLfZmWwIE2FcSYn4G5n04/ih90GZyLa/KsH0dlX5JPUZ8E\r\nEMPgPHWspXyNFjSd0kGHo5OvlSEWwHPsPceiub1Rm32zW4x5W4tLxWJKMY1A\r\nt5uehKx+1RCkOo/B0KqAFJmWDaBa9sEE1HnaOi1fXjZehpeYzTChIEj6fzPA\r\nobdgRfkPVs4JFX+665WRMdNGq/i6/s9idnQ=\r\n=aS5m\r\n-----END PGP SIGNATURE-----\r\n"
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkStCCACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqMlA/+JYjBbzYwNEN3ychI0H4NA5lM30T2lsAGyhgdF1hgcO4tasIa\r\n86bd7SlG7aEsWyaHY69nhebq9HUxj3yFKlf6BdYMGtTQYjD7CjI19U+U9gix\r\n3nQIrWjxT1C/6FZzuY4fpeG8kWSsDV/hC4BazN1qxop0eCXIyyVxK/DYla2v\r\nJV1eKlJZZdPhYlPXw1wf9oeLLut6lnvQ3dj+5tezxe3QqF1DLpBwI6N9GBY5\r\nHYhjMhrdX62+BKQS+QtbYysOgVsg7VoXrHmi3nIOIjIsw/VBZAbQ/Po+vDV6\r\nf76U/svBXyy2DTqzAnt6H0xNVWHwnGZRD9lmES6pYx1BVLxKL8yA4X5UbcZI\r\nCZW7Fpc6zlpXMSKWDrL219gNOOiXl0XG2u0FonApq3/4o/kGtVaZzo03l1Bn\r\nm446u6sufgbq4fuH73dP36GzsHdwgsEqUtt4zVshvtX+ZjpTwqk8NIE+FR/e\r\nPbJIL/vMAgmO0NRqXHjvg1zaQW1QwT22+PAqN4L0NCr/DdkuqqSIIOlHMI/g\r\nzGTdnOEd857ZrF0/tBjuTUZj1uNSKr8swpcPvl95F3hld7Lw0rFRDHz6/2k7\r\nFKMXW204SwcbCZGGMQUy4NsmG846iuq99+QF3BU3FD5U1g7jPKs5cJocjkDT\r\n6+9MjYaJcELoXL2PStm29p+8kZztN2WSyXg=\r\n=wuC/\r\n-----END PGP SIGNATURE-----\r\n"
 	},
 	"_npmUser": {
 		"name": "alexasselin008",
@@ -95,8 +84,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-plugin_1.1.1_1682099668177_0.8260631372851124"
+		"tmp": "tmp/postcss-plugin_1.2.0_1682624641878_0.7313506870046882"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-04-21T17:54:28.295Z"
+	"_time": "2023-04-27T19:44:02.073Z"
 }
