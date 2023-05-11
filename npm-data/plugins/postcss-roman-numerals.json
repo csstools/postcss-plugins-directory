@@ -1,0 +1,116 @@
+{
+	"_rev": "4-0248fc29dceb54b0c7acf1e12f0b59ee",
+	"time": {
+		"modified": "2023-05-10T11:20:37.881Z",
+		"created": "2023-05-10T11:20:37.547Z",
+		"1.0.0": "2017-04-04T12:50:08.983Z",
+		"2.0.0": "2023-05-10T11:20:37.685Z"
+	},
+	"_id": "postcss-roman-numerals",
+	"name": "postcss-roman-numerals",
+	"dist-tags": {
+		"latest": "2.0.0"
+	},
+	"versions": {
+		"2.0.0": {
+			"name": "postcss-roman-numerals",
+			"version": "2.0.0",
+			"description": "PostCSS plugin that allows to use roman numerals in your CSS code",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"roman-numerals"
+			],
+			"author": {
+				"name": "Azat S.",
+				"email": "to@azat.io"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/azat-io/postcss-roman-numerals.git"
+			},
+			"exports": {
+				".": {
+					"require": "./dist/index.js",
+					"import": "./dist/index.mjs"
+				},
+				"./package.json": "./package.json"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.23"
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0",
+				"roman-numerals": "^0.3.2"
+			},
+			"gitHead": "861f3f3ac24e778f5a9e2ce9bb3acc896d29414a",
+			"bugs": {
+				"url": "https://github.com/azat-io/postcss-roman-numerals/issues"
+			},
+			"homepage": "https://github.com/azat-io/postcss-roman-numerals#readme",
+			"_id": "postcss-roman-numerals@2.0.0",
+			"_nodeVersion": "18.15.0",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-oDDuq3lzha02UFTAQlWZThDQFdeBTICDBUAowGCw2svR2TPpMFsKApBQUcgPL5MunA1o3OLjpqjMPj19m0Ps3w==",
+				"shasum": "62ac3b05a7cb22ba53347670697a83a883fe21c8",
+				"tarball": "https://registry.npmjs.org/postcss-roman-numerals/-/postcss-roman-numerals-2.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 4243,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQD5Wrz5K7jXlctBcQ+FXRtmHXg6FyQxVudfYyYkT44TlAIgMFcAqWxycsJExwsMO5AqiHpqp1pshZQVCn03NwaChnE="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "azat-io",
+				"email": "to@azat.io"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "azat-io",
+					"email": "to@azat.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-roman-numerals_2.0.0_1683717637547_0.37485680688101475"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"maintainers": [
+		{
+			"name": "azat-io",
+			"email": "to@azat.io"
+		}
+	],
+	"description": "PostCSS plugin that allows to use roman numerals in your CSS code",
+	"homepage": "https://github.com/azat-io/postcss-roman-numerals#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"roman-numerals"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/azat-io/postcss-roman-numerals.git"
+	},
+	"author": {
+		"name": "Azat S.",
+		"email": "to@azat.io"
+	},
+	"bugs": {
+		"url": "https://github.com/azat-io/postcss-roman-numerals/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Roman Numerals\n\n<img align=\"right\" width=\"120\" height=\"120\" title=\"PostCSS\" src=\"http://postcss.github.io/postcss/logo.svg\">\n\n[PostCSS](https://postcss.org) plugin that allows to use roman numerals in your CSS code.\n\n## Example\n\n### Input\n\n```css\n.app {\n  min-height: Cvh;\n  max-width: MCCpx;\n  padding: XIIpx IXpx;\n}\n\n.app__title {\n  font-size: IIem;\n}\n\n.app__logo {\n  width: C%;\n}\n```\n\n### Output\n\n```css\n.app {\n  min-height: 100vh;\n  max-width: 1200px;\n  padding: 12px 9px;\n}\n\n.app__title {\n  font-size: 2em;\n}\n\n.app__logo {\n  width: 100%;\n}\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-roman-numerals\n```\n\n**Step 2:** Check your project for existing PostCSS config: `.postcssrc` in the project root, `\"postcss\"` section in `package.json` or `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs](https://github.com/postcss/postcss#usage)\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to your PostCSS config:\n\n```diff\n{\n  \"plugins\": {\n+    \"postcss-roman-numerals\": {},\n    \"autoprefixer\": {}\n  }\n}\n```\n\n## Contributing\n\nPull requests are welcome.\n\n## License\n\nMIT &copy; [Azat S.](https://twitter.com/azat_io)\n",
+	"readmeFilename": "readme.md",
+	"_downloads": 0
+}
