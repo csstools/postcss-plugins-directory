@@ -1,16 +1,22 @@
 {
 	"name": "@csstools/postcss-ic-unit",
 	"description": "Use the ic length unit",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
 	},
 	"license": "CC0-1.0",
-	"funding": {
-		"type": "opencollective",
-		"url": "https://opencollective.com/csstools"
-	},
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
@@ -26,23 +32,21 @@
 		}
 	},
 	"dependencies": {
-		"@csstools/postcss-progressive-custom-properties": "^2.0.0",
+		"@csstools/postcss-progressive-custom-properties": "^2.2.0",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-ic-unit#readme",
@@ -70,23 +74,22 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "a3d9b7dce205bc6d17880214321265ec9c99734a",
-	"_id": "@csstools/postcss-ic-unit@2.0.2",
-	"_nodeVersion": "18.13.0",
-	"_npmVersion": "9.4.1",
+	"gitHead": "7692826064ee6219dc3933e2fb56357bb3c63f26",
+	"_id": "@csstools/postcss-ic-unit@2.0.3",
+	"_nodeVersion": "18.15.0",
+	"_npmVersion": "9.5.0",
 	"dist": {
-		"integrity": "sha512-N84qGTJkfLTPj2qOG5P4CIqGjpZBbjOEMKMn+UjO5wlb9lcBTfBsxCF0lQsFdWJUzBHYFOz19dL66v71WF3Pig==",
-		"shasum": "5a5e481c53977deec3d63793788eec924d4c5f7d",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-ic-unit/-/postcss-ic-unit-2.0.2.tgz",
+		"integrity": "sha512-azDezOeI7IhLGqRauyfi/JuJOfNHM951h0TZWnL9L38xTmlBK+s7y4MpWXTq/Ohz8IuiIuVPobXTewsqXaTeiQ==",
+		"shasum": "21b3adea10aedd51181285f3e1225598d602e1e2",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-ic-unit/-/postcss-ic-unit-2.0.3.tgz",
 		"fileCount": 9,
-		"unpackedSize": 15127,
+		"unpackedSize": 15033,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQD+zz5myel+/WiBViLJK4IRlHtPA6d7WKP2WuAAbdTlSAIhAOB/PSOjclqyxtBkERi8bB1G7TJLKPyiLakPXgE4jleg"
+				"sig": "MEUCIAEfHYkBNyEgaJnIRzz57Dj9fF9g/XRCSQpKpLWx6CoYAiEAuVj1upvmnLG4Pv7e0XJMF8xx5VN6opVGUSjTOOiqjAc="
 			}
-		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj418xACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqeRBAAooKGhbqzZ5UOA0iTSqryZP4y85ZxQ2fG65S+JcgSKpAgt0aR\r\nOAoBXxJ5Z7lAfxlzuQ4Sqv6qTxZwrLDhvjtH/WCJm1rBxWAxz9xb8XvKQA6Y\r\njbh/LZ/W4MecIHgCuTv1Lfzka84QtPPMLXmmQ+qFN3U4Yc8pT5eQmAWRXYD1\r\nyRmVoXktKlI2/kAT1qxtj8hSGSKJ9q/sFNRnG6vjCnB1gTwE3Y4vF46I+Za6\r\ng5vb3OPGntkIOMX5c/wahGX53eJEkum1+18+yr5k/fWILIKqWrlWIcmLQhiW\r\ncTJPcxP8HWFAIqMMUhHZFjavSbkY0WkKVNcVBPIp12FD//gEnrePjGBoyOZz\r\nw1IUdYiS4ho+n02rm7aOTnBIWTaZqILZ7vUtdl2vpfrR/su13w8igwGuVaEX\r\nxhs2FmY7loPyaNnYBRIJu+eI/qESrA/0nDlsHpOV3JmlbPg+125TaTXiEFiY\r\nGRWfbj50ej5f6URMnYk/vo+gx9bFm16i/5efndel9+hBVz9ZbFaDXhSF8m+N\r\nmJ/b72ScHE8cC0fIXC2gX88PcFHHzGNnmmQ7JNu5bRRn5cGP7l06wbh4N0KQ\r\njlRgszGvkAbQJk8F9uoytOq95M6GQDi6gbi1UmuHgHzx7QzB+WRIP4tRZpIn\r\nuCqt7wTdpq+lKihT4kk8IP+qkCTN8nOS2DQ=\r\n=WExc\r\n-----END PGP SIGNATURE-----\r\n"
+		]
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -105,8 +108,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-ic-unit_2.0.2_1675845425117_0.054918758221554675"
+		"tmp": "tmp/postcss-ic-unit_2.0.3_1684511510474_0.2515166747980411"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-08T08:37:05.280Z"
+	"_time": "2023-05-19T15:51:50.632Z"
 }
