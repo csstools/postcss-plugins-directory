@@ -1,0 +1,122 @@
+{
+	"name": "@csstools/postcss-relative-color-syntax",
+	"description": "Use the relative color syntax in CSS",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "CC0-1.0",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-color-parser": "^1.2.0",
+		"@csstools/css-parser-algorithms": "^2.1.1",
+		"@csstools/css-tokenizer": "^2.1.1",
+		"@csstools/postcss-progressive-custom-properties": "^2.2.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-relative-color-syntax#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-relative-color-syntax"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"color",
+		"postcss-plugin",
+		"relative color syntax"
+	],
+	"csstools": {
+		"cssdbId": "relative-color-syntax",
+		"exportName": "postcssRelativeColorSyntax",
+		"humanReadableName": "PostCSS Relative Color Syntax",
+		"specUrl": "https://www.w3.org/TR/css-color-5/#relative-colors"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "2d2d4c9de81ce1b09fba83f49c5849dac5eb91e7",
+	"_id": "@csstools/postcss-relative-color-syntax@1.0.0",
+	"_nodeVersion": "18.15.0",
+	"_npmVersion": "9.5.0",
+	"dist": {
+		"integrity": "sha512-/Q2xOHjOeq8p8j/+yilJlroWzqbBca3+tux2ikkArsAsQS9sHWbFtPz602EpNnoGSnVg7o/QSf3xxaekyzv/8A==",
+		"shasum": "104c1f7c549781334d408bdba93baf4f7288bc1b",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-relative-color-syntax/-/postcss-relative-color-syntax-1.0.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 17354,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCtcrAgNDJksmQ2xXeeiLaCuAwp0syGk9dLaeNIAFIoOgIgQS6iZWcCTMXwfKML8kH5GCJDQ9s+3QFOsOwNTaUpC0M="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-relative-color-syntax_1.0.0_1684511599420_0.5595821836223043"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-05-19T15:53:19.584Z"
+}
