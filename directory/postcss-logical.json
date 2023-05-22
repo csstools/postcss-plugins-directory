@@ -1,7 +1,7 @@
 {
 	"name": "postcss-logical",
 	"description": "Use logical properties and values in CSS",
-	"version": "6.1.0",
+	"version": "6.2.0",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -18,10 +18,16 @@
 		}
 	],
 	"license": "CC0-1.0",
-	"funding": {
-		"type": "opencollective",
-		"url": "https://opencollective.com/csstools"
-	},
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
@@ -42,17 +48,15 @@
 	"peerDependencies": {
 		"postcss": "^8.4"
 	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
 	"scripts": {
-		"prebuild": "npm run clean",
 		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
 		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
 		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical#readme",
@@ -99,23 +103,22 @@
 	"volta": {
 		"extends": "../../package.json"
 	},
-	"gitHead": "38965076e99fd807fd639272510e18b47107edf5",
-	"_id": "postcss-logical@6.1.0",
-	"_nodeVersion": "18.13.0",
-	"_npmVersion": "9.4.1",
+	"gitHead": "4282a4629b39093295e72b3f629f808734cb1435",
+	"_id": "postcss-logical@6.2.0",
+	"_nodeVersion": "18.15.0",
+	"_npmVersion": "9.5.0",
 	"dist": {
-		"integrity": "sha512-qb1+LpClhYjxac8SfOcWotnY3unKZesDqIOm+jnGt8rTl7xaIWpE2bPGZHxflOip1E/4ETo79qlJyRL3yrHn1g==",
-		"shasum": "c33ae75d3edaea7eb821e76dc4e6d0ecedc3200d",
-		"tarball": "https://registry.npmjs.org/postcss-logical/-/postcss-logical-6.1.0.tgz",
-		"fileCount": 19,
-		"unpackedSize": 37901,
+		"integrity": "sha512-aqlfKGaY0nnbgI9jwUikp4gJKBqcH5noU/EdnIVceghaaDPYhZuyJVxlvWNy55tlTG5tunRKCTAX9yljLiFgmw==",
+		"shasum": "85e49cfee3ffda839d4befcab9f70c70a7bb337a",
+		"tarball": "https://registry.npmjs.org/postcss-logical/-/postcss-logical-6.2.0.tgz",
+		"fileCount": 21,
+		"unpackedSize": 45588,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIGLVbvgaLppj0SGAHkO3yT6s192mYl/anEtRm+GEOmvOAiEAzXj8dOdAARWnxRNcrIYAZtaOc7m1R78gAUOXNevAygo="
+				"sig": "MEQCIDIwUFou3h2QavSWjQ37cPh1w0ql4Q+Tkw0hiK3y/6JFAiBtOYbI1khECE7q579s2uXO80eGk3z0g1eLiJJ6xLHvFQ=="
 			}
-		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj7JYxACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr+rQ/9E98T0vSmb5J7ey2RAlw/Dz5hvPTmCBJalzgL2u7TkmqfH3KE\r\nwvqfIgkTmjRT3C77TVdFb/4uCukTIZTj0IKe/4m4KhCW9ykrxTSozfLKA+YE\r\nBbomVfYvzfCdWgr+2SjIeidDqpq0Zdu9MlMLY5//jitvHkxo7HJTC288UarQ\r\nYCDnr63xipZgNUeLEW9gEqktF6wEURO2ytEk83fGQrWpXlbX970ZwhS4BK09\r\nAUOomz5+iO3Y28kANagzcvJLJ402iVqXzZ8SeMRyd3GNgPZboTKmfmI17BuV\r\nArBorz9LDqUFEESEUoQPammjfBylprQLm1Dy729PWFJNEmvh4YrligZIY5fB\r\nXKulsIfKn0/hG0e93aF+3MrpWueBzUY/XzKcEwYrt6GFt3r5vzgfNdQen9Qu\r\nvMEQ/B3YLTO8K4KLKTX/j8kfyKuLa/IgSH+T/405OIFXXfqONgx/NfvXwWLU\r\nLFArLgE27lChbG/c9HyEJOQ5YPrPUPOTbz44ish+MaVpi2nYvbvIApMhOq6g\r\nrahODNRPFG5/Fl6S4PXy1JWxwhc9HgPhMgrhEvuR3pHuGdFTgi7JICbkZJl7\r\n4815XhmbRrXkdJK2s9yh0KsS1NKKCGk9KZiEbWXD0m8jEkYg0vI2lnCNmqbp\r\nRvu+FvXKjm5fYuhF+VQdMoM+FdtLZR5Nd/g=\r\n=vF59\r\n-----END PGP SIGNATURE-----\r\n"
+		]
 	},
 	"_npmUser": {
 		"name": "alaguna",
@@ -134,8 +137,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-logical_6.1.0_1676449329208_0.5009632658322298"
+		"tmp": "tmp/postcss-logical_6.2.0_1684510695333_0.4264687818880397"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-15T08:22:09.463Z"
+	"_time": "2023-05-19T15:38:15.601Z"
 }
