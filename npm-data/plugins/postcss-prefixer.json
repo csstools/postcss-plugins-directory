@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-prefixer",
-	"_rev": "25-908aa90f93ca111b01c9b35d02c03c7e",
+	"_rev": "26-fca200b41f2c648028376617fc36f2a4",
 	"name": "postcss-prefixer",
 	"description": "postcss plugin to prefix all css selector classes and ids",
 	"dist-tags": {
-		"latest": "2.1.3"
+		"latest": "3.0.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -1459,9 +1459,98 @@
 				"tmp": "tmp/postcss-prefixer_2.1.3_1625859400966_0.8322433419666482"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "postcss-prefixer",
+			"version": "3.0.0",
+			"description": "postcss plugin to prefix all css selector classes and ids",
+			"main": "lib/prefixer.js",
+			"engines": {
+				"node": "^10 || ^12 || >=14"
+			},
+			"dependencies": {
+				"css-selector-tokenizer": "^0.7.2"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"eslint": "^5.16.0",
+				"eslint-config-airbnb-base": "^14.1.0",
+				"eslint-plugin-import": "^2.20.2",
+				"eslint-plugin-jest": "^23.8.2",
+				"husky": "^4.2.3",
+				"jest": "^29.5.0",
+				"postcss": "^8.4.23"
+			},
+			"scripts": {
+				"test": "jest --coverage",
+				"test:watch": "jest --watch",
+				"lint": "eslint ./lib",
+				"prepublish": "npm run lint && npm test"
+			},
+			"jest": {
+				"testEnvironment": "node"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "npm test"
+				}
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"postcss-prefixer"
+			],
+			"directories": {
+				"lib": "./lib",
+				"test": "./test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/marceloucker/postcss-prefixer.git"
+			},
+			"bugs": {
+				"url": "https://github.com/marceloucker/postcss-prefixer/issues"
+			},
+			"homepage": "https://github.com/marceloucker/postcss-prefixer#readme",
+			"gitHead": "a34a6d0ce9e1f7f27cd47b238d5bcda8d620ec26",
+			"_id": "postcss-prefixer@3.0.0",
+			"_nodeVersion": "18.16.0",
+			"_npmVersion": "9.6.7",
+			"dist": {
+				"integrity": "sha512-q5JEBO8KcJheLLK9RezOw6a26Kdvr2bmPXiK2rsU/5G4h/b6lQh2PhmhvTHvogLQnRUgTNGw76WOiIoiJh+2tw==",
+				"shasum": "bec5ba4ec9ed29bdd0f8d807df8f977528bb7a41",
+				"tarball": "https://registry.npmjs.org/postcss-prefixer/-/postcss-prefixer-3.0.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 16066,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHS0FjOGOoxEd/iagn2qRjmmvwdMhRsnkKsCkhpp0amOAiEAiqfbVRFB8UPjE+4zi+WRx0pRBi0rJulTp3mEL0Zh1x4="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "marceloucker",
+				"email": "marcelo.ucker@outlook.com"
+			},
+			"maintainers": [
+				{
+					"name": "marceloucker",
+					"email": "marcelo.ucker@outlook.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-prefixer_3.0.0_1685938721034_0.1760357795578429"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# postcss-prefixer\n[![Build Status](https://travis-ci.org/marceloucker/postcss-prefixer.svg?branch=master)](https://travis-ci.org/marceloucker/postcss-prefixer) [![dependencies Status](https://david-dm.org/marceloucker/postcss-prefixer/status.svg)](https://david-dm.org/marceloucker/postcss-prefixer) [![devDependencies Status](https://david-dm.org/marceloucker/postcss-prefixer/dev-status.svg)](https://david-dm.org/marceloucker/postcss-prefixer?type=dev)\n[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Usage]: https://github.com/postcss/postcss#usage\n\nA [PostCSS] plugin to prefix css selectors.\n\n````css\n/* source css file */\n\n#selector { /* content */ }\n\n.selector { /* content */ }\n\n.selector:hover { /* content */ }\n\n.selector__element { /* content */ }\n````\n\n````css\n/* output css file prefixed with \"prfx__\" */\n\n#prfx__selector { /* content */ }\n\n.prfx__selector { /* content */ }\n\n.prfx__selector:hover { /* content */ }\n\n.prfx__selector__element { /* content */ }\n````\n\n## Usage\n\n`npm i -D postcss-prefixer` or `yarn add -D postcss-prefixer`\n\ncreate a `postcss.config.js` with:\n```js\nmodule.exports = {\n  plugins: [\n    require('postcss-prefixer')({ /* options */ })\n  ]\n}\n```\n\n> Refer to [PostCSS Usage] on how to use it with your preferred build tool.\n\n#### Example\n```js\nconst postcss = require('postcss');\nconst prefixer = require('postcss-prefixer');\n\nconst input = fs.readFileSync('path/to/file.css',  'utf-8');\n\nconst output = postcss([\n  prefixer({\n        prefix: 'prefix-',\n        ignore: [ /selector-/, '.ignore', '#ignore' ]\n    })\n]).process(input);\n```\n\n#### Options\n| Name           | Description                                |\n|------------------|--------------------------------------------|\n|`prefix` (string) | prefix value to be used                    |\n|`ignore` (array)  | list of selectors to ignore, accepts regex |\n\n\n## Credits\n\n Plugin based on [postcss-class-prefix](https://github.com/thompsongl/postcss-class-prefix) create by [thompsongl](https://github.com/thompsongl).\n",
+	"readme": "# postcss-prefixer\n[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Usage]: https://github.com/postcss/postcss#usage\n\nA [PostCSS] plugin to prefix css selectors.\n\n````css\n/* source css file */\n\n#selector { /* content */ }\n\n.selector { /* content */ }\n\n.selector:hover { /* content */ }\n\n.selector__element { /* content */ }\n````\n\n````css\n/* output css file prefixed with \"prfx__\" */\n\n#prfx__selector { /* content */ }\n\n.prfx__selector { /* content */ }\n\n.prfx__selector:hover { /* content */ }\n\n.prfx__selector__element { /* content */ }\n````\n\n## Usage\n\n`npm i -D postcss postcss-prefixer` or `yarn add -D postcss postcss-prefixer`\n\ncreate a `postcss.config.js` with:\n```js\nmodule.exports = {\n  plugins: [\n    require('postcss-prefixer')({ /* options */ })\n  ]\n}\n```\n\n> Refer to [PostCSS Usage] on how to use it with your preferred build tool.\n\n#### Example\n```js\nconst postcss = require('postcss');\nconst prefixer = require('postcss-prefixer');\n\nconst input = fs.readFileSync('path/to/file.css',  'utf-8');\n\nconst output = postcss([\n  prefixer({\n        prefix: 'prefix-',\n        ignore: [ /selector-/, '.ignore', '#ignore' ]\n    })\n]).process(input);\n```\n\n#### Options\n| Name           | Description                                |\n|------------------|--------------------------------------------|\n|`prefix` (string) | prefix value to be used                    |\n|`ignore` (array)  | list of selectors to ignore, accepts regex |\n\n\n## Credits\n\n Plugin based on [postcss-class-prefix](https://github.com/thompsongl/postcss-class-prefix) create by [thompsongl](https://github.com/thompsongl).\n",
 	"maintainers": [
 		{
 			"name": "marceloucker",
@@ -1469,7 +1558,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:38:00.745Z",
+		"modified": "2023-06-05T04:18:41.331Z",
 		"created": "2016-08-22T12:07:59.752Z",
 		"0.1.0": "2016-08-22T12:07:59.752Z",
 		"0.1.1": "2016-08-22T13:44:54.370Z",
@@ -1488,7 +1577,8 @@
 		"2.1.0": "2018-04-08T20:43:08.685Z",
 		"2.1.1": "2019-01-10T04:44:51.487Z",
 		"2.1.2": "2019-10-09T14:38:23.049Z",
-		"2.1.3": "2021-07-09T19:36:41.103Z"
+		"2.1.3": "2021-07-09T19:36:41.103Z",
+		"3.0.0": "2023-06-05T04:18:41.212Z"
 	},
 	"homepage": "https://github.com/marceloucker/postcss-prefixer#readme",
 	"keywords": [
@@ -1506,5 +1596,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 65017
+	"_downloads": 59508
 }
