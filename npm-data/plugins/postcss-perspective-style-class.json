@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-perspective-style-class",
-	"_rev": "2-da97b1678a9d755d6e9c2d47451e23d6",
+	"_rev": "3-5860ccf9837c7e7b992373ac66c2192c",
 	"name": "postcss-perspective-style-class",
 	"dist-tags": {
-		"latest": "0.1.2"
+		"latest": "0.2.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -311,14 +311,117 @@
 				"tmp": "tmp/postcss-perspective-style-class_0.1.2_1686036409086_0.761186649674084"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.2.0": {
+			"name": "postcss-perspective-style-class",
+			"version": "0.2.0",
+			"description": "PostCSS plugin for Perspective Style Classes",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-perspective-style-class"
+			],
+			"scripts": {
+				"lint": "eslint . --ext .js",
+				"test": "jest --coverage && eslint ."
+			},
+			"author": {
+				"name": "benmusson",
+				"email": "ben.d.musson@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mussonindustrial/postcss-perspective-style-class.git"
+			},
+			"engines": {
+				"node": ">=16.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"clean-publish": "^3.4.2",
+				"eslint": "^8.42.0",
+				"eslint-config-standard": "^17.1.0",
+				"eslint-plugin-import": "^2.27.5",
+				"eslint-plugin-jest": "^27.2.1",
+				"eslint-plugin-n": "^16.0.0",
+				"eslint-plugin-promise": "^6.1.1",
+				"eslint-plugin-regex": "^1.10.0",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"gitHead": "b7849e139fb1e09877f91f3f77bd3f7efd8ee863",
+			"bugs": {
+				"url": "https://github.com/mussonindustrial/postcss-perspective-style-class/issues"
+			},
+			"homepage": "https://github.com/mussonindustrial/postcss-perspective-style-class#readme",
+			"_id": "postcss-perspective-style-class@0.2.0",
+			"_nodeVersion": "16.20.0",
+			"_npmVersion": "8.19.4",
+			"dist": {
+				"integrity": "sha512-zGB0yID4es9SwEuH7P2QmdMPBfz+qfyzVlj8ezj75M1I8qEDPAipSZfPAQAWqL+PstaP4ZckjRVlmyx7f4JNSQ==",
+				"shasum": "80c2f0b108b5cd29fdeb3eadfbb96dfad46053f8",
+				"tarball": "https://registry.npmjs.org/postcss-perspective-style-class/-/postcss-perspective-style-class-0.2.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 6443,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDwbxHAVwACdA0q5zGMN4Bts9L2fePNYhB9HpydupHmSwIgZDVpdJIkNPW/WSZ292d7myAmROoev9E90kRNLY0e0jA="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "benmusson",
+				"email": "ben.d.musson@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "benmusson",
+					"email": "ben.d.musson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-perspective-style-class_0.2.0_1686758646362_0.5420682264294494"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-06-06T07:05:12.973Z",
 		"0.1.0": "2023-06-06T07:05:13.136Z",
-		"modified": "2023-06-06T07:26:49.385Z",
+		"modified": "2023-06-14T16:04:06.686Z",
 		"0.1.1": "2023-06-06T07:16:25.808Z",
-		"0.1.2": "2023-06-06T07:26:49.276Z"
+		"0.1.2": "2023-06-06T07:26:49.276Z",
+		"0.2.0": "2023-06-14T16:04:06.557Z"
 	},
 	"maintainers": [
 		{
@@ -346,7 +449,7 @@
 		"url": "https://github.com/mussonindustrial/postcss-perspective-style-class/issues"
 	},
 	"license": "MIT",
-	"readme": "# postcss-perspective-style-class\n\n[PostCSS] plugin for generating Perspective Style Classes using attribute syntax.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n[psc=Folder1/class] { \n  color: black; \n}\n\n[psc=Folder1/Folder2/class] { \n  color: black; \n}\n\n[psc=Folder1/class1].otherClass1 .otherClass2 { \n  color: black; \n}\n\n\n\n```\n\nwill be processed to:\n\n```css\n.psc-Folder1/\\class { \n  color: black; \n}\n\n.psc-Folder1/\\Folder2/\\class { \n  color: black; \n}\n\n.psc-Folder1/\\class1.otherClass1 .otherClass2 { \n  color: black; \n}\n```\n\n## Usage\n\n**Step 1:** Install the plugin:\n\n```sh\nnpm install --save-dev postcss postcss-perspective-style-class\n```\n\n**Step 2:** Check your project for existing PostCSS config: `postcss.config.js` in the project root, `\"postcss\"` section in `package.json` or `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs] and set this plugin in settings.\n\n**Step 3:** Add the plugin to the plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-perspective-style-class'),\n    require('autoprefixer')\n  ]\n}\n```\n\n## Options\n\n### `separator`\n\nBy default, the plugin will use `/` as the separator for Style Class folders.\nUse this option to specify a custom separator to use in your CSS.\n\n```js\npostcss([ require('postcss-perspective-style-class')({ separator: '-' }) ])\n```\n```css\n/* Input */\n[psc=Folder1-class] {\n  color: black;\n}\n\n/* Output */\n.psc-Folder1/\\class { \n  color: black;\n}\n```\n\n### `cb`\n\nA callback function can be specified which will be supplied with a list of the Style Class paths encountered.\n\n```js\nconst cb = (styleClasses) => console.log(styleClasses)\npostcss([ require('postcss-perspective-style-class')({ cb }) ])\n```\n```css\n[psc=Folder1/class1].otherClass, \n[psc=Folder2/class2] { \n  color: black; \n}\n```\nresults in:\n```js\n[ 'Folder1/class1', 'Folder2/class2' ]\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
+	"readme": "# postcss-perspective-style-class\n\n[PostCSS] plugin for generating Perspective Style Classes using attribute syntax.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n[psc=\"Folder1/class\"] { \n  color: black; \n}\n\n[psc=\"Folder1/Folder2/class\"] { \n  color: black; \n}\n\n[psc=\"Folder1/class1\"].otherClass1 .otherClass2 { \n  color: black; \n}\n\n\n\n```\n\nwill be processed to:\n\n```css\n.psc-Folder1\\/class { \n  color: black; \n}\n\n.psc-Folder1\\/Folder2\\/class { \n  color: black; \n}\n\n.psc-Folder1\\/class1.otherClass1 .otherClass2 { \n  color: black; \n}\n```\n\n## Usage\n\n**Step 1:** Install the plugin:\n\n```sh\nnpm install --save-dev postcss postcss-perspective-style-class\n```\n\n**Step 2:** Check your project for existing PostCSS config: `postcss.config.js` in the project root, `\"postcss\"` section in `package.json` or `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs] and set this plugin in settings.\n\n**Step 3:** Add the plugin to the plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-perspective-style-class'),\n    require('autoprefixer')\n  ]\n}\n```\n\n## Options\n\n### `separator`\n\nBy default, the plugin will use `/` as the separator for Style Class folders.\nUse this option to specify a custom separator to use in your CSS.\n\n```js\npostcss([ require('postcss-perspective-style-class')({ separator: '-' }) ])\n```\n```css\n/* Input */\n[psc=\"Folder1-class\"] {\n  color: black;\n}\n\n/* Output */\n.psc-Folder1\\/class { \n  color: black;\n}\n```\n\n### `cb`\n\nA callback function can be specified which will be supplied with a list of the Style Class paths encountered.\n\n```js\nconst cb = (styleClasses) => console.log(styleClasses)\npostcss([ require('postcss-perspective-style-class')({ cb }) ])\n```\n```css\n[psc=\"Folder1/class1\"].otherClass, \n[psc=\"Folder2/class2\"] { \n  color: black; \n}\n```\nresults in:\n```js\n[ 'Folder1/class1', 'Folder2/class2' ]\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
 	"readmeFilename": "README.md",
-	"_downloads": 181
+	"_downloads": 205
 }
