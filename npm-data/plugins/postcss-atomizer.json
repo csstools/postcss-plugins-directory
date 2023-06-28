@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-atomizer",
-	"_rev": "1-05cf9c8d4e413f9b7d24373834d4454a",
+	"_rev": "2-0e98687e62020a69adc7d2bffe8c73e0",
 	"name": "postcss-atomizer",
 	"dist-tags": {
-		"latest": "1.0.1"
+		"latest": "1.0.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -147,13 +147,84 @@
 				"tmp": "tmp/postcss-atomizer_1.0.1_1665599952588_0.09780804687526401"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.2": {
+			"name": "postcss-atomizer",
+			"version": "1.0.2",
+			"description": "PostCSS Atomizer plugin",
+			"keywords": [
+				"atomizer",
+				"postcss-plugin"
+			],
+			"homepage": "https://github.com/acss-io/atomizer#readme",
+			"bugs": {
+				"url": "https://github.com/acss-io/atomizer/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/acss-io/atomizer.git",
+				"directory": "packages/postcss-atomizer"
+			},
+			"license": "BSD-3-Clause",
+			"author": {
+				"name": "Seth Bertalotto",
+				"email": "seth@bertalotto.net"
+			},
+			"exports": "./src/index.js",
+			"scripts": {
+				"test": "jest ."
+			},
+			"dependencies": {
+				"atomizer": "^3.18.2"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"engines": {
+				"node": ">=16.0",
+				"npm": ">=8.0"
+			},
+			"gitHead": "0eefd2a00290dc6985c6a55d6f6a8be621b89b0b",
+			"_id": "postcss-atomizer@1.0.2",
+			"_nodeVersion": "18.16.0",
+			"_npmVersion": "9.5.1",
+			"dist": {
+				"integrity": "sha512-KUdic4hWRzEos1Aow/5XR6qXH4XLoHtp42U1M42x6po/FuVWXasLoMiKdn7wirAZZ7CtHQVy/MtyyTKTkMiQlA==",
+				"shasum": "b966ac6034ddb4da9c08ed46231ea6fd2cb67839",
+				"tarball": "https://registry.npmjs.org/postcss-atomizer/-/postcss-atomizer-1.0.2.tgz",
+				"fileCount": 3,
+				"unpackedSize": 3042,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBIWVza7QNPjKH9cikqhGcCnTh/iWnl71+3lSLH3BvFqAiEA8oEN6u5Pr3Fz28ow0TCOyE9pWDydSGuryrnK3H4LEl4="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "redonkulus",
+				"email": "seth@bertalotto.net"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "redonkulus",
+					"email": "seth@bertalotto.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-atomizer_1.0.2_1687901995170_0.0076345767115246765"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-09-07T18:53:11.316Z",
 		"1.0.0": "2022-09-07T18:53:11.552Z",
-		"modified": "2022-10-12T18:39:13.010Z",
-		"1.0.1": "2022-10-12T18:39:12.913Z"
+		"modified": "2023-06-27T21:39:55.457Z",
+		"1.0.1": "2022-10-12T18:39:12.913Z",
+		"1.0.2": "2023-06-27T21:39:55.348Z"
 	},
 	"maintainers": [
 		{
@@ -180,7 +251,7 @@
 		"url": "https://github.com/acss-io/atomizer/issues"
 	},
 	"license": "BSD-3-Clause",
-	"readme": "# postcss-atomizer\n\n[PostCSS](https://postcss.org/) plugin for Atomizer.\n\n## Installation\n\n```shell\nnpm i postcss-atomizer postcss -D\n```\n\n## Usage\n\nUpdate your project's `postcss.config.js` file by adding the atomizer plugin:\n\n```js\n// postcss.config.js\nconst atomizerPlugin = require('postcss-atomizer');\n\nmodule.exports = {\n    plugins: [\n        atomizerPlugin({ /* options */ }),\n    ]\n};\n```\n\nThe plugin will automatically execute Atomizer based on your project's [`atomizer.config.js`](https://acss.io/configuration.html) file and pass the rendered CSS to any additional plugins you configure.\n\n### Options\n\nThe available options follow the [`Options` interface](https://github.com/acss-io/atomizer/blob/main/packages/atomizer/index.d.ts) from Atomizer's TypeScript definition.\n\nBy default, the plugin will look for an `atomizer.config.js` file at the root of your project. If your config file is in another location, you use the `config` property to specify it:\n\n```js\nmodule.exports = {\n    plugins: [\n        atomizerPlugin({\n            config: `${process.cwd()}/path/to/atomizer.config.js`\n        }),\n    ]\n};\n```\n",
+	"readme": "# postcss-atomizer\n\n[PostCSS](https://postcss.org/) plugin for Atomizer.\n\n## Installation\n\n```shell\nnpm i postcss-atomizer postcss -D\n```\n\n## Usage\n\nUpdate your project's `postcss.config.js` file by adding the atomizer plugin:\n\n```js\n// postcss.config.js\nconst atomizer = require('postcss-atomizer');\n\nmodule.exports = {\n    plugins: [\n        atomizer({ /* options */ }),\n    ]\n};\n```\n\nThe plugin will automatically execute Atomizer based on your project's [`atomizer.config.js`](https://acss.io/configuration.html) file and pass the rendered CSS to any additional plugins you configure.\n\n### Options\n\nThe available options follow the [`Options` interface](https://github.com/acss-io/atomizer/blob/main/packages/atomizer/index.d.ts) from Atomizer's TypeScript definition.\n\nBy default, the plugin will look for an `atomizer.config.js` file at the root of your project. If your config file is in another location, you use the `config` property to specify it:\n\n```js\nmodule.exports = {\n    plugins: [\n        atomizerPlugin({\n            config: `${process.cwd()}/path/to/atomizer.config.js`\n        }),\n    ]\n};\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 8
+	"_downloads": 14
 }
