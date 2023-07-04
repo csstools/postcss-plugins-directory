@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-env-function",
-	"_rev": "15-27940add67bed23408941f38369d4b1b",
+	"_rev": "16-5d18982fa3dcb3560702b452693eaa71",
 	"name": "postcss-env-function",
 	"dist-tags": {
-		"latest": "5.0.1"
+		"latest": "6.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1531,12 +1531,124 @@
 				"tmp": "tmp/postcss-env-function_5.0.1_1674891455259_0.23373256901996253"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.0": {
+			"name": "postcss-env-function",
+			"description": "Use env() variables in CSS",
+			"version": "6.0.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.cjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.cjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-env-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-env-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"constants",
+				"css",
+				"environments",
+				"envs",
+				"functions",
+				"postcss",
+				"postcss-plugin",
+				"variables"
+			],
+			"csstools": {
+				"exportName": "postcssEnvFunction",
+				"humanReadableName": "PostCSS Environment Variables"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "1299ee53c6b535e3ab760559c747f802bc100bd3",
+			"_id": "postcss-env-function@6.0.0",
+			"_nodeVersion": "18.15.0",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-TUJB2UsZ8iJGbLx/2vIMt7z8s3E1eiF5mMw6eDo8/mktgkqkrTroBzDxzLzWn4siRjGoiV/NB7t755z8AVfchQ==",
+				"shasum": "4f112714dd65ac39513f63dc3947d6a82b552576",
+				"tarball": "https://registry.npmjs.org/postcss-env-function/-/postcss-env-function-6.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 14933,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDPvKOgIPs95YDT66ySZKj0Ymu+2k5GbByCYHmqew7k2AIgE0Jn5d1v7oQfIacMuBKUBKQIUbGjFmyaU5nEMPFTpPw="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-env-function_6.0.0_1688371936869_0.3248980291313175"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-04-28T19:04:52.598Z",
 		"1.0.0": "2018-04-28T19:04:52.647Z",
-		"modified": "2023-01-28T07:37:35.578Z",
+		"modified": "2023-07-03T08:12:17.222Z",
 		"2.0.0": "2018-09-18T03:35:44.626Z",
 		"2.0.1": "2018-09-18T16:05:36.384Z",
 		"2.0.2": "2018-09-20T20:16:54.767Z",
@@ -1549,7 +1661,8 @@
 		"4.0.5": "2022-02-05T17:05:13.464Z",
 		"4.0.6": "2022-03-19T18:11:53.408Z",
 		"5.0.0": "2023-01-24T09:02:56.575Z",
-		"5.0.1": "2023-01-28T07:37:35.484Z"
+		"5.0.1": "2023-01-28T07:37:35.484Z",
+		"6.0.0": "2023-07-03T08:12:17.030Z"
 	},
 	"maintainers": [
 		{
@@ -1585,8 +1698,8 @@
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT-0",
 	"readme": "# PostCSS Environment Variables [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"NPM Version\" src=\"https://img.shields.io/npm/v/postcss-env-function.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/environment-variables.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/actions/workflows/test.yml/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Environment Variables] lets you use `env()` variables in CSS, following the [CSS Environment Variables] specification.\n\n⚠️ Custom Environment Variables were never defined in a specification and we are no longer including this in `postcss-preset-env`.<br>\nIn the future there might be renewed interest in Custom Environment Variables.\n\nWe advice users of this plugin to seek alternatives such as [postcss-design-tokens](https://github.com/csstools/postcss-plugins/tree/postcss-preset-env--v8/plugins/postcss-design-tokens#readme)\n\n```pcss\n@media (max-width: env(--branding-small)) {\n  body {\n    padding: env(--branding-padding);\n  }\n}\n\n/* becomes */\n\n@media (min-width: 600px) {\n  body {\n    padding: 20px;\n  }\n}\n\n/* when the `importFrom` option is: {\n  \"environmentVariables\": {\n    \"--branding-small\": \"600px\",\n    \"--branding-padding\": \"20px\"\n  }\n} */\n```\n\n## Usage\n\nAdd [PostCSS Environment Variables] to your project:\n\n```bash\nnpm install postcss postcss-env-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss')\nconst postcssEnvFunction = require('postcss-env-function')\n\npostcss([\n  postcssEnvFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */)\n```\n\n[PostCSS Environment Variables] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### importFrom\n\nThe `importFrom` option specifies sources where Environment Variables can be imported from, which might be JS and JSON files, functions, and directly passed objects.\n\n```js\npostcssEnvFunction({\n  importFrom: 'path/to/file.js' /* module.exports = {\n      environmentVariables: {\n        '--branding-padding': '20px',\n        '--branding-small': '600px'\n      }\n    } */\n})\n```\n\n```pcss\n@media (max-width: env(--branding-small)) {\n  body {\n    padding: env(--branding-padding);\n  }\n}\n\n/* becomes */\n\n@media (min-width: 600px) {\n  body {\n    padding: 20px;\n  }\n}\n```\n\nMultiple sources can be passed into this option, and they will be parsed in the order they are received. JavaScript files, JSON files, functions, and objects will need to namespace Custom Properties using the `environmentVariables` or `environment-variables` key.\n\n```js\npostcssEnvFunction({\n  importFrom: [\n    /* Import from a CommonJS file:\n    \n    module.exports = {\n      environmentVariables: {\n        '--branding-padding': '20px'\n      }\n    } */\n    'path/to/file.js',\n\n    /* Import from a JSON file:\n\n    {\n      \"environment-variables\": {\n        \"--branding-padding\": \"20px\"\n      }\n    } */\n    'and/then/this.json',\n\n    /* Import from an JavaScript Object: */\n    {\n      environmentVariables: { '--branding-padding': '20px' }\n    },\n\n    /* Import from a JavaScript Function: */\n    () => {\n      const environmentVariables = { '--branding-padding': '20px' }\n\n      return { environmentVariables }\n    }\n  ]\n})\n```\n\nSee example imports written in [JS](test/import-variables.js) and [JSON](test/import-variables.json).\nCurrently only valid [custom property names] (beginning with `--`) are accepted.\nNot all valid [declaration value names] are accepted.\n\n### disableDeprecationNotice\n\nSilence the deprecation notice that is printed to the console when using `importFrom``.\n\n> postcss-env-function is deprecated and will be removed.\n> Check the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#environment-variables\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-env-function\n\n[CSS Environment Variables]: https://drafts.csswg.org/css-env-1/\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Environment Variables]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-env-function\n\n[custom property names]: https://drafts.csswg.org/css-variables-1/#typedef-custom-property-name\n[declaration value names]: https://drafts.csswg.org/css-syntax-3/#typedef-declaration-value\n",
 	"readmeFilename": "README.md",
-	"_downloads": 26636856
+	"_downloads": 24652726
 }

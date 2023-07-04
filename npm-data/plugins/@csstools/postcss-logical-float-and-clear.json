@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-logical-float-and-clear",
-	"_rev": "1-c515bd4f66a704151313a8e5a12be331",
+	"_rev": "2-6765cdf61f308cacf95b534b5fedabb2",
 	"name": "@csstools/postcss-logical-float-and-clear",
 	"dist-tags": {
-		"latest": "1.0.1"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -232,13 +232,134 @@
 				"tmp": "tmp/postcss-logical-float-and-clear_1.0.1_1674891816430_0.08413692858856381"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "@csstools/postcss-logical-float-and-clear",
+			"description": "Use flow-relative (inline-start and inline-end) values for float and clear",
+			"version": "2.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-float-and-clear#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-logical-float-and-clear"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"block",
+				"clear",
+				"css",
+				"float",
+				"inline",
+				"logical",
+				"postcss",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"cssdbId": "float-clear-logical-values",
+				"exportName": "postcssLogicalFloatAndClear",
+				"humanReadableName": "PostCSS Logical Float And Clear",
+				"specUrl": "https://www.w3.org/TR/css-logical-1/#float-clear"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "4a7823d9a06d22d07725248431267266c7c17e3a",
+			"_id": "@csstools/postcss-logical-float-and-clear@2.0.0",
+			"_nodeVersion": "18.15.0",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-Wki4vxsF6icRvRz8eF9bPpAvwaAt0RHwhVOyzfoFg52XiIMjb6jcbHkGxwpJXP4DVrnFEwpwmrz5aTRqOW82kg==",
+				"shasum": "15e1b5d16dce01ad1e676167d0909e3958234eb5",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-float-and-clear/-/postcss-logical-float-and-clear-2.0.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 10193,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIESTdqPLwVqWD/yfClCcuVC1jwOP6+MWVk17YTLgVzAxAiEAwVLi/o9ve596Kz+oaXDH5rNPg1uVn8xU9I9sbny4hHI="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical-float-and-clear_2.0.0_1688372073592_0.16086981550602486"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-01-19T17:58:54.861Z",
 		"1.0.0": "2023-01-19T17:58:55.080Z",
-		"modified": "2023-01-28T07:43:36.709Z",
-		"1.0.1": "2023-01-28T07:43:36.597Z"
+		"modified": "2023-07-03T08:14:33.935Z",
+		"1.0.1": "2023-01-28T07:43:36.597Z",
+		"2.0.0": "2023-07-03T08:14:33.759Z"
 	},
 	"maintainers": [
 		{
@@ -281,8 +402,8 @@
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT-0",
 	"readme": "# PostCSS Logical Float And Clear [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-logical-float-and-clear.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/float-clear-logical-values.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Logical Float And Clear] lets you use logical, rather than physical, direction and dimension mappings in CSS, following the [CSS Logical Properties and Values] specification.\n\n```pcss\n.element {\n\tclear: inline-start;\n\tfloat: inline-end;\n}\n\n/* becomes */\n\n.element {\n\tclear: left;\n\tfloat: right;\n}\n```\n\n## Usage\n\nAdd [PostCSS Logical Float And Clear] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-logical-float-and-clear --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLogicalFloatAndClear = require('@csstools/postcss-logical-float-and-clear');\n\npostcss([\n\tpostcssLogicalFloatAndClear(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Logical Float And Clear] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### inlineDirection\n\nThe `inlineDirection` option allows you to specify the direction of the inline axe. The default value is `left-to-right` respectively which would match any latin language.\n\nYou might want to tweak these value if you are using a different writing system, such as Arabic, Hebrew or Chinese for example.\n\n```js\npostcssLogicalFloatAndClear({\n\tinlineDirection: 'right-to-left'\n})\n```\n\n```pcss\n.element {\n\tclear: inline-start;\n\tfloat: inline-end;\n}\n\n/* becomes */\n\n.element {\n\tclear: right;\n\tfloat: left;\n}\n```\n\nEach direction must be one of the following:\n\n- `top-to-bottom`\n- `bottom-to-top`\n- `left-to-right`\n- `right-to-left`\n\nPlease do note that transformations won't run if `inlineDirection` becomes vertical.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#float-clear-logical-values\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-logical-float-and-clear\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Logical Float And Clear]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-float-and-clear\n[CSS Logical Properties and Values]: https://www.w3.org/TR/css-logical-1/#float-clear\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2083839
+	"_downloads": 1952069
 }

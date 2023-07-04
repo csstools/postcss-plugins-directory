@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-nested-calc",
-	"_rev": "3-3bbd8e99242a0124b73d83b41d146543",
+	"_rev": "4-f17958fc682509d94389c28662f034f5",
 	"name": "@csstools/postcss-nested-calc",
 	"dist-tags": {
-		"latest": "2.0.2"
+		"latest": "3.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -470,15 +470,136 @@
 				"tmp": "tmp/postcss-nested-calc_2.0.2_1675966891817_0.3245941698510828"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "@csstools/postcss-nested-calc",
+			"description": "Use nested calc() expressions in CSS",
+			"version": "3.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-nested-calc"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"calc",
+				"css",
+				"math",
+				"nested",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"cssdbId": "nested-calc",
+				"exportName": "postcssNestedCalc",
+				"humanReadableName": "PostCSS Nested Calc",
+				"specUrl": "https://www.w3.org/TR/css-values/#calc-func"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "e8c8a165b0a69bf6d6489845a0e43315c150d66f",
+			"_id": "@csstools/postcss-nested-calc@3.0.0",
+			"_nodeVersion": "18.15.0",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-HsB66aDWAouOwD/GcfDTS0a7wCuVWaTpXcjl5VKP0XvFxDiU+r0T8FG7xgb6ovZNZ+qzvGIwRM+CLHhDgXrYgQ==",
+				"shasum": "b9069f5e1c2ea08de3840a5922e39af4e0ecf4b1",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-nested-calc/-/postcss-nested-calc-3.0.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 8245,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIA7MDzPmJsomw1KOVSE2EaHCT65inbHL+6IGzj/nwL1YAiEAiE80tzkqFJ0sihAQZa49kKc/JTxQgwykkDf9wTApT6U="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-nested-calc_3.0.0_1688372131045_0.01871324159703791"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-08-15T08:32:46.540Z",
 		"1.0.0": "2022-08-15T08:32:46.800Z",
-		"modified": "2023-02-09T18:21:32.068Z",
+		"modified": "2023-07-03T08:15:31.352Z",
 		"2.0.0": "2023-01-24T09:12:08.251Z",
 		"2.0.1": "2023-01-28T07:46:05.965Z",
-		"2.0.2": "2023-02-09T18:21:31.970Z"
+		"2.0.2": "2023-02-09T18:21:31.970Z",
+		"3.0.0": "2023-07-03T08:15:31.202Z"
 	},
 	"maintainers": [
 		{
@@ -518,8 +639,8 @@
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT-0",
 	"readme": "# PostCSS Nested Calc [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-nested-calc.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/nested-calc.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Nested Calc] lets you use nested `calc()` expressions following the [CSS Values and Units 4 specification].\n\n```pcss\n.example {\n\torder: calc(1 + calc(2 * 2));\n}\n\n/* becomes */\n\n.example {\n\torder: calc(1 + (2 * 2));\n\torder: calc(1 + calc(2 * 2));\n}\n```\n\n## Usage\n\nAdd [PostCSS Nested Calc] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-nested-calc --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssNestedCalc = require('@csstools/postcss-nested-calc');\n\npostcss([\n\tpostcssNestedCalc(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Nested Calc] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default the original values are preserved.\n\n```js\npostcssNestedCalc({ preserve: false })\n```\n\n```pcss\n.example {\n\torder: calc(1 + calc(2 * 2));\n}\n\n/* becomes */\n\n.example {\n\torder: calc(1 + (2 * 2));\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#nested-calc\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-nested-calc\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Nested Calc]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc\n[CSS Values and Units 4 specification]: https://www.w3.org/TR/css-values/#calc-func\n",
 	"readmeFilename": "README.md",
-	"_downloads": 13156288
+	"_downloads": 12222533
 }

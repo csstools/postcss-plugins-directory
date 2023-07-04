@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-logical-viewport-units",
-	"_rev": "3-ed3371f8954ca3c885ef01995a45d72b",
+	"_rev": "4-1f888ddead8185c4068613820df77b69",
 	"name": "@csstools/postcss-logical-viewport-units",
 	"dist-tags": {
-		"latest": "1.0.3"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -474,15 +474,139 @@
 				"tmp": "tmp/postcss-logical-viewport-units_1.0.3_1681124537573_0.12341979959399096"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "@csstools/postcss-logical-viewport-units",
+			"description": "Use vb and vi length units in CSS",
+			"version": "2.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.1.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-viewport-units#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-logical-viewport-units"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"block",
+				"css",
+				"inline",
+				"logical",
+				"padding",
+				"postcss",
+				"postcss-plugin",
+				"viewport units"
+			],
+			"csstools": {
+				"cssdbId": "logical-viewport-units",
+				"exportName": "postcssLogicalViewportUnits",
+				"humanReadableName": "PostCSS Logical Viewport Units",
+				"specUrl": "https://www.w3.org/TR/css-values-4/#viewport-relative-units"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "bf68d22968b0329cb6f10aa7de2a9206939b8bd3",
+			"_id": "@csstools/postcss-logical-viewport-units@2.0.0",
+			"_nodeVersion": "18.15.0",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-KZIJXAvXqePyk2QHOYYy5YUVyjiqRTC5lgOjJJsjKIwNnGvOBqD4ypWUB94WlWO0yzNwIMs+JYnTP4jGEbKzhA==",
+				"shasum": "f56dddcf36ab193ca02aa6a6111d81e2d9ce8a9c",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-viewport-units/-/postcss-logical-viewport-units-2.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 12169,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCeOUwKpe+zrDm1R3IgmU7uufj+w5NFtYFJkCKChDa2xAIgI3qMexz0vXejq7zbQ6bIy6ZK2x0SDttlY6nIjlfUEd4="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical-viewport-units_2.0.0_1688372106046_0.7727883376496996"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-01-19T17:57:51.264Z",
 		"1.0.0": "2023-01-19T17:57:51.538Z",
-		"modified": "2023-04-10T11:02:17.897Z",
+		"modified": "2023-07-03T08:15:06.332Z",
 		"1.0.1": "2023-01-24T18:38:54.502Z",
 		"1.0.2": "2023-01-28T07:44:34.989Z",
-		"1.0.3": "2023-04-10T11:02:17.774Z"
+		"1.0.3": "2023-04-10T11:02:17.774Z",
+		"2.0.0": "2023-07-03T08:15:06.209Z"
 	},
 	"maintainers": [
 		{
@@ -525,8 +649,8 @@
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT-0",
 	"readme": "# PostCSS Logical Viewport Units [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-logical-viewport-units.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/logical-viewport-units.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Logical Viewport Units] lets you easily use `vb` and `vi` length units following the [CSS-Values-4 Specification].\n\n```pcss\n.foo {\n\tmargin: 10vi 20vb;\n}\n\n/* becomes */\n\n.foo {\n\tmargin: 10vw 20vh;\n\tmargin: 10vi 20vb;\n}\n```\n\n## Usage\n\nAdd [PostCSS Logical Viewport Units] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-logical-viewport-units --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLogicalViewportUnits = require('@csstools/postcss-logical-viewport-units');\n\npostcss([\n\tpostcssLogicalViewportUnits(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Logical Viewport Units] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n ### inlineDirection\n\n The `inlineDirection` option allows you to specify the direction of the inline axe. The default value is `left-to-right` respectively which would match any latin language.\n\n You might want to tweak these value if you are using a different writing system, such as Arabic, Hebrew or Chinese for example.\n\n ```js\n postcssLogicalViewportUnits({\n \tinlineDirection: 'top-to-bottom'\n })\n ```\n\n ```pcss\n .foo {\n\tmargin: 10vi 20vb;\n}\n\n /* becomes */\n\n .foo {\n\tmargin: 10vh 20vw;\n\tmargin: 10vi 20vb;\n}\n ```\n\n Each direction must be one of the following:\n\n - `top-to-bottom`\n - `bottom-to-top`\n - `left-to-right`\n - `right-to-left`\n\n Please do note that transformations won't do anything particular for `right-to-left` or `bottom-to-top`.\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssLogicalViewportUnits({ preserve: false })\n```\n\n```pcss\n.foo {\n\tmargin: 10vi 20vb;\n}\n\n/* becomes */\n\n.foo {\n\tmargin: 10vw 20vh;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#logical-viewport-units\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-logical-viewport-units\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Logical Viewport Units]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-viewport-units\n[CSS-Values-4 Specification]: https://www.w3.org/TR/css-values-4/#viewport-relative-units\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2100873
+	"_downloads": 1972812
 }

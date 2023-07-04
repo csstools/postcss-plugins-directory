@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-overflow-shorthand",
-	"_rev": "11-089eef2e8d84ccaf8cd50256361732aa",
+	"_rev": "12-0f1afda9ace3bf893116081d66486609",
 	"name": "postcss-overflow-shorthand",
 	"dist-tags": {
-		"latest": "4.0.1"
+		"latest": "5.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1017,12 +1017,138 @@
 				"tmp": "tmp/postcss-overflow-shorthand_4.0.1_1674892644210_0.9563769653454282"
 			},
 			"_hasShrinkwrap": false
+		},
+		"5.0.0": {
+			"name": "postcss-overflow-shorthand",
+			"description": "Use the overflow shorthand in CSS",
+			"version": "5.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-overflow-shorthand#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-overflow-shorthand"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"css",
+				"overflow",
+				"postcss",
+				"postcss-plugin",
+				"properties",
+				"shorthands",
+				"values"
+			],
+			"csstools": {
+				"cssdbId": "overflow-property",
+				"exportName": "postcssOverflowShorthand",
+				"humanReadableName": "PostCSS Overflow Shorthand",
+				"specUrl": "https://drafts.csswg.org/css-overflow/#propdef-overflow"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "86d18d97c07c52f2e93eb0405d2eb109eb623701",
+			"_id": "postcss-overflow-shorthand@5.0.0",
+			"_nodeVersion": "18.15.0",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-2rlxDyeSics/hC2FuMdPnWiP9WUPZ5x7FTuArXLFVpaSQ2woPSfZS4RD59HuEokbZhs/wPUQJ1E3MT6zVv94MQ==",
+				"shasum": "1ed6d6c532cdf52b5dabec06662dc63f9207855c",
+				"tarball": "https://registry.npmjs.org/postcss-overflow-shorthand/-/postcss-overflow-shorthand-5.0.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 8498,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAFvbYce7LMAQ8jA/U8gOypLzuHvCZw+ao8pJNAOzwDYAiBIGayorL3I0AzqnAnd+sOOfUC53MjUbmjWe8LHAQzQdQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-overflow-shorthand_5.0.0_1688372180781_0.6107634864959768"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-05-01T03:17:04.610Z",
 		"1.0.0": "2018-05-01T03:17:04.697Z",
-		"modified": "2023-01-28T07:57:24.517Z",
+		"modified": "2023-07-03T08:16:21.205Z",
 		"1.0.1": "2018-05-08T05:17:46.370Z",
 		"2.0.0": "2018-09-18T04:27:02.088Z",
 		"3.0.0": "2021-09-17T14:03:57.787Z",
@@ -1031,7 +1157,8 @@
 		"3.0.3": "2022-02-05T17:21:30.731Z",
 		"3.0.4": "2022-07-08T17:05:28.723Z",
 		"4.0.0": "2023-01-24T09:14:38.659Z",
-		"4.0.1": "2023-01-28T07:57:24.415Z"
+		"4.0.1": "2023-01-28T07:57:24.415Z",
+		"5.0.0": "2023-07-03T08:16:20.987Z"
 	},
 	"maintainers": [
 		{
@@ -1062,7 +1189,7 @@
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT-0",
 	"readme": "# PostCSS Overflow Shorthand [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-overflow-shorthand.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/overflow-property.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Overflow Shorthand] lets you use the `overflow` shorthand in CSS,\nfollowing the [CSS Overflow] specification.\n\n```pcss\nhtml {\n\toverflow: hidden auto;\n}\n\n/* becomes */\n\nhtml {\n\toverflow-x: hidden;\n\toverflow-y: auto;\n\toverflow: hidden auto;\n}\n```\n\n## Usage\n\nAdd [PostCSS Overflow Shorthand] to your project:\n\n```bash\nnpm install postcss postcss-overflow-shorthand --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssOverflowShorthand = require('postcss-overflow-shorthand');\n\npostcss([\n\tpostcssOverflowShorthand(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Overflow Shorthand] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssOverflowShorthand({ preserve: false })\n```\n\n```pcss\nhtml {\n\toverflow: hidden auto;\n}\n\n/* becomes */\n\nhtml {\n\toverflow-x: hidden;\n\toverflow-y: auto;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#overflow-property\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-overflow-shorthand\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Overflow Shorthand]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-overflow-shorthand\n[CSS Overflow]: https://drafts.csswg.org/css-overflow/#propdef-overflow\n",
 	"readmeFilename": "README.md",
 	"contributors": [
@@ -1080,5 +1207,5 @@
 			"email": "romainmenke@gmail.com"
 		}
 	],
-	"_downloads": 28843637
+	"_downloads": 26720038
 }

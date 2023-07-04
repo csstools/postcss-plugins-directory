@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-conditional-values",
-	"_rev": "2-403f5732b6eac78f64d0304799d5b26c",
+	"_rev": "3-2dedbe5432de950fdb21294c9100b085",
 	"name": "@csstools/postcss-conditional-values",
 	"dist-tags": {
-		"latest": "2.0.1"
+		"latest": "3.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -337,14 +337,128 @@
 				"tmp": "tmp/postcss-conditional-values_2.0.1_1674891214285_0.22981067285484524"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "@csstools/postcss-conditional-values",
+			"description": "Easily apply space toggle hacks with some syntactic sugar",
+			"version": "3.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-conditional-values#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-conditional-values"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"postcss-plugin"
+			],
+			"csstools": {
+				"assumesToProcessBundledCSS": true,
+				"exportName": "postcssConditionalValues",
+				"humanReadableName": "PostCSS Conditional Values"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "e14e3cae3dcdcad254af2f610cbbfa1f207adc73",
+			"_id": "@csstools/postcss-conditional-values@3.0.0",
+			"_nodeVersion": "18.15.0",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-ikAiOxjdGRrLfzAMD1AzYvzaiukasEi3CVAErRj04TCVM5ihk/HQKjHvGPBUFZrap39M+Zm38WEqoZ/M/tOD4A==",
+				"shasum": "b28012a3f61f0bf5c9e90348f624a630af78a10f",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-conditional-values/-/postcss-conditional-values-3.0.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 11542,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCCFNRK/Vev5U/7SZSdO169hWUV+ieJCKMcHpqMjI1atgIgFtF/gwXr4Rgt9A0LMN0rfTf8kqETjQDDndhGVKmTwS0="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-conditional-values_3.0.0_1688371862875_0.38881035394217567"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-07-25T09:59:46.220Z",
 		"1.0.0": "2022-07-25T09:59:46.535Z",
-		"modified": "2023-01-28T07:33:34.646Z",
+		"modified": "2023-07-03T08:11:03.205Z",
 		"2.0.0": "2023-01-24T08:49:52.441Z",
-		"2.0.1": "2023-01-28T07:33:34.499Z"
+		"2.0.1": "2023-01-28T07:33:34.499Z",
+		"3.0.0": "2023-07-03T08:11:03.056Z"
 	},
 	"maintainers": [
 		{
@@ -380,8 +494,8 @@
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
-	"license": "CC0-1.0",
-	"readme": "# PostCSS Conditional Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-conditional-values.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Conditional Values] lets you easily apply space toggle hacks with some syntactic sugar.\n\nThis plugin adds a non-standard function : `csstools-if( else )` which acts as a ternary operator.\n\n`csstools-if(--a-variable <value-when-true> else <value-when-false>)`\n\nYou control the outcome by setting `--a-variable` to `true` and `false`.\n\n```pcss\n.fancy-container {\n\t--is-fancy: true;\n}\n\n.block {\n\tcolor: csstools-if(--is-fancy pink else red);\n}\n\n/* becomes */\n\n:root {\n\t--is-fancy:  ;\n}\n\n.fancy-container {\n\t--is-fancy: initial;\n}\n\n.block {\n\t--is-fancy--0: var(--is-fancy) red;\n\tcolor: var(--is-fancy--0,pink);\n}\n```\n\nFor more information on how the trick works, you can read more on these articles:\n\n- [The CSS Custom Property Toggle Trick](https://css-tricks.com/the-css-custom-property-toggle-trick/)\n- [The -​-var: ; hack to toggle multiple values with one custom property](https://lea.verou.me/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/)\n\n## Usage\n\nAdd [PostCSS Conditional Values] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-conditional-values --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssConditionalValues = require('@csstools/postcss-conditional-values');\n\npostcss([\n\tpostcssConditionalValues(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Conditional Values] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### functionName\n\nThe `functionName` option allows you to set a custom alias for `csstools-if`.\n\n```js\npostcssConditionalValues({ functionName: 'if' })\n```\n\n```pcss\n.fancy-container {\n\t--is-fancy: true;\n}\n\n.block {\n\tcolor: if(--is-fancy pink else red);\n}\n\n/* becomes */\n\n:root {\n\t--is-fancy:  ;\n}\n\n.fancy-container {\n\t--is-fancy: initial;\n}\n\n.block {\n\t--is-fancy--0: var(--is-fancy) red;\n\tcolor: var(--is-fancy--0,pink);\n}\n```\n\n## Syntax\n\n### `csstools-if else` function\n\nThe `csstools-if else` function is used to declare which values must be used when a condition is true or false.\n\n```pcss\ncolor: csstools-if(--a-condition yellow else red);\n```\n\n```\ncsstools-if(<custom-property-name> <declaration-value> else <declaration-value>);\n```\n\n### `true` and `false` keywords\n\nThe `true` and `false` keywords are syntactic sugar for `initial` and `<space>`.\n\n```pcss\n--a-condition: true;\n\n/* becomes */\n\n--a-condition: initial;\n```\n\n```pcss\n--a-condition: false;\n\n/* becomes */\n\n--a-condition:  ;\n```\n\nYou can manually toggle the condition with `initial` and `<space>`.\nThis makes it possible to control the outcome of conditions with javascript, inline styles, ...\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-conditional-values\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Conditional Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-conditional-values\n",
+	"license": "MIT-0",
+	"readme": "# PostCSS Conditional Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-conditional-values.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Conditional Values] lets you easily apply space toggle hacks with some syntactic sugar.\n\nThis plugin adds a non-standard function : `csstools-if( else )` which acts as a ternary operator.\n\n`csstools-if(--a-variable <value-when-true> else <value-when-false>)`\n\nYou control the outcome by setting `--a-variable` to `true` and `false`.\n\n```pcss\n.fancy-container {\n\t--is-fancy: true;\n}\n\n.block {\n\tcolor: csstools-if(--is-fancy pink else red);\n}\n\n/* becomes */\n\n:root {\n\t--is-fancy:  ;\n}\n\n.fancy-container {\n\t--is-fancy: initial;\n}\n\n.block {\n\t--is-fancy--0: var(--is-fancy) red;\n\tcolor: var(--is-fancy--0,pink);\n}\n```\n\nFor more information on how the trick works, you can read more on these articles:\n\n- [The CSS Custom Property Toggle Trick](https://css-tricks.com/the-css-custom-property-toggle-trick/)\n- [The -​-var: ; hack to toggle multiple values with one custom property](https://lea.verou.me/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/)\n\n## Usage\n\nAdd [PostCSS Conditional Values] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-conditional-values --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssConditionalValues = require('@csstools/postcss-conditional-values');\n\npostcss([\n\tpostcssConditionalValues(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Conditional Values] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### functionName\n\nThe `functionName` option allows you to set a custom alias for `csstools-if`.\n\n```js\npostcssConditionalValues({ functionName: 'if' })\n```\n\n```pcss\n.fancy-container {\n\t--is-fancy: true;\n}\n\n.block {\n\tcolor: if(--is-fancy pink else red);\n}\n\n/* becomes */\n\n:root {\n\t--is-fancy:  ;\n}\n\n.fancy-container {\n\t--is-fancy: initial;\n}\n\n.block {\n\t--is-fancy--0: var(--is-fancy) red;\n\tcolor: var(--is-fancy--0,pink);\n}\n```\n\n## Syntax\n\n### `csstools-if else` function\n\nThe `csstools-if else` function is used to declare which values must be used when a condition is true or false.\n\n```pcss\ncolor: csstools-if(--a-condition yellow else red);\n```\n\n```\ncsstools-if(<custom-property-name> <declaration-value> else <declaration-value>);\n```\n\n#### [Stylelint](https://stylelint.io/user-guide/rules/declaration-property-value-no-unknown/#propertiessyntax--property-syntax-)\n\nStylelint is able to check for unknown property values.\nSetting the correct configuration for this rule makes it possible to check even non-standard syntax.\n\n```js\n\t// Disallow unknown values for properties within declarations.\n\t'declaration-property-value-no-unknown': [\n\t\ttrue,\n\t\t{\n\t\t\tpropertiesSyntax: {\n\t\t\t\tcolor: '| csstools-if( <custom-property-name> <\\'color\\'> else <\\'color\\'> )',\n\t\t\t\t'background-color': '| csstools-if( <custom-property-name> <\\'background-color\\'> else <\\'background-color\\'> )',\n\t\t\t\t// ... more properties ...\n\t\t\t},\n\t\t},\n\t],\n```\n\n### `true` and `false` keywords\n\nThe `true` and `false` keywords are syntactic sugar for `initial` and `<space>`.\n\n```pcss\n--a-condition: true;\n\n/* becomes */\n\n--a-condition: initial;\n```\n\n```pcss\n--a-condition: false;\n\n/* becomes */\n\n--a-condition:  ;\n```\n\nYou can manually toggle the condition with `initial` and `<space>`.\nThis makes it possible to control the outcome of conditions with javascript, inline styles, ...\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-conditional-values\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Conditional Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-conditional-values\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2761
+	"_downloads": 2346
 }
