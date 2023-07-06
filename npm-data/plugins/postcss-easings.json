@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-easings",
-	"_rev": "18-7efc8b3f99a131f4606db09d97875239",
+	"_rev": "19-ab6aca461fd3a90dbf07c59c6139d44e",
 	"name": "postcss-easings",
 	"description": "PostCSS plugin to replace easing names to cubic-bezier()",
 	"dist-tags": {
-		"latest": "3.0.1"
+		"latest": "4.0.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -570,9 +570,80 @@
 				"tmp": "tmp/postcss-easings_3.0.1_1601165460019_0.858023944901084"
 			},
 			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"name": "postcss-easings",
+			"version": "4.0.0",
+			"description": "PostCSS plugin to replace easing names to cubic-bezier()",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"easings",
+				"ease"
+			],
+			"author": {
+				"name": "Andrey Sitnik",
+				"email": "andrey@sitnik.ru"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/postcss/postcss-easings.git"
+			},
+			"engines": {
+				"node": ">=16.0"
+			},
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/postcss/"
+			},
+			"peerDependencies": {
+				"postcss": "^8.1.0"
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"gitHead": "e3117fad7578c2a968b78d218805131ca3a17b57",
+			"bugs": {
+				"url": "https://github.com/postcss/postcss-easings/issues"
+			},
+			"homepage": "https://github.com/postcss/postcss-easings#readme",
+			"_id": "postcss-easings@4.0.0",
+			"_nodeVersion": "20.3.1",
+			"_npmVersion": "9.6.7",
+			"dist": {
+				"integrity": "sha512-KNpwHA3mTnf0UWcdwahQDaz7DDJ6QteVwdlLff98se854p6pyQW9iofwrD05vtlp33AAAxuUGCOhYwERRJGy6Q==",
+				"shasum": "bd837acadf3fb8089287559073aede820c83b594",
+				"tarball": "https://registry.npmjs.org/postcss-easings/-/postcss-easings-4.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 5433,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDRMCCDagpQejhtXd1uS8v8L/wz6zP8ekiiZWS6zYVIoAiEAh8uZ4uj9sKzay5Ye2XGS8f2u4PikynCw/5mFqmrR8ec="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ai",
+				"email": "andrey@sitnik.ru"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-easings_4.0.0_1688607962518_0.18599793489762595"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Easings\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin to replace easing name from [easings.net] to `cubic-bezier()`.\n\n[easings.net]: http://easings.net/\n[PostCSS]:     https://github.com/postcss/postcss\n\n```css\n.snake {\n  transition: all 600ms ease-in-sine;\n}\n.camel {\n  transition: all 600ms easeInSine;\n}\n```\n\n```css\n.snake {\n  transition: all 600ms cubic-bezier(0.47, 0, 0.745, 0.715);\n}\n.camel {\n  transition: all 600ms cubic-bezier(0.47, 0, 0.745, 0.715);\n}\n```\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-easings\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-easings\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-easings'),\n    require('autoprefixer')\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n\nAlso you can get all build-in easings:\n\n```js\nrequire('postcss-easings').easings;\n```\n\n\n## Options\n\n### `easings`\n\nAllow to set custom easings:\n\n```js\n    require('postcss-easings')({\n      easings: { easeJump: 'cubic-bezier(.86,0,.69,1.57)' }\n    })\n```\n\nPlugin will convert custom easing name between camelCase and snake-case.\nSo example below adds `easeJump` and `ease-jump` easings.\n\nCustom easing name must start from `ease` and contain only letters and `-`.\n\nYou can create custom easing on [cubic-bezier.com].\n\n[cubic-bezier.com]: http://cubic-bezier.com/\n",
+	"readme": "# PostCSS Easings\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin to replace easing name from [easings.net] to `cubic-bezier()`.\n\n[easings.net]: http://easings.net/\n[PostCSS]:     https://github.com/postcss/postcss\n\n```css\n.snake {\n  transition: all 600ms ease-in-sine;\n}\n.camel {\n  transition: all 600ms easeInSine;\n}\n```\n\n```css\n.snake {\n  transition: all 600ms cubic-bezier(0.47, 0, 0.745, 0.715);\n}\n.camel {\n  transition: all 600ms cubic-bezier(0.47, 0, 0.745, 0.715);\n}\n```\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-easings\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Docs\nRead full docs **[here](https://github.com/postcss/postcss-easings#readme)**.\n",
 	"maintainers": [
 		{
 			"name": "ai",
@@ -580,7 +651,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T09:51:35.176Z",
+		"modified": "2023-07-06T01:46:02.882Z",
 		"created": "2015-02-07T06:21:08.311Z",
 		"0.1.0": "2015-02-07T06:21:08.311Z",
 		"0.2.0": "2015-05-05T02:16:39.856Z",
@@ -589,7 +660,8 @@
 		"1.0.1": "2017-11-05T20:52:39.444Z",
 		"2.0.0": "2018-09-07T13:06:30.068Z",
 		"3.0.0": "2020-09-15T19:23:40.906Z",
-		"3.0.1": "2020-09-27T00:11:00.171Z"
+		"3.0.1": "2020-09-27T00:11:00.171Z",
+		"4.0.0": "2023-07-06T01:46:02.682Z"
 	},
 	"homepage": "https://github.com/postcss/postcss-easings#readme",
 	"keywords": [
@@ -616,5 +688,5 @@
 		"malitov": true,
 		"xiechao06": true
 	},
-	"_downloads": 56265
+	"_downloads": 54841
 }
