@@ -1,9 +1,9 @@
 {
 	"_id": "css-declaration-sorter",
-	"_rev": "47-8e5ceef747ac7d687dad1bdd454a382f",
+	"_rev": "51-1084f0134da5da069d51bfead97ed556",
 	"name": "css-declaration-sorter",
 	"time": {
-		"modified": "2023-05-29T13:59:37.576Z",
+		"modified": "2023-07-08T13:10:32.944Z",
 		"created": "2016-01-08T13:49:02.353Z",
 		"1.1.1": "2016-01-08T13:49:02.353Z",
 		"1.0.0": "2016-01-08T13:55:56.426Z",
@@ -44,7 +44,10 @@
 		"6.3.0": "2022-06-09T18:19:10.159Z",
 		"6.3.1": "2022-09-02T15:34:54.070Z",
 		"6.4.0": "2023-03-23T11:58:17.067Z",
-		"7.0.0": "2023-05-29T13:59:37.297Z"
+		"7.0.0": "2023-05-29T13:59:37.297Z",
+		"7.0.1": "2023-07-08T12:29:31.697Z",
+		"7.0.2": "2023-07-08T12:36:18.796Z",
+		"6.4.1": "2023-07-08T12:47:51.630Z"
 	},
 	"maintainers": [
 		{
@@ -53,7 +56,7 @@
 		}
 	],
 	"dist-tags": {
-		"latest": "7.0.0"
+		"latest": "7.0.2"
 	},
 	"description": "Sorts CSS declarations fast and automatically in a certain order.",
 	"readme": "<img alt='CSS declaration sorter logo' src='https://raw.githubusercontent.com/Siilwyn/css-declaration-sorter/master/logo.svg?sanitize=true' height='260' align='right'>\n\n# CSS Declaration Sorter\n[![npm][npm-badge]][npm]\n\nA Node.js module and [PostCSS] plugin to sort CSS, SCSS or Less declarations based on their property names. Ensuring styling is organized, more consistent and in order... The goal of this package is to sort the source code of a project in the build process or to decrease the distributed CSS gzipped size.\n\nCheck out [the Prettier plugin](https://github.com/Siilwyn/prettier-plugin-css-order) for usage with a variety of file formats.\n\n## Niceness\n- Up-to-date CSS properties fetched from the [MDN Compatibility Data](https://github.com/mdn/browser-compat-data/) project.\n- Choose your wanted order or provide your own.\n- Nested rules sorting support.\n- SCSS and Less support when combined with either [postcss-scss](https://github.com/postcss/postcss-scss) or [postcss-less](https://github.com/webschik/postcss-less).\n- Thought-out sorting orders out of the box, **approved by their authors**.\n\n## Alphabetical example\nInput:\n```css\nbody {\n    display: block;\n    animation: none;\n    color: #C55;\n    border: 0;\n}\n```\n\nOutput:\n```css\nbody {\n    animation: none;\n    border: 0;\n    color: #C55;\n    display: block;\n}\n```\n\n## Built-in sorting orders\n- Alphabetical  \n`alphabetical`  \n*Default, order in a simple alphabetical manner from a - z.*\n\n- [SMACSS](http://smacss.com/book/formatting#grouping)  \n`smacss`  \n*Order from most important, flow affecting properties, to least important properties.*\n  1. Box\n  2. Border\n  3. Background\n  4. Text\n  5. Other\n\n- [Concentric CSS](https://github.com/brandon-rhodes/Concentric-CSS)  \n`concentric-css`  \n*Order properties applying outside the box model, moving inward to intrinsic changes.*\n  1. Positioning\n  2. Visibility\n  3. Box model\n  4. Dimensions\n  5. Text\n\n## Usage\nFollowing the PostCSS plugin guidelines, this package depends on PostCSS as a peer dependency:  \n`npm install postcss css-declaration-sorter --save-dev`\n\n### CLI\nThis module does not include its own CLI but works with the official [PostCSS CLI](https://github.com/postcss/postcss-cli). To use the examples below, the `postcss-cli` package is a required dependency.\n\nPiping out result from file:  \n`postcss input.css --use css-declaration-sorter | cat`\n\nSorting multiple files by overwriting:  \n`postcss *.css --use css-declaration-sorter --replace --no-map`\n\nSorting all files in a directory with SCSS syntax using [postcss-scss](https://github.com/postcss/postcss-scss) by overwriting:  \n`postcss ./src/**/*.scss --syntax postcss-scss --use css-declaration-sorter --replace --no-map`\n\nSorting all files in the directory with SCSS syntax and SMACSS order by overwriting, using `package.json` configuration:  \n```json\n\"postcss\": {\n  \"syntax\": \"postcss-scss\",\n  \"map\": false,\n  \"plugins\": {\n    \"css-declaration-sorter\": { \"order\": \"smacss\" }\n  }\n}\n```\n\n`postcss ./src/**/*.scss --replace --config package.json`\n\n### Vanilla JS\n```js\nimport postcss from 'postcss';\nimport { cssDeclarationSorter } from 'css-declaration-sorter';\n\npostcss([cssDeclarationSorter({ order: 'smacss' })])\n  .process('a { color: hyperblue; display: block; }', { from: undefined })\n  .then(result => console.log(\n    result.css === 'a { display: block; color: hyperblue; }'\n  ));\n```\n___\n\n**[View more usage examples](/examples) in combination with other tools.**  \n\n___\n\n## API\n### cssDeclarationSorter({ order, keepOverrides })\n\n#### order\nType: `string` or `function`  \nDefault: `alphabetical`  \nOptions: `alphabetical`, `smacss`, `concentric-css`\n\nProvide the name of one of the built-in sort orders or a comparison function that is passed to ([`Array.sort`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)). This function receives two declaration names and is expected to return `-1`, `0` or `1` depending on the wanted order.\n\n#### keepOverrides\nType: `Boolean`  \nDefault: `false`  \n\nTo prevent breaking legacy CSS where shorthand declarations override longhand declarations (also taking into account vendor prefixes) this option can enabled. For example `animation-name: some; animation: greeting;` will be kept in this order when `keepOverrides` is `true`.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n[npm]: https://www.npmjs.com/package/css-declaration-sorter\n[npm-badge]: https://tinyshields.dev/npm/css-declaration-sorter.svg\n",
@@ -3465,6 +3468,294 @@
 				"tmp": "tmp/css-declaration-sorter_7.0.0_1685368777138_0.5949348207795992"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.1": {
+			"name": "css-declaration-sorter",
+			"version": "7.0.1",
+			"description": "Sorts CSS declarations fast and automatically in a certain order.",
+			"type": "module",
+			"main": "./dist/main.cjs",
+			"exports": {
+				"import": "./src/main.mjs",
+				"require": "./dist/main.cjs"
+			},
+			"types": "./src/main.d.ts",
+			"scripts": {
+				"build": "rollup -c",
+				"preversion": "npm test",
+				"test": "uvu src .+\\.test\\.mjs",
+				"test:ci": "npm test && npm run lint -- --max-warnings 0",
+				"lint": "eslint src/*.mjs",
+				"scrape": "node --experimental-import-meta-resolve src/property-scraper.mjs",
+				"prepack": "npm run build"
+			},
+			"devDependencies": {
+				"@mdn/browser-compat-data": "^5.2.59",
+				"@rollup/plugin-dynamic-import-vars": "^2.0.2",
+				"@rollup/plugin-replace": "^5.0.2",
+				"eslint": "^8.41.0",
+				"postcss": "^8.4.23",
+				"rollup": "^3.23.0",
+				"uvu": "^0.5.6"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.9"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Siilwyn/css-declaration-sorter.git"
+			},
+			"author": {
+				"name": "Selwyn",
+				"email": "talk@selwyn.cc",
+				"url": "https://selwyn.cc/"
+			},
+			"license": "ISC",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"declaration",
+				"sorter",
+				"property",
+				"order"
+			],
+			"gitHead": "c1855894e747ecd91e0662ac2f1509ecccd8b76a",
+			"bugs": {
+				"url": "https://github.com/Siilwyn/css-declaration-sorter/issues"
+			},
+			"homepage": "https://github.com/Siilwyn/css-declaration-sorter#readme",
+			"_id": "css-declaration-sorter@7.0.1",
+			"_nodeVersion": "18.16.1",
+			"_npmVersion": "9.5.1",
+			"dist": {
+				"integrity": "sha512-JuVb83Gx2CIfTkWhMFa7HDE+fndh470ve5toq+ZGVuSPFH64KQJ/yXv4EG0rO6nZtEIeulyPU5w7IllhL8B4Ng==",
+				"shasum": "9c896115cb0b76e8e44ff8b1b23541aed58a5912",
+				"tarball": "https://registry.npmjs.org/css-declaration-sorter/-/css-declaration-sorter-7.0.1.tgz",
+				"fileCount": 10,
+				"unpackedSize": 83763,
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/css-declaration-sorter@7.0.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v0.2"
+					}
+				},
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAoriLfyUtlrEB1au2aehhquCM0P5dMYxw7xR2lERlAjAiB6j03Qd3bwpHu8OopOZHAacpNFLGvXVxGw5f9/p+QNvw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "siilwyn",
+				"email": "talk@selwyn.cc"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "siilwyn",
+					"email": "talk@selwyn.cc"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-declaration-sorter_7.0.1_1688819371468_0.4642661800480452"
+			},
+			"_hasShrinkwrap": false
+		},
+		"7.0.2": {
+			"name": "css-declaration-sorter",
+			"version": "7.0.2",
+			"description": "Sorts CSS declarations fast and automatically in a certain order.",
+			"type": "module",
+			"main": "./dist/main.cjs",
+			"exports": {
+				"import": "./src/main.mjs",
+				"require": "./dist/main.cjs"
+			},
+			"types": "./src/main.d.ts",
+			"scripts": {
+				"build": "rollup -c",
+				"preversion": "npm test",
+				"test": "uvu src .+\\.test\\.mjs",
+				"test:ci": "npm test && npm run lint -- --max-warnings 0",
+				"lint": "eslint src/*.mjs",
+				"scrape": "node --experimental-import-meta-resolve src/property-scraper.mjs",
+				"prepack": "npm run build"
+			},
+			"devDependencies": {
+				"@mdn/browser-compat-data": "^5.2.59",
+				"@rollup/plugin-dynamic-import-vars": "^2.0.2",
+				"@rollup/plugin-replace": "^5.0.2",
+				"eslint": "^8.41.0",
+				"postcss": "^8.4.23",
+				"rollup": "^3.23.0",
+				"uvu": "^0.5.6"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.9"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Siilwyn/css-declaration-sorter.git"
+			},
+			"author": {
+				"name": "Selwyn",
+				"email": "talk@selwyn.cc",
+				"url": "https://selwyn.cc/"
+			},
+			"license": "ISC",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"declaration",
+				"sorter",
+				"property",
+				"order"
+			],
+			"gitHead": "aa89933cd7c9987f94bec81ecef70191752228c7",
+			"bugs": {
+				"url": "https://github.com/Siilwyn/css-declaration-sorter/issues"
+			},
+			"homepage": "https://github.com/Siilwyn/css-declaration-sorter#readme",
+			"_id": "css-declaration-sorter@7.0.2",
+			"_nodeVersion": "18.16.1",
+			"_npmVersion": "9.5.1",
+			"dist": {
+				"integrity": "sha512-iulo5tHbu/5vm5GZaG+EoVTGCTW7ZxPmVzSThYzC0SODEzTcu51ARSAjVwubK/C7zHopckjBljDsHX+k7n38rA==",
+				"shasum": "ad22e694ca2a62a861dff43382e57bce2a4fc21d",
+				"tarball": "https://registry.npmjs.org/css-declaration-sorter/-/css-declaration-sorter-7.0.2.tgz",
+				"fileCount": 11,
+				"unpackedSize": 84199,
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/css-declaration-sorter@7.0.2",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v0.2"
+					}
+				},
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGbfoqidD+ZTap6Ajk3oJvmrV4fk4R5Qvg/YWgD46OFPAiAGTjv3aR43ryRX0tEDWtSk/dZtpUz1O2kK3Q6qBZEqXg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "siilwyn",
+				"email": "talk@selwyn.cc"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "siilwyn",
+					"email": "talk@selwyn.cc"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-declaration-sorter_7.0.2_1688819778576_0.381003019748833"
+			},
+			"_hasShrinkwrap": false
+		},
+		"6.4.1": {
+			"name": "css-declaration-sorter",
+			"version": "6.4.1",
+			"description": "Sorts CSS declarations fast and automatically in a certain order.",
+			"type": "module",
+			"main": "./dist/main.cjs",
+			"exports": {
+				"import": "./src/main.mjs",
+				"require": "./dist/main.cjs"
+			},
+			"types": "./src/main.d.ts",
+			"scripts": {
+				"build": "rollup -c",
+				"preversion": "npm test",
+				"test": "uvu src .+\\.test\\.mjs",
+				"test:ci": "npm test && npm run lint -- --max-warnings 0",
+				"lint": "eslint src/*.mjs",
+				"scrape": "node --experimental-import-meta-resolve src/property-scraper.mjs",
+				"prepack": "npm run build"
+			},
+			"devDependencies": {
+				"@mdn/browser-compat-data": "^5.2.23",
+				"@rollup/plugin-dynamic-import-vars": "^2.0.2",
+				"@rollup/plugin-replace": "^5.0.2",
+				"eslint": "^8.35.0",
+				"postcss": "^8.4.18",
+				"rollup": "^3.15.0",
+				"uvu": "^0.5.6"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.9"
+			},
+			"engines": {
+				"node": "^10 || ^12 || >=14"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Siilwyn/css-declaration-sorter.git"
+			},
+			"author": {
+				"name": "Selwyn",
+				"email": "talk@selwyn.cc",
+				"url": "https://selwyn.cc/"
+			},
+			"license": "ISC",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"declaration",
+				"sorter",
+				"property",
+				"order"
+			],
+			"gitHead": "d404ffcfe1ccf2a6bcef6bf1b991d73960b1fa74",
+			"bugs": {
+				"url": "https://github.com/Siilwyn/css-declaration-sorter/issues"
+			},
+			"homepage": "https://github.com/Siilwyn/css-declaration-sorter#readme",
+			"_id": "css-declaration-sorter@6.4.1",
+			"_nodeVersion": "18.16.0",
+			"_npmVersion": "9.5.1",
+			"dist": {
+				"integrity": "sha512-rtdthzxKuyq6IzqX6jEcIzQF/YqccluefyCYheovBOLhFT/drQA9zj/UbRAa9J7C0o6EG6u3E6g+vKkay7/k3g==",
+				"shasum": "28beac7c20bad7f1775be3a7129d7eae409a3a71",
+				"tarball": "https://registry.npmjs.org/css-declaration-sorter/-/css-declaration-sorter-6.4.1.tgz",
+				"fileCount": 11,
+				"unpackedSize": 83837,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCHip/z2r6hplcbUvDW+td27N8kh+XLk6CEiDXJZxwzzQIgdAeGwqLGMiJzkvjLD5csjCm8KgrFMtPMguJrQgziDaQ="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "siilwyn",
+				"email": "talk@selwyn.cc"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "siilwyn",
+					"email": "talk@selwyn.cc"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-declaration-sorter_6.4.1_1688820471449_0.8084448610664248"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"homepage": "https://github.com/Siilwyn/css-declaration-sorter#readme",
@@ -3494,5 +3785,5 @@
 	"users": {
 		"rubiadias": true
 	},
-	"_downloads": 43591155
+	"_downloads": 43253738
 }
