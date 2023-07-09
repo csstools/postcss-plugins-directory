@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import semver from 'semver';
-import spdxLicenses from 'spdx-licenses'
+import spdxLicenseList from 'spdx-license-list'
 import { ignoredScopes } from '../../config/ignored-scopes.mjs';
 import { invalidForks } from '../../config/invalid-forks.mjs';
 import { repositoryIs404 } from '../../config/missing-repositories.mjs';
@@ -113,8 +113,8 @@ export async function listMaintainedPlugins() {
 			licenseStr = 'GPL-3.0';
 		}
 
-		const license = spdxLicenses.spdx(licenseStr);
-		if (!license || !license.OSIApproved && lastVersionData.license !== 'CC0-1.0') {
+		const license = spdxLicenseList[licenseStr];
+		if (!license || !license.osiApproved && lastVersionData.license !== 'CC0-1.0') {
 			// Plugins must have an OSI Approved license or CC0-1.0
 			continue;
 		}
