@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-focus",
-	"_rev": "14-17cb30bee96714ae52c7562bfa39c4b0",
+	"_rev": "15-abd0e5608802f3ea94d83d1b9c662d73",
 	"name": "postcss-focus",
-	"description": "PostCSS plugin to add :focus selector to every :hover for keyboard accessibility",
+	"description": "PostCSS plugin to add :focus-visible selector to every :hover for keyboard accessibility",
 	"dist-tags": {
-		"latest": "6.0.0"
+		"latest": "7.0.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -663,9 +663,86 @@
 				"tmp": "tmp/postcss-focus_6.0.0_1671205920631_0.2679983711777205"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "postcss-focus",
+			"version": "7.0.0",
+			"description": "PostCSS plugin to add :focus-visible selector to every :hover for keyboard accessibility",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"hover",
+				"focus",
+				"keyboard",
+				"accessibility",
+				"a11y"
+			],
+			"author": {
+				"name": "Andrey Sitnik",
+				"email": "andrey@sitnik.ru"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/postcss/postcss-focus.git"
+			},
+			"engines": {
+				"node": "^18.0.0 || >=20.0.0"
+			},
+			"funding": [
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/postcss/"
+				},
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/ai"
+				}
+			],
+			"peerDependencies": {
+				"postcss": "^8.1.0"
+			},
+			"gitHead": "03285f3e2f6a956ccd8612d588b07b9e180a39b9",
+			"bugs": {
+				"url": "https://github.com/postcss/postcss-focus/issues"
+			},
+			"homepage": "https://github.com/postcss/postcss-focus#readme",
+			"_id": "postcss-focus@7.0.0",
+			"_nodeVersion": "20.4.0",
+			"_npmVersion": "9.7.2",
+			"dist": {
+				"integrity": "sha512-yX7TJK3cNiBLzjT0Psmk0mWjD8+v/FbcBOJ5mg5JX2+8uIjI7zewPgkGOocYzE81+aBHWXrw+BSstsp3Bl3UaA==",
+				"shasum": "a3de9d21808b35b1911a92a51a22479206c07a87",
+				"tarball": "https://registry.npmjs.org/postcss-focus/-/postcss-focus-7.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 4040,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGNxDhcDyiKdvOkjuFb3BQZ/R5pmsbz5qKGtAqjv87q7AiEAkteHxusr5MLuXROipC+DUYMksqAoTzI5uIy6R9g1jXU="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ai",
+				"email": "andrey@sitnik.ru"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-focus_7.0.0_1689007786107_0.2405217767483976"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Focus\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin to add `:focus-visible` selector to every `:hover`\nfor keyboard accessibility.\n\nSee also [postcss-pseudo-class-enter] for more explicit way.\n\n[postcss-pseudo-class-enter]: https://github.com/jonathantneal/postcss-pseudo-class-enter\n[PostCSS]:                    https://github.com/postcss/postcss\n\n```css\n*:focus-visible {\n  outline: 0;\n}\n.button:hover {\n  background: red;\n}\n```\n\n```css\n*:focus-visible {\n  outline: 0;\n}\n.button:hover, .button:focus-visible {\n  background: red;\n}\n```\n\nIf there is a `:focus-visible` selector, it will be excluded\nfrom the processing.\n\n```css\n.a:hover, .b:hover {\n  outline: 0;\n}\n.b:focus-visible {\n  background: red;\n}\n```\n\n```css\n.a:hover, .b:hover, .a:focus-visible {\n  outline: 0;\n}\n.b:focus-visible {\n  background: red;\n}\n```\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-focus\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n## Docs\nRead full docs **[here](https://github.com/postcss/postcss-focus#readme)**.\n",
+	"readme": "# PostCSS Focus\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin to add `:focus-visible` selector to every `:hover`\nfor keyboard accessibility.\n\nSee also [postcss-pseudo-class-enter] for more explicit way.\n\n[postcss-pseudo-class-enter]: https://github.com/jonathantneal/postcss-pseudo-class-enter\n[PostCSS]:                    https://github.com/postcss/postcss\n\n```css\n*:focus-visible {\n  outline: 0;\n}\n.button:hover {\n  background: red;\n}\n```\n\n```css\n*:focus-visible {\n  outline: 0;\n}\n.button:hover {\n    background: red;\n}\n.button:focus-visible {\n  background: red;\n}\n```\n\nIf there is a `:focus-visible` selector, it will be excluded\nfrom the processing.\n\n```css\n.a:hover, .b:hover {\n  outline: 0;\n}\n.b:focus-visible {\n  background: red;\n}\n```\n\n```css\n.a:hover, .b:hover, .a:focus-visible {\n  outline: 0;\n}\n.b:focus-visible {\n  background: red;\n}\n```\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-focus\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n## Docs\nRead full docs **[here](https://github.com/postcss/postcss-focus#readme)**.\n",
 	"maintainers": [
 		{
 			"name": "ai",
@@ -673,7 +750,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-12-16T15:52:00.852Z",
+		"modified": "2023-07-10T16:49:46.401Z",
 		"created": "2015-04-23T14:23:58.590Z",
 		"0.1.0": "2015-04-23T14:23:58.590Z",
 		"0.1.1": "2015-05-05T03:01:29.221Z",
@@ -683,7 +760,8 @@
 		"4.0.0": "2018-09-07T13:12:30.562Z",
 		"5.0.0": "2020-09-15T19:29:16.540Z",
 		"5.0.1": "2020-09-27T00:13:13.442Z",
-		"6.0.0": "2022-12-16T15:52:00.776Z"
+		"6.0.0": "2022-12-16T15:52:00.776Z",
+		"7.0.0": "2023-07-10T16:49:46.260Z"
 	},
 	"homepage": "https://github.com/postcss/postcss-focus#readme",
 	"keywords": [
@@ -713,5 +791,5 @@
 		"imagion": true,
 		"malitov": true
 	},
-	"_downloads": 45420
+	"_downloads": 43905
 }

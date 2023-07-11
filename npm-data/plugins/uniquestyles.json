@@ -1,0 +1,139 @@
+{
+	"_id": "uniquestyles",
+	"name": "uniquestyles",
+	"dist-tags": {
+		"latest": "0.0.0"
+	},
+	"versions": {
+		"0.0.0": {
+			"name": "uniquestyles",
+			"version": "0.0.0",
+			"description": "PostCSS plugin that strips selectors found in other stylesheets.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-diff"
+			],
+			"scripts": {
+				"test": "jest --coverage && eslint ."
+			},
+			"author": {
+				"name": "Luke Downing",
+				"email": "lukeraymonddowning@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lukeraymonddowning/postcss-diff.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"clean-publish": "^3.4.2",
+				"eslint": "^8.0.1",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"gitHead": "aa7e036e31812a3cb5f99b3efeb257c6badf3f7f",
+			"bugs": {
+				"url": "https://github.com/lukeraymonddowning/postcss-diff/issues"
+			},
+			"homepage": "https://github.com/lukeraymonddowning/postcss-diff#readme",
+			"_id": "uniquestyles@0.0.0",
+			"_nodeVersion": "20.2.0",
+			"_npmVersion": "9.6.7",
+			"dist": {
+				"integrity": "sha512-rDATlwJR4maZBK1FnJ2EUBf6ukKhm0oNyDcJxOiCJBjCQ0b8yZad6qBMSYbktP1m0326x+hJN9pMrVM1iZGmYg==",
+				"shasum": "c718c0e99861a4b01641090be6603fa6720e3f04",
+				"tarball": "https://registry.npmjs.org/uniquestyles/-/uniquestyles-0.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 134161,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC4xZYOo6w5rejHK8M1HXMzH9ME3MqN63LPDZjnA1hPPgIgWUK9yddJZFxA1r3eo2PZXi3R9CPxcOGR6z9AUrIOyJ0="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "lukedowning",
+				"email": "lukeraymonddowning@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "lukedowning",
+					"email": "lukeraymonddowning@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/uniquestyles_0.0.0_1688983363882_0.40938748568735783"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2023-07-10T10:02:43.882Z",
+		"0.0.0": "2023-07-10T10:02:44.111Z",
+		"modified": "2023-07-10T10:02:44.383Z"
+	},
+	"maintainers": [
+		{
+			"name": "lukedowning",
+			"email": "lukeraymonddowning@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin that strips selectors found in other stylesheets.",
+	"homepage": "https://github.com/lukeraymonddowning/postcss-diff#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss-diff"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lukeraymonddowning/postcss-diff.git"
+	},
+	"author": {
+		"name": "Luke Downing",
+		"email": "lukeraymonddowning@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/lukeraymonddowning/postcss-diff/issues"
+	},
+	"license": "MIT",
+	"readme": "# stylediff\n\n[PostCSS] plugin that strips selectors found in other stylesheets..\n\n[PostCSS]: https://github.com/postcss/postcss\n\n## Installation\n\n```bash\nnpm install -D uniquestyles\n```\n\n## Introduction\n\nThis plugin is primarily intended to be used inside Laravel Nova to strip out Tailwind selectors in your custom field/card/tool css file that are already defined in the Nova stylesheet.\nThis ensures that your custom css file is as small as possible and doesn't cause style conflicts with Nova.\n\n## Configuration\n\nYou should configure this plugin by passing CSS files you want to compare against to the `paths` option:\n\n```js\n// postcss.config.js\nconst path = require(\"path\");\n\nmodule.exports = {\n  plugins: {\n    tailwindcss: {},\n    autoprefixer: {},\n    uniquestyles: {\n      paths: [\n          path.join(__dirname, \"../../public/vendor/nova/app.css\"),\n      ]\n    },\n  }\n}\n```\n\n## Attribution\n\nThis plugin was created for the Laravel Nova Mastery 2023 course and is pretty much verbatim from [work done by Aaron Francis](https://twitter.com/aarondfrancis/status/1636438221558038569?s=20).\nAll credit goes to him for the idea and implementation.\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
