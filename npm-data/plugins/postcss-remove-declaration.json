@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-remove-declaration",
-	"_rev": "1-4e081173bbc9e0b18cf8d24f3b3d8c36",
+	"_rev": "2-097d6fd718444b09b6cb9e3b52f867be",
 	"name": "postcss-remove-declaration",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.1.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -65,12 +65,79 @@
 				"tmp": "tmp/postcss-remove-declaration_1.0.0_1557429303586_0.6215036024783076"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "postcss-remove-declaration",
+			"version": "1.1.0",
+			"description": "Remove CSS declarations with ease",
+			"keywords": [
+				"postcss",
+				"postcss-plugin"
+			],
+			"homepage": "https://github.com/3vilArthas/postcss-remove-declaration#readme",
+			"bugs": {
+				"url": "https://github.com/3vilArthas/postcss-remove-declaration/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/3vilArthas/postcss-remove-declaration.git"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Andrew Vasilchuk",
+				"email": "andrew.d.vasilchuk@gmail.com"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "jest"
+			},
+			"dependencies": {
+				"postcss": "^7.0.16"
+			},
+			"devDependencies": {
+				"jest": "^29.6.1",
+				"prettier": "^2.8.8"
+			},
+			"gitHead": "b72936003d8c5149364370ae62adc7e6663d3aff",
+			"_id": "postcss-remove-declaration@1.1.0",
+			"_nodeVersion": "15.14.0",
+			"_npmVersion": "6.14.18",
+			"dist": {
+				"integrity": "sha512-GWQNWeyHg+HjhB6cUH+/2+bsyWt35H8GX8hcZiXApOK309VGwLIiyfbfjnMaf56WvDMEnLE/anLGYhuH2exbbA==",
+				"shasum": "472bf81702f52da4253f40347fba0e70078e72bf",
+				"tarball": "https://registry.npmjs.org/postcss-remove-declaration/-/postcss-remove-declaration-1.1.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 5889,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGR3Y6FXixfEBNkJdxanA8/XuOtGmv0l6yA5mC5N/DATAiEAnEJIpE1vBgW0GM0BJu/QLpjfanOHpmiaAaTy8zDhE8U="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "3vil_arthas",
+				"email": "andrew.d.vasilchuk@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "3vil_arthas",
+					"email": "andrew.d.vasilchuk@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-remove-declaration_1.1.0_1690011802201_0.8263913578329869"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2019-05-09T19:15:03.585Z",
 		"1.0.0": "2019-05-09T19:15:03.702Z",
-		"modified": "2022-05-13T06:41:45.216Z"
+		"modified": "2023-07-22T07:43:22.529Z",
+		"1.1.0": "2023-07-22T07:43:22.365Z"
 	},
 	"maintainers": [
 		{
@@ -96,7 +163,7 @@
 		"url": "https://github.com/3vilArthas/postcss-remove-declaration/issues"
 	},
 	"license": "MIT",
-	"readme": "# PostCSS Remove Declaration\r\n\r\n[PostCSS](https://postcss.org) plugin to remove declarations by selector.\r\n\r\n## 💿 Installation\r\n\r\n### Via NPM\r\n\r\n```bash\r\n$ npm install postcss-remove-declaration --save-dev\r\n```\r\n\r\n### Via Yarn\r\n\r\n```bash\r\n$ yarn add postcss-remove-declaration --dev\r\n```\r\n\r\n## 🚀 Usage\r\n\r\nOnce you have done the installation, you will need to configure plugin by creating a `postcss.config.js` file in the root of your project. As an example:\r\n\r\n```javascript\r\nmodule.exports = {\r\n  plugins: [\r\n    require(\"postcss-remove-declaration\")({\r\n      remove: {\r\n        \".a\": \"*\",\r\n        \".b\": \"color\",\r\n        \".c\": [\"color\", \"background-color\"],\r\n        \".d\": {\r\n          color: \"crimson\",\r\n          \"background-color\": \"tomato\"\r\n        }\r\n      }\r\n    })\r\n  ]\r\n};\r\n```\r\n\r\n## ⚙️ Properties\r\n\r\n| Property | Required | Type                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         |\r\n| -------- | -------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\r\n| remove   | `true`   | `String`, `Array`, `Object` | An object where each specified key is a CSS selector and each value is either `\"*\"` indicating that all rules for that selector should be removed, a string matching the CSS property name to remove (e.g. `color`), an array of strings containing CSS properties to be removed (e.g. `[\"color\", \"background-color\"]`), or an object where each entry specifies declaration in which key is a `CSS` property and value is a `CSS` value (e.g `{ color: \"cyan\" }`). |\r\n\r\n## Powered by\r\n\r\n- PostCSS\r\n\r\n## 🔒 License\r\n\r\n[MIT](http://opensource.org/licenses/MIT)\r\n",
+	"readme": "# PostCSS Remove Declaration\n\n[PostCSS](https://postcss.org) plugin to remove declarations by selector.\n\n## 💿 Installation\n\n### Via NPM\n\n```bash\n$ npm install postcss-remove-declaration --save-dev\n```\n\n### Via Yarn\n\n```bash\n$ yarn add postcss-remove-declaration --dev\n```\n\n## 🚀 Usage\n\nOnce you have done the installation, you will need to configure plugin by creating a `postcss.config.js` file in the root of your project. As an example:\n\n```javascript\nmodule.exports = {\n  plugins: [\n    require(\"postcss-remove-declaration\")({\n      remove: {\n        \".a\": \"*\",\n        \".b\": \"color\",\n        \".c\": [\"color\", \"background-color\"],\n        \".d\": {\n          color: \"crimson\",\n          \"background-color\": \"tomato\",\n        },\n      },\n    }),\n  ],\n};\n```\n\n## ⚙️ Properties\n\n| Property | Required | Type                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         |\n| -------- | -------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| remove   | `true`   | `String`, `Array`, `Object` | An object where each specified key is a CSS selector and each value is either `\"*\"` indicating that all rules for that selector should be removed, a string matching the CSS property name to remove (e.g. `color`), an array of strings containing CSS properties to be removed (e.g. `[\"color\", \"background-color\"]`), or an object where each entry specifies declaration in which key is a `CSS` property and value is a `CSS` value (e.g `{ color: \"cyan\" }`). In the object mode you can also define whether you want to only target css declarations where !important is set. Eg. `{ color: \"cyan\" }` will target all declarations where color is cyan but `{ color: \"cyan !important\" }` will only target declarations in which have !important set.|\n\n## Powered by\n\n- PostCSS\n\n## 🔒 License\n\n[MIT](http://opensource.org/licenses/MIT)\n",
 	"readmeFilename": "README.md",
-	"_downloads": 1393
+	"_downloads": 1313
 }
