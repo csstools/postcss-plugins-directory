@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-media-queries-aspect-ratio-number-values",
-	"_rev": "5-c32400d03da06eadfa64803e262336c9",
+	"_rev": "7-375d1e948d3f602735d0ed920fc62541",
 	"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
 	"dist-tags": {
-		"latest": "2.0.0"
+		"latest": "2.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -708,19 +708,148 @@
 				"tmp": "tmp/postcss-media-queries-aspect-ratio-number-values_2.0.0_1688373156327_0.7488203860832354"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
+			"description": "Use number values in aspect-ratio media queries.",
+			"version": "2.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-parser-algorithms": "^2.3.1",
+				"@csstools/css-tokenizer": "^2.2.0",
+				"@csstools/media-query-list-parser": "^2.1.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-queries-aspect-ratio-number-values#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-media-queries-aspect-ratio-number-values"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"aspect-ratio",
+				"media queries",
+				"postcss-plugin"
+			],
+			"csstools": {
+				"cssdbId": "media-queries-aspect-ratio-number-values",
+				"exportName": "postcssMediaQueriesAspectRatioNumberValues",
+				"humanReadableName": "PostCSS Media Queries Aspect-Ratio Number Values",
+				"specUrl": "https://www.w3.org/TR/mediaqueries-4/#aspect-ratio"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "5fef2673cbaf3b634348aca5aacf0f4bf2084aa4",
+			"_id": "@csstools/postcss-media-queries-aspect-ratio-number-values@2.0.1",
+			"_nodeVersion": "20.2.0",
+			"_npmVersion": "9.6.7",
+			"dist": {
+				"integrity": "sha512-UvMYxXT3R011whbxzRwLx7d7eNGyVsnZo7waAmf10ZGnT34XidY+rsdFnk6OdFwuG6FYqw3/tptQEAZOmUgvLw==",
+				"shasum": "00d30e83e0b1e82a09ab890dcef80cc41be1ab8c",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-media-queries-aspect-ratio-number-values/-/postcss-media-queries-aspect-ratio-number-values-2.0.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 20070,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC2McWhXFPrhkFXEySmM4mo0/AEgUJ2Mx+j0YnBeI/KGgIgKGO9UsqBrD8rVtrdMIyp66vE3sC7kcesF3cHFDp6xFk="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-media-queries-aspect-ratio-number-values_2.0.1_1690216112198_0.23696564807292386"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-11-14T09:05:21.153Z",
 		"1.0.0": "2022-11-14T09:05:21.403Z",
-		"modified": "2023-07-03T08:32:36.699Z",
+		"modified": "2023-07-24T16:28:32.567Z",
 		"1.0.1": "2023-01-28T07:45:35.088Z",
 		"1.0.2": "2023-04-10T11:05:04.361Z",
 		"1.0.3": "2023-06-01T13:47:40.429Z",
 		"1.0.4": "2023-06-21T07:50:28.937Z",
-		"2.0.0": "2023-07-03T08:32:36.571Z"
+		"2.0.0": "2023-07-03T08:32:36.571Z",
+		"2.0.1": "2023-07-24T16:28:32.336Z"
 	},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -759,5 +888,5 @@
 	"license": "MIT-0",
 	"readme": "# PostCSS Media Queries Aspect-Ratio Number Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-media-queries-aspect-ratio-number-values.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/media-queries-aspect-ratio-number-values.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Media Queries Aspect-Ratio Number Values] lets you use non-integer numbers and `calc()` in `aspect-ratio` feature queries following the [Media Queries 4 Specification].\n\n```pcss\n@media (min-aspect-ratio: 1.77) {}\n\n/* becomes */\n\n@media (min-aspect-ratio: 177/100) {}\n```\n\n## Usage\n\nAdd [PostCSS Media Queries Aspect-Ratio Number Values] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-media-queries-aspect-ratio-number-values --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssMediaQueriesAspectRatioNumberValues = require('@csstools/postcss-media-queries-aspect-ratio-number-values');\n\npostcss([\n\tpostcssMediaQueriesAspectRatioNumberValues(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Media Queries Aspect-Ratio Number Values] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssMediaQueriesAspectRatioNumberValues({ preserve: true })\n```\n\n```pcss\n@media (min-aspect-ratio: 1.77) {}\n\n/* becomes */\n\n@media (min-aspect-ratio: 1.77),(min-aspect-ratio: 177/100) {}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#media-queries-aspect-ratio-number-values\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-media-queries-aspect-ratio-number-values\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Media Queries Aspect-Ratio Number Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-queries-aspect-ratio-number-values\n[Media Queries 4 Specification]: https://www.w3.org/TR/mediaqueries-4/#aspect-ratio\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2252020
+	"_downloads": 2034635
 }

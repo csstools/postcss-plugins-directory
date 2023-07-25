@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-trigonometric-functions",
-	"_rev": "7-c60e23546b83697f20b245873b1798d9",
+	"_rev": "9-12f86eb7578c36e11d2fef691eca0656",
 	"name": "@csstools/postcss-trigonometric-functions",
 	"dist-tags": {
-		"latest": "3.0.0"
+		"latest": "3.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -979,21 +979,157 @@
 				"tmp": "tmp/postcss-trigonometric-functions_3.0.0_1688373176938_0.029323000621759077"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "@csstools/postcss-trigonometric-functions",
+			"description": "Use sin(), cos(), tan(), acos(), atan(), and atan2() to compute trigonometric relationships",
+			"version": "3.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-calc": "^1.1.3",
+				"@csstools/css-parser-algorithms": "^2.3.1",
+				"@csstools/css-tokenizer": "^2.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-trigonometric-functions#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-trigonometric-functions"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"acos",
+				"acos2",
+				"asin",
+				"atan",
+				"cos",
+				"css",
+				"postcss-plugin",
+				"sin",
+				"tan",
+				"trigonometric"
+			],
+			"csstools": {
+				"cssdbId": "trigonometric-functions",
+				"exportName": "postcssTrigonometricFunctions",
+				"humanReadableName": "PostCSS Trigonometric Functions",
+				"specUrl": "https://www.w3.org/TR/css-values-4/#trig-funcs"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "bc3ad2040e1fe8ff0f0436807e5ba7d5363c731a",
+			"_id": "@csstools/postcss-trigonometric-functions@3.0.1",
+			"_nodeVersion": "20.2.0",
+			"_npmVersion": "9.6.7",
+			"dist": {
+				"integrity": "sha512-hW+JPv0MPQfWC1KARgvJI6bisEUFAZWSvUNq/khGCupYV/h6Z9R2ZFz0Xc633LXBst0ezbXpy7NpnPurSx5Klw==",
+				"shasum": "06148aa8624b69a6573adb40ed27d3d019875caa",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-trigonometric-functions/-/postcss-trigonometric-functions-3.0.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 13167,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBrQHY7gUoi38UYNpP5AyGj8QBHP2pOdEUXnkdWYz1QZAiEAxZk7bUbCanXTfASaVruU6dq1k8ht3TyUsK0uaWRXuUM="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-trigonometric-functions_3.0.1_1690216133770_0.38622986780462565"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-05-20T08:45:22.168Z",
 		"1.0.0": "2022-05-20T08:45:22.391Z",
-		"modified": "2023-07-03T08:32:57.204Z",
+		"modified": "2023-07-24T16:28:54.279Z",
 		"1.0.1": "2022-05-31T19:47:55.780Z",
 		"1.0.2": "2022-07-08T17:09:02.282Z",
 		"2.0.0": "2023-01-24T09:18:39.219Z",
 		"2.0.1": "2023-01-28T08:00:38.363Z",
 		"2.1.0": "2023-03-21T09:08:13.298Z",
 		"2.1.1": "2023-04-10T11:05:19.647Z",
-		"3.0.0": "2023-07-03T08:32:57.065Z"
+		"3.0.0": "2023-07-03T08:32:57.065Z",
+		"3.0.1": "2023-07-24T16:28:54.001Z"
 	},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -1039,5 +1175,5 @@
 	"license": "MIT-0",
 	"readme": "# PostCSS Trigonometric Functions [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-trigonometric-functions.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/trigonometric-functions.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Trigonometric Functions] lets you use `sin`, `cos`, `tan`, `asin`, `acos`, `atan` and `atan2` to be able to compute trigonometric relationships following the [CSS Values 4] specification.\n\n```pcss\n.trigonometry {\n\tline-height: sin(pi / 4);\n\tline-height: cos(.125turn);\n\tline-height: tan(50grad);\n\ttransform: rotate(asin(-1));\n\ttransform: rotate(asin(sin(30deg + 1.0471967rad)));\n\ttransform: rotate(acos(-1));\n\ttransform: rotate(acos(cos(0 / 2 + 1 - 1)));\n\ttransform: rotate(atan(infinity));\n\ttransform: rotate(atan(e - 2.7182818284590452354));\n\ttransform: rotate(atan2(-infinity,-infinity));\n\ttransform: rotate(atan2(-infinity,infinity));\n\ttransform: rotate(atan2(-infinity,infinity));\n\ttransform: rotate(atan2(90, 15));\n}\n\n/* becomes */\n\n.trigonometry {\n\tline-height: 0.70711;\n\tline-height: 0.70711;\n\tline-height: 1;\n\ttransform: rotate(-90deg);\n\ttransform: rotate(89.99995deg);\n\ttransform: rotate(180deg);\n\ttransform: rotate(0deg);\n\ttransform: rotate(90deg);\n\ttransform: rotate(0deg);\n\ttransform: rotate(-135deg);\n\ttransform: rotate(-45deg);\n\ttransform: rotate(-45deg);\n\ttransform: rotate(80.53768deg);\n}\n```\n\n## Usage\n\nAdd [PostCSS Trigonometric Functions] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-trigonometric-functions --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssTrigonometricFunctions = require('@csstools/postcss-trigonometric-functions');\n\npostcss([\n\tpostcssTrigonometricFunctions(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Trigonometric Functions] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## ⚠️ About custom properties\n\nGiven the dynamic nature of custom properties it's impossible to know what the variable value is, which means the plugin can't compute a final value for the stylesheet.\n\nBecause of that, any usage that contains a `var` is skipped.\n\n## Units\n\n[PostCSS Trigonometric Functions] lets you use different special units that are within the spec and computed at run time to be able to calculate the result of the trigonometric function.\n\nThe following units are supported:\n\n* `pi`: Computes to `Math.PI` which is `3.141592653589793`\n* `e`: Computes to `Math.E` which is `2.718281828459045`\n* `infinity`, `-infinity`: Compute to `Infinity` and `-Infinity` respectively. Note that the usage is case insensitive so `InFiNiTy` is a valid value.\n\nSome calculations (such as `sin(-infinity)`) might return `NaN` as per the spec. Given that `NaN` can't be replaced with a value that's useful to CSS it is left as is, as the result will be effectively ignored by the browser.\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssTrigonometricFunctions({ preserve: true })\n```\n\n```pcss\n.trigonometry {\n\tline-height: sin(pi / 4);\n\tline-height: cos(.125turn);\n\tline-height: tan(50grad);\n\ttransform: rotate(asin(-1));\n\ttransform: rotate(asin(sin(30deg + 1.0471967rad)));\n\ttransform: rotate(acos(-1));\n\ttransform: rotate(acos(cos(0 / 2 + 1 - 1)));\n\ttransform: rotate(atan(infinity));\n\ttransform: rotate(atan(e - 2.7182818284590452354));\n\ttransform: rotate(atan2(-infinity,-infinity));\n\ttransform: rotate(atan2(-infinity,infinity));\n\ttransform: rotate(atan2(-infinity,infinity));\n\ttransform: rotate(atan2(90, 15));\n}\n\n/* becomes */\n\n.trigonometry {\n\tline-height: 0.70711;\n\tline-height: sin(pi / 4);\n\tline-height: 0.70711;\n\tline-height: cos(.125turn);\n\tline-height: 1;\n\tline-height: tan(50grad);\n\ttransform: rotate(-90deg);\n\ttransform: rotate(asin(-1));\n\ttransform: rotate(89.99995deg);\n\ttransform: rotate(asin(sin(30deg + 1.0471967rad)));\n\ttransform: rotate(180deg);\n\ttransform: rotate(acos(-1));\n\ttransform: rotate(0deg);\n\ttransform: rotate(acos(cos(0 / 2 + 1 - 1)));\n\ttransform: rotate(90deg);\n\ttransform: rotate(atan(infinity));\n\ttransform: rotate(0deg);\n\ttransform: rotate(atan(e - 2.7182818284590452354));\n\ttransform: rotate(-135deg);\n\ttransform: rotate(atan2(-infinity,-infinity));\n\ttransform: rotate(-45deg);\n\ttransform: rotate(atan2(-infinity,infinity));\n\ttransform: rotate(-45deg);\n\ttransform: rotate(atan2(-infinity,infinity));\n\ttransform: rotate(80.53768deg);\n\ttransform: rotate(atan2(90, 15));\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#trigonometric-functions\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-trigonometric-functions\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Trigonometric Functions]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-trigonometric-functions\n[CSS Values 4]: https://www.w3.org/TR/css-values-4/#trig-funcs\n",
 	"readmeFilename": "README.md",
-	"_downloads": 13676051
+	"_downloads": 13269262
 }

@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-lab-function",
-	"_rev": "29-fc0a5420854fe3be53f6149fcc9ed60b",
+	"_rev": "31-6a1da0615524b663262c0dacf96b592c",
 	"name": "postcss-lab-function",
 	"dist-tags": {
-		"latest": "6.0.0"
+		"latest": "6.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -3277,12 +3277,140 @@
 				"tmp": "tmp/postcss-lab-function_6.0.0_1688373822044_0.891633213887278"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.1": {
+			"name": "postcss-lab-function",
+			"description": "Use lab() and lch() color functions in CSS",
+			"version": "6.0.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-color-parser": "^1.2.2",
+				"@csstools/css-parser-algorithms": "^2.3.1",
+				"@csstools/css-tokenizer": "^2.2.0",
+				"@csstools/postcss-progressive-custom-properties": "^3.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-lab-function#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-lab-function"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"comma",
+				"css",
+				"design",
+				"functional",
+				"lab",
+				"lch",
+				"notation",
+				"postcss",
+				"postcss-plugin",
+				"rgb",
+				"rgba",
+				"space",
+				"syntax"
+			],
+			"csstools": {
+				"cssdb": "lab-function",
+				"exportName": "postcssLabFunction",
+				"humanReadableName": "PostCSS Lab Function"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "19743fe8e9dfaf29b0cdb78ed8378cfce9f1742e",
+			"_id": "postcss-lab-function@6.0.1",
+			"_nodeVersion": "20.2.0",
+			"_npmVersion": "9.6.7",
+			"dist": {
+				"integrity": "sha512-/Xl6JitDh7jWkcOLxrHcAlEaqkxyaG3g4iDMy5RyhNaiQPJ9Egf2+Mxp1W2qnH5jB2bj59f3RbdKmC6qx1IcXA==",
+				"shasum": "46dc530a242972d47018c6627128d8e9e96b82c8",
+				"tarball": "https://registry.npmjs.org/postcss-lab-function/-/postcss-lab-function-6.0.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 18188,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDErxo38gNmqb8GIRggSrmUscRoEuPey4xeI6pn7gbnwwIgSkbhVCTpTdO1DX9VCsne5aTCCzuBsGmjlDWVSj8B3ZE="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-lab-function_6.0.1_1690216102722_0.524801450599822"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-05-11T15:03:10.906Z",
 		"1.0.0": "2018-05-11T15:03:11.016Z",
-		"modified": "2023-07-03T08:43:42.410Z",
+		"modified": "2023-07-24T16:28:23.112Z",
 		"1.0.1": "2018-05-11T16:30:38.943Z",
 		"1.1.0": "2018-07-25T01:06:18.192Z",
 		"2.0.0": "2018-09-18T04:32:59.027Z",
@@ -3309,9 +3437,14 @@
 		"5.2.1": "2023-04-10T11:06:26.049Z",
 		"5.2.2": "2023-05-19T15:53:05.626Z",
 		"5.2.3": "2023-06-01T13:47:24.416Z",
-		"6.0.0": "2023-07-03T08:43:42.232Z"
+		"6.0.0": "2023-07-03T08:43:42.232Z",
+		"6.0.1": "2023-07-24T16:28:22.898Z"
 	},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -3354,5 +3487,5 @@
 	"license": "MIT-0",
 	"readme": "# PostCSS Lab Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-lab-function.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/lab-function.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n\n[PostCSS Lab Function] lets you use `lab` and `lch` color functions in\nCSS, following the [CSS Color] specification.\n\n```pcss\n.color-lab {\n\tcolor: lab(40% 56.6 39);\n}\n\n.color-lch {\n\tcolor: lch(40% 68.735435 34.568626);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179, 35, 35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n\n.color-lch {\n\tcolor: rgb(179, 35, 35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n}\n```\n\n## Usage\n\nAdd [PostCSS Lab Function] to your project:\n\n```bash\nnpm install postcss postcss-lab-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLabFunction = require('postcss-lab-function');\n\npostcss([\n  postcssLabFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Lab Function] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original functional color notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssLabFunction({ preserve: true })\n```\n\n```pcss\n.color {\n\tcolor: lab(40% 56.6 39);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179, 35, 35);\n\tcolor: color(display-p3 0.64331 0.19245 0.16771);\n\tcolor: lab(40% 56.6 39);\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssLabFunction({ enableProgressiveCustomProperties: false })\n```\n\n```pcss\n:root {\n\t--firebrick: lab(40% 56.6 39);\n}\n\n/* becomes */\n\n:root {\n\t--firebrick: rgb(178, 34, 34); /* will never be used, not even in older browser */\n\t--firebrick: color(display-p3 0.64331 0.19245 0.16771); /* will never be used, not even in older browser */\n\t--firebrick: lab(40% 56.6 39);\n}\n```\n\n### subFeatures\n\n#### displayP3\n\nThe `subFeatures.displayP3` option determines if `color(display-p3 ...)` is used as a fallback.<br>\nBy default, it is enabled.\n\n`display-p3` can display wider gamut colors than `rgb` on some devices.\n\n```js\npostcssOKLabFunction({\n\tsubFeatures: {\n\t\tdisplayP3: false\n\t}\n})\n```\n\n```pcss\n.color {\n\tcolor: lab(40% 56.6 39);\n}\n\n/* becomes */\n\n.color {\n\tcolor: rgb(179, 35, 35);\n\tcolor: lab(40% 56.6 39);\n}\n```\n\n## Copyright : color conversions\n\nThis software or document includes material copied from or derived from https://github.com/w3c/csswg-drafts/tree/main/css-color-4. Copyright © 2022 W3C® (MIT, ERCIM, Keio, Beihang).\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#lab-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-lab-function\n\n[CSS Color]: https://drafts.csswg.org/css-color/#specifying-lab-lch\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Lab Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-lab-function\n",
 	"readmeFilename": "README.md",
-	"_downloads": 28397234
+	"_downloads": 26225330
 }

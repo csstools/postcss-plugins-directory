@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-nesting",
-	"_rev": "57-ebf25a92fcb7b5dcb2c78e6073851f31",
+	"_rev": "58-321bc39798f25f02ffe8710f522aed1a",
 	"name": "postcss-nesting",
 	"description": "Nest rules inside each other in CSS",
 	"dist-tags": {
@@ -5486,16 +5486,20 @@
 	"readme": "# PostCSS Nesting [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-nesting.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/nesting-rules.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Nesting] lets you nest style rules inside each other, following the [CSS Nesting specification].\n\nIf you want nested rules the same way [Sass] works\nyou might want to use [PostCSS Nested] instead.\n\n```pcss\n.foo {\n\tcolor: red;\n\n\t&:hover {\n\t\tcolor: green;\n\t}\n\n\t> .bar {\n\t\tcolor: blue;\n\t}\n\n\t@media (prefers-color-scheme: dark) {\n\t\tcolor: cyan;\n\t}\n}\n\n/* becomes */\n\n.foo {\n\tcolor: red;\n}\n.foo:hover {\n\t\tcolor: green;\n\t}\n.foo > .bar {\n\t\tcolor: blue;\n\t}\n@media (prefers-color-scheme: dark) {\n\t.foo {\n\t\tcolor: cyan;\n}\n\t}\n```\n\n## Usage\n\nAdd [PostCSS Nesting] to your project:\n\n```bash\nnpm install postcss postcss-nesting --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssNesting = require('postcss-nesting');\n\npostcss([\n\tpostcssNesting(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Nesting] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## ⚠️ `@nest` has been removed from the specification.\n\nPrevious iterations of the [CSS Nesting specification] required using `@nest` for certain selectors.\n\n`@nest` was removed from the specification completely.\nFuture versions of this plugin will error if you use `@nest`.\n\nWe advice everyone to migrate their codebase **now** to nested CSS without `@nest`.  \nWe published a [Stylelint Plugin](https://github.com/csstools/postcss-plugins/tree/main/plugins-stylelint/no-at-nest-rule#csstoolsstylelint-no-at-nest-rule) to help you migrate.\n\nexample warning:\n> `@nest` was removed from the CSS Nesting specification and will be removed from PostCSS Nesting in the next major version.\n> Change `@nest foo & {}` to `foo & {}` to migrate to the latest standard.\n\nYou can silence this warning with a new `silenceAtNestWarning` plugin option.\n\n```js\npostcssNesting({\n\tsilenceAtNestWarning: true\n})\n```\n\n## Options\n\n### noIsPseudoSelector\n\n#### Specificity\n\nBefore :\n\n```css\n#alpha,\n.beta {\n\t&:hover {\n\t\torder: 1;\n\t}\n}\n```\n\nAfter **without** the option :\n\n```js\npostcssNesting()\n```\n\n```css\n:is(#alpha,.beta):hover {\n\torder: 1;\n}\n```\n\n_`.beta:hover` has specificity as if `.beta` where an id selector, matching the specification._\n\n[specificity: 1, 1, 0](https://polypane.app/css-specificity-calculator/#selector=%3Ais(%23alpha%2C.beta)%3Ahover)\n\nAfter **with** the option :\n\n```js\npostcssNesting({\n\tnoIsPseudoSelector: true\n})\n```\n\n```css\n#alpha:hover, .beta:hover {\n\torder: 1;\n}\n```\n\n_`.beta:hover` has specificity as if `.beta` where a class selector, conflicting with the specification._\n\n[specificity: 0, 2, 0](https://polypane.app/css-specificity-calculator/#selector=.beta%3Ahover)\n\n\n#### Complex selectors\n\nBefore :\n\n```css\n.alpha > .beta {\n\t& + & {\n\t\torder: 2;\n\t}\n}\n```\n\nAfter **without** the option :\n\n```js\npostcssNesting()\n```\n\n```css\n:is(.alpha > .beta) + :is(.alpha > .beta) {\n\torder: 2;\n}\n```\n\nAfter **with** the option :\n\n```js\npostcssNesting({\n\tnoIsPseudoSelector: true\n})\n```\n\n```css\n.alpha > .beta + .alpha > .beta {\n\torder: 2;\n}\n```\n\n_this is a different selector than expected as `.beta + .alpha` matches `.beta` followed by `.alpha`._<br>\n_avoid these cases when you disable `:is()`_<br>\n_writing the selector without nesting is advised here_\n\n```css\n/* without nesting */\n.alpha > .beta + .beta {\n\torder: 2;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#nesting-rules\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-nesting\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Nesting]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting\n[PostCSS Nested]: https://github.com/postcss/postcss-nested\n[Sass]: https://sass-lang.com/\n[CSS Nesting specification]: https://www.w3.org/TR/css-nesting-1/\n",
 	"maintainers": [
 		{
-			"name": "alaguna",
-			"email": "sombragriselros@gmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
 		},
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2023-07-03T08:15:51.131Z",
+		"modified": "2023-07-24T15:03:42.979Z",
 		"created": "2015-06-17T16:27:22.458Z",
 		"0.1.0": "2015-06-17T16:27:22.458Z",
 		"1.0.0": "2015-09-15T13:26:47.407Z",
@@ -5597,5 +5601,5 @@
 			"email": "romainmenke@gmail.com"
 		}
 	],
-	"_downloads": 30641543
+	"_downloads": 28338903
 }
