@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-urlrebase",
-	"_rev": "1-da49ef2088e968f8f58cff1e96157708",
+	"_rev": "2-8cef0f15ca7342a361708a299671ab68",
 	"name": "postcss-urlrebase",
 	"dist-tags": {
-		"latest": "1.2.0"
+		"latest": "1.3.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -169,13 +169,78 @@
 				"tmp": "tmp/postcss-urlrebase_1.2.0_1689810378701_0.5395659836949498"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.3.0": {
+			"name": "postcss-urlrebase",
+			"version": "1.3.0",
+			"description": "PostCSS plugin Rebase URLs to a given root URL.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-urlrebase"
+			],
+			"author": {
+				"name": "strarsis",
+				"email": "strarsis@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/strarsis/postcss-urlrebase.git"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"_id": "postcss-urlrebase@1.3.0",
+			"gitHead": "108ddeb72c4a07786d71fa009d6a53c6b730efdf",
+			"types": "./index.d.ts",
+			"bugs": {
+				"url": "https://github.com/strarsis/postcss-urlrebase/issues"
+			},
+			"homepage": "https://github.com/strarsis/postcss-urlrebase#readme",
+			"_nodeVersion": "18.17.0",
+			"_npmVersion": "9.8.1",
+			"dist": {
+				"integrity": "sha512-LOFN43n1IewKriXiypMNNinXeptttSyGGRLPbBMdQzuTvvCEo5mz/gG06y/HqrkN7p3ayHQf2R2bTBv639FOaQ==",
+				"shasum": "6540bd319a555cafa1393ee989d4d6a0e3bd2f2c",
+				"tarball": "https://registry.npmjs.org/postcss-urlrebase/-/postcss-urlrebase-1.3.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 4559,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDZGgtItqyJxQcSZsMQyjMHLUhOA5E4sL6oEaQSFHsMswIhAI6Phxkq/MoBkLNO2GggDv3IYk7gj2ZTnWW6tXSHh+ow"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "strarsis",
+				"email": "strarsis@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "strarsis",
+					"email": "strarsis@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-urlrebase_1.3.0_1691597964904_0.6684315649859975"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-03-31T15:01:00.335Z",
 		"1.0.0": "2023-03-31T15:01:00.486Z",
-		"modified": "2023-07-19T23:46:19.047Z",
-		"1.2.0": "2023-07-19T23:46:18.880Z"
+		"modified": "2023-08-09T16:19:25.269Z",
+		"1.2.0": "2023-07-19T23:46:18.880Z",
+		"1.3.0": "2023-08-09T16:19:25.102Z"
 	},
 	"maintainers": [
 		{
@@ -205,5 +270,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS URL rebase plugin\n\n[PostCSS] plugin for rebasing URLs to a given root URL.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n.foo {\n  /* Input example */\n  background: url(\"images/test.jpg\");\n  mask: url(\"/images/layout/shape.svg\");\n}\n```\n\n```css\n.foo {\n  /* Output example */\n  background: url(\"https://example.com/images/test.jpg\");\n  mask: url(\"/images/layout/shape.svg\");\n}\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-urlrebase\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-urlrebase')({ rootUrl: \"https://example.com/wp/wp-themes/example/\" },\n    require('autoprefixer')\n  ]\n}\n```\n\n### Plugin options\n\n#### `rootUrl` (_required_)\nThe root URL to which the existing URLs should be based to.\n\n#### `skipHostRelativeUrls` (optional (default: `true`))\nShould already host-relative URLs (as `/images/test.jpg` (URL starts with `/`)) be skipped?\n\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
 	"readmeFilename": "README.md",
-	"_downloads": 150
+	"_downloads": 149
 }
