@@ -1,6 +1,6 @@
 {
 	"_id": "@oat-sa/postcss-global-nested",
-	"_rev": "14-01b3a7e7e4b2cf2dc1f9336a0f0f7583",
+	"_rev": "27-34e29c07e0284f065220caf9e08b509a",
 	"name": "@oat-sa/postcss-global-nested",
 	"dist-tags": {
 		"latest": "0.1.1"
@@ -358,93 +358,89 @@
 	"time": {
 		"created": "2022-08-29T09:19:38.330Z",
 		"0.1.0": "2022-08-29T09:19:38.585Z",
-		"modified": "2023-05-11T11:41:46.766Z",
+		"modified": "2023-08-10T09:03:12.750Z",
 		"0.1.1": "2023-05-11T11:41:46.545Z"
 	},
 	"maintainers": [
 		{
-			"name": "roma-derski",
-			"email": "roma.derski@gmail.com"
+			"email": "amokacsi2@gmail.com",
+			"name": "pribi"
 		},
 		{
-			"name": "albertotaotesting",
-			"email": "alberto.sanchez-gonzalez@taotesting.com"
+			"email": "edwin.sany@taotesting.com",
+			"name": "edwin-oat"
 		},
 		{
-			"name": "rgomeztao",
-			"email": "raul.gomez.cabello@taotesting.com"
+			"email": "lionel@taotesting.com",
+			"name": "llecaque"
 		},
 		{
-			"name": "dixonmatt",
-			"email": "matthew.dixon@taotesting.com"
+			"email": "gaurav.thappar@taotesting.com",
+			"name": "gauravoat"
 		},
 		{
-			"name": "tikhanovich",
-			"email": "tihanovich.a@gmail.com"
+			"email": "viktar.dzmitryieu@taotesting.com",
+			"name": "viktar_dzmitryieu"
 		},
 		{
-			"name": "karols",
-			"email": "karol.stelmaczonek@taotesting.com"
+			"email": "roma.derski@gmail.com",
+			"name": "roma-derski"
 		},
 		{
-			"name": "a.tymchenko",
-			"email": "a.tymchenko@outlook.com"
+			"email": "tihanovich.a@gmail.com",
+			"name": "tikhanovich"
 		},
 		{
-			"name": "olechafm",
-			"email": "olechafm@gmail.com"
+			"email": "karol.stelmaczonek@taotesting.com",
+			"name": "karols"
 		},
 		{
-			"name": "olga-kulish-tao",
-			"email": "olga.kulish@taotesting.com"
+			"email": "olechafm@gmail.com",
+			"name": "olechafm"
 		},
 		{
-			"name": "gabriel-tao",
-			"email": "gabriel.felipe.soares@taotesting.com"
+			"email": "olga.kulish@taotesting.com",
+			"name": "olga-kulish-tao"
 		},
 		{
-			"name": "llecaque",
-			"email": "lionel@taotesting.com"
+			"email": "gabriel.felipe.soares@taotesting.com",
+			"name": "gabriel-tao"
 		},
 		{
-			"name": "jsconan",
-			"email": "jsconan@gmail.com"
+			"email": "jsconan@gmail.com",
+			"name": "jsconan"
 		},
 		{
-			"name": "oatymart",
-			"email": "martin.nicholson@taotesting.com"
+			"email": "martin.nicholson@taotesting.com",
+			"name": "oatymart"
 		},
 		{
-			"name": "tamasbesenyei",
-			"email": "tamas@besenyei.net"
+			"email": "tamas@besenyei.net",
+			"name": "tamasbesenyei"
 		},
 		{
-			"name": "bziondik",
-			"email": "bziondik@gmail.com"
+			"email": "it-team@taotesting.com",
+			"name": "oat-admin"
 		},
 		{
-			"name": "oat-admin",
-			"email": "it-team@taotesting.com"
+			"email": "shaveko@gmail.com",
+			"name": "shaveko"
 		},
 		{
-			"name": "shaveko",
-			"email": "shaveko@gmail.com"
+			"email": "contact@sergeimikhailov.com",
+			"name": "wazelin"
 		},
 		{
-			"name": "wazelin",
-			"email": "contact@sergeimikhailov.com"
+			"email": "marpesian@gmail.com",
+			"name": "marpesia"
 		},
 		{
-			"name": "marpesia",
-			"email": "marpesian@gmail.com"
+			"email": "kirillsedunoff@gmail.com",
+			"name": "yukipastelcat"
 		},
 		{
-			"name": "yukipastelcat",
-			"email": "kirillsedunoff@gmail.com"
-		},
-		{
-			"name": "gloribeloat",
-			"email": "gloribel.veras@taotesting.com"
+			"email": "gloribel.veras@taotesting.com",
+			"name": "gloribeloat"
 		}
 	],
 	"description": "PostCSS plugin to support nesting of Svelte's :global",
@@ -469,5 +465,5 @@
 	"license": "GPL-2.0",
 	"readme": "# postcss-global-nested\n\n[PostCSS] plugin to better support [Svelte]'s [:global] in [nesting] [context]\n\n[PostCSS]: https://github.com/postcss/postcss\n[Svelte]: https://svelte.dev\n[:global]: https://svelte.dev/docs#component-format-style\n[nesting]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting\n\n```css\nbutton {\n    & > :global-nested(.foo) {\n        &:focus {\n            outline: #f66 dashed;\n        }\n    }\n}\n```\n\n```css\nbutton > :global(.foo:focus) {\n    outline: #f66 dashed;\n}\n```\n\n### Limitations\n\nWhen `:global-nested` is the first selector, it is just replaced by `:global` without wrapping the nested selectors. A warning will be shown.\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev @oat-sa/postcss-global-nested\n```\n\n**Step 2:** Configure it\n\nFor example with [postcss-preset-env](https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env):\n\n```diff\nmodule.exports = {\n  plugins: [\n    require('postcss-preset-env')({\n        stage: 1,\n        features: {\n            'nesting-rules': {\n                noIsPseudoSelector: true\n            }\n        },\n        insertAfter: {\n            'nesting-rules': require('postcss-global-nested')\n        }\n    })\n    require('autoprefixer')\n  ]\n}\n```\n\n### Options\n\n-   `globalNestedPseudo` : the pattern to search for, `:global-nested` by default\n-   `globalPseudo` : the replacement pseudo for the wrapper, `:global` by default\n\n## License\n\nCopyright (c) 2022 Open Assessment Technologies SA\n\nLicensed under the terms of the [GNU GPL v2](./LICENSE)\n",
 	"readmeFilename": "README.md",
-	"_downloads": 429
+	"_downloads": 1710
 }
