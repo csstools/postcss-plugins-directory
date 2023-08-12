@@ -1,6 +1,6 @@
 {
 	"name": "postcss-rtlcss",
-	"version": "4.0.6",
+	"version": "4.0.7",
 	"description": "PostCSS plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules",
 	"keywords": [
 		"postcss",
@@ -18,12 +18,24 @@
 	"types": "index.d.ts",
 	"exports": {
 		".": {
-			"require": "./index.js",
-			"import": "./esm/index.js"
+			"require": {
+				"types": "./index.d.ts",
+				"default": "./index.js"
+			},
+			"import": {
+				"types": "./esm/index.d.ts",
+				"default": "./esm/index.js"
+			}
 		},
 		"./options": {
-			"require": "./options.js",
-			"import": "./esm/options.js"
+			"require": {
+				"types": "./options.d.ts",
+				"default": "./options.js"
+			},
+			"import": {
+				"types": "./esm/options.d.ts",
+				"default": "./esm/options.js"
+			}
 		}
 	},
 	"scripts": {
@@ -51,23 +63,22 @@
 	},
 	"devDependencies": {
 		"@rollup/plugin-json": "^6.0.0",
-		"@types/eslint": "^8.37.0",
-		"@types/jest": "^29.5.0",
-		"@types/node": "^18.15.11",
-		"@types/rtlcss": "^3.5.0",
-		"@typescript-eslint/eslint-plugin": "^5.57.1",
-		"@typescript-eslint/parser": "^5.57.1",
-		"coveralls": "^3.1.1",
-		"eslint": "^8.38.0",
-		"eslint-plugin-jest": "^27.2.1",
-		"jest": "^29.5.0",
-		"postcss": "^8.4.19",
-		"replace-in-file": "^6.3.5",
-		"rollup": "^3.20.2",
+		"@types/eslint": "^8.44.2",
+		"@types/jest": "^29.5.3",
+		"@types/node": "^20.4.10",
+		"@types/rtlcss": "^3.5.1",
+		"@typescript-eslint/eslint-plugin": "^6.3.0",
+		"@typescript-eslint/parser": "^6.3.0",
+		"eslint": "^8.47.0",
+		"eslint-plugin-jest": "^27.2.3",
+		"jest": "^29.6.2",
+		"postcss": "^8.4.26",
+		"replace-in-file": "^7.0.1",
+		"rollup": "^3.28.0",
 		"rollup-plugin-terser": "^7.0.2",
-		"rollup-plugin-ts": "^3.2.0",
-		"ts-jest": "^29.1.0",
-		"typescript": "^5.0.4"
+		"rollup-plugin-ts": "^3.4.4",
+		"ts-jest": "^29.1.1",
+		"typescript": "^5.1.6"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4.21"
@@ -75,27 +86,26 @@
 	"engines": {
 		"node": ">=12.0.0"
 	},
-	"gitHead": "8b66174afa6887966dfeea33463840b305d8b118",
+	"gitHead": "18fa3f9883eb87ceedc72f3b9f411f21b8063eff",
 	"bugs": {
 		"url": "https://github.com/elchininet/postcss-rtlcss/issues"
 	},
 	"homepage": "https://github.com/elchininet/postcss-rtlcss#readme",
-	"_id": "postcss-rtlcss@4.0.6",
-	"_nodeVersion": "16.20.0",
+	"_id": "postcss-rtlcss@4.0.7",
+	"_nodeVersion": "16.20.1",
 	"_npmVersion": "8.19.4",
 	"dist": {
-		"integrity": "sha512-YNm6g2Y7Gngqtrpq3GC7cUkzH5Gq7aB+Lw9MSgF9s2ro1BDY7W4zqnd15g2ueatUUpSTg2/F5KDjQoTdjhbAKg==",
-		"shasum": "86b58d2b4aa95396eb85065c14a679f0602a95d6",
-		"tarball": "https://registry.npmjs.org/postcss-rtlcss/-/postcss-rtlcss-4.0.6.tgz",
-		"fileCount": 10,
-		"unpackedSize": 99520,
+		"integrity": "sha512-HUh9rtPOrAiPs0uYTebWixSN3PEO6evQ+bj6OmYG59v+pUSPmsfvbIm2VAySvTaHNbURez5beMkCXU/sQz+w0A==",
+		"shasum": "244f9e9f4360754b85af01b07c9f6d0384c9aa32",
+		"tarball": "https://registry.npmjs.org/postcss-rtlcss/-/postcss-rtlcss-4.0.7.tgz",
+		"fileCount": 12,
+		"unpackedSize": 101465,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIHt2VzZqnobiEsoF8/3Qm3Y4vUx/CAPrAkrt9vR91xuSAiEAhcHjr+6XD9i/UFJHhw8FkBFCifMk5nTwWoxycbmtf9U="
+				"sig": "MEUCIGVL7wYZmc96q77Wb0c72rzS8Qm3ysBy9nSBzHJ2WauUAiEA7YjQlXxUveWxnbhBORmUg8yIoa6Jw1ezD2cKJUzZUkk="
 			}
-		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkUZwwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrwVA/9HZklNJQo/lzCepqDWMPmUL5yUzh4YtOJwhLPlb8jL62T4OED\r\nV37ehe0qmC6ltU/oTVtrv4x/t14ga2/CvXb8YmyaH4hLrRBVG709IbBui5To\r\ntXVthWLpA4ZXV5DKRJYtT2uWUhhPpKtJUuP5Y4PYrFuXHQrR9SKEBUYvkZ0P\r\nc4TK9YoaXsL0I17XX9Vu5fcptLF19dgRUlTdCbFuacOOZUhE6LdIAbPAf6oh\r\n8fzmj7EVwEiwR+iqASPbExrJfGpHXFTZ2xB/HSNhkBleBD8Trurrvy66oEq0\r\nfPW86jNI4CIK/GtoF5c9kPbKag17OCVDVz82RSV7yB0FpUwd/FmgglU3dQID\r\nD2buqL7H9roRtXJkye4rjUEByv0jy/H2INWv6CnDNDYTJoHcjaUor7mSiRqC\r\nMlGa/EQP8YBlvVLJMbZC0cfbg6Lyde5KsovVNxM8ISPvSERYIptAkdzp5JUz\r\n5q3v82wwPPMchRdYrpuQu3ixZm40H9ewQc+XPeTPkODXU5GYYMh7kFY3D2J/\r\nUwOeikCxiBfyJGxi0kTrGAVB5VOfcW6s/g0bG0FvQCfPUFKYcUeu30fOUdre\r\n4Pl0AAin+lu0VpXUaUCAbSC+unhnjpLxQLeJgCKK2bxF3ud/ZWyYezsHoBCk\r\ndBrBoKSjL5iYJdrG2tkMgH5MzBTCBUViyxE=\r\n=y3F5\r\n-----END PGP SIGNATURE-----\r\n"
+		]
 	},
 	"_npmUser": {
 		"name": "elchininet",
@@ -110,8 +120,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-rtlcss_4.0.6_1683070000059_0.733322965465349"
+		"tmp": "tmp/postcss-rtlcss_4.0.7_1691797536191_0.6221318488369678"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-05-02T23:26:40.243Z"
+	"_time": "2023-08-11T23:45:36.371Z"
 }
