@@ -1,0 +1,139 @@
+{
+	"_id": "@riadh-adrani/postcss-plugin-ignore-file",
+	"name": "@riadh-adrani/postcss-plugin-ignore-file",
+	"dist-tags": {
+		"latest": "0.0.0"
+	},
+	"versions": {
+		"0.0.0": {
+			"name": "@riadh-adrani/postcss-plugin-ignore-file",
+			"version": "0.0.0",
+			"description": "PostCSS plugin that ignore a file with a comment",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-plugin-ignore-file"
+			],
+			"scripts": {
+				"test": "jest --coverage && eslint ."
+			},
+			"author": {
+				"name": "RiadhAdrani",
+				"email": "riadh_adrani@hotmail.fr"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/RiadhAdrani/postcss-plugin-ignore-file.git"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"clean-publish": "^3.4.2",
+				"eslint": "^8.0.1",
+				"eslint-plugin-jest": "^25.2.2",
+				"jest": "^27.3.1",
+				"postcss": "^8.3.11"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"extends": [
+					"eslint:recommended",
+					"plugin:jest/recommended"
+				],
+				"rules": {
+					"jest/expect-expect": "off"
+				}
+			},
+			"jest": {
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"gitHead": "b7accb214347a4b7456718402e5a61ca3ccbc091",
+			"bugs": {
+				"url": "https://github.com/RiadhAdrani/postcss-plugin-ignore-file/issues"
+			},
+			"homepage": "https://github.com/RiadhAdrani/postcss-plugin-ignore-file#readme",
+			"_id": "@riadh-adrani/postcss-plugin-ignore-file@0.0.0",
+			"_nodeVersion": "18.14.1",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-PHFYHMi9Kis332o78lbGEAoEY8ZzobbQF4gzchPCWwiSPkqckl33kWMij13cIyF8zf2CBpVsxvVn/PsTmgoQkw==",
+				"shasum": "94e0177d16d85d2cd7431ce46a25ec3dc5831cb8",
+				"tarball": "https://registry.npmjs.org/@riadh-adrani/postcss-plugin-ignore-file/-/postcss-plugin-ignore-file-0.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 3584,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDBevE5T0gzfkRoUiDALyfcbrzT28tAEqRTyoFUzrLbvAiEAgXzEz2E+hMpS+47p5kgQ6sf2eaSWrSEbJXMzJhe8czI="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "riadh-adrani",
+				"email": "riadh_adrani@hotmail.fr"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "riadh-adrani",
+					"email": "riadh_adrani@hotmail.fr"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-plugin-ignore-file_0.0.0_1692094870649_0.377561334725526"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2023-08-15T10:21:10.545Z",
+		"0.0.0": "2023-08-15T10:21:10.796Z",
+		"modified": "2023-08-15T10:21:11.039Z"
+	},
+	"maintainers": [
+		{
+			"name": "riadh-adrani",
+			"email": "riadh_adrani@hotmail.fr"
+		}
+	],
+	"description": "PostCSS plugin that ignore a file with a comment",
+	"homepage": "https://github.com/RiadhAdrani/postcss-plugin-ignore-file#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss-plugin-ignore-file"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RiadhAdrani/postcss-plugin-ignore-file.git"
+	},
+	"author": {
+		"name": "RiadhAdrani",
+		"email": "riadh_adrani@hotmail.fr"
+	},
+	"bugs": {
+		"url": "https://github.com/RiadhAdrani/postcss-plugin-ignore-file/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-plugin-ignore-file\n\n[PostCSS] plugin that ignore a file with a comment.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n/* @ignore */\n\n.foo {\n  /* Input example */\n}\n```\n\n```css\n\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-plugin-ignore-file\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-plugin-ignore-file'),\n    require('autoprefixer')\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
