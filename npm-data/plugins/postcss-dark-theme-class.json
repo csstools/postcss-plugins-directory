@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-dark-theme-class",
-	"_rev": "16-2c7587f654689a1348c713be258a0a65",
+	"_rev": "17-c6bc0801deba6216ee51ca4794acf04b",
 	"name": "postcss-dark-theme-class",
 	"dist-tags": {
-		"latest": "0.8.0"
+		"latest": "1.0.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -1013,12 +1013,89 @@
 				"tmp": "tmp/postcss-dark-theme-class_0.8.0_1692009924587_0.5568926633316802"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.0": {
+			"name": "postcss-dark-theme-class",
+			"version": "1.0.0",
+			"description": "CSS solution for light/dark/auto theme switcher for websites",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"dark",
+				"dark-theme",
+				"light",
+				"auto-theme",
+				"theme-switcher"
+			],
+			"author": {
+				"name": "Andrey Sitnik",
+				"email": "andrey@sitnik.ru"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/postcss/postcss-dark-theme-class.git"
+			},
+			"engines": {
+				"node": ">=18.0"
+			},
+			"funding": [
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/postcss/"
+				},
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/ai"
+				}
+			],
+			"peerDependencies": {
+				"postcss": "^8.2.14"
+			},
+			"_id": "postcss-dark-theme-class@1.0.0",
+			"gitHead": "da6ae0027a81bbac5e650b05fd2b6a01a5f131f0",
+			"bugs": {
+				"url": "https://github.com/postcss/postcss-dark-theme-class/issues"
+			},
+			"homepage": "https://github.com/postcss/postcss-dark-theme-class#readme",
+			"_nodeVersion": "20.5.1",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-7XiFx8Ahvot3YmHjs4/jlxyUggomSNZzoF1hyS5xIZpLyfcPY8vb/3q4QPP8CqhnnA911OrDOZL7OTkjHoEjdw==",
+				"shasum": "447b29f5bf9740873a199695ec92ffbe05527779",
+				"tarball": "https://registry.npmjs.org/postcss-dark-theme-class/-/postcss-dark-theme-class-1.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 7100,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC+2vHtD2nSVP+V4WI+mSbIDs1ysJlnpak4A1MRrV6b9AIhAMU0lgutWrsnPk6jWgbYklAimI8fE9N7Ovf17vD2e+XM"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ai",
+				"email": "andrey@sitnik.ru"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-dark-theme-class_1.0.0_1692266472890_0.973691601833456"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2019-10-12T18:43:27.498Z",
 		"0.1.0": "2019-10-12T18:43:27.631Z",
-		"modified": "2023-08-14T10:45:24.929Z",
+		"modified": "2023-08-17T10:01:13.200Z",
 		"0.2.0": "2019-10-13T13:50:41.971Z",
 		"0.2.1": "2019-10-13T15:53:07.037Z",
 		"0.2.2": "2019-10-13T16:05:34.913Z",
@@ -1032,7 +1109,8 @@
 		"0.7.1": "2021-07-09T10:19:11.227Z",
 		"0.7.2": "2021-09-08T16:28:03.827Z",
 		"0.7.3": "2021-10-13T15:06:17.443Z",
-		"0.8.0": "2023-08-14T10:45:24.738Z"
+		"0.8.0": "2023-08-14T10:45:24.738Z",
+		"1.0.0": "2023-08-17T10:01:13.027Z"
 	},
 	"maintainers": [
 		{
@@ -1064,7 +1142,7 @@
 		"url": "https://github.com/postcss/postcss-dark-theme-class/issues"
 	},
 	"license": "MIT",
-	"readme": "# PostCSS Dark Theme Class\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\nCSS solution for light/dark/auto theme switcher for websites.\n\n* It doesn’t have [FART] **flash of light theme** during JS initialization.\n* **Pure CSS** solution. You need JS only to set HTML class, when user.\n* **Automatic theme** provide better UX for users with theme switching\n  by subset/sunrise (all operating systems now have theme switching schedule).\n\n[PostCSS] plugin to make switcher to force dark or light theme by copying styles\nfrom media query to special class.\n\n[PostCSS]: https://github.com/postcss/postcss\n[FART]: https://css-tricks.com/flash-of-inaccurate-color-theme-fart/\n\n```css\n/* Input CSS */\n\n@media (prefers-color-scheme: dark) {\n  html {\n    --text-color: white\n  }\n  body {\n    background: black\n  }\n}\n```\n\n```css\n/* Output CSS */\n\n@media (prefers-color-scheme: dark) {\n  html:not(.is-light) {\n    --text-color: white\n  }\n  html:not(.is-light) body {\n    background: black\n  }\n}\nhtml.is-dark {\n  --text-color: white\n}\nhtml.is-dark body {\n  background: black\n}\n```\n\nBy default (without classes on `html`), website will use browser dark/light\ntheme. If user want to use dark theme, you set `html.is-dark` class.\nIf user want to force light theme, you use `html.is-light`.\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-dark-theme-class\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Docs\nRead full docs **[here](https://github.com/postcss/postcss-dark-theme-class#readme)**.\n",
+	"readme": "# PostCSS Dark Theme Class\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\nCSS solution for light/dark/auto theme switcher for websites.\n\n* It doesn’t have [FART] **flash of light theme** during JS initialization.\n* **Pure CSS** solution. You need JS only to set HTML class, when user.\n* **Automatic theme** provide better UX for users with theme switching\n  by subset/sunrise (all operating systems now have theme switching schedule).\n\n[PostCSS] plugin to make switcher to force dark or light theme by copying styles\nfrom media query to special class.\n\n[PostCSS]: https://github.com/postcss/postcss\n[FART]: https://css-tricks.com/flash-of-inaccurate-color-theme-fart/\n\n```css\n/* Input CSS */\n\n@media (prefers-color-scheme: dark) {\n  html {\n    --text-color: white\n  }\n  body {\n    background: black\n  }\n}\n```\n\n```css\n/* Output CSS */\n\n@media (prefers-color-scheme: dark) {\n  html:where(:not(.is-light)) {\n    --text-color: white\n  }\n  :where(html:not(.is-light)) body {\n    background: black\n  }\n}\nhtml:where(.is-dark) {\n  --text-color: white\n}\n:where(html.is-dark) body {\n  background: black\n}\n```\n\nBy default (without classes on `html`), website will use browser dark/light\ntheme. If user want to use dark theme, you set `html.is-dark` class.\nIf user want to force light theme, you use `html.is-light`.\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-dark-theme-class\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Docs\nRead full docs **[here](https://github.com/postcss/postcss-dark-theme-class#readme)**.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 20052
+	"_downloads": 20959
 }
