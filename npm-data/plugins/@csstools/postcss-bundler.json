@@ -1,10 +1,9 @@
 {
 	"_id": "@csstools/postcss-bundler",
-	"_rev": "6-0546281bb653c0db0269ba5d4918371f",
+	"_rev": "9-25098020c945cb8879a38aee2e256ee6",
 	"name": "@csstools/postcss-bundler",
 	"dist-tags": {
-		"alpha": "0.1.0-alpha.6",
-		"latest": "0.1.0-alpha.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
 		"0.1.0-alpha.0": {
@@ -895,18 +894,272 @@
 				"tmp": "tmp/postcss-bundler_0.1.0-alpha.6_1692168677749_0.8432362952092582"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.0": {
+			"name": "@csstools/postcss-bundler",
+			"description": "Bundle CSS",
+			"version": "1.0.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-parser-algorithms": "2.3.1",
+				"@csstools/css-tokenizer": "^2.2.0",
+				"@csstools/postcss-rebase-url": "^1.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*",
+				"@rmenke/css-package-conditional-3": "^1.0.0",
+				"@rmenke/css-package-main": "^1.0.0",
+				"open-props": "^1.5.15"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugin-packs/postcss-bundler"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"bundler",
+				"import",
+				"postcss-plugin",
+				"url"
+			],
+			"csstools": {
+				"exportName": "postcssBundler",
+				"humanReadableName": "PostCSS Bundler"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-bundler@1.0.0",
+			"gitHead": "7aa5032d0256f9cf04c539cd016d68a93b92efe5",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-zL/oJSxT+2OlzkXXWPoq3MpGUxF1w6tsXTFqJTwtjI2FQnukElodaDFxl3VyjgdwOBd1jNhcGvu3HcqKLGcIzg==",
+				"shasum": "c09d1d8fee58482288ec556e3df860807dfaf376",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-bundler/-/postcss-bundler-1.0.0.tgz",
+				"fileCount": 21,
+				"unpackedSize": 28126,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQC+1Y8ZXrJsErYOTNQMJg9p+m44fEfjD+yh2K/pZxXrQAIhAOsdxNQ7nmpHZU9inHudjFmSk5muZd9/HNxc2wF4+Y3t"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-bundler_1.0.0_1693221614771_0.8132690996728427"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-bundler",
+			"description": "Bundle CSS",
+			"version": "1.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-parser-algorithms": "2.3.1",
+				"@csstools/css-tokenizer": "^2.2.0",
+				"@csstools/postcss-rebase-url": "^1.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*",
+				"@rmenke/css-package-conditional-3": "^1.0.0",
+				"@rmenke/css-package-main": "^1.0.0",
+				"open-props": "^1.5.15"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugin-packs/postcss-bundler"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"bundler",
+				"import",
+				"postcss-plugin",
+				"url"
+			],
+			"csstools": {
+				"exportName": "postcssBundler",
+				"humanReadableName": "PostCSS Bundler"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-bundler@1.0.1",
+			"gitHead": "b23edef2e5da39e772ea73e851e4566727118480",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-UxTg5CehE9Aic9+8dW7a8jAY5/91VfZ7FiUrmicce2/qnMB7eRbYW0jKNkaYm0JCt2KdSpXMu/rF+xr7fd5LMA==",
+				"shasum": "e5ad9ed6decd2fdeb40dadcef5696d02bf065719",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-bundler/-/postcss-bundler-1.0.1.tgz",
+				"fileCount": 21,
+				"unpackedSize": 28184,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGTG3+BFypDBW05pfwRMbnQO773Ucdb0ngawXuxr7lNMAiEA6wP2p738Z9xGNp5f8ZHwhiF8tLc+lVmMl7fXXrHBZMw="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-bundler_1.0.1_1693238007658_0.756034276317993"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-08-14T16:16:57.385Z",
 		"0.1.0-alpha.0": "2023-08-14T16:16:57.633Z",
-		"modified": "2023-08-16T06:51:18.187Z",
+		"modified": "2023-08-28T15:53:28.064Z",
 		"0.1.0-alpha.1": "2023-08-14T16:40:21.199Z",
 		"0.1.0-alpha.2": "2023-08-14T17:02:59.563Z",
 		"0.1.0-alpha.3": "2023-08-14T21:11:28.090Z",
 		"0.1.0-alpha.4": "2023-08-15T08:15:14.493Z",
 		"0.1.0-alpha.5": "2023-08-15T15:53:44.996Z",
-		"0.1.0-alpha.6": "2023-08-16T06:51:17.983Z"
+		"0.1.0-alpha.6": "2023-08-16T06:51:17.983Z",
+		"1.0.0": "2023-08-28T11:20:14.998Z",
+		"1.0.1": "2023-08-28T15:53:27.840Z"
 	},
 	"maintainers": [
 		{
@@ -933,7 +1186,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/csstools/postcss-plugins.git",
-		"directory": "plugins/postcss-bundler"
+		"directory": "plugin-packs/postcss-bundler"
 	},
 	"contributors": [
 		{
@@ -950,7 +1203,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "MIT-0",
-	"readme": "",
-	"readmeFilename": "",
-	"_downloads": 516
+	"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-bundler.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Bundler] bundles your CSS.\n\nThis plugin pack contains :\n- a bundler based on standard CSS `@import` statements.\n- [a rebaser that rewrites URLs in your CSS.](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url)\n\n`examples/example.css` :\n```pcss\n@import url(\"imports/basic.css\");\n@import url(\"node_modules:open-props/red\");\n```\n\n`examples/imports/basic.css`:\n```pcss\n.foo {\n\tbackground: url('../../images/green.png');\n}\n```\n\nwhen bundled :\n```pcss\n/* imports/basic.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}\n/* node_modules:open-props/red */\n:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Bundler] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## `postcss-import`\n\n[`postcss-import`](https://github.com/postcss/postcss-import) is also a CSS bundler and parts of [PostCSS Bundler] are based on it.  \nWhile creating this plugin we also submitted patches to [`postcss-import`](https://github.com/postcss/postcss-import) where possible.  \n\n[PostCSS Bundler] is tuned differently and lacks configuration options that are present in [`postcss-import`](https://github.com/postcss/postcss-import).\n\n[PostCSS Bundler] is intended to just work and to be a drop-in replacement for native CSS `@import` statements.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
+	"readmeFilename": "README.md",
+	"_downloads": 1171
 }
