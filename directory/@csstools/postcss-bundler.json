@@ -1,0 +1,127 @@
+{
+	"name": "@csstools/postcss-bundler",
+	"description": "Bundle CSS",
+	"version": "1.0.1",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "MIT-0",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-parser-algorithms": "2.3.1",
+		"@csstools/css-tokenizer": "^2.2.0",
+		"@csstools/postcss-rebase-url": "^1.0.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*",
+		"@rmenke/css-package-conditional-3": "^1.0.0",
+		"@rmenke/css-package-main": "^1.0.0",
+		"open-props": "^1.5.15"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugin-packs/postcss-bundler"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"bundler",
+		"import",
+		"postcss-plugin",
+		"url"
+	],
+	"csstools": {
+		"exportName": "postcssBundler",
+		"humanReadableName": "PostCSS Bundler"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"_id": "@csstools/postcss-bundler@1.0.1",
+	"gitHead": "b23edef2e5da39e772ea73e851e4566727118480",
+	"_nodeVersion": "20.5.0",
+	"_npmVersion": "9.8.0",
+	"dist": {
+		"integrity": "sha512-UxTg5CehE9Aic9+8dW7a8jAY5/91VfZ7FiUrmicce2/qnMB7eRbYW0jKNkaYm0JCt2KdSpXMu/rF+xr7fd5LMA==",
+		"shasum": "e5ad9ed6decd2fdeb40dadcef5696d02bf065719",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-bundler/-/postcss-bundler-1.0.1.tgz",
+		"fileCount": 21,
+		"unpackedSize": 28184,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIGTG3+BFypDBW05pfwRMbnQO773Ucdb0ngawXuxr7lNMAiEA6wP2p738Z9xGNp5f8ZHwhiF8tLc+lVmMl7fXXrHBZMw="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-bundler_1.0.1_1693238007658_0.756034276317993"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-08-28T15:53:27.840Z"
+}
