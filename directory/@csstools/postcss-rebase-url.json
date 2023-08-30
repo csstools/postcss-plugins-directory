@@ -1,0 +1,123 @@
+{
+	"name": "@csstools/postcss-rebase-url",
+	"description": "Rebase url() functions when transforming CSS",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "MIT-0",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-parser-algorithms": "^2.3.0",
+		"@csstools/css-tokenizer": "^2.1.1"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*",
+		"postcss-import": "^15.1.0"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-rebase-url"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"postcss-plugin",
+		"rebase",
+		"url"
+	],
+	"csstools": {
+		"exportName": "postcssRebaseURL",
+		"humanReadableName": "PostCSS Rebase URL"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"_id": "@csstools/postcss-rebase-url@1.0.0",
+	"gitHead": "ba7a8e74af5401a626ef1cf87b7928c181cf1a05",
+	"_nodeVersion": "20.5.0",
+	"_npmVersion": "9.8.0",
+	"dist": {
+		"integrity": "sha512-TNqc/0QTu3V76TqkCMim+CZPQMTZx5sL/XGzChL79GBPVgEUg+tnuQqjN+WdmrH5S2W2gcyddKU2NCy3fwNATA==",
+		"shasum": "fdc5a713bc40d6c16f0b50a0c14a88437fd4c322",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-rebase-url/-/postcss-rebase-url-1.0.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 10116,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCX3Qd3wxVBcv3F6rSdPmYNZbcXgAQ9um/Y7/B+/05WAwIgPRj7JWR4bRdMSQ4BCVfHkcdPRTQ5Ig8/zpMjOZDlWfM="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-rebase-url_1.0.0_1693221375515_0.8931881273927265"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-08-28T11:16:15.667Z"
+}
