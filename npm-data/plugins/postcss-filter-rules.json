@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-filter-rules",
-	"_rev": "25-be490ce7c6da69d203475385a0f1681e",
+	"_rev": "26-e77da18a9052f8dfc42bcff40761954e",
 	"name": "postcss-filter-rules",
 	"description": "PostCSS plugin to filter rules by applying a callback function on each selector. Can be used to filter out individual rules or remove all rules besides those you wish to keep.",
 	"dist-tags": {
-		"latest": "0.7.0"
+		"latest": "0.8.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -1561,9 +1561,84 @@
 				"tmp": "tmp/postcss-filter-rules_0.7.0_1686053120819_0.6587635743894085"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.8.0": {
+			"name": "postcss-filter-rules",
+			"version": "0.8.0",
+			"description": "PostCSS plugin to filter rules by applying a callback function on each selector. Can be used to filter out individual rules or remove all rules besides those you wish to keep.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"rules",
+				"selectors",
+				"filter"
+			],
+			"author": {
+				"name": "Lachlan McDonald",
+				"email": "lachlan@radelaide.net"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lachlanmcdonald/postcss-filter-rules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/lachlanmcdonald/postcss-filter-rules/issues"
+			},
+			"homepage": "https://github.com/lachlanmcdonald/postcss-filter-rules",
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.13"
+			},
+			"devDependencies": {
+				"@lmcd/eslint-config": "^0.5.0",
+				"eslint": "^8.47.0",
+				"eslint-plugin-jest": "^27.2.3",
+				"jest": "^29.6.3"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.24"
+			},
+			"scripts": {
+				"test": "jest",
+				"lint": "eslint **/*.js --fix"
+			},
+			"gitHead": "65dec6d81692377b3684603456fbe311bc870e72",
+			"_id": "postcss-filter-rules@0.8.0",
+			"_nodeVersion": "16.20.2",
+			"_npmVersion": "8.19.4",
+			"dist": {
+				"integrity": "sha512-p3sJ63IhXKjEWswVYurI5xTEKbXz7CdDUOhzhfU4VaGeocuoAiBsXPvj88z8AzOiOldt5l0iVNYQmQha0vlGvg==",
+				"shasum": "2296f97da392f45a9152023a695502b981260998",
+				"tarball": "https://registry.npmjs.org/postcss-filter-rules/-/postcss-filter-rules-0.8.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 6599,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDnMj7pRXAU+QdkDbaUDKZAnqOMfu2N3g1uduiaGrpEygIhAOESTc/XqXjlUHBnF68RFNHstg6JHBpRoXcYWO86TWGq"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "lachlanmcdonald",
+				"email": "lachlan@radelaide.net"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "lachlanmcdonald",
+					"email": "lachlan@radelaide.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-filter-rules_0.8.0_1693402781588_0.7925835902407978"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Filter Rules\n\n[![npm version](https://badge.fury.io/js/postcss-filter-rules.svg)](https://badge.fury.io/js/postcss-filter-rules) [![License](https://img.shields.io/npm/l/postcss-filter-rules.svg)](https://github.com/lachlanmcdonald/postcss-filter-rules/blob/master/LICENSE) [![Build](https://github.com/lachlanmcdonald/postcss-filter-rules/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/lachlanmcdonald/postcss-filter-rules/actions/)\n\n[PostCSS] plugin that filters rules with a callback function on each selector. Can be used to filter out individual rules or remove all rules besides those you wish to keep.\n\n\n## Installation\n\nThis plugin supports PostCSS 8 as of version `0.7.0`. If you use older versions of PostCSS, please use version `0.6.x` of this package.\n\n```shell\nnpm install --save-dev postcss postcss-filter-rules\n```\n\n## Usage\n\n```js\npostcss([\n    require('postcss-filter-rules')(options)\n])\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n## Options\n\n**filter**  \nType: `Function`\n\nFunction used to filter selectors. Called for each selector in a rule.\n\n- Selectors are kept if the function returns `true`, otherwise they are removed.\n- If all of the selectors for a rule are removed, the rule is also removed.\n- If all rules within an [at-rule] are removed, the block itself is also removed.\n\nThe function receives two arguments, `selector` and `parts`:\n\n- **selector** (String): The selector, as authored in CSS\n- **parts** (Array): An array of elements, classes, IDs and pseudo-classes in the selector. Can be used to quickly search for the existence of classes or IDs.  \ni.e. for the selector `.a + strong.b`, the argument will be: `[\".a\", \"strong.b\"]`\n\nFor example, to keep only the selectors with the `.styleguide` class:\n\n```js\n{\n\tfilter: (selector, parts) => parts.includes('.styleguide')\n}\n```\n\nWith the input CSS:\n\n```css\n.styleguide span,\n.button span {\n\tcolor: red;\n}\n.button {\n\tcolor: blue;\n}\n```\n\nWill output:\n\n```css\n.styleguide span {\n\tcolor: red;\n}\n```\n\n**splitFunction**  \nType: `Function`\n\nA custom callback that can be used to generate the `parts` argument of the callback. If one is not provided, the [default callback](https://github.com/lachlanmcdonald/postcss-filter-rules/blob/master/splitSelectors.js) is used. This callback builds an AST-tree using [`postcss-selector-parser`](https://www.npmjs.com/package/postcss-selector-parser), but there is no restriction on what this function can return.\n\n**keepAtRules**  \nType: `Array` (Optional)  \nDefault: `['charset', 'import', 'keyframes']`\n\nBy default, `@font-face` and any empty [at-rules] (after filtering) are removed. To keep specific at-rules, provide an array of names to this option. For example:\n\n```js\n{\n\tkeepAtRules: ['font-face', 'import']\n}\n```\n\n- To keep all at-rules, use the value `true`\n- To discard all at-rules, use an empty array `[]`\n\n[grunt-postcss]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]:       https://github.com/postcss/postcss\n[at-rule]:       https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule\n[at-rules]:      https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule\n",
+	"readme": "# PostCSS Filter Rules\n\n[![npm version](https://badge.fury.io/js/postcss-filter-rules.svg)](https://badge.fury.io/js/postcss-filter-rules) [![License](https://img.shields.io/npm/l/postcss-filter-rules.svg)](https://github.com/lachlanmcdonald/postcss-filter-rules/blob/master/LICENSE) [![Build](https://github.com/lachlanmcdonald/postcss-filter-rules/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/lachlanmcdonald/postcss-filter-rules/actions/)\n\n[PostCSS] plugin that filters rules with a callback function on each selector and at-rule. For instance, to filter out individual rules or remove all rules besides those you wish to keep.\n\n## Installation\n\n```shell\nnpm install --save-dev postcss postcss-filter-rules\n```\n\n## Usage\n\n```js\npostcss([\n    require('postcss-filter-rules')(options)\n])\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n## Examples\n\n### Filtering selectors\n\nTo keep only the selectors which contain the `.styleguide` class in the following CSS:\n\n```css\n.styleguide span,\n.button span {\n\tcolor: red;\n}\n.button {\n\tcolor: blue;\n}\n```\n\nUse the following `filter`:\n\n```js\n{\n\tfilter: (selector, parts) => parts.includes('.styleguide')\n}\n```\n\nWhich will output:\n\n```css\n.styleguide span {\n\tcolor: red;\n}\n```\n\n## Options\n\n__postcss-filter-rules__ accepts options with following signature:\n\n```ts\n{\n    filter(selector: string, parts: string[]): boolean,\n    splitFunction(selector: string): string[],\n}\n```\n\n__Note:__ `keepAtRules` is deprecated as of 0.8.0 and will raise a warning. As such, all [at-rules] are retained by default unless empty. Plugins, such as [postcss-discard-unused](https://www.npmjs.com/package/postcss-discard-unused), are better fit-for-purpose for removing at-rules which are no longer referenced in the resulting CSS, such as `@keyframes` or `@font-face`.\n\n### filter\n\nCalled for each selector in a rule:\n\n- If the function returns a`true`, the selector is retained. Otherwise, the selector is removed.\n- If all of the selectors for a rule are removed, the rule is also removed.\n- If all rules within an [at-rule] are removed, the rule is also removed.\n\nThe function receives two arguments:\n\n- **selector** (`string`): The selector, as authored in CSS\n- **parts** (`string[]`): An array of elements, classes, IDs and pseudo-classes in the selector. Used to quickly search for the existence of classes or IDs.\n\n### splitFunction\n\nA custom callback that can be used to generate the `parts` argument of the callback. If one is not provided, the [default callback](https://github.com/lachlanmcdonald/postcss-filter-rules/blob/master/splitSelectors.js) is used.\n\n[PostCSS]:       https://github.com/postcss/postcss\n[at-rule]:       https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule\n[at-rules]:      https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule\n",
 	"maintainers": [
 		{
 			"name": "lachlanmcdonald",
@@ -1571,7 +1646,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-06-06T12:05:21.125Z",
+		"modified": "2023-08-30T13:39:41.904Z",
 		"created": "2016-12-01T11:42:05.688Z",
 		"0.1.0": "2016-12-01T11:42:05.688Z",
 		"0.1.1": "2016-12-01T11:46:13.730Z",
@@ -1591,7 +1666,8 @@
 		"0.6.1": "2020-07-23T00:00:08.661Z",
 		"0.6.2": "2022-04-12T15:40:26.284Z",
 		"0.6.3": "2023-06-06T11:55:36.598Z",
-		"0.7.0": "2023-06-06T12:05:20.992Z"
+		"0.7.0": "2023-06-06T12:05:20.992Z",
+		"0.8.0": "2023-08-30T13:39:41.737Z"
 	},
 	"homepage": "https://github.com/lachlanmcdonald/postcss-filter-rules",
 	"keywords": [
@@ -1615,5 +1691,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 3562
+	"_downloads": 3187
 }
