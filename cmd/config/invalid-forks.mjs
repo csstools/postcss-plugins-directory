@@ -37,4 +37,6 @@ export const invalidForks = [
 	'postcss-px-to-viewport-ng',
 	'postcss-pxtoupx',
 	'postcss-vwtorem',
+	'postcss-rpx2vw',
+	'tz-postcss-px-to-viewport',
 ];
