@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-ic-unit",
-	"_rev": "9-df121124a37d60a28cdb83e390e7dd78",
+	"_rev": "10-b9452973222899010a66b583493f2663",
 	"name": "@csstools/postcss-ic-unit",
 	"dist-tags": {
-		"latest": "3.0.0"
+		"latest": "3.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -887,32 +887,151 @@
 				"tmp": "tmp/postcss-ic-unit_3.0.0_1688373124823_0.48707265459597626"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "@csstools/postcss-ic-unit",
+			"description": "Use the ic length unit",
+			"version": "3.0.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^3.0.1",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-ic-unit#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-ic-unit"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"CJK water ideograph",
+				"css",
+				"glyph",
+				"ic",
+				"length",
+				"postcss-plugin",
+				"values"
+			],
+			"csstools": {
+				"exportName": "postcssIcUnit",
+				"humanReadableName": "PostCSS IC Unit"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-ic-unit@3.0.1",
+			"gitHead": "1a4481cf1515e2b00f222e77ca9283a447a5a0a1",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-OkKZV0XZQixChA6r68O9UfGNFv06cPVcuT+MjpzfEuoCfbNWCj+b0dhsmdz776giQ+DymPmFDlTD+QJEFPI7rw==",
+				"shasum": "9d4964fe9da11f51463e0a141b3184ee3a23acb8",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-ic-unit/-/postcss-ic-unit-3.0.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 10044,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDSpA/jEKqEWYVNphwOzzrKV2jJE1LWI/SIy8rN8/Z4JwIgXqc5S1YZPIVRCvk7qlcgOBVxYhLecnkJ4Xdh/0t8/ZU="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-ic-unit_3.0.1_1695053667284_0.03837052723538936"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-02-15T18:55:28.902Z",
 		"1.0.0": "2022-02-15T18:55:29.139Z",
-		"modified": "2023-07-24T15:03:32.713Z",
+		"modified": "2023-09-18T16:14:27.805Z",
 		"1.0.1": "2022-07-08T16:50:19.989Z",
 		"2.0.0": "2023-01-24T09:08:02.319Z",
 		"2.0.1": "2023-01-28T07:41:36.510Z",
 		"2.0.2": "2023-02-08T08:37:05.280Z",
 		"2.0.3": "2023-05-19T15:51:50.632Z",
 		"2.0.4": "2023-06-01T13:47:15.637Z",
-		"3.0.0": "2023-07-03T08:32:05.054Z"
+		"3.0.0": "2023-07-03T08:32:05.054Z",
+		"3.0.1": "2023-09-18T16:14:27.548Z"
 	},
 	"maintainers": [
 		{
-			"email": "romainmenke@gmail.com",
-			"name": "romainmenke"
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
 		},
 		{
-			"email": "sombragriselros@gmail.com",
-			"name": "alaguna"
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
 		},
 		{
-			"email": "jonathantneal@hotmail.com",
-			"name": "jonathantneal"
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
 		}
 	],
 	"description": "Use the ic length unit",
@@ -941,5 +1060,5 @@
 	"license": "MIT-0",
 	"readme": "# PostCSS IC Unit [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-ic-unit.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/ic-unit.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS IC Unit] lets you use the ic length unit, following the [CSS Values and Units Module] specification.\n\n```pcss\np {\n  text-indent: 2ic;\n}\n\n.bubble {\n  width: calc(8ic + 20px);\n}\n\n/* becomes */\np {\n  text-indent: 2em;\n}\n\n.bubble {\n  width: calc(8em + 20px);\n}\n```\n\n_See prior work by [JLHwung](https://github.com/JLHwung) here [postcss-ic-unit](https://github.com/JLHwung/postcss-ic-unit)\nTo ensure long term maintenance and to provide the needed features this plugin was recreated based on JLHwung's work._\n\n## Usage\n\nAdd [PostCSS IC Unit] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-ic-unit --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssIcUnit = require('@csstools/postcss-ic-unit');\n\npostcss([\n  postcssIcUnit(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS IC Unit] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original source\nis preserved. By default, it is not preserved.\n\n```js\npostcssIcUnit({ preserve: true })\n```\n\n```pcss\np {\n  text-indent: 2ic;\n}\n\n/* becomes */\n\np {\n  text-indent: 2em;\n  text-indent: 2ic;\n}\n```\n\n[postcss]: https://github.com/postcss/postcss\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#ic-unit\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-ic-unit\n\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[CSS Values and Units Module]: https://www.w3.org/TR/css-values-4/#ic\n[PostCSS IC Unit]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-ic-unit\n",
 	"readmeFilename": "README.md",
-	"_downloads": 15840177
+	"_downloads": 13638125
 }

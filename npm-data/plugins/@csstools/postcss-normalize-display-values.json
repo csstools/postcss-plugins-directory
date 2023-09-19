@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-normalize-display-values",
-	"_rev": "6-0ecdd95ae299c00e616b7dee44678ad1",
+	"_rev": "7-46eef3c6ec6a44880a5971df0f65dec8",
 	"name": "@csstools/postcss-normalize-display-values",
 	"dist-tags": {
-		"latest": "3.0.0"
+		"latest": "3.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -611,29 +611,161 @@
 				"tmp": "tmp/postcss-normalize-display-values_3.0.0_1688372167860_0.36863017722541236"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "@csstools/postcss-normalize-display-values",
+			"description": "Use two values display syntax for inner and outer display types.",
+			"version": "3.0.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-normalize-display-values"
+			},
+			"keywords": [
+				"block",
+				"css",
+				"display",
+				"flex",
+				"flow",
+				"flow-root",
+				"grid",
+				"inline",
+				"inline-block",
+				"inline-flex",
+				"inline-grid",
+				"inline-table",
+				"list-item",
+				"postcss-plugin",
+				"ruby",
+				"ruby-base",
+				"ruby-text",
+				"run-in",
+				"table",
+				"table-caption",
+				"table-cell"
+			],
+			"csstools": {
+				"exportName": "postcssNormalizeDisplayValues",
+				"humanReadableName": "PostCSS Normalize Display Values"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-normalize-display-values@3.0.1",
+			"gitHead": "5758f36684c25444d4b6b407b9cc99397da364b9",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins#readme",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-nUvRxI+ALJwkxZdPU4EDyuM380vP91sAGvI3jAOHs/sr3jfcCOzLkY6xKI1Mr526kZ3RivmMoYM/xq+XFyE/bw==",
+				"shasum": "8bacd4fa20434de67a7b1f4f64f6e4476922a98d",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-normalize-display-values/-/postcss-normalize-display-values-3.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 9432,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDoVWHVbivGUTwZz2vzxBrTSNFVbe+fYaNMGwIHkjiU2QIgVFKpaeQcbO22p5S47wmqbVx6CiMUWDxx8AQjgrvK+nw="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-normalize-display-values_3.0.1_1695053390825_0.5654324231659842"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-01-25T19:02:49.348Z",
 		"1.0.0": "2022-01-25T19:02:49.652Z",
-		"modified": "2023-07-24T15:03:34.678Z",
+		"modified": "2023-09-18T16:09:51.328Z",
 		"1.0.1": "2022-07-08T17:04:29.840Z",
 		"2.0.0": "2023-01-24T09:13:25.550Z",
 		"2.0.1": "2023-01-28T07:47:30.689Z",
-		"3.0.0": "2023-07-03T08:16:08.089Z"
+		"3.0.0": "2023-07-03T08:16:08.089Z",
+		"3.0.1": "2023-09-18T16:09:51.090Z"
 	},
 	"maintainers": [
 		{
-			"email": "romainmenke@gmail.com",
-			"name": "romainmenke"
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
 		},
 		{
-			"email": "sombragriselros@gmail.com",
-			"name": "alaguna"
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
 		},
 		{
-			"email": "jonathantneal@hotmail.com",
-			"name": "jonathantneal"
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
 		}
 	],
 	"description": "Use two values display syntax for inner and outer display types.",
@@ -676,5 +808,5 @@
 	"license": "MIT-0",
 	"readme": "# PostCSS Normalize Display Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-normalize-display-values.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/display-two-values.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Normalize Display Values] lets you specify definition of outer and inner displays types for an element.\n\n```pcss\n.element {\n  display: inline flow-root;\n}\n\n/* becomes */\n\n.element {\n  display: inline-block;\n  display: inline flow-root;\n}\n```\n\n_See prior work by [cssnano](https://github.com/cssnano) here [postcss-normalize-display-values](https://github.com/cssnano/cssnano/tree/master/packages/postcss-normalize-display-values)\nTo ensure long term maintenance and to provide the needed features this plugin was recreated based on cssnano's work._\n\n## Usage\n\nAdd [PostCSS Normalize Display Values] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-normalize-display-values --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssNormalizeDisplayValues = require('@csstools/postcss-normalize-display-values');\n\npostcss([\n  postcssNormalizeDisplayValues(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Normalize Display Values] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original source\nis preserved. By default, it is preserved.\n\n```js\npostcssNormalizeDisplayValues({ preserve: false })\n```\n\n```pcss\n.element {\n  display: inline flow-root;\n}\n\n/* becomes */\n\n.element {\n  display: inline-block; \n}\n```\n\n[postcss]: https://github.com/postcss/postcss\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#display-two-values\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-normalize-display-values\n\n[CSS Fonts]: https://www.w3.org/TR/css-display-3/#the-display-properties\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Normalize Display Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-normalize-display-values\n",
 	"readmeFilename": "README.md",
-	"_downloads": 14692791
+	"_downloads": 13738937
 }

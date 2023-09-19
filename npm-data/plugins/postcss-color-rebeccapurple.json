@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-color-rebeccapurple",
-	"_rev": "29-1aebb8c4ca9283a188daca0f851516c0",
+	"_rev": "30-ffcc305a90a3dbc7dfed3bfae961fbd0",
 	"name": "postcss-color-rebeccapurple",
 	"description": "Use the rebeccapurple color keyword in CSS",
 	"dist-tags": {
-		"latest": "9.0.0"
+		"latest": "9.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -2142,33 +2142,180 @@
 				"tmp": "tmp/postcss-color-rebeccapurple_9.0.0_1688371845546_0.7046177893131234"
 			},
 			"_hasShrinkwrap": false
+		},
+		"9.0.1": {
+			"name": "postcss-color-rebeccapurple",
+			"description": "Use the rebeccapurple color keyword in CSS",
+			"version": "9.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Maxime Thirouin"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-rebeccapurple#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-rebeccapurple"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"becca",
+				"color",
+				"css",
+				"csswg",
+				"eric",
+				"meyer",
+				"postcss",
+				"postcss-plugin",
+				"purple",
+				"rebecca",
+				"rgb",
+				"syntax",
+				"w3c"
+			],
+			"csstools": {
+				"cssdbId": "rebeccapurple-color",
+				"exportName": "postcssRebeccaPurple",
+				"humanReadableName": "PostCSS RebeccaPurple",
+				"specUrl": "https://www.w3.org/TR/css-color-4/#valdef-color-rebeccapurple"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "postcss-color-rebeccapurple@9.0.1",
+			"gitHead": "237389945116e30155b0bfc161db24dde91a469a",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-ds4cq5BjRieizVb2PnvbJ0omg9VCo2/KzluvoFZbxuGpsGJ5BQSD93CHBooinEtangCM5YqUOerGDl4xGmOb6Q==",
+				"shasum": "d1266b9a9571ca478c8ce7ad97a15727eac3c6b2",
+				"tarball": "https://registry.npmjs.org/postcss-color-rebeccapurple/-/postcss-color-rebeccapurple-9.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 9984,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDGa5lFHecVWmDR05KJI+D9b6hRREWxwIjolFeI1bebGQIhAPc22Y5AZ55qxGQnNOhhcYyrp1/OWpYeeW2XEZCaM8++"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-rebeccapurple_9.0.1_1695053355099_0.5445593869990217"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS RebeccaPurple [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-color-rebeccapurple.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/rebeccapurple-color.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS RebeccaPurple] lets you use the `rebeccapurple` color keyword in CSS.\n\n```pcss\n.heading {\n\tcolor: rebeccapurple;\n}\n\n/* becomes */\n\n.heading {\n\tcolor: #639;\n}\n```\n\n## About the `rebeccapurple` keyword\n\nIn 2014, Rebecca Alison Meyer, the daughter of [Eric A. Meyer](https://en.wikipedia.org/wiki/Eric_A._Meyer), an American web design consultant best known for his advocacy work on behalf of CSS, passed away of a brain tumor at six years of age.\n\nIn her memory, the hex color `#663399` is named `rebeccapurple` and [added to the CSS Colors list](https://lists.w3.org/Archives/Public/www-style/2014Jun/0312.html).\n\n## Usage\n\nAdd [PostCSS RebeccaPurple] to your project:\n\n```bash\nnpm install postcss postcss-color-rebeccapurple --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssRebeccaPurple = require('postcss-color-rebeccapurple');\n\npostcss([\n\tpostcssRebeccaPurple(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS RebeccaPurple] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssRebeccaPurple({ preserve: true })\n```\n\n```pcss\n.heading {\n\tcolor: rebeccapurple;\n}\n\n/* becomes */\n\n.heading {\n\tcolor: #639;\n\tcolor: rebeccapurple;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#rebeccapurple-color\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-color-rebeccapurple\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS RebeccaPurple]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-rebeccapurple\n",
+	"readme": "# PostCSS RebeccaPurple [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-color-rebeccapurple.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/rebeccapurple-color.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install postcss-color-rebeccapurple --save-dev\n```\n\n[PostCSS RebeccaPurple] lets you use the `rebeccapurple` color keyword in CSS.\n\n```pcss\n.heading {\n\tcolor: rebeccapurple;\n}\n\n/* becomes */\n\n.heading {\n\tcolor: #639;\n}\n```\n\n## About the `rebeccapurple` keyword\n\nIn 2014, Rebecca Alison Meyer, the daughter of [Eric A. Meyer](https://en.wikipedia.org/wiki/Eric_A._Meyer), an American web design consultant best known for his advocacy work on behalf of CSS, passed away of a brain tumor at six years of age.\n\nIn her memory, the hex color `#663399` is named `rebeccapurple` and [added to the CSS Colors list](https://lists.w3.org/Archives/Public/www-style/2014Jun/0312.html).\n\n## Usage\n\nAdd [PostCSS RebeccaPurple] to your project:\n\n```bash\nnpm install postcss postcss-color-rebeccapurple --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssRebeccaPurple = require('postcss-color-rebeccapurple');\n\npostcss([\n\tpostcssRebeccaPurple(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS RebeccaPurple] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssRebeccaPurple({ preserve: true })\n```\n\n```pcss\n.heading {\n\tcolor: rebeccapurple;\n}\n\n/* becomes */\n\n.heading {\n\tcolor: #639;\n\tcolor: rebeccapurple;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#rebeccapurple-color\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-color-rebeccapurple\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS RebeccaPurple]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-rebeccapurple\n",
 	"maintainers": [
 		{
-			"email": "romainmenke@gmail.com",
-			"name": "romainmenke"
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
 		},
 		{
-			"email": "sombragriselros@gmail.com",
-			"name": "alaguna"
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
 		},
 		{
-			"email": "jonathantneal@hotmail.com",
-			"name": "jonathantneal"
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
 		},
 		{
-			"email": "npm@moox.io",
-			"name": "moox"
+			"name": "moox",
+			"email": "npm@moox.io"
 		},
 		{
-			"email": "semigradskyd@gmail.com",
-			"name": "semigradsky"
+			"name": "semigradsky",
+			"email": "semigradskyd@gmail.com"
 		}
 	],
 	"time": {
-		"modified": "2023-07-24T15:03:42.166Z",
+		"modified": "2023-09-18T16:09:15.537Z",
 		"created": "2014-10-04T06:18:57.126Z",
 		"1.0.0": "2014-10-04T06:18:57.126Z",
 		"1.1.0": "2014-11-25T08:00:31.992Z",
@@ -2189,7 +2336,8 @@
 		"8.0.0": "2023-01-24T08:49:26.081Z",
 		"8.0.1": "2023-01-28T07:33:03.814Z",
 		"8.0.2": "2023-02-06T17:18:37.169Z",
-		"9.0.0": "2023-07-03T08:10:45.759Z"
+		"9.0.0": "2023-07-03T08:10:45.759Z",
+		"9.0.1": "2023-09-18T16:09:15.287Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-rebeccapurple#readme",
 	"keywords": [
@@ -2235,5 +2383,5 @@
 			"name": "Maxime Thirouin"
 		}
 	],
-	"_downloads": 28048876
+	"_downloads": 24005051
 }
