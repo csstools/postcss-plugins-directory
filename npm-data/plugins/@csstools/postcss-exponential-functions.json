@@ -1,8 +1,9 @@
 {
 	"_id": "@csstools/postcss-exponential-functions",
+	"_rev": "1-70e635469e8b348a71dd612eccad9233",
 	"name": "@csstools/postcss-exponential-functions",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -126,12 +127,141 @@
 				"tmp": "tmp/postcss-exponential-functions_1.0.0_1690215664004_0.3133151989116896"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "@csstools/postcss-exponential-functions",
+			"description": "Use pow(), sqrt(), hypot(), log(), exp() exponential functions in CSS",
+			"version": "1.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-calc": "^1.1.4",
+				"@csstools/css-parser-algorithms": "^2.3.2",
+				"@csstools/css-tokenizer": "^2.2.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-exponential-functions#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-exponential-functions"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"exp",
+				"exponential",
+				"hypot",
+				"log",
+				"postcss-plugin",
+				"pow",
+				"sqrt"
+			],
+			"csstools": {
+				"cssdbId": "exponential-functions",
+				"exportName": "postcssExponentialFunctions",
+				"humanReadableName": "PostCSS Exponential Functions",
+				"specUrl": "https://www.w3.org/TR/css-values-4/#exponent-funcs"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-exponential-functions@1.0.1",
+			"gitHead": "98b05cc8644942c68dda6bcf63ee6d9f1ce3884b",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-ZLK2iSK4DUxeypGce2PnQSdYugUqDTwxnhNiq1o6OyKMNYgYs4eKbvEhFG8JKr1sJWbeqBi5jRr0017l2EWVvg==",
+				"shasum": "0d938f58ba5ac5c362e09ad22b5768b04ee82650",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-exponential-functions/-/postcss-exponential-functions-1.0.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 9050,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHDGAGiBWECY48uzPmS4uhCiZswvy54W6NdttMTuKcytAiEA1GVaV0k6SvbdtTdHGbTptyzIegNI7TcrP2rkPFPswC8="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-exponential-functions_1.0.1_1695584727194_0.685289091406778"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-07-24T16:21:03.865Z",
 		"1.0.0": "2023-07-24T16:21:04.134Z",
-		"modified": "2023-07-24T16:21:04.415Z"
+		"modified": "2023-09-24T19:45:27.668Z",
+		"1.0.1": "2023-09-24T19:45:27.407Z"
 	},
 	"maintainers": [
 		{
@@ -150,7 +280,13 @@
 	"description": "Use pow(), sqrt(), hypot(), log(), exp() exponential functions in CSS",
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-exponential-functions#readme",
 	"keywords": [
-		"postcss-plugin"
+		"exp",
+		"exponential",
+		"hypot",
+		"log",
+		"postcss-plugin",
+		"pow",
+		"sqrt"
 	],
 	"repository": {
 		"type": "git",
@@ -172,7 +308,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "MIT-0",
-	"readme": "# PostCSS Exponential Functions [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-exponential-functions.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/exponential-functions.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Exponential Functions] lets you use the `pow()`, `sqrt()`, `hypot()`, `log()`, `exp()` functions following the [CSS Values 4 Specification].\n\n```pcss\n.foo {\n\ttop: calc(1px * pow(2, 3));\n\tline-height: sqrt(1.2);\n\tpadding: hypot(3px, 4px);\n\torder: log(10, 10);\n\tmin-height: calc(e - exp(1));\n}\n\n/* becomes */\n\n.foo {\n\ttop: 8px;\n\tline-height: 1.0954451150103;\n\tpadding: 5px;\n\torder: 1;\n\tmin-height: 0;\n}\n```\n\n## Usage\n\nAdd [PostCSS Exponential Functions] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-exponential-functions --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssExponentialFunctions = require('@csstools/postcss-exponential-functions');\n\npostcss([\n\tpostcssExponentialFunctions(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Exponential Functions] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssExponentialFunctions({ preserve: true })\n```\n\n```pcss\n.foo {\n\ttop: calc(1px * pow(2, 3));\n\tline-height: sqrt(1.2);\n\tpadding: hypot(3px, 4px);\n\torder: log(10, 10);\n\tmin-height: calc(e - exp(1));\n}\n\n/* becomes */\n\n.foo {\n\ttop: 8px;\n\ttop: calc(1px * pow(2, 3));\n\tline-height: 1.0954451150103;\n\tline-height: sqrt(1.2);\n\tpadding: 5px;\n\tpadding: hypot(3px, 4px);\n\torder: 1;\n\torder: log(10, 10);\n\tmin-height: 0;\n\tmin-height: calc(e - exp(1));\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#exponential-functions\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-exponential-functions\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Exponential Functions]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-exponential-functions\n[CSS Values 4 Specification]: https://www.w3.org/TR/css-values-4/#exponent-funcs\n",
+	"readme": "# PostCSS Exponential Functions [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-exponential-functions.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/exponential-functions.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install @csstools/postcss-exponential-functions --save-dev\n```\n\n[PostCSS Exponential Functions] lets you use the `pow()`, `sqrt()`, `hypot()`, `log()`, `exp()` functions following the [CSS Values 4 Specification].\n\n```pcss\n.foo {\n\ttop: calc(1px * pow(2, 3));\n\tline-height: sqrt(1.2);\n\tpadding: hypot(3px, 4px);\n\torder: log(10, 10);\n\tmin-height: calc(e - exp(1));\n}\n\n/* becomes */\n\n.foo {\n\ttop: 8px;\n\tline-height: 1.0954451150103;\n\tpadding: 5px;\n\torder: 1;\n\tmin-height: 0;\n}\n```\n\n## Usage\n\nAdd [PostCSS Exponential Functions] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-exponential-functions --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssExponentialFunctions = require('@csstools/postcss-exponential-functions');\n\npostcss([\n\tpostcssExponentialFunctions(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Exponential Functions] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssExponentialFunctions({ preserve: true })\n```\n\n```pcss\n.foo {\n\ttop: calc(1px * pow(2, 3));\n\tline-height: sqrt(1.2);\n\tpadding: hypot(3px, 4px);\n\torder: log(10, 10);\n\tmin-height: calc(e - exp(1));\n}\n\n/* becomes */\n\n.foo {\n\ttop: 8px;\n\ttop: calc(1px * pow(2, 3));\n\tline-height: 1.0954451150103;\n\tline-height: sqrt(1.2);\n\tpadding: 5px;\n\tpadding: hypot(3px, 4px);\n\torder: 1;\n\torder: log(10, 10);\n\tmin-height: 0;\n\tmin-height: calc(e - exp(1));\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#exponential-functions\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-exponential-functions\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Exponential Functions]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-exponential-functions\n[CSS Values 4 Specification]: https://www.w3.org/TR/css-values-4/#exponent-funcs\n",
 	"readmeFilename": "README.md",
-	"_downloads": 1115653
+	"_downloads": 1278253
 }

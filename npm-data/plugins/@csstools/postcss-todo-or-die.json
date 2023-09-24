@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-todo-or-die",
-	"_rev": "4-23dddb4a6a9267c580f0f81441a7036c",
+	"_rev": "5-1308d7b01a56b49f8761028d5b11cb5b",
 	"name": "@csstools/postcss-todo-or-die",
 	"dist-tags": {
-		"latest": "2.0.1"
+		"latest": "2.0.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -469,15 +469,137 @@
 				"tmp": "tmp/postcss-todo-or-die_2.0.1_1690215639169_0.887091224758938"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.2": {
+			"name": "@csstools/postcss-todo-or-die",
+			"description": "Write TODOs in CSS that ensure you actually do them.",
+			"version": "2.0.2",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-parser-algorithms": "^2.3.2",
+				"@csstools/css-tokenizer": "^2.2.1",
+				"browserslist": "^4.21.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-todo-or-die#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-todo-or-die"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"code quality",
+				"postcss-plugin",
+				"productivity"
+			],
+			"csstools": {
+				"exportName": "postcssTodoOrDie",
+				"humanReadableName": "PostCSS Todo or Die"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-todo-or-die@2.0.2",
+			"gitHead": "3b34741b1c2f810b8d501dc11878ed8f70e1ea53",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-aCMCNaVLsv+8+wL+cYNuA/KeudI5UZApv3GTlrfPFltxxLou5GJMeZfSBmnlxUaFUm1iJPgbKNVufFZ1zomA3w==",
+				"shasum": "9efc7e25e995a903485bf441201bf0b0617aed8e",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-todo-or-die/-/postcss-todo-or-die-2.0.2.tgz",
+				"fileCount": 16,
+				"unpackedSize": 20181,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCICttadbBY5TKjyd1yxn4bKEC5PDLONX7COxBO4ftJygjAiBTkjNRam2+DqsblhQAcKORkYYL4IO1H15jVzjuDx10uw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-todo-or-die_2.0.2_1695584689150_0.6157858855265101"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-02-06T17:19:24.453Z",
 		"1.0.0": "2023-02-06T17:19:24.838Z",
-		"modified": "2023-07-24T16:20:39.516Z",
+		"modified": "2023-09-24T19:44:49.643Z",
 		"1.0.1": "2023-04-10T11:03:12.257Z",
 		"2.0.0": "2023-07-03T08:17:30.099Z",
-		"2.0.1": "2023-07-24T16:20:39.316Z"
+		"2.0.1": "2023-07-24T16:20:39.316Z",
+		"2.0.2": "2023-09-24T19:44:49.426Z"
 	},
 	"maintainers": [
 		{
@@ -520,7 +642,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "MIT-0",
-	"readme": "# PostCSS Todo or Die [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-todo-or-die.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Todo or Die] lets you write TODOs in CSS that ensure you actually do them.\n\nBased on [todo-or-die in rust](https://github.com/davidpdrsn/todo-or-die) and [todo-or-die in ruby](https://github.com/searls/todo_or_die)\n\nThe intention is to get a clear signal when a TODO can be resolved.<br>\nThe clearest signal is a hard error. It forces you to stop and resolve the issue.\n\n`@todo-or-die` rules are considered open TODOs while they are true.<br>\nOnce they become false they will throw an exception.\n\n```pcss\n.baz {\n\t/* \"hwb\" is fully supported */\n\t@todo-or-die browserslist(\"chrome < 101, safari < 15, firefox < 96\");\n\tcolor: pink;\n\tcolor: hwb(350 75% 0%);\n\n\t/* do something after a date */\n\t@todo-or-die before-date(3000 01 01);\n\tcontent: \"2000\";\n}\n\n/* You can also wrap large chunks of CSS */\n@todo-or-die if(20 > 16) {\n\t.baz {\n\t\tcolor: green;\n\t}\n}\n\n/* becomes */\n\n.baz {\n\t/* \"hwb\" is fully supported */\n\tcolor: pink;\n\tcolor: hwb(350 75% 0%);\n\n\t/* do something after a date */\n\tcontent: \"2000\";\n}\n\n/* You can also wrap large chunks of CSS */\n.baz {\n\t\tcolor: green;\n\t}\n```\n\n## Usage\n\nAdd [PostCSS Todo or Die] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-todo-or-die --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssTodoOrDie = require('@csstools/postcss-todo-or-die');\n\npostcss([\n\tpostcssTodoOrDie(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Todo or Die] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Syntax\n\n[PostCSS Todo or Die] is non-standard and is not part of any official CSS Specification.\n\n### `@todo-or-die` rule\n\nThe `@todo-or-die` rule is used to indicate which parts of your CSS have a TODO.\nYou can either use a lone rule or a block around CSS.\n\n```pcss\n.foo {\n\t@todo-or-die if(10 > 8);\n\tcolor: pink;\n}\n\n@todo-or-die if(10 > 8) {\n\t.foo {\n\t\tcolor: pink;\n\t}\n}\n```\n\nYou can use these conditions :\n\n| condition | todo | dies |\n| --- | --- | --- |\n| `if` | when `true` or `unknown` | when `false` |\n| `not` | when `false` or `unknown` | when `true` |\n| `before-date` | when \"now\" is before the date | when \"now\" is after |\n| `browserslist` | when browsers match those of your project | when no browsers match |\n\n```pcss\n@todo-or-die if(10 > 8);\n@todo-or-die not(10 < 8);\n@todo-or-die before-date(2006 01 31); /* year month day */\n@todo-or-die browserslist(\"chrome <= 80\");\n```\n\nYou can combine this plugin with others like `@csstools/postcss-design-tokens` :\n\n```pcss\n@todo-or-die if(10 > design-token('foo.bar'));\n```\n\n```\n@todo-or-die if(<value> <operator> <value>);\n@todo-or-die not(<value> <operator> <value>);\n@todo-or-die before-date(<integer> <integer> <integer>);\n@todo-or-die browserslist(<string>);\n\n<operator> = [ '<' | '>' | '=' ]\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-todo-or-die\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Todo or Die]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-todo-or-die\n",
+	"readme": "# PostCSS Todo or Die [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-todo-or-die.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install @csstools/postcss-todo-or-die --save-dev\n```\n\n[PostCSS Todo or Die] lets you write TODOs in CSS that ensure you actually do them.\n\nBased on [todo-or-die in rust](https://github.com/davidpdrsn/todo-or-die) and [todo-or-die in ruby](https://github.com/searls/todo_or_die)\n\nThe intention is to get a clear signal when a TODO can be resolved.<br>\nThe clearest signal is a hard error. It forces you to stop and resolve the issue.\n\n`@todo-or-die` rules are considered open TODOs while they are true.<br>\nOnce they become false they will throw an exception.\n\n```pcss\n.baz {\n\t/* \"hwb\" is fully supported */\n\t@todo-or-die browserslist(\"chrome < 101, safari < 15, firefox < 96\");\n\tcolor: pink;\n\tcolor: hwb(350 75% 0%);\n\n\t/* do something after a date */\n\t@todo-or-die before-date(3000 01 01);\n\tcontent: \"2000\";\n}\n\n/* You can also wrap large chunks of CSS */\n@todo-or-die if(20 > 16) {\n\t.baz {\n\t\tcolor: green;\n\t}\n}\n\n/* becomes */\n\n.baz {\n\t/* \"hwb\" is fully supported */\n\tcolor: pink;\n\tcolor: hwb(350 75% 0%);\n\n\t/* do something after a date */\n\tcontent: \"2000\";\n}\n\n/* You can also wrap large chunks of CSS */\n.baz {\n\t\tcolor: green;\n\t}\n```\n\n## Usage\n\nAdd [PostCSS Todo or Die] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-todo-or-die --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssTodoOrDie = require('@csstools/postcss-todo-or-die');\n\npostcss([\n\tpostcssTodoOrDie(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Todo or Die] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Syntax\n\n[PostCSS Todo or Die] is non-standard and is not part of any official CSS Specification.\n\n### `@todo-or-die` rule\n\nThe `@todo-or-die` rule is used to indicate which parts of your CSS have a TODO.\nYou can either use a lone rule or a block around CSS.\n\n```pcss\n.foo {\n\t@todo-or-die if(10 > 8);\n\tcolor: pink;\n}\n\n@todo-or-die if(10 > 8) {\n\t.foo {\n\t\tcolor: pink;\n\t}\n}\n```\n\nYou can use these conditions :\n\n| condition | todo | dies |\n| --- | --- | --- |\n| `if` | when `true` or `unknown` | when `false` |\n| `not` | when `false` or `unknown` | when `true` |\n| `before-date` | when \"now\" is before the date | when \"now\" is after |\n| `browserslist` | when browsers match those of your project | when no browsers match |\n\n```pcss\n@todo-or-die if(10 > 8);\n@todo-or-die not(10 < 8);\n@todo-or-die before-date(2006 01 31); /* year month day */\n@todo-or-die browserslist(\"chrome <= 80\");\n```\n\nYou can combine this plugin with others like `@csstools/postcss-design-tokens` :\n\n```pcss\n@todo-or-die if(10 > design-token('foo.bar'));\n```\n\n```\n@todo-or-die if(<value> <operator> <value>);\n@todo-or-die not(<value> <operator> <value>);\n@todo-or-die before-date(<integer> <integer> <integer>);\n@todo-or-die browserslist(<string>);\n\n<operator> = [ '<' | '>' | '=' ]\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-todo-or-die\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Todo or Die]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-todo-or-die\n",
 	"readmeFilename": "README.md",
-	"_downloads": 39
+	"_downloads": 32
 }

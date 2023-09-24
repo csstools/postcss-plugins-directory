@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-media-minmax",
-	"_rev": "8-b6da789c269ab9b430735aa4af1aefbf",
+	"_rev": "9-9560dcd59bed0972ae920b81dbf3ee7e",
 	"name": "@csstools/postcss-media-minmax",
 	"dist-tags": {
-		"latest": "1.0.7"
+		"latest": "1.1.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -998,19 +998,149 @@
 				"tmp": "tmp/postcss-media-minmax_1.0.7_1691231100195_0.5394550524232034"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "@csstools/postcss-media-minmax",
+			"description": "Use the range notation in CSS media queries",
+			"version": "1.1.0",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "yisi"
+				}
+			],
+			"license": "MIT",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-calc": "^1.1.4",
+				"@csstools/css-parser-algorithms": "^2.3.2",
+				"@csstools/css-tokenizer": "^2.2.1",
+				"@csstools/media-query-list-parser": "^2.1.5"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-minmax#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-media-minmax"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"media queries",
+				"postcss-plugin",
+				"range"
+			],
+			"csstools": {
+				"cssdbId": "media-query-ranges",
+				"exportName": "postcssMediaMinMax",
+				"humanReadableName": "PostCSS Media MinMax",
+				"specUrl": "https://www.w3.org/TR/mediaqueries-4/#mq-features"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-media-minmax@1.1.0",
+			"gitHead": "61ba08694c8cbfbaae756fddad378e5766049b7e",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-t5Li/DPC5QmW/6VFLfUvsw/4dNYYseWR0tOXDeJg/9EKUodBgNawz5tuk5vYKtNvoj+Q08odMuXcpS5YJj0AFA==",
+				"shasum": "8d46317b6686cd49e05870ae3c8993e49a54149c",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-media-minmax/-/postcss-media-minmax-1.1.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 24484,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIE13HXGBFf9b71G6VOri2uoSA0Bgij/++BycG+vdRBDmAiEAxaN+4sJNXceVX3y/1JbQ9lRpfDRwukTPqhwbixrwVDI="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-media-minmax_1.1.0_1695584731945_0.8040844734976065"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-03-30T11:58:08.975Z",
 		"1.0.0": "2023-03-30T11:58:09.284Z",
-		"modified": "2023-08-05T10:25:00.438Z",
+		"modified": "2023-09-24T19:45:32.337Z",
 		"1.0.1": "2023-04-10T07:49:03.718Z",
 		"1.0.2": "2023-04-10T11:04:53.061Z",
 		"1.0.3": "2023-06-01T13:47:32.549Z",
 		"1.0.4": "2023-06-21T07:50:19.533Z",
 		"1.0.5": "2023-07-03T08:32:20.925Z",
 		"1.0.6": "2023-07-24T16:28:27.611Z",
-		"1.0.7": "2023-08-05T10:25:00.321Z"
+		"1.0.7": "2023-08-05T10:25:00.321Z",
+		"1.1.0": "2023-09-24T19:45:32.093Z"
 	},
 	"maintainers": [
 		{
@@ -1056,7 +1186,7 @@
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"license": "MIT",
-	"readme": "# PostCSS Media MinMax [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-media-minmax.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/media-query-ranges.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Media MinMax] lets you use the range notation in media queries following the [Media Queries 4 Specification].\n\n```pcss\n@media screen and (width >=500px) and (width <=1200px) {\n\t.bar {\n\t\tdisplay: block;\n\t}\n}\n\n/* becomes */\n\n@media screen and (min-width:500px) and (max-width:1200px) {\n\t.bar {\n\t\tdisplay: block;\n\t}\n}\n```\n\n## Usage\n\nAdd [PostCSS Media MinMax] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-media-minmax --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssMediaMinMax = require('@csstools/postcss-media-minmax');\n\npostcss([\n\tpostcssMediaMinMax(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Media MinMax] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n_See prior work by [yisibl](https://github.com/yisibl) here [postcss-media-minmax](https://github.com/postcss/postcss-media-minmax)\nTo ensure long term maintenance and to provide the needed features this plugin was recreated based on yisibl's work._\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#media-query-ranges\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-media-minmax\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Media MinMax]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-minmax\n[Media Queries 4 Specification]: https://www.w3.org/TR/mediaqueries-4/#mq-features\n",
+	"readme": "# PostCSS Media MinMax [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-media-minmax.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/media-query-ranges.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install @csstools/postcss-media-minmax --save-dev\n```\n\n[PostCSS Media MinMax] lets you use the range notation in media queries following the [Media Queries 4 Specification].\n\n```pcss\n@media screen and (width >=500px) and (width <=1200px) {\n\t.bar {\n\t\tdisplay: block;\n\t}\n}\n\n/* becomes */\n\n@media screen and (min-width:500px) and (max-width:1200px) {\n\t.bar {\n\t\tdisplay: block;\n\t}\n}\n```\n\n## Usage\n\nAdd [PostCSS Media MinMax] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-media-minmax --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssMediaMinMax = require('@csstools/postcss-media-minmax');\n\npostcss([\n\tpostcssMediaMinMax(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Media MinMax] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n_See prior work by [yisibl](https://github.com/yisibl) here [postcss-media-minmax](https://github.com/postcss/postcss-media-minmax)\nTo ensure long term maintenance and to provide the needed features this plugin was recreated based on yisibl's work._\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#media-query-ranges\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-media-minmax\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Media MinMax]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-minmax\n[Media Queries 4 Specification]: https://www.w3.org/TR/mediaqueries-4/#mq-features\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2264721
+	"_downloads": 2227187
 }
