@@ -1,0 +1,118 @@
+{
+	"name": "@csstools/postcss-initial",
+	"description": "PostCSS plugin to fallback initial keyword.",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "MIT-0",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-initial#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-initial"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"postcss-plugin"
+	],
+	"csstools": {
+		"cssdbId": "all-property",
+		"exportName": "postcssInitial",
+		"humanReadableName": "PostCSS Initial",
+		"specUrl": "https://www.w3.org/TR/css-cascade-4/#initial"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"_id": "@csstools/postcss-initial@1.0.0",
+	"gitHead": "f15b6070cf8c6ba4d39398ff79b7731d8d932f54",
+	"_nodeVersion": "20.5.0",
+	"_npmVersion": "9.8.0",
+	"dist": {
+		"integrity": "sha512-1l7iHHjIl5qmVeGItugr4ZOlCREDP71mNKqoEyxlosIoiu3Os1nPWMHpuCvDLCLiWI/ONTOg3nzJh7gwHOrqUA==",
+		"shasum": "e35ec12143a654b384fb81623970deeacedb0769",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-initial/-/postcss-initial-1.0.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 17786,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQCCTytPazg0oK2OiAUwE5FKvkfYCEVfoIzdJjDxwnSK5AIhAMLMJ8vfsbGUeGiyC/fzn/8sNKnvceeK6d+sTmTXwjgv"
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-initial_1.0.0_1695053208716_0.8475418398633794"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-09-18T16:06:49.056Z"
+}
