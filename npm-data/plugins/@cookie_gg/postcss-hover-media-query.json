@@ -1,0 +1,96 @@
+{
+	"_id": "@cookie_gg/postcss-hover-media-query",
+	"name": "@cookie_gg/postcss-hover-media-query",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "@cookie_gg/postcss-hover-media-query",
+			"version": "0.0.1",
+			"description": "PostCSS plugin that supports global scoping in nested rules",
+			"main": "dist/index.js",
+			"private": false,
+			"keywords": [
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Cookie_gg"
+			},
+			"license": "MIT",
+			"scripts": {
+				"dev": "rm -rf ./dist && tsc -w",
+				"build": "rm -rf ./dist && tsc",
+				"test:serve": "cd ./example && npm run test:serve",
+				"test:build": "cd ./example && npm run test:build"
+			},
+			"dependencies": {
+				"postcss": "8.4.29"
+			},
+			"devDependencies": {
+				"@types/node": "20.6.0",
+				"@typescript-eslint/eslint-plugin": "6.7.0",
+				"@vercel/ncc": "0.38.0",
+				"eslint": "8.49.0",
+				"eslint-config-prettier": "9.0.0",
+				"prettier": "2.8.8",
+				"typescript": "5.2.2"
+			},
+			"licenseText": "MIT License\n\nCopyright (c) 2023 Cookie_gg\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+			"_id": "@cookie_gg/postcss-hover-media-query@0.0.1",
+			"dist": {
+				"shasum": "6e9ac7f3206f3b2bc5a5af291562814976be5e3e",
+				"integrity": "sha512-kkP9EktCjFt/YFPRPWMrmJ6Yjzmp73gOWIpq1dgYItCt5IAHyWyro1/KlaNfgrwKeTKNGOTc5cIGOsEJp4gqGQ==",
+				"tarball": "https://registry.npmjs.org/@cookie_gg/postcss-hover-media-query/-/postcss-hover-media-query-0.0.1.tgz",
+				"fileCount": 23,
+				"unpackedSize": 167821,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDBrxHmvRLmfIaOfU5FkfZnAHZgzPg1JDTWcFYkTVv+kAiB8AKSth57Zi9nYNGtwQtHRlHRg7EtgJQL8jGCXoLr3IA=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "cookie_gg",
+				"email": "cookie.gg.dev@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "cookie_gg",
+					"email": "cookie.gg.dev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-hover-media-query_0.0.1_1695782320902_0.9128691042343806"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2023-09-27T02:38:40.784Z",
+		"0.0.1": "2023-09-27T02:38:41.110Z",
+		"modified": "2023-09-27T02:38:41.398Z"
+	},
+	"maintainers": [
+		{
+			"name": "cookie_gg",
+			"email": "cookie.gg.dev@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin that supports global scoping in nested rules",
+	"keywords": [
+		"postcss",
+		"postcss-plugin"
+	],
+	"author": {
+		"name": "Cookie_gg"
+	},
+	"license": "MIT",
+	"readme": "# postcss-hover-media-query\n\nPostcss plugin that optimize the hover style in css.\n\n## Install\n\n```bash\n(npm|yarn|pnpm|bun) i -D postcss @cookie_gg/postcss-hover-media-query\n```\n\n## Usage\n\n```js:postcss.config.js\nmodule.exports = {\n  ...\n  plugins: [\n    // other plugins...\n    ['@cookie_gg/postcss-hover-media-query', {\n        forceHoverable: false,\n      }\n    ]\n  ]\n  ...\n}\n```\n\n```css:style.css\n/* before */\nmain h1:hover, main h2 {\n  color: blue;\n}\n\n/* after */\n@media (hover: hover) {\n  main h1:hover {\n    color: blue;\n  }\n}\nmain h2 {\n  color: blue;\n}\n```\n\n## Options\n\n**forceHoverable: `Boolean`**\n\n> default: 'false'\n\nIf you set this option to true, you can use `:force-hover` pseudo class which supports unknown elements.\n\n```css:style.css\n/* before */\nmain h1:force-hover {\n  color: blue;\n}\n\n/* after */\n@media (hover: hover) {\n  main h1:where(:any-link, :enabled, summary):hover {\n    color: blue;\n  }\n}\n```\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
