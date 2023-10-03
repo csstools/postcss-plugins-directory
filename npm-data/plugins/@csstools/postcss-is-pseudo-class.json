@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-is-pseudo-class",
-	"_rev": "20-99a3a17673455fe38789dce3149dc037",
+	"_rev": "21-c0364f9dcf47a527e0cc56119f81dd24",
 	"name": "@csstools/postcss-is-pseudo-class",
 	"dist-tags": {
-		"latest": "4.0.2"
+		"latest": "4.0.3"
 	},
 	"versions": {
 		"1.0.0": {
@@ -2146,12 +2146,133 @@
 				"tmp": "tmp/postcss-is-pseudo-class_4.0.2_1695053374782_0.5913251849657282"
 			},
 			"_hasShrinkwrap": false
+		},
+		"4.0.3": {
+			"name": "@csstools/postcss-is-pseudo-class",
+			"description": "A pseudo-class for matching elements in a selector list",
+			"version": "4.0.3",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/selector-specificity": "^3.0.0",
+				"postcss-selector-parser": "^6.0.13"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*",
+				"puppeteer": "^21.3.6"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-is-pseudo-class#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-is-pseudo-class"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"css",
+				"is",
+				"matches",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"csstools": {
+				"exportName": "postcssIsPseudoClass",
+				"humanReadableName": "PostCSS Is Pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-is-pseudo-class@4.0.3",
+			"gitHead": "d5a965dcb6fa3f2d4335dc74dfa99faf60e928dd",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-/dt5M9Ty/x3Yiq0Nm/5PJJzwkVFchJgdjKVnryBPtoMCb9ohb/nDIJOwr/Wr3hK3FDs1EA1GE6PyRYsUmQPS8Q==",
+				"shasum": "d8b04ff5eefb1a9bc8f1ab99b8f3b6b04b704480",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-4.0.3.tgz",
+				"fileCount": 14,
+				"unpackedSize": 31257,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCPgaN0MwhrmeC3xPj6gD60weloFRv1fslVFUXQlQqayAIgW0f3/tHtne3c/tgOPaQL2d8VeykvDGT+IE9RCNITCzU="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-is-pseudo-class_4.0.3_1696281558707_0.4062411392533891"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-01-13T16:50:56.730Z",
 		"1.0.0": "2022-01-13T16:50:57.158Z",
-		"modified": "2023-09-18T16:09:35.123Z",
+		"modified": "2023-10-02T21:19:19.081Z",
 		"1.0.1": "2022-01-17T11:36:03.386Z",
 		"2.0.0": "2022-01-31T07:50:35.883Z",
 		"2.0.1": "2022-03-04T21:13:04.541Z",
@@ -2169,7 +2290,8 @@
 		"3.2.1": "2023-05-19T15:38:05.710Z",
 		"4.0.0": "2023-07-03T08:14:04.870Z",
 		"4.0.1": "2023-09-02T17:07:14.226Z",
-		"4.0.2": "2023-09-18T16:09:34.939Z"
+		"4.0.2": "2023-09-18T16:09:34.939Z",
+		"4.0.3": "2023-10-02T21:19:18.849Z"
 	},
 	"maintainers": [
 		{
@@ -2212,5 +2334,5 @@
 		"pseudo",
 		"selector"
 	],
-	"_downloads": 16458948
+	"_downloads": 15381765
 }
