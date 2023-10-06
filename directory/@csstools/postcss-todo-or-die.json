@@ -1,0 +1,122 @@
+{
+	"name": "@csstools/postcss-todo-or-die",
+	"description": "Write TODOs in CSS that ensure you actually do them.",
+	"version": "2.0.2",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "MIT-0",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"dependencies": {
+		"@csstools/css-parser-algorithms": "^2.3.2",
+		"@csstools/css-tokenizer": "^2.2.1",
+		"browserslist": "^4.21.10"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-todo-or-die#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-todo-or-die"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"code quality",
+		"postcss-plugin",
+		"productivity"
+	],
+	"csstools": {
+		"exportName": "postcssTodoOrDie",
+		"humanReadableName": "PostCSS Todo or Die"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"_id": "@csstools/postcss-todo-or-die@2.0.2",
+	"gitHead": "3b34741b1c2f810b8d501dc11878ed8f70e1ea53",
+	"_nodeVersion": "20.5.0",
+	"_npmVersion": "9.8.0",
+	"dist": {
+		"integrity": "sha512-aCMCNaVLsv+8+wL+cYNuA/KeudI5UZApv3GTlrfPFltxxLou5GJMeZfSBmnlxUaFUm1iJPgbKNVufFZ1zomA3w==",
+		"shasum": "9efc7e25e995a903485bf441201bf0b0617aed8e",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-todo-or-die/-/postcss-todo-or-die-2.0.2.tgz",
+		"fileCount": 16,
+		"unpackedSize": 20181,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCICttadbBY5TKjyd1yxn4bKEC5PDLONX7COxBO4ftJygjAiBTkjNRam2+DqsblhQAcKORkYYL4IO1H15jVzjuDx10uw=="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-todo-or-die_2.0.2_1695584689150_0.6157858855265101"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-09-24T19:44:49.426Z"
+}
