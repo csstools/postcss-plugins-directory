@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-atroot",
-	"_rev": "7-2d918dcb22aa941946e797aa5d429ac9",
+	"_rev": "8-730187d29c60a9ccca57891694c0f9f5",
 	"name": "postcss-atroot",
 	"description": "PostCSS plugin to place rules directly at the root",
 	"dist-tags": {
-		"latest": "0.2.3"
+		"latest": "0.2.4"
 	},
 	"versions": {
 		"0.1.0": {
@@ -282,6 +282,81 @@
 				"tmp": "tmp/postcss-atroot_0.2.3_1621846832695_0.4808939476557137"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.2.4": {
+			"name": "postcss-atroot",
+			"version": "0.2.4",
+			"description": "PostCSS plugin to place rules directly at the root",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/OEvgeny/postcss-atroot.git"
+			},
+			"scripts": {
+				"pretest": "eslint index.js test",
+				"test": "mocha test/*.js"
+			},
+			"keywords": [
+				"postcss",
+				"at-root",
+				"postcss-plugin",
+				"sass",
+				"atroot",
+				"css"
+			],
+			"author": {
+				"name": "OEvgeny"
+			},
+			"license": "MIT",
+			"engines": {
+				"node": ">= 10"
+			},
+			"devDependencies": {
+				"chai": "^4.3.4",
+				"eslint": "^7.26.0",
+				"mocha": "^10.2.0",
+				"postcss": "^8.2.15"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2.15"
+			},
+			"_id": "postcss-atroot@0.2.4",
+			"gitHead": "59ae4e4b64b9d94584914fbfebcdc952ff983b85",
+			"bugs": {
+				"url": "https://github.com/OEvgeny/postcss-atroot/issues"
+			},
+			"homepage": "https://github.com/OEvgeny/postcss-atroot#readme",
+			"_nodeVersion": "20.8.0",
+			"_npmVersion": "10.1.0",
+			"dist": {
+				"integrity": "sha512-g9Otw/Z9dAxZKNHpnyWyKRf1uMqO25Q5tDOZa8pqjWXszkOz83xi1f8fHxVgUKCEaW9sn3jyhftiXe+a60cTzg==",
+				"shasum": "0fdf6504e2dbd727bd924547e45c408b99f3d939",
+				"tarball": "https://registry.npmjs.org/postcss-atroot/-/postcss-atroot-0.2.4.tgz",
+				"fileCount": 4,
+				"unpackedSize": 3133,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC0JyP+JUIFLMHA3UB6U64BxRn0EBvEo4qzUHmOie/PVgIgeH3YtdIrnXTectOs4RXU4cjebpdVVQ0gE/TTVWasE78="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "oevgeny",
+				"email": "eolonov@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "oevgeny",
+					"email": "eolonov@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-atroot_0.2.4_1696609856499_0.7313524806162599"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS at-root [![Circle CI](https://circleci.com/gh/OEvgeny/postcss-atroot.svg?style=svg)](https://circleci.com/gh/OEvgeny/postcss-atroot)\nPostCSS plugin to place rules directly at the root node.\n\nThe ``@at-root`` causes one or more rules to be emitted at the root of the document, rather than being nested beneath their parent selectors:\n```css\n.parent {\n  ...\n  @at-root{\n    .child {...}\n  }\n}\n```\nWhich would produce:\n```css\n.child { ... }\n.parent { ... }\n```\n\nIt will play well with postcss ``@include`` plugins.  \nfoo.css:\n```css\n@at-root {\n  @viewport { width: device-width; }\n}\n.foo {\n  color: blue;\n}\n```\n\nbar.css:\n```css\n.bar {\n  @import \"foo.css\";\n}\n\n```\nWill produce:\n```css\n@viewport { width: device-width; }\n\n.bar .foo {\n  color: blue; \n}\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-atroot')() ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n[PostCSS]: https://github.com/postcss/postcss\n",
@@ -292,12 +367,13 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T09:28:46.762Z",
+		"modified": "2023-10-06T16:30:56.887Z",
 		"created": "2015-09-20T18:10:28.983Z",
 		"0.1.0": "2015-09-20T18:10:28.983Z",
 		"0.1.2": "2015-09-20T18:32:33.983Z",
 		"0.1.3": "2015-11-21T11:44:22.041Z",
-		"0.2.3": "2021-05-24T09:00:32.818Z"
+		"0.2.3": "2021-05-24T09:00:32.818Z",
+		"0.2.4": "2023-10-06T16:30:56.701Z"
 	},
 	"homepage": "https://github.com/OEvgeny/postcss-atroot#readme",
 	"keywords": [
@@ -320,5 +396,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 366799
+	"_downloads": 374942
 }
