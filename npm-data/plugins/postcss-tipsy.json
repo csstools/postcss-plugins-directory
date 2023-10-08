@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-tipsy",
-	"_rev": "5-9f214bfe376e7884b316e2c5cc2573c1",
+	"_rev": "6-1b1f6c8791e61b56e01993ceaad52321",
 	"name": "postcss-tipsy",
 	"description": "Postcss plugin for a simple tooltip css",
 	"dist-tags": {
-		"latest": "1.0.2"
+		"latest": "1.0.3"
 	},
 	"versions": {
 		"1.0.0": {
@@ -157,6 +157,89 @@
 				"tmp": "tmp/postcss-tipsy_1.0.2_1641391488022_0.24100209112797466"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.3": {
+			"name": "postcss-tipsy",
+			"version": "1.0.3",
+			"description": "Postcss plugin for a simple tooltip css",
+			"main": "index.js",
+			"engines": {
+				"node": ">=10.0"
+			},
+			"scripts": {
+				"build": "bun build src/index.js --outdir ./. --minify",
+				"test": "jest-ci --coverage",
+				"prepare": "husky install"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dangvanthanh/postcss-tipsy.git"
+			},
+			"keywords": [
+				"css",
+				"tooltip",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"name": "Dang Van Thanh"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/dangvanthanh/postcss-tipsy/issues"
+			},
+			"homepage": "https://github.com/dangvanthanh/postcss-tipsy#readme",
+			"peerDependencies": {
+				"postcss": "^8.4.5"
+			},
+			"devDependencies": {
+				"@dangvanthanh/prettier-config": "^1.0.0",
+				"husky": "^8.0.3",
+				"jest": "29.7.0",
+				"jest-ci": "^0.1.1",
+				"lint-staged": "^14.0.1",
+				"postcss": "8.4.31",
+				"prettier": "^3.0.3"
+			},
+			"lint-staged": {
+				"*.js": [
+					"prettier --write"
+				]
+			},
+			"prettier": "@dangvanthanh/prettier-config",
+			"gitHead": "a2be1922a2d397ddf15c6c33fe397c1923e126c7",
+			"_id": "postcss-tipsy@1.0.3",
+			"_nodeVersion": "18.17.1",
+			"_npmVersion": "9.6.7",
+			"dist": {
+				"integrity": "sha512-Spfw3L1SatAk6zisGoM1ZxSiV42AOOMREdxjFwVBHSR+MW7nd3LK3jc5H8uFQpVvqbSiFeCK5WLGC765Nn6esw==",
+				"shasum": "c725aaa7860e450d558cad977451d703185ae20e",
+				"tarball": "https://registry.npmjs.org/postcss-tipsy/-/postcss-tipsy-1.0.3.tgz",
+				"fileCount": 3,
+				"unpackedSize": 5746,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIH9x4izGpPH13DAcizm0X0Q4xRM6YNeBcjVqWicp84qSAiAOeNS6KL+b76yfEVyT0fYOZOp+s8F5x6z9hAynGieGxQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "dangvanthanh",
+				"email": "chieuhue@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "dangvanthanh",
+					"email": "chieuhue@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-tipsy_1.0.3_1696690229696_0.08421253966581754"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Tipsy\n\n> [Postcss](https://github.com/postcss/postcss) plugin for a simple tooltip css. This is based **[tipsy.sass](https://github.com/dangvanthanh/tipsy.sass)** version.\n\n## Usage\n\n### Installation\n\n```bash\n$ npm i --save postcss-tipsy\n```\n\n#### Configure\n\n```js\nmodule.exports = {\n\tplugins: {\n\t\trequire('postcss-tipsy')\n\t}\n}\n```\n\nSee [Postcss](https://github.com/postcss/postcss) docs for examples for your environment.\n\n#### HTML Markup\n\n```html\n<span class=\"tipsy\" data-tipsy=\"Postcss plugin for simple tooltip\">Simple Tipsy</span>\n```\n\n#### Stylesheets\n\n```css\n.tipsy {\n  tipsy: [graviry] [background] [size] [radius];\n}\n```\n\nUsage\n\n```css\n.tipsy {\n  tipsy: nw #34495e 5px 0;\n}\n```\n\n## Options\n\n| Options    | Description                 | Value                       |\n| ---------- | --------------------------- | --------------------------- |\n| gravity    | Position of tooltip         | nw, n , ne, e, se, s, sw, w |\n| background | Background color of tooltip | HEX, RGB, RGBA, HSL         |\n| size       | Arrow size of tooltip       | px, em, rem                 |\n| radius     | Border radius of tooltip    | px, em, rem                 |\n\n## License\n\nMIT © [Dang Van Thanh](https://dangthanh.org)\n",
@@ -167,10 +250,11 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:04:25.252Z",
+		"modified": "2023-10-07T14:50:30.032Z",
 		"created": "2016-04-17T09:05:39.174Z",
 		"1.0.0": "2016-04-17T09:05:39.174Z",
-		"1.0.2": "2022-01-05T14:04:48.155Z"
+		"1.0.2": "2022-01-05T14:04:48.155Z",
+		"1.0.3": "2023-10-07T14:50:29.855Z"
 	},
 	"homepage": "https://github.com/dangvanthanh/postcss-tipsy#readme",
 	"keywords": [
@@ -190,6 +274,6 @@
 		"url": "https://github.com/dangvanthanh/postcss-tipsy/issues"
 	},
 	"license": "MIT",
-	"readmeFilename": "README.md",
-	"_downloads": 8
+	"readmeFilename": "readme.md",
+	"_downloads": 3
 }
