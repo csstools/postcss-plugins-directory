@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-color-functional-notation",
-	"_rev": "25-c94241ee6d420baa0ee22985a183b02b",
+	"_rev": "26-22eebd43d11f1c4b2f55470434f8b65a",
 	"name": "postcss-color-functional-notation",
 	"dist-tags": {
-		"latest": "6.0.1"
+		"latest": "6.0.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -2685,12 +2685,138 @@
 				"tmp": "tmp/postcss-color-functional-notation_6.0.1_1695053647514_0.7647043224311552"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.2": {
+			"name": "postcss-color-functional-notation",
+			"description": "Use space and slash separated color notation in CSS",
+			"version": "6.0.2",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/postcss-progressive-custom-properties": "^3.0.2",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-functional-notation#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-color-functional-notation"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"comma",
+				"css",
+				"design",
+				"functional",
+				"hsl",
+				"hsla",
+				"hwb",
+				"notation",
+				"postcss",
+				"postcss-plugin",
+				"rgb",
+				"rgba",
+				"space",
+				"syntax"
+			],
+			"csstools": {
+				"exportName": "postcssColorFunctionalNotation",
+				"humanReadableName": "PostCSS Color Functional Notation"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "postcss-color-functional-notation@6.0.2",
+			"gitHead": "a89a523982916310352a46f42895701c4fd7d941",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-FsjSmlSufuiFBsIqQ++VxFmvX7zKndZpBkHmfXr4wqhvzM92FTEkAh703iqWTl1U3faTgqioIqCbfqdWiFVwtw==",
+				"shasum": "5fa38d36cd0e2ea9db7fd6f2f2a1ffb2c0796a8d",
+				"tarball": "https://registry.npmjs.org/postcss-color-functional-notation/-/postcss-color-functional-notation-6.0.2.tgz",
+				"fileCount": 10,
+				"unpackedSize": 22894,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDOoYqKmi/SVaHXbL6y7ML4WjmbGTQM3GCfMOVsQBBXwQIgbud68t159V5gTbTNvcP98puZoCIKoNm9ULEe1Tovc9A="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-functional-notation_6.0.2_1696872813722_0.03792763251712694"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-05-08T02:32:29.628Z",
 		"1.0.0": "2018-05-08T02:32:29.702Z",
-		"modified": "2023-09-18T16:14:07.835Z",
+		"modified": "2023-10-09T17:33:34.129Z",
 		"1.0.1": "2018-05-11T21:28:16.461Z",
 		"1.0.2": "2018-07-13T19:13:15.559Z",
 		"2.0.0": "2018-09-18T02:27:36.609Z",
@@ -2712,7 +2838,8 @@
 		"5.0.2": "2023-02-06T17:18:15.809Z",
 		"5.1.0": "2023-06-01T13:46:31.708Z",
 		"6.0.0": "2023-07-03T08:31:07.165Z",
-		"6.0.1": "2023-09-18T16:14:07.651Z"
+		"6.0.1": "2023-09-18T16:14:07.651Z",
+		"6.0.2": "2023-10-09T17:33:33.912Z"
 	},
 	"maintainers": [
 		{
@@ -2762,5 +2889,5 @@
 	"license": "MIT-0",
 	"readme": "# PostCSS Color Functional Notation [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[<img alt=\"NPM Version\" src=\"https://img.shields.io/npm/v/postcss-color-functional-notation.svg\" height=\"20\">][npm-url]\n[<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/lab-function.svg\" height=\"20\">][css-url]\n[<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Color Functional Notation] lets you use space and slash separated\ncolor notation in CSS, following the [CSS Color] specification.\n\n```pcss\n:root {\n  --firebrick: rgb(178 34 34);\n  --firebrick-a50: rgb(70% 13.5% 13.5% / 50%);\n  --firebrick-hsl: hsla(0 68% 42%);\n  --firebrick-hsl-a50: hsl(0 68% 42% / 50%);\n}\n\n/* becomes */\n\n:root {\n  --firebrick: rgb(178, 34, 34);\n  --firebrick-a50: rgba(178, 34, 34, .5);\n  --firebrick-hsl: hsl(0, 68%, 42%);\n  --firebrick-hsl-a50: hsla(0, 68%, 42%, .5);\n}\n```\n\n## Usage\n\nAdd [PostCSS Color Functional Notation] to your project:\n\n```bash\nnpm install postcss-color-functional-notation --save-dev\n```\n\nUse [PostCSS Color Functional Notation] to process your CSS:\n\n```js\nconst postcss = require('postcss');\nconst postcssColorFunctionalNotation = require('postcss-color-functional-notation');\n\npostcss([\n  postcssColorFunctionalNotation(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Color Functional Notation] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- |\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original functional color notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssColorFunctionalNotation({ preserve: true })\n```\n\n```pcss\n:root {\n  --firebrick: rgb(178 34 34);\n  --firebrick-a50: rgb(70% 13.5% 13.5% / 50%);\n  --firebrick-hsl: hsla(0 68% 42%);\n  --firebrick-hsl-a50: hsl(0 68% 42% / 50%);\n}\n\n/* becomes */\n\n:root {\n  --firebrick: rgb(178, 34, 34);\n  --firebrick: rgb(178 34 34);\n  --firebrick-a50: rgba(178, 34, 34, .5);\n  --firebrick-a50: rgb(70% 13.5% 13.5% / 50%);\n  --firebrick-hsl: hsl(0, 68%, 42%);\n  --firebrick-hsl: hsla(0 68% 42%);\n  --firebrick-hsl-a50: hsla(0, 68%, 42%, .5);\n  --firebrick-hsl-a50: hsl(0 68% 42% / 50%);\n}\n```\n\n### enableProgressiveCustomProperties\n\nThe `enableProgressiveCustomProperties` option determines whether the original notation\nis wrapped with `@supports` when used in Custom Properties. By default, it is enabled.\n\n⚠️ We only recommend disabling this when you set `preserve` to `false` or if you bring your own fix for Custom Properties. See what the plugin does in its [README](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-progressive-custom-properties#readme).\n\n```js\npostcssColorFunctionalNotation({ enableProgressiveCustomProperties: false })\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#color-functional-notation\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-color-functional-notation\n\n[CSS Color]: https://drafts.csswg.org/css-color/#ref-for-funcdef-rgb%E2%91%A1%E2%91%A0\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Loader]: https://github.com/postcss/postcss-loader\n[PostCSS Color Functional Notation]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-functional-notation\n",
 	"readmeFilename": "README.md",
-	"_downloads": 27901254
+	"_downloads": 26292998
 }

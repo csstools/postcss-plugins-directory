@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-relative-color-syntax",
-	"_rev": "10-c2a4435b2883cff032613b07f6582b00",
+	"_rev": "11-a2f3af050aab83bece7f573bed66089c",
 	"name": "@csstools/postcss-relative-color-syntax",
 	"dist-tags": {
-		"latest": "2.0.6"
+		"latest": "2.0.7"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1239,12 +1239,137 @@
 				"tmp": "tmp/postcss-relative-color-syntax_2.0.6_1696281629280_0.5469607938707084"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.7": {
+			"name": "@csstools/postcss-relative-color-syntax",
+			"description": "Use the relative color syntax in CSS",
+			"version": "2.0.7",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				}
+			},
+			"dependencies": {
+				"@csstools/css-color-parser": "^1.4.0",
+				"@csstools/css-parser-algorithms": "^2.3.2",
+				"@csstools/css-tokenizer": "^2.2.1",
+				"@csstools/postcss-progressive-custom-properties": "^3.0.2"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"devDependencies": {
+				"@csstools/postcss-tape": "*"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.mjs",
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-relative-color-syntax#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-relative-color-syntax"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"color",
+				"postcss-plugin",
+				"relative color syntax"
+			],
+			"csstools": {
+				"cssdbId": "relative-color-syntax",
+				"exportName": "postcssRelativeColorSyntax",
+				"humanReadableName": "PostCSS Relative Color Syntax",
+				"specUrl": "https://www.w3.org/TR/css-color-5/#relative-colors"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"_id": "@csstools/postcss-relative-color-syntax@2.0.7",
+			"gitHead": "806fb33588862668ff6adb0d217eb3e675c7726e",
+			"_nodeVersion": "20.5.0",
+			"_npmVersion": "9.8.0",
+			"dist": {
+				"integrity": "sha512-2AiFbJSVF4EyymLxme4JzSrbXykHolx8DdZECHjYKMhoulhKLltx5ccYgtrK3BmXGd3v3nJrWFCc8JM8bjuiOg==",
+				"shasum": "1d017aa25e3cda513cf00401a91899e9d3b83659",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-relative-color-syntax/-/postcss-relative-color-syntax-2.0.7.tgz",
+				"fileCount": 9,
+				"unpackedSize": 15728,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIAMiekCiwoADRCEDKkisu3099x1lS4YJuh+spPcMVNQwAiA5Jaq5PvZutE3w94GztoZlFJXTaTOYiimpleDoWa6MuA=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-relative-color-syntax_2.0.7_1696872860758_0.8904654517668056"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-05-19T15:53:19.362Z",
 		"1.0.0": "2023-05-19T15:53:19.584Z",
-		"modified": "2023-10-02T21:20:29.763Z",
+		"modified": "2023-10-09T17:34:21.290Z",
 		"1.0.1": "2023-06-01T13:47:56.196Z",
 		"1.0.2": "2023-06-14T09:32:11.357Z",
 		"2.0.0": "2023-07-03T08:44:00.700Z",
@@ -1253,7 +1378,8 @@
 		"2.0.3": "2023-09-02T17:08:50.224Z",
 		"2.0.4": "2023-09-18T16:14:42.244Z",
 		"2.0.5": "2023-09-24T19:47:02.867Z",
-		"2.0.6": "2023-10-02T21:20:29.515Z"
+		"2.0.6": "2023-10-02T21:20:29.515Z",
+		"2.0.7": "2023-10-09T17:34:21.034Z"
 	},
 	"maintainers": [
 		{
@@ -1298,5 +1424,5 @@
 	"license": "MIT-0",
 	"readme": "# PostCSS Relative Color Syntax [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-relative-color-syntax.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/relative-color-syntax.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install @csstools/postcss-relative-color-syntax --save-dev\n```\n\n[PostCSS Relative Color Syntax] lets you use the relative color syntax in CSS color functions following [CSS Color Module 5].\n\n```pcss\n.example {\n\tbackground: oklab(from oklab(54.3% -22.5% -5%) calc(1.0 - l) calc(a * 0.8) b);\n}\n\n/* becomes */\n\n.example {\n\tbackground: rgb(12, 100, 100);\n}\n```\n\n## Usage\n\nAdd [PostCSS Relative Color Syntax] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-relative-color-syntax --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssRelativeColorSyntax = require('@csstools/postcss-relative-color-syntax');\n\npostcss([\n\tpostcssRelativeColorSyntax(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Relative Color Syntax] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssRelativeColorSyntax({ preserve: true })\n```\n\n```pcss\n.example {\n\tbackground: oklab(from oklab(54.3% -22.5% -5%) calc(1.0 - l) calc(a * 0.8) b);\n}\n\n/* becomes */\n\n.example {\n\tbackground: rgb(12, 100, 100);\n\tbackground: oklab(from oklab(54.3% -22.5% -5%) calc(1.0 - l) calc(a * 0.8) b);\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#relative-color-syntax\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-relative-color-syntax\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Relative Color Syntax]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-relative-color-syntax\n[CSS Color Module 5]: https://www.w3.org/TR/css-color-5/#relative-colors\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2191411
+	"_downloads": 2133909
 }
