@@ -1,6 +1,6 @@
 {
 	"name": "postcss-px-to-clamp",
-	"version": "1.0.2",
+	"version": "1.0.5",
 	"description": "PostCSS plugin that converts px to clamp (clamp(min, val, max))",
 	"main": "./dist/index.js",
 	"keywords": [
@@ -16,6 +16,15 @@
 		"calc",
 		"vw"
 	],
+	"scripts": {
+		"prepublishOnly": "npm test",
+		"pretest": "npm run build",
+		"posttest": "node example",
+		"lint": "eslint . --fix",
+		"test": "jest --coverage && npm run lint",
+		"build": "tsc",
+		"publish": "clean-publish"
+	},
 	"author": {
 		"name": "wangguangyou"
 	},
@@ -34,24 +43,68 @@
 	"peerDependencies": {
 		"postcss": "^8.3.0"
 	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.35.1",
+		"@typescript-eslint/parser": "^5.35.1",
+		"clean-publish": "^3.4.2",
+		"eslint": "^8.0.1",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-jest": "^25.2.2",
+		"eslint-plugin-prettier": "^4.2.1",
+		"jest": "^27.3.1",
+		"postcss": "^8.3.11",
+		"prettier": "^2.7.1",
+		"typescript": "^4.8.2"
+	},
+	"eslintConfig": {
+		"root": true,
+		"parserOptions": {
+			"ecmaVersion": 2017
+		},
+		"env": {
+			"node": true,
+			"es6": true
+		},
+		"parser": "@typescript-eslint/parser",
+		"plugins": [
+			"@typescript-eslint"
+		],
+		"extends": [
+			"eslint:recommended",
+			"plugin:prettier/recommended",
+			"plugin:@typescript-eslint/eslint-recommended",
+			"plugin:@typescript-eslint/recommended",
+			"plugin:jest/recommended"
+		],
+		"rules": {
+			"jest/expect-expect": "off",
+			"@typescript-eslint/no-var-requires": 0
+		}
+	},
+	"jest": {
+		"coverageThreshold": {
+			"global": {
+				"statements": 100
+			}
+		}
+	},
+	"gitHead": "b23e0edb055f5c52779de61becbf0fcd00534226",
 	"types": "./dist/index.d.ts",
-	"gitHead": "dafe071c4f87eaaa8de0cda1b04aa6343951588b",
-	"_id": "postcss-px-to-clamp@1.0.2",
-	"_nodeVersion": "16.15.0",
-	"_npmVersion": "8.5.5",
+	"_id": "postcss-px-to-clamp@1.0.5",
+	"_nodeVersion": "14.21.3",
+	"_npmVersion": "9.7.1",
 	"dist": {
-		"integrity": "sha512-NANpoy7zojKoLcQlbL28kmEZA4ZMnBAh7WHv3x+TOM+ti6itoFBuYf0kMBEUEbuwbmISzUQ3Z44YLWbDlwn3Yw==",
-		"shasum": "95f563bff600d92cf96edc650ff7d5da3a100c43",
-		"tarball": "https://registry.npmjs.org/postcss-px-to-clamp/-/postcss-px-to-clamp-1.0.2.tgz",
-		"fileCount": 19,
-		"unpackedSize": 20585,
+		"integrity": "sha512-lAVxu89VFYfqAND9YIWNsZOEuCIRs7a5qKtF1KmxdhPWl4aJ3mFylKklF1mnGxnXisKui9a8M/qQorLwBxSA2Q==",
+		"shasum": "499874869bd3dbe264ca0b4712906ff3027524a0",
+		"tarball": "https://registry.npmjs.org/postcss-px-to-clamp/-/postcss-px-to-clamp-1.0.5.tgz",
+		"fileCount": 46,
+		"unpackedSize": 30831,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDUca+/czupBxpAKktEnnxWDPWRyKrTxQamzJXNhu/OJwIge25fgrqazY9HQYAmFEz8J8MED83+eQoB23RxFuQ+a4o="
+				"sig": "MEQCID+OzVTuMymgxPvED7yYBI4/c2qRxakk7Co60G8UmdH5AiAgi2mR5CeaCvmXg4/EJWGmwDzPJdc4EnuiF0QJWkQmAA=="
 			}
-		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjDKnRACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpPKA/+IV/K3KdcukWpP8YKTS16Ja31zGaRkWu5d0ayeej6AYNv/Ezc\r\nGMIMuxWk8Rpe6zpHayFCXd5ytGPy8r11YaDS+nM78Zd0V/CaJqQot69syiIt\r\nzYZsGVyy7xwwlvb7WtrBJWXMRBSDmLw/mfXS7uanjLQUDTGKKzQbdRAEQo1W\r\nXQvsT7sbivPbpJlVk/qnDKza1IKoBUhKluaC5iG12LBJPGxr6DJRlRpiPKH+\r\naYlYJZfXbbryCMByYOCjm6wfHENLF07RDChDZpvxya7KfizxhOn5Ib8ktAQr\r\nlqXqsHyPd/Y7JSrUBDkND+8YURwRQqO6lbmtPD92PLzgAdCG7PWw7+2dcjNA\r\n7rdczYNuWVjnpMOTGH6R7hnDYg4ZfL7C/hxhwpYAwwiIPnrzQcU4MzdrUumK\r\n6XHbQWhBxpf3ttCFGpXq3Az9QzWOkZICSqmBxbioy3JM4+dLgtPGokatJNBq\r\n7unAOh73YKhFChmBAkkao5jpfkVXG4BJr8zjYrvkXVbmwcXV8GIpaEus4oug\r\nkaJ2NSka9Vnn2G/PZqgkNcel5aeKyujrw319UOEIHP0+UUy9WUPXqvkO9yLC\r\nPw798mRYN0uWD97zqbiM3dLALoYFTnh620UvIPFnST3wn0T/zJhDwYCWL9NB\r\nfCOCAJTjK07swIfwKHNPBlvgDcbbYXikWdg=\r\n=s7tr\r\n-----END PGP SIGNATURE-----\r\n"
+		]
 	},
 	"_npmUser": {
 		"name": "needahouse",
@@ -66,8 +119,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-px-to-clamp_1.0.2_1661774289092_0.6900684366639562"
+		"tmp": "tmp/postcss-px-to-clamp_1.0.5_1696998000946_0.7159224092179741"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-08-29T11:58:09.216Z"
+	"_time": "2023-10-11T04:20:01.205Z"
 }
