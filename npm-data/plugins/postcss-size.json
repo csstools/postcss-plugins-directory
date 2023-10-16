@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-size",
-	"_rev": "13-38e261ddb57333c82d22bfa89c1cf1b5",
+	"_rev": "14-d419e1ba0048ccf0fa7f7d7ca1fb495e",
 	"name": "postcss-size",
 	"description": "PostCSS plugin for size shortcut",
 	"dist-tags": {
-		"latest": "4.0.1"
+		"latest": "5.0.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -683,9 +683,84 @@
 				"tmp": "tmp/postcss-size_4.0.1_1601168899243_0.42489949313473807"
 			},
 			"_hasShrinkwrap": false
+		},
+		"5.0.0": {
+			"name": "postcss-size",
+			"version": "5.0.0",
+			"description": "PostCSS plugin for size shortcut",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"size",
+				"width",
+				"height"
+			],
+			"author": {
+				"name": "Andrey Sitnik",
+				"email": "andrey@sitnik.ru"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/postcss/postcss-size.git"
+			},
+			"engines": {
+				"node": ">=18.0"
+			},
+			"funding": [
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/postcss/"
+				},
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/ai"
+				}
+			],
+			"peerDependencies": {
+				"postcss": "^8.1.0"
+			},
+			"_id": "postcss-size@5.0.0",
+			"gitHead": "23d36a5898a3ef967517e86cc2fca80d19659452",
+			"bugs": {
+				"url": "https://github.com/postcss/postcss-size/issues"
+			},
+			"homepage": "https://github.com/postcss/postcss-size#readme",
+			"_nodeVersion": "20.8.0",
+			"_npmVersion": "10.1.0",
+			"dist": {
+				"integrity": "sha512-FCDVT8YrdtzJFqzfpDM2gy/uUk3F2UkOtatIjrDeTJgadmOtL/X9jN6iD6YIepK4eK4NoJtAPZ/ZPXIDNdabfQ==",
+				"shasum": "bab045b844ca373b2be8e7488974596ebfd687dd",
+				"tarball": "https://registry.npmjs.org/postcss-size/-/postcss-size-5.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 3435,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFduNsjz+SRUXHDzkcVQ3onb/APrctN5AfR9oHmLgfSGAiEAyqkE92VxVRDQHNQOYTfrGWuK2dQRirOWxq0Ij6XjQw4="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ai",
+				"email": "andrey@sitnik.ru"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-size_5.0.0_1697372855189_0.6059758560937354"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Size\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin for `size` shortcut to set `width` and `height` properties.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n.two {\n  size: 20px 10px;\n}\n.one {\n  size: 10px;\n}\n```\n\n```css\n.two {\n  width: 20px;\n  height: 10px;\n}\n.one {\n  width: 10px;\n  height: 10px;\n}\n```\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-size\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-size\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-size'),\n    require('autoprefixer')\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
+	"readme": "# PostCSS Size\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin for `size` shortcut to set `width` and `height` properties.\n\nIt also handles `min-size` to set `min-width` and `min-height`, and `max-size` to set `max-width` and `max-height`.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n.two {\n  size: 20px 10px;\n}\n.one {\n  size: 10px;\n}\n.minmax {\n  min-size: 10px;\n  max-size: 200px auto;\n}\n```\n\n```css\n.two {\n  width: 20px;\n  height: 10px;\n}\n.one {\n  width: 10px;\n  height: 10px;\n}\n.minmax {\n  min-width: 10px;\n  min-height: 10px;\n  max-width: 200px;\n  max-height: auto;\n}\n```\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-size\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Docs\nRead full docs **[here](https://github.com/postcss/postcss-size#readme)**.\n",
 	"maintainers": [
 		{
 			"name": "ai",
@@ -693,7 +768,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:57:31.160Z",
+		"modified": "2023-10-15T12:27:35.570Z",
 		"created": "2015-02-05T05:48:34.712Z",
 		"0.1.0": "2015-02-05T05:48:34.712Z",
 		"0.2.0": "2015-05-05T02:46:33.915Z",
@@ -703,7 +778,8 @@
 		"2.0.0": "2017-05-08T16:10:58.973Z",
 		"3.0.0": "2018-09-07T13:29:57.008Z",
 		"4.0.0": "2020-09-15T19:41:39.056Z",
-		"4.0.1": "2020-09-27T01:08:19.475Z"
+		"4.0.1": "2020-09-27T01:08:19.475Z",
+		"5.0.0": "2023-10-15T12:27:35.384Z"
 	},
 	"homepage": "https://github.com/postcss/postcss-size#readme",
 	"keywords": [
@@ -727,5 +803,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 4133
+	"_downloads": 3825
 }
