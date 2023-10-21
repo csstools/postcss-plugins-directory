@@ -1,0 +1,114 @@
+{
+	"name": "@csstools/postcss-debug-logger",
+	"description": "Log the AST nodes PostCSS is processing",
+	"version": "2.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "MIT-0",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-debug-logger#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-debug-logger"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"debug",
+		"postcss-plugin",
+		"utility"
+	],
+	"csstools": {
+		"exportName": "postcssDebugLogger",
+		"humanReadableName": "PostCSS Debug Logger"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"gitHead": "f167b16ce2ba6c79bcfb0a210aaaa79732d33397",
+	"_id": "@csstools/postcss-debug-logger@2.0.0",
+	"_nodeVersion": "18.15.0",
+	"_npmVersion": "9.5.0",
+	"dist": {
+		"integrity": "sha512-8dA/627tmCXPAQBl8k655ZE5cLLUqeCOERwtweu/OGkYV5dTORXl2wlcYQ3moSDbDAOfJl+LHEAkhYibVTV1Kg==",
+		"shasum": "4c050a49ea8bab9305c43ad08e5a17f1f351d624",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-debug-logger/-/postcss-debug-logger-2.0.0.tgz",
+		"fileCount": 7,
+		"unpackedSize": 10510,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCZo7NBcjO16ocWHDXkEAzHKz4niPszn/Y4VLNbWAcZXQIgUgBxVUZTtgWFeup/rzq26Jg8BXKA8ES+Iecx2xaHXOE="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-debug-logger_2.0.0_1688371778053_0.7950408081816323"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-07-03T08:09:38.207Z"
+}
