@@ -120,7 +120,15 @@ export async function updateTheDirectory() {
 		await fs.writeFile(directoryFilePath, updatedData);
 
 		if (process.env.GITHUB_ACTIONS) {
-			process.stdout.write(updateName);
+			process.stdout.write(
+				Buffer.from(JSON.stringify({
+					updateName: updateName,
+					packageName: plugin.package.name,
+					version: lastVersion,
+					description: plugin.package.description,
+					keywords: plugin.package.keywords,
+				})).toString('base64')
+			);
 		}
 
 		break;

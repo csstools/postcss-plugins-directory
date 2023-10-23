@@ -58,6 +58,10 @@ async function main() {
 		case 'update-directory':
 			await updateTheDirectory();
 			break;
+		case 'update-name-from-plugin-data':
+			const data = JSON.parse(Buffer.from(process.env.UPDATED_PLUGIN_DATA, 'base64').toString());
+			process.stdout.write(data.updateName);
+			break;
 
 		default:
 			printSubCommandsAndExit();

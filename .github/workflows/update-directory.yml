@@ -25,9 +25,14 @@ jobs:
 
       - name: update directory
         run: |
-          echo "UPDATED_PLUGIN=$(npm run --silent plugins-directory update-directory)" >> $GITHUB_ENV
+          echo "UPDATED_PLUGIN_DATA=$(npm run --silent plugins-directory update-directory)" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: set update name
+        if: ${{ env.UPDATED_PLUGIN_DATA }}
+        run: |
+          echo "UPDATED_PLUGIN=$(npm run --silent plugins-directory update-name-from-plugin-data)" >> $GITHUB_ENV
 
       - name: save
         if: ${{ env.UPDATED_PLUGIN }}
@@ -46,14 +51,23 @@ jobs:
         with:
           script: |
             const { repo, owner } = context.repo;
+            const updatedPluginData = JSON.parse(Buffer.from(process.env.UPDATED_PLUGIN_DATA, 'base64').toString());
+
+            const name = 'name:\n- ' + '`' + (updatedPluginData.packageName ?? '-')  + '`';
+            const description = 'description:\n- ' + '`' + (updatedPluginData.description ?? '-')  + '`';
+            const keywords = 'keywords:\n- ' + (updatedPluginData.keywords ?? []).map(x => '`' + x + '`').join('\n- ');
+
             const result = await github.rest.pulls.create({
-              title: process.env.UPDATED_PLUGIN,
+              title: updatedPluginData.updateName,
               owner,
               repo,
-              head: `update-directory/${process.env.UPDATED_PLUGIN}`,
+              head: `update-directory/${updatedPluginData.updateName}`,
               base: 'main',
               body: [
-                'This PR is auto-generated'
+                '_This PR is auto-generated_',
+                name,
+                description,
+                keywords,
               ].join('\n')
             });
             github.rest.issues.addLabels({
