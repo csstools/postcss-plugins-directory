@@ -1,6 +1,6 @@
 {
 	"name": "postcss-longshadow-text",
-	"version": "1.1.2",
+	"version": "1.1.3",
 	"description": "Postcss plugin for long shadow text",
 	"main": "index.js",
 	"license": "MIT",
@@ -17,7 +17,9 @@
 		"node": ">=10.0"
 	},
 	"scripts": {
-		"test": "jest-ci --coverage"
+		"build": "bun build src/index.js --outdir ./. --minify",
+		"test": "jest-ci --coverage",
+		"prepare": "husky install"
 	},
 	"keywords": [
 		"css",
@@ -26,51 +28,41 @@
 		"postcss-plugin"
 	],
 	"peerDependencies": {
-		"postcss": "^8.2.1"
+		"postcss": "^8.4.5"
 	},
 	"devDependencies": {
-		"husky": "^4.3.6",
-		"jest": "^26.6.3",
+		"@dangvanthanh/prettier-config": "^1.0.0",
+		"husky": "8.0.3",
+		"jest": "29.7.0",
 		"jest-ci": "^0.1.1",
-		"lint-staged": "^10.5.3",
-		"postcss": "^8.2.1",
-		"prettier": "^2.2.1"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
+		"lint-staged": "14.0.1",
+		"postcss": "8.4.31",
+		"prettier": "^3.0.3"
 	},
 	"lint-staged": {
 		"*.js": [
 			"prettier --write"
 		]
 	},
-	"prettier": {
-		"printWidth": 100,
-		"trailingComma": "es5",
-		"semi": false,
-		"singleQuote": true
-	},
-	"gitHead": "a89e6dd4ad334a5981e62a4e1b21998c52d2f3e2",
+	"prettier": "@dangvanthanh/prettier-config",
+	"gitHead": "ff989f2058bbfbf4140e1a4f1e985182923c5966",
 	"bugs": {
 		"url": "https://github.com/dangvanthanh/postcss-longshadow-text/issues"
 	},
 	"homepage": "https://github.com/dangvanthanh/postcss-longshadow-text#readme",
-	"_id": "postcss-longshadow-text@1.1.2",
-	"_nodeVersion": "15.4.0",
-	"_npmVersion": "7.0.15",
+	"_id": "postcss-longshadow-text@1.1.3",
+	"_nodeVersion": "18.17.1",
+	"_npmVersion": "9.6.7",
 	"dist": {
-		"integrity": "sha512-nx/gFNgjshN1wnTx0rogqeSDWe9Pcfc7LNyigzJLsi5GWLLeUD93xyKV6M1x3yF8q9veUwzfcJqocS/aaQ9hVA==",
-		"shasum": "c97ac682c241cfbf96b91a4a171592cca077cb6e",
-		"tarball": "https://registry.npmjs.org/postcss-longshadow-text/-/postcss-longshadow-text-1.1.2.tgz",
+		"integrity": "sha512-84J7Qh9uguXoeHOdhUEs2+oXu7I4/bZx+rN+IFWADFgu8GxRVXTYbKf6neb0zu1t2ALVfqH+CYpk8vK1rfCXAg==",
+		"shasum": "a9c0b04ec55f208fd0f6a6363946b60884382d38",
+		"tarball": "https://registry.npmjs.org/postcss-longshadow-text/-/postcss-longshadow-text-1.1.3.tgz",
 		"fileCount": 4,
-		"unpackedSize": 5260,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf3fVvCRA9TVsSAnZWagAAW0MP/RJGrV2SJ0p7F9DfcjG5\n/XMxxkGeQlS7eUhE/siW89Szjkj6GZ0psPryb7we7ZPZz9M3uk3uxEv5LCgB\nOCHt6D3SR9+QU7Mdi4YvwBXcGI4IRabqo7Y3O6TKx2Su1cMQA55aVyUZKGHl\n4xDVFvYjnruSc4tWpVYGhupvcDn59VWpgj2p5F0NRrNGh5Zs/um1QFFRi7AN\n/NeDz/PsXNt9j/8jDz5qOaVLokePY5CY+WMWgMeSUExAUlButZA2wb7Ysh5A\nS9pMZshJc1vvDtqA4fkUqhn8sfagYb00CzAI1KmorRgFlhHojWhRbi9XTd3I\nMHNYBDuBXH3aBd1aGPC846rHV9DtHWGy6mySiCvedxTjCVaEpisYzm3k8MK+\nwZnldffHSM4NpO9oC9hyGdVVI0Gtyi4gOv/jKUMCp5Y503GByM54Y7Md1wbr\nvuBZNyeH84beyz1vGxRmvp903+R9XWiKr/Z9mBqQtlw4uwQu/jPBlqYXKCe2\nNzjah1Jcp/0A3fSllFfvbmjz9rqoAtVomIEw+Ewr3DE3GSlcMC15DXS17Oux\n4I6ZXTtvQdio/mugVZglET3UqtMMKsY0T5njXm5BvA6rU1xAj9YdmumwzQGF\norANx26YOTAJ+anzN5PiXuqThib2jwd/sQTyAscM5atxXYOQp87sMg0QW1IG\nxjLa\r\n=TRV0\r\n-----END PGP SIGNATURE-----\r\n",
+		"unpackedSize": 4703,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCGmlc8S3KmPcPBr1Zr8KRy/1bIEJxDDvPtd1PEoWxJYAIgZCd3ifylxdZFYgzD54UF1pqN+TLeAgX7R4kD2NpUeMI="
+				"sig": "MEYCIQCzlqmAkE9WXCYzN1lVfONbmIHIHeQaEfVYkOlNrbzVrQIhAKTioI35N+r0HqIV7DqeszDfMs3NBzzAAhWnlXy1TwKD"
 			}
 		]
 	},
@@ -87,8 +79,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-longshadow-text_1.1.2_1608381807291_0.9783741890608295"
+		"tmp": "tmp/postcss-longshadow-text_1.1.3_1696689945138_0.9443085354598857"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2020-12-19T12:43:27.415Z"
+	"_time": "2023-10-07T14:45:45.293Z"
 }
