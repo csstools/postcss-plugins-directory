@@ -1,0 +1,121 @@
+{
+	"name": "@csstools/postcss-logical-overflow",
+	"description": "Use logical overflow properties and values in CSS",
+	"version": "1.0.0",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
+	"license": "MIT-0",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@csstools/postcss-tape": "*"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-overflow#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-logical-overflow"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"keywords": [
+		"css",
+		"logical",
+		"overflow",
+		"postcss-plugin"
+	],
+	"csstools": {
+		"cssdbId": "logical-overflow",
+		"exportName": "postcssLogicalOverflow",
+		"humanReadableName": "PostCSS Logical Overflow",
+		"specUrl": "https://www.w3.org/TR/css-overflow-3/#overflow-control"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	},
+	"_id": "@csstools/postcss-logical-overflow@1.0.0",
+	"gitHead": "b4e6f773d32c8f2a582e2e57a9cc2755f874fea1",
+	"_nodeVersion": "20.5.0",
+	"_npmVersion": "9.8.0",
+	"dist": {
+		"integrity": "sha512-cIrZ8f7bGGvr+W53nEuMspcwaeaI2YTmz6LZ4yiAO5z14/PQgOOv+Pn+qjvPOPoadeY2BmpaoTzZKvdAQuM17w==",
+		"shasum": "dbc18226f6cc6a83981184564ed9229a860f6033",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-overflow/-/postcss-logical-overflow-1.0.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 8478,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCIAjWh8KEkJY0nAkbIo+LDzwF58FHl/ROiXT1KS5mZkZzAiBCsL9BxipAFCuoyP6KsAHd/YPKoZT9z0mQUEhfsiZtEA=="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-logical-overflow_1.0.0_1698776150203_0.6486992945852017"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-10-31T18:15:50.429Z"
+}
