@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-image-inliner",
-	"_rev": "43-9450bd62ecf30576b5d319cbaa4c870f",
+	"_rev": "44-7f5695ea7641fb4f5413f853a1168e69",
 	"name": "postcss-image-inliner",
 	"description": "PostCSS plugin to inline images into css",
 	"dist-tags": {
-		"latest": "7.0.0",
+		"latest": "7.0.1",
 		"previous": "2.0.3"
 	},
 	"versions": {
@@ -3869,9 +3869,123 @@
 				"tmp": "tmp/postcss-image-inliner_7.0.0_1696804386940_0.6138644882852393"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.1": {
+			"name": "postcss-image-inliner",
+			"version": "7.0.1",
+			"description": "PostCSS plugin to inline images into css",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"inline",
+				"image"
+			],
+			"author": {
+				"name": "Ben Zörb",
+				"email": "ben@sommerlaune.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bezoerb/postcss-image-inliner.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bezoerb/postcss-image-inliner/issues"
+			},
+			"homepage": "https://github.com/bezoerb/postcss-image-inliner",
+			"dependencies": {
+				"asset-resolver": "^3.0.5",
+				"debug": "^4.3.4",
+				"filesize": "^10.1.0",
+				"svgo": "^3.0.2"
+			},
+			"devDependencies": {
+				"chai": "^4.3.10",
+				"eslint": "^8.51.0",
+				"eslint-config-prettier": "^9.0.0",
+				"eslint-config-xo": "^0.43.1",
+				"eslint-config-xo-space": "^0.34.0",
+				"eslint-plugin-prettier": "^5.0.0",
+				"finalhandler": "^1.2.0",
+				"mocha": "^10.2.0",
+				"postcss": "^8.4.31",
+				"prettier": "^3.0.3",
+				"serve-static": "^1.15.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"scripts": {
+				"lint": "eslint **/*.js --fix",
+				"mocha": "mocha",
+				"test": "npm run lint && npm run mocha"
+			},
+			"prettier": {
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 120,
+				"bracketSpacing": false
+			},
+			"eslintConfig": {
+				"env": {
+					"browser": true,
+					"commonjs": true,
+					"es2021": true
+				},
+				"extends": [
+					"xo-space",
+					"prettier"
+				],
+				"plugins": [
+					"prettier"
+				],
+				"rules": {
+					"prettier/prettier": [
+						"error"
+					]
+				},
+				"overrides": []
+			},
+			"engines": {
+				"node": ">=16.10"
+			},
+			"gitHead": "e09243f985400fc5e1f1a9a8f38cb6a30c6a79eb",
+			"_id": "postcss-image-inliner@7.0.1",
+			"_nodeVersion": "18.17.1",
+			"_npmVersion": "9.6.7",
+			"dist": {
+				"integrity": "sha512-PFegvJCQuDs3mW+F8gP/K1CqBoyKVKh1hZQYNhE14s7dX6nTqyNZDR6vWGwkjs1pQkos28JeY7HlY8NwM4zdjg==",
+				"shasum": "3589d16bfb0c20e739ec45c415c8841ff453620b",
+				"tarball": "https://registry.npmjs.org/postcss-image-inliner/-/postcss-image-inliner-7.0.1.tgz",
+				"fileCount": 5,
+				"unpackedSize": 10060,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDYhRuSHf8h/K4g1fFcELajNa41XEH3fOJt3t7gClvEjQIgORHXyzT8KG/b49gPMaj4oQ8ZywQAqu6bJhdlSyC85wg="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "bezoerb",
+				"email": "ben@sommerlaune.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "bezoerb",
+					"email": "ben@sommerlaune.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-image-inliner_7.0.1_1698997972408_0.8892392110494542"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Image Inliner [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin to inline local/remote images.\n\n[postcss]: https://github.com/postcss/postcss\n[ci-img]: https://github.com/bezoerb/postcss-image-inliner/workflows/Tests/badge.svg\n[ci]: https://github.com/bezoerb/postcss-image-inliner/actions?workflow=Tests\n\n```css\n.foo {\n  /* Input example */\n  background-image: url('https://placehold.it/10x10');\n}\n```\n\n```css\n.foo {\n  /* Output example */\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAo ... ORK5CYII=');\n}\n```\n\n## Installation\n\n```bash\nnpm i -D postcss postcss-image-inliner\n```\n\n## Usage\n\n```js\nconst postcss = require('postcss');\nconst imageInliner = require('postcss-image-inliner');\nconst opts = {\n  assetPaths: [], // List of directories where the inliner should look for assets\n  maxFileSize: 10240, // Sets a max file size (in bytes)\n};\n\npostcss([imageInliner(opts)]);\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n## Options\n\n#### assetPaths\n\n- Type: `array`\n- Default: `[process.cwd()]`\n- Example: `['http://domain.de/', 'http://domain.de/styles', 'app/images', '**/images/']`\n- Required: `false`\n\nList of directories/URLs where the inliner should start looking for assets.\nYou can define local directories (globs supported) or URLs.\n\n#### maxFileSize\n\n- Type: `int`\n- Default: `10240`\n- Example: `0`\n- Required: `false`\n\nSets a max file size (in bytes) for inlined images. Set to `0` to disable size checking.\n\n#### largeFileCallback\n\n- Type: `function`\n- Default: undefined\n- Example: `function (file) { console.log('big file found:', file.path); return file.path }`\n- Required: `false`\n\nAllows you to act on large files and change the url if you'd like. Make sure you have `strict` set to `false` when using this.\n\n#### b64Svg\n\n- Type: `bool`\n- Default: `false`\n- Required: `false`\n\nUse Base64 encoding for SVGs.\n\n#### svgoPlugins\n\n- Type: `array`\n- Default: `[]`\n- Required: `false`\n\nUse custom svgo configuration for svg optimization\n\n#### strict\n\n- Type: `bool`\n- Default: `false`\n- Required: `false`\n\nFail on error.\n",
+	"readme": "# PostCSS Image Inliner [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin to inline local/remote images.\n\n[postcss]: https://github.com/postcss/postcss\n[ci-img]: https://github.com/bezoerb/postcss-image-inliner/workflows/Tests/badge.svg\n[ci]: https://github.com/bezoerb/postcss-image-inliner/actions?workflow=Tests\n\n```css\n.foo {\n  /* Input example */\n  background-image: url('https://placehold.it/10x10');\n}\n```\n\n```css\n.foo {\n  /* Output example */\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAo ... ORK5CYII=');\n}\n```\n\n## Installation\n\n```bash\nnpm i -D postcss postcss-image-inliner\n```\n\n## Usage\n\n```js\nconst postcss = require('postcss');\nconst imageInliner = require('postcss-image-inliner');\nconst opts = {\n  assetPaths: [], // List of directories where the inliner should look for assets\n  maxFileSize: 10240, // Sets a max file size (in bytes)\n};\n\npostcss([imageInliner(opts)]);\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n## Options\n\n#### assetPaths\n\n- Type: `array`\n- Default: `[process.cwd()]`\n- Example: `['http://domain.de/', 'http://domain.de/styles', 'app/images', '**/images/']`\n- Required: `false`\n\nList of directories/URLs where the inliner should start looking for assets.\nYou can define local directories (globs supported) or URLs.\n\n#### maxFileSize\n\n- Type: `int`\n- Default: `10240`\n- Example: `0`\n- Required: `false`\n\nSets a max file size (in bytes) for inlined images. Set to `0` to disable size checking.\n\n#### largeFileCallback\n\n- Type: `function`\n- Default: undefined\n- Example: `function (file) { console.log('big file found:', file.path); return file.path }`\n- Required: `false`\n\nAllows you to act on large files and change the url if you'd like. Make sure you have `strict` set to `false` when using this.\n\n#### b64Svg\n\n- Type: `bool`\n- Default: `false`\n- Required: `false`\n\nUse Base64 encoding for SVGs.\n\n#### svgoPlugins\n\n- Type: `array`\n- Default: `[]`\n- Required: `false`\n\nUse custom svgo configuration for svg optimization\n\n#### strict\n\n- Type: `bool`\n- Default: `false`\n- Required: `false`\n\nFail on error.\n\n#### filter\n\n* Type: `regex`\n* Default: `/^(background(?:-image)?)|(content)|(cursor)/`\n* Required: `false`\n\nRegex to match the CSS properties to be inlined.\n",
 	"maintainers": [
 		{
 			"name": "bezoerb",
@@ -3879,7 +3993,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-10-08T22:33:07.351Z",
+		"modified": "2023-11-03T07:52:52.790Z",
 		"created": "2015-09-18T22:25:55.321Z",
 		"0.1.0": "2015-09-18T22:25:55.321Z",
 		"0.1.1": "2015-09-19T22:13:12.180Z",
@@ -3920,7 +4034,8 @@
 		"6.0.1": "2022-09-16T14:44:34.557Z",
 		"6.1.0": "2023-01-13T22:02:54.710Z",
 		"6.2.0": "2023-10-08T21:53:04.547Z",
-		"7.0.0": "2023-10-08T22:33:07.099Z"
+		"7.0.0": "2023-10-08T22:33:07.099Z",
+		"7.0.1": "2023-11-03T07:52:52.588Z"
 	},
 	"homepage": "https://github.com/bezoerb/postcss-image-inliner",
 	"keywords": [
@@ -3943,5 +4058,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 116914
+	"_downloads": 108426
 }
