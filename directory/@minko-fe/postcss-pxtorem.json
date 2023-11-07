@@ -1,17 +1,8 @@
 {
 	"name": "@minko-fe/postcss-pxtorem",
-	"type": "module",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"description": "✨ A CSS post-processor that converts px to rem.",
-	"author": {
-		"name": "hemengke1997",
-		"email": "https://github.com/hemengke1997"
-	},
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/hemengke1997/postcss-pxtorem.git"
-	},
+	"type": "module",
 	"keywords": [
 		"px2rem",
 		"pxtorem",
@@ -23,6 +14,18 @@
 		"postcss-plugin",
 		"postcss-pxtorem"
 	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hemengke1997/postcss-pxtorem.git"
+	},
+	"author": {
+		"name": "hemengke1997",
+		"email": "https://github.com/hemengke1997"
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -30,32 +33,50 @@
 			"import": "./dist/index.js"
 		}
 	},
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"peerDependencies": {
 		"postcss": ">=8.0.0"
 	},
-	"devDependencies": {
-		"@minko-fe/eslint-config-ts": "^1.2.32",
-		"@minko-fe/tsconfig": "^1.2.32",
-		"@types/decode-uri-component": "^0.2.0",
-		"bumpp": "^9.0.0",
-		"conventional-changelog-cli": "^2.2.2",
+	"dependencies": {
 		"decode-uri-component": "^0.4.1",
-		"eslint": "^8.36.0",
-		"postcss": "^8.4.21",
+		"split-on-first": "^3.0.0"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^18.0.0",
+		"@minko-fe/commitlint-config": "^2.0.4",
+		"@minko-fe/eslint-config": "^2.0.4",
+		"@minko-fe/tsconfig": "^2.0.4",
+		"@types/decode-uri-component": "^0.2.0",
+		"bumpp": "^9.2.0",
+		"conventional-changelog-cli": "^2.2.2",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.50.0",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.30",
 		"postcss-nested": "^6.0.1",
-		"split-on-first": "^3.0.0",
-		"tsup": "^6.7.0",
-		"typescript": "^4.9.5",
-		"vitest": "^0.29.7"
+		"simple-git-hooks": "^2.9.0",
+		"tsup": "^7.2.0",
+		"typescript": "^5.2.2",
+		"vite": "^4.4.9",
+		"vitest": "^0.34.5",
+		"vitest-e2e": "^0.0.8"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"simple-git-hooks": {
+		"commit-msg": "pnpm exec commitlint -e"
 	},
 	"scripts": {
-		"dev": "tsup --watch",
+		"dev": "simple-git-hooks && tsup --watch",
 		"build": "tsup",
-		"test": "vitest",
+		"build:pages": "pnpm run build && cd playground/spa && pnpm run build",
+		"test": "run-s test:unit test:serve test:build",
+		"test:unit": "vitest run",
+		"test:serve": "vitest run -c vitest.config.e2e.ts",
+		"test:build": "cross-env VITE_TEST_BUILD=1 vitest run -c vitest.config.e2e.ts",
+		"preinstall": "npx only-allow pnpm",
 		"lint": "eslint .",
+		"fix": "eslint --fix .",
 		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
 		"up": "pnpm update --i --L",
 		"bump": "bumpp package.json -c -p -t --all -x \"pnpm run changelog\""
@@ -64,22 +85,22 @@
 		"url": "https://github.com/hemengke1997/postcss-pxtorem/issues"
 	},
 	"homepage": "https://github.com/hemengke1997/postcss-pxtorem#readme",
-	"_id": "@minko-fe/postcss-pxtorem@1.3.0",
-	"_integrity": "sha512-mSiA6aFKkZp14irPFKTFRoFHmsIhVh7f6Idn3j+1TbmhnHhZqQA8sgi3ZeU5ydwwDwbPITnU8bsCBGDoXR2Bjw==",
-	"_resolved": "/home/runner/work/postcss-pxtorem/postcss-pxtorem/minko-fe-postcss-pxtorem-1.3.0.tgz",
-	"_from": "file:minko-fe-postcss-pxtorem-1.3.0.tgz",
-	"_nodeVersion": "16.20.0",
-	"_npmVersion": "8.19.4",
+	"_id": "@minko-fe/postcss-pxtorem@1.3.1",
+	"_integrity": "sha512-Qr3XJT2dX0nN1sDi6m+uGdNVjZEN1wi9wtAP/HlkovooRcpqfjya7a4ZbFDxwOXGdb3UEzqD6vDLVadYiwp3vQ==",
+	"_resolved": "/tmp/eed547cc3c7656cd0087be0588cb02d0/minko-fe-postcss-pxtorem-1.3.1.tgz",
+	"_from": "file:minko-fe-postcss-pxtorem-1.3.1.tgz",
+	"_nodeVersion": "18.18.2",
+	"_npmVersion": "9.8.1",
 	"dist": {
-		"integrity": "sha512-mSiA6aFKkZp14irPFKTFRoFHmsIhVh7f6Idn3j+1TbmhnHhZqQA8sgi3ZeU5ydwwDwbPITnU8bsCBGDoXR2Bjw==",
-		"shasum": "4241d54be3d87185ca6876470ac8d1eef85327bb",
-		"tarball": "https://registry.npmjs.org/@minko-fe/postcss-pxtorem/-/postcss-pxtorem-1.3.0.tgz",
-		"fileCount": 7,
-		"unpackedSize": 83154,
+		"integrity": "sha512-Qr3XJT2dX0nN1sDi6m+uGdNVjZEN1wi9wtAP/HlkovooRcpqfjya7a4ZbFDxwOXGdb3UEzqD6vDLVadYiwp3vQ==",
+		"shasum": "5d0ced4145cfdec5dd59eaf0b11ef37c678146ef",
+		"tarball": "https://registry.npmjs.org/@minko-fe/postcss-pxtorem/-/postcss-pxtorem-1.3.1.tgz",
+		"fileCount": 9,
+		"unpackedSize": 87515,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCdiu+KpZBjHHo2kHKDvJrIQKt7DXiN20e3v3bsKwEUywIhANum/+ZYgPCWqwF6QOuL2iqXVWH2e5vzwuV20gJcQSY3"
+				"sig": "MEYCIQD3u8UsEa8mZD3n6IWQNArqodS5R48ET7SctwAqy30KxwIhAO4PfyM9Cz1OdaV2FjTzFIwo6nf4Sk/ReitZf6siU0a0"
 			}
 		]
 	},
@@ -96,8 +117,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-pxtorem_1.3.0_1687708041454_0.7800531037996383"
+		"tmp": "tmp/postcss-pxtorem_1.3.1_1699268090570_0.038084969382712996"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-06-25T15:47:21.686Z"
+	"_time": "2023-11-06T10:54:50.786Z"
 }
