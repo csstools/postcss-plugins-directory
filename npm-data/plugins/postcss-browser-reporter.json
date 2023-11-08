@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-browser-reporter",
-	"_rev": "17-6758de2c686fb12782f190509cdc0441",
+	"_rev": "18-0a2c9bcbf1a8a2fad8213aa4a7e21742",
 	"name": "postcss-browser-reporter",
 	"description": "PostCSS plugin to report warning messages right in your browser",
 	"dist-tags": {
-		"latest": "0.6.0"
+		"latest": "0.7.0"
 	},
 	"versions": {
 		"0.3.0": {
@@ -272,26 +272,104 @@
 				"tmp": "tmp/postcss-browser-reporter_0.6.0_1554048474349_0.0137222988517689"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.7.0": {
+			"name": "postcss-browser-reporter",
+			"version": "0.7.0",
+			"description": "PostCSS plugin to report warning messages right in your browser",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"warnings"
+			],
+			"author": {
+				"name": "Alexey Gaziev",
+				"email": "alex.gaziev@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/postcss/postcss-browser-reporter.git"
+			},
+			"engines": {
+				"node": ">=18.0"
+			},
+			"funding": [
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/postcss/"
+				},
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/ai"
+				}
+			],
+			"peerDependencies": {
+				"postcss": "^8.2.14"
+			},
+			"_id": "postcss-browser-reporter@0.7.0",
+			"gitHead": "f7c7818c0cf2b80016badfe02bf942e7fa134c16",
+			"bugs": {
+				"url": "https://github.com/postcss/postcss-browser-reporter/issues"
+			},
+			"homepage": "https://github.com/postcss/postcss-browser-reporter#readme",
+			"_nodeVersion": "21.1.0",
+			"_npmVersion": "10.2.0",
+			"dist": {
+				"integrity": "sha512-kRUXzpbbbTDptMM2hWtDvWAa6wsMVXA6TJtfPs1CMfs5uv4quwJaiudTH/3I7ECms+HyWF3i6fRWIUdNkt+VTw==",
+				"shasum": "d6a018a0349628525a9993ac8e95df71128d529e",
+				"tarball": "https://registry.npmjs.org/postcss-browser-reporter/-/postcss-browser-reporter-0.7.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 5492,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBOiprUwuuJBYrtTuDVg6rq4peTz7nMJKF793yP+Op8yAiAaK9wLolDGdCfFz4ikSUD+nlz44IRzf+w2RY64N5jeyg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ai",
+				"email": "andrey@sitnik.ru"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "gazay",
+					"email": "alex.gaziev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-browser-reporter_0.7.0_1699332657825_0.18910202588534064"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Browser Reporter [![Build Status](https://travis-ci.org/postcss/postcss-browser-reporter.svg)](https://travis-ci.org/postcss/postcss-browser-reporter)\n\n> [PostCSS] plugin to report warning messages right in your browser.\n\nIf a plugin before this one is throwing a warning, this plugin will append warning messages to `html:before`.\n\n![Postcss-browser-reporter – warnings from other postcss plugins in your browser](http://postcss.github.io/postcss-browser-reporter/screenshot.png)\n\n## Usage\n\nPut this plugin after all plugins if you want to cover all possible warnings:\n\n```js\npostcss([\n  require('other-plugin'),\n  require('postcss-browser-reporter')\n])\n```\n\n### Options\n\n#### `selector` (`{String}`, default: `html::before`)\n\nYou can override selector that will be used to display messages:\n\n```js\nvar messages = require('postcss-browser-reporter')\npostcss([\n  messages({\n    selector: 'body:before'\n  })\n])\n```\n\n#### `styles` (`{Object}`, default: opinionated styles)\n\nYou can override default styles applied to the selector:\n\n```js\nvar messages = require('postcss-browser-reporter')\npostcss([\n  messages({\n    styles: {\n      color: 'gray',\n      'text-align': 'center'\n    }\n  })\n])\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n## License\n\nThe MIT License\n\n[PostCSS]: https://github.com/postcss/postcss\n",
+	"readme": "# PostCSS Browser Reporter\n\n[PostCSS] plugin to report warning messages right in your browser.\n\nIf a plugin before this one is throwing a warning, this plugin will append warning messages to `html:before`.\n\n![PostCSS Browser Reporter example](./screenshot.png)\n\n[PostCSS]: https://github.com/postcss/postcss\n\n\n## Docs\nRead full docs **[here](https://github.com/postcss/postcss-browser-reporter#readme)**.\n",
 	"maintainers": [
 		{
-			"email": "andrey@sitnik.ru",
-			"name": "ai"
+			"name": "ai",
+			"email": "andrey@sitnik.ru"
 		},
 		{
-			"email": "alex.gaziev@gmail.com",
-			"name": "gazay"
+			"name": "gazay",
+			"email": "alex.gaziev@gmail.com"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T09:33:34.832Z",
+		"modified": "2023-11-07T04:50:58.216Z",
 		"created": "2015-07-17T06:03:53.066Z",
 		"0.3.0": "2015-07-17T06:03:53.066Z",
 		"0.4.0": "2015-09-25T05:38:08.749Z",
 		"0.5.0": "2016-05-09T16:28:31.528Z",
-		"0.6.0": "2019-03-31T16:07:54.578Z"
+		"0.6.0": "2019-03-31T16:07:54.578Z",
+		"0.7.0": "2023-11-07T04:50:58.038Z"
 	},
 	"homepage": "https://github.com/postcss/postcss-browser-reporter#readme",
 	"keywords": [
@@ -318,5 +396,5 @@
 		"langri-sha": true,
 		"griname": true
 	},
-	"_downloads": 52345
+	"_downloads": 46777
 }
