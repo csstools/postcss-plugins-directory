@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-em",
-	"_rev": "5-5f999b4780ee1a98f208822fbf78768f",
+	"_rev": "6-d70aea224c79d95789b66fa9b9b09a91",
 	"name": "postcss-em",
 	"dist-tags": {
-		"latest": "2.0.0"
+		"latest": "3.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -349,16 +349,84 @@
 				"tmp": "tmp/postcss-em_2.0.0_1618069544062_0.09616052197016356"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "postcss-em",
+			"version": "3.0.0",
+			"description": "PostCSS plugin to convert px in em.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"em",
+				"responsive",
+				"typography"
+			],
+			"author": {
+				"name": "Pierre Burel",
+				"email": "contact@pierreburel.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/pierreburel/postcss-em.git"
+			},
+			"bugs": {
+				"url": "https://github.com/pierreburel/postcss-em/issues"
+			},
+			"homepage": "https://github.com/pierreburel/postcss-em",
+			"dependencies": {},
+			"devDependencies": {
+				"jest": "^29.7.0",
+				"postcss": "^8.4.31"
+			},
+			"scripts": {
+				"test": "jest"
+			},
+			"gitHead": "71540ee9a36dab09224f544b8358db878b9425df",
+			"_id": "postcss-em@3.0.0",
+			"_nodeVersion": "16.18.1",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-+AE0/a2Aza1jC1k9/536S3E9JL6JaukTacPIxrz2QjU4yTQWTDSF0BldkHUd6xF3+RdFjmNF+oOV9Il3i5458w==",
+				"shasum": "ad08aa0b864e3b86ab1062bd8b5d10cb999c6024",
+				"tarball": "https://registry.npmjs.org/postcss-em/-/postcss-em-3.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 4858,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIG5PO22KWDmQNUjVQoF8isL5pJf0o/VVy7c3mS/pyvTSAiEAgbZxwoCjyqCwrv/BZ19q5JdgBc3vMufMQuZR7bwwEPo="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "pierreburel",
+				"email": "contact@pierreburel.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "pierreburel",
+					"email": "contact@pierreburel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-em_3.0.0_1699650972687_0.38952340208034686"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2018-10-19T15:47:36.510Z",
 		"1.0.0": "2018-10-19T15:47:36.626Z",
-		"modified": "2022-05-13T06:14:57.268Z",
+		"modified": "2023-11-10T21:16:13.098Z",
 		"1.0.1": "2018-10-19T15:48:52.764Z",
 		"1.0.2": "2018-11-18T14:35:14.033Z",
 		"1.0.4": "2020-01-03T16:57:59.467Z",
-		"2.0.0": "2021-04-10T15:45:44.229Z"
+		"2.0.0": "2021-04-10T15:45:44.229Z",
+		"3.0.0": "2023-11-10T21:16:12.904Z"
 	},
 	"maintainers": [
 		{
@@ -388,7 +456,7 @@
 		"url": "https://github.com/pierreburel/postcss-em/issues"
 	},
 	"license": "MIT",
-	"readme": "# PostCSS EM [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin to convert px in em. Based on [sass-em](https://github.com/pierreburel/sass-em).\n\nSee also [postcss-rem](https://github.com/pierreburel/postcss-rem) & [startijenn-rem](https://github.com/pierreburel/startijenn-rem).\n\n[postcss]: https://github.com/postcss/postcss\n[ci-img]: https://travis-ci.org/pierreburel/postcss-em.svg\n[ci]: https://travis-ci.org/pierreburel/postcss-em\n\n## How it works\n\nThe plugin provides a `em()` function which takes at least 2 parameters: the value (px, mixed) and the context (px).\nThere can be multiple comma-separated values (eg. multiple box shadow), but the last parameter must be the context.\n\n## Example\n\n### Input\n\n```scss\n.demo {\n  font-size: em(24px, 16px); /* Simple */\n  padding: em(5px 10px, 24px); /* Multiple values */\n  margin: em(10px 0.5em, 24px); /* Existing em value */\n  border-bottom: em(1px solid black, 24px); /* Multiple mixed values */\n  box-shadow: em(\n    0 0 2px #ccc,\n    inset 0 0 5px #eee,\n    24px\n  ); /* Comma-separated values */\n  text-shadow: em(1px 1px, 24px) #eee, em(-1px, 24px) 0 #eee; /* Alternate use */\n}\n```\n\n### Output\n\n```css\n.demo {\n  font-size: 1.5em; /* Simple */\n  padding: 0.20833em 0.41666em; /* Multiple values */\n  margin: 0.41666em 0.5em; /* Existing em value */\n  border-bottom: 0.04166em solid black; /* Multiple mixed values */\n  box-shadow: 0 0 0.08333em #ccc, inset 0 0 0.20833em #eee; /* Comma-separated values */\n  text-shadow: 0.04166em 0.04166em #eee, -0.04166em 0 #eee; /* Alternate use */\n}\n```\n\n## Usage\n\nInstall with `npm i postcss-em` and use with [PostCSS]:\n\n```js\npostcss([require(\"postcss-em\")]);\n```\n\nExample with custom options:\n\n```js\npostcss([ require('postcss-em')({\n  precision: 6      // Default to 5\n  name: 'to-em' // Default to em\n}) ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n",
+	"readme": "# postcss-em [![Node.js CI](https://github.com/pierreburel/postcss-em/actions/workflows/node.js.yml/badge.svg)](https://github.com/pierreburel/postcss-em/actions/workflows/node.js.yml)\n\n[PostCSS] plugin to convert px in em. Based on [sass-em](https://github.com/pierreburel/sass-em).\n\n**Breaking change in 3.0**: changed default function name to `em-convert` to match [postcss-rem](https://github.com/pierreburel/postcss-rem), as [CSS now use `rem()` for calculating the remainder](https://developer.mozilla.org/en-US/docs/Web/CSS/rem).\n\n[postcss]: https://github.com/postcss/postcss\n\n## How it works\n\nThe plugin provides a `em-convert()` function which takes at least 2 parameters: the value (px, mixed) and the context (px).\nThere can be multiple comma-separated values (eg. multiple box shadow), but the last parameter must be the context.\n\n## Example\n\n### Input\n\n```scss\n.demo {\n  font-size: em-convert(24px, 16px); /* Simple */\n  padding: em-convert(5px 10px, 24px); /* Multiple values */\n  margin: em-convert(10px 0.5em, 24px); /* Existing em value */\n  border-bottom: em-convert(1px solid black, 24px); /* Multiple mixed values */\n  box-shadow: em-convert(\n    0 0 2px #ccc,\n    inset 0 0 5px #eee,\n    24px\n  ); /* Comma-separated values */\n  text-shadow: em-convert(1px 1px, 24px) #eee, em-convert(-1px, 24px) 0 #eee; /* Alternate use */\n}\n```\n\n### Output\n\n```css\n.demo {\n  font-size: 1.5em; /* Simple */\n  padding: 0.20833em 0.41666em; /* Multiple values */\n  margin: 0.41666em 0.5em; /* Existing em value */\n  border-bottom: 0.04166em solid black; /* Multiple mixed values */\n  box-shadow: 0 0 0.08333em #ccc, inset 0 0 0.20833em #eee; /* Comma-separated values */\n  text-shadow: 0.04166em 0.04166em #eee, -0.04166em 0 #eee; /* Alternate use */\n}\n```\n\n## Usage\n\nInstall with `npm i postcss-em` and use with [PostCSS]:\n\n```js\npostcss([require(\"postcss-em\")]);\n```\n\nExample with custom options:\n\n```js\npostcss([ require('postcss-em')({\n  precision: 6       // Default to 5\n  name: 'convert-em' // Default to 'em-convert'\n}) ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 67
+	"_downloads": 64
 }
