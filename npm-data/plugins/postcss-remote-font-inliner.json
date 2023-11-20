@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-remote-font-inliner",
-	"_rev": "2-9d295e4873fb24b2a70ec6ae852dc8b7",
+	"_rev": "3-195dea9cc476ed08256df52bb8ca186f",
 	"name": "postcss-remote-font-inliner",
 	"description": "A postcss plugin for inlining remote fonts",
 	"dist-tags": {
-		"latest": "1.0.1"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -136,6 +136,73 @@
 				"tmp": "tmp/postcss-remote-font-inliner_1.0.1_1544986871990_0.45251921590362976"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "postcss-remote-font-inliner",
+			"version": "2.0.0",
+			"description": "A postcss plugin for inlining remote fonts",
+			"main": "index.js",
+			"homepage": "https://github.com/moshen/postcss-remote-font-inliner",
+			"bugs": {
+				"url": "https://github.com/moshen/postcss-remote-font-inliner/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/moshen/postcss-remote-font-inliner.git"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin"
+			],
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"dependencies": {
+				"css-font-face-src": "^1.0.0",
+				"postcss": "^8.4.31"
+			},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"author": {
+				"name": "Colin Kennedy",
+				"email": "moshen.colin@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "postcss-remote-font-inliner@2.0.0",
+			"gitHead": "0e7aac401b497174048f001ac8b54f640d6c5d54",
+			"_nodeVersion": "20.9.0",
+			"_npmVersion": "10.1.0",
+			"dist": {
+				"integrity": "sha512-A04Wfrdw+BkF549r9ghhqi7gQRESRcDjPcTEwA04Ot7hCsw+4TOCbq0RoPBUQqZgP8e+lH+BhrfHH/04CN4H3g==",
+				"shasum": "437af925307df6fc64baa90abc0bfc110e040945",
+				"tarball": "https://registry.npmjs.org/postcss-remote-font-inliner/-/postcss-remote-font-inliner-2.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 4755,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIH6UKpidmwErba01nzIGH4Q2UKQiazbAo8hm+Fbq/EE0AiAx+BcBKCwqqz2dZlIKYpEqrdswExrcjVsXJaNG44DbQw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "moshen",
+				"email": "moshen.colin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "moshen",
+					"email": "moshen.colin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-remote-font-inliner_2.0.0_1700408714307_0.8427436242291195"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Remote Font Inliner\n\nI had a very specific use case for base64 inlining hosted fonts (in my case\nGoogle).  All this plugin does is look for `font-face` `src` declarations with\nhttp(s) urls, downloads the fonts, base64 encodes them, and inlines them.\n\nIt works very well with [Font\nMagician](https://github.com/jonathantneal/postcss-font-magician).\n\n## Usage\n\nSimply include it in your postcss pipeline:\n\n```javascript\npostcss([\n   require('postcss-remote-font-inliner')()\n]).process(\n   fs.readFileSync('./css/src/style.css', 'utf8')\n).then(function (result) {\n   fs.writeFileSync('./css/style.css', result.css);\n});\n```\n\n### Options\n\nCurrently, there are none.\n\n## License\n\nMIT\n",
@@ -146,10 +213,11 @@
 		}
 	],
 	"time": {
-		"modified": "2022-05-13T06:41:35.005Z",
+		"modified": "2023-11-19T15:45:14.664Z",
 		"created": "2017-12-21T23:51:07.909Z",
 		"1.0.0": "2017-12-21T23:51:07.909Z",
-		"1.0.1": "2018-12-16T19:01:12.146Z"
+		"1.0.1": "2018-12-16T19:01:12.146Z",
+		"2.0.0": "2023-11-19T15:45:14.489Z"
 	},
 	"homepage": "https://github.com/moshen/postcss-remote-font-inliner",
 	"keywords": [
@@ -170,5 +238,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 16
+	"_downloads": 15
 }
