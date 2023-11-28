@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-pseudo-classes",
-	"_rev": "7-b53f3d0b8bb9d5ad2ccf8a28d0dbf7ac",
+	"_rev": "8-9d83c8655732a61d2a2a73598c9bffa4",
 	"name": "postcss-pseudo-classes",
 	"description": "PostCSS plugin to convert pseudo-classes to classes for testing purposes",
 	"dist-tags": {
-		"latest": "0.2.1"
+		"latest": "0.4.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -274,22 +274,91 @@
 				"tmp": "tmp/postcss-pseudo-classes_0.2.1_1573465218264_0.753242644087136"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.4.0": {
+			"name": "postcss-pseudo-classes",
+			"version": "0.4.0",
+			"description": "PostCSS plugin to convert pseudo-classes to classes for testing purposes",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"css test",
+				"pseudo classes"
+			],
+			"author": {
+				"name": "Giuseppe Gurgone"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/giuseppeg/postcss-pseudo-classes.git"
+			},
+			"bugs": {
+				"url": "https://github.com/giuseppeg/postcss-pseudo-classes/issues"
+			},
+			"homepage": "https://github.com/giuseppeg/postcss-pseudo-classes",
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"ava": "^2.0.0",
+				"eslint": "^6.0.0",
+				"postcss": "^8.4.31"
+			},
+			"scripts": {
+				"test": "ava test/test.js && eslint *.js test/*.js"
+			},
+			"_id": "postcss-pseudo-classes@0.4.0",
+			"gitHead": "a68e274dfe03ef1a5f6439945ed11e800c5ac031",
+			"_nodeVersion": "18.18.2",
+			"_npmVersion": "9.8.1",
+			"dist": {
+				"integrity": "sha512-k1MTMzMdBg3eW05QV/W3rZyuzOFJ3HU3AMbMamillv5G/5NuepHdMl6jO+6GHnjxH12/sNmBqdOI+zYIP86kZg==",
+				"shasum": "e3ecfff1c30db7ecda9dd063bc80499b305393f5",
+				"tarball": "https://registry.npmjs.org/postcss-pseudo-classes/-/postcss-pseudo-classes-0.4.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 9776,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIG9Fj2q7t43OAC+0HQ3gATnD0gqLtxWmbazUWHVhACv6AiBJ0U2QsK2lDf6GWXbn+WSMvfdTKCrOvkoja5EaHmFcsQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "giuseppegurgone",
+				"email": "npm@giuseppegurgone.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "giuseppegurgone",
+					"email": "npm@giuseppegurgone.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pseudo-classes_0.4.0_1701087427449_0.8386756860051787"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Pseudo Classes [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin to automatically add in companion classes\nwhere pseudo-selectors are used.\nThis allows you to add the class name to force the styling of a pseudo-selector,\nwhich can be really helpful for testing or being able\nto concretely reach all style states.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/giuseppeg/postcss-pseudo-classes.svg\n[ci]:      https://travis-ci.org/giuseppeg/postcss-pseudo-classes\n\n### Credits\n\nThis plugin is a port of [rework-pseudo-classes](https://github.com/SlexAxton/rework-pseudo-classes) written by [Alex Sexton](https://twitter.com/SlexAxton).\n\n## Installation\n\n```bash\n$ npm install postcss-pseudo-classes\n```\n\n## Example\n\n```js\nvar pseudoclasses = require('postcss-pseudo-classes')({\n  // default contains `:root`.\n  blacklist: [],\n\n  // (optional) create classes for a restricted list of selectors\n  // N.B. the colon (:) is optional\n  restrictTo: [':nth-child', 'hover'],\n\n  // default is `false`. If `true`, will output CSS\n  // with all combinations of pseudo styles/pseudo classes.\n  allCombinations: true,\n\n  // default is `true`. If `false`, will generate\n  // pseudo classes for `:before` and `:after`\n  preserveBeforeAfter: false\n});\n\npostcss([ pseudoclasses ])\n  .process(css)\n  .then(function (result) { console.log(result.css); });\n```\n\n### style.css\n\n```css\n.some-selector:hover {\n  text-decoration: underline;\n}\n```\n\nyields\n\n```css\n.some-selector:hover,\n.some-selector.\\:hover {\n  text-decoration: underline;\n}\n```\n\n### usage\n\n```html\n<button class=\"some-selector :hover\">howdy</button>\n```\n\n## Edge cases\n\n* This plugin escapes parenthesis so `:nth-child(5)` would look like `.class.\\:nth-child\\(5\\)` and can be used as a regular class: `<button class=\":nth-child(5)\">howdy</button>`.\n* Pseudo-selectors with two colons are ignored entirely since they're a slightly different thing.\n* Chained pseudo-selectors just become chained classes: `:focus:hover` becomes `.\\:focus.\\:hover`.\n\n## Tests\n\n```bash\n$ npm test\n```\n\n## License\n\n(MIT)\n",
+	"readme": "# PostCSS Pseudo Classes [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin to automatically add in companion classes\nwhere pseudo-selectors are used.\nThis allows you to add the class name to force the styling of a pseudo-selector,\nwhich can be really helpful for testing or being able\nto concretely reach all style states.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/giuseppeg/postcss-pseudo-classes.svg\n[ci]:      https://travis-ci.org/giuseppeg/postcss-pseudo-classes\n\n### Credits\n\nThis plugin is a port of [rework-pseudo-classes](https://github.com/SlexAxton/rework-pseudo-classes) written by [Alex Sexton](https://twitter.com/SlexAxton).\n\n## Installation\n\n```bash\n$ npm install postcss-pseudo-classes\n```\n\n## Example\n\n```js\nvar pseudoclasses = require('postcss-pseudo-classes')({\n  // default contains `:root`.\n  blacklist: [],\n\n  // (optional) create classes for a restricted list of selectors\n  // N.B. the colon (:) is optional\n  restrictTo: [':nth-child', 'hover'],\n\n  // default is `false`. If `true`, will output CSS\n  // with all combinations of pseudo styles/pseudo classes.\n  allCombinations: true,\n\n  // default is `true`. If `false`, will generate\n  // pseudo classes for `:before` and `:after`\n  preserveBeforeAfter: false\n});\n\npostcss([ pseudoclasses ])\n  .process(css)\n  .then(function (result) { console.log(result.css); });\n```\n\n### style.css\n\n```css\n.some-selector:hover {\n  text-decoration: underline;\n}\n```\n\nyields\n\n```css\n.some-selector:hover,\n.some-selector.\\:hover {\n  text-decoration: underline;\n}\n```\n\n### usage\n\n```html\n<button class=\"some-selector :hover\">howdy</button>\n```\n\n## Edge cases\n\n* This plugin escapes parenthesis so `:nth-child(5)` would look like `.class.\\:nth-child\\(5\\)` and can be used as a regular class: `<button class=\":nth-child(5)\">howdy</button>`.\n* Pseudo-selectors with two colons are ignored entirely since they're a slightly different thing.\n* Chained pseudo-selectors just become chained classes: `:focus:hover` becomes `.\\:focus.\\:hover`.\n\n## Tests\n\n```bash\n$ npm test\n```\n\n## Contributors\n\n[@ai](https://github.com/ai)\n\n## License\n\n(MIT)\n",
 	"maintainers": [
 		{
 			"name": "giuseppegurgone",
-			"email": "ggurgone@gmail.com"
+			"email": "npm@giuseppegurgone.com"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:40:06.781Z",
+		"modified": "2023-11-27T12:17:07.828Z",
 		"created": "2015-12-28T19:12:12.196Z",
 		"0.1.0": "2015-12-28T19:12:12.196Z",
 		"0.2.0": "2017-02-16T09:02:24.829Z",
 		"0.3.0": "2019-11-11T09:39:10.025Z",
-		"0.2.1": "2019-11-11T09:40:18.390Z"
+		"0.2.1": "2019-11-11T09:40:18.390Z",
+		"0.4.0": "2023-11-27T12:17:07.625Z"
 	},
 	"homepage": "https://github.com/giuseppeg/postcss-pseudo-classes",
 	"keywords": [
@@ -304,13 +373,12 @@
 		"url": "git+https://github.com/giuseppeg/postcss-pseudo-classes.git"
 	},
 	"author": {
-		"name": "Giuseppe Gurgone",
-		"email": "ggurgone@gmail.com"
+		"name": "Giuseppe Gurgone"
 	},
 	"bugs": {
 		"url": "https://github.com/giuseppeg/postcss-pseudo-classes/issues"
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 15757
+	"_downloads": 12362
 }
