@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-zindex",
-	"_rev": "49-c18339b4c18225e861407a4b6be8a5e6",
+	"_rev": "50-f11f40ae2a5323650ac65a22978d8e7b",
 	"name": "postcss-zindex",
 	"description": "Reduce z-index values with PostCSS.",
 	"dist-tags": {
-		"latest": "6.0.0",
+		"latest": "6.0.1",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -3553,6 +3553,104 @@
 				"tmp": "tmp/postcss-zindex_6.0.0_1679935270267_0.24532498169613692"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.1": {
+			"name": "postcss-zindex",
+			"version": "6.0.1",
+			"description": "Reduce z-index values with PostCSS.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"css",
+				"normalize",
+				"optimise",
+				"optimisation",
+				"postcss",
+				"postcss-plugin",
+				"z-index"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.32"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-zindex@6.0.1",
+			"_integrity": "sha512-wQF95TIerYvPlsjwldO7iGP3Z3arhuYRK/gndq4NAdZaEsdUkmQYtRqkrEPMzJOQFBk06wFtzkHZKJoQlqFgXQ==",
+			"_resolved": "/tmp/748a4a3cf9dc7cd26387f18ee90077d2/postcss-zindex-6.0.1.tgz",
+			"_from": "file:postcss-zindex-6.0.1.tgz",
+			"_nodeVersion": "20.9.0",
+			"_npmVersion": "10.2.2",
+			"dist": {
+				"integrity": "sha512-wQF95TIerYvPlsjwldO7iGP3Z3arhuYRK/gndq4NAdZaEsdUkmQYtRqkrEPMzJOQFBk06wFtzkHZKJoQlqFgXQ==",
+				"shasum": "30a4397a71b5cc291d464ee986e146e0f8143d4a",
+				"tarball": "https://registry.npmjs.org/postcss-zindex/-/postcss-zindex-6.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 7438,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDr5QU63lb8At0Z6pK4FrFzm0gAx2PYIOCvpC15OiTPdQIgYsKtXXcPYxC6aAjjSxo7Z6dp5yzCCorwDGgXevW8OXM="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-zindex_6.0.1_1702574297329_0.03507545688501468"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# [postcss][postcss]-zindex\n\n> Reduce z-index values with PostCSS.\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-zindex) do:\n\n```\nnpm install postcss-zindex --save\n```\n\n## Example\n\nSometimes, you may introduce z-index values into your CSS that are larger than\nnecessary, in order to improve your understanding of how each stack relates to\nthe others. For example, you might have a modal overlay at `5000` and the dialog\nfor it at `5500` - so that modal classes occupy the `5xxx` space.\n\nBut in production, it is unnecessary to use such large values for z-index where\nsmaller values would suffice. This module will reduce all z-index declarations\nwhilst respecting your original intent; such that the overlay becomes `1` and\nthe dialog becomes `2`. For more examples, see the [tests](test.js).\n\n### Input\n\n```css\n.modal {\n    z-index: 5000\n}\n\n.modal-overlay {\n    z-index: 5500\n}\n```\n\n### Output\n\n```css\n.modal {\n    z-index: 1\n}\n\n.modal-overlay {\n    z-index: 2\n}\n```\n\nNote that this module does not attempt to normalize relative z-index values,\nsuch as `-1`; indeed, it will abort immediately when encountering these values\nas it cannot be sure that rebasing mixed positive & negative values will keep\nthe stacking context intact. Be careful with using this module alongside\nJavaScript injected CSS; ideally you should have already extracted all of your\nstacking context into CSS.\n\n## API\n\n### zindex([options])\n\n#### options\n\n##### startIndex\n\nType: `number`\nDefault: `1`\n\nSet this to any other positive integer if you want to override z-indices from\nother sources outside your control. For example if a third party widget has a\nmaximum z-index of `99`, you can set this to `100` and not have to worry about\nstacking conflicts.\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n[postcss]: https://github.com/postcss/postcss\n",
@@ -3587,7 +3685,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-03-27T16:41:10.537Z",
+		"modified": "2023-12-14T17:18:17.742Z",
 		"created": "2015-03-17T10:57:03.263Z",
 		"1.0.0": "2015-03-17T10:57:03.263Z",
 		"1.0.1": "2015-03-25T13:56:20.508Z",
@@ -3628,7 +3726,8 @@
 		"5.0.1": "2021-05-19T18:39:09.865Z",
 		"5.0.2": "2022-02-07T15:54:53.073Z",
 		"5.1.0": "2022-03-01T18:55:02.647Z",
-		"6.0.0": "2023-03-27T16:41:10.403Z"
+		"6.0.0": "2023-03-27T16:41:10.403Z",
+		"6.0.1": "2023-12-14T17:18:17.587Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -3654,5 +3753,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 2732137
+	"_downloads": 2940508
 }
