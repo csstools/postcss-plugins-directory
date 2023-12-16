@@ -1,7 +1,7 @@
 {
 	"name": "css-prefers-color-scheme",
 	"description": "Use light and dark color schemes in all browsers",
-	"version": "9.0.0",
+	"version": "9.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,15 +31,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		},
 		"./browser": {
 			"import": "./dist/browser.mjs",
@@ -52,19 +55,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"puppeteer": "^20.7.4"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:browser": "node ./test/_browser.mjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-prefers-color-scheme#readme",
 	"repository": {
@@ -91,38 +81,34 @@
 		"query",
 		"scheme"
 	],
-	"csstools": {
-		"cssdbId": "prefers-color-scheme-query",
-		"exportName": "prefersColorScheme",
-		"humanReadableName": "Prefers Color Scheme",
-		"specUrl": "https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "d196833c7d267767c234a1e8d324fbc4d47b6d2d",
-	"_id": "css-prefers-color-scheme@9.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "css-prefers-color-scheme@9.0.1",
+	"gitHead": "8f9a004f35f997eddbcdce1ae79418912d9c3aef",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-03QGAk/FXIRseDdLb7XAiu6gidQ0Nd8945xuM7VFVPpc6goJsG9uIO8xQjTxwbPdPIIV4o4AJoOJyt8gwDl67g==",
-		"shasum": "7e9b74062655ea15490e359cb456a3b9f4c93327",
-		"tarball": "https://registry.npmjs.org/css-prefers-color-scheme/-/css-prefers-color-scheme-9.0.0.tgz",
+		"integrity": "sha512-iFit06ochwCKPRiWagbTa1OAWCvWWVdEnIFd8BaRrgO8YrrNh4RAWUQTFcYX5tdFZgFl1DJ3iiULchZyEbnF4g==",
+		"shasum": "30fcb94cc38b639b66fb99e1882ffd97f741feaa",
+		"tarball": "https://registry.npmjs.org/css-prefers-color-scheme/-/css-prefers-color-scheme-9.0.1.tgz",
 		"fileCount": 13,
-		"unpackedSize": 42124,
+		"unpackedSize": 37591,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDP9MbYK+Yhl0qhCAzpCWDZ3JfI8UHTWFEXKigQNsRi4AIgUQmUojBtdyHg1/tTRBQt74hbwLR1SyLXvp8eeU2kE1M="
+				"sig": "MEUCIF2pk5g/F4fiyZJxQQGn1rcbzgsywZfLnN1LfgGMrlYSAiEAyCQNSVYXGckAuVQgy9R92QXRGulPv+6Fnw6PHyC07n4="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -134,8 +120,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/css-prefers-color-scheme_9.0.0_1688371817521_0.6117295895275972"
+		"tmp": "tmp/css-prefers-color-scheme_9.0.1_1702682260773_0.30422127241477703"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:10:17.911Z"
+	"_time": "2023-12-15T23:17:41.016Z"
 }

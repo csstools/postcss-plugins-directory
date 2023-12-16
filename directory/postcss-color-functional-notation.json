@@ -1,7 +1,7 @@
 {
 	"name": "postcss-color-functional-notation",
 	"description": "Use space and slash separated color notation in CSS",
-	"version": "6.0.2",
+	"version": "6.0.3",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,34 +20,28 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/postcss-progressive-custom-properties": "^3.0.2",
-		"postcss-value-parser": "^4.2.0"
+		"@csstools/css-color-parser": "^1.5.0",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
+		"@csstools/postcss-progressive-custom-properties": "^3.0.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-functional-notation#readme",
 	"repository": {
@@ -75,27 +69,21 @@
 		"space",
 		"syntax"
 	],
-	"csstools": {
-		"exportName": "postcssColorFunctionalNotation",
-		"humanReadableName": "PostCSS Color Functional Notation"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "postcss-color-functional-notation@6.0.2",
-	"gitHead": "a89a523982916310352a46f42895701c4fd7d941",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "postcss-color-functional-notation@6.0.3",
+	"gitHead": "b39fbc0ca35b2c3589dbbbacf51fecb16209c50d",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-FsjSmlSufuiFBsIqQ++VxFmvX7zKndZpBkHmfXr4wqhvzM92FTEkAh703iqWTl1U3faTgqioIqCbfqdWiFVwtw==",
-		"shasum": "5fa38d36cd0e2ea9db7fd6f2f2a1ffb2c0796a8d",
-		"tarball": "https://registry.npmjs.org/postcss-color-functional-notation/-/postcss-color-functional-notation-6.0.2.tgz",
-		"fileCount": 10,
-		"unpackedSize": 22894,
+		"integrity": "sha512-2jBr3H0sk3qGh/3BkmLsOKcYyVfSlM1K2QQYVU7eW5mkg7ZOQ4aU/Rtbh7vJ9FxAfgf8iHRwXBsQkHqUxzTkXw==",
+		"shasum": "02869e61f04705cb9eb5d245136dd59f8f7c4dee",
+		"tarball": "https://registry.npmjs.org/postcss-color-functional-notation/-/postcss-color-functional-notation-6.0.3.tgz",
+		"fileCount": 7,
+		"unpackedSize": 12421,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDOoYqKmi/SVaHXbL6y7ML4WjmbGTQM3GCfMOVsQBBXwQIgbud68t159V5gTbTNvcP98puZoCIKoNm9ULEe1Tovc9A="
+				"sig": "MEUCIQDx7GGA9EzdZf4GDz04DzTVGyzgGiBbQpnqShfeTG/XSwIgeFkwC6Y5KqHg4b5ZHxU7Irbjm8t8AEZX3ekzjO7rZDI="
 			}
 		]
 	},
@@ -120,8 +108,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-color-functional-notation_6.0.2_1696872813722_0.03792763251712694"
+		"tmp": "tmp/postcss-color-functional-notation_6.0.3_1702682766087_0.9164525234660419"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:33:33.912Z"
+	"_time": "2023-12-15T23:26:06.346Z"
 }
