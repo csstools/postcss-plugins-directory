@@ -1,7 +1,7 @@
 {
 	"name": "css-blank-pseudo",
 	"description": "Style form elements when they are empty",
-	"version": "6.0.0",
+	"version": "6.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,15 +31,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		},
 		"./browser": {
 			"import": "./dist/browser.mjs",
@@ -55,19 +58,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"puppeteer": "^20.7.4"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs && node ./test/_valid-replacements.mjs",
-		"test:browser": "node ./test/_browser.mjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-blank-pseudo#readme",
 	"repository": {
@@ -95,38 +85,34 @@
 		"selectors",
 		"textarea"
 	],
-	"csstools": {
-		"cssdbId": "blank-pseudo-class",
-		"exportName": "postcssBlankPseudo",
-		"humanReadableName": "PostCSS Blank Pseudo",
-		"specUrl": "https://www.w3.org/TR/selectors-4/#blank"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "6ee7024da861810e5de33c6e1f69d954d5e87be8",
-	"_id": "css-blank-pseudo@6.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "css-blank-pseudo@6.0.1",
+	"gitHead": "1c94368b86b87b3376541bed7285de659208db1d",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-VbfLlOWO7sBHBTn6pwDQzc07Z0SDydgDBfNfCE0nvrehdBNv9RKsuupIRa/qal0+fBZhAALyQDPMKz5lnvcchw==",
-		"shasum": "2bc6f812a5f60296c04c55b1696bad4300dcdbcc",
-		"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-6.0.0.tgz",
+		"integrity": "sha512-goSnEITByxTzU4Oh5oJZrEWudxTqk7L6IXj1UW69pO6Hv0UdX+Vsrt02FFu5DweRh2bLu6WpX/+zsQCu5O1gKw==",
+		"shasum": "f79f8b84cc00f891e16aa85f14093c5e1c3499a8",
+		"tarball": "https://registry.npmjs.org/css-blank-pseudo/-/css-blank-pseudo-6.0.1.tgz",
 		"fileCount": 13,
-		"unpackedSize": 54472,
+		"unpackedSize": 50262,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIGINxdjeSTGzU1pbrLaXlCc3GdjatAgAo5hKH6NnpXe/AiEA6U/2P9wVG1AKX6iWBa4Vi8cysYDfi09vKzlPAP0T0Nw="
+				"sig": "MEYCIQDIYdTY1xzGdhlS2qqTgVaVlrKNrbmkP1Ym2CRWW/e4GgIhALMD0TkdTDD/Ig3bYGTv62y+wwXDu0411sXn7QauLQhW"
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -138,8 +124,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/css-blank-pseudo_6.0.0_1688371791222_0.7252989151731271"
+		"tmp": "tmp/css-blank-pseudo_6.0.1_1702682234524_0.5289208075001781"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:09:51.412Z"
+	"_time": "2023-12-15T23:17:14.715Z"
 }

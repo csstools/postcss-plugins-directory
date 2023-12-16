@@ -1,7 +1,7 @@
 {
 	"name": "postcss-custom-properties",
 	"description": "Use Custom Properties Queries in CSS",
-	"version": "13.3.2",
+	"version": "13.3.3",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -25,37 +25,28 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/cascade-layer-name-parser": "^1.0.5",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
+		"@csstools/cascade-layer-name-parser": "^1.0.6",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-bundler": "^1.0.3",
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-properties#readme",
 	"repository": {
@@ -79,30 +70,21 @@
 		"vars",
 		"w3c"
 	],
-	"csstools": {
-		"assumesToProcessBundledCSS": true,
-		"cssdbId": "custom-properties",
-		"exportName": "postcssCustomProperties",
-		"humanReadableName": "PostCSS Custom Properties",
-		"specUrl": "https://www.w3.org/TR/css-variables-1/"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "postcss-custom-properties@13.3.2",
-	"gitHead": "4cf09706d02a70d532a87343245c908a15d9f774",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "postcss-custom-properties@13.3.3",
+	"gitHead": "32e36ef308b756097930a36a08e19db1d25516f5",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-2Coszybpo8lpLY24vy2CYv9AasiZ39/bs8Imv0pWMq55Gl8NWzfc24OAo3zIX7rc6uUJAqESnVOMZ6V6lpMjJA==",
-		"shasum": "88952f883003d897ade5c836e1e005b09a12f02b",
-		"tarball": "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-13.3.2.tgz",
-		"fileCount": 17,
-		"unpackedSize": 40152,
+		"integrity": "sha512-xLmILb2R83aG4X++iVFg8TWadOlc45xiyFHRZD6Yhhu2igrTHXL6C75AEWqx6k9lxrr9sK5rcfUI9JvTCxBTvA==",
+		"shasum": "c6be6c1746e0415f9e42a3055129aa20a19803e6",
+		"tarball": "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-13.3.3.tgz",
+		"fileCount": 7,
+		"unpackedSize": 23933,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDMsknL6BHo36L9oXnam2jE15XVFMbdHy82XJttttg3IQIgEVphjtBIst3DZJbIo2YPr6F9hq1V1B4L4jZC1OuXZhk="
+				"sig": "MEQCIGTMdKmVTvd5Kv8UfcErJt925DnSbd5S+fjnNanps65YAiBuluxbrZf1ylgR/3sr7WjgIu0DBJcGvrrsImFQiDXuUQ=="
 			}
 		]
 	},
@@ -135,8 +117,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-custom-properties_13.3.2_1695584722460_0.8087439210167933"
+		"tmp": "tmp/postcss-custom-properties_13.3.3_1702682659130_0.09404970135102131"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:45:22.649Z"
+	"_time": "2023-12-15T23:24:19.378Z"
 }

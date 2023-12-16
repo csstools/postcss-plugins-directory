@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-dir-pseudo-class",
-	"_rev": "22-b6e94b09b5a4ff5f5684b9578b6c1263",
+	"_rev": "23-59fa70ac5b6a4c61531af4c689b54222",
 	"name": "postcss-dir-pseudo-class",
 	"description": "Use the :dir pseudo-class in CSS",
 	"dist-tags": {
-		"latest": "8.0.0"
+		"latest": "8.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1845,25 +1845,146 @@
 				"tmp": "tmp/postcss-dir-pseudo-class_8.0.0_1688371913577_0.46250103964174016"
 			},
 			"_hasShrinkwrap": false
+		},
+		"8.0.1": {
+			"name": "postcss-dir-pseudo-class",
+			"description": "Use the :dir pseudo-class in CSS",
+			"version": "8.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"type": "module",
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.13"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-dir-pseudo-class#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-dir-pseudo-class"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"attribute",
+				"css",
+				"directionality",
+				"directions",
+				"left",
+				"left-to-right",
+				"ltr",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"right",
+				"right-to-left",
+				"rtl",
+				"selector"
+			],
+			"_id": "postcss-dir-pseudo-class@8.0.1",
+			"gitHead": "f0f268e7e199b0a79b19843ad81c11d45416ecca",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-uULohfWBBVoFiZXgsQA24JV6FdKIidQ+ZqxOouhWwdE+qJlALbkS5ScB43ZTjPK+xUZZhlaO/NjfCt5h4IKUfw==",
+				"shasum": "b93755f52fb90215301b1d3ecb7c5e6416930a1e",
+				"tarball": "https://registry.npmjs.org/postcss-dir-pseudo-class/-/postcss-dir-pseudo-class-8.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12101,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCICAMs2+UBRCPQxPldIW9u1Sdqa8HoxXBaZVWhXccB9kcAiEA/5nLG7k0n9MFzQkcuR6YERPW3wergOP3Auce8fpPwy4="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-dir-pseudo-class_8.0.1_1702682290091_0.7784338699469318"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Dir Pseudo Class [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-dir-pseudo-class.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/dir-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Dir Pseudo Class] lets you style by directionality using the `:dir()`\npseudo-class in CSS, following the [Selectors] specification.\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\n[dir=\"rtl\"] article h3 {\n\tmargin-right: 10px;\n}\n\n[dir=\"ltr\"] article h3 {\n\tmargin-left: 10px;\n}\n```\n\n### Maintaining Specificity\n\nUsing [PostCSS Dir Pseudo Class] will not impact selector weight, but it will\nrequire having at least one `[dir]` attribute in your HTML. If you don’t have\n_any_ `[dir]` attributes, consider using the following JavaScript:\n\n```js\n// force at least one dir attribute (this can run at any time)\ndocument.documentElement.dir=document.documentElement.dir||'ltr';\n```\n\nIf you absolutely cannot add a `[dir]` attribute in your HTML or even force one\nvia JavaScript, you can still work around this by presuming a direction in your\nCSS using the [`dir` option](#dir), but understand that this will\nsometimes increase selector weight by one element (`html`).\n\n## Usage\n\nAdd [PostCSS Dir Pseudo Class] to your project:\n\n```bash\nnpm install postcss postcss-dir-pseudo-class --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssDirPseudoClass = require('postcss-dir-pseudo-class');\n\npostcss([\n\tpostcssDirPseudoClass(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Dir Pseudo Class] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssDirPseudoClass({ preserve: true })\n```\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\n[dir=\"rtl\"] article h3 {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\n[dir=\"ltr\"] article h3 {\n\tmargin-left: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n```\n\n### dir\n\nThe `dir` option allows you presume a direction in your CSS. By default, this\nis not specified and you are required to include a direction `[dir]` attribute\nsomewhere in your HTML, preferably on the `html` element.\n\n```js\npostcssDirPseudoClass({ dir: 'ltr' });\n```\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\n[dir=\"rtl\"] article h3 {\n\tmargin-right: 10px;\n}\n\nhtml:not([dir=\"rtl\"]) article h3 {\n\tmargin-left: 10px;\n}\n```\n\n```js\npostcssDirPseudoClass({ dir: 'rtl' });\n```\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\nhtml:not([dir=\"ltr\"]) article h3 {\n\tmargin-right: 10px;\n}\n\n[dir=\"ltr\"] article h3 {\n\tmargin-left: 10px;\n}\n```\n\n### shadow\n\nThe `shadow` option determines whether the CSS is assumed to be used in Shadow DOM with Custom Elements.\n\n```js\npostcssDirPseudoClass({ shadow: true })\n```\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\n:host-context([dir=\"rtl\"]) article h3 {\n\tmargin-right: 10px;\n}\n\n:host-context([dir=\"ltr\"]) article h3 {\n\tmargin-left: 10px;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#dir-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-dir-pseudo-class\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Dir Pseudo Class]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-dir-pseudo-class\n[Selectors]: https://www.w3.org/TR/selectors-4/#the-dir-pseudo\n",
+	"readme": "# PostCSS Dir Pseudo Class [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-dir-pseudo-class.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/dir-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install postcss-dir-pseudo-class --save-dev\n```\n\n[PostCSS Dir Pseudo Class] lets you style by directionality using the `:dir()`\npseudo-class in CSS, following the [Selectors] specification.\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\n[dir=\"rtl\"] article h3 {\n\tmargin-right: 10px;\n}\n\n[dir=\"ltr\"] article h3 {\n\tmargin-left: 10px;\n}\n```\n\n### Maintaining Specificity\n\nUsing [PostCSS Dir Pseudo Class] will not impact selector weight, but it will\nrequire having at least one `[dir]` attribute in your HTML. If you don’t have\n_any_ `[dir]` attributes, consider using the following JavaScript:\n\n```js\n// force at least one dir attribute (this can run at any time)\ndocument.documentElement.dir=document.documentElement.dir||'ltr';\n```\n\nIf you absolutely cannot add a `[dir]` attribute in your HTML or even force one\nvia JavaScript, you can still work around this by presuming a direction in your\nCSS using the [`dir` option](#dir), but understand that this will\nsometimes increase selector weight by one element (`html`).\n\n## Usage\n\nAdd [PostCSS Dir Pseudo Class] to your project:\n\n```bash\nnpm install postcss postcss-dir-pseudo-class --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssDirPseudoClass = require('postcss-dir-pseudo-class');\n\npostcss([\n\tpostcssDirPseudoClass(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Dir Pseudo Class] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssDirPseudoClass({ preserve: true })\n```\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\n[dir=\"rtl\"] article h3 {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\n[dir=\"ltr\"] article h3 {\n\tmargin-left: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n```\n\n### dir\n\nThe `dir` option allows you presume a direction in your CSS. By default, this\nis not specified and you are required to include a direction `[dir]` attribute\nsomewhere in your HTML, preferably on the `html` element.\n\n```js\npostcssDirPseudoClass({ dir: 'ltr' });\n```\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\n[dir=\"rtl\"] article h3 {\n\tmargin-right: 10px;\n}\n\nhtml:not([dir=\"rtl\"]) article h3 {\n\tmargin-left: 10px;\n}\n```\n\n```js\npostcssDirPseudoClass({ dir: 'rtl' });\n```\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\nhtml:not([dir=\"ltr\"]) article h3 {\n\tmargin-right: 10px;\n}\n\n[dir=\"ltr\"] article h3 {\n\tmargin-left: 10px;\n}\n```\n\n### shadow\n\nThe `shadow` option determines whether the CSS is assumed to be used in Shadow DOM with Custom Elements.\n\n```js\npostcssDirPseudoClass({ shadow: true })\n```\n\n```pcss\narticle h3:dir(rtl) {\n\tmargin-right: 10px;\n}\n\narticle h3:dir(ltr) {\n\tmargin-left: 10px;\n}\n\n/* becomes */\n\n:host-context([dir=\"rtl\"]) article h3 {\n\tmargin-right: 10px;\n}\n\n:host-context([dir=\"ltr\"]) article h3 {\n\tmargin-left: 10px;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#dir-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-dir-pseudo-class\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Dir Pseudo Class]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-dir-pseudo-class\n[Selectors]: https://www.w3.org/TR/selectors-4/#the-dir-pseudo\n",
 	"maintainers": [
 		{
-			"email": "romainmenke@gmail.com",
-			"name": "romainmenke"
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
 		},
 		{
-			"email": "sombragriselros@gmail.com",
-			"name": "alaguna"
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
 		},
 		{
-			"email": "jonathantneal@hotmail.com",
-			"name": "jonathantneal"
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
 		}
 	],
 	"time": {
-		"modified": "2023-07-24T15:03:43.183Z",
+		"modified": "2023-12-15T23:18:10.455Z",
 		"created": "2017-06-01T17:51:34.561Z",
 		"1.0.0": "2017-06-01T17:51:34.561Z",
 		"1.1.0": "2017-06-02T17:42:52.406Z",
@@ -1881,7 +2002,8 @@
 		"7.0.0": "2023-01-24T08:56:28.764Z",
 		"7.0.1": "2023-01-28T07:36:33.875Z",
 		"7.0.2": "2023-02-06T17:18:48.692Z",
-		"8.0.0": "2023-07-03T08:11:53.768Z"
+		"8.0.0": "2023-07-03T08:11:53.768Z",
+		"8.0.1": "2023-12-15T23:18:10.290Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-dir-pseudo-class#readme",
 	"keywords": [
@@ -1925,5 +2047,5 @@
 			"email": "romainmenke@gmail.com"
 		}
 	],
-	"_downloads": 26623525
+	"_downloads": 26500008
 }

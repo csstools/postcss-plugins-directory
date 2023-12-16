@@ -1,7 +1,7 @@
 {
 	"name": "postcss-dir-pseudo-class",
 	"description": "Use the :dir pseudo-class in CSS",
-	"version": "8.0.0",
+	"version": "8.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,15 +31,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -47,17 +50,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-dir-pseudo-class#readme",
 	"repository": {
@@ -84,38 +76,34 @@
 		"rtl",
 		"selector"
 	],
-	"csstools": {
-		"cssdbId": "dir-pseudo-class",
-		"exportName": "postcssDirPseudoClass",
-		"humanReadableName": "PostCSS Dir Pseudo Class",
-		"specUrl": "https://www.w3.org/TR/selectors-4/#the-dir-pseudo"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "bd1d4e936c5658f094b193de2fceaeb6b6d6ab2c",
-	"_id": "postcss-dir-pseudo-class@8.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "postcss-dir-pseudo-class@8.0.1",
+	"gitHead": "f0f268e7e199b0a79b19843ad81c11d45416ecca",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-Oy5BBi0dWPwij/IA+yDYj+/OBMQ9EPqAzTHeSNUYrUWdll/PRJmcbiUj0MNcsBi681I1gcSTLvMERPaXzdbvJg==",
-		"shasum": "9e4e37d170f672520d3f38fd8376db0ca04d4e9c",
-		"tarball": "https://registry.npmjs.org/postcss-dir-pseudo-class/-/postcss-dir-pseudo-class-8.0.0.tgz",
+		"integrity": "sha512-uULohfWBBVoFiZXgsQA24JV6FdKIidQ+ZqxOouhWwdE+qJlALbkS5ScB43ZTjPK+xUZZhlaO/NjfCt5h4IKUfw==",
+		"shasum": "b93755f52fb90215301b1d3ecb7c5e6416930a1e",
+		"tarball": "https://registry.npmjs.org/postcss-dir-pseudo-class/-/postcss-dir-pseudo-class-8.0.1.tgz",
 		"fileCount": 7,
-		"unpackedSize": 14507,
+		"unpackedSize": 12101,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDbg69rCFkeINGwP6kSF4yV2JrY3S8MQhZOUKxT0ephiQIhAIicAJZrbNmKoOPwCPX8VILaihgrrHGxUqhCjBH0xKOh"
+				"sig": "MEUCICAMs2+UBRCPQxPldIW9u1Sdqa8HoxXBaZVWhXccB9kcAiEA/5nLG7k0n9MFzQkcuR6YERPW3wergOP3Auce8fpPwy4="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -127,8 +115,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-dir-pseudo-class_8.0.0_1688371913577_0.46250103964174016"
+		"tmp": "tmp/postcss-dir-pseudo-class_8.0.1_1702682290091_0.7784338699469318"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:11:53.768Z"
+	"_time": "2023-12-15T23:18:10.290Z"
 }

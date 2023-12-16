@@ -1,7 +1,7 @@
 {
 	"name": "postcss-color-hex-alpha",
 	"description": "Use 4 & 8 character hex color notation in CSS",
-	"version": "9.0.2",
+	"version": "9.0.3",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -21,22 +21,31 @@
 		}
 	],
 	"license": "MIT",
-	"funding": {
-		"type": "opencollective",
-		"url": "https://opencollective.com/csstools"
-	},
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/csstools"
+		},
+		{
+			"type": "opencollective",
+			"url": "https://opencollective.com/csstools"
+		}
+	],
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -44,19 +53,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"scripts": {
-		"prebuild": "npm run clean",
-		"build": "rollup -c ../../rollup/default.mjs",
-		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist');\"",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "npm run lint:eslint && npm run lint:package-json",
-		"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
-		"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "node .tape.mjs && npm run test:exports",
-		"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-hex-alpha#readme",
 	"repository": {
@@ -83,39 +79,34 @@
 		"transparent",
 		"w3c"
 	],
-	"csstools": {
-		"cssdbId": "hexadecimal-alpha-notation",
-		"exportName": "postcssColorHexAlpha",
-		"humanReadableName": "PostCSS Color Hex Alpha",
-		"specUrl": "https://www.w3.org/TR/css-color-4/#hex-notation"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "deb7593c5b13005f90de35cbcd05b36e15d6b9bf",
-	"_id": "postcss-color-hex-alpha@9.0.2",
-	"_nodeVersion": "18.13.0",
-	"_npmVersion": "9.4.1",
+	"_id": "postcss-color-hex-alpha@9.0.3",
+	"gitHead": "22eb664541f988cc6c888d25d8d71f4eb2d822cd",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-SfPjgr//VQ/DOCf80STIAsdAs7sbIbxATvVmd+Ec7JvR8onz9pjawhq3BJM3Pie40EE3TyB0P6hft16D33Nlyg==",
-		"shasum": "6d3ed50342802469880981a1999515d003ff7d79",
-		"tarball": "https://registry.npmjs.org/postcss-color-hex-alpha/-/postcss-color-hex-alpha-9.0.2.tgz",
-		"fileCount": 8,
-		"unpackedSize": 10971,
+		"integrity": "sha512-7sEHU4tAS6htlxun8AB9LDrCXoljxaC34tFVRlYKcvO+18r5fvGiXgv5bQzN40+4gXLCyWSMRK5FK31244WcCA==",
+		"shasum": "b7f0d3829218608c0d219e25aa06b1216393c69e",
+		"tarball": "https://registry.npmjs.org/postcss-color-hex-alpha/-/postcss-color-hex-alpha-9.0.3.tgz",
+		"fileCount": 7,
+		"unpackedSize": 7973,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIEuDpUlR9WN9yBvOHCDNCTK1Zbrhx7tYkyA2y+lRjAE4AiEAmIXE5QMKWKEfSaCugJzyp4sFig5HthlweipbvROz/4U="
+				"sig": "MEUCIHx6f8CEioIH67nxWT3wGas4Ox+JdNMn/OFkNWxGfRwoAiEAyxB1MPpZ3QsMm6Jm1XCKn3+DKFRyq1wg2rZ4jHvgLi8="
 			}
-		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj4TZiACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpu9w/+OHtk/5cIHLC93jyYH39bdrzrQVG+VdLkhXnxPFyKrdolDVFe\r\nInk2EHLcX5FRGxZ/A6y7yHgQ5+Ipt9ZZkvOIBnRlNp1J6bykDtKojWx4Z1MI\r\nFby70KFBJy8PT9ymzoLGD08fXqSBn/Mx407luYVfZpu8CFiI/PbCoF4dcs7O\r\nM91N5QQ0Y6pRNAN5QNUqBj9nyP0ywbMitECFUJyOMz+FrPqyXKhzwgzSfcNd\r\nPlnhbpgghzsdKDiRpZPUAgZ8IrFFkEDgTZJywGynNLnyfogGmMIVYrks+LPa\r\n1UD/NTSFyBNxoQqiwIIIUqp+RJCP8CR1B6pikUfKmtv2ZGBxKaJwgn2FR6e6\r\nJFle/O33SlpeLnvXpFKbw1j9eay+w4dZBmY75xVi7Un3I7Suicyivx398Bfy\r\nsFEVqbD2I5VbVtJZqZLjBeNLp2F+1B1SlF6EIqhsH5cEKv1yu0x3UWUjokDt\r\nsoQt4U1oETetB0MrVT3JmNHLhCvjDtrq6sUFzJfXHTwd4PKr5L8vQbXpsKTV\r\nh+IJrvljrqUrPux946Bg/DlenPhq7DDHcw7SvMI+Hmj27J8pT7VfWRw51Wss\r\nkp0ddRUDEISoMlrW1Hf3k6/O7sc2/LDA+A/w+xh2Ul2If2mJ6+o5IrtVOtTi\r\nRORKuQb7+JzpkGsyZd8AsbdRKtPqo0Z+pkI=\r\n=Bgjb\r\n-----END PGP SIGNATURE-----\r\n"
+		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -135,8 +126,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-color-hex-alpha_9.0.2_1675703906320_0.9911856264953747"
+		"tmp": "tmp/postcss-color-hex-alpha_9.0.3_1702682272733_0.8454810940105"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-02-06T17:18:26.489Z"
+	"_time": "2023-12-15T23:17:52.886Z"
 }

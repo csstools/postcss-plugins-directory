@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-progressive-custom-properties",
 	"description": "Correctly declare progressive enhancements for CSS Custom Properties.",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,15 +20,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -36,17 +39,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "node ./generate/matchers.mjs && eslint --fix ./src/matchers.ts && rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"repository": {
 		"type": "git",
@@ -65,31 +57,25 @@
 		"variables",
 		"vars"
 	],
-	"csstools": {
-		"exportName": "postcssProgressiveCustomProperties",
-		"humanReadableName": "PostCSS Progressive Custom Properties"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-progressive-custom-properties@3.0.2",
-	"gitHead": "759a50b5b7779df806d0a8c761f3387b7e1dffe6",
+	"_id": "@csstools/postcss-progressive-custom-properties@3.0.3",
+	"gitHead": "08749017bd161ad257a6c2c4b52b3cc453c02077",
+	"types": "./dist/index.d.ts",
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins#readme",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-YEvTozk1SxnV/PGL5DllBVDuLQ+jiQhyCSQiZJ6CwBMU5JQ9hFde3i1qqzZHuclZfptjrU0JjlX4ePsOhxNzHw==",
-		"shasum": "0c18152160a425950cb69a12a9add55af4f688e7",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-progressive-custom-properties/-/postcss-progressive-custom-properties-3.0.2.tgz",
-		"fileCount": 11,
-		"unpackedSize": 50569,
+		"integrity": "sha512-WipTVh6JTMQfeIrzDV4wEPsV9NTzMK2jwXxyH6CGBktuWdivHnkioP/smp1x/0QDPQyx7NTS14RB+GV3zZZYEw==",
+		"shasum": "8e0b61c204e80a3b4f82818f9738accb06894a06",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-progressive-custom-properties/-/postcss-progressive-custom-properties-3.0.3.tgz",
+		"fileCount": 7,
+		"unpackedSize": 47077,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCICtUlyi913BqWE5aV854IM3AlGN1V6KBWA23SK8GRuI3AiEAmVpUoJs9VM2IjN1r57EIlqR+/5mxv60LUaUfriB3lxg="
+				"sig": "MEUCICUfTzus1E8KDC8gXGuXh2DqpdgarRl3ZB58j6z2YB/5AiEAsjZ33bVuAkFNCChugn6BaMH7HCPRQmYi0JlgN/kGKA4="
 			}
 		]
 	},
@@ -114,8 +100,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-progressive-custom-properties_3.0.2_1696872703427_0.19564490335290863"
+		"tmp": "tmp/postcss-progressive-custom-properties_3.0.3_1702682221383_0.9526715839764539"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:31:43.853Z"
+	"_time": "2023-12-15T23:17:01.593Z"
 }

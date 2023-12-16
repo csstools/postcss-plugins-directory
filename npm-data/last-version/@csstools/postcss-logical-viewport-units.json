@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-logical-viewport-units",
 	"description": "Use vb and vi length units in CSS",
-	"version": "2.0.3",
+	"version": "2.0.4",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,33 +27,25 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-tokenizer": "^2.2.1"
+		"@csstools/css-tokenizer": "^2.2.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-viewport-units#readme",
 	"repository": {
@@ -74,29 +66,21 @@
 		"postcss-plugin",
 		"viewport units"
 	],
-	"csstools": {
-		"cssdbId": "logical-viewport-units",
-		"exportName": "postcssLogicalViewportUnits",
-		"humanReadableName": "PostCSS Logical Viewport Units",
-		"specUrl": "https://www.w3.org/TR/css-values-4/#viewport-relative-units"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-logical-viewport-units@2.0.3",
-	"gitHead": "b8cd0562f241d9e0c52484e63156f707d76efba7",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-logical-viewport-units@2.0.4",
+	"gitHead": "5398c4398435cc122df7f09366cc6c0090f2f676",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-xeVxqND5rlQyqLGdH7rX34sIm/JbbQKxpKQP8oD1YQqUHHCLQR9NUS57WqJKajxKN6AcNAMWJhb5LUH5RfPcyA==",
-		"shasum": "95e7195660bb8b05cd46f13d0495fe427e2db988",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-viewport-units/-/postcss-logical-viewport-units-2.0.3.tgz",
-		"fileCount": 11,
-		"unpackedSize": 12694,
+		"integrity": "sha512-jetp/ArGAniWbjWBh5UQ07ztawfSbqCFd0QelX4R4pVIxrXahUEhz5VZHebMPVCg02J8GsQn0br6fdRpY6t7lw==",
+		"shasum": "8f7a3cb9d058841b945be61dbebafa14954f1a24",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-viewport-units/-/postcss-logical-viewport-units-2.0.4.tgz",
+		"fileCount": 7,
+		"unpackedSize": 11038,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIAzt44DxPC0KmY3/ex9HQo8AApNu34lhrZjGYnLP9AWPAiEArAeoKt6pAfBGQi63D8D4p/PunH6lBIHKF6Bnj8IeLv8="
+				"sig": "MEQCIEQo84Mq0pz4ocMiFzFuJayFjUE+fQh2sE+JyLqXsyO8AiBSC17AvQ0x5oApjOY22qBcvF/q4+G66USxqzYLlzCMbw=="
 			}
 		]
 	},
@@ -121,8 +105,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-logical-viewport-units_2.0.3_1695584637598_0.5050643987025276"
+		"tmp": "tmp/postcss-logical-viewport-units_2.0.4_1702682400101_0.21271927053868644"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:43:57.801Z"
+	"_time": "2023-12-15T23:20:00.282Z"
 }

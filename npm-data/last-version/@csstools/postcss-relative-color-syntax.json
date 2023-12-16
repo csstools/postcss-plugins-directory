@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-relative-color-syntax",
 	"description": "Use the relative color syntax in CSS",
-	"version": "2.0.7",
+	"version": "2.0.8",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,36 +27,28 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-color-parser": "^1.4.0",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
-		"@csstools/postcss-progressive-custom-properties": "^3.0.2"
+		"@csstools/css-color-parser": "^1.5.0",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
+		"@csstools/postcss-progressive-custom-properties": "^3.0.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-relative-color-syntax#readme",
 	"repository": {
@@ -72,29 +64,21 @@
 		"postcss-plugin",
 		"relative color syntax"
 	],
-	"csstools": {
-		"cssdbId": "relative-color-syntax",
-		"exportName": "postcssRelativeColorSyntax",
-		"humanReadableName": "PostCSS Relative Color Syntax",
-		"specUrl": "https://www.w3.org/TR/css-color-5/#relative-colors"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-relative-color-syntax@2.0.7",
-	"gitHead": "806fb33588862668ff6adb0d217eb3e675c7726e",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-relative-color-syntax@2.0.8",
+	"gitHead": "24696b08a1f8ddea74f0831e374c323c39e9e2b5",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-2AiFbJSVF4EyymLxme4JzSrbXykHolx8DdZECHjYKMhoulhKLltx5ccYgtrK3BmXGd3v3nJrWFCc8JM8bjuiOg==",
-		"shasum": "1d017aa25e3cda513cf00401a91899e9d3b83659",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-relative-color-syntax/-/postcss-relative-color-syntax-2.0.7.tgz",
-		"fileCount": 9,
-		"unpackedSize": 15728,
+		"integrity": "sha512-wu/Oh7QKINpRXnmLMUbObVNlqwr843PSF4a3x3fMC0I+vUeoGqMfZuSPFtT+NnYYxfzUjEZ091GURPxee22VLQ==",
+		"shasum": "825f79ddacbfacdb40ebe99fcfb5210ea8dfa509",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-relative-color-syntax/-/postcss-relative-color-syntax-2.0.8.tgz",
+		"fileCount": 7,
+		"unpackedSize": 12523,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIAMiekCiwoADRCEDKkisu3099x1lS4YJuh+spPcMVNQwAiA5Jaq5PvZutE3w94GztoZlFJXTaTOYiimpleDoWa6MuA=="
+				"sig": "MEYCIQDG7g6PdAtZYN4effDGmiChKAI8Zpns0+b2TmFlzXHOcAIhANFY0z/31/tcc3EwyfUVZXkD0Sb1lY95J/N9aBdo9Kzc"
 			}
 		]
 	},
@@ -119,8 +103,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-relative-color-syntax_2.0.7_1696872860758_0.8904654517668056"
+		"tmp": "tmp/postcss-relative-color-syntax_2.0.8_1702682816857_0.43036458703629066"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:34:21.034Z"
+	"_time": "2023-12-15T23:26:57.013Z"
 }

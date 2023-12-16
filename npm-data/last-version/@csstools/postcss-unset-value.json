@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-unset-value",
 	"description": "Use the unset keyword in CSS.",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,30 +27,22 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-unset-value#readme",
 	"repository": {
@@ -67,36 +59,34 @@
 		"postcss-plugin",
 		"unset"
 	],
-	"csstools": {
-		"exportName": "postcssUnsetValue",
-		"humanReadableName": "PostCSS Unset Value"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "337ae72e4ae12d853e5215cfc99fa8c6db99fed1",
-	"_id": "@csstools/postcss-unset-value@3.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "@csstools/postcss-unset-value@3.0.1",
+	"gitHead": "e771ee6f5f2563d47f45bb486a3ebe5f70bbadf6",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-P0JD1WHh3avVyKKRKjd0dZIjCEeaBer8t1BbwGMUDtSZaLhXlLNBqZ8KkqHzYWXOJgHleXAny2/sx8LYl6qhEA==",
-		"shasum": "6d2f08140b41d3e70d805ccd2baaf64a6f59fdac",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-unset-value/-/postcss-unset-value-3.0.0.tgz",
-		"fileCount": 8,
-		"unpackedSize": 21032,
+		"integrity": "sha512-dbDnZ2ja2U8mbPP0Hvmt2RMEGBiF1H7oY6HYSpjteXJGihYwgxgTr6KRbbJ/V6c+4wd51M+9980qG4gKVn5ttg==",
+		"shasum": "598a25630fd9ab0edf066d235916f7441404942a",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-unset-value/-/postcss-unset-value-3.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 20212,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCOQRYhCuSVJ1mG+JO5kiip1gLU+bVIi+twzJUXeHBEhQIhAMPZ5vEsXpNvSFBzmfPbusyplYOKnR0swMSBQGDnyE/Z"
+				"sig": "MEQCIGrMhK7bJztDnWu1KFDF3vLUGLiwYM9HlPQeKYqS3wrFAiAbyICwZGrbIT9XoYN7b+v2WVqd/74xtn3RMPtLHYJ66Q=="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -108,8 +98,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-unset-value_3.0.0_1688372261930_0.5547103525201149"
+		"tmp": "tmp/postcss-unset-value_3.0.1_1702682486559_0.8437068208399636"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:17:42.106Z"
+	"_time": "2023-12-15T23:21:26.750Z"
 }

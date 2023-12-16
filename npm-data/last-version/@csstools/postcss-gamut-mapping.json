@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-gamut-mapping",
 	"description": "Gamut map css colors to fit display specific gamuts",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,35 +27,27 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-color-parser": "^1.4.0",
-		"@csstools/css-parser-algorithms": "2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1"
+		"@csstools/css-color-parser": "^1.5.0",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
 	"repository": {
@@ -78,29 +70,21 @@
 		"srgb",
 		"wide gamut"
 	],
-	"csstools": {
-		"cssdbId": "gamut-mapping",
-		"exportName": "postcssGamutMapping",
-		"humanReadableName": "PostCSS Gamut Mapping",
-		"specUrl": "https://www.w3.org/TR/css-color-4/#gamut-mapping"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-gamut-mapping@1.0.0",
-	"gitHead": "7db41519738d5a38a3ca0c5404f72ce04b3539a1",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-gamut-mapping@1.0.1",
+	"gitHead": "7ee9edb240598a8f58a33fa1261d60c1ae4db7ce",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-6UQyK8l9YaG5Ao5rBDcCnKHrLsHiQ1E0zeFQuqDJqEtinVzAPb/MwSw3TenZXL1Rnd7th3tb+4CBFHBXdW5tbQ==",
-		"shasum": "a23d2c4bd2bd89b2ed3c5d2e062c069ad18745e0",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.0.tgz",
-		"fileCount": 9,
-		"unpackedSize": 11516,
+		"integrity": "sha512-GDVzfNbnc7x3GusFklvt0mYXIWVzxEtEtTFEW664NgZh/5V7Z89hZKBMl9piOAHXuxijfHtE+kul/ShfeLUvcA==",
+		"shasum": "b5b8429488979a5a48c0249a7aab1836fafc30ec",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 11252,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCICXc7xEN4V9VB+vHaIj3LIKh2m4DdKgiAv0T3cI3/tqzAiALW9AUQHFiGGDNDtKpLnzVYL2OUKEruvHTkUiKffwtqw=="
+				"sig": "MEUCIB/LD5K+dzf4eGlGd4OgmW3tIAZt6e0WuvGW5mij0ej1AiEAkeVnr/1d+qFPIW3RSewL/sh+JO1Ylhz7FkU9vjRslYI="
 			}
 		]
 	},
@@ -125,8 +109,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-gamut-mapping_1.0.0_1696872736405_0.34085086636856055"
+		"tmp": "tmp/postcss-gamut-mapping_1.0.1_1702682779147_0.25409924684905594"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:32:16.570Z"
+	"_time": "2023-12-15T23:26:19.420Z"
 }

@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-place",
-	"_rev": "23-50f404f119b15ffe7a471abf8df41a6b",
+	"_rev": "24-2d396ba09dc4639cc8143f75eb5c9c4d",
 	"name": "postcss-place",
 	"description": "Use a place-* shorthand for align-* and justify-* in CSS",
 	"dist-tags": {
-		"latest": "9.0.0"
+		"latest": "9.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1939,25 +1939,142 @@
 				"tmp": "tmp/postcss-place_9.0.0_1688372196495_0.6489555508751526"
 			},
 			"_hasShrinkwrap": false
+		},
+		"9.0.1": {
+			"name": "postcss-place",
+			"description": "Use a place-* shorthand for align-* and justify-* in CSS",
+			"version": "9.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"type": "module",
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-place#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-place"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"alignments",
+				"aligns",
+				"contents",
+				"css",
+				"justifies",
+				"justify",
+				"postcss",
+				"postcss-plugin",
+				"selfs",
+				"shorthands"
+			],
+			"_id": "postcss-place@9.0.1",
+			"gitHead": "68acf0f89550000c6c4bc576d408642286b5d46b",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-JfL+paQOgRQRMoYFc2f73pGuG/Aw3tt4vYMR6UA3cWVMxivviPTnMFnFTczUJOA4K2Zga6xgQVE+PcLs64WC8Q==",
+				"shasum": "c08c46a94e639c1ee3457ac96d50c50a89bd6ac3",
+				"tarball": "https://registry.npmjs.org/postcss-place/-/postcss-place-9.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 7362,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD3WtYuXYW3L4pvOJmcmbcQI+JLCF9WAfV4wb34i4cE+wIhANAk6Zef87AVBMT7w0bwbzOf7+7P/a6iWRvee67Tz+Qw"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-place_9.0.1_1702682445706_0.4131690088206381"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Place Properties [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-place.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/place-properties.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Place Properties] lets you use `place-*` properties as shorthands for `align-*`\nand `justify-*`, following the [CSS Box Alignment] specification.\n\n```pcss\n.example {\n\tplace-self: center;\n\tplace-content: space-between center;\n}\n\n/* becomes */\n\n.example {\n\talign-self: center;\n\tjustify-self: center;\n\tplace-self: center;\n\talign-content: space-between;\n\tjustify-content: center;\n\tplace-content: space-between center;\n}\n```\n\n## Usage\n\nAdd [PostCSS Place Properties] to your project:\n\n```bash\nnpm install postcss postcss-place --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssPlace = require('postcss-place');\n\npostcss([\n\tpostcssPlace(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Place Properties] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssPlace({ preserve: false })\n```\n\n```pcss\n.example {\n\tplace-self: center;\n\tplace-content: space-between center;\n}\n\n/* becomes */\n\n.example {\n\talign-self: center;\n\tjustify-self: center;\n\talign-content: space-between;\n\tjustify-content: center;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#place-properties\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-place\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Place Properties]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-place\n[CSS Box Alignment]: https://www.w3.org/TR/css-align-3/#place-content\n",
+	"readme": "# PostCSS Place Properties [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-place.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/place-properties.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install postcss-place --save-dev\n```\n\n[PostCSS Place Properties] lets you use `place-*` properties as shorthands for `align-*`\nand `justify-*`, following the [CSS Box Alignment] specification.\n\n```pcss\n.example {\n\tplace-self: center;\n\tplace-content: space-between center;\n}\n\n/* becomes */\n\n.example {\n\talign-self: center;\n\tjustify-self: center;\n\tplace-self: center;\n\talign-content: space-between;\n\tjustify-content: center;\n\tplace-content: space-between center;\n}\n```\n\n## Usage\n\nAdd [PostCSS Place Properties] to your project:\n\n```bash\nnpm install postcss postcss-place --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssPlace = require('postcss-place');\n\npostcss([\n\tpostcssPlace(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Place Properties] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssPlace({ preserve: false })\n```\n\n```pcss\n.example {\n\tplace-self: center;\n\tplace-content: space-between center;\n}\n\n/* becomes */\n\n.example {\n\talign-self: center;\n\tjustify-self: center;\n\talign-content: space-between;\n\tjustify-content: center;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#place-properties\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-place\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Place Properties]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-place\n[CSS Box Alignment]: https://www.w3.org/TR/css-align-3/#place-content\n",
 	"maintainers": [
 		{
-			"email": "romainmenke@gmail.com",
-			"name": "romainmenke"
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
 		},
 		{
-			"email": "sombragriselros@gmail.com",
-			"name": "alaguna"
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
 		},
 		{
-			"email": "jonathantneal@hotmail.com",
-			"name": "jonathantneal"
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
 		}
 	],
 	"time": {
-		"modified": "2023-07-24T15:03:43.616Z",
+		"modified": "2023-12-15T23:20:46.079Z",
 		"created": "2016-11-26T13:38:07.700Z",
 		"1.0.0": "2016-11-26T13:38:07.700Z",
 		"1.0.1": "2016-12-06T19:58:02.382Z",
@@ -1976,7 +2093,8 @@
 		"7.0.5": "2022-07-08T17:06:08.151Z",
 		"8.0.0": "2023-01-24T09:15:28.994Z",
 		"8.0.1": "2023-01-28T07:57:48.464Z",
-		"9.0.0": "2023-07-03T08:16:36.696Z"
+		"9.0.0": "2023-07-03T08:16:36.696Z",
+		"9.0.1": "2023-12-15T23:20:45.887Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-place#readme",
 	"keywords": [
@@ -2016,5 +2134,5 @@
 			"email": "romainmenke@gmail.com"
 		}
 	],
-	"_downloads": 26557551
+	"_downloads": 26434648
 }

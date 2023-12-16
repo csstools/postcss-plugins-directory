@@ -1,7 +1,7 @@
 {
 	"name": "postcss-focus-within",
 	"description": "Use the :focus-within pseudo-selector in CSS",
-	"version": "8.0.0",
+	"version": "8.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,15 +31,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		},
 		"./browser": {
 			"import": "./dist/browser.mjs",
@@ -55,18 +58,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:browser": "node ./test/_browser.mjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-focus-within#readme",
 	"repository": {
@@ -91,38 +82,34 @@
 		"selectors",
 		"within"
 	],
-	"csstools": {
-		"cssdbId": "focus-within-pseudo-class",
-		"exportName": "postcssFocusWithin",
-		"humanReadableName": "PostCSS Focus Within",
-		"specUrl": "https://www.w3.org/TR/selectors-4/#the-focus-within-pseudo"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "a3da57bde223f0b0a249e027764566824b599d67",
-	"_id": "postcss-focus-within@8.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "postcss-focus-within@8.0.1",
+	"gitHead": "7f2f4543d45723e76e204969b6e7339d146359af",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-E7+J9nuQzZaA37D/MUZMX1K817RZGDab8qw6pFwzAkDd/QtlWJ9/WTKmzewNiuxzeq6WWY7ATiRePVoDKp+DnA==",
-		"shasum": "8304380dd2dadc1c2dcfa52816ff86be7736fc16",
-		"tarball": "https://registry.npmjs.org/postcss-focus-within/-/postcss-focus-within-8.0.0.tgz",
+		"integrity": "sha512-NFU3xcY/xwNaapVb+1uJ4n23XImoC86JNwkY/uduytSl2s9Ekc2EpzmRR63+ExitnW3Mab3Fba/wRPCT5oDILA==",
+		"shasum": "524af4c7eabae35cb1efa220a7903016fcc897fa",
+		"tarball": "https://registry.npmjs.org/postcss-focus-within/-/postcss-focus-within-8.0.1.tgz",
 		"fileCount": 13,
-		"unpackedSize": 36283,
+		"unpackedSize": 33743,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIErxhwBoQQp52v7g5c+HuVHLmWwOQqOvbblllByPKBq8AiEA/q65K0DhaSQYDPtdUlTHvREtMiwxr3wfRQlLnaVd/MQ="
+				"sig": "MEYCIQCO7qRFO8MvnbI3fQTzXfCNIjKt+BWGrbUxQGaPNBPYEQIhAPzsyXfunG17TBK3LPu3GqiZivfmXpcvvWpVm93hV02W"
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -134,8 +121,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-focus-within_8.0.0_1688371989832_0.14929698426367555"
+		"tmp": "tmp/postcss-focus-within_8.0.1_1702682308881_0.09369632636930691"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:13:10.064Z"
+	"_time": "2023-12-15T23:18:29.069Z"
 }

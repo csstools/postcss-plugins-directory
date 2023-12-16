@@ -1,0 +1,1623 @@
+{
+	"_id": "@csstools/css-has-pseudo-experimental",
+	"_rev": "15-e12f9527aa77d82198f368a042022023",
+	"name": "@csstools/css-has-pseudo-experimental",
+	"dist-tags": {
+		"latest": "0.6.1"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"version": "0.1.0",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js && npm run copy-browser-scripts-to-old-location",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"copy-browser-scripts-to-old-location": "node -e \"fs.copyFileSync('./dist/browser-global.js', './browser.js')\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "postcss-tape --ci && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.8"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.6.9",
+				"postcss": "^8.3.6",
+				"postcss-tape": "^6.0.1",
+				"puppeteer": "^13.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"has",
+				"contains",
+				"descendant",
+				"pseudo",
+				"selector"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "8c6e68f1e28d7141c6a1d255b6bc5fd152ef2c44",
+			"_id": "@csstools/css-has-pseudo-experimental@0.1.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-3d5z4S1Frb9NBvoxue6BpX1oRKkYBc0svDFU4KjdmqgbWHj68vpC+ym6zWoQrPDgmq0u5a52vFfg4wViMagaBg==",
+				"shasum": "9f93dc3d7eb7e381ec5c85a73e49cb9758752f77",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.1.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 164719,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh1GAaCRA9TVsSAnZWagAAsb8P/3qxX6PKeWyIk4w+YHgY\nfIV/FsLPzSCnLZw7HL2JWpa3faCEjYgA8Kr2j5gi/Ms7R0nfcDkX3aTf2FiC\n0kqhk0aVNFhpxE1vs+fr06DBz9FKTfoJQf49fwzSQFsiT//fu4sdp9fmCE3b\n2K9TtUEnBpIxh4N5SC2jfyOqUOQfo4DC7s7c9tS0Y62Go2D6hiD+qznAIGIc\n9in4vxGN6ksqfaa42B0UNUp1tiNpA1vwlSGNUYso7LnEDWuZNkrSdjUG17QI\nGJq/ZuLZBBQ5o1GKn5o93LB6uxBriL0O57maGgIB9W1sYIeuvosAvmV0BXF3\nEzGmD05rAdp5E+CQAcLiTNbKX1hWIn3hMdrDnjBMoO/pP0Kdzeir4ha5CLeK\naxza8OTePlu7ENgfp8RWLFoXNXIM+7bnkONHQZffunUV7HP5WynjgfYB45TV\n0sgB4iDpS4QLQ4dRDp1cDP0enU8EGRnmruo6fgTZu+NNiyaj/wb6fvzpX0RM\nKSGNB5U8w6lwEMSThXIMGY380U8AXviRedaASejUprQlhVBhktEYzW/YZxYP\n3cUUbRcVSEjRzEkoYMHB+TQIJoB3qppTEOUiN5oKDXii8FzzrpQnzq0qsCHF\nrpdZ0681uztvRYz+4POTC2rID55a9+WBEr916Kfpjbm0wxdetjtCFMEi0yVN\npu2t\r\n=4fiW\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDfbHAdJCI8JySAdvJi5128ToR64IshWP5rQv4DYv+1aQIhAML5vtqcuJAuO/M0sNwOTvmB6M+XSbJ/hqKMpxzYmqcb"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.1.0_1641308185974_0.10546359475149258"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.1.1": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"version": "0.1.1",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js && npm run copy-browser-scripts-to-old-location",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"copy-browser-scripts-to-old-location": "node -e \"fs.copyFileSync('./dist/browser-global.js', './browser.js')\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "postcss-tape --ci && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.8"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.6.9",
+				"postcss": "^8.3.6",
+				"postcss-tape": "^6.0.1",
+				"puppeteer": "^13.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"has",
+				"contains",
+				"descendant",
+				"pseudo",
+				"selector"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "231d32684f369e7c393c004c95d88dd40c36eaea",
+			"_id": "@csstools/css-has-pseudo-experimental@0.1.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-tS3u1DTupw4UNl8FVB6JKwD3o6DllMr8DA2dthTB2u3wNNplyGGRLojNLTFZCp8LzTsAsOsrY2y1JQO9j0wJZw==",
+				"shasum": "02dbe3c313d197075e8ec3b6e6e482ddfd38c6d3",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.1.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 166399,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh1V7vCRA9TVsSAnZWagAA3egP/jWmrfWn3zNh20gj6V7a\nGcNCwtIQDhFSlbII9eYs8GcUDgUwDWRb0DoumnxjjI05Jm7JmchMpgerGktf\ng02ktsdzt4hDyUE0sEmi5fmsgY6ZsaYku5dtdLp+urb1/QvqRJHdbyO5tkWx\no6UtZxGkMAHKiETZW4xl0wXCgeK6ikPXap397mjRB/GrtmFRSdWD0cI5LdSy\nVaKSmt2i6IJB+Q1WtrDfIxAukkBdNqgtyJX1c/GUasXm1ySJGP1u9zDTpaIh\n9ChMoxPZ4Pm4T+KSZrRU+FW7j/BqioANTTuG0oKWj9wsC9Jhom36ROxr4afl\nDYvHNyOFlvFIKui1IXqHMa9uCt/dcY/Bb03efr8JX7NLA26kpVxmVmLJtaq5\nYidNysD2GUMXYRG3mwF2FqDf8JVQTkG8kpyAwrK7/vL7qVmtmyphpQjUIiQO\naXfNIC/T3oqRnCggcgPthOKpeFMxYvHAG76rw5h7Hv13vf4E0Lid/gYij8cs\nhxUJHxsLdq+VoS85R7O1lJzTsy78GY7XjAGefWstTwVg+mQMTQiffkjCC9cs\n4bc5t9n9GS3rwoL6dyNZMc2Ko2oVPuRxsIUWjWCUf/Y7m/TKxvIH/5wuEGMb\nnEK7qBGxlRS1XzMFLICVWTn/YWyth+zbBL0VqujsQow3/GBFP53g9hvl82UC\nb4tX\r\n=O7lN\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDx/hVKh2M972h6nFsctIMEcH91jvFQiRClNZaRXBmZTwIhANzZ7deIdAdNhqQKRfsY72Gn6MkcZiWEyn88VzZ3vBd2"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.1.1_1641373422861_0.4593585884607352"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.1.2": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"version": "0.1.2",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js && npm run copy-browser-scripts-to-old-location",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"copy-browser-scripts-to-old-location": "node -e \"fs.copyFileSync('./dist/browser-global.js', './browser.js')\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "postcss-tape --ci && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.8"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.6.9",
+				"postcss": "^8.3.6",
+				"postcss-tape": "^6.0.1",
+				"puppeteer": "^13.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"has",
+				"contains",
+				"descendant",
+				"pseudo",
+				"selector"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "228b9bd9eb633779d89ced19ac4caaa0e5187824",
+			"_id": "@csstools/css-has-pseudo-experimental@0.1.2",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-eNXyqfDjaJuINJIaFQeSX9vn74pSl92yMaN+dvKtdcV2/PSgbN0AUZHRuY04YLn8FfwEvaunXLC6cEAl+vV0rQ==",
+				"shasum": "322b2d18b5b95e0f6b0d4ddf8910b77d4364baea",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.1.2.tgz",
+				"fileCount": 13,
+				"unpackedSize": 166721,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2G7kCRA9TVsSAnZWagAAV+wP+gMJK1OAUrdxz2dS4JIq\nhxhyO3IDswdx+MsBEQbp+wJmjNsaia+sJGuOkxjncEbV4OL7UaGU8PMxFFoo\nxqGc5qbmmtEBlgZQGrBBpPQ1uYXbse8rYhHVvcAWgfWlS9hhTPkJA7cdl0uC\nWrtg8NMezJHED266qg75SQTW1ge6NWw0l8a2Nn1ZqoaVrXK9gw06UEdvIrM9\nCh6YUX/l6Z6OUujoN73iitHMqk8Xezzg2qpIwoXzskAdgqzcC5f9kQA0kv3I\nLOH+a22wUTF41cBpePXIpl/+n7jyLpvxTUcKyeRGC0+UZXpMgqO7g4gWrpW1\nEs3uXVHdBiUqS6pOx3FoNMqhXkReYg4frsQSR8+OhUs+Ll1PAbB1QrTrBTZq\nWzMW7TsysRBUIQi35C0/CcLpvaEMKCZ7s3f2iXDSv7ZHVza6fKNB/vYJCjnS\nV5NWQxguYbVz6jYLQ9Qu47qQclDgz6kgS2bPN1NVohFbEsJZ5DGjA4dM1BfL\nbKtBSMOjhoxUp3McjbBbwteniWbTIm8Y571sf3B0+fl9a8KhJrCAFiXkQI+Y\nC2EYhE832hSvdmh2MYW4OgwENjW0WM/g8/BGZrOMD8RmlWtEW6VKh9IDFD19\njxCcCz2PFpI5kZ+yjyOxm6rpKg8RA58egCW/3wJ31+WeYOnCUT+UVBwvYE/n\nmrU+\r\n=Cwjn\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDzkV6b99uddLXb11rStazYJoG1+Sl69hZPseQyx3m+eAiEA9cYdhsRSQdOPe00DruyGcXkYxq4//RJkS862GUThbj0="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.1.2_1641574116667_0.03782835056953027"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.2.0": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"version": "0.2.0",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "postcss-tape --ci && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.8"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.6.9",
+				"postcss": "^8.3.6",
+				"postcss-tape": "^6.0.1",
+				"puppeteer": "^13.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"has",
+				"contains",
+				"descendant",
+				"pseudo",
+				"selector"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "7a1d349f51f79561f2d535e1eb1e3253f1b47c42",
+			"_id": "@csstools/css-has-pseudo-experimental@0.2.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-Do5v8K/7Dwbh5zUHS5Xdeja5OwijcjKykxvW3D8y4drNjdIL8p95Kc1yIb2j+ADD6sQgGVM1vtjUduMB84OO4Q==",
+				"shasum": "31362a1acee65a237372654466bd0f34cdd3ddc2",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.2.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 160802,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh3qDxCRA9TVsSAnZWagAA9isQAJEWQBinPIvkVaMB9Q0A\nCZqUSG2As7aS+OchHOdnkCp1nadjMnR12KFRCWK6zNr6PIfUd1iYP/wFGJPU\nvrjdemgcuZPKyBAqriL/iOQAlMqILEpMZsW2PHJQvKFeyHLoRAaer54rFJu4\n84U3Hwl30Vrvf9vTMMhkasK6d6edzjR51WPIx7y+GRcY6JWbgmLjwHwan24B\nISS8ehWf9OrmF2o7t2kP/zor6eJIviLqun3dkTwv0pDnhgbTkEf5jHcnl4A5\ny26ouBJwBs0m1eHIA9t5VRXKNxXFg/VWJpSCfKIa0vnM20TCC+AqK3wtbPi9\norB4Cp79MXS+ClnUCqkIrHWuSmLz/2bO7sxrlHu7bKafcizwltIrgAsodpkm\nhJ55sTxVzHwuaBzOu5sdVsr48MM4RNkW9SRCTxLj4DWzRUnEsxoL/sJi02YT\nuypozrxG0iIywgw36lgGEnV6t9I+y65vmgBYyb1L9Pa+jaBgXH/tHnii1tOb\ncJ9QbJXADoFMS2xMab/ty7FQqhtNHW1b7AmK9g74nWpxQkvyD6/IqnCyyMz3\n0aeULLTvsCa63Xt59gZ/PlRnM8KWf4N1gLhkxlMUav19HDSX4f3zWvZuYcrn\n4PDXmV+RuVvOAsy/4SkiPcG4DfV6SRqzpOlL/oAUAMLJID7NXJkaZX+D6HeD\nnsS4\r\n=Sslh\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGVW5gborPtnvFp7izkZTFnCshTST3WA9FgPdjZSpDDYAiEAorYsjrnorcWN5bzfkKHtAIf1YalHet1dOv6aSmPonRM="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.2.0_1641980145664_0.6745623735998498"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.2.1": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"version": "0.2.1",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.8"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.6.9",
+				"puppeteer": "^13.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"javascript",
+				"js",
+				"polyfill",
+				"has",
+				"contains",
+				"descendant",
+				"pseudo",
+				"selector"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "83064b7c7360131b709b150c44f5fc071df00731",
+			"_id": "@csstools/css-has-pseudo-experimental@0.2.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-Gv30Mabrz0ZyEZI0Wzk/T3iHV4tE1fZZATP2dhEbY5AZFbNSRppHW1gV/SnRizSZM7U1IGDIvuHwyIIYjPDvJA==",
+				"shasum": "374d747bab7e784da6d7bbf3ff3959b3d5ac2c0e",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.2.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 161185,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh//IcCRA9TVsSAnZWagAAlY8P/A6K8vAoTjxk0aQsTDAn\nI0Le7hJ/YWFCawtGrMO0ItNHR9/lr+EVCCrznO081x6K5uS3OaeakHIRQEfG\nNwL0WeMy7W7iwSF5UtMJt/H2OCsOTjLm3lGqEfzqqnHfbJQ4dVS6KwM2Zlfe\nsTUF0ZJRxmHIPAZtarL0UantoyRiO5DJGvbE36oTf67CTIWj8j/MLE+xwLw4\nnbRxUDEdnFbXUbwkO9xnyub6sR2AJ3O8gcAheBFOe+z26WqaRDCvoPta7inb\nPP0CRGb+P8xVUdaIIK1xlBCd2d5SukduSDaHtDTfyJkRZQcKrI8t6fdNv4RH\nWynPyRuyiSekvvw8Kegz+0wbsD4b87nWVq16CoU/fjwNtEP4yoh24W8e+O5o\nlYUo0g2tfyp6c7kHMa53vxkK2H1LXuS99sMnrCfXtqVKBflPdEiM8w9Po0s3\noenpjhBjm/jHZapZ0gRH/V7IliA+5/BSRfrNsVXoxszgY7CHBp+LaaWNE2Xi\nEuZjz427FOCG9WZENWINnYWEyej7eNX62evkwu1MLafyfjAhWhCJth8zgV8Y\nbg3GgkBrcqiLYHdJ33XUu6OaKNGZmGzNqL2XedwQNYueHHymkg1hWz5uxSPk\noDAzD3prVDEM5H5rGReSz4iEJMuSjVR2xteW/74ymcf/bi2P9zW2gd4zzyLH\nntqf\r\n=aWNu\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIF4ftYXtRfcbtR+4poGzSROlQhXZ2meZUW3BGYws3XQxAiEAvkmYK5woirQlOQwuV5UeVfYiqa7/wRdF1r/oT0FsRFo="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.2.1_1644163612376_0.16937911194209265"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.3.0": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"version": "0.3.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.8"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.6.10",
+				"puppeteer": "^13.3.1"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"contains",
+				"css",
+				"descendant",
+				"has",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "c6c990ee4d5411a72d8bca181da34bc5398cd5a3",
+			"_id": "@csstools/css-has-pseudo-experimental@0.3.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-SsytVBU0tQrkdW4oauRVrQ8nr+vD67SnzUkhXZo2QkYHPcWMIjtsh6oHS4SRQxbHTYOJpvEWC2obUe41xy0swA==",
+				"shasum": "f5b341d29c53ee31478a6e57d6812fde6eb454f6",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.3.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 161433,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiFz3TACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp7LQ/8CIgsKpEWcsPmWdDAtLLMHHkzpmAAKUflcTEIAxkT7LEnM16p\r\noRYljCiUilsocpuhrPpX0ni/iljE/KE4qZjIY3gE78MwXYVYAC5wqYEkhQ0C\r\nGoIXGIhHHi1T/0noxmQHTD6InOlBLaQq1B+n1zjEipVf3Fzwx5u61UbZuiZN\r\nueiD5PnHAX+QYg5nZ3rh82sGmKMTAeNcmoQo06aOs4JnmbYtb2oL0RPRGwaC\r\nTRyYi5iVsDLyl4Vh9Y4XeNq2pM3FSLSNyckke4JDgY4mc8OkSkOyrmDkHkMM\r\nC3dJCY3jrmgshSrFx06bSiRncS9d+tC8ZZUx+N7J8YCz25CsxDciLuYdA9tF\r\nqKrZq6phPgRgDbe5mNHeoUONpG+xDwxniqsNSfPt2muKYy31oyS/6N+cDXDU\r\nHn7dWh6HcdDH20+yey2lF49SwZLj2IdID+HhBBWR55aXAlEqpWsTOXvPyo/n\r\n1aOtrEbZSpU6dvoxUGeiSK393Xtan9yWtzpuUoU6DIOSsAd1CjP6Q3igFP6L\r\ngt2lWF/99ltquYCPlFpnUxS6YkltxKnqP5u0JKLkyg0iPP10A70hAdtLIGbE\r\nqIFcvFiTSpT+TqxtqNXMvt/FqBtWT8PtPCPuy0aYvEIJOp3q8Q8vAGA6HPo0\r\nwVHWYBOmvV1KFRjc0pyk/WtkNjuGQXUKRu0=\r\n=/ftN\r\n-----END PGP SIGNATURE-----\r\n",
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDJG3ABI9aTwe5fFxa1xTseVhKjnq/Ra7z2aORlfhS5zQIhAKle/940QmS+iVL+M1RaMsZunRGHEwOsOxSNCFmCer3X"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.3.0_1645690323399_0.7847537191442187"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.3.1": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"version": "0.3.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.6.10",
+				"puppeteer": "^13.5.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"contains",
+				"css",
+				"descendant",
+				"has",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "32ddb03ab604408d4e24801485c952cb61562ad8",
+			"_id": "@csstools/css-has-pseudo-experimental@0.3.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-jz6h3B+y7U/lZYhm2ndiI5hJ1HBkqs0nBrGnFeILBzmn2O6niG+RAo2jaf+AD0r7OVA0RweV5Yt0nfODKDHV9A==",
+				"shasum": "7e2d2401c896690c848af37966f9f50dbf803725",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.3.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 164480,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCIuThQm4Exms9Foxhodp6F3URbf9PVZVkHreRI1fDCpQIhANu954bePYBtN9tE/899nYB//dKYOLuDfkpKx7KFEHMO"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiSof6ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr6mg//a9oqQw42+VcPO02GZChiQFvmd+A4nC+sY8DbAzDuhberbCOh\r\nTzkkBYCug+BEDmT3u+6mkMFbVzg40bp9T6hlpyxquCB/bI5ZCCdBXqdXmWsA\r\n7CFnPaGQujIcGVkpB3GPh33KoFSQey+K1hTwvaxofz3r8twl/rX8eXV4EV5c\r\nTSCIBYPM8zNOmm4v94/gBj6bRzLVGiCYMfQoYPaIpcDXb2rTUY1+cSr43H3L\r\nRGrBgOkS+ndcG98r/sBDTi97ed/C28+CRwqPmO622Ys6S03ayjv1aPD2zbN+\r\nQH9XNYlFqUIb/PcnXqXS3Io9Fdok7McSdrGiOmc6l4zODT38vSOB637+cuG3\r\nhnVcgTThGn0EpmuFbhAVHOIVcO/g7mz9BcKY9IlsjMlHKm6s8+WLebZuRDZ3\r\nj17qI6nEyxjfO2xesS69+5LTJZImAefXIAxq37HUZyO9wxDBBX2U2hQG5HEv\r\nLRnhk2zoO+2ng5mSum4w9zp3jVwC0ogQnvnPexWkEo5xnQEW7VFn+SmZtyUS\r\nkGDjL3vSbmGRhdPTLEPAebTF+qbMdBd4wA64FGbA2/0FX7fLCCfoak6JEGXo\r\nZv6hBEiSfeXk606BJsmxXhNp0elftAZKmI0o/6lIwrTzpJOR7L+I02Ej+KHJ\r\nznrgs8LJEnooyC7u2H2G/PAThmlwq7OkKfA=\r\n=saIq\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.3.1_1649051641853_0.6553806924996215"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.4.0": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"version": "0.4.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.7.0",
+				"puppeteer": "^13.5.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"contains",
+				"css",
+				"descendant",
+				"has",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "7dd0f0926c3ed7d677b2bce469f6ef96512bbc6f",
+			"_id": "@csstools/css-has-pseudo-experimental@0.4.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-XhyWZtYvPoci5y1nk28UtDxWAUZHdgTqpufKwqAwAmjLWGiJxddMESQN4zEVTUpFjOr/1JjjmsCl4fDubYqG5g==",
+				"shasum": "329e6312d9aa2936b2deee080698a2192ad2c3f6",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.4.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 168674,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCs3Waw15Oi7L/nwMxgosn10eUbibS0/0NwP2EdcQVXhwIgaaNiLOBHTWaZABf1XuR9JWTAHAaW4G3ZDa82leiSasE="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiTJroACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpEbhAAlL+1eUQnoh9AZP2sCBjv87aFKWjSmLx0hak7F6Lcn5F1g4mz\r\n2uwZG9aXD/MbsMs2MhmAeuHb1DjFJtoNqoy93Yc70r3Hmx8AnB8jiGC9eEjN\r\ngbyf5MPc8BrcbNVhRmANQ29lqqzEF2kimI5cFxkyc1DxWC2fMmGvIQj80Jav\r\nNyRHnWiPJykZnLzLlxqfQO0YMAvsJnzPA6AI9qdLbulEvQway5fj7FdLlR9M\r\nPsGQW4BUhTJynGclc+LQ4zcgCgIkpY/u6/n3tgzY978K4pdIo03Okjzp8Hvr\r\nrnZbtNW/PQCWa3xDefi1TEsJia6CDJRrWboX64/AcdQqp2ARwG0oR7NJVxCF\r\n4aAuXEQejhPTLY3QbU9oZgDR/fH/5WRHglqS8sLJc42rZPV5YFuad5/QjnPN\r\nxUJsZ78IMyqUPYADUYD9NYjIcWKLF+L4wkNjU0yYJ3O2erf4l9Ehks5nDWMn\r\n4xR5ccNFBvLQ2CjVC0EMit0fo1u585ruGoKXnHvT+DmZUEPg7IOFa0oHJ/S7\r\n9kWPSOJOOeJ3xLDyIM4UndA+HNNI1oEQulFBCFcYNrp0TSby95L1QxTYxW7w\r\n1ibJGjMrVINVk8PpFSAzz6Gk9I2VMkga/salKBLXqqeHsBFr9UmDnZWiybZU\r\nu3H8Ye8+woQpQMxX36cFj6iPuHOOeOR0YUU=\r\n=0/q8\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.4.0_1649187560588_0.40944843611128157"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.5.0": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"version": "0.5.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.7.0",
+				"puppeteer": "^13.5.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"contains",
+				"css",
+				"descendant",
+				"has",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "e6ebc3545a7beec810528788228d82bf1f5edf93",
+			"_id": "@csstools/css-has-pseudo-experimental@0.5.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-cYVDTPYx7mLAEMiZj2BVgfR8Qjs/g2tfm8Yjtn+2VcCjMLOfFPImk3kqsrnCVM3Vg19hGhNHKdyExzeQk0Z2FA==",
+				"shasum": "1467f48e7058cf987b853b4c65b611eaa07ce44d",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.5.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 169247,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDaKTBvr21KPTsuUgzifUFaD+UB9U+3RSGf2daZRYsM1wIhAOpURQZ5HNnpyQHMJUJ1CIMBoZuyLkCLCKR8pj2nKpHN"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiZWSWACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmre9g/9FllGFnrl+On7fCWd7wLWX48ndSkhZD7iXhhonhrsj/K0RKex\r\nNBAQE/MVz5pk+uWPfvMygPyAAxnSA07C+3pehTUgkJbLMaGlDTmfL/Pu7UDs\r\nRBGMUnfKOsbVfMliZuf2DvG5H9KjxKah4ho2mVaRZIQxYlhrGo6jSdJgmyJM\r\nfgGZoPJnIKgIk9YAISDm5w46mbCD0pQA7vZGWWf15c98NL7hNYNfIbFS9c+3\r\nhC5xZwv9kBatA8YY5IlM6vN5RCaYX5kgODusD+jLxLjvqLvwm6RimhNgkeMi\r\nP1VEuqnh/7YImW2bXutK7UQ1Ci6blYKX5QXVHqjpPyRQTvobVq3G9C1Sk4ul\r\niEDUZzXTDdZ6ba5BLVQPwaOkV/AzLkZn7aBLytAj5NVflu20CO3UheeIvy8o\r\ngbirsNjXzmP3yMHv+budYc2Be3MMl8CM5jf/IDwNoNuaCPIPbw2lj+8x0An6\r\ng+JtbxZs1/tlIzSRewjTwkpdPSzNUeLolOI38kfiy/ApeOnHDXoJPi1wIghl\r\nJetaXwz1nmzsH7M1BkCwBo43C75VlNbWrlpMlg72KTHB10KPkhtjp36uLD35\r\nhVJaSNoK0WbWbhdjqk4zJUH0Lq5dcDqDPf0lrzGm+AnoO/eCpKvcnOYM2HM9\r\nBdTZqxpAnIjcMsWlVxxQYQVBjAuuYm9prl4=\r\n=Ge6P\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.5.0_1650812053830_0.7413852749979566"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.5.1": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"version": "0.5.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"@csstools/selector-specificity": "1.0.0",
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.7.1",
+				"puppeteer": "^13.6.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"contains",
+				"css",
+				"descendant",
+				"has",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "859b722bdb35e1c0b5dd7306c14a69b074edcdaf",
+			"_id": "@csstools/css-has-pseudo-experimental@0.5.1",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-u96sYsFuJgO4FrZAhnmzbWQp/6xGJ70wnKNP+T71zZDJrf3zzMJVAMhUMaDJg9pyMKUGTx+G62MMYL8IvET+CQ==",
+				"shasum": "bdd64a6b755a243385df833b0da8a9e4b924c988",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.5.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 172220,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDK1X7bidQcmrDYThS2VVkvEGGz5UvzbXjThyk2VKc/VAIhALcjeMH+7BVq4wHji890FXe/DgBi4SyQ48ik+Wk99XZs"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJia7rJACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqoEA/6AkK5Ntz4LRy+oxAY2sdaRSNkgbBfna3HwX7eALdNlWbp7gGF\r\neJXdQ48vL8leN+yX4nkS1bhQ6E024A2c7ABOa+40QtInVeJm8YOGY6LpGqFG\r\n9mIliKQtIgqfpk0nCb8hdBRJ/QfE3k3fsf7rgoRHh1HJfYyW+7uamLz9oomN\r\nw5a6mBC2BmjNcq4afnaRuoJpHwTmZspxVvQcK/4CYXP6zMZMfX2SavC8t8fJ\r\nDZUYXj0+nSW3GpPjaUM1dC1wiMUokN86hV2e+pBfOnsf0CX52c9sfcgeHg+p\r\nkZGXcWBhSqaw9Iw1Vuatq56eKrxXpk3p5qYIW5PlN7VR/7oWQlsuyVbqUgtR\r\nmbhnwD8TC7X1LpMgLu3A+aeboZLNB2WYKvlz1su7y9jns+a42BkNHl1Xnl9I\r\nLhzKtguFXUtK+ybrpRAekI3Q075H/FSXLySG8Hmxa+EyAc8XfJXkt9/6sghx\r\nbrg7hZEC9aj3LV18Rz+gMCkvjPYWB3UKkgc6/KPrMKdrc1GQnAeEKHpx6cto\r\n0fN1nGRyTKBuGXfn9yT6EvOrKkiDZiTVb/4gxNF1pJsPgHGopAIb0V6CLQj5\r\nzNBz9SDtXbGPaswuYdraFnIsMvKEBvJOYK6FwxQoFI4EYyaOfi/gj+GZfj5g\r\nPMFclbn9uVcycqcDbU8E40a7qD+asuqhlAg=\r\n=jsIa\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.5.1_1651227336937_0.2585776917965661"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.5.2": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"version": "0.5.2",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"dependencies": {
+				"@csstools/selector-specificity": "^2.0.0",
+				"postcss-selector-parser": "^6.0.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3"
+			},
+			"devDependencies": {
+				"@mrhenry/core-web": "^0.7.1",
+				"puppeteer": "^13.6.0"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:unit && npm run test:exports",
+				"test:browser": "node ./test/_browser.mjs",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs",
+				"test:unit": "node ./src/encode/test.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"contains",
+				"css",
+				"descendant",
+				"has",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "bd754fe49958c95d6acecac548510e784ad79226",
+			"_id": "@csstools/css-has-pseudo-experimental@0.5.2",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-mURzLX0NQeG2oP34sNyXqYLztcwJoFU7oXHvCG3XzyY9za7fLBInwuesRk3NufXRu2G833utrttbGc5d/NQ+7Q==",
+				"shasum": "2e5c1da1ce3e540e7a6ce8664575e25481890ca1",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.5.2.tgz",
+				"fileCount": 13,
+				"unpackedSize": 172206,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHC90pU4a7Ql38GBmgJQElDqXyCJ8DzLA2uX7Xb0WoK0AiBscYaOzJXyhjba+rbTN4NVCP2tC7YcyWfytafHz120Eg=="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJimwYzACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmquhg//V0eBifNgBrsbMqjWU3nA4cAtSvC0fO5eOsyWnQIsXyCRpVL/\r\nNTUu/2MuJCvZGYWfnK4lqCCYy0Did3/4X9MrfN5/jqxlUGj/z8E+XjfJrfQw\r\nQOqwZGCK4vabOrGq6z/cBHpeYoxZf0ZIfnClAKT9hZdbp82Mdimx1HMf8PwF\r\nwULvW8Wpx0ytUuRV2V9p8naMvEusPILsacoAUNJyaAa8SFC7A21Dgi6ryH9l\r\nctgO6sTTJknixeLXP3YKKkLytHKZc086jw3/6t9RTZn2uA/5CwOHQYmERgW6\r\nbHqxYPDkaIdFaTKBtdQARE4JYRSwJlSgqgRfOeNYzvULxHrU+4rTBzs8v7uJ\r\n/hWYR52z15e1ERb+QRTzTUg5WFB0SpeIi8jw6ZReP4utp6WEIHgbsUPX6Ckx\r\nqc6TRaEpDC+gOCu0A1sMLL1V8gpoohCI5smjWCQC+kC73qIW9e5+VJfvZwo2\r\n/NsW+nW5+/tmY9el5QJhDRWhIc5pToysxh+jG3Txtyx41fdJ5B1WsZHdrAAY\r\nVTwBKz+fWJPATVtnJtiIZx+y6ZL/vdMFGHzjaqE1eO1jpxREfTH8g2BJZvG8\r\nEPbRLHfpQBrVO1vmMJ4C3FEutPdCE8ZkKjngySYkXSLZ1ZvJxC2LYmFokLP/\r\nELxTCZlUAYxF4acZ/qI+E71KXBZwGEWoSBc=\r\n=6G3m\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.5.2_1654326835206_0.37344166618930474"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.6.0": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"version": "0.6.0",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": {
+				"type": "opencollective",
+				"url": "https://opencollective.com/csstools"
+			},
+			"engines": {
+				"node": "^12 || ^14 || >=16"
+			},
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs",
+					"default": "./dist/index.mjs"
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.2"
+			},
+			"scripts": {
+				"build": "rollup -c ../../rollup/default.js",
+				"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+				"lint": "npm run lint:eslint && npm run lint:package-json",
+				"lint:eslint": "eslint ./src --ext .js --ext .ts --ext .mjs --no-error-on-unmatched-pattern",
+				"lint:package-json": "node ../../.github/bin/format-package-json.mjs",
+				"prepublishOnly": "npm run clean && npm run build && npm run test",
+				"stryker": "stryker run --logLevel error",
+				"test": "node .tape.mjs && npm run test:exports",
+				"test:exports": "node ./test/_import.mjs && node ./test/_require.cjs",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"contains",
+				"css",
+				"descendant",
+				"has",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"gitHead": "724cb41801f8976346744d0e14fa2fe56a2615d2",
+			"_id": "@csstools/css-has-pseudo-experimental@0.6.0",
+			"_nodeVersion": "16.13.1",
+			"_npmVersion": "8.1.2",
+			"dist": {
+				"integrity": "sha512-S/M7ZSxqb8eI/Su2Ql/c0Noy9n12QpVDVGIZhwIEMD68yusIH5r6gEDRFZHvv/6a6LWpFiENwmdAHsvtyz8fvA==",
+				"shasum": "9ee6c632abdd84a153881aa061da99a50a9e8fb7",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.6.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 15032,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEvARFqwaxW2WMbPHqcCmu4xonpZSPPf4Ne+MnPf/mQgAiEAzE9BS+UduPJI2uhLvfQ3lUXvfmfWAjfVMsAyF3OxC/s="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyGhTACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrvoA//RORcnldI6Rgrw9kT4S3lIjyOu4spppW2ISR/LfSSWYZvXy9g\r\n9RhR9HdKcwLIEVWwrQCAgbGsWr+K8FDFpyWJqAZ9fJrW8gaF4XQC/4BFrTA9\r\nGqivAX40i5tBnsvDVOBtCRD8SaHRa0H4jExq7york+keVM2KNAgA3Eg6sJqp\r\nQ4A2bOMNAF0t1i7HwRaXut6JQAx9drxQ+Wimk+lpYCJKSqsTU5h7U5FE1JnV\r\nRnPRzkYeYtF1nvPt7Y+cHl/eKpSgkC0Y/ZGMWP1JVTKvU9K9/P6Ro4MSP+ba\r\nOJMJtFXcoVSSM8/YSHZaGN5/szQMCdeEenrUDnZoSai3fgYEDFz5RimVKW7/\r\nkzdBRMnufViPliu5aYSSudRzxmv2szQvQk/w3DIQ5TsFdMKMn1f3Sq633Hx1\r\nn2qeJzo+eTZycCGN0bpL+ubA32h/sklz/FO0nIia/AqKwDz4+AEtnFIZY8iM\r\nhbLSUIkHkqCqyfcyaLkhPNbfkCSLFiBkaF6xqP7xdurc1aBE7t/gERAc0y6l\r\ns+ZRTXrEPz4F99PUT+Cb0NMtYdR7EzKp/1sY0SYYbsejQuXsfhlyzkOkGe5k\r\nyL438nKE/UDSfAR5irmZP7v5PHygXMPbTIYkgRlCSymC5wfYt2385bPTWc7f\r\n+HD8KXuDJnuU4oIn81vwhVXxkARqVwK4Vk4=\r\n=4W7c\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "alaguna",
+				"email": "sombragriselros@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.6.0_1657301075464_0.8178306989943924"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This library is no longer supported. Please use css-has-pseudo instead."
+		},
+		"0.6.1": {
+			"name": "@csstools/css-has-pseudo-experimental",
+			"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+			"version": "0.6.1",
+			"author": {
+				"name": "Jonathan Neal",
+				"email": "jonathantneal@hotmail.com"
+			},
+			"license": "CC0-1.0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"type": "module",
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				},
+				"./browser": {
+					"import": "./dist/browser.mjs",
+					"require": "./dist/browser.cjs",
+					"default": "./dist/browser.mjs"
+				},
+				"./browser-global": {
+					"default": "./dist/browser-global.js"
+				}
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "experimental/css-has-pseudo"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"contains",
+				"css",
+				"descendant",
+				"has",
+				"javascript",
+				"js",
+				"polyfill",
+				"postcss",
+				"postcss-plugin",
+				"pseudo",
+				"selector"
+			],
+			"_id": "@csstools/css-has-pseudo-experimental@0.6.1",
+			"gitHead": "12e39882a37bbbd71c417b7b8036d0dba8d2781a",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-D2B4WPtQ7aWKcqbgEOk9fxpRnvgyqpSgCtWG6iosTjsVRQVnZqpLvtXIwkHemBLCAZ49WA+Ft5MvBaZ9DRt8/g==",
+				"shasum": "ca4f3a5690929ffab3d9a5cd0eb2e6db530e0dcf",
+				"tarball": "https://registry.npmjs.org/@csstools/css-has-pseudo-experimental/-/css-has-pseudo-experimental-0.6.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 12416,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDIbPRmyLgU9l4PpsDCeFBwh3gL0tHhTDiTMKEjaucfUAiEAtLXUcprHR76erY3kn19rbD2wgUvK7iEUiP/nBj9tXeo="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-has-pseudo-experimental_0.6.1_1702682492456_0.7576630954376087"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-01-04T14:56:25.929Z",
+		"0.1.0": "2022-01-04T14:56:26.138Z",
+		"modified": "2023-12-15T23:21:32.986Z",
+		"0.1.1": "2022-01-05T09:03:43.098Z",
+		"0.1.2": "2022-01-07T16:48:36.845Z",
+		"0.2.0": "2022-01-12T09:35:45.814Z",
+		"0.2.1": "2022-02-06T16:06:52.526Z",
+		"0.3.0": "2022-02-24T08:12:03.571Z",
+		"0.3.1": "2022-04-04T05:54:02.003Z",
+		"0.4.0": "2022-04-05T19:39:20.706Z",
+		"0.5.0": "2022-04-24T14:54:14.037Z",
+		"0.5.1": "2022-04-29T10:15:37.102Z",
+		"0.5.2": "2022-06-04T07:13:55.421Z",
+		"0.6.0": "2022-07-08T17:24:35.654Z",
+		"0.6.1": "2023-12-15T23:21:32.723Z"
+	},
+	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"description": "EXPERIMENTAL : Style elements relative to other elements in CSS",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo#readme",
+	"keywords": [
+		"contains",
+		"css",
+		"descendant",
+		"has",
+		"javascript",
+		"js",
+		"polyfill",
+		"postcss",
+		"postcss-plugin",
+		"pseudo",
+		"selector"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "experimental/css-has-pseudo"
+	},
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "CC0-1.0",
+	"readme": "# EXPERIMENTAL : CSS Has Pseudo [<img src=\"http://jonathantneal.github.io/js-logo.svg\" alt=\"\" width=\"90\" height=\"90\" align=\"right\">][EXPERIMENTAL CSS Has Pseudo]\n\n[![NPM Version][npm-img]][npm-url]\n[<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n`@csstools/css-has-pseudo-experimental` is no longer supported. Please use `css-has-pseudo` instead.\nAll issues have been resolved in the main plugin and the experimental plugin is no longer maintained.\n\n> [!CAUTION]\n> This experimental plugin no longer has any effect on the output of your CSS.\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-img]: https://img.shields.io/npm/v/@csstools/css-has-pseudo-experimental.svg\n[npm-url]: https://www.npmjs.com/package/@csstools/css-has-pseudo-experimental\n\n[EXPERIMENTAL CSS Has Pseudo]: https://github.com/csstools/postcss-plugins/tree/main/experimental/css-has-pseudo\n[Mutation Observer polyfill]: https://github.com/webmodules/mutation-observer\n[Selectors Level 4]: https://drafts.csswg.org/selectors-4/#has-pseudo\n",
+	"readmeFilename": "README.md",
+	"_downloads": 20
+}

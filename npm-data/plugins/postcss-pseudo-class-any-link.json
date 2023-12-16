@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-pseudo-class-any-link",
-	"_rev": "29-ce1a708cc00461b2f8e1f305185c3beb",
+	"_rev": "30-073950ca63ca1210fcfb4b4e8755fb8c",
 	"name": "postcss-pseudo-class-any-link",
 	"description": "Use the :any-link pseudo-class in CSS",
 	"dist-tags": {
-		"latest": "9.0.0"
+		"latest": "9.0.1"
 	},
 	"versions": {
 		"0.1.0": {
@@ -2383,25 +2383,142 @@
 				"tmp": "tmp/postcss-pseudo-class-any-link_9.0.0_1688372209412_0.5793203844902552"
 			},
 			"_hasShrinkwrap": false
+		},
+		"9.0.1": {
+			"name": "postcss-pseudo-class-any-link",
+			"description": "Use the :any-link pseudo-class in CSS",
+			"version": "9.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"type": "module",
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^6.0.13"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-pseudo-class-any-link#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-pseudo-class-any-link"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"a",
+				"any-link",
+				"area",
+				"css",
+				"href",
+				"hyperlink",
+				"link",
+				"postcss",
+				"postcss-plugin",
+				"visited"
+			],
+			"_id": "postcss-pseudo-class-any-link@9.0.1",
+			"gitHead": "311872ce7c7ec62cb073d757fdf251529b1ff4fd",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-cKYGGZ9yzUZi+dZd7XT2M8iSDfo+T2Ctbpiizf89uBTBfIpZpjvTavzIJXpCReMVXSKROqzpxClNu6fz4DHM0Q==",
+				"shasum": "71c24a886765763d4e37e21a27ecc6f1c1a5d698",
+				"tarball": "https://registry.npmjs.org/postcss-pseudo-class-any-link/-/postcss-pseudo-class-any-link-9.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12010,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDRfaOKY288umDqm5N+THKFbh5fdeYFQyLpntRLGYvFhgIgDqKls7pmT0NUp4eauqUnBnkcQZFI/h1UvLhqrO42hB8="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pseudo-class-any-link_9.0.1_1702682451698_0.9643056941149113"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Pseudo Class Any Link [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-pseudo-class-any-link.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/any-link-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Pseudo Class Any Link] lets you `:any-link` pseudo-class in CSS,\nfollowing the [Selectors] specification.\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span {\n\tbackground-color: yellow;\n}\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n```\n\n## Usage\n\nAdd [PostCSS Pseudo Class Any Link] to your project:\n\n```bash\nnpm install postcss postcss-pseudo-class-any-link --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssPseudoClassAnyLink = require('postcss-pseudo-class-any-link');\n\npostcss([\n\tpostcssPseudoClassAnyLink(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Pseudo Class Any Link] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssPseudoClassAnyLink({ preserve: false })\n```\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span {\n\tbackground-color: yellow;\n}\n```\n\n### subFeatures\n\n#### areaHrefNeedsFixing\n\nThe `subFeatures.areaHrefNeedsFixing` option determines if `<area href>` elements should match `:any-link` pseudo-class.<br>\nIn IE and Edge these do not match `:link` or `:visited`.\n\n_This increased CSS bundle size and is disabled by default._\n\n```js\npostcssPseudoClassAnyLink({\n\tsubFeatures: {\n\t\tareaHrefNeedsFixing: true\n\t}\n})\n```\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span, nav area[href] > span {\n\tbackground-color: yellow;\n}\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#any-link-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-pseudo-class-any-link\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Pseudo Class Any Link]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-pseudo-class-any-link\n[Selectors]: https://www.w3.org/TR/selectors-4/#the-any-link-pseudo\n",
+	"readme": "# PostCSS Pseudo Class Any Link [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-pseudo-class-any-link.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/any-link-pseudo-class.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install postcss-pseudo-class-any-link --save-dev\n```\n\n[PostCSS Pseudo Class Any Link] lets you `:any-link` pseudo-class in CSS,\nfollowing the [Selectors] specification.\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span {\n\tbackground-color: yellow;\n}\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n```\n\n## Usage\n\nAdd [PostCSS Pseudo Class Any Link] to your project:\n\n```bash\nnpm install postcss postcss-pseudo-class-any-link --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssPseudoClassAnyLink = require('postcss-pseudo-class-any-link');\n\npostcss([\n\tpostcssPseudoClassAnyLink(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Pseudo Class Any Link] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssPseudoClassAnyLink({ preserve: false })\n```\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span {\n\tbackground-color: yellow;\n}\n```\n\n### subFeatures\n\n#### areaHrefNeedsFixing\n\nThe `subFeatures.areaHrefNeedsFixing` option determines if `<area href>` elements should match `:any-link` pseudo-class.<br>\nIn IE and Edge these do not match `:link` or `:visited`.\n\n_This increased CSS bundle size and is disabled by default._\n\n```js\npostcssPseudoClassAnyLink({\n\tsubFeatures: {\n\t\tareaHrefNeedsFixing: true\n\t}\n})\n```\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span, nav area[href] > span {\n\tbackground-color: yellow;\n}\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#any-link-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-pseudo-class-any-link\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Pseudo Class Any Link]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-pseudo-class-any-link\n[Selectors]: https://www.w3.org/TR/selectors-4/#the-any-link-pseudo\n",
 	"maintainers": [
 		{
-			"email": "romainmenke@gmail.com",
-			"name": "romainmenke"
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
 		},
 		{
-			"email": "sombragriselros@gmail.com",
-			"name": "alaguna"
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
 		},
 		{
-			"email": "jonathantneal@hotmail.com",
-			"name": "jonathantneal"
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
 		}
 	],
 	"time": {
-		"modified": "2023-07-24T15:03:47.326Z",
+		"modified": "2023-12-15T23:20:52.146Z",
 		"created": "2015-06-15T00:36:08.128Z",
 		"0.1.0": "2015-06-15T00:36:08.128Z",
 		"0.2.0": "2015-06-15T13:15:03.092Z",
@@ -2426,7 +2543,8 @@
 		"8.0.0": "2023-01-24T09:16:08.037Z",
 		"8.0.1": "2023-01-28T07:58:06.481Z",
 		"8.0.2": "2023-02-09T18:21:40.640Z",
-		"9.0.0": "2023-07-03T08:16:49.622Z"
+		"9.0.0": "2023-07-03T08:16:49.622Z",
+		"9.0.1": "2023-12-15T23:20:51.927Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-pseudo-class-any-link#readme",
 	"keywords": [
@@ -2466,5 +2584,5 @@
 			"email": "romainmenke@gmail.com"
 		}
 	],
-	"_downloads": 27192982
+	"_downloads": 27059579
 }

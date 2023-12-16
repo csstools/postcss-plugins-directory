@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-global-data",
 	"description": "PostCSS plugin to define global data that will be injected into PostCSS for use in other plugins.",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,33 +27,22 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"open-props": "^1.5.15",
-		"postcss-custom-media": "^10.0.0",
-		"postcss-custom-properties": "^13.3.0"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data#readme",
 	"repository": {
@@ -70,27 +59,21 @@
 		"postcss-plugin",
 		"productivity"
 	],
-	"csstools": {
-		"exportName": "postcssGlobalData",
-		"humanReadableName": "PostCSS Global Data"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-global-data@2.1.0",
-	"gitHead": "4d2d8403aa7d6cc22cc53cb81fd0e131189deae8",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-global-data@2.1.1",
+	"gitHead": "f1d53c11428b9ddcc592a93981a38e698b8759b3",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-n8SoAaapXATQ/fI8c0GVM+VNfvpNo6fN/79GGTjqatEG8bZNh72b2r+KKLVMcQHvRKjDlXxzurxnf6L5nsxDGA==",
-		"shasum": "617cf3a1a549de8c62cbd111868b35a7ca2c6cc1",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-global-data/-/postcss-global-data-2.1.0.tgz",
-		"fileCount": 8,
-		"unpackedSize": 8806,
+		"integrity": "sha512-tihdBLogY2G5jgUSu2jKSEVeOcnWqsz6k7UmPM7+ezhuV9FP5MIyX35Hc/YvqipQLRNsfBj9wRkBvsE7k1GM8A==",
+		"shasum": "b7250b5387f529cd3aa1a8dd966c1123f58c718b",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-global-data/-/postcss-global-data-2.1.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 7653,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDBynMGnPqBw2zkt4hjPOsJdw7P+OY08AmDNHAhpMcoQAIgQYwggnJs+oKKf8/fKwVtxpAUQ6r+uWzXuph4b1MVr9g="
+				"sig": "MEQCIHz33B0dWEZKstd9KNJYvrWuSHxczleCHhAv3S/BKhZ+AiANqtf+2U/n8/TcBxuppVhveWyqR64V88f0zjWFVVWHeg=="
 			}
 		]
 	},
@@ -115,8 +98,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-global-data_2.1.0_1693221363918_0.3245641578413012"
+		"tmp": "tmp/postcss-global-data_2.1.1_1702682784963_0.296752207593588"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-08-28T11:16:04.118Z"
+	"_time": "2023-12-15T23:26:25.205Z"
 }

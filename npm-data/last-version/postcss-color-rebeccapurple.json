@@ -1,7 +1,7 @@
 {
 	"name": "postcss-color-rebeccapurple",
 	"description": "Use the rebeccapurple color keyword in CSS",
-	"version": "9.0.1",
+	"version": "9.0.2",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -34,15 +34,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -50,17 +53,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-rebeccapurple#readme",
 	"repository": {
@@ -86,29 +78,21 @@
 		"syntax",
 		"w3c"
 	],
-	"csstools": {
-		"cssdbId": "rebeccapurple-color",
-		"exportName": "postcssRebeccaPurple",
-		"humanReadableName": "PostCSS RebeccaPurple",
-		"specUrl": "https://www.w3.org/TR/css-color-4/#valdef-color-rebeccapurple"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "postcss-color-rebeccapurple@9.0.1",
-	"gitHead": "237389945116e30155b0bfc161db24dde91a469a",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "postcss-color-rebeccapurple@9.0.2",
+	"gitHead": "99002cf4150a2b147af983afd3491849463c0b34",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-ds4cq5BjRieizVb2PnvbJ0omg9VCo2/KzluvoFZbxuGpsGJ5BQSD93CHBooinEtangCM5YqUOerGDl4xGmOb6Q==",
-		"shasum": "d1266b9a9571ca478c8ce7ad97a15727eac3c6b2",
-		"tarball": "https://registry.npmjs.org/postcss-color-rebeccapurple/-/postcss-color-rebeccapurple-9.0.1.tgz",
-		"fileCount": 8,
-		"unpackedSize": 9984,
+		"integrity": "sha512-f+RDEAPW2m8UbJWkSpRfV+QxhSaQhDMihI75DVGJJh4oRIoegjheeRtINFJum9D8BqGJcvD4GLjggTvCwZ4zuA==",
+		"shasum": "a5c7e605631eff2a7a230535bcf6aba29de4a270",
+		"tarball": "https://registry.npmjs.org/postcss-color-rebeccapurple/-/postcss-color-rebeccapurple-9.0.2.tgz",
+		"fileCount": 7,
+		"unpackedSize": 7355,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDGa5lFHecVWmDR05KJI+D9b6hRREWxwIjolFeI1bebGQIhAPc22Y5AZ55qxGQnNOhhcYyrp1/OWpYeeW2XEZCaM8++"
+				"sig": "MEUCIQCRXgDMJ/OyzW5WmvMODwn0NJn4fHrWHsKtxzH+O6OX1QIgVUX0v9DfrSzMJTv2eEykfuVTs4Hk1nI7E5yCNR3WvcY="
 			}
 		]
 	},
@@ -141,8 +125,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-color-rebeccapurple_9.0.1_1695053355099_0.5445593869990217"
+		"tmp": "tmp/postcss-color-rebeccapurple_9.0.2_1702682278452_0.20087580891445"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-18T16:09:15.287Z"
+	"_time": "2023-12-15T23:17:58.590Z"
 }
