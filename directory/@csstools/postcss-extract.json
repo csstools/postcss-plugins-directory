@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-extract",
 	"description": "Extract bits of your CSS",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,15 +27,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -43,17 +46,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-extract#readme",
 	"repository": {
@@ -70,36 +62,34 @@
 		"extract",
 		"postcss-plugin"
 	],
-	"csstools": {
-		"exportName": "postcssExtract",
-		"humanReadableName": "PostCSS Extract"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "6baf02a01a53801a680267d76a3a4c8443a875d0",
-	"_id": "@csstools/postcss-extract@3.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "@csstools/postcss-extract@3.0.1",
+	"gitHead": "400a0297dd295a2408091f84fd403fff98e0005e",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-beY4m0pGYzGEhPl5tw4E7V7T7zZHN0uU2JZqGRTwM7VL+OYiNHUoWj3LbIbDrh+bLzEoOcqOBrimRid3igkFDQ==",
-		"shasum": "f40e9b238b3a93216d82091f57dd24f1c1ff1f6a",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-extract/-/postcss-extract-3.0.0.tgz",
-		"fileCount": 17,
-		"unpackedSize": 17155,
+		"integrity": "sha512-sIh3QuLmegYoiatj9DHgKIq23soGYAzKAFj5ww5/3MEGQUNbWXa+hOvqvXVQTOcVjS/YkPdULOQ/Qk2JFSEF1Q==",
+		"shasum": "bee0e4bbf80bb3a6d3fc3bd5fd69273b25998c47",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-extract/-/postcss-extract-3.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 14839,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQC16xr06K3SJxKnhrnHiI+KCv12hLGXAAKboRDEP12OfAIgGTlM2NY/sS/EODh7PaEx6yUdbUEQfwBMLZLD3cdRoc8="
+				"sig": "MEUCIQCb83luijrEsDtafN9a4LvHsBJt7MHGPriDivMAgAQrAwIgfPluHfe124sUTZzFwcEiwhMK14Qf8Zafh1MC2lKfK04="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -111,8 +101,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-extract_3.0.0_1688371952954_0.5246624132014939"
+		"tmp": "tmp/postcss-extract_3.0.1_1702682296051_0.9958486970656328"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:12:33.105Z"
+	"_time": "2023-12-15T23:18:16.245Z"
 }

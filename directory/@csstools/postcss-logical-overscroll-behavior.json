@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-logical-overscroll-behavior",
 	"description": "Use logical overscroll behavior properties and values in CSS",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,30 +27,22 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-overscroll-behavior#readme",
 	"repository": {
@@ -67,29 +59,21 @@
 		"overscroll-behavior",
 		"postcss-plugin"
 	],
-	"csstools": {
-		"cssdbId": "logical-overscroll-behavior",
-		"exportName": "postcssLogicalOverscrollBehavior",
-		"humanReadableName": "PostCSS Logical Overscroll Behavior",
-		"specUrl": "https://www.w3.org/TR/css-overscroll-1/#overscroll-behavior-longhands-logical"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-logical-overscroll-behavior@1.0.0",
-	"gitHead": "72db60a04e1621c3e0564defc07942bbd97c2bc3",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-logical-overscroll-behavior@1.0.1",
+	"gitHead": "bd54ec7bf87da53d8afa6324d2e74b8aecce62f3",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-e89S2LWjnxf0SB2wNUAbqDyFb/Fow/tlOe1XqOLbNx4rf3LrQokM9qldVx7sarnddml3ORE5LDUmlKpPOOeJTA==",
-		"shasum": "93f60a71f75dab89b471166e6c3d44c8ef1b76b8",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-overscroll-behavior/-/postcss-logical-overscroll-behavior-1.0.0.tgz",
-		"fileCount": 9,
-		"unpackedSize": 8990,
+		"integrity": "sha512-+kHamNxAnX8ojPCtV8WPcUP3XcqMFBSDuBuvT6MHgq7oX4IQxLIXKx64t7g9LiuJzE7vd06Q9qUYR6bh4YnGpQ==",
+		"shasum": "9305a6f0d08bb7b5f1a228272951f72d3bf9d44f",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-overscroll-behavior/-/postcss-logical-overscroll-behavior-1.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 8187,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIAUVCUBelu4fHTtspkgPysrwx0AVkZT1xJvVDM0ShLj9AiBmGfVzTIJBOwPUrJbnQYohdGK2U+10wbVU3346fDjYtw=="
+				"sig": "MEQCIEvpi76BndzTzhB1ziOzEF51o1mFAjODq8HFUMZ8pWmqAiADZlYthfEzblVgs0t6oGL9nzwiEFNqjlNu0VfQDch2Mg=="
 			}
 		]
 	},
@@ -114,8 +98,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-logical-overscroll-behavior_1.0.0_1698776181461_0.6526625568260986"
+		"tmp": "tmp/postcss-logical-overscroll-behavior_1.0.1_1702682366789_0.5373288258594264"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-31T18:16:21.644Z"
+	"_time": "2023-12-15T23:19:26.973Z"
 }

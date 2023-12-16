@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-nested-calc",
 	"description": "Use nested calc() expressions in CSS",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,15 +27,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -43,17 +46,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nested-calc#readme",
 	"repository": {
@@ -71,38 +63,34 @@
 		"nested",
 		"postcss-plugin"
 	],
-	"csstools": {
-		"cssdbId": "nested-calc",
-		"exportName": "postcssNestedCalc",
-		"humanReadableName": "PostCSS Nested Calc",
-		"specUrl": "https://www.w3.org/TR/css-values/#calc-func"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "e8c8a165b0a69bf6d6489845a0e43315c150d66f",
-	"_id": "@csstools/postcss-nested-calc@3.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "@csstools/postcss-nested-calc@3.0.1",
+	"gitHead": "40af6390d787e8ac0176b981ddb46f9d2b8c6cc8",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-HsB66aDWAouOwD/GcfDTS0a7wCuVWaTpXcjl5VKP0XvFxDiU+r0T8FG7xgb6ovZNZ+qzvGIwRM+CLHhDgXrYgQ==",
-		"shasum": "b9069f5e1c2ea08de3840a5922e39af4e0ecf4b1",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-nested-calc/-/postcss-nested-calc-3.0.0.tgz",
-		"fileCount": 9,
-		"unpackedSize": 8245,
+		"integrity": "sha512-bwwababZpWRm0ByHaWBxTsDGTMhZKmtUNl3Wt0Eom8AY7ORgXx5qF9SSk1vEFrCi+HOfJT6M6W5KPgzXuQNRwQ==",
+		"shasum": "94b462420d22539984bfe659339abba6971ff8f0",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-nested-calc/-/postcss-nested-calc-3.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 7383,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIA7MDzPmJsomw1KOVSE2EaHCT65inbHL+6IGzj/nwL1YAiEAiE80tzkqFJ0sihAQZa49kKc/JTxQgwykkDf9wTApT6U="
+				"sig": "MEQCIF1FYJBdC7E1h7BN3cehtYaqGQU88eU/xk0DI2P5SuUZAiBsQkc8MuWboEUwYnplvzx6JJSEtpJoQ+RYRNWUxF4G0A=="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -114,8 +102,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-nested-calc_3.0.0_1688372131045_0.01871324159703791"
+		"tmp": "tmp/postcss-nested-calc_3.0.1_1702682412872_0.8786718556504818"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:15:31.202Z"
+	"_time": "2023-12-15T23:20:13.036Z"
 }

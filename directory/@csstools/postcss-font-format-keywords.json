@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-font-format-keywords",
 	"description": "Use unquoted format on @font-face CSS definitions.",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,15 +20,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -36,17 +39,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-format-keywords#readme",
 	"repository": {
@@ -66,39 +58,37 @@
 		"woff",
 		"woff2"
 	],
-	"csstools": {
-		"exportName": "postcssFontFormatKeywords",
-		"humanReadableName": "PostCSS Font Format Keywords"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "de0c95a3a2efef0fefb577c4fd177f02c966a3a7",
+	"_id": "@csstools/postcss-font-format-keywords@3.0.1",
+	"gitHead": "c605327fa9520dd41a177170d119bd64e7a7bd42",
+	"types": "./dist/index.d.ts",
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
-	"_id": "@csstools/postcss-font-format-keywords@3.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-ntkGj+1uDa/u6lpjPxnkPcjJn7ChO/Kcy08YxctOZI7vwtrdYvFhmE476dq8bj1yna306+jQ9gzXIG/SWfOaRg==",
-		"shasum": "9ca3a3ca67122862addf8a1c0c61a6db02dea1cc",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-font-format-keywords/-/postcss-font-format-keywords-3.0.0.tgz",
-		"fileCount": 8,
-		"unpackedSize": 8803,
+		"integrity": "sha512-D1lcG2sfotTq6yBEOMV3myFxJLT10F3DLYZJMbiny5YToqzHWodZen8WId3UTimm0mEHitXqAUNL5jdd6RzVdA==",
+		"shasum": "15ca8f8bd54568e4f3336b80ca0d20c903d02049",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-font-format-keywords/-/postcss-font-format-keywords-3.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 7988,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIAQA5tFNc1jAdSq4/qtZF4NOT6xK2zHRsLMHVnfqlv2+AiAz/Sejxk8v0xgzP/Q5e9XdD4b8ZG7jzwUkEKaksVrx5g=="
+				"sig": "MEUCIQD95EGb1tnilgc188f01YgueGOzKlH4poV5I0eBVycYqAIgfibF7ESnX598jp3QkZWocIsa0A4KVz2vHA4cDufevLw="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -110,8 +100,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-font-format-keywords_3.0.0_1688372003344_0.9421344674030452"
+		"tmp": "tmp/postcss-font-format-keywords_3.0.1_1702682314590_0.27427150105984244"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:13:23.552Z"
+	"_time": "2023-12-15T23:18:34.787Z"
 }

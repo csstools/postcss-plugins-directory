@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-minify",
 	"description": "A very basic CSS minifier",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,33 +27,25 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-tokenizer": "^2.2.1"
+		"@csstools/css-tokenizer": "^2.2.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-minify#readme",
 	"repository": {
@@ -68,27 +60,21 @@
 		"minifier",
 		"postcss-plugin"
 	],
-	"csstools": {
-		"exportName": "postcssMinify",
-		"humanReadableName": "PostCSS Minify"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-minify@1.0.2",
-	"gitHead": "4ec6c2ec63091ece1483f583e97338f27c75ab9f",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-minify@1.0.3",
+	"gitHead": "fe43ef082d6700ba3ccfc88128c92ca2fa7cdb77",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-IjLmZsDn9lEM0aCsWNb1NLHZ0jkxOKycL69OvKz4pv9rCwR63EX2xBCqxMRlpIpSP0JSkpqFNdTvM9IHpATxvg==",
-		"shasum": "e57daca9a7e87431db83a062e3a3f01e461169ff",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-minify/-/postcss-minify-1.0.2.tgz",
+		"integrity": "sha512-1mNoxMqp/BzqFxfLfjllNK0mIq9GwJmTs7/ywkwuAEKNtOt6e3QpJJ0npfsAYjvUaXMqZ7Hv6o0O5lhy3lkJ+Q==",
+		"shasum": "07724f98dd4cd34cbba5e4983b26c840e3a78b08",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-minify/-/postcss-minify-1.0.3.tgz",
 		"fileCount": 7,
-		"unpackedSize": 10213,
+		"unpackedSize": 9800,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIFPT3AaWuf3nDieV23dFvT5iZm0jdsXk2cWGMFfknMnvAiAnHKCjuWE8VvyxWnJiG0i/NonrFHHWOokf7TssLQQ++w=="
+				"sig": "MEQCIBdCHS5ZN3RcTNLQarksg5p8PH6HGlrxest4r5Jc7OIIAiB92pCayxvjXEQzxGa1CrtLRLiNqblDHGjCaskRWXURfQ=="
 			}
 		]
 	},
@@ -113,8 +99,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-minify_1.0.2_1696539964485_0.5328144619013051"
+		"tmp": "tmp/postcss-minify_1.0.3_1702682406916_0.2195167666566591"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-05T21:06:04.715Z"
+	"_time": "2023-12-15T23:20:07.150Z"
 }

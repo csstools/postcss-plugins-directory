@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-logical-overflow",
 	"description": "Use logical overflow properties and values in CSS",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,30 +27,22 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-overflow#readme",
 	"repository": {
@@ -67,29 +59,21 @@
 		"overflow",
 		"postcss-plugin"
 	],
-	"csstools": {
-		"cssdbId": "logical-overflow",
-		"exportName": "postcssLogicalOverflow",
-		"humanReadableName": "PostCSS Logical Overflow",
-		"specUrl": "https://www.w3.org/TR/css-overflow-3/#overflow-control"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-logical-overflow@1.0.0",
-	"gitHead": "b4e6f773d32c8f2a582e2e57a9cc2755f874fea1",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-logical-overflow@1.0.1",
+	"gitHead": "11037e6fce9b90aacc1e02d9fa4de36b256d2413",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-cIrZ8f7bGGvr+W53nEuMspcwaeaI2YTmz6LZ4yiAO5z14/PQgOOv+Pn+qjvPOPoadeY2BmpaoTzZKvdAQuM17w==",
-		"shasum": "dbc18226f6cc6a83981184564ed9229a860f6033",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-overflow/-/postcss-logical-overflow-1.0.0.tgz",
-		"fileCount": 9,
-		"unpackedSize": 8478,
+		"integrity": "sha512-Kl4lAbMg0iyztEzDhZuQw8Sj9r2uqFDcU1IPl+AAt2nue8K/f1i7ElvKtXkjhIAmKiy5h2EY8Gt/Cqg0pYFDCw==",
+		"shasum": "d14631369f43ef989c7e32f051ddb6952a8ce35c",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-overflow/-/postcss-logical-overflow-1.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 7730,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIAjWh8KEkJY0nAkbIo+LDzwF58FHl/ROiXT1KS5mZkZzAiBCsL9BxipAFCuoyP6KsAHd/YPKoZT9z0mQUEhfsiZtEA=="
+				"sig": "MEYCIQDE8M3rcNI22ykCVNjPRKqfmJYQrJedJKfueo/LgZkqmgIhAJ7obv+AgMjuz1b7XQM1UUp+pBInHr5NXSTo7th6yl37"
 			}
 		]
 	},
@@ -114,8 +98,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-logical-overflow_1.0.0_1698776150203_0.6486992945852017"
+		"tmp": "tmp/postcss-logical-overflow_1.0.1_1702682361200_0.9658949187914152"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-31T18:15:50.429Z"
+	"_time": "2023-12-15T23:19:21.395Z"
 }

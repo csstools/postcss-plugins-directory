@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-rebase-url",
 	"description": "Rebase url() functions when transforming CSS",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,35 +27,26 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1"
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"postcss-import": "^15.1.0"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url#readme",
 	"repository": {
@@ -71,27 +62,21 @@
 		"rebase",
 		"url"
 	],
-	"csstools": {
-		"exportName": "postcssRebaseURL",
-		"humanReadableName": "PostCSS Rebase URL"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-rebase-url@1.0.3",
-	"gitHead": "ccd651c7771ad3454e950190351ca43d052c7e70",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-rebase-url@1.0.4",
+	"gitHead": "414a4b789fb3b09a9675ea032415eec8199e5f22",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-hXA8vtcMXaY40ATkzlQ+QTLyJC3qsYPmC2u3/rr7dci6nhKnN0tjn3C6UM8YCFsxf1Yn6H4GVzGdCcwL2e7PEg==",
-		"shasum": "2ca33eaa3cdc11022086aff884d7aa295b6cf64f",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-rebase-url/-/postcss-rebase-url-1.0.3.tgz",
-		"fileCount": 9,
-		"unpackedSize": 11679,
+		"integrity": "sha512-KK/qp5YycrHmnKMFVLLIDd7E2EHZvljNi2CyBSRqgeIcfmfocieHhwOvr4yeigS13JgovhG97guRAL8uHOUBHA==",
+		"shasum": "7d6386680d043b03a05eb2fde4bb27dae6ec1f21",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-rebase-url/-/postcss-rebase-url-1.0.4.tgz",
+		"fileCount": 7,
+		"unpackedSize": 10853,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIBNmhyUm41pPZpTW8DKs+OH9kv1KRt0j2WCKYh4L3clRAiEA3WfnPbXbtaKPTz6iPrdsirUL0ORDnhq8BwtoCF0bmdo="
+				"sig": "MEUCIQDSk3IMx1/3kk8YsXjuBtCDuNLgSgNbRVOB6tLks2oHXwIgdk+HSS3W/7sfOlnweSyR1qcaaMwWxjHMs+uNovMtS+0="
 			}
 		]
 	},
@@ -116,8 +101,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-rebase-url_1.0.3_1695584684475_0.1889020213297219"
+		"tmp": "tmp/postcss-rebase-url_1.0.4_1702682597343_0.8292442590141615"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:44:44.668Z"
+	"_time": "2023-12-15T23:23:17.524Z"
 }

@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-logical-resize",
 	"description": "Use logical values in the resize property",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,15 +27,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -43,17 +46,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-resize#readme",
 	"repository": {
@@ -73,38 +65,34 @@
 		"postcss-plugin",
 		"resize"
 	],
-	"csstools": {
-		"cssdbId": "logical-resize",
-		"exportName": "postcssLogicalResize",
-		"humanReadableName": "PostCSS Logical Resize",
-		"specUrl": "https://www.w3.org/TR/css-logical-1/"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "8fc3d37fdd7f4060cd09384c4854de48c75447e0",
-	"_id": "@csstools/postcss-logical-resize@2.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "@csstools/postcss-logical-resize@2.0.1",
+	"gitHead": "59b7d7267d21a7863196ab3c9e426940c4d98f70",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-lCQ1aX8c5+WI4t5EoYf3alTzJNNocMqTb+u1J9CINdDhFh1fjovqK+0aHalUHsNstZmzFPNzIkU4Mb3eM9U8SA==",
-		"shasum": "751bd5aab335c9973e346e3edacb2a0a16fa8296",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-resize/-/postcss-logical-resize-2.0.0.tgz",
-		"fileCount": 11,
-		"unpackedSize": 12423,
+		"integrity": "sha512-W5Gtwz7oIuFcKa5SmBjQ2uxr8ZoL7M2bkoIf0T1WeNqljMkBrfw1DDA8/J83k57NQ1kcweJEjkJ04pUkmyee3A==",
+		"shasum": "a46c1b51055db96fb63af3bfe58909c773aea377",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-resize/-/postcss-logical-resize-2.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 10741,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCNjwfKip2D1zDuc2nBeJzJT+TqupkDEa3Bl/Ps5fRgiwIgUpNSE3USgLTVUeUQuExeCjevX6T4QLuvW9WYxbmoNIs="
+				"sig": "MEUCIC/IaEKzhQD3TrzQQAV9hqupjyMuO9edN3oBJWTDpZuAAiEAgj4YHO3O8JUQ1yJQfTyicN6KppegCbDh4zWxoAS5OVw="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -116,8 +104,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-logical-resize_2.0.0_1688372089201_0.6978516364150988"
+		"tmp": "tmp/postcss-logical-resize_2.0.1_1702682373756_0.6474400259140747"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:14:49.417Z"
+	"_time": "2023-12-15T23:19:33.966Z"
 }

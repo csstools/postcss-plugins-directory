@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-exponential-functions",
 	"description": "Use pow(), sqrt(), hypot(), log(), exp() exponential functions in CSS",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,35 +27,27 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-calc": "^1.1.4",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1"
+		"@csstools/css-calc": "^1.1.5",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-exponential-functions#readme",
 	"repository": {
@@ -75,29 +67,21 @@
 		"pow",
 		"sqrt"
 	],
-	"csstools": {
-		"cssdbId": "exponential-functions",
-		"exportName": "postcssExponentialFunctions",
-		"humanReadableName": "PostCSS Exponential Functions",
-		"specUrl": "https://www.w3.org/TR/css-values-4/#exponent-funcs"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-exponential-functions@1.0.1",
-	"gitHead": "98b05cc8644942c68dda6bcf63ee6d9f1ce3884b",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-exponential-functions@1.0.2",
+	"gitHead": "9c662860d81f86e2c35dfe141f09b46a91524037",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-ZLK2iSK4DUxeypGce2PnQSdYugUqDTwxnhNiq1o6OyKMNYgYs4eKbvEhFG8JKr1sJWbeqBi5jRr0017l2EWVvg==",
-		"shasum": "0d938f58ba5ac5c362e09ad22b5768b04ee82650",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-exponential-functions/-/postcss-exponential-functions-1.0.1.tgz",
-		"fileCount": 9,
-		"unpackedSize": 9050,
+		"integrity": "sha512-VRIYrwNCkZRqzsGB4jGT+XcNXsoiwyqy0Vf7C3I/5OPcf7WcWK3G1sBYFqqgWLGtpwc7m1m8TcorGY1xdh5abg==",
+		"shasum": "fa3c1f549ee3720891a35a7e3905ecff9cf07b2d",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-exponential-functions/-/postcss-exponential-functions-1.0.2.tgz",
+		"fileCount": 7,
+		"unpackedSize": 8849,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIHDGAGiBWECY48uzPmS4uhCiZswvy54W6NdttMTuKcytAiEA1GVaV0k6SvbdtTdHGbTptyzIegNI7TcrP2rkPFPswC8="
+				"sig": "MEUCIFi22YwY9nN4hu3qJo1raoFWrhI43CVsSjPd/+7+222/AiEAr60VPwybNT8NIvWvdbYDdLTz9/uHc+7w3g9LRkb2Vy4="
 			}
 		]
 	},
@@ -122,8 +106,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-exponential-functions_1.0.1_1695584727194_0.685289091406778"
+		"tmp": "tmp/postcss-exponential-functions_1.0.2_1702682665120_0.34538717768989025"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:45:27.407Z"
+	"_time": "2023-12-15T23:24:25.355Z"
 }

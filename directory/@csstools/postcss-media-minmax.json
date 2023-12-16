@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-media-minmax",
 	"description": "Use the range notation in CSS media queries",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -30,37 +30,28 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-calc": "^1.1.4",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
-		"@csstools/media-query-list-parser": "^2.1.5"
+		"@csstools/css-calc": "^1.1.5",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
+		"@csstools/media-query-list-parser": "^2.1.6"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:browser": "node ./test/_browser.mjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-minmax#readme",
 	"repository": {
@@ -76,29 +67,21 @@
 		"postcss-plugin",
 		"range"
 	],
-	"csstools": {
-		"cssdbId": "media-query-ranges",
-		"exportName": "postcssMediaMinMax",
-		"humanReadableName": "PostCSS Media MinMax",
-		"specUrl": "https://www.w3.org/TR/mediaqueries-4/#mq-features"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-media-minmax@1.1.0",
-	"gitHead": "61ba08694c8cbfbaae756fddad378e5766049b7e",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-media-minmax@1.1.1",
+	"gitHead": "e1d9517a301d65e651581f8f0d88748a2717658c",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-t5Li/DPC5QmW/6VFLfUvsw/4dNYYseWR0tOXDeJg/9EKUodBgNawz5tuk5vYKtNvoj+Q08odMuXcpS5YJj0AFA==",
-		"shasum": "8d46317b6686cd49e05870ae3c8993e49a54149c",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-media-minmax/-/postcss-media-minmax-1.1.0.tgz",
-		"fileCount": 10,
-		"unpackedSize": 24484,
+		"integrity": "sha512-mBY46/Hr+A8cDjoX0OoPRBOVrkANym9540dSB9rN3dllPZdM1E112i/tVxWsrR1s1yE9gfF0pk+7lf9l+qSeHA==",
+		"shasum": "b98619dfff964e2c4e020f21934162d7c2d4dec5",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-media-minmax/-/postcss-media-minmax-1.1.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 22012,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIE13HXGBFf9b71G6VOri2uoSA0Bgij/++BycG+vdRBDmAiEAxaN+4sJNXceVX3y/1JbQ9lRpfDRwukTPqhwbixrwVDI="
+				"sig": "MEYCIQCkkJOjVim9LTAH8z29Lcs/FMVA380gDwb9P7bGyswWywIhAIuEzqt5jLDLUCb2xaog99+RULNDcj/3/m9k0HZ8OKGb"
 			}
 		]
 	},
@@ -123,8 +106,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-media-minmax_1.1.0_1695584731945_0.8040844734976065"
+		"tmp": "tmp/postcss-media-minmax_1.1.1_1702682671043_0.45583418314902935"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:45:32.093Z"
+	"_time": "2023-12-15T23:24:31.218Z"
 }

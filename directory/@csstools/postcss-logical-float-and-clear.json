@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-logical-float-and-clear",
 	"description": "Use flow-relative (inline-start and inline-end) values for float and clear",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,30 +27,22 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical-float-and-clear#readme",
 	"repository": {
@@ -71,38 +63,34 @@
 		"postcss",
 		"postcss-plugin"
 	],
-	"csstools": {
-		"cssdbId": "float-clear-logical-values",
-		"exportName": "postcssLogicalFloatAndClear",
-		"humanReadableName": "PostCSS Logical Float And Clear",
-		"specUrl": "https://www.w3.org/TR/css-logical-1/#float-clear"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "4a7823d9a06d22d07725248431267266c7c17e3a",
-	"_id": "@csstools/postcss-logical-float-and-clear@2.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "@csstools/postcss-logical-float-and-clear@2.0.1",
+	"gitHead": "919076f1d5a4a1dd5e4f9b13ca1e2339515666d3",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-Wki4vxsF6icRvRz8eF9bPpAvwaAt0RHwhVOyzfoFg52XiIMjb6jcbHkGxwpJXP4DVrnFEwpwmrz5aTRqOW82kg==",
-		"shasum": "15e1b5d16dce01ad1e676167d0909e3958234eb5",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-float-and-clear/-/postcss-logical-float-and-clear-2.0.0.tgz",
-		"fileCount": 10,
-		"unpackedSize": 10193,
+		"integrity": "sha512-SsrWUNaXKr+e/Uo4R/uIsqJYt3DaggIh/jyZdhy/q8fECoJSKsSMr7nObSLdvoULB69Zb6Bs+sefEIoMG/YfOA==",
+		"shasum": "c70ed8293cc376b1572bf56794219f54dc58c54d",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-logical-float-and-clear/-/postcss-logical-float-and-clear-2.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 9020,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIESTdqPLwVqWD/yfClCcuVC1jwOP6+MWVk17YTLgVzAxAiEAwVLi/o9ve596Kz+oaXDH5rNPg1uVn8xU9I9sbny4hHI="
+				"sig": "MEUCIDwqKex6WWHVhFIzQdLEADdXQ4JZn2I+n21vMN9kVPOIAiEA3B+Hbr9fHtVArZYHSx0EOHMvnteGylEdazZ/Ji9+w0g="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -114,8 +102,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-logical-float-and-clear_2.0.0_1688372073592_0.16086981550602486"
+		"tmp": "tmp/postcss-logical-float-and-clear_2.0.1_1702682355451_0.45290645924207484"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:14:33.759Z"
+	"_time": "2023-12-15T23:19:15.622Z"
 }

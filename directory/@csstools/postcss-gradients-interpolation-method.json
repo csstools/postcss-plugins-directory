@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-gradients-interpolation-method",
 	"description": "Use interpolation methods in CSS gradient functions",
-	"version": "4.0.7",
+	"version": "4.0.8",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,36 +20,28 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-color-parser": "^1.4.0",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
-		"@csstools/postcss-progressive-custom-properties": "^3.0.2"
+		"@csstools/css-color-parser": "^1.5.0",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
+		"@csstools/postcss-progressive-custom-properties": "^3.0.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gradients-interpolation-method#readme",
 	"repository": {
@@ -75,29 +67,21 @@
 		"repeating",
 		"syntax"
 	],
-	"csstools": {
-		"cssdbId": "gradients-interpolation-method",
-		"exportName": "postcssGradientsInterpolationMethod",
-		"humanReadableName": "PostCSS Gradients Interpolation Method",
-		"specUrl": "https://drafts.csswg.org/css-images-4/#linear-gradients"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-gradients-interpolation-method@4.0.7",
-	"gitHead": "be36a0824e6ecd337a5f29888558510d346ad5b3",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-gradients-interpolation-method@4.0.8",
+	"gitHead": "2f8f64a1c3b71764af1afa7f291122c32ffe246f",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-GT1CzE/Tyr/ei4j5BwKESkHAgg+Gzys/0mAY7W+UiR+XrcYk5hDbOrE/YJIx1rflfO/7La1bDoZtA0YnLl4qNA==",
-		"shasum": "e5c2628157fb9dea9aa8cd9c84fdcc2a842af91b",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-4.0.7.tgz",
-		"fileCount": 13,
-		"unpackedSize": 28845,
+		"integrity": "sha512-bmvCNzuUvWPPdgASh0T14ffTay/FdzXsXfp0wXT1pYoUPmkH9M6yyxwPEkHq5djjzSb2jiLl4Ta3XM1uOREQ2w==",
+		"shasum": "1fcf2654b413eeadd4307082417508f249a03966",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-4.0.8.tgz",
+		"fileCount": 7,
+		"unpackedSize": 23829,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCGFwCUtAY49k8OmV6uFJJUOBBZHgoOUN9MP29ly+/a0QIgUdWdjPlFYwKZ7wl59SY8OwXen01CRCf/+LB9r6sLsOU="
+				"sig": "MEQCIFPx2gSINpuZ7l1N0Ilw8X2pdH9fXdzbSko9lOnzFRWjAiAvuJ3hZyWYffopzrQhtZKQ5I0JZSPGfJosOUoCpzEbtQ=="
 			}
 		]
 	},
@@ -122,8 +106,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-gradients-interpolation-method_4.0.7_1696872835006_0.2596504978633585"
+		"tmp": "tmp/postcss-gradients-interpolation-method_4.0.8_1702682791699_0.5163341743541492"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:33:55.332Z"
+	"_time": "2023-12-15T23:26:32.010Z"
 }

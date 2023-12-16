@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-is-pseudo-class",
 	"description": "A pseudo-class for matching elements in a selector list",
-	"version": "4.0.3",
+	"version": "4.0.4",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,36 +20,26 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/selector-specificity": "^3.0.0",
+		"@csstools/selector-specificity": "^3.0.1",
 		"postcss-selector-parser": "^6.0.13"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"puppeteer": "^21.3.6"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:browser": "node ./test/_browser.mjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-is-pseudo-class#readme",
 	"repository": {
@@ -70,27 +60,21 @@
 		"pseudo",
 		"selector"
 	],
-	"csstools": {
-		"exportName": "postcssIsPseudoClass",
-		"humanReadableName": "PostCSS Is Pseudo"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-is-pseudo-class@4.0.3",
-	"gitHead": "d5a965dcb6fa3f2d4335dc74dfa99faf60e928dd",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-is-pseudo-class@4.0.4",
+	"gitHead": "bb75a8b2549b7a78ec58e88850e81acdf2aa9e6a",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-/dt5M9Ty/x3Yiq0Nm/5PJJzwkVFchJgdjKVnryBPtoMCb9ohb/nDIJOwr/Wr3hK3FDs1EA1GE6PyRYsUmQPS8Q==",
-		"shasum": "d8b04ff5eefb1a9bc8f1ab99b8f3b6b04b704480",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-4.0.3.tgz",
-		"fileCount": 14,
-		"unpackedSize": 31257,
+		"integrity": "sha512-vTVO/uZixpTVAOQt3qZRUFJ/K1L03OfNkeJ8sFNDVNdVy/zW0h1L5WT7HIPMDUkvSrxQkFaCCybTZkUP7UESlQ==",
+		"shasum": "c95d3f8b355df1744c906d0ec5e69aedce4e9487",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-4.0.4.tgz",
+		"fileCount": 7,
+		"unpackedSize": 27094,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCPgaN0MwhrmeC3xPj6gD60weloFRv1fslVFUXQlQqayAIgW0f3/tHtne3c/tgOPaQL2d8VeykvDGT+IE9RCNITCzU="
+				"sig": "MEUCIQDrRarrxeNB1gDvEoUMAUWJO/QlbggkY5z11OjfnbS8LgIgI866lY80hwgFHnQWR8ZlOKdf4oSkucUrTYW9SAGwZ3I="
 			}
 		]
 	},
@@ -115,8 +99,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-is-pseudo-class_4.0.3_1696281558707_0.4062411392533891"
+		"tmp": "tmp/postcss-is-pseudo-class_4.0.4_1702682342338_0.2572569481428437"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-02T21:19:18.849Z"
+	"_time": "2023-12-15T23:19:02.536Z"
 }

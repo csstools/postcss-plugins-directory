@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-stepped-value-functions",
 	"description": "Use round, rem and mod functions in CSS",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,35 +27,27 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-calc": "^1.1.4",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1"
+		"@csstools/css-calc": "^1.1.5",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-stepped-value-functions#readme",
 	"repository": {
@@ -74,29 +66,21 @@
 		"round",
 		"stepped"
 	],
-	"csstools": {
-		"cssdbId": "stepped-value-functions",
-		"exportName": "postcssSteppedValueFunctions",
-		"humanReadableName": "PostCSS Stepped Value Functions",
-		"specUrl": "https://www.w3.org/TR/css-values-4/#round-func"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-stepped-value-functions@3.0.2",
-	"gitHead": "0c515c9a5e682e69ac689b40e86014e4493c45a3",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-stepped-value-functions@3.0.3",
+	"gitHead": "49e0b7dd3d11f48fa540190843efc06b3352685c",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-I3wX44MZVv+tDuWfrd3BTvRB/YRIM2F5v1MBtTI89sxpFn47mNpTwpPYUOGPVCgKlRDfZSlxIUYhUQmqRQZZFQ==",
-		"shasum": "a902395efbf9c5c30a6d902a7c65549fb3f49309",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-stepped-value-functions/-/postcss-stepped-value-functions-3.0.2.tgz",
-		"fileCount": 9,
-		"unpackedSize": 11928,
+		"integrity": "sha512-hzo9Wr3u7JJiM65/EyHgE/gJpBzhDwBSGOobFs2YQ0ZNTywUliYQoYJud1KKlByMRuhqvDLh9V95eIkLf/fZTQ==",
+		"shasum": "99dc53b346574248ccbe6772d736e1a151d5e303",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-stepped-value-functions/-/postcss-stepped-value-functions-3.0.3.tgz",
+		"fileCount": 7,
+		"unpackedSize": 9850,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIBb94XuFWpJXF5UAMU/lnmFRVqD1ME+OTVPCCC7mUgRzAiEA6vqIx2LCsdPLN+8BgiJnE8ARe6PQ3LrscX/MZ98ZtG4="
+				"sig": "MEUCIDpifAQi2pgD3uikDFDxx5xCNGGr+A7IbCt79VaPOtMEAiEA4HM3oD3nn6gUQ9Wx0bQ8Yh/5VDcY7/U3CH7HpPo4Eaw="
 			}
 		]
 	},
@@ -121,8 +105,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-stepped-value-functions_3.0.2_1695584741368_0.2445956712913564"
+		"tmp": "tmp/postcss-stepped-value-functions_3.0.3_1702682682741_0.3345368451678514"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:45:41.514Z"
+	"_time": "2023-12-15T23:24:42.908Z"
 }

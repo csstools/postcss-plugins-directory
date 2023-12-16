@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
 	"description": "Use number values in aspect-ratio media queries.",
-	"version": "2.0.3",
+	"version": "2.0.4",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,35 +27,27 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
-		"@csstools/media-query-list-parser": "^2.1.5"
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
+		"@csstools/media-query-list-parser": "^2.1.6"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-media-queries-aspect-ratio-number-values#readme",
 	"repository": {
@@ -71,29 +63,21 @@
 		"media queries",
 		"postcss-plugin"
 	],
-	"csstools": {
-		"cssdbId": "media-queries-aspect-ratio-number-values",
-		"exportName": "postcssMediaQueriesAspectRatioNumberValues",
-		"humanReadableName": "PostCSS Media Queries Aspect-Ratio Number Values",
-		"specUrl": "https://www.w3.org/TR/mediaqueries-4/#aspect-ratio"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-media-queries-aspect-ratio-number-values@2.0.3",
-	"gitHead": "9336c16da1d16dd11eae2450395a2654250f0f1f",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-media-queries-aspect-ratio-number-values@2.0.4",
+	"gitHead": "96e3df53e3141d8181cbb216157f891fae7d7d1c",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-IPL8AvnwMYW+cWtp+j8cW3MFN0RyXNT4hLOvs6Rf2N+NcbvXhSyKxZuE3W9Cv4KjaNoNoGx1d0UhT6tktq6tUw==",
-		"shasum": "a74355c828a13ede8e8390bcf2701a34a60696b3",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-media-queries-aspect-ratio-number-values/-/postcss-media-queries-aspect-ratio-number-values-2.0.3.tgz",
-		"fileCount": 9,
-		"unpackedSize": 21241,
+		"integrity": "sha512-IaIZZhH0Qy9UDn7u+N3cuwwPG0Po3ZKOdDh+ClR7xvisSqniG+PuVrOEWYJrFKOt2//UHLhd7KHDqr2u9LKS9Q==",
+		"shasum": "773b83dc0415d6cdfa38e54d3823ae8c54c10280",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-media-queries-aspect-ratio-number-values/-/postcss-media-queries-aspect-ratio-number-values-2.0.4.tgz",
+		"fileCount": 7,
+		"unpackedSize": 19012,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDUIpzJzDap6HBzaTP6Z8EnaaCw0RoiGqFbfVnGdud3agIhAMNvpUI1JUGBotSKlBc9yQVjNcQp69OVE06PnxN8FsAR"
+				"sig": "MEUCIAYs2izgFYs68JqjceRvS799g3ONCsXcX9UOE0Jm6OX8AiEA+DXjN6Y5GB1GBcKfXWQtwt+rC9Dd471cWaoc90vbDo4="
 			}
 		]
 	},
@@ -118,8 +102,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-media-queries-aspect-ratio-number-values_2.0.3_1695584736726_0.4840957044733849"
+		"tmp": "tmp/postcss-media-queries-aspect-ratio-number-values_2.0.4_1702682676804_0.023153909874634948"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:45:36.964Z"
+	"_time": "2023-12-15T23:24:37.028Z"
 }

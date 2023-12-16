@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-ic-unit",
 	"description": "Use the ic length unit",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,34 +20,26 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/postcss-progressive-custom-properties": "^3.0.2",
+		"@csstools/postcss-progressive-custom-properties": "^3.0.3",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-ic-unit#readme",
 	"repository": {
@@ -67,27 +59,21 @@
 		"postcss-plugin",
 		"values"
 	],
-	"csstools": {
-		"exportName": "postcssIcUnit",
-		"humanReadableName": "PostCSS IC Unit"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-ic-unit@3.0.2",
-	"gitHead": "f5e765bf0cf303f4f27f315c9ec8a33c91e32fbc",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-ic-unit@3.0.3",
+	"gitHead": "cb737ea43a91f6fcb5db52eae734d67cf3062f06",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-n28Er7W9qc48zNjJnvTKuVHY26/+6YlA9WzJRksIHiAWOMxSH5IksXkw7FpkIOd+jLi59BMrX/BWrZMgjkLBHg==",
-		"shasum": "08b62de51a3636ba40ba8e77cef4619a6e636aac",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-ic-unit/-/postcss-ic-unit-3.0.2.tgz",
-		"fileCount": 9,
-		"unpackedSize": 10377,
+		"integrity": "sha512-MpcmIL0/uMm/cFWh5V/9nbKKJ7jRr2qTYW5Q6zoE6HZ6uzOBJr2KRERv5/x8xzEBQ1MthDT7iP1EBp9luSQy7g==",
+		"shasum": "f1e257be491718d964a5ecebac39f2f469caf8a8",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-ic-unit/-/postcss-ic-unit-3.0.3.tgz",
+		"fileCount": 7,
+		"unpackedSize": 9025,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCHIPJ420FhPSU02u30oKTXR0awdOFptaj88qUHx5QzWAIgSWDCQGDDmZT2eQwDxtMlsZU+wKXa/OR1zDvdvj9ct0c="
+				"sig": "MEUCIGxteKQTl0sWxraFmbX0s+01aJCrzWHC4FPwLprNBx9yAiEA44YTEgh5Z3KG3kuQ4A1HK4AFVRbzSV8UMggbUPH3CCQ="
 			}
 		]
 	},
@@ -112,8 +98,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-ic-unit_3.0.2_1696872845290_0.060721435502632204"
+		"tmp": "tmp/postcss-ic-unit_3.0.3_1702682589911_0.8872520342653345"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:34:05.498Z"
+	"_time": "2023-12-15T23:23:10.127Z"
 }
