@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-conditional-values",
 	"description": "Easily apply space toggle hacks with some syntactic sugar",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,31 +27,22 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"postcss-value-parser": "^4.2.0"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-conditional-values#readme",
 	"repository": {
@@ -65,37 +56,34 @@
 	"keywords": [
 		"postcss-plugin"
 	],
-	"csstools": {
-		"assumesToProcessBundledCSS": true,
-		"exportName": "postcssConditionalValues",
-		"humanReadableName": "PostCSS Conditional Values"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "e14e3cae3dcdcad254af2f610cbbfa1f207adc73",
-	"_id": "@csstools/postcss-conditional-values@3.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "@csstools/postcss-conditional-values@3.0.1",
+	"gitHead": "1ee2c591f4b0bb377c473f7ca34279f58e4f7811",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-ikAiOxjdGRrLfzAMD1AzYvzaiukasEi3CVAErRj04TCVM5ihk/HQKjHvGPBUFZrap39M+Zm38WEqoZ/M/tOD4A==",
-		"shasum": "b28012a3f61f0bf5c9e90348f624a630af78a10f",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-conditional-values/-/postcss-conditional-values-3.0.0.tgz",
+		"integrity": "sha512-HjyFPok4nWv7il713o6JUP+OJ799aM+eP27I45WiRCRWuwjQjM6o5QruB2diServxqsXltrRCC4hjZsoFU5b2A==",
+		"shasum": "4bd7887ddc38fe7482774f0951ea5260788562f3",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-conditional-values/-/postcss-conditional-values-3.0.1.tgz",
 		"fileCount": 7,
-		"unpackedSize": 11542,
+		"unpackedSize": 11393,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCCFNRK/Vev5U/7SZSdO169hWUV+ieJCKMcHpqMjI1atgIgFtF/gwXr4Rgt9A0LMN0rfTf8kqETjQDDndhGVKmTwS0="
+				"sig": "MEYCIQDSorTRr/Y6Ym2zF4uwen1shrHJFd+fogc64uLnyzqXTwIhALOnq6KVTd37nOl9UvLh5K/TQIZWGkuF4l/9gvaDxWCb"
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -107,8 +95,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-conditional-values_3.0.0_1688371862875_0.38881035394217567"
+		"tmp": "tmp/postcss-conditional-values_3.0.1_1702682284150_0.7250563859975485"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:11:03.056Z"
+	"_time": "2023-12-15T23:18:04.349Z"
 }
