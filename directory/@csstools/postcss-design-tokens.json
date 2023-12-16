@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-design-tokens",
 	"description": "Use design tokens in your CSS",
-	"version": "3.1.1",
+	"version": "3.1.2",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,37 +27,27 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-bundler": "^1.0.3",
-		"@csstools/postcss-tape": "*",
-		"style-dictionary-design-tokens-example": "^1.1.0"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-design-tokens#readme",
 	"repository": {
@@ -72,28 +62,21 @@
 		"design-tokens",
 		"postcss-plugin"
 	],
-	"csstools": {
-		"assumesToProcessBundledCSS": true,
-		"exportName": "postcssDesignTokens",
-		"humanReadableName": "PostCSS Design Tokens"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-design-tokens@3.1.1",
-	"gitHead": "3d4e4e03977d4c4489ef334998ee437c34eebff2",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-design-tokens@3.1.2",
+	"gitHead": "fb8e74555925b4a905066fc7edf31f68c21ada23",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-1qH2bzRam0Yz5wuc8J1EVbitV7HIGKJHcVvXfg4/VOSA9W99bH4LfbWA+RFYekqe0IFXCU1RyjqCRmFWBt3/Dw==",
-		"shasum": "9d01e46b9ceba8465d5bb2d7149f65d0e3a4fed4",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-design-tokens/-/postcss-design-tokens-3.1.1.tgz",
-		"fileCount": 19,
-		"unpackedSize": 41479,
+		"integrity": "sha512-tglw8Np71DgaTuHAwWIXto04UxvSNKlS62YsbQ+6J7XcW1NsM4WPkqMc1gZVN3Hfq2O8V635zSzbrX6aVaiigQ==",
+		"shasum": "e408b751067164b5378b728f63a90644b7f56ecf",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-design-tokens/-/postcss-design-tokens-3.1.2.tgz",
+		"fileCount": 7,
+		"unpackedSize": 35623,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDWuFEHDAx3Cgs9sMzChho4c7gJhFG0z/e4R9z51vQntwIhAKgyE+RuBYeuTsshqbRNPXOYJEGEwpSAyUC27S4+6v6X"
+				"sig": "MEUCIB6GOSJwj0Rv1h8kqIXHOsVPMB77xOcLfrCp8fA1CL6tAiEA+Y3x9xCXJwZAy+8Qe8wXnMV8W2qnSBg4DJwA9LFFets="
 			}
 		]
 	},
@@ -118,8 +101,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-design-tokens_3.1.1_1695584679919_0.005276864353231048"
+		"tmp": "tmp/postcss-design-tokens_3.1.2_1702682577107_0.18553699565881354"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:44:40.077Z"
+	"_time": "2023-12-15T23:22:57.321Z"
 }
