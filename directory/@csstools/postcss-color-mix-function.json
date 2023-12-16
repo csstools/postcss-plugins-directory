@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-color-mix-function",
 	"description": "Use the color-mix function in CSS",
-	"version": "2.0.7",
+	"version": "2.0.8",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,36 +27,28 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-color-parser": "^1.4.0",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
-		"@csstools/postcss-progressive-custom-properties": "^3.0.2"
+		"@csstools/css-color-parser": "^1.5.0",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
+		"@csstools/postcss-progressive-custom-properties": "^3.0.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-mix-function#readme",
 	"repository": {
@@ -81,29 +73,21 @@
 		"syntax",
 		"xyz"
 	],
-	"csstools": {
-		"cssdbId": "color-mix",
-		"exportName": "postcssColorMixFunction",
-		"humanReadableName": "PostCSS Color Mix Function",
-		"specUrl": "https://www.w3.org/TR/css-color-5/#color-mix"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-color-mix-function@2.0.7",
-	"gitHead": "1c04cec2af0b1d97026d7b2951585e210af2e8f0",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-color-mix-function@2.0.8",
+	"gitHead": "d207603396efab1d838ce3dc148d5d7c6c1c0a27",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-57/g8aGo5eKFjEeJMiRKh8Qq43K2rCyk5ZZTvJ34TNl4zUtYU5DvLkIkOnhCtL8/a4z9oMA42aOnFPddRrScUQ==",
-		"shasum": "0fc9b638bd6b9578a52a50e3af66109ae52dc2b6",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-color-mix-function/-/postcss-color-mix-function-2.0.7.tgz",
-		"fileCount": 9,
-		"unpackedSize": 15069,
+		"integrity": "sha512-sGhk+TdZ2TeXspc6LSYSYC8WgzLlxoknUaObKgB0mk+dNjRQgSSIeCU+qrCwvHmwM+uTNKtiS8mntDzyQLHTTA==",
+		"shasum": "fab8561226ad40cd50d3aa7bb79c42d800332525",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-color-mix-function/-/postcss-color-mix-function-2.0.8.tgz",
+		"fileCount": 7,
+		"unpackedSize": 11766,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIHunB0vhhP4A7zL/Knfm1//Jq0XS6KqY/MwBhinzbvN3AiBurKPbioXFX/IkbRK2h82AjjRBFsqWPTdZ8sUsVqok6g=="
+				"sig": "MEQCIDRBxw/xepzVg+tfLjcrZb7CcDa4ydqtI4R8+GA2IOF7AiADsmZm5+lXWlYgMOo2Fbw1UNICw7FTeIBvjQkgdRRALA=="
 			}
 		]
 	},
@@ -128,8 +112,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-color-mix-function_2.0.7_1696872818696_0.35446415725091684"
+		"tmp": "tmp/postcss-color-mix-function_2.0.8_1702682772609_0.8554543865008042"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:33:38.924Z"
+	"_time": "2023-12-15T23:26:12.823Z"
 }
