@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-bundler",
 	"description": "Bundle CSS",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,39 +27,27 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
-		"@csstools/postcss-rebase-url": "^1.0.3"
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
+		"@csstools/postcss-rebase-url": "^1.0.4"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"@rmenke/css-package-conditional-3": "^1.0.0",
-		"@rmenke/css-package-main": "^1.0.0",
-		"open-props": "^1.6.10"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"stryker": "stryker run --logLevel error",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler#readme",
 	"repository": {
@@ -76,27 +64,21 @@
 		"postcss-plugin",
 		"url"
 	],
-	"csstools": {
-		"exportName": "postcssBundler",
-		"humanReadableName": "PostCSS Bundler"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-bundler@1.0.7",
-	"gitHead": "d1a91379790b86851d1835d65489984add92ef5c",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-bundler@1.0.8",
+	"gitHead": "8db442a8a150cf3c8589f22de9ef5494677d651e",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-LPhMspDTwDQVjdsPsoA9Yw8ZTJq1tTVB8Vsap4KH2Uw49RIvKgS6x4m4/Etxks32hMiuyBlFpQHdPILT4WV41A==",
-		"shasum": "12dc2fc9dc4dad4455b9b728f20406c8b21e6d13",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-bundler/-/postcss-bundler-1.0.7.tgz",
-		"fileCount": 23,
-		"unpackedSize": 34108,
+		"integrity": "sha512-6Bnd1TsmKHMvtTlgRRYyznMv8/THR+8NMtbUfc3dXbpSVdk69u2sABfNm5dfdFEo8KuHE3u4owFFFa76VBuF9w==",
+		"shasum": "340a77ac245cda55d9c25f4be10bc3111262c7cf",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-bundler/-/postcss-bundler-1.0.8.tgz",
+		"fileCount": 7,
+		"unpackedSize": 27393,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIHPbZ6C0EJ9d/88SihPqadsafe30op+hn/6A21rK2S/AAiAEHI2X+GhkdI/IRKaztILnmiSTkOesK8jSvTC1C78Fdw=="
+				"sig": "MEUCIFBYWFeg7eIcVHZc+pNHfxYTn+PsnWele/YYf1z1aRNSAiEA5qobHwPf+Ym6mVKfvW65NsxEc4cy8DjSl5axT0vdtxI="
 			}
 		]
 	},
@@ -121,8 +103,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-bundler_1.0.7_1698776214323_0.23955167672167055"
+		"tmp": "tmp/postcss-bundler_1.0.8_1702682694462_0.5989894893522041"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-31T18:16:54.624Z"
+	"_time": "2023-12-15T23:24:54.655Z"
 }
