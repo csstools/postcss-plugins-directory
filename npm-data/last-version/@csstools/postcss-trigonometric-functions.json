@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-trigonometric-functions",
 	"description": "Use sin(), cos(), tan(), acos(), atan(), and atan2() to compute trigonometric relationships",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,35 +27,27 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-calc": "^1.1.4",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1"
+		"@csstools/css-calc": "^1.1.5",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-trigonometric-functions#readme",
 	"repository": {
@@ -78,29 +70,21 @@
 		"tan",
 		"trigonometric"
 	],
-	"csstools": {
-		"cssdbId": "trigonometric-functions",
-		"exportName": "postcssTrigonometricFunctions",
-		"humanReadableName": "PostCSS Trigonometric Functions",
-		"specUrl": "https://www.w3.org/TR/css-values-4/#trig-funcs"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-trigonometric-functions@3.0.2",
-	"gitHead": "b893c50a130f5ac7145264661df8b4f3db642b54",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-trigonometric-functions@3.0.3",
+	"gitHead": "07763edc912c1ef10871fd76fbcfbf16547fddd9",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-AwzNhF4QOKaLOKvMljwwFkeYXwufhRO15G+kKohHkyoNOL75xWkN+W2Y9ik9tSeAyDv+cYNlYaF+o/a79WjVjg==",
-		"shasum": "b03d045015fc6e16d81e36e5783c545b5590a2f2",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-trigonometric-functions/-/postcss-trigonometric-functions-3.0.2.tgz",
-		"fileCount": 9,
-		"unpackedSize": 13984,
+		"integrity": "sha512-T/npTbDuMZ3vktEMuA05p1oeVd12Sy47qZP1vFhzNMUOdXGCK9vlm0tUSIlV5DdlbTJqKqq9FhGitZH9VTKrfQ==",
+		"shasum": "5704213191f158ba9828a280c9b75ade9373b920",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-trigonometric-functions/-/postcss-trigonometric-functions-3.0.3.tgz",
+		"fileCount": 7,
+		"unpackedSize": 11943,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDwAOyxfdnArJEbdSmnAYkhFqyruO0FqBrjP6Ku91DTVwIhAOS9EWetHgQaEdG9fdXlva9DKzTK7zjrc8Z/zCyNsJwB"
+				"sig": "MEYCIQD97xx2wv6z1x6wbYhYbQV0+Jd3PPXII0+HmtjT51BekQIhALYLOjdcmdUua9/kXA4gvARR8mXSvV/NEmV1eKzIQHAr"
 			}
 		]
 	},
@@ -125,8 +109,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-trigonometric-functions_3.0.2_1695584745933_0.25673421080711645"
+		"tmp": "tmp/postcss-trigonometric-functions_3.0.3_1702682688181_0.7991093719524083"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-24T19:45:46.138Z"
+	"_time": "2023-12-15T23:24:48.371Z"
 }

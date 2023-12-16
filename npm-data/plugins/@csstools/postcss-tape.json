@@ -1,9 +1,9 @@
 {
 	"_id": "@csstools/postcss-tape",
-	"_rev": "3-3f5001f841d8b2fba5cd281a7955b49f",
+	"_rev": "4-3c748f3060ed121f8f248d1f6329f2dd",
 	"name": "@csstools/postcss-tape",
 	"dist-tags": {
-		"latest": "3.0.1"
+		"latest": "3.0.2"
 	},
 	"versions": {
 		"2.0.0": {
@@ -317,14 +317,119 @@
 				"tmp": "tmp/postcss-tape_3.0.1_1693221050884_0.2191526793622227"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.2": {
+			"name": "@csstools/postcss-tape",
+			"description": "Quickly test PostCSS plugins",
+			"version": "3.0.2",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"type": "module",
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"dependencies": {
+				"postcss": "~8.4",
+				"postcss-8.4": "npm:postcss@~8.4",
+				"postcss-html": "^1.5.0"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"tape",
+				"testing",
+				"tests",
+				"tools"
+			],
+			"_id": "@csstools/postcss-tape@3.0.2",
+			"gitHead": "3112ff9aff5f2af9b7149d6c30912a42d9c77dbe",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-E6a5+LkW7g0F5B1zMq7S7kwTK30HrovRjoIaz3/wF0NizyXY4Las7QNUnBz41Y/mH3xQLEEQQBWcTF8fpid1ig==",
+				"shasum": "af72ddc40e401698b443348844a5f3798b4e7380",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-tape/-/postcss-tape-3.0.2.tgz",
+				"fileCount": 6,
+				"unpackedSize": 20614,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEAmHqBiZYEU1FPqMDZQKUN+zEenElsqwaNBglz0LoX7AiEA0C7Y0s+94qiYxxOcBP+sdvlnWkd5LYq+qClRktjyRUQ="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-tape_3.0.2_1702682094107_0.4742545211670295"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-02-28T10:40:46.677Z",
 		"2.0.0": "2023-02-28T10:40:46.974Z",
-		"modified": "2023-08-28T11:10:51.318Z",
+		"modified": "2023-12-15T23:14:54.471Z",
 		"3.0.0": "2023-07-03T08:08:02.976Z",
-		"3.0.1": "2023-08-28T11:10:51.085Z"
+		"3.0.1": "2023-08-28T11:10:51.085Z",
+		"3.0.2": "2023-12-15T23:14:54.270Z"
 	},
 	"maintainers": [
 		{
@@ -368,5 +473,5 @@
 	"license": "MIT-0",
 	"readme": "# PostCSS Tape for csstools/postcss-plugins\n\nSee [.tape.mjs](https://github.com/csstools/postcss-plugins/blob/main/plugins/postcss-base-plugin/.tape.mjs) in the base plugin for a minimal example.\n\n```js\nimport { postcssTape } from '@csstools/postcss-tape';\nimport plugin from '@csstools/postcss-base-plugin';\n\npostcssTape(plugin)({\n\tbasic: {\n\t\tmessage: \"supports basic usage\",\n\t},\n\t'basic:color': {\n\t\tmessage: \"supports { color: '<a color>' }\",\n\t\toptions: {\n\t\t\tcolor: 'purple'\n\t\t}\n\t},\n\texample: {\n\t\tmessage: \"minimal example\",\n\t},\n});\n```\n\nBrowse the [source code and tests here](https://github.com/csstools/postcss-plugins/tree/main/packages/postcss-tape) or see [tests in plugins](https://github.com/csstools/postcss-plugins/tree/main/plugins) for more usage details.\n\n## Quickly update all `expect.css` files.\n\nSet an env variable `REWRITE_EXPECTS` to `true` to update all `expect` files.\n\nexample :\n\n```json\n\t\"scripts\": {\n\t\t\"test\": \"node .tape.mjs \",\n\t\t\"test:rewrite-expects\": \"REWRITE_EXPECTS=true node .tape.mjs\"\n\t},\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 35
+	"_downloads": 61
 }

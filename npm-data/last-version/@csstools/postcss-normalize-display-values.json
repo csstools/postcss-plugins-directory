@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-normalize-display-values",
 	"description": "Use two values display syntax for inner and outer display types.",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,15 +20,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -36,17 +39,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"repository": {
 		"type": "git",
@@ -76,31 +68,25 @@
 		"table-caption",
 		"table-cell"
 	],
-	"csstools": {
-		"exportName": "postcssNormalizeDisplayValues",
-		"humanReadableName": "PostCSS Normalize Display Values"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-normalize-display-values@3.0.1",
-	"gitHead": "5758f36684c25444d4b6b407b9cc99397da364b9",
+	"_id": "@csstools/postcss-normalize-display-values@3.0.2",
+	"gitHead": "9a94743091f8409ac34e09c2b2cb35e228dd44c0",
+	"types": "./dist/index.d.ts",
 	"bugs": {
 		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins#readme",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-nUvRxI+ALJwkxZdPU4EDyuM380vP91sAGvI3jAOHs/sr3jfcCOzLkY6xKI1Mr526kZ3RivmMoYM/xq+XFyE/bw==",
-		"shasum": "8bacd4fa20434de67a7b1f4f64f6e4476922a98d",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-normalize-display-values/-/postcss-normalize-display-values-3.0.1.tgz",
-		"fileCount": 8,
-		"unpackedSize": 9432,
+		"integrity": "sha512-fCapyyT/dUdyPtrelQSIV+d5HqtTgnNP/BEG9IuhgXHt93Wc4CfC1bQ55GzKAjWrZbgakMQ7MLfCXEf3rlZJOw==",
+		"shasum": "9013e6ade2fbd4cd725438c9ff0b1000062cf20d",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-normalize-display-values/-/postcss-normalize-display-values-3.0.2.tgz",
+		"fileCount": 7,
+		"unpackedSize": 8566,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQDoVWHVbivGUTwZz2vzxBrTSNFVbe+fYaNMGwIHkjiU2QIgVFKpaeQcbO22p5S47wmqbVx6CiMUWDxx8AQjgrvK+nw="
+				"sig": "MEQCIA5uG3i91neUHbDZL8K23aBC8POZf2rwczw6cnl0rogUAiBuwAR8/kn6wwkNfjiVAdOdWSzMcIQ/pQ6n3Z5JQxUfoQ=="
 			}
 		]
 	},
@@ -125,8 +111,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-normalize-display-values_3.0.1_1695053390825_0.5654324231659842"
+		"tmp": "tmp/postcss-normalize-display-values_3.0.2_1702682430311_0.8115581944669932"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-18T16:09:51.090Z"
+	"_time": "2023-12-15T23:20:30.543Z"
 }

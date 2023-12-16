@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-logical",
-	"_rev": "24-3583d1f78eb9ec039b2e951002527d71",
+	"_rev": "25-8ff6ad918995be7d31ae1d350e6742df",
 	"name": "postcss-logical",
 	"description": "Use logical properties and values in CSS",
 	"dist-tags": {
-		"latest": "7.0.0"
+		"latest": "7.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -2285,25 +2285,156 @@
 				"tmp": "tmp/postcss-logical_7.0.0_1688372060844_0.08177454099056924"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.1": {
+			"name": "postcss-logical",
+			"description": "Use logical properties and values in CSS",
+			"version": "7.0.1",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"license": "MIT-0",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"type": "module",
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-logical"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"align",
+				"block",
+				"border",
+				"css",
+				"dir",
+				"directional",
+				"directions",
+				"end",
+				"flow",
+				"inline",
+				"logical",
+				"ltr",
+				"margin",
+				"padding",
+				"postcss",
+				"postcss-plugin",
+				"properties",
+				"property",
+				"relative",
+				"rtl",
+				"size",
+				"start",
+				"text",
+				"values"
+			],
+			"_id": "postcss-logical@7.0.1",
+			"gitHead": "a29bf95c88580c02a324fafcfb72598b0c302a96",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-8GwUQZE0ri0K0HJHkDv87XOLC8DE0msc+HoWLeKdtjDZEwpZ5xuK3QdV6FhmHSQW40LPkg43QzvATRAI3LsRkg==",
+				"shasum": "a3121f6510591b195321b16e65fbe13b1cfd3115",
+				"tarball": "https://registry.npmjs.org/postcss-logical/-/postcss-logical-7.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 32443,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIDKCS3wLVHZDODGB5CsBMk2AugaKyzOioBcoMHirVrrhAiEA3PoVt9Ov2n/vaq3nM2jou+bZzsTAxNrhHy/zuTEn3YY="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-logical_7.0.1_1702682349496_0.9957052356296339"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Logical Properties and Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-logical.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/logical-properties-and-values.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Logical Properties and Values]  lets you use logical, rather than physical, direction and dimension mappings in CSS, following the [CSS Logical Properties and Values] specification.\n\n```pcss\n.element {\n\tblock-size: 100px;\n\tmax-inline-size: 400px;\n\tinline-size: 200px;\n\tpadding-block: 10px 20px;\n\tmargin-inline: auto;\n\tborder-block-width: 2px;\n\tborder-block-style: solid;\n}\n\n/* becomes */\n\n.element {\n\theight: 100px;\n\tmax-width: 400px;\n\twidth: 200px;\n\tpadding-top: 10px;\n\tpadding-bottom: 20px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tborder-top-width: 2px;\n\tborder-bottom-width: 2px;\n\tborder-top-style: solid;\n\tborder-bottom-style: solid;\n}\n```\n\n## Usage\n\nAdd [PostCSS Logical Properties and Values] to your project:\n\n```bash\nnpm install postcss postcss-logical --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLogical = require('postcss-logical');\n\npostcss([\n\tpostcssLogical(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Logical Properties and Values] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### blockDirection & inlineDirection\n\nThe `blockDirection` and `inlineDirection` options allow you to specify the direction of the block and inline axes. The default values are `top-to-bottom` and `left-to-right` respectively which would match any latin language.\n\nYou might want to tweak these values if you are using a different writing system, such as Arabic, Hebrew or Chinese for example.\n\n```js\npostcssLogical({\n\tblockDirection: 'right-to-left',\n\tinlineDirection: 'top-to-bottom'\n})\n```\n\n```pcss\n.element {\n\tblock-size: 100px;\n\tmax-inline-size: 400px;\n\tinline-size: 200px;\n\tpadding-block: 10px 20px;\n\tmargin-inline: auto;\n\tborder-block-width: 2px;\n\tborder-block-style: solid;\n}\n\n/* becomes */\n\n.element {\n\twidth: 100px;\n\tmax-height: 400px;\n\theight: 200px;\n\tpadding-right: 10px;\n\tpadding-left: 20px;\n\tmargin-top: auto;\n\tmargin-bottom: auto;\n\tborder-right-width: 2px;\n\tborder-left-width: 2px;\n\tborder-right-style: solid;\n\tborder-left-style: solid;\n}\n```\n\nEach direction must be one of the following:\n\n- `top-to-bottom`\n- `bottom-to-top`\n- `left-to-right`\n- `right-to-left`\n\nYou can't mix two vertical directions or two horizontal directions so for example `top-to-bottom` and `right-to-left` are valid, but `top-to-bottom` and `bottom-to-top` are not.\n\nPlease do note that `text-align` won't be transformed if `inlineDirection` becomes vertical.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#logical-properties-and-values\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-logical\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Logical Properties and Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical\n[CSS Logical Properties and Values]: https://www.w3.org/TR/css-logical-1/\n",
+	"readme": "# PostCSS Logical Properties and Values [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-logical.svg\" height=\"20\">][npm-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/logical-properties-and-values.svg\" height=\"20\">][css-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install postcss-logical --save-dev\n```\n\n[PostCSS Logical Properties and Values]  lets you use logical, rather than physical, direction and dimension mappings in CSS, following the [CSS Logical Properties and Values] specification.\n\n```pcss\n.element {\n\tblock-size: 100px;\n\tmax-inline-size: 400px;\n\tinline-size: 200px;\n\tpadding-block: 10px 20px;\n\tmargin-inline: auto;\n\tborder-block-width: 2px;\n\tborder-block-style: solid;\n}\n\n/* becomes */\n\n.element {\n\theight: 100px;\n\tmax-width: 400px;\n\twidth: 200px;\n\tpadding-top: 10px;\n\tpadding-bottom: 20px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tborder-top-width: 2px;\n\tborder-bottom-width: 2px;\n\tborder-top-style: solid;\n\tborder-bottom-style: solid;\n}\n```\n\n## Usage\n\nAdd [PostCSS Logical Properties and Values] to your project:\n\n```bash\nnpm install postcss postcss-logical --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssLogical = require('postcss-logical');\n\npostcss([\n\tpostcssLogical(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Logical Properties and Values] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### blockDirection & inlineDirection\n\nThe `blockDirection` and `inlineDirection` options allow you to specify the direction of the block and inline axes. The default values are `top-to-bottom` and `left-to-right` respectively, which would match any latin language.\n\n**You should tweak these values so that they are specific to your language and writing mode.**\n\n```js\npostcssLogical({\n\tblockDirection: 'right-to-left',\n\tinlineDirection: 'top-to-bottom'\n})\n```\n\n```pcss\n.element {\n\tblock-size: 100px;\n\tmax-inline-size: 400px;\n\tinline-size: 200px;\n\tpadding-block: 10px 20px;\n\tmargin-inline: auto;\n\tborder-block-width: 2px;\n\tborder-block-style: solid;\n}\n\n/* becomes */\n\n.element {\n\twidth: 100px;\n\tmax-height: 400px;\n\theight: 200px;\n\tpadding-right: 10px;\n\tpadding-left: 20px;\n\tmargin-top: auto;\n\tmargin-bottom: auto;\n\tborder-right-width: 2px;\n\tborder-left-width: 2px;\n\tborder-right-style: solid;\n\tborder-left-style: solid;\n}\n```\n\nEach direction must be one of the following:\n\n- `top-to-bottom`\n- `bottom-to-top`\n- `left-to-right`\n- `right-to-left`\n\nYou can't mix two vertical directions or two horizontal directions so for example `top-to-bottom` and `right-to-left` are valid, but `top-to-bottom` and `bottom-to-top` are not.\n\nPlease do note that `text-align` won't be transformed if `inlineDirection` becomes vertical.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#logical-properties-and-values\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-logical\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Logical Properties and Values]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical\n[CSS Logical Properties and Values]: https://www.w3.org/TR/css-logical-1/\n",
 	"maintainers": [
 		{
-			"email": "romainmenke@gmail.com",
-			"name": "romainmenke"
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
 		},
 		{
-			"email": "sombragriselros@gmail.com",
-			"name": "alaguna"
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
 		},
 		{
-			"email": "jonathantneal@hotmail.com",
-			"name": "jonathantneal"
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
 		}
 	],
 	"time": {
-		"modified": "2023-07-24T15:03:58.221Z",
+		"modified": "2023-12-15T23:19:09.899Z",
 		"created": "2017-08-09T17:03:26.036Z",
 		"1.0.0": "2017-08-09T17:03:26.036Z",
 		"1.0.2": "2017-08-15T19:58:26.513Z",
@@ -2323,7 +2454,8 @@
 		"6.0.1": "2023-01-28T07:45:05.417Z",
 		"6.1.0": "2023-02-15T08:22:09.463Z",
 		"6.2.0": "2023-05-19T15:38:15.601Z",
-		"7.0.0": "2023-07-03T08:14:21.004Z"
+		"7.0.0": "2023-07-03T08:14:21.004Z",
+		"7.0.1": "2023-12-15T23:19:09.686Z"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical#readme",
 	"keywords": [
@@ -2377,5 +2509,5 @@
 			"email": "jonathantneal@hotmail.com"
 		}
 	],
-	"_downloads": 26815438
+	"_downloads": 26620336
 }

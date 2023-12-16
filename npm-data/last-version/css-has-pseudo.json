@@ -1,7 +1,7 @@
 {
 	"name": "css-has-pseudo",
 	"description": "Style elements relative to other elements in CSS",
-	"version": "6.0.0",
+	"version": "6.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,15 +31,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		},
 		"./browser": {
 			"import": "./dist/browser.mjs",
@@ -51,26 +54,12 @@
 		}
 	},
 	"dependencies": {
-		"@csstools/selector-specificity": "^3.0.0",
+		"@csstools/selector-specificity": "^3.0.1",
 		"postcss-selector-parser": "^6.0.13",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"@mrhenry/core-web": "^1.1.1",
-		"puppeteer": "^20.7.4"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./src/encode/test.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:browser": "node ./test/_browser.mjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/css-has-pseudo#readme",
 	"repository": {
@@ -94,38 +83,34 @@
 		"pseudo",
 		"selector"
 	],
-	"csstools": {
-		"cssdbId": "has-pseudo-class",
-		"exportName": "postcssHasPseudo",
-		"humanReadableName": "PostCSS Has Pseudo",
-		"specUrl": "https://www.w3.org/TR/selectors-4/#has-pseudo"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "3f1d2fc9d9df4e7d7f954786d29de3b8081ad719",
-	"_id": "css-has-pseudo@6.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "css-has-pseudo@6.0.1",
+	"gitHead": "60419f5097416007bcc8207bc081d3d6ef5c9448",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-X+r+JBuoO37FBOWVNhVJhxtSBUFHgHbrcc0CjFT28JEdOw1qaDwABv/uunyodUuSy2hMPe9j/HjssxSlvUmKjg==",
-		"shasum": "b8c8f39a19bc83c5be59fd251510a7e443c47968",
-		"tarball": "https://registry.npmjs.org/css-has-pseudo/-/css-has-pseudo-6.0.0.tgz",
-		"fileCount": 14,
-		"unpackedSize": 194739,
+		"integrity": "sha512-WwoVKqNxApfEI7dWFyaHoeFCcUPD+lPyjL6lNpRUNX7IyIUuVpawOTwwA5D0ZR6V2xQZonNPVj8kEcxzEaAQfQ==",
+		"shasum": "05be77f1414315c3880a1fcc96a72471af4a8ecf",
+		"tarball": "https://registry.npmjs.org/css-has-pseudo/-/css-has-pseudo-6.0.1.tgz",
+		"fileCount": 13,
+		"unpackedSize": 189941,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIBwcb5oe66jDgm5P1YXtp3hNYbD2lCRYmMGanwwXZwLaAiBGtyEmlCbbX7kEDD7VjD8TrLnk/xz8xZ4wo6E1KpHZNQ=="
+				"sig": "MEUCICcZeCympiXciOqjDmmFg+ULzHnJFP8iuB9pl+9RXGyuAiEA8DjNVx7WMJD1j0RVObl5zN7yoT6fX/GgbeejzfLItNw="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -137,8 +122,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/css-has-pseudo_6.0.0_1688371805607_0.07416675001795481"
+		"tmp": "tmp/css-has-pseudo_6.0.1_1702682241873_0.07294281156503035"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:10:05.884Z"
+	"_time": "2023-12-15T23:17:22.031Z"
 }

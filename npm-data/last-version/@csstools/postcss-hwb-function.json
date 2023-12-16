@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-hwb-function",
 	"description": "Use hwb() color functions in CSS",
-	"version": "3.0.6",
+	"version": "3.0.7",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,35 +20,27 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-color-parser": "^1.4.0",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1"
+		"@csstools/css-color-parser": "^1.5.0",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-hwb-function#readme",
 	"repository": {
@@ -76,27 +68,21 @@
 		"space",
 		"syntax"
 	],
-	"csstools": {
-		"exportName": "postcssHWBFunction",
-		"humanReadableName": "PostCSS HWB Function"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-hwb-function@3.0.6",
-	"gitHead": "ddc1ba31a8bdb1db0b6b573a5353ba4293547db1",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-hwb-function@3.0.7",
+	"gitHead": "7701e585a1f382fd53ae4546ca825633e55acdfb",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-uQgWt2Ho2yy2S6qthWY7mD5v57NKxi6dD1NB8nAybU5bJSsm+hLXRGm3/zbOH4xNrqO3Cl60DFSNlSrUME3Xjg==",
-		"shasum": "7d56583c6c8607352718a802f87e51edf4f9365e",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-hwb-function/-/postcss-hwb-function-3.0.6.tgz",
-		"fileCount": 10,
-		"unpackedSize": 18051,
+		"integrity": "sha512-iXs1gxKtev8YNP5bOF26TAsnMfcxnCRLpKItQ067RphYECKEK/xWm4Z0r4ChmV1U1eq+lbdH5ZIb2cju4o5akA==",
+		"shasum": "c45971f6119f060672ebec7f92d71e3ca018c981",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-hwb-function/-/postcss-hwb-function-3.0.7.tgz",
+		"fileCount": 8,
+		"unpackedSize": 14712,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIGzH8I23kF3WoEckj4T/r/brqWPW+ofrYEnmTkl3y+zoAiEAqLoXa9gc9T9bxBXYdeieScYU0f59t/EEJDofRkc81kA="
+				"sig": "MEYCIQDdGvGHcynAYg6bMBqRtGe+FqHu9FdGO7GLglXHpkA1kQIhAI2KcHXlUxl1ZFP4AjqizEXMhp1C5POgfSlVdkqgsV4p"
 			}
 		]
 	},
@@ -121,8 +107,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-hwb-function_3.0.6_1696872840431_0.1953051304689697"
+		"tmp": "tmp/postcss-hwb-function_3.0.7_1702682798123_0.36424795795941045"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:34:00.607Z"
+	"_time": "2023-12-15T23:26:38.334Z"
 }
