@@ -1,7 +1,7 @@
 {
 	"name": "@csstools/postcss-cascade-layers",
 	"description": "Use cascade layers in CSS",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"contributors": [
 		{
 			"name": "Olu Niyi-Awosusi",
@@ -35,37 +35,26 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/selector-specificity": "^3.0.0",
+		"@csstools/selector-specificity": "^3.0.1",
 		"postcss-selector-parser": "^6.0.13"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-bundler": "^1.0.3",
-		"@csstools/postcss-tape": "*",
-		"puppeteer": "^21.4.1"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:browser": "node ./test/_browser.mjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-cascade-layers#readme",
 	"repository": {
@@ -85,30 +74,21 @@
 		"selectors",
 		"specificity"
 	],
-	"csstools": {
-		"assumesToProcessBundledCSS": true,
-		"cssdbId": "cascade-layers",
-		"exportName": "postcssCascadeLayers",
-		"humanReadableName": "PostCSS Cascade Layers",
-		"specUrl": "https://www.w3.org/TR/css-cascade-5/#layering"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "@csstools/postcss-cascade-layers@4.0.1",
-	"gitHead": "b25f9251f70564479c98e5875cac8c7cf45e5c72",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "@csstools/postcss-cascade-layers@4.0.2",
+	"gitHead": "8a4bb2b2dc9332ebc695c9a50dff69a7a53d82fd",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-UYFuFL9GgVnftg9v7tBvVEBRLaBeAD66euD+yYy5fYCUld9ZIWTJNCE30hm6STMEdt6FL5xzeVw1lAZ1tpvUEg==",
-		"shasum": "43d12cb0ffe9ab461bc41143dc554c6e1cb633e6",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-4.0.1.tgz",
-		"fileCount": 21,
-		"unpackedSize": 36571,
+		"integrity": "sha512-PqM+jvg5T2tB4FHX+akrMGNWAygLupD4FNUjcv4PSvtVuWZ6ISxuo37m4jFGU7Jg3rCfloGzKd0+xfr5Ec3vZQ==",
+		"shasum": "1a9212b150bc6106bcb1dfd4fc03f6fb42240037",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-cascade-layers/-/postcss-cascade-layers-4.0.2.tgz",
+		"fileCount": 7,
+		"unpackedSize": 31004,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCgkAgk9q45EVnIChyIlg4Naseaupk3jJep1QMR+lyLVwIgdsDy0lomv+JV5Hcy16pgOD4DC5ifUuVv/ZUC4q96/jU="
+				"sig": "MEQCIGr8qZXNhaJP6G1efGGQmiZ3yUmy/UHGEz1Hce2W8PcjAiA18AHuPaRyFNooSPrlaWOgOPu62u2afJEY+Cb9nEaXNA=="
 			}
 		]
 	},
@@ -133,8 +113,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-cascade-layers_4.0.1_1698776208322_0.057876323559521214"
+		"tmp": "tmp/postcss-cascade-layers_4.0.2_1702682267159_0.48655172794695756"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-31T18:16:48.565Z"
+	"_time": "2023-12-15T23:17:47.332Z"
 }
