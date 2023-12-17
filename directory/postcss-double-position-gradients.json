@@ -1,7 +1,7 @@
 {
 	"name": "postcss-double-position-gradients",
 	"description": "Use double-position gradients in CSS",
-	"version": "5.0.2",
+	"version": "5.0.3",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,34 +20,26 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/postcss-progressive-custom-properties": "^3.0.2",
+		"@csstools/postcss-progressive-custom-properties": "^3.0.3",
 		"postcss-value-parser": "^4.2.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-double-position-gradients#readme",
 	"repository": {
@@ -73,27 +65,21 @@
 		"stop",
 		"syntax"
 	],
-	"csstools": {
-		"exportName": "postcssDoublePositionGradients",
-		"humanReadableName": "PostCSS Double Position Gradients"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "postcss-double-position-gradients@5.0.2",
-	"gitHead": "449f88630f38f005959fffd59036a27a9409027e",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "postcss-double-position-gradients@5.0.3",
+	"gitHead": "03d034cd241f3f7b8d9a7686bd9b2068d42348f5",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-KTbvdOOy8z8zb0BTkEg4/1vqlRlApdvjw8/pFoehgQl0WVO+fezDGlvo0B8xRA+XccA7ohkQCULKNsiNOx70Cw==",
-		"shasum": "a55ed4d6a395f324aa5535ea8c42c74e8ace2651",
-		"tarball": "https://registry.npmjs.org/postcss-double-position-gradients/-/postcss-double-position-gradients-5.0.2.tgz",
-		"fileCount": 10,
-		"unpackedSize": 15810,
+		"integrity": "sha512-QKYpwmaSm6HcdS0ndAuWSNNMv78R1oSySoh3mYBmctHWr2KWcwPJVakdOyU4lvFVW0GRu9wfIQwGeM4p3xU9ow==",
+		"shasum": "9345b273bd16056665209ce260be0d36ac211f65",
+		"tarball": "https://registry.npmjs.org/postcss-double-position-gradients/-/postcss-double-position-gradients-5.0.3.tgz",
+		"fileCount": 7,
+		"unpackedSize": 12729,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQD1wZ6KkdLx8iKxNrj5F3Yg3Ilbckb/UeDrXg4rXjWHlwIhAL4/7bV6gXR8M7xrh0NkfbuLJbOBl+uuY6zu2olyccYG"
+				"sig": "MEQCIFdRbA27OvDrdi+Z4oV5ZkObn+78cahcYb153yk3Bk7VAiArmuy/P2754nkstDhJIolVfcprYwWeECV2/d59aFbq7w=="
 			}
 		]
 	},
@@ -118,8 +104,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-double-position-gradients_5.0.2_1696872829214_0.8923776811152901"
+		"tmp": "tmp/postcss-double-position-gradients_5.0.3_1702682582985_0.8533735386580665"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:33:49.380Z"
+	"_time": "2023-12-15T23:23:03.209Z"
 }
