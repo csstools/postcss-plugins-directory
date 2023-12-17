@@ -1,7 +1,7 @@
 {
 	"name": "postcss-gap-properties",
 	"description": "Use the gap, column-gap, and row-gap shorthand properties in CSS",
-	"version": "5.0.0",
+	"version": "5.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,30 +31,22 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gap-properties#readme",
 	"repository": {
@@ -77,38 +69,34 @@
 		"rows",
 		"shorthands"
 	],
-	"csstools": {
-		"cssdbId": "gap-properties",
-		"exportName": "postcssGapProperties",
-		"humanReadableName": "PostCSS Gap Properties",
-		"specUrl": "https://www.w3.org/TR/css-grid-1/#gutters"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "9e40c9a8cc03cdb68827d786a1d3221feb641327",
-	"_id": "postcss-gap-properties@5.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "postcss-gap-properties@5.0.1",
+	"gitHead": "a0e29544b73520fde3f1de63bce3f51409cfcaa3",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-YjsEEL6890P7MCv6fch6Am1yq0EhQCJMXyT4LBohiu87+4/WqR7y5W3RIv53WdA901hhytgRvjlrAhibhW4qsA==",
-		"shasum": "3bd77f3d51facb1da404b4edd72b8203929385a5",
-		"tarball": "https://registry.npmjs.org/postcss-gap-properties/-/postcss-gap-properties-5.0.0.tgz",
+		"integrity": "sha512-k2z9Cnngc24c0KF4MtMuDdToROYqGMMUQGcE6V0odwjHyOHtaDBlLeRBV70y9/vF7KIbShrTRZ70JjsI1BZyWw==",
+		"shasum": "887b64655f42370b43f0ab266cc6dbabf504d276",
+		"tarball": "https://registry.npmjs.org/postcss-gap-properties/-/postcss-gap-properties-5.0.1.tgz",
 		"fileCount": 7,
-		"unpackedSize": 8377,
+		"unpackedSize": 6992,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQC/E+DegbnV5rT0vW3vLr/XnVVO0ys3TRgoA+BO+EEwxgIgcY+wjFzCa2w8szxPSPOeFLQkh8pLvm9wunZg6pn/4x4="
+				"sig": "MEUCIFmVixczfib52UN8SmfZiD1hv0+SNJDCzl3AWc93RhA4AiEAst+QRKUOplnYechHNdo8Lk1R5Go5zw+gTH3ZXYnVgH4="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -120,8 +108,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-gap-properties_5.0.0_1688372016289_0.43894548908937114"
+		"tmp": "tmp/postcss-gap-properties_5.0.1_1702682321654_0.39237257270129167"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:13:36.484Z"
+	"_time": "2023-12-15T23:18:41.835Z"
 }
