@@ -1,7 +1,7 @@
 {
 	"name": "postcss-focus-visible",
 	"description": "Use the :focus-visible pseudo-selector in CSS",
-	"version": "9.0.0",
+	"version": "9.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -27,15 +27,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -43,19 +46,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*",
-		"puppeteer": "^20.7.4"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:browser": "node ./test/_browser.mjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-focus-visible#readme",
 	"repository": {
@@ -92,38 +82,34 @@
 		"touch",
 		"trackpad"
 	],
-	"csstools": {
-		"cssdbId": "focus-visible-pseudo-class",
-		"exportName": "postcssFocusVisible",
-		"humanReadableName": "PostCSS Focus Visible",
-		"specUrl": "https://www.w3.org/TR/selectors-4/#the-focus-visible-pseudo"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "dc54e99f7361cb91abee2ca09ab2186ea40cb5b5",
-	"_id": "postcss-focus-visible@9.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "postcss-focus-visible@9.0.1",
+	"gitHead": "8aad8daac777ad10158c4559c1c8c9e1e89ee039",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-zA4TbVaIaT8npZBEROhZmlc+GBKE8AELPHXE7i4TmIUEQhw/P/mSJfY9t6tBzpQ1rABeGtEOHYrW4SboQeONMQ==",
-		"shasum": "a81227428d6f1e524099c6581f7c7132f987e382",
-		"tarball": "https://registry.npmjs.org/postcss-focus-visible/-/postcss-focus-visible-9.0.0.tgz",
+		"integrity": "sha512-N2VQ5uPz3Z9ZcqI5tmeholn4d+1H14fKXszpjogZIrFbhaq0zNAtq8sAnw6VLiqGbL8YBzsnu7K9bBkTqaRimQ==",
+		"shasum": "eede1032ce86b3bb2556d93ca5df63c68dfc2559",
+		"tarball": "https://registry.npmjs.org/postcss-focus-visible/-/postcss-focus-visible-9.0.1.tgz",
 		"fileCount": 7,
-		"unpackedSize": 13259,
+		"unpackedSize": 10747,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQD4YL4+N5SNHK7B2dMKkFpYIEHQAP9N9mtbyd5Q8pi5uAIhAME5WSKzwjnd+sZQRAqvvvaYSK44JRLpWmALc91FBSsm"
+				"sig": "MEUCIQD8swhtAy/BuF5pRhRPdxUlIPLori79lzrVk3k0MqNAfQIgB82rdOM7xE4HWF3vUmLlhpXkcQIUoY60ixwwZi82lo4="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -135,8 +121,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-focus-visible_9.0.0_1688371975461_0.22786729988020937"
+		"tmp": "tmp/postcss-focus-visible_9.0.1_1702682302724_0.778558827121697"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:12:55.646Z"
+	"_time": "2023-12-15T23:18:22.923Z"
 }
