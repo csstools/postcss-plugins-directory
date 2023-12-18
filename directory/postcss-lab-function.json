@@ -1,7 +1,7 @@
 {
 	"name": "postcss-lab-function",
 	"description": "Use lab() and lch() color functions in CSS",
-	"version": "6.0.7",
+	"version": "6.0.8",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,36 +20,28 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/css-color-parser": "^1.4.0",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
-		"@csstools/postcss-progressive-custom-properties": "^3.0.2"
+		"@csstools/css-color-parser": "^1.5.0",
+		"@csstools/css-parser-algorithms": "^2.4.0",
+		"@csstools/css-tokenizer": "^2.2.2",
+		"@csstools/postcss-progressive-custom-properties": "^3.0.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-lab-function#readme",
 	"repository": {
@@ -76,28 +68,21 @@
 		"space",
 		"syntax"
 	],
-	"csstools": {
-		"cssdb": "lab-function",
-		"exportName": "postcssLabFunction",
-		"humanReadableName": "PostCSS Lab Function"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "postcss-lab-function@6.0.7",
-	"gitHead": "260de3b2fa6cf6ca25bcaf680aad449972c336a6",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "postcss-lab-function@6.0.8",
+	"gitHead": "456bdcf6f3b02545131b856cf191e2217aee2cd5",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-4d1lhDVPukHFqkMv4G5vVcK+tgY52vwb5uR1SWKOaO5389r2q8fMxBWuXSW+YtbCOEGP0/X9KERi9E9le2pJuw==",
-		"shasum": "b1dd0ad5a4c993b7695614239754b9be48f3b24b",
-		"tarball": "https://registry.npmjs.org/postcss-lab-function/-/postcss-lab-function-6.0.7.tgz",
-		"fileCount": 9,
-		"unpackedSize": 20677,
+		"integrity": "sha512-agYs7R9Z5gnX837fCkH8TEQIHdhyDsMPPnpuuENt/dxoDVAykBaqbdxIN4DagOj+ZQo20iRNNJeY3MsFcdI6Sg==",
+		"shasum": "e5bacdb7235449168972bc6fbf8eb4a19696ae1f",
+		"tarball": "https://registry.npmjs.org/postcss-lab-function/-/postcss-lab-function-6.0.8.tgz",
+		"fileCount": 7,
+		"unpackedSize": 13749,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDr8FHNqG04zWzCzrPmyIypazPY54Cozhn/pfqapEIxLQIhAM0MHrvwmOAy9GO0d4yVNaivu7Q0Rc8bo1VDB9qkQE6f"
+				"sig": "MEUCIQCxJ1tffeUSBEC5rJNpaLHo3UjOV28ztWtSIqTuhNoYIQIgMF4yvIug5JgLXUAx2B2Ky0xlwqxgat3PcAEoyU32OXg="
 			}
 		]
 	},
@@ -122,8 +107,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-lab-function_6.0.7_1696872850240_0.6656860316619386"
+		"tmp": "tmp/postcss-lab-function_6.0.8_1702682804238_0.3556736823793072"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:34:10.376Z"
+	"_time": "2023-12-15T23:26:44.436Z"
 }
