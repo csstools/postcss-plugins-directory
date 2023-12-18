@@ -1,7 +1,7 @@
 {
 	"name": "postcss-image-set-function",
 	"description": "Display resolution-dependent images using the image-set() function in CSS",
-	"version": "6.0.1",
+	"version": "6.0.2",
 	"author": {
 		"name": "Jonathan Neal",
 		"email": "jonathantneal@hotmail.com"
@@ -20,15 +20,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -36,17 +39,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-image-set-function#readme",
 	"repository": {
@@ -69,27 +61,21 @@
 		"resolution",
 		"responsive"
 	],
-	"csstools": {
-		"exportName": "postcssImageSetFunction",
-		"humanReadableName": "PostCSS image-set() Function"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"_id": "postcss-image-set-function@6.0.1",
-	"gitHead": "c73e36f891ff8c2b267bcd5bc3a303bd2d8a89d0",
-	"_nodeVersion": "20.5.0",
-	"_npmVersion": "9.8.0",
+	"_id": "postcss-image-set-function@6.0.2",
+	"gitHead": "bdeedf8645be361d7ae26b843720eb853336908a",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-VlZncC9hhZ5tg0JllY4g6Z28BeoPO8DIkelioEEkXL0AA0IORlqYpTi2L8TUnl4YQrlwvBgxVy+mdZJw5R/cIQ==",
-		"shasum": "e2bba0a0536a0c70f63933f7c5df68742e9615ca",
-		"tarball": "https://registry.npmjs.org/postcss-image-set-function/-/postcss-image-set-function-6.0.1.tgz",
-		"fileCount": 13,
-		"unpackedSize": 18841,
+		"integrity": "sha512-/O1xwqpJiz/apxGQi7UUfv1xUcorvkHZfvCYHPpRxxZj2WvjD0rg0+/+c+u5/Do5CpUg3XvfYxMrhcnjW1ArDQ==",
+		"shasum": "ddf62a4468207ce7de2f99154325adbe6c95c032",
+		"tarball": "https://registry.npmjs.org/postcss-image-set-function/-/postcss-image-set-function-6.0.2.tgz",
+		"fileCount": 7,
+		"unpackedSize": 15318,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIAGKlRrYrL7XW5kU4TuFRjD2Yit2Xu2aujkYf6/nxPuLAiB9puGXmACDw4vWw1z5CDtU4hXPpAh/EkTtGY21oMEsQA=="
+				"sig": "MEYCIQD/2gx/WoK++au+UIWObP/MtRChXgoBptTmP40Yc8IveQIhAJkoIS8LJc+wreqn2vvQVVBAeMNgSnytzbZ0sQFyEqX6"
 			}
 		]
 	},
@@ -114,8 +100,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-image-set-function_6.0.1_1695053369740_0.035892931835954434"
+		"tmp": "tmp/postcss-image-set-function_6.0.2_1702682327589_0.21453860968819116"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-09-18T16:09:29.969Z"
+	"_time": "2023-12-15T23:18:47.833Z"
 }
