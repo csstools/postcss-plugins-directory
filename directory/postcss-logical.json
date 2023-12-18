@@ -1,7 +1,7 @@
 {
 	"name": "postcss-logical",
 	"description": "Use logical properties and values in CSS",
-	"version": "7.0.0",
+	"version": "7.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,15 +31,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -47,17 +50,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical#readme",
 	"repository": {
@@ -94,38 +86,34 @@
 		"text",
 		"values"
 	],
-	"csstools": {
-		"cssdbId": "logical-properties-and-values",
-		"exportName": "postcssLogical",
-		"humanReadableName": "PostCSS Logical Properties and Values",
-		"specUrl": "https://www.w3.org/TR/css-logical-1/"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "3c8d24b162ebafd746044b834069cc7baab287fd",
-	"_id": "postcss-logical@7.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "postcss-logical@7.0.1",
+	"gitHead": "a29bf95c88580c02a324fafcfb72598b0c302a96",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-zYf3vHkoW82f5UZTEXChTJvH49Yl9X37axTZsJGxrCG2kOUwtaAoz9E7tqYg0lsIoJLybaL8fk/2mOi81zVIUw==",
-		"shasum": "9a83426e716e3c8f957dda3fd874edbcf22c754e",
-		"tarball": "https://registry.npmjs.org/postcss-logical/-/postcss-logical-7.0.0.tgz",
-		"fileCount": 21,
-		"unpackedSize": 39892,
+		"integrity": "sha512-8GwUQZE0ri0K0HJHkDv87XOLC8DE0msc+HoWLeKdtjDZEwpZ5xuK3QdV6FhmHSQW40LPkg43QzvATRAI3LsRkg==",
+		"shasum": "a3121f6510591b195321b16e65fbe13b1cfd3115",
+		"tarball": "https://registry.npmjs.org/postcss-logical/-/postcss-logical-7.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 32443,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCEBm6G48CbQRa2IJwUv/VpnmVP1C8UY62CALaTWlWgAQIgH4FMWKdL/8DMJBQBy4hbNbJEIqEdY/R7vS7teTMcaQg="
+				"sig": "MEUCIDKCS3wLVHZDODGB5CsBMk2AugaKyzOioBcoMHirVrrhAiEA3PoVt9Ov2n/vaq3nM2jou+bZzsTAxNrhHy/zuTEn3YY="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -137,8 +125,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-logical_7.0.0_1688372060844_0.08177454099056924"
+		"tmp": "tmp/postcss-logical_7.0.1_1702682349496_0.9957052356296339"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:14:21.004Z"
+	"_time": "2023-12-15T23:19:09.686Z"
 }
