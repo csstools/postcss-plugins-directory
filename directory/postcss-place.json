@@ -1,7 +1,7 @@
 {
 	"name": "postcss-place",
 	"description": "Use a place-* shorthand for align-* and justify-* in CSS",
-	"version": "9.0.0",
+	"version": "9.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,15 +31,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -47,17 +50,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-place#readme",
 	"repository": {
@@ -80,38 +72,34 @@
 		"selfs",
 		"shorthands"
 	],
-	"csstools": {
-		"cssdbId": "place-properties",
-		"exportName": "postcssPlace",
-		"humanReadableName": "PostCSS Place Properties",
-		"specUrl": "https://www.w3.org/TR/css-align-3/#place-content"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "3c6b702f5c6a1b1aa9e8af0953ae889ec8cc6fef",
-	"_id": "postcss-place@9.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "postcss-place@9.0.1",
+	"gitHead": "68acf0f89550000c6c4bc576d408642286b5d46b",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-qLEPD9VPH5opDVemwmRaujODF9nExn24VOC3ghgVLEvfYN7VZLwJHes0q/C9YR5hI2UC3VgBE8Wkdp1TxCXhtg==",
-		"shasum": "7e47851bf40d16ce06f6013453b706100ca6c102",
-		"tarball": "https://registry.npmjs.org/postcss-place/-/postcss-place-9.0.0.tgz",
-		"fileCount": 8,
-		"unpackedSize": 9870,
+		"integrity": "sha512-JfL+paQOgRQRMoYFc2f73pGuG/Aw3tt4vYMR6UA3cWVMxivviPTnMFnFTczUJOA4K2Zga6xgQVE+PcLs64WC8Q==",
+		"shasum": "c08c46a94e639c1ee3457ac96d50c50a89bd6ac3",
+		"tarball": "https://registry.npmjs.org/postcss-place/-/postcss-place-9.0.1.tgz",
+		"fileCount": 7,
+		"unpackedSize": 7362,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDQlaiNJyIvkDGsbQQjiMSNyefA6P1Rhu52K0+kDxFGGwIhAN61XeM4XSVO3bsSM1qXC3xE9w1bYQjnYECSJcGiCeIb"
+				"sig": "MEYCIQD3WtYuXYW3L4pvOJmcmbcQI+JLCF9WAfV4wb34i4cE+wIhANAk6Zef87AVBMT7w0bwbzOf7+7P/a6iWRvee67Tz+Qw"
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -123,8 +111,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-place_9.0.0_1688372196495_0.6489555508751526"
+		"tmp": "tmp/postcss-place_9.0.1_1702682445706_0.4131690088206381"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:16:36.696Z"
+	"_time": "2023-12-15T23:20:45.887Z"
 }
