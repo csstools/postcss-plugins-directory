@@ -1,7 +1,7 @@
 {
 	"name": "postcss-overflow-shorthand",
 	"description": "Use the overflow shorthand in CSS",
-	"version": "5.0.0",
+	"version": "5.0.1",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -31,15 +31,18 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
@@ -47,17 +50,6 @@
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-overflow-shorthand#readme",
 	"repository": {
@@ -77,38 +69,34 @@
 		"shorthands",
 		"values"
 	],
-	"csstools": {
-		"cssdbId": "overflow-property",
-		"exportName": "postcssOverflowShorthand",
-		"humanReadableName": "PostCSS Overflow Shorthand",
-		"specUrl": "https://drafts.csswg.org/css-overflow/#propdef-overflow"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "86d18d97c07c52f2e93eb0405d2eb109eb623701",
-	"_id": "postcss-overflow-shorthand@5.0.0",
-	"_nodeVersion": "18.15.0",
-	"_npmVersion": "9.5.0",
+	"_id": "postcss-overflow-shorthand@5.0.1",
+	"gitHead": "4fb431ed40eddfe7dd41d882764ae80d90b59ee4",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-2rlxDyeSics/hC2FuMdPnWiP9WUPZ5x7FTuArXLFVpaSQ2woPSfZS4RD59HuEokbZhs/wPUQJ1E3MT6zVv94MQ==",
-		"shasum": "1ed6d6c532cdf52b5dabec06662dc63f9207855c",
-		"tarball": "https://registry.npmjs.org/postcss-overflow-shorthand/-/postcss-overflow-shorthand-5.0.0.tgz",
+		"integrity": "sha512-XzjBYKLd1t6vHsaokMV9URBt2EwC9a7nDhpQpjoPk2HRTSQfokPfyAS/Q7AOrzUu6q+vp/GnrDBGuj/FCaRqrQ==",
+		"shasum": "c0a124edad4f7ad88109275a60510e1fb07ab833",
+		"tarball": "https://registry.npmjs.org/postcss-overflow-shorthand/-/postcss-overflow-shorthand-5.0.1.tgz",
 		"fileCount": 7,
-		"unpackedSize": 8498,
+		"unpackedSize": 7152,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIAFvbYce7LMAQ8jA/U8gOypLzuHvCZw+ao8pJNAOzwDYAiBIGayorL3I0AzqnAnd+sOOfUC53MjUbmjWe8LHAQzQdQ=="
+				"sig": "MEUCIHcw5IIOsqmJ5WFVYeWyUoQg5MwKsWEzlRgInCPHt1/ZAiEAtY/0aGv+5enTvjCA6grVWQd2skC/zVIT/pNZsN+go5c="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -120,8 +108,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-overflow-shorthand_5.0.0_1688372180781_0.6107634864959768"
+		"tmp": "tmp/postcss-overflow-shorthand_5.0.1_1702682440024_0.6116592479853085"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-07-03T08:16:20.987Z"
+	"_time": "2023-12-15T23:20:40.208Z"
 }
