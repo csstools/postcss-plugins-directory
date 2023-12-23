@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-safe-important",
-	"_rev": "16-42deeb026a04c907ccbb69bcfcd18cac",
+	"_rev": "18-bb83f28c967c4bbf2885795e2f456efc",
 	"name": "postcss-safe-important",
 	"time": {
-		"modified": "2022-06-24T10:50:00.972Z",
+		"modified": "2023-12-22T12:51:32.009Z",
 		"created": "2015-12-13T13:14:37.092Z",
 		"0.0.1": "2015-12-13T13:14:37.092Z",
 		"1.0.0": "2015-12-13T17:44:35.354Z",
@@ -14,7 +14,9 @@
 		"1.0.6": "2017-09-21T15:37:06.198Z",
 		"1.1.0": "2017-11-18T11:54:27.924Z",
 		"1.2.0": "2019-09-30T15:36:08.718Z",
-		"1.2.1": "2021-02-23T14:27:51.826Z"
+		"1.2.1": "2021-02-23T14:27:51.826Z",
+		"2.0.0": "2023-12-22T12:37:58.311Z",
+		"2.0.1": "2023-12-22T12:51:31.830Z"
 	},
 	"maintainers": [
 		{
@@ -23,10 +25,10 @@
 		}
 	],
 	"dist-tags": {
-		"latest": "1.2.1"
+		"latest": "2.0.1"
 	},
 	"description": "PostCSS plugin that adds !important to style declarations safely",
-	"readme": "# PostCSS Safe Important\n\n[![Build Status][ci-img]][ci]\n[![Npm Downloads Total][dt-img]][npm]\n![Node Version][node-img]\n[![Npm][npm-img]][npm]\n\n[PostCSS] plugin that adds `!important` to style declarations safely.\n\n[PostCSS]:  https://github.com/postcss/postcss\n[ci-img]:   https://travis-ci.org/crimx/postcss-safe-important.svg\n[ci]:       https://travis-ci.org/crimx/postcss-safe-important\n[npm-img]:  https://img.shields.io/npm/v/postcss-safe-important.svg\n[npm]:      https://www.npmjs.com/package/postcss-safe-important\n[dt-img]:   https://img.shields.io/npm/dt/postcss-safe-important.svg\n[node-img]: https://img.shields.io/npm/dm/postcss-safe-important.svg\n\n## Why would I need it?\n\n> It's 2019 and you should probably look at shadow dom and web components first.\n\nQuoted from [Cleanslate](http://cleanslatecss.com/#Why-would-I-need-it)\n\n> When there are existing CSS styles on a page, and you want to prevent those styles cascading into some part of the page. This is not a stylesheet to use when developing your own website (for that, try [Eric Meyer’s classic “Reset CSS”](http://meyerweb.com/eric/tools/css/reset/) or the [“HTML5 Doctors’ adaptation”](http://html5doctor.com/html-5-reset-stylesheet).\n>\n> The stylesheet can be useful when distributing content (e.g. a widget, or syndicated news) to third-party websites. The CSS rules in the host site may be unknown and unpredictable, or may change in future without notice, or there may be so many websites you need to distribute to that it is impractical to write specific CSS that overrides the styles in each one. In such situations, the Cleanslate stylesheet will aggressively reset your portion of the content (and nothing else) back to some reasonable default values that you can then build from.\n>\n> ### Why not just use an iframe?\n>\n> Third-party content is often distributed in iframes. Because JavaScript within an iframe can be prevented from accessing the host page, iframes are particularly useful when the host site has security concerns and does not explicitly trust the third-party content.\n>\n> However, iframes have some drawbacks:\n>\n> - You cannot display content outside of the box of the iframe.\n> - It is tricky to resize the iframe to match the size of its contents.\n> - Your content will be unable to interact with the host page, even if it is trusted.\n> - Search engines like Google will not see the content on the host page. Content that is syndicated from a partner website can avoid this by being directly included in the host page.\n\n\nWhether you work with extreme CSS reset stylesheet like Cleanslate or simply just want to give maximum weight for all your declarations, don't do it manually! Use [postcss-safe-important] to keep your source styles clean and portable.\n\n## Safe?\n\nAdding `!important` to every declarations might break your style. For example, [declarations in a keyframe that are qualified with `!important` are ignored](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes#!important_in_a_keyframe).\n\n[postcss-safe-important] will skip [unnecessary declarations](#default-exclusions). You can also set your own exclusions through options or comments (see examples below).\n\n[postcss-safe-important]: https://github.com/Crimx/postcss-safe-important\n\n\n```css\n/* Input example */\n.foo {\n    width: 100px;\n    color: #000; /* no !important */ }\n\n.bar {\n    /* no important */\n    color: ##fff;\n    width: 100px; }\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px !important;\n    color: #000; }\n\n.bar {\n    color: ##fff;\n    width: 100px; }\n```\n\n## Usage\n\n```\n$ npm install postcss-safe-important --save-dev\n```\n\n```js\nvar safeImportant = require('postcss-safe-important');\n\npostcss([ safeImportant({\n    // options\n    selectors: '#bar', // you can pass a string\n    decls: ['height', 'width'], // or iterable\n    atrules: () => 'media', // even a function\n    paths: p => p.startsWith(path.resolve(__dirname, '../node_modules')), // rule out paths\n    keepcomments: false // all the `no important` comments will be erased\n}) ]);\n```\n\n## Comments\n\nYou can use either `/* no !important */` or `/* no important */` to indicate no changing.\n\nIf the comment is right inside a rule(be the first child node of the rule), the whole rule will not change.\n\n```css\n/* Input example */\n.foo {\n    /* no important */\n    width: 100px;\n    color: #000; }\n\n.bar { /* no !important */\n    width: 100px;\n    color: #000; }\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px;\n    color: #000; }\n\n.bar {\n    width: 100px;\n    color: #000; }\n```\n\nIf the comment is right behind(or below) a declaration, then only the declaration will remain the same.\n\n```css\n/* Input example */\n.foo {\n    width: 100px;\n    color: #000; /* no important */}\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px !important;\n    color: #000; }\n```\n\n## Options\n\n### Exclusions\n\n- `selectors`: excluded selectors\n- `decls`: excluded declarations\n- `atrules`: excluded atrules(e.g. `@font-face`)\n\nYou can pass either a **string**, an **iterable**, or a **function** that returns string/array.\n\n### Excluded paths\n\n- `paths`: a string(exact match), a RegExp(`test` is called) or a function that returns truthy or falsy value.\n\nIf you want styles in node_modules left untouched, let's say your postcss config file is at project root:\n\n```js\nvar safeImportant = require('postcss-safe-important');\nvar path = require('path')\n\npostcss([ safeImportant({\n    paths: p => p.startsWith(path.resolve(__dirname, './node_modules'))\n}) ]);\n```\n\n### Keep `/* no important */` comments\n\n- `keepcomments`: **bool**, default `false`.\n\n### Clear Default Declarations\n\n- `clearDefaultDecls`: **bool**, default `false`.\n\n## Default Exclusions\n\n### Atrules\n\n- keyframes\n- font-face\n\n### Declarations\n\n- animation\n- animation-name\n- animation-duration\n- animation-timing-function\n- animation-delay\n- animation-iteration-count\n- animation-direction\n- animation-fill-mode\n- animation-play-state\n\n## [Change Log](CHANGELOG.md)\n\nSee [PostCSS] docs for examples for your environment.\n\n## [License](LICENSE)\n\nMIT\n",
+	"readme": "# PostCSS Safe Important\n\n[![Build Status][ci-img]][ci]\n[![Npm Downloads Total][dt-img]][npm]\n![Node Version][node-img]\n[![Npm][npm-img]][npm]\n\n[PostCSS] plugin that adds `!important` to style declarations safely.\n\n[PostCSS]:  https://github.com/postcss/postcss\n[ci-img]:   https://img.shields.io/github/actions/workflow/status/crimx/postcss-safe-important/build.yml\n[ci]:       https://github.com/crimx/postcss-safe-important/actions/workflows/build.yml\n[npm-img]:  https://img.shields.io/npm/v/postcss-safe-important.svg\n[npm]:      https://www.npmjs.com/package/postcss-safe-important\n[dt-img]:   https://img.shields.io/npm/dt/postcss-safe-important.svg\n[node-img]: https://img.shields.io/npm/dm/postcss-safe-important.svg\n\n## Why would I need it?\n\n> You should probably look at shadow dom and web components first.\n\nQuoted from [Cleanslate](http://cleanslatecss.com/#Why-would-I-need-it)\n\n> When there are existing CSS styles on a page, and you want to prevent those styles cascading into some part of the page. This is not a stylesheet to use when developing your own website (for that, try [Eric Meyer’s classic “Reset CSS”](http://meyerweb.com/eric/tools/css/reset/) or the [“HTML5 Doctors’ adaptation”](http://html5doctor.com/html-5-reset-stylesheet).\n>\n> The stylesheet can be useful when distributing content (e.g. a widget, or syndicated news) to third-party websites. The CSS rules in the host site may be unknown and unpredictable, or may change in future without notice, or there may be so many websites you need to distribute to that it is impractical to write specific CSS that overrides the styles in each one. In such situations, the Cleanslate stylesheet will aggressively reset your portion of the content (and nothing else) back to some reasonable default values that you can then build from.\n>\n> ### Why not just use an iframe?\n>\n> Third-party content is often distributed in iframes. Because JavaScript within an iframe can be prevented from accessing the host page, iframes are particularly useful when the host site has security concerns and does not explicitly trust the third-party content.\n>\n> However, iframes have some drawbacks:\n>\n> - You cannot display content outside of the box of the iframe.\n> - It is tricky to resize the iframe to match the size of its contents.\n> - Your content will be unable to interact with the host page, even if it is trusted.\n> - Search engines like Google will not see the content on the host page. Content that is syndicated from a partner website can avoid this by being directly included in the host page.\n\n\nWhether you work with extreme CSS reset stylesheet like Cleanslate or simply just want to give maximum weight for all your declarations, don't do it manually! Use [postcss-safe-important] to keep your source styles clean and portable.\n\n## Safe?\n\nAdding `!important` to every declarations might break your style. For example, [declarations in a keyframe that are qualified with `!important` are ignored](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes#!important_in_a_keyframe).\n\n[postcss-safe-important] will skip [unnecessary declarations](#default-exclusions). You can also set your own exclusions through options or comments (see examples below).\n\n[postcss-safe-important]: https://github.com/Crimx/postcss-safe-important\n\n\n```css\n/* Input example */\n.foo {\n    width: 100px;\n    color: #000; /* no !important */ }\n\n.bar {\n    /* no important */\n    color: ##fff;\n    width: 100px; }\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px !important;\n    color: #000; }\n\n.bar {\n    color: ##fff;\n    width: 100px; }\n```\n\n## Usage\n\n```\n$ npm install postcss-safe-important --save-dev\n```\n\n### Example\n\n```js\nvar safeImportant = require(\"postcss-safe-important\");\n\npostcss([\n    safeImportant({\n        // options\n        excludeSelectors: \"#bar\", // config with string\n        excludeDeclarations: /color/, // config with regex\n        excludeCSSVariables: [\"--width\", \"--height\"], // config with array of string\n        excludeAtRules: (atRule) => atRule === \"media\", // config with function\n        excludePaths: p => p.startsWith(path.resolve(__dirname, \"../node_modules\")), // exclude paths\n        disableDefaultExcludes: false, // disable default exclusion lists\n        keepComments: true, // all the `no important` comments will be erased\n    }),\n]);\n```\n\nSee [tests](https://github.com/crimx/postcss-safe-important/blob/main/test.js) for more examples.\n\n## Comments\n\nYou can use either `/* no !important */` or `/* no important */` to indicate no changing.\n\nIf the comment is right inside a rule(be the first child node of the rule), the whole rule will not change.\n\n```css\n/* Input example */\n.foo {\n    /* no important */\n    width: 100px;\n    color: #000; }\n\n.bar { /* no !important */\n    width: 100px;\n    color: #000; }\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px;\n    color: #000; }\n\n.bar {\n    width: 100px;\n    color: #000; }\n```\n\nIf the comment is right behind(or below) a declaration, then only the declaration will remain the same.\n\n```css\n/* Input example */\n.foo {\n    width: 100px;\n    color: #000; /* no important */}\n```\n\n```css\n/* Output example */\n.foo {\n    width: 100px !important;\n    color: #000; }\n```\n\n## Options\n\n### Exclusions\n\n- `excludeSelectors`: exclude selectors. Default empty (default exclusions still applies unless `options.disableDefaultExcludes = true`)\n- `excludeDeclarations`: exclude declarations. Default empty (default exclusions still applies unless `options.disableDefaultExcludes = true`)\n- `excludeAtRules`: exclude atrules(e.g. `@font-face`). Default empty (default exclusions still applies unless `options.disableDefaultExcludes = true`)\n- `excludeCSSVariables`: exclude CSS variables. Default excludes all CSS Variables.\n- `excludePaths`. exclude style paths. Default empty.\n\nYou can pass either a **string**, a **regexp**, an **iterable**, or a `shouldExclude(rule: string): boolean` **function**.\n\n```js\nvar safeImportant = require(\"postcss-safe-important\");\n\npostcss([\n    safeImportant({\n        // options\n        excludeSelectors: \"#bar\", // config with string\n        excludeDeclarations: /color/, // config with regex\n        excludeCSSVariables: [\"--width\", \"--height\"], // config with array of string\n        excludeAtRules: (atRule) => atRule === \"media\", // config with function\n        excludePaths: p => p.startsWith(path.resolve(__dirname, \"../node_modules\")), // exclude paths\n    }),\n]);\n```\n\nIf you want styles in node_modules left untouched, let's say your postcss config file is at project root, you can:\n\n```js\nvar safeImportant = require(\"postcss-safe-important\");\nvar path = require(\"path\");\n\npostcss([\n    safeImportant({\n        excludePaths: p => p.startsWith(path.resolve(__dirname, \"./node_modules\")),\n    }),\n]);\n```\n\n### Keep `/* no important */` comments\n\n- `keepComments`: **bool**, default `false`.\n\n### Disable Default Declarations\n\n- `disableDefaultExcludes`: **bool**, default `false`.\n\nDisable the default exclusion list below.\n\n## Default Exclusions\n\n### Variables\n\nAll CSS variables.\n\n### Atrules\n\n- keyframes\n- font-face\n\n### Declarations\n\n- animation\n- animation-name\n- animation-duration\n- animation-timing-function\n- animation-delay\n- animation-iteration-count\n- animation-direction\n- animation-fill-mode\n- animation-play-state\n\n## [Change Log](CHANGELOG.md)\n\nSee [PostCSS] docs for examples for your environment.\n\n## [License](LICENSE)\n\nMIT\n",
 	"versions": {
 		"1.0.2": {
 			"name": "postcss-safe-important",
@@ -537,6 +539,150 @@
 				"tmp": "tmp/postcss-safe-important_1.2.1_1614090471446_0.8517849160421465"
 			},
 			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "postcss-safe-important",
+			"version": "2.0.0",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "CRIMX",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava"
+			},
+			"devDependencies": {
+				"ava": "^6.0.1",
+				"postcss": "^8.4.27"
+			},
+			"_id": "postcss-safe-important@2.0.0",
+			"gitHead": "356ed30a23ed34dc804e2d9395b18ed64354504e",
+			"_nodeVersion": "18.17.0",
+			"_npmVersion": "9.8.1",
+			"dist": {
+				"integrity": "sha512-JxkwKa1vSHzaGkOHWvbIXOyuR5kZtNgfuDAoPQvPq/XZHVvMW38n0+z7ZNFTqz8IBhH92TnF017N06B8TYjELw==",
+				"shasum": "5d566aff895f7c9e181fbcaa18d8ae0c937ce649",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-2.0.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18090,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIAcK/EmWAXI7NHwXBbR3MnLlvHPJ21dl1g+4/hBgrjxdAiEAzRD5es8VNGRXACxT5CN6srK4wn1WNTdUrE8JFs+aDuk="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-safe-important_2.0.0_1703248678162_0.0738819090723899"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "postcss-safe-important",
+			"version": "2.0.1",
+			"description": "PostCSS plugin that adds !important to style declarations safely",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"important",
+				"cleanslate",
+				"declaration",
+				"gulp",
+				"grunt",
+				"weight"
+			],
+			"author": {
+				"name": "CRIMX",
+				"email": "straybugs@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/crimx/postcss-safe-important.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Crimx/postcss-safe-important/issues"
+			},
+			"homepage": "https://github.com/Crimx/postcss-safe-important",
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"scripts": {
+				"test": "ava"
+			},
+			"devDependencies": {
+				"ava": "^6.0.1",
+				"postcss": "^8.4.27"
+			},
+			"_id": "postcss-safe-important@2.0.1",
+			"gitHead": "32d4994671da864e60aaefa56269956494ac00b4",
+			"_nodeVersion": "18.17.0",
+			"_npmVersion": "9.8.1",
+			"dist": {
+				"integrity": "sha512-MkaDFrKOdpQT+8OQzRJDCLlSVR+JXgj0SYU8MbuAN1NRcRofmrpWpK5okAWIA7MgDI4FEQrXe6wOcieq6tNapA==",
+				"shasum": "d5072a890e5388e98adc2d104849d9996ee51244",
+				"tarball": "https://registry.npmjs.org/postcss-safe-important/-/postcss-safe-important-2.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18151,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCoMV5kgTjTMp8jhWhU1Y2COdxrhMCm3r4UrZxdvgaY8wIgBhuhsTYIiWKTZ5l2PzTexdpSgb+BNWKJ7x5/iJGz0Kw="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "straybugs",
+				"email": "straybugs@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "straybugs",
+					"email": "straybugs@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-safe-important_2.0.1_1703249491665_0.16462806296052035"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"homepage": "https://github.com/Crimx/postcss-safe-important",
@@ -556,7 +702,7 @@
 		"url": "git+https://github.com/crimx/postcss-safe-important.git"
 	},
 	"author": {
-		"name": "StrayBugs",
+		"name": "CRIMX",
 		"email": "straybugs@gmail.com"
 	},
 	"bugs": {
@@ -564,5 +710,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 37244
+	"_downloads": 31983
 }
