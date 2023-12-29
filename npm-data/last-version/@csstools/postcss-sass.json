@@ -1,6 +1,6 @@
 {
 	"name": "@csstools/postcss-sass",
-	"version": "5.0.1",
+	"version": "5.1.1",
 	"description": "Use Sass as a PostCSS plugin",
 	"author": {
 		"name": "Jonathan Neal",
@@ -11,9 +11,9 @@
 		"type": "git",
 		"url": "git+https://github.com/jonathantneal/postcss-sass.git"
 	},
-	"homepage": "https://github.com/jonathantneal/postcss-sass#readme",
+	"homepage": "https://github.com/csstools/postcss-sass#readme",
 	"bugs": {
-		"url": "https://github.com/jonathantneal/postcss-sass/issues"
+		"url": "https://github.com/csstools/postcss-sass/issues"
 	},
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
@@ -26,35 +26,34 @@
 	},
 	"scripts": {
 		"prepublishOnly": "npm test",
-		"pretest": "rollup -c .rollup.js --silent --exports 'auto'",
+		"pretest": "rollup -c rollup.mjs --silent --exports 'auto'",
 		"test": "npm run test:js && npm run test:tape",
-		"test:js": "eslint *.js --cache --ignore-path .gitignore --quiet",
-		"test:tape": "postcss-tape"
+		"test:js": "eslint *.mjs src/*.mjs test/*.mjs --cache --ignore-path .gitignore --quiet",
+		"test:tape": "node --test",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node --test"
 	},
 	"engines": {
 		"node": "^12 || ^14 || >=16"
 	},
 	"dependencies": {
 		"@csstools/sass-import-resolve": "^1.0.0",
-		"sass": "^1.49.7",
-		"source-map": "~0.7.3"
+		"sass": "^1.69.5",
+		"source-map": "~0.7.4"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4.6"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.17.2",
-		"@babel/preset-env": "^7.16.11",
-		"@rollup/plugin-babel": "^5.3.0",
-		"@babel/eslint-parser": "^7.17.0",
-		"echint": "^4.0.2",
-		"eslint": "^8.9.0",
-		"eslint-config-dev": "2.0.0",
-		"postcss": "^8.4.6",
-		"postcss-import": "^14.0.2",
-		"postcss-scss": "^4.0.3",
-		"postcss-tape": "6.0.1",
-		"rollup": "^2.67.2"
+		"@babel/core": "^7.23.6",
+		"@babel/preset-env": "^7.23.6",
+		"@rollup/plugin-babel": "^6.0.4",
+		"@babel/eslint-parser": "^7.23.3",
+		"eslint": "^8.56.0",
+		"eslint-config-dev": "^3.3.1",
+		"postcss": "^8.4.32",
+		"postcss-import": "^15.1.0",
+		"@csstools/postcss-tape": "^4.1.1",
+		"rollup": "^4.9.1"
 	},
 	"eslintConfig": {
 		"env": {
@@ -111,30 +110,33 @@
 		"style",
 		"extension"
 	],
-	"gitHead": "f0637f9b7af5a3c7c19f62199de1cfe3768e532e",
-	"_id": "@csstools/postcss-sass@5.0.1",
-	"_nodeVersion": "16.13.2",
-	"_npmVersion": "8.1.2",
+	"_id": "@csstools/postcss-sass@5.1.1",
+	"gitHead": "fbb0cf3cc301a61fb245a18e9bbe7c1ba1e171ea",
+	"_nodeVersion": "18.18.2",
+	"_npmVersion": "9.8.1",
 	"dist": {
-		"integrity": "sha512-GgQAOe6KfABEIHGh9KFqn/7sX2Dmx554PElvyhRFNADo2QV2N/CzlS+QHrrJmVJzaBn829f4JFcOd67mmYb5Eg==",
-		"shasum": "d5e67b4c81f1b634d722148fbe0e871b71b762a5",
-		"tarball": "https://registry.npmjs.org/@csstools/postcss-sass/-/postcss-sass-5.0.1.tgz",
+		"integrity": "sha512-La7bgTcM6YwPBLqlaXg7lMLry82iLv1a+S1RmgvHq2mH2Zd57L2anjZvJC8ACUHWc4M9fXws93dq6gaK0kZyAw==",
+		"shasum": "135921df13bc56bee50c7470a66e4e9f3d5c89ae",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-sass/-/postcss-sass-5.1.1.tgz",
 		"fileCount": 6,
-		"unpackedSize": 27075,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiJ4ttACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpXQQ/9Fg+uxkcJgbMt0c2M1L4PzJr2L7bnXiyaai9CZHJ99d/hn3V7\r\nhsvLph5pg0uQMdi3SCFAN4qalXUWiflajCFBXyk7KJBtJgtK4duByWojcEpF\r\ngGTjgIu+jFgVMyioWHS3t93J78XBP/QJHXG/A8pbByrWOsZaLo39+D/SEcvm\r\nT9HiGPEysmwcNoDnqXIp74d6YpW7GyeXI59Gp63h34d1wGySeVFxZnStsVSm\r\nR63QoWObg5TVcIU8YX21mU9PFFqSu3uZDMv8d8OFe8K2vTm2CGVsUdUEmDOf\r\nzK3U5hJY0ieNgrOmkMTObDKYwoXhbWZ96EsV0f8ZU+cHbxKT+BHPix7XUegs\r\nkEeFQKlAwOeAx2Ttovhp7bHgSZnNjwNH/iwEb7heCcLJZNFJkrWhkZSc/fOP\r\nHh5sEQ1qJ+9HR1j0Dbzk6aDxS4XSf2Bx413OGWQwBCv+ilpTInfNNdvXczIj\r\nf1lEhCjSqbrTRfZGG7v/wHwwI1wT69u2AKAIPZS5z9+lHEyH3WdpE/w4w3Ik\r\nWxOGn6XLomXnQsCSgHIBBCEDRi80N1bwMgu3JT5JPrwNUwXo/CuRKxFconem\r\nbZ6+fhV7dTvoqVxhL8IWPL6p9yf3Yask82trUT0WAeArcj4cXxtNxl5zX+f6\r\nIeYoV+pCGZpZ2kY4sqwG2wAsC1sZrj9dtuI=\r\n=qvXW\r\n-----END PGP SIGNATURE-----\r\n",
+		"unpackedSize": 28025,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCMUjGCRvwJj5epSUagVilJKepZ5qnUaKCFzwPdul9ALgIgW3TiadJrjOHnWpNYDVjOljYQ1JjCPjswi8fVvrJI6kk="
+				"sig": "MEQCICrC56m6aEUFKp5dLtfeRYAPpsqHmSG/wa9HaF9cWhxpAiBY+6qduBJYSAqU5jC0Q+G6WGDv7UfKB9TbKkyV3rYTPg=="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -146,8 +148,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-sass_5.0.1_1646758765329_0.8242964425055159"
+		"tmp": "tmp/postcss-sass_5.1.1_1703780252260_0.27666808029586476"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-03-08T16:59:25.490Z"
+	"_time": "2023-12-28T16:17:32.414Z"
 }
