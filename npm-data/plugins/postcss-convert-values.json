@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-convert-values",
-	"_rev": "79-a760acdc1d9c84565349d0ec47fcc0d2",
+	"_rev": "80-9e82ea2978460c7f19c29554606ba2ee",
 	"name": "postcss-convert-values",
 	"description": "Convert values with PostCSS (e.g. ms -> s)",
 	"dist-tags": {
-		"latest": "6.0.1",
+		"latest": "6.0.2",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -5868,6 +5868,109 @@
 				"tmp": "tmp/postcss-convert-values_6.0.1_1702574288344_0.44051554758198996"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.2": {
+			"name": "postcss-convert-values",
+			"version": "6.0.2",
+			"description": "Convert values with PostCSS (e.g. ms -> s)",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"css",
+				"optimisation",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"dependencies": {
+				"browserslist": "^4.22.2",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.32"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-convert-values@6.0.2",
+			"_integrity": "sha512-aeBmaTnGQ+NUSVQT8aY0sKyAD/BaLJenEKZ03YK0JnDE1w1Rr8XShoxdal2V2H26xTJKr3v5haByOhJuyT4UYw==",
+			"_resolved": "/tmp/3dd7010e2f56ac4351a5effa41c0aa85/postcss-convert-values-6.0.2.tgz",
+			"_from": "file:postcss-convert-values-6.0.2.tgz",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-aeBmaTnGQ+NUSVQT8aY0sKyAD/BaLJenEKZ03YK0JnDE1w1Rr8XShoxdal2V2H26xTJKr3v5haByOhJuyT4UYw==",
+				"shasum": "c4a7509aeb1cc7ac3f6948fcbffc2bf8cac7c56a",
+				"tarball": "https://registry.npmjs.org/postcss-convert-values/-/postcss-convert-values-6.0.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 12046,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIFdpg7oyRHol2MgaM8FqSh7/RSsP8ta60D2+AzFZproKAiEAy7y6axVmppaTUJs7c99gKynRM23EWvS2NvA7sW7Plb8="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "trysound",
+					"email": "opensource@trysound.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-convert-values_6.0.2_1704305230713_0.8777788777283924"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# [postcss][postcss]-convert-values\n\n> Convert values with PostCSS (e.g. ms -> s)\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-convert-values) do:\n\n```\nnpm install postcss-convert-values --save\n```\n\n## Example\n\nThis plugin reduces CSS size by converting values to use different units\nwhere possible; for example, `500ms` can be represented as `.5s`. You can\nread more about these units in [this article][csstricks].\n\n### Input\n\n```css\nh1 {\n    font-size: 16px;\n    width: 0em\n}\n```\n\n### Output\n\n```css\nh1 {\n    font-size: 1pc;\n    width: 0\n}\n```\n\nNote that this plugin only covers conversions for duration and absolute length\nvalues. For color conversions, use [postcss-colormin][colormin].\n\n## API\n\n### convertValues([options])\n\n#### options\n\n##### length\n\nType: `boolean`\nDefault: `true`\n\nPass `false` to disable conversion from `px` to other absolute length units,\nsuch as `pc` & `pt` & vice versa.\n\n##### time\n\nType: `boolean`\nDefault: `true`\n\nPass `false` to disable conversion from `ms` to `s` & vice versa.\n\n##### angle\n\nType: `boolean`\nDefault: `true`\n\nPass `false` to disable conversion from `deg` to `turn` & vice versa.\n\n##### precision\n\nType: `boolean|number`\nDefault: `false`\n\nSpecify any numeric value here to round `px` values to that many decimal places;\nfor example, using `{precision: 2}` will round `6.66667px` to `6.67px`, and\n`{precision: 0}` will round it to `7px`. Passing `false` (the default) will\nleave these values as is.\n\nIt is recommended for most use cases to set this option to `2`.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[csstricks]: https://css-tricks.com/the-lengths-of-css/\n",
@@ -5906,7 +6009,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-12-14T17:18:08.663Z",
+		"modified": "2024-01-03T18:07:11.091Z",
 		"created": "2015-04-07T15:50:28.106Z",
 		"1.0.0": "2015-04-07T15:50:28.106Z",
 		"1.0.1": "2015-04-07T15:59:08.712Z",
@@ -5974,7 +6077,8 @@
 		"5.1.2": "2022-05-29T18:04:54.683Z",
 		"5.1.3": "2022-10-28T13:50:13.182Z",
 		"6.0.0": "2023-03-27T16:41:02.152Z",
-		"6.0.1": "2023-12-14T17:18:08.503Z"
+		"6.0.1": "2023-12-14T17:18:08.503Z",
+		"6.0.2": "2024-01-03T18:07:10.917Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -6000,5 +6104,5 @@
 	"users": {
 		"-jason": true
 	},
-	"_downloads": 35389028
+	"_downloads": 35841674
 }
