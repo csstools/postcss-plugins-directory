@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-delete-duplicate-selector",
-	"_rev": "2-76ab511329a39e8e6e10e557148fbcdc",
+	"_rev": "3-3f9353f35eeeaa9c05e0de1a0ef53e3e",
 	"name": "postcss-delete-duplicate-selector",
 	"dist-tags": {
-		"latest": "1.0.2"
+		"latest": "1.0.3"
 	},
 	"versions": {
 		"1.0.0": {
@@ -212,14 +212,84 @@
 				"tmp": "tmp/postcss-delete-duplicate-selector_1.0.2_1704264866339_0.8088524972032036"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.3": {
+			"name": "postcss-delete-duplicate-selector",
+			"version": "1.0.3",
+			"description": "PostCSS plugin delete duplicate css selector in the file",
+			"main": "src/index.js",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"delete",
+				"duplicate",
+				"selector"
+			],
+			"author": {
+				"name": "hwantage",
+				"email": "hwantagexsw2@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hwantage/postcss-delete-duplicate-selector.git"
+			},
+			"engines": {
+				"node": ">=18.15.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.32"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.32"
+			},
+			"gitHead": "b0c442b3f172efdbe77ca0f6832036e5256ca14f",
+			"bugs": {
+				"url": "https://github.com/hwantage/postcss-delete-duplicate-selector/issues"
+			},
+			"homepage": "https://github.com/hwantage/postcss-delete-duplicate-selector#readme",
+			"_id": "postcss-delete-duplicate-selector@1.0.3",
+			"_nodeVersion": "18.15.0",
+			"_npmVersion": "9.5.0",
+			"dist": {
+				"integrity": "sha512-tmGQuUCjUYM8vacHHOa5iJ31oMN+Fm1kdgafmKzBn4HReZT7vb7SfQ2PTzDgEZKMgW6+/ThPziuP8zcB0n/Ogg==",
+				"shasum": "e798fdc3abf7ec12c3df0fe2e1716245e6abd511",
+				"tarball": "https://registry.npmjs.org/postcss-delete-duplicate-selector/-/postcss-delete-duplicate-selector-1.0.3.tgz",
+				"fileCount": 4,
+				"unpackedSize": 4811,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHs1S7urXx1gVv7hJOi1n5b3DD6nwQEAVUPdoo4SD8CLAiEAmEJruakqhxyH9Ojt6rpUy4CY4hGOhyTKoLX+qdctxA0="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "hwantage",
+				"email": "hwantagexsw2@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "hwantage",
+					"email": "hwantagexsw2@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-delete-duplicate-selector_1.0.3_1704776240734_0.022333587661811816"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-01-03T02:51:27.874Z",
 		"1.0.0": "2024-01-03T02:51:28.054Z",
-		"modified": "2024-01-03T06:54:26.680Z",
+		"modified": "2024-01-09T04:57:21.064Z",
 		"1.0.1": "2024-01-03T05:15:11.974Z",
-		"1.0.2": "2024-01-03T06:54:26.473Z"
+		"1.0.2": "2024-01-03T06:54:26.473Z",
+		"1.0.3": "2024-01-09T04:57:20.905Z"
 	},
 	"maintainers": [
 		{
@@ -249,7 +319,7 @@
 		"url": "https://github.com/hwantage/postcss-delete-duplicate-selector/issues"
 	},
 	"license": "MIT",
-	"readme": "**[PostCSS](https://github.com/postcss/postcss)** plugin for delete duplicate css selector in the file.\r\n\r\nThis plugin deletes duplicate css selectors. It removes the duplicate selector at the bottom, leaving the top one.\r\n\r\n**input.css:**\r\n\r\n```css\r\n.hello {\r\n  width: 100%;\r\n}\r\n\r\nh1, h2 {\r\n  color: red;\r\n}\r\n\r\n.hello {\r\n  padding-left: 10px;\r\n}\r\n\r\nh1, h2 {\r\n  color: blue;\r\n}\r\n\r\n.other {\r\n\tdisplay: none;\r\n}\r\n```\r\n\r\n**output.css:**\r\n\r\n```css\r\n.hello {\r\n  width: 100%;\r\n}\r\n\r\nh1, h2 {\r\n  color: red;\r\n}\r\n\r\n.other {\r\n\tdisplay: none;\r\n}\r\n```\r\n\r\n## **Installation**\r\n\r\n`$ npm i -D postcss postcss-cli`\r\n\r\n`$ npm i -D postcss-delete-duplicate-selector`\r\n\r\n## **Usage 1**\r\n\r\n**package.json:**\r\n\r\n```jsx\r\n{\r\n\t\"scripts\": {\r\n\t\t\"build\": \"postcss input.css --use postcss-delete-duplicate-selector --output output.css\"\r\n\t},\r\n\t\"devDependencies\": {\r\n\t\t\"postcss\": \"^8.4.32\",\r\n\t\t\"postcss-cli\": \"^11.0.0\",\r\n\t\t\"postcss-delete-duplicate-selector\": \"^1.0.0\"\r\n\t}\r\n}\r\n```\r\n\r\nand then `npm run build`\r\n\r\n## **Usage 2**\r\n\r\nOr you can use `postcss.config.js` file. Create a `postcss.config.js` file in your root directory.\r\n\r\n**postcss.config.js:**\r\n\r\n```\r\nmodule.exports = {\r\n  plugins: [\r\n    require('postcss-delete-duplicate-selector')\r\n  ],\r\n};\r\n```\r\n\r\nChange the build script to look like this\r\n\r\n**package.json:**\r\n\r\n```jsx\r\n{\r\n\t\"scripts\": {\r\n\t\t\"build\": \"postcss input.css --output output.css\"\r\n\t},\r\n\t\"devDependencies\": {\r\n\t\t\"postcss\": \"^8.4.32\",\r\n\t\t\"postcss-cli\": \"^11.0.0\",\r\n\t\t\"postcss-delete-duplicate-selector\": \"^1.0.0\"\r\n\t}\r\n}\r\n```\r\n\r\nand then `npm run build`\r\n\r\nSee **[PostCSS](https://github.com/postcss/postcss)** docs for **[examples regarding usage](https://github.com/postcss/postcss#usage)**.\r\n\r\n## **Options**\r\n\r\nN/A\r\n\r\n### Additional Info\r\n\r\nThis plugin will delete all comments.\r\n\r\n**input.css:**\r\n\r\n```css\r\n/*This is the comment1*/\r\n.hello {\r\n  width: 100%;\r\n}\r\n/*This is the comment2*/\r\n```\r\n\r\n**output.css:**\r\n\r\n```css\r\n.hello {\r\n  width: 100%;\r\n}\r\n```\r\n\r\nThis plugin does not consider whitespace between selectors.\r\n\r\n**input.css:**\r\n\r\n```css\r\nh1, h2 {\r\n  width: 100%;\r\n}\r\n\r\nh1,h2 {\r\n  width: 100%;\r\n}\r\n```\r\n\r\n**output.css:**\r\n\r\n```css\r\nh1, h2 {\r\n  width: 100%;\r\n}\r\n\r\nh1,h2 {\r\n  width: 100%;\r\n}\r\n```\r\n\r\n## **License**\r\n\r\nMIT\r\n",
+	"readme": "**[PostCSS](https://github.com/postcss/postcss)** plugin for delete duplicate css selector in the file.\r\n\r\nThis plugin deletes duplicate css selectors. It removes the duplicate selector at the bottom, leaving the top one.\r\n\r\n**input.css:**\r\n\r\n```css\r\n.hello {\r\n  width: 100%;\r\n}\r\n\r\nh1, h2 {\r\n  color: red;\r\n}\r\n\r\n.hello {\r\n  padding-left: 10px;\r\n}\r\n\r\nh1, h2 {\r\n  color: blue;\r\n}\r\n\r\n.other {\r\n\tdisplay: none;\r\n}\r\n```\r\n\r\n**output.css:**\r\n\r\n```css\r\n.hello {\r\n  width: 100%;\r\n}\r\n\r\nh1, h2 {\r\n  color: red;\r\n}\r\n\r\n.other {\r\n\tdisplay: none;\r\n}\r\n```\r\n\r\n\r\n<br/>\r\n\r\n## **Installation**\r\n\r\n`$ npm i -D postcss postcss-cli`\r\n\r\n`$ npm i -D postcss-delete-duplicate-selector`\r\n\r\n<br/>\r\n\r\n## **Usage 1**\r\n\r\n**package.json:**\r\n\r\n```jsx\r\n{\r\n\t\"scripts\": {\r\n\t\t\"build\": \"postcss input.css --use postcss-delete-duplicate-selector --output output.css\"\r\n\t},\r\n\t\"devDependencies\": {\r\n\t\t\"postcss\": \"^8.4.32\",\r\n\t\t\"postcss-cli\": \"^11.0.0\",\r\n\t\t\"postcss-delete-duplicate-selector\": \"^1.0.0\"\r\n\t}\r\n}\r\n```\r\n\r\nand then `npm run build`\r\n\r\n\r\n\r\n## **Usage 2**\r\n\r\nOr you can use `postcss.config.js` file. Create a `postcss.config.js` file in your root directory.\r\n\r\n**postcss.config.js:**\r\n\r\n```\r\nmodule.exports = {\r\n  plugins: [\r\n    require('postcss-delete-duplicate-selector')\r\n  ],\r\n};\r\n```\r\n\r\nChange the build script to look like this\r\n\r\n**package.json:**\r\n\r\n```jsx\r\n{\r\n\t\"scripts\": {\r\n\t\t\"build\": \"postcss input.css --output output.css\"\r\n\t},\r\n\t\"devDependencies\": {\r\n\t\t\"postcss\": \"^8.4.32\",\r\n\t\t\"postcss-cli\": \"^11.0.0\",\r\n\t\t\"postcss-delete-duplicate-selector\": \"^1.0.0\"\r\n\t}\r\n}\r\n```\r\n\r\nand then `npm run build`\r\n\r\nSee **[PostCSS](https://github.com/postcss/postcss)** docs for **[examples regarding usage](https://github.com/postcss/postcss#usage)**.\r\n\r\n\r\n<br/>\r\n\r\n## **Options**\r\n\r\nN/A\r\n\r\n\r\n<br/>\r\n\r\n## **Additional Info**\r\n\r\nYou can merge the two files with the command below.\r\n\r\n```shell\r\n# linux\r\n$ cat a.css b.css > input.css\r\n\r\n# windows\r\n> type a.css b.css > input.css\r\n\r\n```\r\n\r\n<br/>\r\n\r\nThis plugin will delete all comments.\r\n\r\n**input.css:**\r\n\r\n```css\r\n/*This is the comment1*/\r\n.hello {\r\n  width: 100%;\r\n}\r\n/*This is the comment2*/\r\n```\r\n\r\n**output.css:**\r\n\r\n```css\r\n.hello {\r\n  width: 100%;\r\n}\r\n```\r\n\r\n<br/>\r\nThis plugin does not consider whitespace between selectors. Therefore, it's recommended to run it after the CSS minify.\r\n\r\n**input.css:**\r\n\r\n```css\r\nh1, h2 {\r\n  width: 100%;\r\n}\r\n\r\nh1,h2 {\r\n  width: 100%;\r\n}\r\n```\r\n\r\n**output.css:** (result is same)\r\n\r\n```css\r\nh1, h2 {\r\n  width: 100%;\r\n}\r\n\r\nh1,h2 {\r\n  width: 100%;\r\n}\r\n```\r\n\r\n<br/>\r\n\r\n## **License**\r\n\r\nMIT\r\n",
 	"readmeFilename": "README.md",
-	"_downloads": 140
+	"_downloads": 151
 }
