@@ -1,9 +1,9 @@
 {
 	"_id": "posthtml-css-inline",
-	"_rev": "2-0c4d1d2a40ad887f4258ece9352582ed",
+	"_rev": "3-352172fa5cc199300e9836ecf33679e4",
 	"name": "posthtml-css-inline",
 	"dist-tags": {
-		"latest": "0.1.0"
+		"latest": "0.2.0"
 	},
 	"versions": {
 		"0.0.1": {
@@ -258,14 +258,100 @@
 				"tmp": "tmp/posthtml-css-inline_0.1.0_1705768771719_0.8951780535151255"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.2.0": {
+			"name": "posthtml-css-inline",
+			"description": "Inline CSS from HTML `<style>` tags into `style` attributes.",
+			"version": "0.2.0",
+			"license": "MIT",
+			"author": {
+				"name": "PostHTML",
+				"url": "https://github.com/cossssmin"
+			},
+			"bugs": {
+				"url": "https://github.com/cossssmin/posthtml-css-inline/issues"
+			},
+			"homepage": "https://github.com/cossssmin/posthtml-css-inline",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cossssmin/posthtml-css-inline.git"
+			},
+			"type": "module",
+			"exports": "./lib/index.js",
+			"engines": {
+				"node": ">=18"
+			},
+			"scripts": {
+				"dev": "vitest",
+				"pretest": "xo",
+				"release": "np",
+				"test": "vitest run --coverage"
+			},
+			"keywords": [
+				"css",
+				"html",
+				"inline",
+				"posthtml",
+				"posthtml-plugin",
+				"postcss-plugin"
+			],
+			"devDependencies": {
+				"@vitest/coverage-v8": "^1.1.3",
+				"np": "^9.2.0",
+				"posthtml": "^0.16.6",
+				"vitest": "^1.1.3",
+				"xo": "^0.56.0"
+			},
+			"dependencies": {
+				"ofetch": "^1.3.3",
+				"postcss": "^8.4.32",
+				"postcss-safe-parser": "^7.0.0",
+				"posthtml-attrs-parser": "^0.1.1",
+				"posthtml-match-helper": "^1.0.4",
+				"specificity": "^1.0.0"
+			},
+			"_id": "posthtml-css-inline@0.2.0",
+			"gitHead": "30d57afd10bb89f735669a02ca857bfc7c37f36b",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.4",
+			"dist": {
+				"integrity": "sha512-4n0VVIVaQ56PrSrktF8OlkAf213qdhnc8OvPN80dBr6bevQAWlDtoG6KVFN7V2lEtv4KHMAS5Ic30BD6gsGBfg==",
+				"shasum": "b8d7d12960a94d055c86bd9023104ea212e563c4",
+				"tarball": "https://registry.npmjs.org/posthtml-css-inline/-/posthtml-css-inline-0.2.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 20972,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCoM8M3A9wGtw9VJgtQxGJgcIgaocPaBpnSCbrvsIv8rwIhAOs06hqJoS8oojK+gAttFyxcOLOL3CEQ2f9xof8AS0lH"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "cossssmin",
+				"email": "hellocosmin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "cossssmin",
+					"email": "hellocosmin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/posthtml-css-inline_0.2.0_1705857105428_0.2722387620625615"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-01-03T16:57:48.029Z",
 		"0.0.1": "2024-01-03T16:57:48.203Z",
-		"modified": "2024-01-20T16:39:32.080Z",
+		"modified": "2024-01-21T17:11:45.875Z",
 		"0.0.2": "2024-01-03T17:54:34.180Z",
-		"0.1.0": "2024-01-20T16:39:31.918Z"
+		"0.1.0": "2024-01-20T16:39:31.918Z",
+		"0.2.0": "2024-01-21T17:11:45.704Z"
 	},
 	"maintainers": [
 		{
@@ -295,7 +381,7 @@
 		"url": "https://github.com/cossssmin/posthtml-css-inline/issues"
 	},
 	"license": "MIT",
-	"readme": "<div align=\"center\">\r\n  <img width=\"150\" height=\"150\" alt=\"PostHTML\" src=\"https://posthtml.github.io/posthtml/logo.svg\">\r\n  <h1>PostHTML CSS Inline</h1>\r\n  <p>PostHTML plugin for inlining CSS to HTML style attributes</p>\r\n\r\n  [![Version][npm-version-shield]][npm]\r\n  [![Build][github-ci-shield]][github-ci]\r\n  [![License][license-shield]][license]\r\n  [![Downloads][npm-stats-shield]][npm-stats]\r\n</div>\r\n\r\nThis is a work in progress, it's not ready for production yet.\r\n\r\nTODO:\r\n\r\n- [x] Support `<link rel=\"stylesheet\">` tags\r\n- [x] Remove inlined selectors from HTML elements\r\n- [x] Support PostCSS plugins\r\n- [ ] Support [complex selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector) *\r\n- [x] Safelist (selectors that should not be inlined)\r\n- [ ] Remove [orphaned selectors](https://github.com/cossssmin/posthtml-css-inline/issues/7)\r\n- [x] [Skip inlining](https://github.com/cossssmin/posthtml-css-inline/issues/9) on marked tags\r\n- [ ] Juice-compatible options\r\n  - [ ] `excludedProperties`\r\n  - [ ] `resolveCSSVariables`\r\n  - [ ] `applyHeightAttributes`\r\n  - [ ] `applyWidthAttributes`\r\n  - [ ] `applyAttributesTableElements`\r\n\r\n\\* This needs to be implemented in PostHTML or [posthtml-match-helper](https://github.com/posthtml/posthtml-match-helper) first.\r\n\r\n---\r\n\r\n## About\r\n\r\nThis plugin will inline CSS from `<style>` and `<link rel=\"stylesheet\">` tags into HTML `style` attributes.\r\n\r\nThe CSS will be parsed with [PostCSS](https://postcss.org/), so you can use PostCSS plugins to transform the CSS before it's inlined.\r\n\r\nUse cases:\r\n\r\n- HTML emails\r\n- Embedding HTML in 3<sup>rd</sup> party websites\r\n\r\nGiven something like this:\r\n\r\n```html\r\n<style>\r\n  div {\r\n    color: red;\r\n  }\r\n\r\n  @media (max-width: 600px) {\r\n    .text-sm {\r\n      font-size: 16px;\r\n    }\r\n  }\r\n</style>\r\n<div class=\"text-sm\">Test</div>\r\n```\r\n\r\n... it will output:\r\n\r\n```html\r\n<style>\r\n  div {\r\n    color: red;\r\n  }\r\n\r\n  @media (max-width: 600px) {\r\n    .text-sm {\r\n      font-size: 16px;\r\n    }\r\n  }\r\n</style>\r\n<div class=\"text-sm\" style=\"color: red;\">Test</div>\r\n```\r\n\r\n## Install\r\n\r\n```\r\n$ npm i posthtml posthtml-css-inline\r\n```\r\n\r\n## Usage\r\n\r\nTo use the plugin, simply pass it to PostHTML:\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss(options)\r\n])\r\n  .process('your HTML')\r\n  .then(result => console.log(result.html))\r\n```\r\n\r\n## Options\r\n\r\nYou may configure how inlining works by passing an options object to the plugin.\r\n\r\n| Option | Type | Default | Description |\r\n| --- | --- | --- | --- |\r\n| [`processLinkTags`](#processLinkTags) | `boolean` | `false` | Process `<link rel=\"stylesheet\">` tags. |\r\n| [`preserveImportant`](#preserveimportant) | `boolean` | `false` | Preserve `!important` in the inlined CSS value. |\r\n| [`removeInlinedSelectors`](#removeinlinedselectors) | `boolean` | `false` | Remove selectors that were successfully inlined from both the `<style>` tag and from the HTML body. |\r\n| [`postcss`](#postcss) | `object` | `{}` | Object to configure PostCSS. |\r\n| [`safelist`](#safelist) | `array` | `[]` | Array of selectors that should not be inlined. |\r\n\r\n## Attributes\r\n\r\nYou may configure how inlining works on a per-element basis.\r\n\r\n| Attribute | Description |\r\n| --- | --- |\r\n| [`no-inline`](#no-inline) | Skip inlining on this element. |\r\n\r\n### `processLinkTags`\r\n\r\nType: `boolean`\\\r\nDefault: `false`\r\n\r\nWhether to process `<link rel=\"stylesheet\">` tags.\r\n\r\nThe plugin will fetch the CSS from the URL in the `href` attribute, and replace the `<link>` tag with a `<style>` tag containing the CSS. This `<style>` tag will then be inlined into the HTML.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    processLinkTags: true\r\n  })\r\n])\r\n  .process(`\r\n    <link rel=\"stylesheet\" href=\"public/styles.css\">\r\n\r\n    <p class=\"text-sm\">small text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\n```css\r\n/* public/styles.css */\r\n.text-sm {\r\n  font-size: 12px;\r\n}\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<p class=\"text-sm\" style=\"font-size: 12px\">small text</p>\r\n```\r\n\r\n### `preserveImportant`\r\n\r\nType: `boolean`\\\r\nDefault: `false`\r\n\r\nWhether to preserve `!important` in the inlined CSS value.\r\n\r\nFor example this:\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    preserveImportant: true\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      .text-sm {\r\n        font-size: 12px;\r\n      }\r\n\r\n      div {\r\n        font-size: 14px !important;\r\n      }\r\n    </style>\r\n\r\n    <p class=\"text-sm\">small text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\n... will output this:\r\n\r\n```html\r\n<p class=\"text-sm\" style=\"font-size: 14px !important\">small text</p>\r\n```\r\n\r\n### `removeInlinedSelectors`\r\n\r\nType: `boolean`\\\r\nDefault: `false`\r\n\r\nWhether to remove selectors that were successfully inlined from both the `<style>` tag and from the HTML body.\r\n\r\nIf a selector that has been inlined is also present inside an at-rule such as `@media`, it will not be removed from the HTML body.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    removeInlinedSelectors: true\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      .text-sm {\r\n        font-size: 12px;\r\n      }\r\n\r\n      @media (min-width: 640px) {\r\n        .text-sm {\r\n          font-size: 16px !important;\r\n        }\r\n      }\r\n    </style>\r\n\r\n    <p class=\"text-sm\">small text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<style>\r\n  @media (min-width: 640px) {\r\n    .text-sm {\r\n      font-size: 16px !important;\r\n    }\r\n  }\r\n</style>\r\n\r\n<p class=\"text-sm\" style=\"font-size: 12px\">small text</p>\r\n```\r\n\r\n### `postcss`\r\n\r\nType: `object`\\\r\nDefault: `{}`\r\n\r\nYou may configure PostCSS and use PostCSS plugins to transform the CSS before it's inlined.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n// Imaginary PostCSS plugin that removes !important\r\nimport removeImportant from'remove-important-plugin'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    postcss: {\r\n      plugins: [\r\n        removeImportant\r\n      ]\r\n    }\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      .text-sm {\r\n        font-size: 12px !important;\r\n      }\r\n\r\n      @media (min-width: 640px) {\r\n        .text-sm {\r\n          font-size: 16px !important;\r\n        }\r\n      }\r\n    </style>\r\n\r\n    <p class=\"text-sm\">small text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<style>\r\n  .text-sm {\r\n    font-size: 12px;\r\n  }\r\n\r\n  @media (min-width: 640px) {\r\n    .text-sm {\r\n      font-size: 16px;\r\n    }\r\n  }\r\n</style>\r\n\r\n<p class=\"text-sm\" style=\"font-size: 12px\">small text</p>\r\n```\r\n\r\n### `safelist`\r\n\r\nType: `array`\\\r\nDefault: `[]`\r\n\r\nArray of selectors that should not be inlined.\r\n\r\n> [!NOTE]  \r\n> The CSS `*` selector is not supported when inlining, you don't need to worry about safelisting it.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    safelist: ['body', '.flex']\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      .flex {\r\n        display: flex;\r\n      }\r\n\r\n      body {\r\n        color: blue;\r\n      }\r\n\r\n      p {\r\n        color: red;\r\n      }\r\n    </style>\r\n\r\n    <body>\r\n      <p class=\"flex\">small text</p>\r\n    </body>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<body>\r\n  <p class=\"flex\" style=\"color: red\">small text</p>\r\n</body>\r\n```\r\n\r\n### `no-inline`\r\n\r\nYou may use the `no-inline` attribute on an element to prevent CSS inlining.\r\n\r\n- when used on a `<style>` or `<link>` tag, the CSS inside the tag will not be inlined\r\n- when used on any other tag, the inliner will not inline CSS on that tag\r\n\r\nYou may use any of the following attributes to achieve this on a `<style>` or `<link>` tag:\r\n\r\n- `no-inline`\r\n- `data-embed`\r\n- `embed`\r\n- `prevent-inline`\r\n- `skip-inline`\r\n\r\nLikewise, you may use any of the following attributes to achieve this on any other tag:\r\n\r\n- `no-inline`\r\n- `prevent-inline`\r\n- `skip-inline`\r\n\r\nThe attribute will be removed from the tag in the resulting HTML.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss()\r\n])\r\n  .process(`\r\n    <style no-inline>\r\n      p {\r\n        font-size: 12px;\r\n      }\r\n    </style>\r\n    <style>\r\n      div {\r\n        color: blue;\r\n      }\r\n    </style>\r\n\r\n    <p>small text</p>\r\n    <div no-inline>b</div>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<style>\r\n  p {\r\n    font-size: 12px;\r\n  }\r\n</style>\r\n<style>\r\n  div {\r\n    color: blue;\r\n  }\r\n</style>\r\n\r\n<p>small text</p>\r\n<div>b</div>\r\n```\r\n\r\n\r\n[npm]: https://www.npmjs.com/package/posthtml-css-inline\r\n[npm-version-shield]: https://img.shields.io/npm/v/posthtml-css-inline.svg\r\n[npm-stats]: http://npm-stat.com/charts.html?package=posthtml-css-inline\r\n[npm-stats-shield]: https://img.shields.io/npm/dt/posthtml-css-inline.svg\r\n[github-ci]: https://github.com/cossssmin/posthtml-css-inline/actions/workflows/nodejs.yml\r\n[github-ci-shield]: https://github.com/cossssmin/posthtml-css-inline/actions/workflows/nodejs.yml/badge.svg\r\n[license]: ./license\r\n[license-shield]: https://img.shields.io/npm/l/posthtml-css-inline.svg\r\n",
+	"readme": "<div align=\"center\">\r\n  <img width=\"150\" height=\"150\" alt=\"PostHTML\" src=\"https://posthtml.github.io/posthtml/logo.svg\">\r\n  <h1>PostHTML CSS Inline</h1>\r\n  <p>PostHTML plugin for inlining CSS to HTML style attributes</p>\r\n\r\n  [![Version][npm-version-shield]][npm]\r\n  [![Build][github-ci-shield]][github-ci]\r\n  [![License][license-shield]][license]\r\n  [![Downloads][npm-stats-shield]][npm-stats]\r\n</div>\r\n\r\nThis is a work in progress, it's not ready for production yet.\r\n\r\nTODO:\r\n\r\n- [x] Support `<link rel=\"stylesheet\">` tags\r\n- [x] Remove inlined selectors from HTML elements\r\n- [x] Support PostCSS plugins\r\n- [ ] Support [complex selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector) *\r\n- [x] Safelist (selectors that should not be inlined)\r\n- [x] [Skip inlining](https://github.com/cossssmin/posthtml-css-inline/issues/9) on marked tags\r\n- [ ] Juice-compatible options\r\n  - [x] `excludedProperties`\r\n  - [ ] `resolveCSSVariables`\r\n  - [ ] `applyHeightAttributes`\r\n  - [ ] `applyWidthAttributes`\r\n  - [ ] `applyAttributesTableElements`\r\n\r\n\\* This needs to be implemented in PostHTML or [posthtml-match-helper](https://github.com/posthtml/posthtml-match-helper) first.\r\n\r\n---\r\n\r\n## About\r\n\r\nThis plugin will inline CSS from `<style>` and `<link rel=\"stylesheet\">` tags into HTML `style` attributes.\r\n\r\nThe CSS will be parsed with [PostCSS](https://postcss.org/), so you can use PostCSS plugins to transform the CSS before it's inlined.\r\n\r\nUse cases:\r\n\r\n- HTML emails\r\n- Embedding HTML in 3<sup>rd</sup> party websites\r\n\r\nGiven something like this:\r\n\r\n```html\r\n<style>\r\n  div {\r\n    color: red;\r\n  }\r\n\r\n  @media (max-width: 600px) {\r\n    .text-sm {\r\n      font-size: 16px;\r\n    }\r\n  }\r\n</style>\r\n<div class=\"text-sm\">Test</div>\r\n```\r\n\r\n... it will output:\r\n\r\n```html\r\n<style>\r\n  div {\r\n    color: red;\r\n  }\r\n\r\n  @media (max-width: 600px) {\r\n    .text-sm {\r\n      font-size: 16px;\r\n    }\r\n  }\r\n</style>\r\n<div class=\"text-sm\" style=\"color: red;\">Test</div>\r\n```\r\n\r\n## Install\r\n\r\n```\r\n$ npm i posthtml posthtml-css-inline\r\n```\r\n\r\n## Usage\r\n\r\nTo use the plugin, simply pass it to PostHTML:\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss(options)\r\n])\r\n  .process('your HTML')\r\n  .then(result => console.log(result.html))\r\n```\r\n\r\n## Options\r\n\r\nYou may configure how inlining works by passing an options object to the plugin.\r\n\r\n| Option | Type | Default | Description |\r\n| --- | --- | --- | --- |\r\n| [`processLinkTags`](#processLinkTags) | `boolean` | `false` | Process `<link rel=\"stylesheet\">` tags. |\r\n| [`preserveImportant`](#preserveimportant) | `boolean` | `false` | Preserve `!important` in the inlined CSS value. |\r\n| [`removeInlinedSelectors`](#removeinlinedselectors) | `boolean` | `false` | Remove selectors that were successfully inlined from both the `<style>` tag and from the HTML body. |\r\n| [`postcss`](#postcss) | `object` | `{}` | Object to configure PostCSS. |\r\n| [`safelist`](#safelist) | `array` | `[]` | Array of selectors that should not be inlined. |\r\n| [`excludedProperties`](#excludedproperties) | `array` | `[]` | Array of CSS properties that should not be inlined. |\r\n\r\n## Attributes\r\n\r\nYou may configure how inlining works on a per-element basis.\r\n\r\n| Attribute | Description |\r\n| --- | --- |\r\n| [`no-inline`](#no-inline) | Skip inlining on this element. |\r\n\r\n### `processLinkTags`\r\n\r\nType: `boolean`\\\r\nDefault: `false`\r\n\r\nWhether to process `<link rel=\"stylesheet\">` tags.\r\n\r\nThe plugin will fetch the CSS from the URL in the `href` attribute, and replace the `<link>` tag with a `<style>` tag containing the CSS. This `<style>` tag will then be inlined into the HTML.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    processLinkTags: true\r\n  })\r\n])\r\n  .process(`\r\n    <link rel=\"stylesheet\" href=\"public/styles.css\">\r\n\r\n    <p class=\"text-sm\">small text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\n```css\r\n/* public/styles.css */\r\n.text-sm {\r\n  font-size: 12px;\r\n}\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<p class=\"text-sm\" style=\"font-size: 12px\">small text</p>\r\n```\r\n\r\n### `preserveImportant`\r\n\r\nType: `boolean`\\\r\nDefault: `false`\r\n\r\nWhether to preserve `!important` in the inlined CSS value.\r\n\r\nFor example this:\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    preserveImportant: true\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      .text-sm {\r\n        font-size: 12px;\r\n      }\r\n\r\n      div {\r\n        font-size: 14px !important;\r\n      }\r\n    </style>\r\n\r\n    <p class=\"text-sm\">small text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\n... will output this:\r\n\r\n```html\r\n<p class=\"text-sm\" style=\"font-size: 14px !important\">small text</p>\r\n```\r\n\r\n### `removeInlinedSelectors`\r\n\r\nType: `boolean`\\\r\nDefault: `false`\r\n\r\nWhether to remove selectors that were successfully inlined from both the `<style>` tag and from the HTML body.\r\n\r\nIf a selector that has been inlined is also present inside an at-rule such as `@media`, it will not be removed from the HTML body.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    removeInlinedSelectors: true\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      .text-sm {\r\n        font-size: 12px;\r\n      }\r\n\r\n      @media (min-width: 640px) {\r\n        .text-sm {\r\n          font-size: 16px !important;\r\n        }\r\n      }\r\n    </style>\r\n\r\n    <p class=\"text-sm\">small text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<style>\r\n  @media (min-width: 640px) {\r\n    .text-sm {\r\n      font-size: 16px !important;\r\n    }\r\n  }\r\n</style>\r\n\r\n<p class=\"text-sm\" style=\"font-size: 12px\">small text</p>\r\n```\r\n\r\n### `postcss`\r\n\r\nType: `object`\\\r\nDefault: `{}`\r\n\r\nYou may configure PostCSS and use PostCSS plugins to transform the CSS before it's inlined.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n// Imaginary PostCSS plugin that removes !important\r\nimport removeImportant from'remove-important-plugin'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    postcss: {\r\n      plugins: [\r\n        removeImportant\r\n      ]\r\n    }\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      .text-sm {\r\n        font-size: 12px !important;\r\n      }\r\n\r\n      @media (min-width: 640px) {\r\n        .text-sm {\r\n          font-size: 16px !important;\r\n        }\r\n      }\r\n    </style>\r\n\r\n    <p class=\"text-sm\">small text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<style>\r\n  .text-sm {\r\n    font-size: 12px;\r\n  }\r\n\r\n  @media (min-width: 640px) {\r\n    .text-sm {\r\n      font-size: 16px;\r\n    }\r\n  }\r\n</style>\r\n\r\n<p class=\"text-sm\" style=\"font-size: 12px\">small text</p>\r\n```\r\n\r\n### `safelist`\r\n\r\nType: `array`\\\r\nDefault: `[]`\r\n\r\nArray of selectors that should not be inlined.\r\n\r\n> [!NOTE]  \r\n> The CSS `*` selector is not supported when inlining, you don't need to worry about safelisting it.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    safelist: ['body', '.flex']\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      .flex {\r\n        display: flex;\r\n      }\r\n\r\n      body {\r\n        color: blue;\r\n      }\r\n\r\n      p {\r\n        color: red;\r\n      }\r\n    </style>\r\n\r\n    <body>\r\n      <p class=\"flex\">small text</p>\r\n    </body>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<body>\r\n  <p class=\"flex\" style=\"color: red\">small text</p>\r\n</body>\r\n```\r\n\r\n### `excludedProperties`\r\n\r\nType: `array`\\\r\nDefault: `[]`\r\n\r\nArray of CSS properties that should not be inlined.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss({\r\n    excludedProperties: ['color', 'display']\r\n  })\r\n])\r\n  .process(`\r\n    <style>\r\n      p {\r\n        color: red;\r\n        display: flex;\r\n        font-size: 12px;\r\n      }\r\n    </style>\r\n\r\n    <p>text</p>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<style>\r\n  p {\r\n    color: red;\r\n    display: flex;\r\n    font-size: 12px;\r\n  }\r\n</style>\r\n\r\n<p style=\"font-size: 12px\">text</p>\r\n```\r\n\r\n### `no-inline`\r\n\r\nYou may use the `no-inline` attribute on an element to prevent CSS inlining.\r\n\r\n- when used on a `<style>` or `<link>` tag, the CSS inside the tag will not be inlined\r\n- when used on any other tag, the inliner will not inline CSS on that tag\r\n\r\nYou may use any of the following attributes to achieve this on a `<style>` or `<link>` tag:\r\n\r\n- `no-inline`\r\n- `data-embed`\r\n- `embed`\r\n- `prevent-inline`\r\n- `skip-inline`\r\n\r\nLikewise, you may use any of the following attributes to achieve this on any other tag:\r\n\r\n- `no-inline`\r\n- `prevent-inline`\r\n- `skip-inline`\r\n\r\nThe attribute will be removed from the tag in the resulting HTML.\r\n\r\n```js\r\nimport posthtml from'posthtml'\r\nimport inlineCss from'posthtml-css-inline'\r\n\r\nposthtml([\r\n  inlineCss()\r\n])\r\n  .process(`\r\n    <style no-inline>\r\n      p {\r\n        font-size: 12px;\r\n      }\r\n    </style>\r\n    <style>\r\n      div {\r\n        color: blue;\r\n      }\r\n    </style>\r\n\r\n    <p>small text</p>\r\n    <div no-inline>b</div>\r\n  `)\r\n  .then(result => result.html)\r\n```\r\n\r\nResult:\r\n\r\n```html\r\n<style>\r\n  p {\r\n    font-size: 12px;\r\n  }\r\n</style>\r\n<style>\r\n  div {\r\n    color: blue;\r\n  }\r\n</style>\r\n\r\n<p>small text</p>\r\n<div>b</div>\r\n```\r\n\r\n\r\n[npm]: https://www.npmjs.com/package/posthtml-css-inline\r\n[npm-version-shield]: https://img.shields.io/npm/v/posthtml-css-inline.svg\r\n[npm-stats]: http://npm-stat.com/charts.html?package=posthtml-css-inline\r\n[npm-stats-shield]: https://img.shields.io/npm/dt/posthtml-css-inline.svg\r\n[github-ci]: https://github.com/cossssmin/posthtml-css-inline/actions/workflows/nodejs.yml\r\n[github-ci-shield]: https://github.com/cossssmin/posthtml-css-inline/actions/workflows/nodejs.yml/badge.svg\r\n[license]: ./license\r\n[license-shield]: https://img.shields.io/npm/l/posthtml-css-inline.svg\r\n",
 	"readmeFilename": "README.md",
-	"_downloads": 113
+	"_downloads": 160
 }
