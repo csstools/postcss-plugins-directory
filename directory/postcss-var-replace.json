@@ -1,0 +1,134 @@
+{
+	"name": "postcss-var-replace",
+	"version": "1.0.0",
+	"description": "PostCSS plugin to replace CSS variables with their static values",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/shellscape/postcss-var-replace.git"
+	},
+	"author": {
+		"name": "Andrew Powell",
+		"email": "andrew@shellscape.org"
+	},
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		},
+		"./package.json": "./package.json"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"keywords": [
+		"css",
+		"plugin",
+		"postcss",
+		"postcss-plugin",
+		"replace",
+		"var",
+		"variables"
+	],
+	"peerDependencies": {
+		"postcss": "^8.4.31"
+	},
+	"dependencies": {
+		"balanced-match": "^2.0.0",
+		"escape-string-regexp": "^4.0.0"
+	},
+	"devDependencies": {
+		"@types/balanced-match": "^3.0.2",
+		"ava": "^5.3.1",
+		"bluebird": "^3.5.0",
+		"chai": "^4.1.1",
+		"chai-as-promised": "^7.1.1",
+		"cssnano": "^4.0.0",
+		"eslint-config-shellscape": "^6.0.1",
+		"husky": "^8.0.3",
+		"lint-staged": "^15.1.0",
+		"mocha": "^5.2.0",
+		"postcss": "^8.4.31",
+		"postcss-discard-comments": "^4.0.0",
+		"postcss-normalize-whitespace": "^4.0.0",
+		"tsup": "^8.0.1",
+		"typescript": "^5.3.2"
+	},
+	"types": "dist/index.d.mts",
+	"funding": {
+		"type": "github",
+		"url": "https://github.com/sponsors/shellscape"
+	},
+	"lint-staged": {
+		"*.{ts,js}": [
+			"eslint --fix --cache"
+		],
+		"**/(package|tsconfig(.*)?).json": [
+			"prettier --write"
+		],
+		"(pnpm-workspace|.github/**/*).{yml,yaml}": [
+			"prettier --write"
+		],
+		"*package.json": [
+			"prettier --write --plugin=prettier-plugin-package"
+		],
+		"((.github/**/*)|(README|CHANGELOG)|(**/(README|CHANGELOG))).md": [
+			"prettier --write"
+		]
+	},
+	"scripts": {
+		"build": "tsup --config tsup.config.ts",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"pretest": "pnpm build",
+		"test": "mocha"
+	},
+	"bugs": {
+		"url": "https://github.com/shellscape/postcss-var-replace/issues"
+	},
+	"homepage": "https://github.com/shellscape/postcss-var-replace#readme",
+	"_id": "postcss-var-replace@1.0.0",
+	"_integrity": "sha512-Aw8t/L0wmuJMNUbYHl7AfJmQ7pUgLrS0zXz+AR+380QxJ85HA8Gxkg3+HvkWK0RoRKpoErpVhakd0k/aHOlNzw==",
+	"_resolved": "/private/var/folders/07/ywbfgwc57_z4yx4m8vzhr8580000gp/T/60cc809db51bfdd87bfcbfdaa13b6d5d/postcss-var-replace-1.0.0.tgz",
+	"_from": "file:postcss-var-replace-1.0.0.tgz",
+	"_nodeVersion": "18.16.1",
+	"_npmVersion": "9.5.1",
+	"dist": {
+		"integrity": "sha512-Aw8t/L0wmuJMNUbYHl7AfJmQ7pUgLrS0zXz+AR+380QxJ85HA8Gxkg3+HvkWK0RoRKpoErpVhakd0k/aHOlNzw==",
+		"shasum": "6e88af756a0efe2e4cc88bf2d9cba1edef7cccb3",
+		"tarball": "https://registry.npmjs.org/postcss-var-replace/-/postcss-var-replace-1.0.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 178496,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIHF10DmEbOgB7v2n18Yt/60Wd9pC/GpXC/dGlyW/d28rAiEA9Z0KA1wtLAQIivnWcFg96yUFe7vpXioMSF0FfHVhZ58="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "shellscape",
+		"email": "andrew@shellscape.org"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "shellscape",
+			"email": "andrew@shellscape.org"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-var-replace_1.0.0_1701290077237_0.5895080980822573"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-11-29T20:34:37.454Z"
+}
