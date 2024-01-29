@@ -1,9 +1,9 @@
 {
 	"_id": "tailwindcss-email-variants",
-	"_rev": "5-69b33e0ce1811b8c6ba7f7d347cff308",
+	"_rev": "6-8a20940a72b26b6a623d526f938a868c",
 	"name": "tailwindcss-email-variants",
 	"dist-tags": {
-		"latest": "2.0.3"
+		"latest": "3.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -535,17 +535,97 @@
 				"tmp": "tmp/tailwindcss-email-variants_2.0.3_1690023292532_0.05783118523123543"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "tailwindcss-email-variants",
+			"version": "3.0.0",
+			"description": "Tailwind CSS variants for email client CSS targeting hacks",
+			"main": "src/index.js",
+			"scripts": {
+				"release": "np",
+				"dev": "vitest",
+				"test": "vitest run --coverage"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/maizzle/tailwindcss-email-variants.git"
+			},
+			"publishConfig": {
+				"access": "public"
+			},
+			"devDependencies": {
+				"@vitest/coverage-v8": "^1.2.2",
+				"np": "^9.2.0",
+				"postcss": "^8.4.33",
+				"tailwindcss": "^3.4.0",
+				"vitest": "^1.2.2"
+			},
+			"peerDependencies": {
+				"tailwindcss": ">=3.4.0"
+			},
+			"keywords": [
+				"tailwindcss",
+				"maizzle",
+				"html-email",
+				"outlook-css",
+				"email-clients",
+				"email-hacks",
+				"email-targeting",
+				"postcss-plugin"
+			],
+			"engines": {
+				"node": ">=18"
+			},
+			"_id": "tailwindcss-email-variants@3.0.0",
+			"gitHead": "c14e3fe498d5dca08cc0c83afd68ad40fbe95dee",
+			"bugs": {
+				"url": "https://github.com/maizzle/tailwindcss-email-variants/issues"
+			},
+			"homepage": "https://github.com/maizzle/tailwindcss-email-variants#readme",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.4",
+			"dist": {
+				"integrity": "sha512-qavbGh00bg99tQ7U3iQ8N5JNBg9raXhOdgYfueccP6JLSXOl0n3TG7abgZvxhm3VBQ3MsmOLi276d90moUx8kw==",
+				"shasum": "0ffc757427fd56236672f71ab8606ec1df0bac33",
+				"tarball": "https://registry.npmjs.org/tailwindcss-email-variants/-/tailwindcss-email-variants-3.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 6196,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCFsC4/eCF5IrVM/dstp+pf1vLfAuAoS5/m79YOilVDdwIhAP0IiCYgGY802XFqEQOIw9rV168IvWNoAE/cLbMQXaIX"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "cossssmin",
+				"email": "hellocosmin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "cossssmin",
+					"email": "hellocosmin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tailwindcss-email-variants_3.0.0_1706451568467_0.9684577890025143"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-05-05T23:20:48.341Z",
 		"1.0.0": "2022-05-05T23:20:48.655Z",
-		"modified": "2023-07-22T10:54:52.887Z",
+		"modified": "2024-01-28T14:19:28.767Z",
 		"1.1.0": "2022-05-06T11:07:26.852Z",
 		"2.0.0": "2022-06-17T12:32:22.488Z",
 		"2.0.1": "2023-02-20T12:06:33.444Z",
 		"2.0.2": "2023-04-24T08:50:17.954Z",
-		"2.0.3": "2023-07-22T10:54:52.711Z"
+		"2.0.3": "2023-07-22T10:54:52.711Z",
+		"3.0.0": "2024-01-28T14:19:28.620Z"
 	},
 	"maintainers": [
 		{
@@ -563,7 +643,7 @@
 		"url": "https://github.com/maizzle/tailwindcss-email-variants/issues"
 	},
 	"license": "MIT",
-	"readme": "# tailwindcss-email-variants\n\nA plugin that provides variants for email client targeting hacks used in HTML emails.\n\nAll variants are based on targeting hacks from [howtotarget.email](https://howtotarget.email)\n\n## Installation\n\nInstall the plugin from npm:\n\n```sh\nnpm install -D tailwindcss-email-variants\n```\n\nThen add the plugin to your `tailwind.config.js` file:\n\n```js\n// tailwind.config.js\nmodule.exports = {\n  theme: {\n    // ...\n  },\n  plugins: [\n    require('tailwindcss-email-variants'),\n    // ...\n  ],\n}\n```\n\n## Usage\n\nUse the available variants to generate utilities that target specific email clients, or [configure it](#configuration) with your own variants.\n\n### Gmail\n\nUse the `gmail` variant to target Gmail's webmail:\n\n```html\n<div class=\"gmail:hidden\">...</div>\n```\n\nResult:\n\n```css\nu + .body .gmail\\:hidden {\n  display: none;\n}\n```\n\n### Gmail (Android)\n\nUse the `gmail-android` variant to target Gmail on Android devices:\n\n```html\n<div class=\"gmail-android:hidden\">...</div>\n```\n\nResult:\n\n```css\ndiv > u + .body .gmail-android\\:hidden {\n  display: none;\n}\n```\n\n### Apple Mail (10+)\n\nUse the `apple-mail` variant to target Apple Mail 10 and up:\n\n```html\n<div class=\"apple-mail:hidden\">...</div>\n```\n\nResult:\n\n```css\n.Singleton .apple-mail\\:hidden {\n  display: none;\n}\n```\n\n### iOS Mail (10+)\n\nUse the `ios` variant to target iOS Mail 10 and up:\n\n```html\n<div class=\"ios:hidden\">...</div>\n```\n\nResult:\n\n```css\n@supports (-webkit-overflow-scrolling:touch) and (color:#ffff) {\n  .ios\\:hidden {\n    display: none;\n  }\n}\n```\n\n### iOS Mail (15)\n\nUse the `ios-15` variant to target iOS Mail 15 specifically:\n\n```html\n<div class=\"ios-15:hidden\">...</div>\n```\n\nResult:\n\n```css\n@supports (-webkit-overflow-scrolling:touch) and (aspect-ratio: 1 / 1) {\n  .ios-15\\:hidden {\n    display: none;\n  }\n}\n```\n\n### Outlook.com dark mode\n\nChange `color` and `background-color` of elements in [Outlook.com dark mode](https://www.hteumeuleu.com/2021/emails-react-outlook-com-dark-mode/).\n\n```html\n<!-- Color -->\n<div class=\"ogsc:text-slate-200\">...</div>\n\n<!-- Background color -->\n<div class=\"ogsb:bg-slate-900\">...</div>\n```\n\nResult:\n\n```css\n[data-ogsc] .ogsc\\:text-slate-200 {\n  color: #e2e8f0;\n}\n\n[data-ogsb] .ogsb\\:bg-slate-900 {\n  background-color: #0f172a;\n}\n```\n\n### Open-Xchange\n\nUse the `ox` variant to target webmail clients that are powered by [Open-Xchange](https://www.open-xchange.com/).\n\nSome of these email clients include Comcast, Libero, 1&1 MailXchange, Network Solutions Secure Mail, Namecheap Email Hosting, Mailbox.org, 123-reg Email, Acens Correo Professional, Home.pl Cloud Email Xchange, Virgin Media Mail, and Ziggo Mail.\n\n```html\n<div class=\"ox:hidden\">...</div>\n```\n\nResult:\n\n```css\n.ox\\:hidden[class^=\"ox-\"] {\n  display: none;\n}\n```\n",
+	"readme": "<div align=\"center\">\r\n  <img src=\"./.github/tailwindcss-mark.svg\" alt=\"Tailwind CSS\" width=\"108\" height=\"66\">\r\n  <h1>Tailwind CSS Email Variants</h1>\r\n\r\n  [![Build][github-ci-shield]][github-ci]\r\n  [![License][license-shield]][license]\r\n</div>\r\n\r\nA Tailwind CSS plugin that provides variants for email client targeting hacks used in HTML emails.\r\n\r\nAll variants are based on targeting hacks from [howtotarget.email](https://howtotarget.email)\r\n\r\n## Installation\r\n\r\nInstall the plugin from npm:\r\n\r\n```sh\r\nnpm install -D tailwindcss-email-variants\r\n```\r\n\r\nThen add the plugin to your `tailwind.config.js` file:\r\n\r\n```js\r\n/** @type {import('tailwindcss').Config} */\r\nmodule.exports = {\r\n  // ...\r\n  plugins: [\r\n    require('tailwindcss-email-variants'),\r\n  ],\r\n}\r\n```\r\n\r\n## Usage\r\n\r\nUse the available variants to generate utilities that target specific email clients.\r\n\r\n### Gmail\r\n\r\nUse the `gmail` variant to target Gmail's webmail:\r\n\r\n```html\r\n<div class=\"gmail:hidden\">...</div>\r\n```\r\n\r\nResult:\r\n\r\n```css\r\nu + .body .gmail\\:hidden {\r\n  display: none;\r\n}\r\n```\r\n\r\n### Gmail (Android)\r\n\r\nUse the `gmail-android` variant to target Gmail on Android devices:\r\n\r\n```html\r\n<div class=\"gmail-android:hidden\">...</div>\r\n```\r\n\r\nResult:\r\n\r\n```css\r\ndiv > u + .body .gmail-android\\:hidden {\r\n  display: none;\r\n}\r\n```\r\n\r\n### Apple Mail (10+)\r\n\r\nUse the `apple-mail` variant to target Apple Mail 10 and up:\r\n\r\n```html\r\n<div class=\"apple-mail:hidden\">...</div>\r\n```\r\n\r\nResult:\r\n\r\n```css\r\n.Singleton .apple-mail\\:hidden {\r\n  display: none;\r\n}\r\n```\r\n\r\n### iOS Mail (10+)\r\n\r\nUse the `ios` variant to target iOS Mail 10 and up:\r\n\r\n```html\r\n<div class=\"ios:hidden\">...</div>\r\n```\r\n\r\nResult:\r\n\r\n```css\r\n@supports (-webkit-overflow-scrolling:touch) and (color:#ffff) {\r\n  .ios\\:hidden {\r\n    display: none;\r\n  }\r\n}\r\n```\r\n\r\n### iOS Mail (15)\r\n\r\nUse the `ios-15` variant to target iOS Mail 15 specifically:\r\n\r\n```html\r\n<div class=\"ios-15:hidden\">...</div>\r\n```\r\n\r\nResult:\r\n\r\n```css\r\n@supports (-webkit-overflow-scrolling:touch) and (aspect-ratio: 1 / 1) {\r\n  .ios-15\\:hidden {\r\n    display: none;\r\n  }\r\n}\r\n```\r\n\r\n### Outlook.com dark mode\r\n\r\nChange `color` and `background-color` of elements in [Outlook.com dark mode](https://www.hteumeuleu.com/2021/emails-react-outlook-com-dark-mode/).\r\n\r\n```html\r\n<!-- Color -->\r\n<div class=\"ogsc:text-slate-200\">...</div>\r\n\r\n<!-- Background color -->\r\n<div class=\"ogsb:bg-slate-900\">...</div>\r\n```\r\n\r\nResult:\r\n\r\n```css\r\n[data-ogsc] .ogsc\\:text-slate-200 {\r\n  color: #e2e8f0;\r\n}\r\n\r\n[data-ogsb] .ogsb\\:bg-slate-900 {\r\n  background-color: #0f172a;\r\n}\r\n```\r\n\r\n### Open-Xchange\r\n\r\nUse the `ox` variant to target webmail clients that are powered by [Open-Xchange](https://www.open-xchange.com/).\r\n\r\nSome of these email clients include Comcast, Libero, 1&1 MailXchange, Network Solutions Secure Mail, Namecheap Email Hosting, Mailbox.org, 123-reg Email, Acens Correo Professional, Home.pl Cloud Email Xchange, Virgin Media Mail, and Ziggo Mail.\r\n\r\n```html\r\n<div class=\"ox:hidden\">...</div>\r\n```\r\n\r\nResult:\r\n\r\n```css\r\n.ox\\:hidden[class^=\"ox-\"] {\r\n  display: none;\r\n}\r\n```\r\n\r\n[github-ci]: https://github.com/maizzle/tailwindcss-email-variants/actions\r\n[github-ci-shield]: https://github.com/maizzle/tailwindcss-email-variants/actions/workflows/nodejs.yml/badge.svg\r\n[license]: ./LICENSE\r\n[license-shield]: https://img.shields.io/github/license/maizzle/tailwindcss-email-variants?color=0e9f6e\r\n",
 	"readmeFilename": "README.md",
 	"keywords": [
 		"tailwindcss",
@@ -575,5 +655,5 @@
 		"email-targeting",
 		"postcss-plugin"
 	],
-	"_downloads": 24362
+	"_downloads": 29338
 }
