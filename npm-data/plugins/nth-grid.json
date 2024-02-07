@@ -1,0 +1,218 @@
+{
+	"_id": "nth-grid",
+	"name": "nth-grid",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "nth-grid",
+			"version": "1.0.0",
+			"author": {
+				"name": "John Hildenbiddle"
+			},
+			"description": "Nth-Grid is a versatile semantic CSS grid system with legacy browser support for Less, PostCSS, Sass, and Stylus.",
+			"license": "MIT",
+			"homepage": "https://github.com/jhildenbiddle/nth-grid",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/jhildenbiddle/nth-grid.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jhildenbiddle/nth-grid/issues"
+			},
+			"keywords": [
+				"css",
+				"flex",
+				"flexbox",
+				"gap",
+				"grid",
+				"ie",
+				"ie7",
+				"ie8",
+				"ie9",
+				"ie10",
+				"ie11",
+				"legacy",
+				"less",
+				"mixin",
+				"plugin",
+				"postcss",
+				"postcss-plugin",
+				"sass",
+				"sassdoc",
+				"scss",
+				"semantic",
+				"styl",
+				"stylus"
+			],
+			"main": "dist/postcss/index.js",
+			"devDependencies": {
+				"@babel/core": "^7.2.2",
+				"@babel/preset-env": "^7.3.1",
+				"@rollup/plugin-babel": "^6.0.4",
+				"@rollup/plugin-commonjs": "^25.0.7",
+				"@rollup/plugin-eslint": "^9.0.5",
+				"@rollup/plugin-json": "^6.1.0",
+				"@rollup/plugin-node-resolve": "^15.2.3",
+				"@rollup/plugin-terser": "^0.4.4",
+				"autoprefixer": "^10.3.4",
+				"browser-sync": "^3.0.2",
+				"compression": "^1.7.3",
+				"cpx": "^1.5.0",
+				"css-device-frames": "^1.0.1",
+				"dart-sass": "^1.25.0",
+				"dedent": "^1.5.1",
+				"eslint": "^8.56.0",
+				"eslint-plugin-jest": "^27.6.3",
+				"handlebars": "^4.0.12",
+				"jest": "^29.7.0",
+				"less": "^4.1.1",
+				"lodash.camelcase": "^4.3.0",
+				"lodash.merge": "^4.6.1",
+				"markdownlint-cli": "^0.39.0",
+				"mkdirp": "^3.0.1",
+				"nodemon": "^3.0.3",
+				"npm-run-all": "^4.1.5",
+				"postcss-cli": "^11.0.0",
+				"replace-in-file": "^7.1.0",
+				"rimraf": "^5.0.5",
+				"rollup": "^4.9.6",
+				"sass": "^1.41.1",
+				"sassdoc": "^2.5.1",
+				"stylus": "^0.62.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"scripts": {
+				"build": "npm-run-all -s build:dist -p build:demo build:fixtures build:docs:sass build:sassdoc",
+				"build:demo": "npm-run-all -s build:demo:hbs -p build:demo:less build:demo:postcss build:demo:sass build:demo:stylus",
+				"build:demo:hbs": "node build/build-demo.js",
+				"build:demo:less": "lessc --include-path=dist demo/grids-less.less demo/grids-less.css",
+				"build:demo:postcss": "postcss demo/*.pcss ---dir demo --ext css",
+				"build:demo:sass": "run-p build:demo:sass-*",
+				"build:demo:sass-styles": "sass src/demo/sass:demo --load-path=dist --no-source-map",
+				"build:demo:sass-import": "dart-sass demo/grids-sass-import.scss demo/grids-sass-import.css --load-path=dist --no-source-map",
+				"build:demo:sass-use": "sass demo/grids-sass-use.scss demo/grids-sass-use.css --load-path=dist --no-source-map",
+				"build:demo:stylus": "stylus demo -o demo --include dist",
+				"build:dist": "rimraf dist/* && run-p build:dist:*",
+				"build:dist:less": "run-p build:dist:less:*",
+				"build:dist:less:mixin": "cpx './src/less/*.less' ./dist/less && replace-in-file ./dist/**/*.less --configFile ./replace.config.js --quiet",
+				"build:dist:less:plugin": "rollup -c rollup.less.config.mjs",
+				"build:dist:postcss": "rollup -c rollup.postcss.config.mjs",
+				"build:dist:sass": "cpx './src/sass/*.scss' ./dist/sass && replace-in-file ./dist/**/*.scss --configFile ./replace.config.js --quiet",
+				"build:dist:stylus": "cpx './src/stylus/*.styl' ./dist/stylus && replace-in-file ./dist/**/*.styl --configFile ./replace.config.js --quiet",
+				"build:docs:sass": "sass src/docs/sass:docs --load-path=dist --load-path=node_modules/css-device-frames/dist/ --no-source-map",
+				"build:fixtures": "rimraf tests/fixtures/* && node build/build-fixtures.js",
+				"build:sassdoc": "rimraf docs/sassdoc/* && sassdoc ./dist/sass -d ./docs/sassdoc -c ./sassdoc.config.json",
+				"clean": "rimraf demo/* dist/* docs/sassdoc/* tests/fixtures/*",
+				"lint": "eslint . && markdownlint *.md docs/*.md --ignore node_modules",
+				"lint:fix": "eslint . --fix",
+				"prepare": "run-s clean build",
+				"serve": "node server.js",
+				"start": "npm-run-all -s build -p watch serve",
+				"test": "jest",
+				"test:watch": "jest --watch & nodemon --delay 1 -C -q -w tests/fixtures -e '*' -x run-s test",
+				"version": "run-s prepare lint test && git add -A docs/sassdoc",
+				"watch": "run-p watch:**",
+				"watch:demo:less": "nodemon -C -q -w demo -e less -x run-s build:demo:less",
+				"watch:demo:postcss": "nodemon -C -q -w demo -e pcss -x run-s build:demo:postcss",
+				"watch:demo:sass": "nodemon -C -q -w demo -w src/demo -e scss -x run-s build:demo:sass",
+				"watch:demo:stylus": "nodemon -C -q -w demo -e styl -x run-s build:demo:stylus",
+				"watch:dist": "nodemon -C -q -w dist -e '*' -x run-s build:demo build:fixtures",
+				"watch:src:less": "nodemon -C -q -w src/less -e '*' -x run-s build:dist:less",
+				"watch:src:postcss": "nodemon -C -q -w src/postcss -e '*' -x run-s build:dist:postcss build:dist:less",
+				"watch:src:sass": "nodemon -C -q -w src/sass -e '*' -x run-s build:dist:sass build:sassdoc",
+				"watch:src:docs:sass": "nodemon -C -q -w src/docs -e '*' -x run-s build:docs:sass",
+				"watch:src:stylus": "nodemon -C -q -w src/stylus -e '*' -x run-s build:dist:stylus",
+				"watch:src:templates": "nodemon -C -q -w src/templates -e '*' -x run-p build:demo build:fixtures"
+			},
+			"_id": "nth-grid@1.0.0",
+			"gitHead": "b9cf63a83651e683118f55b18ecd03c8987b5751",
+			"_nodeVersion": "20.10.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-pIfrqCvRv0kBB36JtRn2ha6MEB9hB/9I6Zjknh30rdAFnP3J/ffJVy+p9Zv4ubNOp5hsfdJPXJTxtK5/g/mvqQ==",
+				"shasum": "8d7c49bb880f34709359958c9c36f6fcf5bd88bd",
+				"tarball": "https://registry.npmjs.org/nth-grid/-/nth-grid-1.0.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 357302,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCGqQVn8Wr5I8weC0CFiDLdsvDIIe9EKA4b2zJ+YkLUHQIgcn/ji20gAo6e/7MiNAzcwI2E0PEWVuq0CBa2j+sxnXA="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "jhildenbiddle",
+				"email": "john@hildenbiddle.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "jhildenbiddle",
+					"email": "john@hildenbiddle.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nth-grid_1.0.0_1707257813759_0.8134322299778389"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2024-02-06T22:16:53.758Z",
+		"1.0.0": "2024-02-06T22:16:53.933Z",
+		"modified": "2024-02-06T22:16:54.220Z"
+	},
+	"maintainers": [
+		{
+			"name": "jhildenbiddle",
+			"email": "john@hildenbiddle.com"
+		}
+	],
+	"description": "Nth-Grid is a versatile semantic CSS grid system with legacy browser support for Less, PostCSS, Sass, and Stylus.",
+	"homepage": "https://github.com/jhildenbiddle/nth-grid",
+	"keywords": [
+		"css",
+		"flex",
+		"flexbox",
+		"gap",
+		"grid",
+		"ie",
+		"ie7",
+		"ie8",
+		"ie9",
+		"ie10",
+		"ie11",
+		"legacy",
+		"less",
+		"mixin",
+		"plugin",
+		"postcss",
+		"postcss-plugin",
+		"sass",
+		"sassdoc",
+		"scss",
+		"semantic",
+		"styl",
+		"stylus"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/jhildenbiddle/nth-grid.git"
+	},
+	"author": {
+		"name": "John Hildenbiddle"
+	},
+	"bugs": {
+		"url": "https://github.com/jhildenbiddle/nth-grid/issues"
+	},
+	"license": "MIT",
+	"readme": "# Nth-Grid\n\n[![NPM](https://img.shields.io/npm/v/nth-grid.svg?style=flat-square)](https://www.npmjs.com/package/nth-grid)\n[![GitHub Workflow Status (master)](https://img.shields.io/github/actions/workflow/status/jhildenbiddle/nth-grid/test.yml?branch=master&label=checks&style=flat-square)](https://github.com/jhildenbiddle/nth-grid/actions?query=branch%3Amain+)\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/jhildenbiddle/nth-grid/blob/master/LICENSE)\n[![jsDelivr](https://data.jsdelivr.com/v1/package/npm/nth-grid/badge)](https://www.jsdelivr.com/package/npm/nth-grid)\n[![Sponsor this project](https://img.shields.io/static/v1?style=flat-square&label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/jhildenbiddle)\n\nNth-Grid is a versatile semantic CSS grid system with legacy browser support for [Less](http://lesscss.org/), [PostCSS](https://github.com/postcss/postcss), [Sass](http://sass-lang.com/), and [Stylus](http://stylus-lang.com/).\n\n- 🚀 [Documentation](https://jhildenbiddle.github.io/nth-grid/)\n- ⚙️ [SassDocs](https://jhildenbiddle.github.io/nth-grid/sassdoc)\n\n## Sponsorship\n\nA [sponsorship](https://github.com/sponsors/jhildenbiddle) is more than just a way to show appreciation for the open-source authors and projects we rely on; it can be the spark that ignites the next big idea, the inspiration to create something new, and the motivation to share so that others may benefit.\n\nIf you benefit from this project, please consider lending your support and encouraging future efforts by [becoming a sponsor](https://github.com/sponsors/jhildenbiddle).\n\nThank you! 🙏🏻\n\n## Contact & Support\n\n- Follow 👨🏻‍💻 **@jhildenbiddle** on [Twitter](https://twitter.com/jhildenbiddle) and [GitHub](https://github.com/jhildenbiddle) for announcements\n- Create a 💬 [GitHub issue](https://github.com/jhildenbiddle/nth-grid/issues) for bug reports, feature requests, or questions\n- Add a ⭐️ [star on GitHub](https://github.com/jhildenbiddle/nth-grid) and 🐦 [tweet](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fjhildenbiddle%2Fnth-grid&hashtags=developers,frontend,css,less,postcss,sass,scss) to promote the project\n- Become a 💖 [sponsor](https://github.com/sponsors/jhildenbiddle) to support the project and future efforts\n\n## License\n\nThis project is licensed under the MIT License. See the [LICENSE](https://github.com/jhildenbiddle/nth-grid/blob/master/LICENSE) for details.\n\nCopyright (c) John Hildenbiddle ([@jhildenbiddle](https://twitter.com/jhildenbiddle))\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
