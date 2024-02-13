@@ -1,0 +1,120 @@
+{
+	"_id": "postcss-overflow-fallbacks",
+	"name": "postcss-overflow-fallbacks",
+	"dist-tags": {
+		"latest": "0.4.0"
+	},
+	"versions": {
+		"0.4.0": {
+			"name": "postcss-overflow-fallbacks",
+			"version": "0.4.0",
+			"description": "Postcss plugin which provides fallbacks for `overflow: clip` and `overflow: overlay`",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"overflow"
+			],
+			"scripts": {
+				"lint-fix": "eslint *.js --fix",
+				"test": "vitest run",
+				"watch": "vitest watch"
+			},
+			"author": {
+				"name": "Carlos Jeurissen"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/carlosjeurissen/postcss-overflow-fallbacks.git"
+			},
+			"engines": {
+				"node": ">=14.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2.8"
+			},
+			"devDependencies": {
+				"clean-publish": "^4.2.0",
+				"eslint": "^8.56.0",
+				"eslint-config-ccb": "^0.16.4",
+				"lint-staged": "^15.2.2",
+				"postcss": "^8.4.35",
+				"simple-git-hooks": "^2.9.0",
+				"vitest": "^1.2.2"
+			},
+			"simple-git-hooks": {
+				"pre-commit": "npx lint-staged"
+			},
+			"lint-staged": {
+				"*.js": "eslint --fix"
+			},
+			"eslintConfig": {
+				"extends": "ccb",
+				"env": {
+					"es2022": true,
+					"node": true
+				}
+			},
+			"_id": "postcss-overflow-fallbacks@0.4.0",
+			"dist": {
+				"shasum": "87f717ad838220251905d36fd9e1d0690ab194c6",
+				"integrity": "sha512-UebKUa46K1NbUvrFcUtnIPv+1xhxXPs09CBU7qabWIJjpZeiF7pBbtC3YjqnOHO+xmq8It5D7cZgh5JMtWzzgg==",
+				"tarball": "https://registry.npmjs.org/postcss-overflow-fallbacks/-/postcss-overflow-fallbacks-0.4.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 130914,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIEfdNiSi0acD/xZz0dUpa0b1tGVxcUgsFO22A/oNNrBtAiAOqpns2dLAdM1eM/kGXBCxxLNVnMc5V+3WgrPXk/fiQg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "carlosjeurissen",
+				"email": "npm@jeurissen.co"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "carlosjeurissen",
+					"email": "npm@jeurissen.co"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-overflow-fallbacks_0.4.0_1707768197798_0.8134338218203496"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2024-02-12T20:03:17.798Z",
+		"0.4.0": "2024-02-12T20:03:18.023Z",
+		"modified": "2024-02-12T20:03:18.272Z"
+	},
+	"maintainers": [
+		{
+			"name": "carlosjeurissen",
+			"email": "npm@jeurissen.co"
+		}
+	],
+	"description": "Postcss plugin which provides fallbacks for `overflow: clip` and `overflow: overlay`",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"overflow"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/carlosjeurissen/postcss-overflow-fallbacks.git"
+	},
+	"author": {
+		"name": "Carlos Jeurissen"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Overflow Fallbacks\n\n[PostCSS] Provides fallbacks for `overflow: clip` and `overflow: overlay`\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n.foo {\n    overflow: clip;\n}\n\n.bar {\n    overflow: hidden;\n}\n\n.oth {\n    overflow: overlay;\n}\n```\n\n```css\n.foo {\n    overflow: hidden;\n    overflow: clip;\n}\n\n.bar {\n    overflow: hidden;\n}\n\n.oth {\n    overflow: auto;\n    overflow: overlay;\n}\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-overflow-clip\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-overflow-fallbacks'),\n  ]\n}\n```\n\n## Options\n\n**addOverlayFallback (default: true)**\nAdds `auto` fallback for `overlay`\n\n**addClipFallback (default: true)**\nAdds `hidden` fallback for `clip`\n\n**upgradeHiddenToClip (default: false)**\nAdds `clip` upgrade to `hidden`\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
