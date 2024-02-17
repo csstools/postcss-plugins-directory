@@ -53,9 +53,9 @@ jobs:
             const { repo, owner } = context.repo;
             const updatedPluginData = JSON.parse(Buffer.from(process.env.UPDATED_PLUGIN_DATA, 'base64').toString());
 
-            const name = '## ' + '`' + (updatedPluginData.packageName ?? '-')  + '`\n';
-            const description = '### description:\n- ' + '`' + (updatedPluginData.description ?? '-')  + '`\n';
-            const keywords = '### keywords:\n- ' + (updatedPluginData.keywords ?? []).map(x => '`' + x + '`').join('\n- ') + '\n';
+            const name = '## ' + '`` ' + (updatedPluginData.packageName ?? '-')  + ' ``\n';
+            const description = '### description:\n- ' + '`` ' + (updatedPluginData.description ?? '-')  + ' ``\n';
+            const keywords = '### keywords:\n- ' + (updatedPluginData.keywords ?? []).map(x => '`` ' + x + ' ``').join('\n- ') + '\n';
 
             const result = await github.rest.pulls.create({
               title: updatedPluginData.updateName,
