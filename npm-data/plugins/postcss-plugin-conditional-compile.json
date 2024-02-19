@@ -1,0 +1,98 @@
+{
+	"_id": "postcss-plugin-conditional-compile",
+	"name": "postcss-plugin-conditional-compile",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-plugin-conditional-compile",
+			"version": "1.0.0",
+			"description": "postcss postcss-plugin conditional-compile",
+			"type": "module",
+			"scripts": {
+				"build": "rollup -c"
+			},
+			"main": "dist/commonjs/index.js",
+			"module": "dist/esm/index.js",
+			"browser": "dist/umd/my-library.js",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"conditional-compile"
+			],
+			"author": {
+				"name": "qiaoyang"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"@babel/helper-plugin-utils": "^7.22.5"
+			},
+			"devDependencies": {
+				"rollup": "^4.0.0",
+				"rollup-plugin-babel": "^4.4.0",
+				"rollup-plugin-commonjs": "^10.1.0",
+				"rollup-plugin-json": "^4.0.0",
+				"rollup-plugin-node-resolve": "^5.2.0",
+				"rollup-plugin-terser": "^7.0.2"
+			},
+			"gitHead": "bb8478b0f442373a0f4c0bfb7bf64ab190dff6a8",
+			"_id": "postcss-plugin-conditional-compile@1.0.0",
+			"_nodeVersion": "16.15.0",
+			"_npmVersion": "8.5.5",
+			"dist": {
+				"integrity": "sha512-+vb4+M4qpe1KeUp5vTl/MDdfzLvR56zNwcKWR/pKMh1TJu1oKayKWkjCWjMJuGK5nPpwaV3N7pRwJ0+QK7kpLw==",
+				"shasum": "1c30e92af06948c50ae4d0617f4c266b0fe9f714",
+				"tarball": "https://registry.npmjs.org/postcss-plugin-conditional-compile/-/postcss-plugin-conditional-compile-1.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 4847,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCr0rRLBr8awhB5Lw4OeNCDJA/omDJ3NN3DbgXCNECa8gIhAO7qmxbZTBH9No9KsYgA0iPOry67ozO/NcgBbX9cc1cE"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "bluestoneq",
+				"email": "2282907674@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "bluestoneq",
+					"email": "2282907674@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-plugin-conditional-compile_1.0.0_1708250305184_0.7932080061984539"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2024-02-18T09:58:25.183Z",
+		"1.0.0": "2024-02-18T09:58:25.368Z",
+		"modified": "2024-02-18T09:58:25.903Z"
+	},
+	"maintainers": [
+		{
+			"name": "bluestoneq",
+			"email": "2282907674@qq.com"
+		}
+	],
+	"description": "postcss postcss-plugin conditional-compile",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"conditional-compile"
+	],
+	"author": {
+		"name": "qiaoyang"
+	},
+	"license": "MIT",
+	"readme": "# babel-plugin-conditional-compile\n**[README-zh-CN](README_zh_CN.md)**\n\n## Overview\n\nA Babel plugin for conditional compilation.\n\n## Install\n\nTo install the plugin, run the following command:\n\n```bash\nnpm install --save-dev postcss-plugin-conditional-compile\n```\n\nOr, if you're using Yarn:\n\n```bash\nyarn add --dev postcss-plugin-conditional-compile\n```\n\n## Usage\n\n### Configuration\n\nAdd the plugin to your postcss configuration file.\n\n**postcss.config.js**\n\n```js\nmodule.exports = {  \n  plugins: [\n    ...\n    require('./babel-plugin-conditional-compile')({  \n      targetPlat: 'WX'\n    }) \n  ]  \n}\n```\n\n### Coding with Conditional Compilation\n\nIn your css files, you can use special comments to mark code blocks for conditional compilation.\n\n```css\n@media screen and (min-width: 480px) {\n  body {\n      background-color: lightgreen;\n  }\n}\n\n/* ifdef targetPlat=WX|TT */\n.wx {\n  border: 1px solid black;\n}\n\nul li {\npadding: 5px;\n}\n/* endif */\n\n/* ifndef targetPlat=WX|TT */\n.tt1 {\n  border: 1px solid black;\n}\n\nul li {\npadding: 5px;\n}\n/* endif */\n\n.a {}\n```\n\n## License\n[LICENSE](LICENSE)\n\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
