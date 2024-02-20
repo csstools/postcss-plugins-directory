@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-autoreset",
-	"_rev": "22-49e1307bb433944995963e76433af805",
+	"_rev": "23-7af54f819ee159840d2df280a5d68dcc",
 	"name": "postcss-autoreset",
 	"description": "PostCSS plugin for partial styles reset",
 	"dist-tags": {
-		"latest": "3.0.4"
+		"latest": "3.1.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1458,6 +1458,102 @@
 				"tmp": "tmp/postcss-autoreset_3.0.4_1621597768661_0.4456054477961475"
 			},
 			"_hasShrinkwrap": false
+		},
+		"3.1.0": {
+			"name": "postcss-autoreset",
+			"version": "3.1.0",
+			"description": "PostCSS plugin for partial styles reset",
+			"main": "index.js",
+			"scripts": {
+				"lint": "eslint index.js lib/ test/",
+				"test": "yarn run lint && yarn run test-unit",
+				"test-unit": "mocha test/index.js",
+				"test-dev": "mocha -w test/index.js",
+				"precommit": "yarn test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/maximkoretskiy/postcss-autoreset.git"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"reset",
+				"autoreset",
+				"isolation"
+			],
+			"author": {
+				"name": "Maksim Koretskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/maximkoretskiy/postcss-reset/issues"
+			},
+			"homepage": "https://github.com/maximkoretskiy/postcss-reset",
+			"dependencies": {
+				"postcss-js": "^4.0.1"
+			},
+			"devDependencies": {
+				"clean-publish": "^4.2.0",
+				"eslint": "^7.10.0",
+				"eslint-plugin-mocha": "^8.0.0",
+				"husky": "^4.3.0",
+				"mocha": "^10.3.0",
+				"postcss": "^8.1.1"
+			},
+			"peerDependency": {
+				"postcss": "^8.1.1"
+			},
+			"optionalPeerDependencies": {
+				"postcss-js": "^3.0.1"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"mocha": true
+				},
+				"extends": [
+					"eslint:recommended",
+					"plugin:mocha/recommended"
+				]
+			},
+			"_id": "postcss-autoreset@3.1.0",
+			"gitHead": "84248ba80018eeafee712e7fdf42bfb7f3989243",
+			"_nodeVersion": "18.19.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-TKiB0/KJtGKVu/LoURGYik856JRzEVcRBpHRoM0tTclpL4KUj3yURSbXre2DMneZwZlDru2tfqmKkJEsOK0JWg==",
+				"shasum": "b531d7181849473b6e4e07509318e5aea3bb0e31",
+				"tarball": "https://registry.npmjs.org/postcss-autoreset/-/postcss-autoreset-3.1.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 8744,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBO1xDVaqz64F49YtGjFsDw0D8svpkL0jSKjkFu8mRHCAiAFGuF/o5cN0HGP7bTgZvs4ewnFZJ3ni//v+OogyeQoQg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "maximkoretskiy",
+				"email": "mr.green.tv@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "maximkoretskiy",
+					"email": "mr.green.tv@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-autoreset_3.1.0_1708376361040_0.8357801813315477"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Auto Reset\n\n[![Build Status][ci-img]][ci] [![NPM][npm-img]][npm] [![David DM][david-img]][david]\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"http://postcss.github.io/postcss/logo-leftp.png\">\n\n[PostCSS] plugin for automatic conditional rules reset. Useful for creation of\nbullet-proof styles isolation in your extension. Can be used in combination with\n[postcss-initial][initial].\n\n[postcss]: https://github.com/postcss/postcss\n[ci-img]: https://travis-ci.org/maximkoretskiy/postcss-autoreset.svg\n[ci]: https://travis-ci.org/maximkoretskiy/postcss-autoreset\n[npm-img]: https://badge.fury.io/js/postcss-autoreset.svg\n[npm]: https://www.npmjs.com/package/postcss-autoreset\n[david-img]: https://david-dm.org/maximkoretskiy/postcss-autoreset.svg\n[david]: https://david-dm.org/maximkoretskiy/postcss-autoreset\n[initial]: https://github.com/maximkoretskiy/postcss-initial\n\nThe following CSS is written in [BEM](https://en.bem.info/) notation.\n\n```css\n.block {\n  padding: 1em;\n}\n\n.block:hover {\n  background-color: red;\n}\n\n.block__element {\n  margin: 1em;\n}\n\n.block--modifier {\n  border: 1em;\n}\n```\n\n```css\n.block,\n.block__element {\n  /* combined reset block */\n  all: initial;\n}\n\n.block {\n  /* reseted */\n  padding: 1em;\n}\n\n.block:hover {\n  /* ignored, we don`t need to reset pseudoclasses  */\n  background-color: red;\n}\n\n.block__element {\n  /* reseted */\n  margin: 1em;\n}\n\n.block--modifier {\n  /* ignored, we don`t need to reset BEM modifiers  */\n  border: 1em;\n}\n```\n\n## Options\n\n### reset\n\nSet of properties that we use to reset rules.  \nTakes `string` or `object`.  \nPossible values:\n\n- 'initial' - `all: initial`;\n- 'sizes' - reset size properties.\n\nUse object to create your own reset. CSS-in-JS notation is supported.\n\n**Example**\n\n```js\npostcss([\n  require(\"postcss-autoreset\")({\n    reset: {\n      margin: 0,\n      padding: 0,\n      borderRadius: 0,\n    },\n  }),\n]);\n```\n\n### rulesMatcher\n\nRules filter function.  \nTakes `string` or `function`.  \nPossible values:\n\n- 'bem' - reset all [BEM](https://en.bem.info/) blocks and element, ignore modifiers and pseudoclasses. (naming: `.block__element-modifier`);\n- 'suit' - reset all [SUIT CSS](https://suitcss.github.io/) components and parts, ignore modifiers, states and pseudoclasses.\n\nYou can define custom rules filter to fit your styles naming.\n\n**Example**\n\n```js\npostcss([\n  require(\"postcss-autoreset\")({\n    rulesMatcher: (rule) => rule.selector.match(/regexp/),\n  }),\n]);\n```\n\nReset only simple rules. See [#28](https://github.com/maximkoretskiy/postcss-autoreset/issues/28)\n\n```js\npostcss([\n  require(\"postcss-autoreset\")({\n    rulesMatcher: (rule) => rule.selector.match(/^[.]\\w+$/),\n  }),\n]);\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-autoreset\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-autoreset')(),\n    require('autoprefixer')\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
@@ -1468,7 +1564,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T09:29:40.812Z",
+		"modified": "2024-02-19T20:59:22.051Z",
 		"created": "2015-08-28T22:53:58.575Z",
 		"1.0.0": "2015-08-28T22:53:58.575Z",
 		"1.0.1": "2015-09-09T20:41:01.394Z",
@@ -1487,7 +1583,8 @@
 		"3.0.1": "2020-10-09T16:32:32.644Z",
 		"3.0.2": "2020-10-15T16:06:16.765Z",
 		"3.0.3": "2020-10-15T16:07:57.546Z",
-		"3.0.4": "2021-05-21T11:49:28.840Z"
+		"3.0.4": "2021-05-21T11:49:28.840Z",
+		"3.1.0": "2024-02-19T20:59:21.193Z"
 	},
 	"homepage": "https://github.com/maximkoretskiy/postcss-reset",
 	"keywords": [
@@ -1513,5 +1610,5 @@
 	"users": {
 		"xiechao06": true
 	},
-	"_downloads": 6492
+	"_downloads": 8686
 }
