@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-discard-duplicates",
-	"_rev": "58-9879533939295d351c7f091bed4ed26d",
+	"_rev": "59-2fc4812ec0723af8aea226fe67b73764",
 	"name": "postcss-discard-duplicates",
 	"description": "Discard duplicate rules in your CSS files with PostCSS.",
 	"dist-tags": {
-		"latest": "6.0.1",
+		"latest": "6.0.2",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -4053,6 +4053,106 @@
 				"tmp": "tmp/postcss-discard-duplicates_6.0.1_1702574288400_0.4286889613785867"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.2": {
+			"name": "postcss-discard-duplicates",
+			"version": "6.0.2",
+			"description": "Discard duplicate rules in your CSS files with PostCSS.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"css",
+				"dedupe",
+				"optimise",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.35"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-discard-duplicates@6.0.2",
+			"_integrity": "sha512-U2rsj4w6pAGROCCcD13LP2eBIi1whUsXs4kgE6xkIuGfkbxCBSKhkCTWyowFd66WdVlLv0uM1euJKIgmdmZObg==",
+			"_resolved": "/tmp/54b79e12a650672030d491983b18f439/postcss-discard-duplicates-6.0.2.tgz",
+			"_from": "file:postcss-discard-duplicates-6.0.2.tgz",
+			"_nodeVersion": "20.11.1",
+			"_npmVersion": "10.2.4",
+			"dist": {
+				"integrity": "sha512-U2rsj4w6pAGROCCcD13LP2eBIi1whUsXs4kgE6xkIuGfkbxCBSKhkCTWyowFd66WdVlLv0uM1euJKIgmdmZObg==",
+				"shasum": "11f389e6af55099b928dca34b10734360b34bc93",
+				"tarball": "https://registry.npmjs.org/postcss-discard-duplicates/-/postcss-discard-duplicates-6.0.2.tgz",
+				"fileCount": 5,
+				"unpackedSize": 6846,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHer0efdN9XO2J/8ZwfwYmk1VDVas6BSOZXkMRHwyTmVAiAGw/BKHQ8vEIlvUUbZq9VCA03uCQuWqbGWWDq5X/LOvg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "trysound",
+					"email": "opensource@trysound.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard-duplicates_6.0.2_1708631951178_0.5666290932079527"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# [postcss][postcss]-discard-duplicates\n\n> Discard duplicate rules in your CSS files with PostCSS.\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-duplicates) do:\n\n```\nnpm install postcss-discard-duplicates --save\n```\n\n## Example\n\nThis module will remove all duplicate rules from your stylesheets. It works on\nat rules, normal rules and declarations. Note that this module does not have any\nresponsibility for normalising declarations, selectors or whitespace, so that it\nconsiders these two rules to be different:\n\n```css\nh1, h2 {\n    color: blue;\n}\n\nh2, h1 {\n    color: blue;\n}\n```\n\nIt has to assume that your rules have already been transformed by another\nprocessor, otherwise it would be responsible for too many things.\n\n### Input\n\n```css\nh1 {\n    margin: 0 auto;\n    margin: 0 auto\n}\n\nh1 {\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
@@ -4091,7 +4191,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-12-14T17:18:08.718Z",
+		"modified": "2024-02-22T19:59:11.750Z",
 		"created": "2015-03-26T10:38:27.797Z",
 		"1.0.0": "2015-03-26T10:38:27.797Z",
 		"1.1.0": "2015-04-02T11:44:02.545Z",
@@ -4138,7 +4238,8 @@
 		"5.0.3": "2022-02-07T15:54:38.561Z",
 		"5.1.0": "2022-03-01T18:54:54.342Z",
 		"6.0.0": "2023-03-27T16:41:02.101Z",
-		"6.0.1": "2023-12-14T17:18:08.558Z"
+		"6.0.1": "2023-12-14T17:18:08.558Z",
+		"6.0.2": "2024-02-22T19:59:11.337Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -4162,5 +4263,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 44500705
+	"_downloads": 47656247
 }
