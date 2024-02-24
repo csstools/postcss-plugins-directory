@@ -1,7 +1,7 @@
 {
 	"name": "postcss-custom-selectors",
 	"description": "Use Custom Selectors in CSS",
-	"version": "7.1.6",
+	"version": "7.1.7",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -37,36 +37,28 @@
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.mjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"dependencies": {
-		"@csstools/cascade-layer-name-parser": "^1.0.5",
-		"@csstools/css-parser-algorithms": "^2.3.2",
-		"@csstools/css-tokenizer": "^2.2.1",
+		"@csstools/cascade-layer-name-parser": "^1.0.8",
+		"@csstools/css-parser-algorithms": "^2.6.0",
+		"@csstools/css-tokenizer": "^2.2.3",
 		"postcss-selector-parser": "^6.0.13"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
-	},
-	"devDependencies": {
-		"@csstools/postcss-tape": "*"
-	},
-	"scripts": {
-		"build": "rollup -c ../../rollup/default.mjs",
-		"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-		"lint": "node ../../.github/bin/format-package-json.mjs",
-		"prepublishOnly": "npm run build && npm run test",
-		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-selectors#readme",
 	"repository": {
@@ -92,39 +84,42 @@
 		"specification",
 		"w3c"
 	],
-	"csstools": {
-		"assumesToProcessBundledCSS": true,
-		"cssdbId": "custom-selectors",
-		"exportName": "postcssCustomSelectors",
-		"humanReadableName": "PostCSS Custom Selectors",
-		"specUrl": "https://drafts.csswg.org/css-extensions/#custom-selectors"
-	},
-	"volta": {
-		"extends": "../../package.json"
-	},
-	"gitHead": "3c4329877116bafb9a0feabe1ac8a2b131271acf",
-	"_id": "postcss-custom-selectors@7.1.6",
-	"_nodeVersion": "18.17.1",
-	"_npmVersion": "9.6.7",
+	"_id": "postcss-custom-selectors@7.1.7",
+	"gitHead": "a2592f69b8f6c4ebf8d6fa6c81300e5489220721",
+	"types": "./dist/index.d.ts",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
 	"dist": {
-		"integrity": "sha512-svsjWRaxqL3vAzv71dV0/65P24/FB8TbPX+lWyyf9SZ7aZm4S4NhCn7N3Bg+Z5sZunG3FS8xQ80LrCU9hb37cw==",
-		"shasum": "6d28812998dcd48f61a6a538141fc16cf2c42123",
-		"tarball": "https://registry.npmjs.org/postcss-custom-selectors/-/postcss-custom-selectors-7.1.6.tgz",
-		"fileCount": 11,
-		"unpackedSize": 21254,
+		"integrity": "sha512-N19MpExaR+hYTXU59VO02xE42zLoAUYSVcupwkKlWWLteOb+sWCWHw5FhV7u7gVLTzaGULy7nZP3DNTHgOZAPA==",
+		"shasum": "66b7adb9a3470ba11860ad7847947c7fd29e985d",
+		"tarball": "https://registry.npmjs.org/postcss-custom-selectors/-/postcss-custom-selectors-7.1.7.tgz",
+		"fileCount": 7,
+		"unpackedSize": 16078,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIHLZC1VW0zQRdqAaLTkh8MwC9c/XTcwkMmgqJnfS7BkXAiA7fSCmK894Ir1szFwyY9EdxY82qTY8uCC23o89wg4tbQ=="
+				"sig": "MEUCIHNPLZMVsPE5HDViKs9VWOA77QFIjXHMPppUn0M59hfsAiEAwUDqczLLlv6R+pTzdG1bD3lLQDxPWRGDCtUD0KIVbCU="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		},
 		{
 			"name": "yisi",
 			"email": "yiorsi@gmail.com"
@@ -134,22 +129,14 @@
 			"email": "npm@moox.io"
 		},
 		{
-			"name": "alaguna",
-			"email": "sombragriselros@gmail.com"
-		},
-		{
 			"name": "semigradsky",
 			"email": "semigradskyd@gmail.com"
-		},
-		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
 		}
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-custom-selectors_7.1.6_1696873207532_0.8587926019607057"
+		"tmp": "tmp/postcss-custom-selectors_7.1.7_1708379427958_0.881076081778774"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-10-09T17:40:07.668Z"
+	"_time": "2024-02-19T21:50:28.161Z"
 }
