@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-at-scope",
-	"_rev": "1-43e4d38838456fae1c1ad2b586f8f92e",
+	"_rev": "2-408edf0972ce70247841e612961dec97",
 	"name": "postcss-at-scope",
 	"dist-tags": {
-		"latest": "1.0.1"
+		"latest": "1.1.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -183,13 +183,103 @@
 				"tmp": "tmp/postcss-at-scope_1.0.1_1705306455650_0.702389550568965"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "postcss-at-scope",
+			"version": "1.1.0",
+			"description": "PostCSS plugin @scope polyfill",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"@scope"
+			],
+			"scripts": {
+				"test": "npm run screentests",
+				"screentests": "playwright test --project=chromium",
+				"start": "serve -p 3333 .",
+				"semantic-release": "semantic-release"
+			},
+			"author": {
+				"name": "Łukasz Sobolewski",
+				"email": "lsobolew@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lsobolew/postcss-at-scope.git"
+			},
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.27"
+			},
+			"devDependencies": {
+				"@playwright/test": "^1.40.0",
+				"@types/node": "^20.9.2",
+				"eslint": "^8.47.0",
+				"postcss": "^8.4.27",
+				"semantic-release": "^22.0.12",
+				"serve": "^14.2.1"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"extends": [
+					"eslint:recommended"
+				]
+			},
+			"_id": "postcss-at-scope@1.1.0",
+			"gitHead": "73cbc8bc36a815ff4a3b0f5dc5900d0ad1b5e1b6",
+			"bugs": {
+				"url": "https://github.com/lsobolew/postcss-at-scope/issues"
+			},
+			"homepage": "https://github.com/lsobolew/postcss-at-scope#readme",
+			"_nodeVersion": "20.11.1",
+			"_npmVersion": "10.3.0",
+			"dist": {
+				"integrity": "sha512-dztTY3GxGWzuObW/CNLbaORbJWypr/kg2LY5br1hWIBDcaAf6n6cgJvcaI8l7NZU5oaTT8zBCOlez8LTxAFUBA==",
+				"shasum": "5b259ed6565315f24decff31ebbd8140684248f1",
+				"tarball": "https://registry.npmjs.org/postcss-at-scope/-/postcss-at-scope-1.1.0.tgz",
+				"fileCount": 19,
+				"unpackedSize": 22678,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIAiaFxAgruo4boVWf0gLuYDPsMU5gW3dXZ+6FgUrrmDdAiEAwYPi7XlSJsXlSBQ5dctyjc6AHD+p7xIrf95G60Vfh9w="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "lsobolew",
+				"email": "lsobolew@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "lsobolew",
+					"email": "lsobolew@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-at-scope_1.1.0_1709299836494_0.2569679406575056"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-01-12T12:59:50.162Z",
 		"1.0.0": "2024-01-12T12:59:50.387Z",
-		"modified": "2024-01-15T08:14:15.965Z",
-		"1.0.1": "2024-01-15T08:14:15.790Z"
+		"modified": "2024-03-01T13:30:37.200Z",
+		"1.0.1": "2024-01-15T08:14:15.790Z",
+		"1.1.0": "2024-03-01T13:30:36.765Z"
 	},
 	"maintainers": [
 		{
@@ -217,7 +307,7 @@
 		"url": "https://github.com/lsobolew/postcss-at-scope/issues"
 	},
 	"license": "MIT",
-	"readme": "# postcss-at-scope\nPostCSS plugin to partially polyfill experimental @scope at-rule\n",
+	"readme": "# PostCSS @scope polyfill\n\nPostCSS plugin to partially polyfill experimental `@scope` at-rule.\n\n## The idea\n\nIf we consider limited depth of DOM tree then we can polyfill some parts of [styles scoping specification](https://link-url-here.org). For example this selector in scoping rule\n\n```css\n@scope (.scoping-root) to (.scoping-limit) {\n  a {\n    color: rebeccapurple;\n  }\n}\n```\n\ncan be rewritten to list of selectors\n\n```css\n.scoping-root > a:not(.scoping-limit),\n.scoping-root > :not(.scoping-limit) > a:not(.scoping-limit),\n.scoping-root\n  > :not(.scoping-limit)\n  > :not(.scoping-limit)\n  > a:not(.scoping-limit) {\n  color: rebeccapurple;\n}\n```\n\nAnd to preserve original specificity of selector we cen wrap it in `:where()` pseudo class:\n\n```css\na:where(\n    .scoping-root > a:not(.scoping-limit),\n    .scoping-root > :not(.scoping-limit) > a:not(.scoping-limit),\n    .scoping-root\n      > :not(.scoping-limit)\n      > :not(.scoping-limit)\n      > a:not(.scoping-limit)\n  ) {\n  color: rebeccapurple;\n}\n```\n\n## Limitations\n\n### DOM depth\n\nMain limitation of this polyfill is that it will not work for unlimited depth of DOM tree (or to be more specific the distance from scoping root to matched element). For example above result will look like this:\n\n```html\n<div class=\"scoping-root\">\n  <a>in the scope</a>\n  <a class=\"scoping-limit\">not in the scope</a>\n  <div>\n    <div>\n      <div>\n        <a>in the scope but not matched because of depth limitation</a>\n      </div>\n    </div>\n  </div>\n</div>\n```\n\nThis should't be a major problem for application based on components. Usually we would limit scoping so that it wouldn't match html elements inside inner components. For example\n\n```jsx\nfunction SomeComponent(props) {\n  return (\n    <div className=\"scoping-root\">\n      <a href=\"#\">in the scope</a>\n      <div className=\"scoping-limit\">\n        <SomeOtherComponent />\n      </div>\n    </div>\n  );\n}\n```\n\n### Scope proximity\n\n[Scope Proximity](https://drafts.csswg.org/css-cascade-6/#cascade-proximity) could probably be polyfilled using [Style Queries](https://developer.chrome.com/docs/css-ui/style-queries). The problem is that [browser support for style queries](https://caniuse.com/css-container-queries-style) is even more limited the [support for native scoping](https://caniuse.com/css-cascade-scope) so for now this is not supported by this plugin.\n\n## Performance\n\n### Size of output CSS\n\nSize of output css can grow really high with increasing value of `depth` option so this should be taken into consideration. On the other hand beacause of repetitiveness in the output code it compresses extremely well. Here are some examples for .css file conting simple example from this README:\n\n```css\n@scope (.scoping-root) to (.scoping-limit) {\n  a {\n    color: rebeccapurple;\n  }\n}\n```\n\n![Impact of depth option on size of output file and level of compression](/README/compression.png)\n\n_Note: This requires more \"real life\" examples to test_\n\n### Style calculation\n\nUsing this polyfill instead of native scoping can increase style recalculation time. This may differ between browser. Polyfilled code extensively uses child combinator (`>`) and this should help browsers to \"fast reject\" during element matching but nevertheless this problem requires more testing and deep diving into it.\n\n## PostCSS Options\n\n```js\nmodule.exports = {\n  plugins: [\n    require(\"postcss-at-scope\")({\n      /* options */\n    }),\n  ],\n};\n```\n\n- `depth` number: maximum DOM tree depth to support scoping.\n  Default value: `10`.\n",
 	"readmeFilename": "README.md",
 	"_downloads": 65
 }
