@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-prune-var",
-	"_rev": "7-5f4fbe484600458db3c45ca7eed6e462",
+	"_rev": "8-f6c8aa3dc9631782bb913e3329f4bac4",
 	"name": "postcss-prune-var",
 	"dist-tags": {
-		"latest": "1.1.1"
+		"latest": "1.1.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -569,19 +569,93 @@
 				"tmp": "tmp/postcss-prune-var_1.1.1_1684087781716_0.04089922680908753"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.1.2": {
+			"name": "postcss-prune-var",
+			"version": "1.1.2",
+			"description": "PostCSS plugin to remove unused variables",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js",
+				"git-push": "git push",
+				"npm-publish": "npm publish",
+				"postversion": "npm-run-all git-push npm-publish"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/tomasklaen/postcss-prune-var.git"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"unused",
+				"prune",
+				"remove",
+				"var",
+				"variable"
+			],
+			"author": {
+				"name": "tomasklaen"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/tomasklaen/postcss-prune-var/issues"
+			},
+			"homepage": "https://github.com/tomasklaen/postcss-prune-var#readme",
+			"dependencies": {
+				"minimatch": "^9.0.3"
+			},
+			"devDependencies": {
+				"npm-run-all": "^4.1.5",
+				"postcss": "^8.4.35"
+			},
+			"_id": "postcss-prune-var@1.1.2",
+			"gitHead": "a6d2e1fafe6b86f1d6081fceecdadf5e5772fa0c",
+			"_nodeVersion": "21.6.0",
+			"_npmVersion": "10.3.0",
+			"dist": {
+				"integrity": "sha512-frMnVhQ4SXAY2tfRQmqfdIa6125XtfZUvB1D+t9n63Z12zp4MV6p7TAGipa7Ici9OoQt2XrXgVXdKBQD1ubTUw==",
+				"shasum": "29e2a5320ed3df36eaf6baebb33f84be4db75e01",
+				"tarball": "https://registry.npmjs.org/postcss-prune-var/-/postcss-prune-var-1.1.2.tgz",
+				"fileCount": 5,
+				"unpackedSize": 7998,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIGf/Y5Ngr5RDPz8WJwcBDSHGUOL2NvpE5FvgKSYAy4pgAiEAicGOxCGisuENVCp2mD3NxR2ZWaScPT3jojPnZeL01es="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "tomasklaen",
+				"email": "tomas.klaen@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "tomasklaen",
+					"email": "tomas.klaen@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-prune-var_1.1.2_1709466312618_0.1400474106221914"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-06-09T08:00:13.763Z",
 		"1.0.0": "2022-06-09T08:00:13.934Z",
-		"modified": "2023-05-14T18:09:41.999Z",
+		"modified": "2024-03-03T11:45:13.292Z",
 		"1.0.1": "2022-06-09T08:08:54.400Z",
 		"1.0.2": "2022-06-09T08:12:24.710Z",
 		"1.0.3": "2022-06-09T08:23:48.777Z",
 		"1.0.4": "2022-06-10T19:13:05.344Z",
 		"1.0.5": "2023-04-29T12:51:01.670Z",
 		"1.1.0": "2023-05-14T14:45:25.856Z",
-		"1.1.1": "2023-05-14T18:09:41.883Z"
+		"1.1.1": "2023-05-14T18:09:41.883Z",
+		"1.1.2": "2024-03-03T11:45:12.842Z"
 	},
 	"maintainers": [
 		{
@@ -613,5 +687,5 @@
 	"license": "MIT",
 	"readme": "# postcss-prune-var\n\nPostCSS plugin to remove all unused variables in a CSS file.\n\nA `--variable` is considered unused if it, or any other variables consuming it are not accessed by a single `var()` statement in the whole CSS file.\n\nThis is unsafe if there is a possibility of a second CSS file accessing variables from the first one.\n\n#### How does it work, and how is it different from postcss-unused-var?\n\n-   `postcss-unused-var` is outdated, deprecated, and didn't work right.\n-   Treats all variables as global, because they are.\n-   Removes variables from everywhere, including `:root`.\n-   Checks and prevents removal of variables only used by other variables that are accessed with `var()` by following variable dependency graph.\n-   At the same time, if a variable is only used by other unused variables, it will also be removed.\n-   Way faster.\n\n## Install\n\n```\nnpm install postcss-prune-var --save-dev\n```\n\n## Usage\n\n```js\nconst pruneVar = require('postcss-prune-var');\n\nconst yourConfig = {\n\tplugins: [pruneVar()],\n};\n```\n\n## Options\n\n### skip\n\nUse this option to exclude certain files or folders that would otherwise be scanned.\n\n```js\nconst pruneVar = require('postcss-prune-var');\n\nconst yourConfig = {\n\tplugins: [pruneVar({skip: ['node_modules/**']})],\n};\n```\n## Example\n\nInput:\n\n```css\n:root {\n\t--root-unused: red;\n\t--root-unused-proxy: var(--root-unused);\n\t--root-used: blue;\n}\n\n.foo {\n\t--unused: red;\n\t--unused-proxy: var(--unused);\n\t--proxied: pink;\n\t--proxy: var(--proxied);\n\t--used: green;\n\tcolor: var(--root-used);\n\tbackground: linear-gradient(to bottom, var(--used), var(--proxy));\n}\n```\n\nOutput\n\n```css\n:root {\n\t--root-used: blue;\n}\n\n.foo {\n\t--proxied: pink;\n\t--proxy: var(--proxied);\n\t--used: green;\n\tcolor: var(--root-used);\n\tbackground: linear-gradient(to bottom, var(--used), var(--proxy));\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2980
+	"_downloads": 3167
 }
