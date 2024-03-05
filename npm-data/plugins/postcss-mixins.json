@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-mixins",
-	"_rev": "57-70b6f166adce2962fb01e31db2fa0433",
+	"_rev": "58-dbd1a6e1944b17897b800fe60ef659ee",
 	"name": "postcss-mixins",
 	"description": "PostCSS plugin for mixins",
 	"dist-tags": {
-		"latest": "9.0.4"
+		"latest": "10.0.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -3207,9 +3207,89 @@
 				"tmp": "tmp/postcss-mixins_9.0.4_1662210877077_0.5467970243531479"
 			},
 			"_hasShrinkwrap": false
+		},
+		"10.0.0": {
+			"name": "postcss-mixins",
+			"version": "10.0.0",
+			"description": "PostCSS plugin for mixins",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"mixins",
+				"sass"
+			],
+			"author": {
+				"name": "Andrey Sitnik",
+				"email": "andrey@sitnik.ru"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/postcss/postcss-mixins.git"
+			},
+			"engines": {
+				"node": "^18.0 || >= 20.0"
+			},
+			"funding": [
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/postcss/"
+				},
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/ai"
+				}
+			],
+			"peerDependencies": {
+				"postcss": "^8.2.14"
+			},
+			"dependencies": {
+				"fast-glob": "^3.3.2",
+				"postcss-js": "^4.0.1",
+				"postcss-simple-vars": "^7.0.1",
+				"sugarss": "^4.0.1"
+			},
+			"_id": "postcss-mixins@10.0.0",
+			"gitHead": "1522e1c42097630948e63577de52115c66924575",
+			"bugs": {
+				"url": "https://github.com/postcss/postcss-mixins/issues"
+			},
+			"homepage": "https://github.com/postcss/postcss-mixins#readme",
+			"_nodeVersion": "21.6.2",
+			"_npmVersion": "10.2.4",
+			"dist": {
+				"integrity": "sha512-CHw+Q8Y7Jz67lqyXbVezvWUsXPVEdPEVLKFb0u8hSRKWzdHMIGwwkZDf17tgAmFOYyoM529WyctZ1sNuVjZ9DQ==",
+				"shasum": "6dc0755ae085577dae2e0bae909cbe462248ca2e",
+				"tarball": "https://registry.npmjs.org/postcss-mixins/-/postcss-mixins-10.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 11119,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCr03/Kz9kdFhSKCGerYVmqoyA+RVAwIAHviVFuudpcXwIgQOQCUFAPvO4EveIz/UqpCiLRfV9NEqkDfK0zEksKifY="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ai",
+				"email": "andrey@sitnik.ru"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-mixins_10.0.0_1709577809690_0.3759776488874176"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Mixins\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin for mixins.\n\nNote, that you must set this plugin before [postcss-simple-vars]\nand [postcss-nested].\n\n```css\n@define-mixin icon $network, $color: blue {\n    .icon.is-$(network) {\n        color: $color;\n        @mixin-content;\n    }\n    .icon.is-$(network):hover {\n        color: white;\n        background: $color;\n    }\n}\n\n@mixin icon twitter {\n    background: url(twt.png);\n}\n@mixin icon youtube, red {\n    background: url(youtube.png);\n}\n```\n\n```css\n.icon.is-twitter {\n    color: blue;\n    background: url(twt.png);\n}\n.icon.is-twitter:hover {\n    color: white;\n    background: blue;\n}\n.icon.is-youtube {\n    color: red;\n    background: url(youtube.png);\n}\n.icon.is-youtube:hover {\n    color: white;\n    background: red;\n}\n```\n\n[postcss-utilities] collection is better for `clearfix` and other popular hacks.\nFor simple cases you can use [postcss-define-property].\n\n[postcss-define-property]: https://github.com/daleeidd/postcss-define-property\n[postcss-utilities]:       https://github.com/ismamz/postcss-utilities\n[postcss-simple-vars]:     https://github.com/postcss/postcss-simple-vars\n[postcss-nested]:          https://github.com/postcss/postcss-nested\n[PostCSS]:                 https://github.com/postcss/postcss\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-mixins\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Docs\nRead **[full docs](https://github.com/postcss/postcss-mixins#readme)** on GitHub.\n",
+	"readme": "# PostCSS Mixins\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin for mixins.\n\nNote, that you must set this plugin before [postcss-simple-vars]\nand [postcss-nested].\n\n```css\n@define-mixin icon $network, $color: blue {\n    .icon.is-$(network) {\n        color: $color;\n        @mixin-content;\n    }\n    .icon.is-$(network):hover {\n        color: white;\n        background: $color;\n    }\n}\n\n@mixin icon twitter {\n    background: url(twt.png);\n}\n@mixin icon youtube, red {\n    background: url(youtube.png);\n}\n```\n\n```css\n.icon.is-twitter {\n    color: blue;\n    background: url(twt.png);\n}\n.icon.is-twitter:hover {\n    color: white;\n    background: blue;\n}\n.icon.is-youtube {\n    color: red;\n    background: url(youtube.png);\n}\n.icon.is-youtube:hover {\n    color: white;\n    background: red;\n}\n```\n\n[postcss-utilities] collection is better for `clearfix` and other popular hacks.\nFor simple cases you can use [postcss-define-property].\n\n[postcss-define-property]: https://github.com/daleeidd/postcss-define-property\n[postcss-utilities]:       https://github.com/ismamz/postcss-utilities\n[postcss-simple-vars]:     https://github.com/postcss/postcss-simple-vars\n[postcss-nested]:          https://github.com/postcss/postcss-nested\n[PostCSS]:                 https://github.com/postcss/postcss\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-mixins\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Docs\nRead full docs **[here](https://github.com/postcss/postcss-mixins#readme)**.\n",
 	"maintainers": [
 		{
 			"name": "ai",
@@ -3217,7 +3297,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-09-03T13:14:37.365Z",
+		"modified": "2024-03-04T18:43:30.319Z",
 		"created": "2015-02-01T18:12:23.423Z",
 		"0.1.0": "2015-02-01T18:12:23.423Z",
 		"0.1.1": "2015-02-06T04:55:47.840Z",
@@ -3261,7 +3341,8 @@
 		"9.0.1": "2021-12-05T12:57:15.780Z",
 		"9.0.2": "2022-02-25T23:01:19.643Z",
 		"9.0.3": "2022-06-20T13:58:44.115Z",
-		"9.0.4": "2022-09-03T13:14:37.267Z"
+		"9.0.4": "2022-09-03T13:14:37.267Z",
+		"10.0.0": "2024-03-04T18:43:29.868Z"
 	},
 	"homepage": "https://github.com/postcss/postcss-mixins#readme",
 	"keywords": [
@@ -3291,5 +3372,5 @@
 		"jaevans36": true,
 		"xiechao06": true
 	},
-	"_downloads": 1380484
+	"_downloads": 1288245
 }
