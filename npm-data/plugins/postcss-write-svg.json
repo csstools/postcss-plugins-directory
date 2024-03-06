@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-write-svg",
-	"_rev": "14-0ce49d8e408efdedd6a888f32ede6db4",
+	"_rev": "15-a3af356f3937c7481cb17017bc423ea3",
 	"name": "postcss-write-svg",
 	"description": "Write SVGs directly in CSS",
 	"dist-tags": {
@@ -644,12 +644,20 @@
 	"readme": "# Write SVG <a href=\"https://github.com/postcss/postcss\"><img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\"></a>\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[![Licensing][lic-image]][lic-url]\n[![Changelog][log-image]][log-url]\n[![Gitter Chat][git-image]][git-url]\n\n[Write SVG] lets you write SVGs directly in CSS.\n\n```css\n/* before */\n\n@svg square {\n\t@rect {\n\t\tfill: var(--color, black);\n\t\twidth: var(--size);\n\t\theight: var(--size);\n\t}\n}\n\n.example {\n\tbackground: svg(square param(--color green) param(--size 100%)) center / cover;\n}\n\n/* after */\n\n.example {\n\tbackground: url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='green' width='100%25' height='100%25'/%3E%3C/svg%3E\") center / cover;\n}\n```\n\n`@svg` at-rules generate SVG elements available to CSS. Within an `@svg`, descendant at-rules (like `@rect`) are interpreted as elements, while declarations (like `width`) are interpreted as attributes.\n\nThe `svg()` function renders an `@svg` as a data `url()`. `var()` functions within an `@svg` honor the variables passed in through `param()` functions.\n\n## Options\n\n#### `utf8`\n\nType: `Boolean`  \nDefault: `true`\n\nAllows you to define whether UTF-8 or base64 encoding will be used.\n\n```css\n/* before { utf8: false } */\n\n@svg square {\n\t@rect {\n\t\tfill: black;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t}\n}\n\n.example {\n\tbackground: svg(square);\n}\n\n/* after */\n\n.example {\n\tbackground: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IGZpbGw9ImJsYWNrIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+\");\n}\n```\n\n## Usage\n\nAdd [Write SVG] to your build tool:\n\n```bash\nnpm install jonathantneal/postcss-write-svg --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-write-svg').process(YOUR_CSS, { /* options */ });\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [Write SVG] as a PostCSS plugin:\n\n```js\npostcss([\n\trequire('postcss-write-svg')({ /* options */ })\n]).process(YOUR_CSS, /* options */);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [Write SVG] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n\treturn gulp.src('./src/*.css').pipe(\n\t\tpostcss([\n\t\t\trequire('postcss-write-svg')({ /* options */ })\n\t\t])\n\t).pipe(\n\t\tgulp.dest('.')\n\t);\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [Write SVG] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n\tpostcss: {\n\t\toptions: {\n\t\t\tuse: [\n\t\t\t\trequire('postcss-write-svg')({ /* options */ })\n\t\t\t]\n\t\t},\n\t\tdist: {\n\t\t\tsrc: '*.css'\n\t\t}\n\t}\n});\n```\n\n[npm-url]: https://www.npmjs.com/package/postcss-write-svg\n[npm-img]: https://img.shields.io/npm/v/postcss-write-svg.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-write-svg\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-write-svg.svg\n[lic-url]: LICENSE.md\n[lic-image]: https://img.shields.io/npm/l/postcss-write-svg.svg\n[log-url]: CHANGELOG.md\n[log-image]: https://img.shields.io/badge/changelog-md-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[git-image]: https://img.shields.io/badge/chat-gitter-blue.svg\n\n[Write SVG]: https://github.com/jonathantneal/postcss-write-svg\n[PostCSS]: https://github.com/postcss/postcss\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:14:07.453Z",
+		"modified": "2024-02-19T21:22:44.385Z",
 		"created": "2015-09-11T23:42:17.815Z",
 		"1.0.0": "2015-09-11T23:42:17.815Z",
 		"1.1.0": "2015-09-11T23:57:57.986Z",
@@ -691,5 +699,5 @@
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
 	"users": {},
-	"_downloads": 1792
+	"_downloads": 1236
 }

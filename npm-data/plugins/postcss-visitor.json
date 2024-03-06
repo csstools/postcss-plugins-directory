@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-visitor",
-	"_rev": "2-0e545d71f60e422500e08ab57b6f9979",
+	"_rev": "3-93bc3fc9a2910332e483fca159b52ec1",
 	"name": "postcss-visitor",
 	"description": "Transform CSS with visitor-based plugins",
 	"dist-tags": {
@@ -110,18 +110,27 @@
 			"_npmOperationalInternal": {
 				"host": "packages-12-west.internal.npmjs.com",
 				"tmp": "tmp/postcss-visitor-1.0.0.tgz_1485205689191_0.3903298834338784"
-			}
+			},
+			"directories": {}
 		}
 	},
 	"readme": "# PostCSS Visitor [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[![Licensing][lic-img]][lic-url]\n[![Changelog][log-img]][log-url]\n[![Gitter Chat][git-img]][git-url]\n\n[PostCSS Visitor] lets you transform CSS with visitors. No more walking the CSS tree with every plugin.\n\n```js\nrequire('postcss-visitor').process(\n\t'figure { width: 100%; height: 100%; } ',\n\t[{\n\t\tdecl(node) {\n\t\t\tif (node.prop === 'width') node.remove()\n\t\t}\n\t}]\n).then(\n\t(result) => result.css // figure { height: 100%; }\n)\n```\n\n[PostCSS Visitor] also lets you create [PostCSS] plugins that use visitors.\n\n```js\n// create a visitor plugin\nmodule.exports = require('postcss-visitor').plugin(\n\t'postcss-visitor-example',\n\t(/* Options */) => ({\n\t\tdecl(node) {\n\t\t\t// do something with a declaration\n\t\t}\n\t})\n)\n```\n\nBy default, visitor plugins still work with [PostCSS].\n\n```js\nrequire('postcss')([\n\t// use the visitor plugin as a postcss plugin\n\trequire('postcss-visitor-example')(/* Options */)\n])\n```\n\nThe best practice is to use visitor plugins with [PostCSS Visitor]. These plugins will cooperate with each other and run much faster.\n\n```js\nrequire('postcss')([\n\t// use plugins as visitors\n\trequire('postcss-visitor')([\n\t\trequire('postcss-visitor-example').asVisitor(/* Options */),\n\t\trequire('postcss-visitor-another-example').asVisitor(/* Options */),\n\t\trequire('postcss-visitor-a-third-example').asVisitor(/* Options */)\n\t])\n])\n```\n\nAll [PostCSS Visitor] plugins run in the order of the tree first, and then the order they are added. This prevents many conflicts in standard [PostCSS] plugins and allows new kinds of plugins to be written.\n\n## Options\n\nIf the options passed into [PostCSS Visitor] are an array, then the array will be used to load any plugins or transforms.\n\nIf the options are an object, then the `plugins` key will be used to load any plugins or transforms.\n\nPlugins will be executed before walkin the DOM, and they will receive as an argument the options passed into [PostCSS Visitor].\n\n## Visitors\n\nVisitors are created by assigning functions to keys on an object. Anytime a node with a type matching that key is encountered, its function will be run.\n\nVisitors may target constructs like at-rules, rules, and declarations, but they may also target more specific nodes, like a pseudo selector within a selector, or a function within a value.\n\nRead [VISITORS.md] to learn more.\n\n## API\n\nThe [PostCSS Visitor] API allows you to create visitor-based plugins that still work with [PostCSS] on their own.\n\nRead [API.md] to learn more.\n\n## Usage\n\nAdd [PostCSS Visitor] to your build tool:\n\n```bash\nnpm install postcss-visitor --save-dev\n```\n\n#### Node\n\nUse [PostCSS Visitor] to process your CSS:\n\n```js\nrequire('postcss-visitor').process(YOUR_CSS, /* options, plugins, visitors */)\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nUse [PostCSS Visitor] as a plugin:\n\n```js\npostcss([\n\trequire('postcss-visitor')(/* options, plugins, visitors */)\n]).process(YOUR_CSS, /* options */)\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nUse [PostCSS Visitor] in your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss')\n\ngulp.task('css', function () {\n\treturn gulp.src('./src/*.css').pipe(\n\t\tpostcss([\n\t\t\trequire('postcss-visitor')(/* options, plugins, visitors */)\n\t\t])\n\t).pipe(\n\t\tgulp.dest('.')\n\t)\n})\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nUse [PostCSS Visitor] in your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss')\n\ngrunt.initConfig({\n\tpostcss: {\n\t\toptions: {\n\t\t\tuse: [\n\t\t\t\trequire('postcss-visitor')(/* options, plugins, visitors */)\n\t\t\t]\n\t\t},\n\t\tdist: {\n\t\t\tsrc: '*.css'\n\t\t}\n\t}\n})\n```\n\n[npm-url]: https://www.npmjs.com/package/postcss-visitor\n[npm-img]: https://img.shields.io/npm/v/postcss-visitor.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-visitor\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-visitor.svg\n[lic-url]: LICENSE.md\n[lic-img]: https://img.shields.io/npm/l/postcss-visitor.svg\n[log-url]: CHANGELOG.md\n[log-img]: https://img.shields.io/badge/changelog-md-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg\n\n[`asVisitor()`]: API.md#pluginasvisitor\n[API.md]: API.md\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Visitor]: https://github.com/jonathantneal/postcss-visitor\n[VISITORS.md]: VISITORS.md\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:11:31.399Z",
+		"modified": "2024-02-19T21:22:19.492Z",
 		"created": "2017-01-23T21:08:11.201Z",
 		"1.0.0": "2017-01-23T21:08:11.201Z"
 	},
@@ -150,5 +159,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 4
+	"_downloads": 14
 }
