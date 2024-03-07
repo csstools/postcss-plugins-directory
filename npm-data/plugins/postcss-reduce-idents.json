@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-reduce-idents",
-	"_rev": "57-61bb9f6b25d8e4218b063d11c524d76a",
+	"_rev": "58-0c590b8554553e084a7d0139df439ec2",
 	"name": "postcss-reduce-idents",
 	"description": "Reduce custom identifiers with PostCSS.",
 	"dist-tags": {
-		"latest": "6.0.2",
+		"latest": "6.0.3",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -4128,6 +4128,107 @@
 				"tmp": "tmp/postcss-reduce-idents_6.0.2_1702574296729_0.7104033992067518"
 			},
 			"_hasShrinkwrap": false
+		},
+		"6.0.3": {
+			"name": "postcss-reduce-idents",
+			"version": "6.0.3",
+			"description": "Reduce custom identifiers with PostCSS.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^14 || ^16 || >=18.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.35"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-reduce-idents@6.0.3",
+			"_integrity": "sha512-G3yCqZDpsNPoQgbDUy3T0E6hqOQ5xigUtBQyrmq3tn2GxlyiL0yyl7H+T8ulQR6kOcHJ9t7/9H4/R2tv8tJbMA==",
+			"_resolved": "/tmp/f91cd27b44855ad2aec805ebbd65477f/postcss-reduce-idents-6.0.3.tgz",
+			"_from": "file:postcss-reduce-idents-6.0.3.tgz",
+			"_nodeVersion": "20.11.1",
+			"_npmVersion": "10.2.4",
+			"dist": {
+				"integrity": "sha512-G3yCqZDpsNPoQgbDUy3T0E6hqOQ5xigUtBQyrmq3tn2GxlyiL0yyl7H+T8ulQR6kOcHJ9t7/9H4/R2tv8tJbMA==",
+				"shasum": "b0d9c84316d2a547714ebab523ec7d13704cd486",
+				"tarball": "https://registry.npmjs.org/postcss-reduce-idents/-/postcss-reduce-idents-6.0.3.tgz",
+				"fileCount": 27,
+				"unpackedSize": 22700,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDy9WLjt8Y4xMHj5wG9h63zNQ7dJhQD64260nAAsNkbJQIhAKT7aVIXaukkaQksI76RDL+KM35pd5+yAwcswzK+FrlX"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "trysound",
+					"email": "opensource@trysound.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-reduce-idents_6.0.3_1709735493143_0.782463230472842"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# [postcss][postcss]-reduce-idents\n\n> Reduce [custom identifiers][idents] with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-reduce-idents) do:\n\n```\nnpm install postcss-reduce-idents --save\n```\n\n\n## Example\n\n### Input\n\nThis module will rename custom identifiers in your CSS files; it does so by\nconverting each name to a index, which is then encoded into a legal identifier.\nA legal custom identifier in CSS is case sensitive and must start with a\nletter, but can contain digits, hyphens and underscores. There are over 3,000\npossible two character identifiers, and 51 possible single character identifiers\nthat will be generated.\n\n```css\n@keyframes whiteToBlack {\n    0% {\n        color: #fff\n    }\n    to {\n        color: #000\n    }\n}\n\n.one {\n    animation-name: whiteToBlack\n}\n```\n\n### Output\n\n```css\n@keyframes a {\n    0% {\n        color: #fff\n    }\n    to {\n        color: #000\n    }\n}\n\n.one {\n    animation-name: a\n}\n```\n\nNote that this module does not handle identifiers that are not linked together.\nThe following example will not be transformed in any way:\n\n```css\n@keyframes fadeOut {\n    0% { opacity: 1 }\n    to { opacity: 0 }\n}\n\n.fadeIn {\n    animation-name: fadeIn;\n}\n```\n\nIt works for `@keyframes`, `@counter-style`, custom `counter` values and grid area definitions. See the\n[documentation][idents] for more information, or the [tests](src/__tests__) for more\nexamples.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### reduceIdents([options])\n\n#### options\n\n##### counter\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable reducing `content`, `counter-reset` and `counter-increment` declarations.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable reducing `keyframes` rules and `animation` declarations.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable reducing `counter-style` rules and `list-style` and `system` declarations.\n\n##### gridTemplate\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable reducing `grid-template`, `grid-area`, `grid-column`, `grid-row` and `grid-template-areas` declarations.\n\n##### encoder\n\nType: `function`  \nDefault: [`lib/encode.js`](https://github.com/cssnano/postcss-reduce-idents/blob/master/src/lib/encode.js)\n\nPass a custom function to encode the identifier with (e.g.: as a way of prefixing them automatically).\n\nIt receives two parameters:\n  - A `String` with the node value.\n  - A `Number` identifying the index of the occurrence.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n[idents]:  https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident\n\n[postcss]: https://github.com/postcss/postcss\n",
@@ -4166,7 +4267,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-12-14T17:18:17.115Z",
+		"modified": "2024-03-06T14:31:34.099Z",
 		"created": "2015-04-10T16:45:22.687Z",
 		"1.0.0": "2015-04-10T16:45:22.687Z",
 		"1.0.1": "2015-05-28T19:26:06.402Z",
@@ -4213,7 +4314,8 @@
 		"5.2.0": "2022-03-19T19:21:45.666Z",
 		"6.0.0": "2023-03-27T16:41:10.148Z",
 		"6.0.1": "2023-04-30T09:32:01.121Z",
-		"6.0.2": "2023-12-14T17:18:16.954Z"
+		"6.0.2": "2023-12-14T17:18:16.954Z",
+		"6.0.3": "2024-03-06T14:31:33.272Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -4238,5 +4340,5 @@
 	"users": {
 		"simplesessions": true
 	},
-	"_downloads": 2999226
+	"_downloads": 3021525
 }

@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-modules-values-replace",
-	"_rev": "21-aba1010cb6064ecdd7381e92f95929c6",
+	"_rev": "22-a53a2f2841bf154c27bacfb746425ddb",
 	"name": "postcss-modules-values-replace",
 	"description": "PostCSS plugin to work around CSS Modules values limitations",
 	"dist-tags": {
-		"latest": "4.1.0"
+		"latest": "4.2.0"
 	},
 	"versions": {
 		"0.0.1": {
@@ -1504,9 +1504,90 @@
 				"tmp": "tmp/postcss-modules-values-replace_4.1.0_1678926359591_0.556143898271771"
 			},
 			"_hasShrinkwrap": false
+		},
+		"4.2.0": {
+			"name": "postcss-modules-values-replace",
+			"version": "4.2.0",
+			"description": "PostCSS plugin to work around CSS Modules values limitations",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"css-modules"
+			],
+			"author": {
+				"name": "Eugene Datsky",
+				"email": "eugene@datsky.ru"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/princed/postcss-modules-values-replace.git"
+			},
+			"bugs": {
+				"url": "https://github.com/princed/postcss-modules-values-replace/issues"
+			},
+			"homepage": "https://github.com/princed/postcss-modules-values-replace",
+			"dependencies": {
+				"enhanced-resolve": "^5.12.0",
+				"es6-promisify": "^7.0.0",
+				"icss-utils": "^5.1.0",
+				"loader-utils": "^3.2.1",
+				"postcss-values-parser": "^6.0.2"
+			},
+			"devDependencies": {
+				"eslint": "^8.36.0",
+				"eslint-config-airbnb-base": "^15.0.0",
+				"eslint-plugin-import": "^2.27.5",
+				"vitest": "^1.0.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.2.9"
+			},
+			"scripts": {
+				"lint": "eslint *.js",
+				"prepublishOnly": "npm run lint && npm test -- --run",
+				"test": "vitest"
+			},
+			"eslintConfig": {
+				"extends": "eslint-config-airbnb-base"
+			},
+			"_id": "postcss-modules-values-replace@4.2.0",
+			"gitHead": "ae03519ae11e28d8e47ee26b0d09c087c64c3d81",
+			"_nodeVersion": "18.18.0",
+			"_npmVersion": "9.8.1",
+			"dist": {
+				"integrity": "sha512-fkjrDz3lZEotj5F5JpCvR7ovWnKQmeKsgUcgOj5SEQH262/xLyLEBuDf+QDSiJ5vZ7f/q4tmEN3yMYCEETr0SA==",
+				"shasum": "913d5e7a9b290603a8d74bff8dbfe3c271575568",
+				"tarball": "https://registry.npmjs.org/postcss-modules-values-replace/-/postcss-modules-values-replace-4.2.0.tgz",
+				"fileCount": 3,
+				"unpackedSize": 14135,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBSpakuGcfCSonccPf5dtyXi603wWKclghQELKKbnIsGAiEAj0BUe0E58b8+TvMoV0kVQ7LtA6eOVmo3GTgQWVBqqmI="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "princed",
+				"email": "npm@datsky.me"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "princed",
+					"email": "npm@datsky.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-modules-values-replace_4.2.0_1709770134910_0.745743329850088"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
-	"readme": "# PostCSS Modules Values Replace\n\n[PostCSS] plugin to work around CSS Modules values limitations.\n\n[PostCSS]: https://github.com/postcss/postcss\n[css-loader]: https://github.com/webpack/css-loader\n[postcss-calc]: https://github.com/postcss/postcss-calc\n[postcss-cssnext]: https://github.com/MoOx/postcss-cssnext\n[postcss-color-function]: https://github.com/postcss/postcss-color-function\n[postcss-modules-tilda]: https://github.com/princed/postcss-modules-tilda\n[postcss-modules-values]: https://github.com/css-modules/postcss-modules-values\n[modules-values-extract]: https://github.com/alexhisen/modules-values-extract\n[enhanced-resolve]: https://github.com/webpack/enhanced-resolve/#contributing\nReplaces CSS Modules @values just as [postcss-modules-values] does, but without help of [css-loader],\nso it could be used before other [PostCSS] plugins like [postcss-calc].\n\nExample:\n\n```css\n/* constants.css */\n@value unit: 8px;\n@value footer-height: calc(unit * 5);\n\n/* my-components.css */\n@value unit, footer-height from \"./constants.css\";\n@value component-height: calc(unit * 10);\n\n.my-component {\n  padding: unit;\n  margin-top: footer-height;\n  height: component-height;\n}\n```\n\nyields `my-components.css`:\n\n```css\n @value unit, footer-height from \"./constants.css\";\n @value component-height: calc(8px * 10);\n\n .my-component {\n   padding: 8px;\n   margin-top: calc(8px * 5);\n   height: calc(8px * 10);\n }\n ```\n\nand leads to export of following values to JS:\n\n```js\n{\n    \"unit\": \"8px\",\n    \"footer-height\": \"calc(8px * 5)\",\n    \"component-height\": \"calc(8px * 10)\",\n    ...\n}\n```\n\nSee how to export computed values in usage with `calc` example [below](#calc-and-value).\n\n## Usage\n\nPlace it before other plugins:\n```js\npostcss([ require('postcss-modules-values-replace'), require('postcss-calc') ]);\n```\n\nWhen using from webpack, pass its file system in `postcss.config.js` form:\n\n```js\nmodule.exports = (ctx) => ({\n   plugins: [\n     require('postcss-modules-values-replace')({fs: ctx.webpack._compiler.inputFileSystem}),\n     require('postcss-calc'),\n  ]\n});\n```\nSee [PostCSS] docs for other examples for your environment.\n\n### Configuration params\n\n#### fs `Object`\n\nFile system to use. To make it faster in webpack pass its file system to plugin.\nCached Node's file system is used by default.\n\n#### resolve `Object`\n\n[enhanced-resolve]'s configuration object, see there for possible options and defaults.\n\n\n#### noEmitExports `boolean`\n\nWhen enabled @value rules/declarations will be removed from the emitted output\n\n**Input:**\n```css\n@value myBrandColor blue;\n@font-face {}\n\nbody { background: myBrandColor }\n```\n\n**Output:**\n```css\n@font-face {}\n\nbody { background: blue }\n```\n\n#### preprocessValues `boolean`\n\nWhen enabled, permit plugins defined earlier in the PostCSS pipeline to modify `@value` declarations before they are recorded by this plugin.\n\n#### importsAsModuleRequests `boolean`\n\nWhen enabled, value imports will be resolved as module requests, in line with `css-loader`'s resolution logic [as of 2.0.0](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md#200-2018-12-07).\nIf your code is written with pre-2.0 import syntax, and utilises [postcss-modules-tilda] for compatibility, this option is not required.\n\n#### replaceInSelectors `boolean`\n\nWhen enabled, value usage within rule selectors will also be replaced by this plugin.\n\n### calc() and @value\n\nTo enable calculations *inside* **@value**, enable media queries support in [postcss-calc]:\n\n```js\npostcss([\n  require('postcss-modules-values-replace'),\n  require('postcss-calc')({mediaQueries: true})\n])\n```\n\nor via [postcss-cssnext]:\n\n```js\npostcss([\n  require('postcss-modules-values-replace'),\n  require('postcss-cssnext')({features: {calc: {mediaQueries: true}}})\n])\n```\n\nExample with `calc` enabled:\n\n```css\n/* constants.css */\n@value unit: 8px;\n@value footer-height: calc(unit * 5);\n\n/* my-components.css */\n@value unit, footer-height from \"./constants.css\";\n@value component-height: calc(unit * 10);\n\n.my-component {\n  padding: unit;\n  margin-top: footer-height;\n  height: component-height;\n}\n```\n\nyields `my-components.css`:\n\n```css\n @value unit, footer-height from \"./constants.css\";\n @value component-height: 80px;\n\n .my-component {\n   padding: 8px;\n   margin-top: 40px;\n   height: 80px;\n }\n ```\n\nand leads to export of following values to JS:\n\n```js\n{\n    \"unit\": \"8px\",\n    \"footer-height\": \"40px\",\n    \"component-height\": \"80px\",\n    ...\n}\n```\n\n### Other computations and @value\n\n[postcss-calc] and [postcss-color-function] are known to work *inside* **@value** as they traverse media queries.\nExperience with other plugins may differ if they ignore media queries.\n\n### Extracting values for programmatic use\nThis plugin provides to postcss a custom [messages](http://api.postcss.org/Result.html#messages) object with `type: 'values'`.\nThe `values` property of that object will contain all the extracted values with all substitution performed (i.e. for values that reference other values).\n\nSee [modules-values-extract] for an example of how this can be used.\n\n## Environment\n\nNode.js 6.5 or above is recomended.\n\n## License\n\nISC\n\n## With thanks\n\nCode is mostly taken from [postcss-modules-values] by Glen Maddern, Mark Dalgleish and other contributors.\n",
+	"readme": "# PostCSS Modules Values Replace\n\n[PostCSS] plugin to work around CSS Modules values limitations.\n\n[PostCSS]: https://github.com/postcss/postcss\n[css-loader]: https://github.com/webpack/css-loader\n[postcss-calc]: https://github.com/postcss/postcss-calc\n[postcss-cssnext]: https://github.com/MoOx/postcss-cssnext\n[postcss-color-function]: https://github.com/postcss/postcss-color-function\n[postcss-modules-tilda]: https://github.com/princed/postcss-modules-tilda\n[postcss-modules-values]: https://github.com/css-modules/postcss-modules-values\n[modules-values-extract]: https://github.com/alexhisen/modules-values-extract\n[enhanced-resolve]: https://github.com/webpack/enhanced-resolve/#contributing\nReplaces CSS Modules @values just as [postcss-modules-values] does, but without help of [css-loader],\nso it could be used before other [PostCSS] plugins like [postcss-calc].\n\nExample:\n\n```css\n/* constants.css */\n@value unit: 8px;\n@value footer-height: calc(unit * 5);\n\n/* my-components.css */\n@value unit, footer-height from \"./constants.css\";\n@value component-height: calc(unit * 10);\n\n.my-component {\n  padding: unit;\n  margin-top: footer-height;\n  height: component-height;\n}\n```\n\nyields `my-components.css`:\n\n```css\n @value unit, footer-height from \"./constants.css\";\n @value component-height: calc(8px * 10);\n\n .my-component {\n   padding: 8px;\n   margin-top: calc(8px * 5);\n   height: calc(8px * 10);\n }\n ```\n\nand leads to export of following values to JS:\n\n```js\n{\n    \"unit\": \"8px\",\n    \"footer-height\": \"calc(8px * 5)\",\n    \"component-height\": \"calc(8px * 10)\",\n    ...\n}\n```\n\nSee how to export computed values in usage with `calc` example [below](#calc-and-value).\n\n## Usage\n\nPlace it before other plugins:\n```js\npostcss([ require('postcss-modules-values-replace'), require('postcss-calc') ]);\n```\n\nWhen using from webpack, pass its file system in `postcss.config.js` form:\n\n```js\nmodule.exports = (ctx) => ({\n   plugins: [\n     require('postcss-modules-values-replace')({fs: ctx.webpack._compiler.inputFileSystem}),\n     require('postcss-calc'),\n  ]\n});\n```\nSee [PostCSS] docs for other examples for your environment.\n\n### Configuration params\n\n#### fs `Object`\n\nFile system to use. To make it faster in webpack pass its file system to plugin.\nCached Node's file system is used by default.\n\n#### resolve `Object`\n\n[enhanced-resolve]'s configuration object, see there for possible options and defaults.\n\n\n#### noEmitExports `boolean`\n\nWhen enabled @value rules/declarations will be removed from the emitted output\n\n**Input:**\n```css\n@value myBrandColor blue;\n@font-face {}\n\nbody { background: myBrandColor }\n```\n\n**Output:**\n```css\n@font-face {}\n\nbody { background: blue }\n```\n\n#### preprocessValues `boolean`\n\nWhen enabled, permit plugins defined earlier in the PostCSS pipeline to modify `@value` declarations before they are recorded by this plugin.\n\n#### importsAsModuleRequests `boolean`\n\nWhen enabled, value imports will be resolved as module requests, in line with `css-loader`'s resolution logic [as of 2.0.0](https://github.com/webpack-contrib/css-loader/blob/master/CHANGELOG.md#200-2018-12-07).\nIf your code is written with pre-2.0 import syntax, and utilises [postcss-modules-tilda] for compatibility, this option is not required.\n\n#### replaceInSelectors `boolean`\n\nWhen enabled, value usage within rule selectors will also be replaced by this plugin.\n\n#### atRules `Array<string>`\n\nYou can pass a list of at-rules in which `@value`'s should be replaced. Only `@media` rules will be processed by default.\nNote that passed array isn't merged with default `['media']` but overwrites it, so you'll need to include all the rules you want to be processed.\n\n```js\npostcss([\n  require('postcss-modules-values-replace')({ atRules: ['media', 'container']  })\n]);\n```\n**Input:**\n```css\n@value $tables from './breakpoints.css';\n\n@container (width >= $tablet) {}\n```\n\n**Output:**\n```css\n@container (width >= 768px) {}\n```\n\n### calc() and @value\n\nTo enable calculations *inside* **@value**, enable media queries support in [postcss-calc]:\n\n```js\npostcss([\n  require('postcss-modules-values-replace'),\n  require('postcss-calc')({mediaQueries: true})\n])\n```\n\nor via [postcss-cssnext]:\n\n```js\npostcss([\n  require('postcss-modules-values-replace'),\n  require('postcss-cssnext')({features: {calc: {mediaQueries: true}}})\n])\n```\n\nExample with `calc` enabled:\n\n```css\n/* constants.css */\n@value unit: 8px;\n@value footer-height: calc(unit * 5);\n\n/* my-components.css */\n@value unit, footer-height from \"./constants.css\";\n@value component-height: calc(unit * 10);\n\n.my-component {\n  padding: unit;\n  margin-top: footer-height;\n  height: component-height;\n}\n```\n\nyields `my-components.css`:\n\n```css\n @value unit, footer-height from \"./constants.css\";\n @value component-height: 80px;\n\n .my-component {\n   padding: 8px;\n   margin-top: 40px;\n   height: 80px;\n }\n ```\n\nand leads to export of following values to JS:\n\n```js\n{\n    \"unit\": \"8px\",\n    \"footer-height\": \"40px\",\n    \"component-height\": \"80px\",\n    ...\n}\n```\n\n### Other computations and @value\n\n[postcss-calc] and [postcss-color-function] are known to work *inside* **@value** as they traverse media queries.\nExperience with other plugins may differ if they ignore media queries.\n\n### Extracting values for programmatic use\nThis plugin provides to postcss a custom [messages](http://api.postcss.org/Result.html#messages) object with `type: 'values'`.\nThe `values` property of that object will contain all the extracted values with all substitution performed (i.e. for values that reference other values).\n\nSee [modules-values-extract] for an example of how this can be used.\n\n## Environment\n\nNode.js 6.5 or above is recomended.\n\n## License\n\nISC\n\n## With thanks\n\nCode is mostly taken from [postcss-modules-values] by Glen Maddern, Mark Dalgleish and other contributors.\n",
 	"maintainers": [
 		{
 			"name": "princed",
@@ -1514,7 +1595,7 @@
 		}
 	],
 	"time": {
-		"modified": "2023-03-16T00:25:59.873Z",
+		"modified": "2024-03-07T00:08:55.473Z",
 		"created": "2016-11-10T12:46:30.060Z",
 		"0.0.1": "2016-11-10T12:46:30.060Z",
 		"0.0.2": "2016-11-10T12:48:02.160Z",
@@ -1533,7 +1614,8 @@
 		"3.3.0": "2021-03-09T21:34:16.998Z",
 		"3.4.0": "2021-05-17T01:18:52.369Z",
 		"4.0.0": "2023-03-15T12:19:59.892Z",
-		"4.1.0": "2023-03-16T00:25:59.740Z"
+		"4.1.0": "2023-03-16T00:25:59.740Z",
+		"4.2.0": "2024-03-07T00:08:55.040Z"
 	},
 	"homepage": "https://github.com/princed/postcss-modules-values-replace",
 	"keywords": [
@@ -1555,5 +1637,5 @@
 	},
 	"license": "ISC",
 	"readmeFilename": "README.md",
-	"_downloads": 426194
+	"_downloads": 510686
 }
