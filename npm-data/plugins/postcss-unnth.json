@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-unnth",
-	"_rev": "5-d27c790761268b665e674b1618f8b29a",
+	"_rev": "6-72232a7d4a2dddc07bd0bcf6698eb9f6",
 	"name": "postcss-unnth",
 	"description": "Replace :nth-child selectors with :first-child+ selectors",
 	"dist-tags": {
@@ -79,7 +79,8 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		},
 		"1.0.1": {
 			"name": "postcss-unnth",
@@ -153,7 +154,8 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		},
 		"1.0.2": {
 			"name": "postcss-unnth",
@@ -228,18 +230,27 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		}
 	},
 	"readme": "# UnNth [![Build Status][ci-img]][ci]\n\n<img align=\"right\" width=\"135\" height=\"95\" src=\"http://postcss.github.io/postcss/logo-leftp.png\" title=\"Philosopher’s stone, logo of PostCSS\">\n\n[UnNth] replaces `:nth-child` selectors with `:first-child` selectors. This can be useful when outputting CSS for older browsers like Internet Explorer 8.\n\n```css\n/* before */\n\n.container > p:nth-child(4).specific > span {\n   font-weight: bold;\n}\n\n/* after */\n\n.container > :first-child + * + * + p.specific > span {\n    font-weight: bold;\n}\n```\n\n## Usage\n\nAdd [UnNth] to your build tool:\n\n```bash\nnpm install postcss-unnth --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-unnth')({ /* options */ }).process(YOUR_CSS);\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [UnNth] as a PostCSS plugin:\n\n```js\npostcss([\n    require('postcss-unnth')({ /* options */ })\n]);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [UnNth] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n    return gulp.src('./css/src/*.css').pipe(\n        postcss([\n            require('postcss-unnth')({ /* options */ })\n        ])\n    ).pipe(\n        gulp.dest('./css')\n    );\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [UnNth] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n    postcss: {\n        options: {\n            processors: [\n                require('postcss-unnth')({ /* options */ })\n            ]\n        },\n        dist: {\n            src: 'css/*.css'\n        }\n    }\n});\n```\n\n[ci]: https://travis-ci.org/jonathantneal/postcss-unnth\n[ci-img]: https://travis-ci.org/jonathantneal/postcss-unnth.svg\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[UnNth]: https://github.com/jonathantneal/postcss-unnth\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:07:55.336Z",
+		"modified": "2024-02-19T21:21:52.632Z",
 		"created": "2015-10-05T13:26:35.890Z",
 		"1.0.0": "2015-10-05T13:26:35.890Z",
 		"1.0.1": "2015-10-05T14:20:55.640Z",
@@ -271,5 +282,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 3877
+	"_downloads": 2602
 }
