@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-short-text",
-	"_rev": "4-258866a5815c3234eba3669d5bc4f2df",
+	"_rev": "5-1d11bacf088d1f729a3cc43ce6defc8a",
 	"name": "postcss-short-text",
 	"description": "Use a shorthand text property in CSS",
 	"dist-tags": {
@@ -88,7 +88,8 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		},
 		"1.1.0": {
 			"name": "postcss-short-text",
@@ -171,18 +172,27 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		}
 	},
 	"readme": "# Short Text [![Build Status][ci-img]][ci]\n\n<img align=\"right\" width=\"135\" height=\"95\" src=\"http://postcss.github.io/postcss/logo-leftp.png\" title=\"Philosopher’s stone, logo of PostCSS\">\n\n[Short Text] is a [PostCSS] plugin that lets you use a shorthand `text` property in CSS.\n\n```css\n/* before */\n\nsection {\n    text: bold center uppercase dimgrey 1.25em 1.5 .05em;\n}\n\narticle {\n    text: 1.25em * .05em;\n}\n\n/* after */\n\nsection {\n    font-weight: bold;\n    text-align: center;\n    text-transform: uppercase;\n    color: dimgrey;\n    font-size: 1.25em;\n    line-height: 1.5;\n    letter-spacing: .05em;\n}\n\narticle {\n    font-size: 1.25em;\n    letter-spacing: .05em;\n}\n```\n\nProperties are matched into groups that may be written in any order. Once a property is matched to a group, other properties from that group must then be written before properties of another group. Asterisks indicate that an individual property in a group should be skipped. The groups include:\n\n- `color`\n- `font-style`, `font-variant`, `font-weight`, `font-stretch`\n- `text-decoration`, `text-align`, `text-rendering`, `text-transform`\n- `white-space`\n- `font-size`, `line-height`, `letter-spacing`, `word-spacing`\n\n## Usage\n\nFollow these steps to use [Short Text].\n\nAdd [Short Text] to your build tool:\n\n```bash\nnpm install postcss-short-text --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-short-text')({ /* options */ }).process(YOUR_CSS);\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [Short Text] as a PostCSS plugin:\n\n```js\npostcss([\n    require('postcss-short-text')({ /* options */ })\n]);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [Short Text] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n    return gulp.src('./css/src/*.css').pipe(\n        postcss([\n            require('postcss-short-text')({ /* options */ })\n        ])\n    ).pipe(\n        gulp.dest('./css')\n    );\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [Short Text] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n    postcss: {\n        options: {\n            processors: [\n                require('postcss-short-text')({ /* options */ })\n            ]\n        },\n        dist: {\n            src: 'css/*.css'\n        }\n    }\n});\n```\n\n## Options\n\n#### `prefix`\n\nType: `String`  \nDefault: `null`\n\nSpecifies a prefix to be surrounded by dashes before the declaration (e.g. `-x-text`).\n\n[ci]: https://travis-ci.org/jonathantneal/postcss-short-text\n[ci-img]: https://travis-ci.org/jonathantneal/postcss-short-text.svg\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[Short Text]: https://github.com/jonathantneal/postcss-short-text\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:55:37.113Z",
+		"modified": "2024-02-19T21:21:11.441Z",
 		"created": "2015-09-21T13:11:15.010Z",
 		"1.0.0": "2015-09-21T13:11:15.010Z",
 		"1.1.0": "2015-09-22T05:18:37.451Z"
@@ -222,5 +232,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 1490
+	"_downloads": 1425
 }
