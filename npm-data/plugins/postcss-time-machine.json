@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-time-machine",
-	"_rev": "12-0db7a6aba2d7d7726a34d83cb9a40678",
+	"_rev": "13-7f275b2a381f81f5e76d077e146ca45f",
 	"name": "postcss-time-machine",
 	"description": "Fix mistakes in the design of CSS itself",
 	"dist-tags": {
@@ -1020,12 +1020,20 @@
 	"readme": "# PostCSS Time Machine [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[![Support Chat][git-img]][git-url]\n\n[PostCSS Time Machine] fixes mistakes in the design of CSS itself, as\n[described by the CSSWG](https://wiki.csswg.org/ideas/mistakes).\n\nThey specifically requested that these should be corrected\n“*if anyone invents a time machine*”.\n\n```bash\nnpx postcss-time-machine SOURCE.css TRANSFORMED.css\n```\n\n## Safe Fixes\n\nThese fixes do not change the way CSS normally works. They can be individually\ndisabled by passing their short name into the [`fixes` option](#fixes).\n\n### border-box\n\n> Box-sizing should be `border-box` by default.\n\n```css\n/* prepended to your css */\n\n* {\n  box-sizing: border-box;\n}\n```\n\n### corner-radius\n\n> `border-radius` should be `corner-radius`.\n\n```css\nbutton {\n  corner-radius: 3px;\n}\n\n/* becomes */\n\nbutton {\n  border-radius: 3px;\n}\n```\n\n### current-color\n\n> `currentcolor` should be `current-color`.\n\n```css\nbutton {\n  box-shadow: 0 0 5px solid current-color;\n}\n\n/* becomes */\n\nbutton {\n  box-shadow: 0 0 5px solid currentColor;\n}\n```\n\n### display-type\n\n> The `display` property should be called `display-type`.\n\n```css\n.some-component {\n  display-type: grid;\n}\n\n/* becomes */\n\n.some-component {\n  display: grid;\n}\n```\n\n### marker-style\n\n> The `list-style` properties should be called `marker-style`.\n\n```css\n.georgian-list {\n  marker-style: square;\n}\n\n/* becomes */\n\n.georgian-list {\n  list-style: square;\n}\n```\n\n### no-wrap\n\n> In `white-space`, `nowrap` should be called `no-wrap`.\n\n```css\nh1 {\n  white-space: no-wrap;\n}\n\n/* becomes */\n\nh1 {\n  white-space: nowrap;\n}\n```\n\n### overflow-wrap\n\n> `word-wrap`/`overflow-wrap` should not exist, and `overflow-wrap` should be a\n  keyword on `white-space`.\n\n```css\na {\n  white-space: overflow-wrap;\n}\n\n/* becomes */\n\na {\n  word-wrap: break-word;\n}\n```\n\n### rgb-hsl\n\n> `rgb()` and `hsl()` should have an optional fourth *alpha* parameter\n  (which should use the same format as R, G, and B or S and L).\n\n```css\nheader {\n  background-color: rgb(0, 0, 255, 102);\n  color: hsl(170, 50%, 45%, 80%);\n}\n\n/* becomes */\n\nheader {\n  background-color: rgba(0, 0, 255, .4);\n  color: hsla(170, 50%, 45%, .8);\n}\n```\n\n### text-middle\n\n> In `vertical-align`, `middle` should be called `text-middle`.\n\n```css\nbutton {\n  vertical-align: text-middle;\n}\n\n/* becomes */\n\nbutton {\n  vertical-align: middle;\n}\n```\n\n### z-order\n\n> `z-index` should be called `z-order` or `depth`.\n\n```css\naside {\n  depth: 10;\n}\n\nfigure {\n  z-order: 10;\n}\n\n/* becomes */\n\naside {\n  z-index: 10;\n}\n\nfigure {\n  z-index: 10;\n}\n```\n\n## Unsafe Fixes\n\nThese fixes change the way CSS normally works. They can be individually\nenabled or disabled by passing their short name into the\n[`fixes` option](#fixes), or by setting the\n[`useUnsafeFixes`](#useunsafefixes) option to `false`.\n\n### background-position\n\n> `background-position` and `border-spacing` (all 2-axis properties) should\n  take *vertical* first, to match with the 4-direction properties like `margin`.\n\n```css\nbody {\n  background-position: 0% 50%;\n}\n\ntable {\n  border-spacing: 10px 5px;\n}\n\n/* becomes */\n\nbody {\n  background-position: 50% 0%;\n}\n\ntable {\n  border-spacing: 5px 10px;\n}\n```\n\n### background-size\n\n> In `background-size`, having one value should duplicate its value, not\ndefault the second one to `auto`.\n\n```css\nheader {\n  background-size: 75%;\n}\n\n/* becomes */\n\nheader {\n  background-size: 75% 75%;\n}\n```\n\n### line-height\n\n> `line-height: <percentage>` should compute to the equivalent\n  `line-height: <number>`, so that it effectively inherits as a percentage not\n  a length.\n\n```css\np {\n  line-height: 200%;\n}\n\n/* becomes */\n\np {\n  line-height: 2;\n}\n```\n\n### link-pseudo\n\n> `:link` should have had the `:any-link` semantics all along.\n\n```css\n:link {\n  color: blue;\n}\n\n/* becomes */\n\n:link, :visited {\n  color: blue;\n}\n```\n\n## Advanced Usage\n\nAdd [PostCSS Time Machine] to your project:\n\n```bash\nnpm install postcss-time-machine --save-dev\n```\n\nUse [PostCSS Time Machine] to process your CSS:\n\n```js\nconst postcssTimeMachine = require('postcss-time-machine');\n\npostcssTimeMachine.process(YOUR_CSS /*, processOptions, pluginOptions */);\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssTimeMachine = require('postcss-time-machine');\n\npostcss([\n  postcssTimeMachine(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Time Machine] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### fixes\n\nThe `fixes` option lets you individually enable or disable individual fixes.\n\n```js\npostcssTimeMachine({\n  fixes: {\n    'border-box': false // disables adding * { box-sizing: border-box; }\n  }\n})\n```\n\n### useUnsafeFixes\n\nThe `useUnsafeFixes` option determines whether unsafe fixes will be applied or\nnot. Individual features passed into the `fixes` option will override this. By\ndefault, unsafe features are enabled.\n\n```js\npostcssTimeMachine({\n  useUnsafeFixes: false // disables background-position, background-size, and line-height\n})\n```\n\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-time-machine.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-time-machine\n[git-img]: https://img.shields.io/badge/support-chat-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[npm-img]: https://img.shields.io/npm/v/postcss-time-machine.svg\n[npm-url]: https://www.npmjs.com/package/postcss-time-machine\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Time Machine]: https://github.com/jonathantneal/postcss-time-machine\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:04:07.259Z",
+		"modified": "2024-02-19T21:21:22.104Z",
 		"created": "2015-10-28T04:15:57.916Z",
 		"1.0.0": "2015-10-28T04:15:57.916Z",
 		"1.1.0": "2015-11-25T02:06:55.317Z",
@@ -1086,5 +1094,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 56
+	"_downloads": 70
 }
