@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-assign-layer",
-	"_rev": "1-cb6af247bdd11ae06a69494c1bca386b",
+	"_rev": "2-2ad0fd4379697f4d742b1a63553aaf89",
 	"name": "postcss-assign-layer",
 	"dist-tags": {
-		"latest": "0.2.0"
+		"latest": "0.3.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -168,13 +168,118 @@
 				"tmp": "tmp/postcss-assign-layer_0.2.0_1707748885683_0.5219875817666357"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.3.0": {
+			"name": "postcss-assign-layer",
+			"version": "0.3.0",
+			"description": "PostCSS plugin to assign a cascade layer to files.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-assign-layer"
+			],
+			"scripts": {
+				"build": "tsup src/index.ts --format esm,cjs --dts",
+				"test": "vitest run --coverage && eslint .",
+				"test:watch": "vitest",
+				"prepublishOnly": "pnpm build && pnpm test"
+			},
+			"author": {
+				"name": "Ian VanSchooten",
+				"email": "ian.vanschooten@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/DefinedNet/postcss-assign-layer.git"
+			},
+			"homepage": "https://github.com/DefinedNet/postcss-assign-layer#readme",
+			"exports": {
+				".": {
+					"types": {
+						"import": "./dist/index.d.mts",
+						"require": "./dist/index.d.ts"
+					},
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.js"
+				},
+				"./package.json": "./package.json"
+			},
+			"main": "dist/index.js",
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.3.0"
+			},
+			"devDependencies": {
+				"@eslint/js": "^8.57.0",
+				"@types/eslint": "^8.56.6",
+				"@types/node": "^16.18.91",
+				"@types/prettier": "^2.6.0",
+				"@vitest/coverage-v8": "^0.34.0",
+				"c8": "^7.11.3",
+				"clean-publish": "^3.4.2",
+				"eslint": "^8.57.0",
+				"eslint-plugin-no-only-tests": "^3.1.0",
+				"postcss": "^8.3.11",
+				"prettier": "^2.6.2",
+				"tsup": "^8.0.2",
+				"typescript": "^5.4.2",
+				"typescript-eslint": "^7.3.1",
+				"vite": "^4.0.0",
+				"vitest": "^0.34.0"
+			},
+			"dependencies": {
+				"@rollup/pluginutils": "^4.2.1"
+			},
+			"packageManager": "pnpm@8.15.5",
+			"types": "./dist/index.d.ts",
+			"gitHead": "35ca0236b240cd27c49301d506678244d8756265",
+			"bugs": {
+				"url": "https://github.com/DefinedNet/postcss-assign-layer/issues"
+			},
+			"_id": "postcss-assign-layer@0.3.0",
+			"_nodeVersion": "16.20.2",
+			"_npmVersion": "8.19.4",
+			"dist": {
+				"integrity": "sha512-WSZHQ2OuFGGjkIs82EHFTm9sAV/ZDtJwuUSMbKdK+GH5xOc6rLQPW3ySPfRAVOLt8p6LlDNF8ZVYQ/CUO0K7Tg==",
+				"shasum": "3ee56059a4d2d29d80434c3e56956359322cb4cb",
+				"tarball": "https://registry.npmjs.org/postcss-assign-layer/-/postcss-assign-layer-0.3.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 10859,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCG3CNZBZXaLG/yRP3FEW2sIUyblK8UjPoST0gEUPqxpQIhAPGBuOf13V2qwTB92b/dujNTxXgApN9rHR2fxQPI04xY"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ianvs",
+				"email": "ian.vanschooten@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ianvs",
+					"email": "ian.vanschooten@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-assign-layer_0.3.0_1710867219401_0.18188459414302538"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-05-16T20:09:18.109Z",
 		"0.1.0": "2022-05-16T20:09:18.608Z",
-		"modified": "2024-02-12T14:41:26.069Z",
-		"0.2.0": "2024-02-12T14:41:25.840Z"
+		"modified": "2024-03-19T16:53:40.054Z",
+		"0.2.0": "2024-02-12T14:41:25.840Z",
+		"0.3.0": "2024-03-19T16:53:39.603Z"
 	},
 	"maintainers": [
 		{
@@ -204,5 +309,5 @@
 	"license": "MIT",
 	"readme": "# postcss-assign-layer <!-- omit in toc -->\n\n[PostCSS] plugin to assign a css cascade layer to files based on a glob pattern\n\n[postcss]: https://github.com/postcss/postcss\n\n## Table of Contents <!-- omit in toc -->\n\n- [Why?](#why)\n- [Usage](#usage)\n  - [**Step 1:** Install plugin](#step-1-install-plugin)\n  - [**Step 2:** Check your project for existing PostCSS config:](#step-2-check-your-project-for-existing-postcss-config)\n  - [**Step 3:** Add the plugin to plugins list (at the end)](#step-3-add-the-plugin-to-plugins-list-at-the-end)\n  - [**Step 4:** Configure the plugin](#step-4-configure-the-plugin)\n    - [`include`](#include)\n    - [`layerName`](#layername)\n\n## Why?\n\n[CSS Cascade Layers] are a powerful new tool to give us more control over the cascade. [A Complete Guide to CSS Cascade Layers] is an excellent introduction that goes in depth into the details of how it works and the reasons you might want to use it.\n\nOne useful approach is to create different layers for defaults, components, and utilities, with increasing order of priority. So, components will always override a selector with the same specificity in the defaults layer, but utilities will override components. Defaults and utilities can be easily assigned up-front, in your global stylesheets imported at the root of your applicaiton. But you might have separate css files spread over your app for your components, especially if you're using an approach like [css modules].\n\nThat's where this plugin comes in. By default, it will wrap the contents of each `*.module.css` file into a `components` layer (both the glob and the name of the layer can be changed). So, for example, given a css module file like:\n\n```css\n/* component.module.css */\n\n.foo {\n  color: rebeccapurple;\n}\n\n.bar {\n  color: blanchedalmond;\n}\n```\n\nThe end result will be:\n\n```css\n/* component.module.css */\n\n@layer components {\n  .foo {\n    color: rebeccapurple;\n  }\n\n  .bar {\n    color: blanchedalmond;\n  }\n}\n```\n\nNow, you can be assured that your component css will be added to the correct layer!\n\n## Usage\n\n### **Step 1:** Install plugin\n\n```sh\nnpm install --save-dev postcss postcss-assign-layer\n```\n\n### **Step 2:** Check your project for existing PostCSS config:\n\n`postcss.config.js` in the project root, `\"postcss\"` section in `package.json` or `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs] and set this plugin in settings.\n\n### **Step 3:** Add the plugin to plugins list (at the end)\n\n```diff\nmodule.exports = {\n  plugins: [\n    require('autoprefixer'),\n+   require('postcss-assign-layer')(/* Optional configuration */),\n  ],\n}\n```\n\n### **Step 4:** Configure the plugin\n\nIt's possible to configure the include glob and the layer name, and more than one set of rules can be provided.\n\n```diff\nmodule.exports = {\n  plugins: [\n    require('autoprefixer'),\n+   require('postcss-assign-layer')([\n+     {\n+       include: '**/*.module.css',\n+       layerName: 'components',\n+     },\n+     {\n+       include: 'global/*.css',\n+       layerName: 'base',\n+     },\n+   ]),\n  ],\n}\n```\n\n#### `include`\n\nDefault: `\"**/*.module.css\"`\n\nA valid [picomatch] pattern, or array of patterns. Note that `picomatch` patterns are very similar to [minimatch] patterns, and in most use cases, they are interchangeable. If you have more specific pattern matching needs, you can view [this comparison table] to learn more about where the libraries differ.\n\n#### `layerName`\n\nDefault: `'components'`\n\nThe [layer name] that will be used.\n\n[css cascade layers]: https://www.w3.org/TR/css-cascade-5/#layering\n[a complete guide to css cascade layers]: https://css-tricks.com/css-cascade-layers/\n[css modules]: https://github.com/css-modules/css-modules\n[official docs]: https://github.com/postcss/postcss#usage\n[picomatch]: https://github.com/micromatch/picomatch#globbing-features\n[minimatch]: https://github.com/isaacs/minimatch#readme\n[this comparison table]: https://github.com/micromatch/picomatch#library-comparisons\n[layer name]: https://www.w3.org/TR/css-cascade-5/#typedef-layer-name\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2597
+	"_downloads": 3077
 }
