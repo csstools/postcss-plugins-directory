@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-infrared-filter",
-	"_rev": "3-a4cb6cdb59846c1c4ba1ddd8250eec43",
+	"_rev": "4-446c9df51153e3215ec8034dc7b10bab",
 	"name": "postcss-infrared-filter",
 	"description": "Use an infrared photo effect in CSS",
 	"dist-tags": {
@@ -92,18 +92,27 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		}
 	},
 	"readme": "# Infrared Filter\n\n<img align=\"right\" width=\"135\" height=\"95\" src=\"http://postcss.github.io/postcss/logo-leftp.png\" title=\"Philosopher’s stone, logo of PostCSS\">\n\n[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]\n\n[Infrared Filter] lets you use an infrared photography filter in CSS. This effect was created and coded by [Una Kravets]’ in her excellent post [Infrared Photography].\n\n```css\n/* before */\n\n.creek {\n\tbackground: url(https://upload.wikimedia.org/wikipedia/commons/0/06/Cayoosh-creek.jpg);\n\tfilter: infrared(-60);\n\theight: 426px;\n\tposition: relative;\n\twidth: 568px;\n}\n\n/* after */\n\n.creek::after {\n\tbackground: url(https://upload.wikimedia.org/wikipedia/commons/0/06/Cayoosh-creek.jpg);\n\tposition: relative;\n\tfilter: invert(1) saturate(.75) hue-rotate(-60deg);\n\tcontent: \"\";\n\tdisplay: block;\n\theight: 100%;\n\tmix-blend-mode: color;\n\tproperty: absolute;\n\twidth: 100%;\n}\n\n.creek {\n\tbackground: url(https://upload.wikimedia.org/wikipedia/commons/0/06/Cayoosh-creek.jpg);\n\theight: 426px;\n\tposition: relative;\n\twidth: 568px;\n}\n```\n\n## Usage\n\nAdd [Infrared Filter] to your build tool:\n\n```bash\nnpm install postcss-infrared-filter --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-infrared-filter').process(YOUR_CSS);\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [Infrared Filter] as a PostCSS plugin:\n\n```js\npostcss([\n    require('postcss-infrared-filter')()\n]);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [Infrared Filter] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n    return gulp.src('./css/src/*.css').pipe(\n        postcss([\n            require('postcss-infrared-filter')()\n        ])\n    ).pipe(\n        gulp.dest('./css')\n    );\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [Infrared Filter] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n    postcss: {\n        options: {\n            processors: [\n                require('postcss-infrared-filter')()\n            ]\n        },\n        dist: {\n            src: 'css/*.css'\n        }\n    }\n});\n```\n\n[ci]:      https://travis-ci.org/jonathantneal/postcss-infrared-filter\n[ci-img]:  https://img.shields.io/travis/jonathantneal/postcss-infrared-filter.svg\n[npm]:     https://www.npmjs.com/package/postcss-infrared-filter\n[npm-img]: https://img.shields.io/npm/v/postcss-infrared-filter.svg\n\n[Gulp PostCSS]:  https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]:       https://github.com/postcss/postcss\n\n[Infrared Photography]: http://una.im/infrared/#💁\n[Una Kravets]:          https://twitter.com/Una\n\n[Infrared Filter]: https://github.com/jonathantneal/postcss-infrared-filter\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:12:06.295Z",
+		"modified": "2024-02-19T21:19:24.953Z",
 		"created": "2015-11-07T20:51:21.237Z",
 		"1.0.0": "2015-11-07T20:51:21.237Z"
 	},
@@ -146,5 +155,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 3
+	"_downloads": 20
 }
