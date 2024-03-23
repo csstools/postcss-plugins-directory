@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-hfill",
-	"_rev": "3-89a61c0ac0752adb09c33c9cae4380de",
+	"_rev": "4-76b1136517a21ae7ae0efcf5b7d4a5c0",
 	"name": "postcss-hfill",
 	"description": "Style contextual headings in CSS",
 	"dist-tags": {
@@ -112,7 +112,8 @@
 			"_npmOperationalInternal": {
 				"host": "packages-18-east.internal.npmjs.com",
 				"tmp": "tmp/postcss-hfill-1.0.0.tgz_1486415252950_0.9576270959805697"
-			}
+			},
+			"directories": {}
 		},
 		"1.1.0": {
 			"name": "postcss-hfill",
@@ -218,18 +219,27 @@
 			"_npmOperationalInternal": {
 				"host": "packages-12-west.internal.npmjs.com",
 				"tmp": "tmp/postcss-hfill-1.1.0.tgz_1486450460837_0.18638559733517468"
-			}
+			},
+			"directories": {}
 		}
 	},
 	"readme": "# PostCSS hfill [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[![Licensing][lic-img]][lic-url]\n[![Changelog][log-img]][log-url]\n[![Gitter Chat][git-img]][git-url]\n\n[PostCSS hfill] lets you style contextual headings in CSS, like the [proposed `<h>` element].\n\n```css\nx-h { display: block; font-size: 2em }\n\narticle x-h,aside x-h,nav x-h,section x-h { font-size: 1.5em }\n\narticle article x-h,article aside x-h,article nav x-h,article section x-h,\naside article x-h,aside aside x-h,aside nav x-h,aside section x-h,\nnav article x-h,nav aside x-h,nav nav x-h,nav section x-h,\nsection article x-h,section aside x-h,section nav x-h,section section x-h { font-size: 1.17em }\n\n/* etc. */\n```\n\nOnly element specificity is used so that heading styles may be more easily overwritten. Despite the longevity of selectors, default styling contributes, at most, 311 bytes.\n\nThe default `<x-h>` element is used to prevent stomping on the native namespace. This plugin is intended to produce contextual headings in JavaScript-free experiences, and may improve seach engine crawling. For dynamic usage, see [hfill]. For an HTML preprocessing option, see [posthtml-hfill].\n\n## Options\n\n#### `tag`\n\nType: `String`  \nDefault: `\"x-h\"`\n\nThe tag used by contextual headings.\n\n#### `sizes`\n\nType: `Array`  \nDefault: `[ \"2em\", \"1.5em\", \"1.17em\", \"1em\" ]`\n\nThe font sizes given to each heading as it descends into the outline.\n\n## Usage\n\nAdd [PostCSS hfill] to your build tool:\n\n```bash\nnpm install postcss-hfill --save-dev\n```\n\n#### Node\n\nUse [PostCSS hfill] to process your CSS:\n\n```js\nrequire('postcss-hfill').process(YOUR_CSS, { /* options */ });\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nUse [PostCSS hfill] as a plugin:\n\n```js\npostcss([\n\trequire('postcss-hfill')({ /* options */ })\n]).process(YOUR_CSS, /* options */);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nUse [PostCSS hfill] in your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n\treturn gulp.src('./src/*.css').pipe(\n\t\tpostcss([\n\t\t\trequire('postcss-hfill')({ /* options */ })\n\t\t])\n\t).pipe(\n\t\tgulp.dest('.')\n\t);\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nUse [PostCSS hfill] in your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n\tpostcss: {\n\t\toptions: {\n\t\t\tuse: [\n\t\t\t\trequire('postcss-hfill')({ /* options */ })\n\t\t\t]\n\t\t},\n\t\tdist: {\n\t\t\tsrc: '*.css'\n\t\t}\n\t}\n});\n```\n\n[npm-url]: https://www.npmjs.com/package/postcss-hfill\n[npm-img]: https://img.shields.io/npm/v/postcss-hfill.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-hfill\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-hfill.svg\n[lic-url]: LICENSE.md\n[lic-img]: https://img.shields.io/npm/l/postcss-hfill.svg\n[log-url]: CHANGELOG.md\n[log-img]: https://img.shields.io/badge/changelog-md-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg\n\n[PostCSS hfill]: https://github.com/jonathantneal/postcss-hfill\n[PostCSS]: https://github.com/postcss/postcss\n[posthtml-hfill]: https://github.com/jonathantneal/posthtml-hfill\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[hfill]: https://github.com/jonathantneal/hfill\n[proposed `<h>` element]: https://github.com/w3c/html/issues/774\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:06:53.470Z",
+		"modified": "2024-02-19T21:19:19.510Z",
 		"created": "2017-02-06T21:07:33.539Z",
 		"1.0.0": "2017-02-06T21:07:33.539Z",
 		"1.1.0": "2017-02-07T06:54:22.649Z"
@@ -267,5 +277,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 17
+	"_downloads": 10
 }
