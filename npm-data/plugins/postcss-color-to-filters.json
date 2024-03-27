@@ -1,0 +1,151 @@
+{
+	"_id": "postcss-color-to-filters",
+	"name": "postcss-color-to-filters",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-color-to-filters",
+			"version": "0.0.1",
+			"type": "module",
+			"description": "PostCSS plugin to transform hex and rgb colors to css filters",
+			"types": "dist/index.d.ts",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-color-to-filters"
+			],
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"scripts": {
+				"build": "rollup -c --bundleConfigAsCjs",
+				"unit": "ts-node --project tsconfig.json index.test.ts",
+				"test": "pnpm unit"
+			},
+			"author": {
+				"name": "upteran",
+				"email": "upteran@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/upteran/postcss-color-to-filters.git"
+			},
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.27"
+			},
+			"devDependencies": {
+				"@rollup/plugin-typescript": "^11.1.6",
+				"eslint": "^8.47.0",
+				"postcss": "^8.4.27",
+				"rollup": "^4.13.0",
+				"ts-node": "^10.9.2",
+				"tslib": "^2.6.2",
+				"typescript": "^5.4.3",
+				"@typescript-eslint/parser": "^7.4.0"
+			},
+			"eslintConfig": {
+				"parser": "@typescript-eslint/parser",
+				"parserOptions": {
+					"ecmaVersion": 2021,
+					"sourceType": "module"
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"extends": [
+					"eslint:recommended"
+				]
+			},
+			"dependencies": {
+				"hex-to-css-filter": "^5.4.0"
+			},
+			"gitHead": "7201cd94a05ae8a17ed69c053de689bbf899b708",
+			"bugs": {
+				"url": "https://github.com/upteran/postcss-color-to-filters/issues"
+			},
+			"homepage": "https://github.com/upteran/postcss-color-to-filters#readme",
+			"_id": "postcss-color-to-filters@0.0.1",
+			"_nodeVersion": "18.16.0",
+			"_npmVersion": "9.5.1",
+			"dist": {
+				"integrity": "sha512-6jbF0M3e02nYDC9uRZYhe5CArEzuKfdVHLaycoH7JvJvYyB4c4Qrw5HOod6BlcxXPTTREsvtaFsYe5eSbH8U8g==",
+				"shasum": "158c2e4fa85485572ffd2feff1d2f11c680509fa",
+				"tarball": "https://registry.npmjs.org/postcss-color-to-filters/-/postcss-color-to-filters-0.0.1.tgz",
+				"fileCount": 19,
+				"unpackedSize": 16425,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIHI2t1Duuwx8pH8/UQoJd6mzpk+JVofQWQdFw/C9LdcSAiEA5IEavQMBbGlYbuVyhMDtPCHRDW3o+IqwN5dbqDwbSgQ="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "upteran",
+				"email": "upteran@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "upteran",
+					"email": "upteran@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-color-to-filters_0.0.1_1711452813244_0.44584740950306445"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2024-03-26T11:33:33.243Z",
+		"0.0.1": "2024-03-26T11:33:33.406Z",
+		"modified": "2024-03-26T11:33:33.935Z"
+	},
+	"maintainers": [
+		{
+			"name": "upteran",
+			"email": "upteran@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin to transform hex and rgb colors to css filters",
+	"homepage": "https://github.com/upteran/postcss-color-to-filters#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss-color-to-filters"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/upteran/postcss-color-to-filters.git"
+	},
+	"author": {
+		"name": "upteran",
+		"email": "upteran@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/upteran/postcss-color-to-filters/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-color-to-filters\n\nA PostCSS plugin to transform hex and rgb colors to CSS filters.\n\n## Example\n\nThis plugin transforms CSS colors from hex and rgb formats to CSS filters. Here's an example of how it works:\n\n**Input CSS**\n\n```css\nbody {\n  filter: color-to-filter('rgb(0, 0, 0)');\n}\n```\n\nOutput css:\n\n```css\nbody {\n  filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(7468%) hue-rotate(0deg) brightness(98%) contrast(103%);\n}\n```\n\n## Installation\n```bash\nnpm i postcss-color-to-filters\n```\n\n## Usage\n\n1. Add plugin\n```js\n// add plugin\nconst postcssColorToFilter = require('postcss-color-to-filters');\n\nmodule.exports = {\n  plugins: [\n    postcssColorToFilter\n  ]\n```\n\n2. Use in css\n\n```css\nbody {\n  filter: color-to-filter('#fff');\n}\n```\n\nCan use CSS custom properties:\n\n```css\n:root {\n  --main-color: #fff;\n}\nbody {\n  filter: color-to-filter(var(--main-filter));\n}\n\n/* OR */\n\n:root {\n  --main-color: #fff;\n  --main-filter: color-to-filter(var(--main-filter));\n}\n\nbody {\n  filter: var(--main-filter);\n}\n\n```\n\n## Options\nWithin plugin usage can be change `acceptanceLossPercentage` option\n\n```js\nmodule.exports = {\n  plugins: [\n    postcssColorToFilter({\n      // Acceptable color percentage to be lost during wide search.\n      acceptanceLossPercentage: 5 // default 1\n    })\n  ]\n};\n```\n\n## Credits\n\nThis plugin utilizes the [hex-to-css-filter](https://github.com/willmendesneto/hex-to-css-filter) library for all transformations from color values to filters. Special thanks to this library for its contribution.\n\n\n## License\nMIT\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
