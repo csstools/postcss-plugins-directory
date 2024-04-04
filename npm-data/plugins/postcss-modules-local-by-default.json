@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-modules-local-by-default",
-	"_rev": "46-401a236d11b3cd2681e3119ed00033e5",
+	"_rev": "47-f76c98dcc880578f53de779f8af686b2",
 	"name": "postcss-modules-local-by-default",
 	"description": "A CSS Modules transform to make local scope the default",
 	"dist-tags": {
-		"latest": "4.0.4",
+		"latest": "4.0.5",
 		"next": "4.0.0-rc.4"
 	},
 	"versions": {
@@ -3229,6 +3229,106 @@
 				"tmp": "tmp/postcss-modules-local-by-default_4.0.4_1705516237742_0.962879384827563"
 			},
 			"_hasShrinkwrap": false
+		},
+		"4.0.5": {
+			"name": "postcss-modules-local-by-default",
+			"version": "4.0.5",
+			"description": "A CSS Modules transform to make local scope the default",
+			"main": "src/index.js",
+			"author": {
+				"name": "Mark Dalgleish"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/css-modules/postcss-modules-local-by-default.git"
+			},
+			"engines": {
+				"node": "^10 || ^12 || >= 14"
+			},
+			"keywords": [
+				"css-modules",
+				"postcss",
+				"css",
+				"postcss-plugin"
+			],
+			"scripts": {
+				"prettier": "prettier -l --ignore-path .gitignore .",
+				"eslint": "eslint --ignore-path .gitignore .",
+				"lint": "yarn eslint && yarn prettier",
+				"test:only": "jest",
+				"test:watch": "jest --watch",
+				"test:coverage": "jest --coverage --collectCoverageFrom=\"src/**/*\"",
+				"test": "yarn test:coverage",
+				"prepublishOnly": "yarn lint && yarn test"
+			},
+			"dependencies": {
+				"icss-utils": "^5.0.0",
+				"postcss-selector-parser": "^6.0.2",
+				"postcss-value-parser": "^4.1.0"
+			},
+			"devDependencies": {
+				"coveralls": "^3.1.0",
+				"eslint": "^7.10.0",
+				"eslint-config-prettier": "^6.12.0",
+				"husky": "^4.3.0",
+				"jest": "^26.5.2",
+				"lint-staged": "^10.4.0",
+				"postcss": "^8.1.0",
+				"prettier": "^2.1.2"
+			},
+			"peerDependencies": {
+				"postcss": "^8.1.0"
+			},
+			"_id": "postcss-modules-local-by-default@4.0.5",
+			"gitHead": "5eeb3053bc40061022ebc6f41cd207a405484de1",
+			"bugs": {
+				"url": "https://github.com/css-modules/postcss-modules-local-by-default/issues"
+			},
+			"homepage": "https://github.com/css-modules/postcss-modules-local-by-default#readme",
+			"_nodeVersion": "18.19.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-6MieY7sIfTK0hYfafw1OMEG+2bg8Q1ocHCpoWLqOKj3JXlKu4G7btkmM/B7lFubYkYWmRSPLZi5chid63ZaZYw==",
+				"shasum": "f1b9bd757a8edf4d8556e8d0f4f894260e3df78f",
+				"tarball": "https://registry.npmjs.org/postcss-modules-local-by-default/-/postcss-modules-local-by-default-4.0.5.tgz",
+				"fileCount": 4,
+				"unpackedSize": 22528,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIBtj075ZLBG0djme0fZO4fT5KngRUVIxHRFfd+koULaNAiEA1pzHToAC72CCy7x/P6/AC/5v0qB3Q0HAwVjiCcfbC4k="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "evilebottnawi",
+				"email": "sheo13666q@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "markdalgleish",
+					"email": "mark.john.dalgleish@gmail.com"
+				},
+				{
+					"name": "sokra",
+					"email": "tobias.koppers@googlemail.com"
+				},
+				{
+					"name": "geelen",
+					"email": "glen@glenmaddern.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-modules-local-by-default_4.0.5_1712142504655_0.6529273935556308"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "[![Build Status][ci-img]][ci] [![codecov][codecov-img]][codecov] [![npm][npm-img]][npm]\n\n# CSS Modules: Local by Default\n\nTransformation examples:\n\n<!-- prettier-ignore-start -->\n```css\n.foo { ... } /* => */ :local(.foo) { ... }\n\n.foo .bar { ... } /* => */ :local(.foo) :local(.bar) { ... }\n\n/* Shorthand global selector */\n\n:global .foo .bar { ... } /* => */ .foo .bar { ... }\n\n.foo :global .bar { ... } /* => */ :local(.foo) .bar { ... }\n\n/* Targeted global selector */\n\n:global(.foo) .bar { ... } /* => */ .foo :local(.bar) { ... }\n\n.foo:global(.bar) { ... } /* => */ :local(.foo).bar { ... }\n\n.foo :global(.bar) .baz { ... } /* => */ :local(.foo) .bar :local(.baz) { ... }\n\n.foo:global(.bar) .baz { ... } /* => */ :local(.foo).bar :local(.baz) { ... }\n```\n<!-- prettier-ignore-end -->\n\n## Building\n\n```bash\n$ npm install\n$ npm test\n```\n\n- Build: [![Build Status][ci-img]][ci]\n- Lines: [![coveralls][coveralls-img]][coveralls]\n- Statements: [![codecov][codecov-img]][codecov]\n\n## Development\n\n```bash\n$ yarn test:watch\n```\n\n## License\n\nMIT\n\n## With thanks\n\n- [Tobias Koppers](https://github.com/sokra)\n- [Glen Maddern](https://github.com/geelen)\n\n---\n\nMark Dalgleish, 2015.\n\n[ci-img]: https://img.shields.io/travis/css-modules/postcss-modules-local-by-default/master.svg?style=flat-square\n[ci]: https://travis-ci.org/css-modules/postcss-modules-local-by-default\n[npm-img]: https://img.shields.io/npm/v/postcss-modules-local-by-default.svg?style=flat-square\n[npm]: https://www.npmjs.com/package/postcss-modules-local-by-default\n[coveralls-img]: https://img.shields.io/coveralls/css-modules/postcss-modules-local-by-default/master.svg?style=flat-square\n[coveralls]: https://coveralls.io/r/css-modules/postcss-modules-local-by-default?branch=master\n[codecov-img]: https://img.shields.io/codecov/c/github/css-modules/postcss-modules-local-by-default/master.svg?style=flat-square\n[codecov]: https://codecov.io/github/css-modules/postcss-modules-local-by-default?branch=master\n",
@@ -3251,7 +3351,7 @@
 		}
 	],
 	"time": {
-		"modified": "2024-01-17T18:30:38.049Z",
+		"modified": "2024-04-03T11:08:24.945Z",
 		"created": "2015-05-27T21:08:00.603Z",
 		"0.0.6": "2015-05-27T21:08:00.603Z",
 		"0.0.7": "2015-05-30T01:52:20.666Z",
@@ -3288,7 +3388,8 @@
 		"4.0.1": "2023-05-19T00:04:06.117Z",
 		"4.0.2": "2023-05-22T22:14:31.903Z",
 		"4.0.3": "2023-05-23T16:45:17.312Z",
-		"4.0.4": "2024-01-17T18:30:37.877Z"
+		"4.0.4": "2024-01-17T18:30:37.877Z",
+		"4.0.5": "2024-04-03T11:08:24.785Z"
 	},
 	"homepage": "https://github.com/css-modules/postcss-modules-local-by-default#readme",
 	"keywords": [
@@ -3314,5 +3415,5 @@
 		"jitendravyas": true,
 		"npm-packages": true
 	},
-	"_downloads": 83531885
+	"_downloads": 80088692
 }
