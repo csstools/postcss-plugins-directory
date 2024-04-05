@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-pseudo-class-enter",
-	"_rev": "14-4509e9877b523f06bd1f875f52150b4d",
+	"_rev": "15-cfc568bf5b9aa0c541f3ee00ae6b2529",
 	"name": "postcss-pseudo-class-enter",
 	"description": "Use the :enter pseudo-class in CSS",
 	"dist-tags": {
@@ -892,12 +892,20 @@
 	"readme": "# PostCSS Enter Pseudo Class [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[![Support Chat][git-img]][git-url]\n\n[PostCSS Enter Pseudo Class] lets you use the proposed [`:enter`] pseudo-class\nin CSS.\n\n`:enter` simplifies selectors targeting elements that are “designated”, as in\ndesignated with a pointing device, rather than any device.\n\n\n```pcss\nnav :enter > span {\n  background-color: yellow;\n}\n\n/* becomes */\n\nnav :hover > span,\nnav :focus > span {\n  background-color: yellow;\n}\n```\n\nFrom the [proposal]:\n\n> The [`:enter`] pseudo-class applies while the user designates an element with\n> a keyboard, pointing device, or other form of input. It matches an element if\n> the element would match [`:focus`] or [`:hover`].\n\n## Usage\n\nAdd [PostCSS Enter Pseudo Class] to your project:\n\n```bash\nnpm install postcss-pseudo-class-enter --save-dev\n```\n\nUse [PostCSS Enter Pseudo Class] to process your CSS:\n\n```js\nconst postcssPseudoClassEnter = require('postcss-pseudo-class-enter');\n\npostcssPseudoClassEnter.process(YOUR_CSS /*, processOptions, pluginOptions */);\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssPseudoClassEnter = require('postcss-pseudo-class-enter');\n\npostcss([\n  postcssPseudoClassEnter(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Enter Pseudo Class] runs in all Node environments, with special\ninstructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n## Options\n\n### prefix\n\nThe `prefix` option determines whether the `:enter` pseudo-class should use a\nprefix, and what that prefix will be.\n\n```js\npostcssPseudoClassEnter({ prefix: 'x' }); // transforms :-x-enter\n```\n\n#### outline\n\nType: `String`  \nDefault: unset\n\nThe `outline` option determines whether an outline declaration will be added to\nrules using the `:enter` pseudo-class. If a string is passed, its value will be\nused for the outline declaration.\n\n```js\npostcssPseudoClassEnter({ outline: true }); // adds outline: 0;\n```\n\n```js\npostcssPseudoClassEnter({ outline: 'none' }); // adds outline: none;\n```\n\n## Alternatives\n\nBelow are some other methods to recreate the effects of `:enter`.\n\n#### Use :focus and :hover (supported everywhere)\n\n```css\n:focus, :hover { /* ... */ }\n```\n\n#### Use :matches (supported in Firefox 4+, Chrome 12+, Opera 15+, Safari 5.1+)\n\n```css\n:matches(:focus, :hover) { /* ... */ }\n```\n\n#### Use @custom-selector (supported nowhere yet)\n\n```css\n@custom-selector :--enter :focus, :hover;\n\n:--enter { /* ... */ }\n```\n\n#### Use [Sass] mixins (requires preprocessing)\n\n```scss\n@mixin -enter { &:focus, &:hover { @content; } }\n\n@include -enter { /* ... */ }\n```\n\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-pseudo-class-enter.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-pseudo-class-enter\n[git-img]: https://img.shields.io/badge/support-chat-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[npm-img]: https://img.shields.io/npm/v/postcss-pseudo-class-enter.svg\n[npm-url]: https://www.npmjs.com/package/postcss-pseudo-class-enter\n\n[`:enter`]: https://discourse.specifiction.org/t/a-common-pseudo-class-for-hover-and-focus/877\n[`:focus`]: https://dev.w3.org/csswg/selectors/#focus-pseudo\n[`:hover`]: https://dev.w3.org/csswg/selectors/#visited-pseudo\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Enter Pseudo Class]: https://github.com/jonathantneal/postcss-pseudo-class-enter\n[proposal]: https://discourse.specifiction.org/t/a-common-pseudo-class-for-hover-and-focus/877\n[Sass]: https://sass-lang.com/\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:40:00.796Z",
+		"modified": "2024-02-19T21:19:52.030Z",
 		"created": "2015-06-14T04:02:47.817Z",
 		"0.1.0": "2015-06-14T04:02:47.817Z",
 		"0.1.1": "2015-06-15T00:34:56.338Z",
@@ -941,5 +949,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 2396
+	"_downloads": 2383
 }

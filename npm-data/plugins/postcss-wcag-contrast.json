@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-wcag-contrast",
-	"_rev": "5-6bede16e5e9f3edf8c4573648e03f999",
+	"_rev": "6-a4aa9bb042d3d00e6beec1db81d26d44",
 	"name": "postcss-wcag-contrast",
 	"description": "Check for WCAG color contrast compliance",
 	"dist-tags": {
@@ -99,7 +99,8 @@
 			"_npmOperationalInternal": {
 				"host": "packages-6-west.internal.npmjs.com",
 				"tmp": "tmp/postcss-wcag-contrast-1.0.0.tgz_1456090165661_0.1574207607191056"
-			}
+			},
+			"directories": {}
 		},
 		"1.1.0": {
 			"name": "postcss-wcag-contrast",
@@ -193,7 +194,8 @@
 			"_npmOperationalInternal": {
 				"host": "packages-18-east.internal.npmjs.com",
 				"tmp": "tmp/postcss-wcag-contrast-1.1.0.tgz_1486221143071_0.2509218566119671"
-			}
+			},
+			"directories": {}
 		},
 		"2.0.0": {
 			"name": "postcss-wcag-contrast",
@@ -295,18 +297,27 @@
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages",
 				"tmp": "tmp/postcss-wcag-contrast-2.0.0.tgz_1496187631931_0.6086313754785806"
-			}
+			},
+			"directories": {}
 		}
 	},
 	"readme": "# WCAG Contrast [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![Linux Build Status][cli-img]][cli-url]\n[![Windows Build Status][win-img]][win-url]\n[![Gitter Chat][git-img]][git-url]\n\n[WCAG Contrast] checks CSS for [color contrast compliance] with\n[Web Content Accessibility Guidelines (WCAG) 2.0].\n\n```css\n.header {\n  background-color: #444;\n  color: #000; /* throws a warning for a low contrast of only 2.2 */\n}\n\n.footer {\n  /* wcag-params: bold 14pt #777 */\n  color: #000; /* throws no warning when text is bold 14pt and contrast is 4.7 */\n}\n```\n\n## Usage\n\nAdd [WCAG Contrast] to your build tool:\n\n```bash\nnpm install postcss-wcag-contrast --save-dev\n```\n\n#### Node\n\nUse [WCAG Contrast] to process your CSS:\n\n```js\nrequire('postcss-wcag-contrast').process(YOUR_CSS);\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nUse [WCAG Contrast] as a plugin:\n\n```js\npostcss([\n  require('postcss-wcag-contrast')()\n]).process(YOUR_CSS);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nUse [WCAG Contrast] in your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n  return gulp.src('./src/*.css').pipe(\n    postcss([\n      require('postcss-wcag-contrast')()\n    ])\n  ).pipe(\n    gulp.dest('.')\n  );\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nUse [WCAG Contrast] in your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n  postcss: {\n    options: {\n      use: [\n        require('postcss-wcag-contrast')()\n      ]\n    },\n    dist: {\n      src: '*.css'\n    }\n  }\n});\n```\n\n## Options\n\n### compliance\n\nType: `String`  \nDefault: `\"AA\"`\n\nThe `compliance` option specifies the WCAG compliance the CSS will be evaluated\nagainst.\n\n### wcag-params\n\nType: `CSS Comment`\n\nThe `wcag-params` specifies additional font size, font weight, background, and\nforeground information about the rule.\n\n[npm-url]: https://www.npmjs.com/package/postcss-wcag-contrast\n[npm-img]: https://img.shields.io/npm/v/postcss-wcag-contrast.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-wcag-contrast\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-wcag-contrast.svg\n[win-url]: https://ci.appveyor.com/project/jonathantneal/postcss-wcag-contrast\n[win-img]: https://img.shields.io/appveyor/ci/jonathantneal/postcss-wcag-contrast.svg\n[git-url]: https://gitter.im/postcss/postcss\n[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg\n\n[WCAG Contrast]: https://github.com/jonathantneal/postcss-wcag-contrast\n[PostCSS]: https://github.com/postcss/postcss\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n\n[color contrast compliance]: https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast\n[Web Content Accessibility Guidelines (WCAG) 2.0]: https://www.w3.org/TR/WCAG20/\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:12:31.407Z",
+		"modified": "2024-02-19T21:22:31.144Z",
 		"created": "2016-02-21T21:29:30.338Z",
 		"1.0.0": "2016-02-21T21:29:30.338Z",
 		"1.1.0": "2017-02-04T15:12:23.702Z",
@@ -352,5 +363,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 623
+	"_downloads": 729
 }
