@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-unmq",
-	"_rev": "5-7ff72ae5e7bb09417c04905123b60dc1",
+	"_rev": "6-74bf2dba571eeee0a604698c36b38605",
 	"name": "postcss-unmq",
 	"description": "Remove media queries from CSS while preserving rules that match a hard-coded viewport",
 	"dist-tags": {
@@ -75,7 +75,8 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		},
 		"1.0.1": {
 			"name": "postcss-unmq",
@@ -150,7 +151,8 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		},
 		"1.0.2": {
 			"name": "postcss-unmq",
@@ -225,18 +227,27 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		}
 	},
 	"readme": "# UnMQ [![Build Status][ci-img]][ci]\n\n<img align=\"right\" width=\"135\" height=\"95\" src=\"http://postcss.github.io/postcss/logo-leftp.png\" title=\"Philosopher’s stone, logo of PostCSS\">\n\n[UnMQ] removes media queries from CSS while preserving rules that match a hard-coded viewport. This can be useful for outputting desktop CSS for older browsers like Internet Explorer 8.\n\n```css\n/* before */\n\nbody {\n    font-size: 12px;\n}\n\n@media screen and (max-width: 767px) {\n    body {\n        font-size: 16px;\n    }\n}\n\n@media screen and (min-width: 768px) {\n    body {\n        color: #444;\n    }\n}\n\n/* after */\n\nbody {\n    font-size: 12px;\n}\n\nbody {\n    color: #444;\n}\n```\n\n## Usage\n\nAdd [UnMQ] to your build tool:\n\n```bash\nnpm install postcss-unmq --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-unmq')({ /* options */ }).process(YOUR_CSS);\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [UnMQ] as a PostCSS plugin:\n\n```js\npostcss([\n    require('postcss-unmq')({ /* options */ })\n]);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [UnMQ] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n    return gulp.src('./css/src/*.css').pipe(\n        postcss([\n            require('postcss-unmq')({ /* options */ })\n        ])\n    ).pipe(\n        gulp.dest('./css')\n    );\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [UnMQ] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n    postcss: {\n        options: {\n            processors: [\n                require('postcss-unmq')({ /* options */ })\n            ]\n        },\n        dist: {\n            src: 'css/*.css'\n        }\n    }\n});\n```\n\n## Options\n\nYou can define your own viewport for media queries to be evaluated against. Think of the options as the current state of a device and browser.\n\n```js\nrequire('postcss-unmq')({\n    // these are already the default options\n    type: 'screen',\n    width: 1024,\n    height: 768,\n    resolution: '1dppx',\n    color: 3\n})\n```\n\nIf it’s not defined, `device-width` will be given the value of `width`, and `device-height` will be given the value of `height`. Similarly, `aspect-ratio` will be given the value of `device-width` divided by `device-height`.\n\n[ci]: https://travis-ci.org/jonathantneal/postcss-unmq\n[ci-img]: https://travis-ci.org/jonathantneal/postcss-unmq.svg\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]: https://github.com/postcss/postcss\n[UnMQ]: https://github.com/jonathantneal/postcss-unmq\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:07:43.322Z",
+		"modified": "2024-02-19T21:21:39.484Z",
 		"created": "2015-08-26T13:19:44.251Z",
 		"1.0.0": "2015-08-26T13:19:44.251Z",
 		"1.0.1": "2015-10-24T06:55:52.246Z",
@@ -268,5 +279,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 4626
+	"_downloads": 4251
 }
