@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-media-split-file",
-	"_rev": "1-7d261cf522e184c441e612d019be238e",
+	"_rev": "2-2e81d8d3170fc587e7bfa95f68070898",
 	"name": "postcss-media-split-file",
 	"dist-tags": {
-		"latest": "0.0.1"
+		"latest": "0.1.0"
 	},
 	"versions": {
 		"0.0.0": {
@@ -171,13 +171,97 @@
 				"tmp": "tmp/postcss-media-split-file_0.0.1_1712474593259_0.5963646494052994"
 			},
 			"_hasShrinkwrap": false
+		},
+		"0.1.0": {
+			"name": "postcss-media-split-file",
+			"version": "0.1.0",
+			"description": "PostCSS plugin that split file by custom media.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-media-split-file"
+			],
+			"scripts": {
+				"unit": "node --test test/index.test.js",
+				"test": "npm run unit && eslint ."
+			},
+			"author": {
+				"name": "YuichiNabeshima",
+				"email": "denmukuru1208@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/YuichiNabeshima/postcss-media-split-file.git"
+			},
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.27"
+			},
+			"devDependencies": {
+				"eslint": "^8.47.0",
+				"postcss": "^8.4.27"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"extends": [
+					"eslint:recommended"
+				]
+			},
+			"_id": "postcss-media-split-file@0.1.0",
+			"gitHead": "210d63dad2b7b8bcfbdcaddd961610562b6d1e3f",
+			"bugs": {
+				"url": "https://github.com/YuichiNabeshima/postcss-media-split-file/issues"
+			},
+			"homepage": "https://github.com/YuichiNabeshima/postcss-media-split-file#readme",
+			"_nodeVersion": "20.11.1",
+			"_npmVersion": "10.2.4",
+			"dist": {
+				"integrity": "sha512-gu54hDZHYMrekFg2qhpfa1KQx5cYeLvxAF/Nf2IHEdFWBygst/8tLDOzMclvB/eHrlbZhPivuOfJYbU+PtnF3w==",
+				"shasum": "72596b41b719698c65aa8fc7e50d31c556fd79ac",
+				"tarball": "https://registry.npmjs.org/postcss-media-split-file/-/postcss-media-split-file-0.1.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 4825,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIBvkssIfBUbhwx3rXqn6klXKGSupQ7bqNuikGkc1WQlgAiAL8QC0C0PT+KPdhkYmiNkXTKwv9RIZgrDC70NBeBie0w=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "yuichi-nabeshima",
+				"email": "denmukuru1208@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "yuichi-nabeshima",
+					"email": "denmukuru1208@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-media-split-file_0.1.0_1712553869542_0.014857866529362829"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-04-07T02:37:55.261Z",
 		"0.0.0": "2024-04-07T02:37:55.456Z",
-		"modified": "2024-04-07T07:23:13.576Z",
-		"0.0.1": "2024-04-07T07:23:13.421Z"
+		"modified": "2024-04-08T05:24:29.869Z",
+		"0.0.1": "2024-04-07T07:23:13.421Z",
+		"0.1.0": "2024-04-08T05:24:29.688Z"
 	},
 	"maintainers": [
 		{
@@ -207,5 +291,5 @@
 	"license": "MIT",
 	"readme": "# postcss-media-split-file\n\nPostCSS plugin to split files by specific media query.\n\n```css\n/* style.css */\n.title {\n  font-weight: 700;\n\n  @media screen and (768px <= width) {\n    font-size: 2.4rem;\n  }\n  @media screen and (width < 768px) {\n    font-size: 2rem;\n  }\n}\n\n.text {\n  font-weight: 400;\n\n  @media screen and (768px <= width) {\n    font-size: 1.6rem;\n  }\n  @media screen and (width < 768px) {\n    font-size: 1.4rem;\n  }\n}\n```\nCreate files.\n\n```css\n/* style_pc.css */\n.title {\n  font-weight: 700;\n    font-size: 2.4rem;\n}\n\n.text {\n  font-weight: 400;\n    font-size: 1.6rem;\n}\n```\n\n```css\n/* style_sp.css */\n.title {\n  font-weight: 700;\n    font-size: 2rem;\n}\n\n.text {\n  font-weight: 400;\n    font-size: 1.4rem;\n}\n```\n\n## Installation\n```shell\nnpm i postcss-media-split-file\n```\n\n## Usage\n```js\nconst fs = require(\"fs\");\nconst postcss = require(\"postcss\");\nconst plugin = require(\"postcss-media-split-file\");\nconst cssFile = path.join(__dirname, 'style.css');\nconst cssContent = fs.readFileSync(cssFile, 'utf8');\n\nconst opts = {\n  outDir: './',\n  target: [\n    {\n      key: 'pc',\n      value: '@media screen and (768px <= width)',\n    },\n    {\n      key: 'sp',\n      value: '@media screen and (width < 768px)',\n    },\n  ],\n};\n\npostcss([ plugin(opts) ]).process(cssContent, { from: cssFile });\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 0
+	"_downloads": 92
 }
