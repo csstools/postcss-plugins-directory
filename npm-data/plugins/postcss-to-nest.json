@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-to-nest",
-	"_rev": "3-b6405aae2844b1068291cd3faa7d56ce",
+	"_rev": "4-502c883fa2c9c495a10923c076b13824",
 	"name": "postcss-to-nest",
 	"description": "Transform unnested CSS into nested CSS",
 	"dist-tags": {
@@ -87,18 +87,27 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		}
 	},
 	"readme": "# CSS To Nest\n\n<a href=\"https://github.com/postcss/postcss\"><img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"80\" height=\"80\" align=\"right\"></a>\n\n[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]\n\n[CSS To Nest] transforms unnested CSS into nested CSS, following the [CSS Nesting Module] specification. This might be helpful for updating a project with a single file of legacy CSS.\n\n```css\n/* before */\n.foo .bar {\n\tcolor: blue;\n}\n\n.foo .bar .pre.mon {\n\tcolor: white;\n}\n\n.foo .bar .pre {\n\tcolor: red;\n}\n\n/* after */\n.foo {\n\t@nest & .bar {\n\t\tcolor: blue;\n\n\t\t@nest & .pre {\n\t\t\tcolor: red;\n\n\t\t\t@nest &.mon {\n\t\t\t\tcolor: white;\n\t\t\t}\n\t\t}\n\t}\n}\n```\n\n## Usage\n\nAdd [CSS To Nest] to your build tool:\n\n```bash\nnpm install postcss-to-nest --save-dev\n```\n\n#### Node\n\n```js\nrequire('postcss-to-nest').process(YOUR_CSS, { /* options */ });\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nLoad [CSS To Nest] as a PostCSS plugin:\n\n```js\npostcss([\n\trequire('postcss-to-nest')({ /* options */ })\n]).process(YOUR_CSS, /* options */);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nEnable [CSS To Nest] within your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n\treturn gulp.src('./src/*.css').pipe(\n\t\tpostcss([\n\t\t\trequire('postcss-to-nest')({ /* options */ })\n\t\t])\n\t).pipe(\n\t\tgulp.dest('.')\n\t);\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nEnable [CSS To Nest] within your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n\tpostcss: {\n\t\toptions: {\n\t\t\tuse: [\n\t\t\t\trequire('postcss-to-nest')({ /* options */ })\n\t\t\t]\n\t\t},\n\t\tdist: {\n\t\t\tsrc: '*.css'\n\t\t}\n\t}\n});\n```\n\n[ci]:      https://travis-ci.org/jonathantneal/postcss-to-nest\n[ci-img]:  https://img.shields.io/travis/jonathantneal/postcss-to-nest.svg\n[npm]:     https://www.npmjs.com/package/postcss-to-nest\n[npm-img]: https://img.shields.io/npm/v/postcss-to-nest.svg\n\n[Gulp PostCSS]:  https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n[PostCSS]:       https://github.com/postcss/postcss\n\n[CSS Nesting Module]: https://tabatkins.github.io/specs/css-nesting/\n\n[CSS To Nest]: https://github.com/jonathantneal/postcss-to-nest\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:04:43.268Z",
+		"modified": "2024-02-19T21:21:28.283Z",
 		"created": "2016-01-26T12:49:12.812Z",
 		"1.0.0": "2016-01-26T12:49:12.812Z"
 	},
@@ -134,5 +143,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 16
+	"_downloads": 14
 }
