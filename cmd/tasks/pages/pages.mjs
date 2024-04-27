@@ -75,6 +75,10 @@ export async function pages() {
 		pluginData.keywords = (pluginData.keywords?.length ? pluginData.keywords : []).map((x) => {
 			return normalizeKeyword(x.toLowerCase().trim());
 		}).filter((x) => {
+			if (x.toLowerCase().startsWith('postcss')) {
+				return false;
+			}
+
 			return !excludedKeywords.has(x);
 		});
 
