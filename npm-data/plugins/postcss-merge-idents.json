@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-merge-idents",
-	"_rev": "56-ed29db67ebc5365dc62ac8549bb3f6bf",
+	"_rev": "57-0eb89c0f99953af628d640a2e2d40323",
 	"name": "postcss-merge-idents",
 	"description": "Merge keyframe and counter style identifiers.",
 	"dist-tags": {
-		"latest": "6.0.3",
+		"latest": "7.0.0",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -4217,6 +4217,109 @@
 				"tmp": "tmp/postcss-merge-idents_6.0.3_1709735481238_0.5508396213379292"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "postcss-merge-idents",
+			"version": "7.0.0",
+			"description": "Merge keyframe and counter style identifiers.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"css",
+				"merge",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0",
+				"cssnano-utils": "^5.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.38"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-merge-idents@7.0.0",
+			"_integrity": "sha512-Kr+DniMg0IsW7OGoaMB1Foreb3fIE2XcExCRynogQLngkpNVKTX5GlaxyEZDBB8bISeoztFHFK/GcQtFiPTnpQ==",
+			"_resolved": "/tmp/b857d46f910e681a358f9933e77423ed/postcss-merge-idents-7.0.0.tgz",
+			"_from": "file:postcss-merge-idents-7.0.0.tgz",
+			"_nodeVersion": "20.12.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-Kr+DniMg0IsW7OGoaMB1Foreb3fIE2XcExCRynogQLngkpNVKTX5GlaxyEZDBB8bISeoztFHFK/GcQtFiPTnpQ==",
+				"shasum": "a5215f11cbfcd600c812c603d749b93a111dc0da",
+				"tarball": "https://registry.npmjs.org/postcss-merge-idents/-/postcss-merge-idents-7.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 6895,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDneKCgCpgeWq3ApNi3ixG3AjiB5SMMikBhA4Ept1h5tgIgV/NKPFVHbRUT5RkQI8bJneEVwUgeGS7j9qHoUKw5DvY="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "trysound",
+					"email": "opensource@trysound.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-merge-idents_7.0.0_1713994439473_0.9717421455620396"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# [postcss][postcss]-merge-idents\n\n> Merge keyframe and counter style identifiers.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-merge-idents) do:\n\n```\nnpm install postcss-merge-idents --save\n```\n\n\n## Example\n\nThis module will merge identifiers such as `@keyframes` and `@counter-style`,\nif their properties are identical. Then, it will update those declarations that\ndepend on the duplicated property.\n\n### Input\n\n```css\n@keyframes rotate {\n    from { transform: rotate(0) }\n    to { transform: rotate(360deg) }\n}\n\n@keyframes flip {\n    from { transform: rotate(0) }\n    to { transform: rotate(360deg) }\n}\n\n.rotate {\n    animation-name: rotate\n}\n\n.flip {\n    animation-name: flip\n}\n```\n\n### Output\n\n```css\n@keyframes flip {\n    from { transform: rotate(0) }\n    to { transform: rotate(360deg) }\n}\n\n.rotate {\n    animation-name: flip\n}\n\n.flip {\n    animation-name: flip\n}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
@@ -4255,7 +4358,7 @@
 		}
 	],
 	"time": {
-		"modified": "2024-03-06T14:31:21.824Z",
+		"modified": "2024-04-24T21:33:59.874Z",
 		"created": "2015-05-10T21:43:33.669Z",
 		"1.0.0": "2015-05-10T21:43:33.669Z",
 		"1.0.1": "2015-05-13T13:36:54.871Z",
@@ -4302,7 +4405,8 @@
 		"6.0.0": "2023-03-27T16:41:05.173Z",
 		"6.0.1": "2023-12-14T17:18:11.775Z",
 		"6.0.2": "2024-02-22T19:59:11.440Z",
-		"6.0.3": "2024-03-06T14:31:21.383Z"
+		"6.0.3": "2024-03-06T14:31:21.383Z",
+		"7.0.0": "2024-04-24T21:33:59.694Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -4325,5 +4429,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 2864445
+	"_downloads": 3012523
 }

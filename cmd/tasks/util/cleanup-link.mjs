@@ -29,5 +29,9 @@ export function cleanupLink(x) {
 		link = link.slice(0, -4);
 	}
 
+	if (link.includes('#')) {
+		link = link.split('#')[0];
+	}
+
 	return link;
 }

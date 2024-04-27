@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-reduce-initial",
-	"_rev": "49-2f7051543ebd87be3baaf1e5a8e9c7be",
+	"_rev": "50-7d7e72735ed47b2bc3e189ea6ad5ac6c",
 	"name": "postcss-reduce-initial",
 	"description": "Reduce initial definitions to the actual initial value, where possible.",
 	"dist-tags": {
-		"latest": "6.1.0",
+		"latest": "7.0.0",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -3796,6 +3796,109 @@
 				"tmp": "tmp/postcss-reduce-initial_6.1.0_1709735494655_0.23690547665627615"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "postcss-reduce-initial",
+			"version": "7.0.0",
+			"description": "Reduce initial definitions to the actual initial value, where possible.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"dependencies": {
+				"browserslist": "^4.23.0",
+				"caniuse-api": "^3.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"devDependencies": {
+				"@types/caniuse-api": "^3.0.6",
+				"html-to-text": "^9.0.5",
+				"postcss": "^8.4.38"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"scripts": {
+				"acquire": "node ./src/script/acquire.mjs"
+			},
+			"_id": "postcss-reduce-initial@7.0.0",
+			"_integrity": "sha512-iqGgmBxY9LrblZ0BKLjmrA1mC/cf9A/wYCCqSmD6tMi+xAyVl0+DfixZIHSVDMbCPRPjNmVF0DFGth/IDGelFQ==",
+			"_resolved": "/tmp/9fb11ad8a5a3e7dce3562b5bdcbba550/postcss-reduce-initial-7.0.0.tgz",
+			"_from": "file:postcss-reduce-initial-7.0.0.tgz",
+			"_nodeVersion": "20.12.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-iqGgmBxY9LrblZ0BKLjmrA1mC/cf9A/wYCCqSmD6tMi+xAyVl0+DfixZIHSVDMbCPRPjNmVF0DFGth/IDGelFQ==",
+				"shasum": "a9e64778dd44604c2bda109e2fd14b99ab0d1416",
+				"tarball": "https://registry.npmjs.org/postcss-reduce-initial/-/postcss-reduce-initial-7.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 18688,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIHsY/2eydJ0akdeLKGgRHoYe0ONmlQmGGmWKEfY1i9F3AiAb7WSvS2snXNRpv2VhUm2pkdPHpG7OX6Ye0Dz4sYptvQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-reduce-initial_7.0.0_1713994449746_0.9311570535569831"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# [postcss][postcss]-reduce-initial\n\n> Reduce `initial` definitions to the _actual_ initial value, where possible.\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-reduce-initial) do:\n\n```\nnpm install postcss-reduce-initial --save\n```\n\n## Examples\n\nSee the [data](data) for more conversions. This data is courtesy\nof Mozilla.\n\n### Convert `initial` values\n\nWhen the `initial` keyword is longer than the property value, it will\nbe converted:\n\n#### Input\n\n```css\nh1 {\n  min-width: initial;\n}\n```\n\n#### Output\n\n```css\nh1 {\n  min-width: auto;\n}\n```\n\n### Convert values back to `initial`\n\nWhen the `initial` value is smaller than the property value, it will\nbe converted:\n\n#### Input\n\n```css\nh1 {\n  transform-box: border-box;\n}\n```\n\n#### Output\n\n```css\nh1 {\n  transform-box: initial;\n}\n```\n\nThis conversion is only applied when you supply a browsers list that all support\nthe `initial` keyword; it's worth noting that Internet Explorer has no support.\n\n## API\n\n### reduceInitial([options])\n\n#### options\n\n##### ignore\n\nType: `Array<String>`\nDefault: `undefined`\n\nIt contains the Array of properties that will be ignored while reducing its value to initial.\nExample : `{ ignore : [\"min-height\"] }`\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nThis program uses a list of CSS properties derived from data maintained my the MDN team at Mozilla and licensed under the [CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/).\n\nMIT © [Ben Briggs](http://beneb.info)\n\n[postcss]: https://github.com/postcss/postcss\n",
@@ -3830,7 +3933,7 @@
 		}
 	],
 	"time": {
-		"modified": "2024-03-06T14:31:35.359Z",
+		"modified": "2024-04-24T21:34:10.138Z",
 		"created": "2016-06-01T16:51:34.410Z",
 		"1.0.0": "2016-06-01T16:51:34.410Z",
 		"1.0.1": "2016-12-22T16:41:27.862Z",
@@ -3871,7 +3974,8 @@
 		"6.0.1": "2023-12-14T17:18:16.984Z",
 		"6.0.2": "2024-01-03T18:07:15.240Z",
 		"6.0.3": "2024-02-24T11:33:26.672Z",
-		"6.1.0": "2024-03-06T14:31:34.908Z"
+		"6.1.0": "2024-03-06T14:31:34.908Z",
+		"7.0.0": "2024-04-24T21:34:09.968Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -3893,5 +3997,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 43702423
+	"_downloads": 45642437
 }

@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { cleanupLink } from '../util/cleanup-link.mjs';
+import { readJSONFromFileOrEmptyObject } from '../../../cmd/tasks/util/read-json.mjs';
 
 let counter = 0;
 
@@ -76,7 +77,7 @@ pluginsList.objects = shuffle(pluginsList.objects);
 for (let i = 0; i < pluginsList.objects.length; i++) {
 	const plugin = pluginsList.objects[i];
 	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
-	const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
+	const pluginData = await readJSONFromFileOrEmptyObject(pluginFilePath);
 
 	if (pluginData.repository) {
 		let repositoryLink = (typeof pluginData.repository === 'string') ? pluginData.repository : pluginData.repository?.url;

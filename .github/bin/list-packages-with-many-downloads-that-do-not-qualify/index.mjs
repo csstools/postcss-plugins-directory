@@ -1,11 +1,12 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH } from '../../../cmd/tasks/constants.mjs';
 
 // NOTE : this is WIP.
 // It is interesting to analyze packages that do not qualify.
 // This script lists packages with high download counts.
 
-const maintainedPlugins = new Set(JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json')).objects.map((x) => x.package.name));
+const maintainedPlugins = new Set(JSON.parse(await fs.readFile(NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH)).objects.map((x) => x.package.name));
 
 const excluded = [];
 

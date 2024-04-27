@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-unopacity",
-	"_rev": "5-a17344fa0ba0e7592381848e96e07552",
+	"_rev": "6-78663cc5fbaf86c846dc54a3d8bb319d",
 	"name": "postcss-unopacity",
 	"description": "Use the opacity property in older Internet Explorer",
 	"dist-tags": {
@@ -73,7 +73,8 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		},
 		"1.0.1": {
 			"name": "postcss-unopacity",
@@ -142,7 +143,8 @@
 					"name": "jonathantneal",
 					"email": "jonathantneal@hotmail.com"
 				}
-			]
+			],
+			"directories": {}
 		},
 		"2.0.0": {
 			"name": "postcss-unopacity",
@@ -252,18 +254,27 @@
 			"_npmOperationalInternal": {
 				"host": "packages-18-east.internal.npmjs.com",
 				"tmp": "tmp/postcss-unopacity-2.0.0.tgz_1484116099586_0.35201361891813576"
-			}
+			},
+			"directories": {}
 		}
 	},
 	"readme": "# UnOpacity [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[![Licensing][lic-img]][lic-url]\n[![Changelog][log-img]][log-url]\n[![Gitter Chat][git-img]][git-url]\n\n[UnOpacity] lets you use the `opacity` property in older Internet Explorer.\n\n```css\n/* before */\n\n.figure {\n    opacity: .5;\n}\n\n/* after */\n\n.figure {\n    filter: alpha(opacity=50);\n}\n```\n\n## Usage\n\nAdd [UnOpacity] to your build tool:\n\n```bash\nnpm install postcss-unopacity --save-dev\n```\n\n#### Node\n\nUse [UnOpacity] to process your CSS:\n\n```js\nrequire('postcss-unopacity').process(YOUR_CSS, { /* options */ });\n```\n\n#### PostCSS\n\nAdd [PostCSS] to your build tool:\n\n```bash\nnpm install postcss --save-dev\n```\n\nUse [UnOpacity] as a plugin:\n\n```js\npostcss([\n\trequire('postcss-unopacity')({ /* options */ })\n]).process(YOUR_CSS, /* options */);\n```\n\n#### Gulp\n\nAdd [Gulp PostCSS] to your build tool:\n\n```bash\nnpm install gulp-postcss --save-dev\n```\n\nUse [UnOpacity] in your Gulpfile:\n\n```js\nvar postcss = require('gulp-postcss');\n\ngulp.task('css', function () {\n\treturn gulp.src('./src/*.css').pipe(\n\t\tpostcss([\n\t\t\trequire('postcss-unopacity')({ /* options */ })\n\t\t])\n\t).pipe(\n\t\tgulp.dest('.')\n\t);\n});\n```\n\n#### Grunt\n\nAdd [Grunt PostCSS] to your build tool:\n\n```bash\nnpm install grunt-postcss --save-dev\n```\n\nUse [UnOpacity] in your Gruntfile:\n\n```js\ngrunt.loadNpmTasks('grunt-postcss');\n\ngrunt.initConfig({\n\tpostcss: {\n\t\toptions: {\n\t\t\tuse: [\n\t\t\t\trequire('postcss-unopacity')({ /* options */ })\n\t\t\t]\n\t\t},\n\t\tdist: {\n\t\t\tsrc: '*.css'\n\t\t}\n\t}\n});\n```\n\n## Options\n\n#### `browsers`\n\nType: `String` | `Array`  \nDefault: `null`\n\nA list of browsers you want to target in your project. If no older Internet Explorer browsers are specified, this plugin will not make any changes to your CSS.\n\n```js\nrequire('postcss-unopacity')({\n  browsers: [\"> 1%\", \"last 2 versions\", \"Firefox ESR\"]\n})\n```\n\nThis may also be defined in `package.json`.\n\n```json\n{\n  \"browserslist\": [\"> 1%\", \"last 2 versions\", \"Firefox ESR\"]\n}\n```\n\n#### `method`\n\nType: `String`  \nDefault: `'replace'`\n\n##### `replace`\n\nReplace any `opacity` property with a fallback.\n\n```css\n/* before */\n\n.figure {\n    opacity: .5;\n}\n\n/* after */\n\n.figure {\n    filter: alpha(opacity=50);\n}\n```\n\n##### `copy`\n\nCopy any `opacity` property with a fallback.\n\n```css\n/* before */\n\n.figure {\n    opacity: .5;\n}\n\n/* after */\n\n.figure {\n    filter: alpha(opacity=50);\n    opacity: .5;\n}\n```\n\n##### `warn`\n\nWarn when an `opacity` property is used.\n\n#### `prefixed`\n\nType: `Boolean`  \nDefault: `false`\n\n##### `true`\n\nUse an `-ms-filter` property as a fallback.\n\n```css\n/* before */\n\n.figure {\n    opacity: .5;\n}\n\n/* after */\n\n.figure {\n    -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)\";\n}\n```\n\n##### `false`\n\nUse a `filter` property as a fallback.\n\n```css\n/* before */\n\n.figure {\n    opacity: .5;\n}\n\n/* after */\n\n.figure {\n    filter: alpha(opacity=50);\n}\n```\n\n[npm-url]: https://www.npmjs.com/package/postcss-unopacity\n[npm-img]: https://img.shields.io/npm/v/postcss-unopacity.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-unopacity\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-unopacity.svg\n[lic-url]: LICENSE.md\n[lic-img]: https://img.shields.io/npm/l/postcss-unopacity.svg\n[log-url]: CHANGELOG.md\n[log-img]: https://img.shields.io/badge/changelog-md-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg\n\n[UnOpacity]: https://github.com/jonathantneal/postcss-unopacity\n[PostCSS]: https://github.com/postcss/postcss\n[Gulp PostCSS]: https://github.com/postcss/gulp-postcss\n[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T11:08:01.329Z",
+		"modified": "2024-02-19T21:21:58.510Z",
 		"created": "2015-10-04T23:30:10.317Z",
 		"1.0.0": "2015-10-04T23:30:10.317Z",
 		"1.0.1": "2015-10-24T06:36:05.427Z",
@@ -299,5 +310,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 9097
+	"_downloads": 9793
 }

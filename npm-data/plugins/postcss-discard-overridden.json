@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-discard-overridden",
-	"_rev": "45-a3b28501864217ed8d52bf56288376c0",
+	"_rev": "46-9eb56b7ecf2acc1676a89092b6e553ab",
 	"name": "postcss-discard-overridden",
 	"description": "PostCSS plugin to discard overridden @keyframes or @counter-style.",
 	"dist-tags": {
-		"latest": "6.0.2",
+		"latest": "7.0.0",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -3272,6 +3272,108 @@
 				"tmp": "tmp/postcss-discard-overridden_6.0.2_1709735481264_0.03600186815371331"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "postcss-discard-overridden",
+			"version": "7.0.0",
+			"description": "PostCSS plugin to discard overridden @keyframes or @counter-style.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"at-rules",
+				"@keyframes",
+				"@counter-style"
+			],
+			"author": {
+				"name": "Justineo",
+				"email": "justice360@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"homepage": "https://github.com/cssnano/cssnano",
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"devDependencies": {
+				"diff": "^5.2.0",
+				"picocolors": "^1.0.0",
+				"postcss": "^8.4.38"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-discard-overridden@7.0.0",
+			"_integrity": "sha512-GmNAzx88u3k2+sBTZrJSDauR0ccpE24omTQCVmaTTZFz1du6AasspjaUPMJ2ud4RslZpoFKyf+6MSPETLojc6w==",
+			"_resolved": "/tmp/2ae4b59833b3c47023949053d907a9a8/postcss-discard-overridden-7.0.0.tgz",
+			"_from": "file:postcss-discard-overridden-7.0.0.tgz",
+			"_nodeVersion": "20.12.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-GmNAzx88u3k2+sBTZrJSDauR0ccpE24omTQCVmaTTZFz1du6AasspjaUPMJ2ud4RslZpoFKyf+6MSPETLojc6w==",
+				"shasum": "b123ea51e3d4e1d0a254cf71eaff1201926d319c",
+				"tarball": "https://registry.npmjs.org/postcss-discard-overridden/-/postcss-discard-overridden-7.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 6587,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDMG5rO4omHbfXnOYDOfd+YURkHFuLsngGl2TQEjY7rUQIgRx544VY2xwKnkAj6itXglcrFcRIBOkWqyLDn+LDVABI="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "justineo",
+					"email": "justice360@gmail.com"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard-overridden_7.0.0_1713994439365_0.19868262988225793"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# PostCSS Discard Overridden\n\n[PostCSS] plugin to discard overridden `@keyframes` or `@counter-style`.\n\n`@keyframes` or `@counter-style` will be overridden by those who share the same identifiers and appear later in stylesheets. So we can discard all of them except the last one. When defined inside a `@media` or `@supports` rule, `@keyframes` and `@counter-style` rules only override global rules in some of the client browsers so they need handled separately. This plugin has taken care of this and transforms the PostCss AST **safely**.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n@-webkit-keyframes fade-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 0.8;\n  }\n}\n@keyframes fade-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 0.8;\n  }\n}\n@media (max-width: 500px) {\n  @-webkit-keyframes fade-in {\n    0% {\n      opacity: 0;\n    }\n    100% {\n      opacity: 1;\n    }\n  }\n  @keyframes fade-in {\n    0% {\n      opacity: 0;\n    }\n    100% {\n      opacity: 1;\n    }\n  }\n  @-webkit-keyframes fade-in {\n    0% {\n      opacity: 0;\n    }\n    100% {\n      opacity: 0.8;\n    }\n  }\n  @keyframes fade-in {\n    0% {\n      opacity: 0;\n    }\n    100% {\n      opacity: 0.8;\n    }\n  }\n  @supports (display: flex) {\n    @-webkit-keyframes fade-in {\n      0% {\n        opacity: 0;\n      }\n      100% {\n        opacity: 1;\n      }\n    }\n    @keyframes fade-in {\n      0% {\n        opacity: 0;\n      }\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n}\n@-webkit-keyframes fade-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes fade-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n```\n\n```css\n@media (max-width: 500px) {\n  @-webkit-keyframes fade-in {\n    0% {\n      opacity: 0;\n    }\n    100% {\n      opacity: 0.8;\n    }\n  }\n  @keyframes fade-in {\n    0% {\n      opacity: 0;\n    }\n    100% {\n      opacity: 0.8;\n    }\n  }\n  @supports (display: flex) {\n    @-webkit-keyframes fade-in {\n      0% {\n        opacity: 0;\n      }\n      100% {\n        opacity: 1;\n      }\n    }\n    @keyframes fade-in {\n      0% {\n        opacity: 0;\n      }\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n}\n@-webkit-keyframes fade-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes fade-in {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n```\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n",
@@ -3310,7 +3412,7 @@
 		}
 	],
 	"time": {
-		"modified": "2024-03-06T14:31:21.856Z",
+		"modified": "2024-04-24T21:33:59.743Z",
 		"created": "2016-04-27T04:01:06.591Z",
 		"0.1.0": "2016-04-27T04:01:06.591Z",
 		"0.1.1": "2016-04-27T05:27:52.743Z",
@@ -3346,7 +3448,8 @@
 		"5.1.0": "2022-03-01T18:54:56.698Z",
 		"6.0.0": "2023-03-27T16:41:04.921Z",
 		"6.0.1": "2023-12-14T17:18:11.734Z",
-		"6.0.2": "2024-03-06T14:31:21.392Z"
+		"6.0.2": "2024-03-06T14:31:21.392Z",
+		"7.0.0": "2024-04-24T21:33:59.517Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -3370,5 +3473,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 45149668
+	"_downloads": 45141488
 }

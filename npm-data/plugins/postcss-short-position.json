@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-short-position",
-	"_rev": "9-d68297110516012396bfd423123a53f2",
+	"_rev": "10-9829f7665f89d816066d89e9a1feaaa6",
 	"name": "postcss-short-position",
 	"description": "Define sides within the position property in CSS",
 	"dist-tags": {
@@ -579,12 +579,20 @@
 	"readme": "# PostCSS Short Position [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][postcss]\n\n[![NPM Version][npm-img]][npm-url]\n[![Build Status][cli-img]][cli-url]\n[![Support Chat][git-img]][git-url]\n\n[PostCSS Short Position] lets define sides within the `position` property in\nCSS.\n\n```pcss\n.header {\n  position: fixed 0 1em *;\n}\n\n/* becomes */\n\n.header {\n  top: 0;\n  right: 1em;\n  left: 1em;\n  position: fixed;\n}\n```\n\nThe `position` declaration can be extended with the [1-to-4 syntax] to target\n`top`, `right`, `bottom`, and `left`. Sides can be omitted using the skip token.\n\n## Usage\n\nAdd [PostCSS Short Position] to your project:\n\n```bash\nnpm install postcss-short-position --save-dev\n```\n\nUse [PostCSS Short Position] to process your CSS:\n\n```js\nconst postcssShortPosition = require('postcss-short-position');\n\npostcssShortPosition.process(YOUR_CSS /*, processOptions, pluginOptions */);\n```\n\nOr use it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssShortPosition = require('postcss-short-position');\n\npostcss([\n  postcssShortPosition(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Short Position] runs in all Node environments, with special instructions for:\n\n| [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |\n| --- | --- | --- | --- | --- | --- |\n\n[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-short-position.svg\n[cli-url]: https://travis-ci.org/jonathantneal/postcss-short-position\n[git-img]: https://img.shields.io/badge/support-chat-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[npm-img]: https://img.shields.io/npm/v/postcss-short-position.svg\n[npm-url]: https://www.npmjs.com/package/postcss-short-position\n\n## Options\n\n#### prefix\n\nThe `prefix` option defines a prefix required by properties being transformed.\nWrapping dashes are automatically applied, so that `x` would transform\n`-x-position`.\n\n```js\npostcssShortPosition({ prefix: 'x' });\n```\n\n```pcss\n.header {\n  x-position: fixed 0 1em *;\n}\n\n/* becomes */\n\n.header {\n  top: 0;\n  right: 1em;\n  left: 1em;\n  position: fixed;\n}\n```\n\n#### skip\n\nThe `skip` option defines the skip token used to ignore portions of the\nshorthand.\n\n```js\npostcssShortPosition({ skip: '-' });\n```\n\n```pcss\n.header {\n  position: fixed 0 1em -;\n}\n\n/* becomes */\n\n.header {\n  top: 0;\n  right: 1em;\n  left: 1em;\n  position: fixed;\n}\n```\n\n[1-to-4 syntax]: https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Short Position]: https://github.com/jonathantneal/postcss-short-position\n",
 	"maintainers": [
 		{
-			"name": "jonathantneal",
-			"email": "jonathantneal@hotmail.com"
+			"email": "romainmenke@gmail.com",
+			"name": "romainmenke"
+		},
+		{
+			"email": "sombragriselros@gmail.com",
+			"name": "alaguna"
+		},
+		{
+			"email": "jonathantneal@hotmail.com",
+			"name": "jonathantneal"
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T10:55:19.106Z",
+		"modified": "2024-02-19T21:20:55.826Z",
 		"created": "2015-09-21T13:09:30.487Z",
 		"1.0.0": "2015-09-21T13:09:30.487Z",
 		"2.0.0": "2016-12-06T19:58:50.270Z",
@@ -620,5 +628,5 @@
 	},
 	"license": "CC0-1.0",
 	"readmeFilename": "README.md",
-	"_downloads": 11841
+	"_downloads": 9015
 }

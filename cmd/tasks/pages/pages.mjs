@@ -7,6 +7,7 @@ import { excludedKeywords } from '../../config/excluded-keywords.mjs';
 import { traverseDir } from '../util/traverse-dir.mjs';
 import { renderPage } from './render-page.mjs';
 import { renderPlugin } from './render-plugin.mjs';
+import { readJSONFromFileOrEmptyObject } from '../util/read-json.mjs';
 
 const leadingDigits = /^\d+/;
 
@@ -40,7 +41,11 @@ export async function pages() {
 	const allPluginData = [];
 	for (let i = 0; i < pluginDataFiles.length; i++) {
 		const pluginDataFile = pluginDataFiles[i];
-		const pluginData = JSON.parse(await fs.readFile(pluginDataFile));
+		const pluginData = await readJSONFromFileOrEmptyObject(pluginDataFile);
+		if (!pluginData.name) {
+			continue;
+		}
+
 		pluginData.scope = maintainedPluginsData.get(pluginData.name).package.scope;
 		pluginData.unscopedPackageName = unscopedPackageName(pluginData);
 		pluginData.unPrefixedPackageName = unPrefixPackageName(pluginData);

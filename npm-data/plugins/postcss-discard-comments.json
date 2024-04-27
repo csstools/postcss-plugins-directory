@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-discard-comments",
-	"_rev": "66-483f89c6a1555cd691e099fceb7457ae",
+	"_rev": "67-fee6097136074115b3da1354d31d8ac0",
 	"name": "postcss-discard-comments",
 	"description": "Discard comments in your CSS files with PostCSS.",
 	"dist-tags": {
-		"latest": "6.0.2",
+		"latest": "7.0.0",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -4387,6 +4387,107 @@
 				"tmp": "tmp/postcss-discard-comments_6.0.2_1709735465673_0.6811692339113857"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "postcss-discard-comments",
+			"version": "7.0.0",
+			"description": "Discard comments in your CSS files with PostCSS.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"css",
+				"comments",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.38",
+				"postcss-scss": "^4.0.9",
+				"postcss-simple-vars": "^7.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-discard-comments@7.0.0",
+			"_integrity": "sha512-xpSdzRqYmy4YIVmjfGyYXKaI1SRnK6CTr+4Zmvyof8ANwvgfZgGdVtmgAvzh59gJm808mJCWQC9tFN0KF5dEXA==",
+			"_resolved": "/tmp/d371de0930e09a72e04cda7a7a7f8375/postcss-discard-comments-7.0.0.tgz",
+			"_from": "file:postcss-discard-comments-7.0.0.tgz",
+			"_nodeVersion": "20.12.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-xpSdzRqYmy4YIVmjfGyYXKaI1SRnK6CTr+4Zmvyof8ANwvgfZgGdVtmgAvzh59gJm808mJCWQC9tFN0KF5dEXA==",
+				"shasum": "3919e4237630f74927f3976ac5789cfc26731494",
+				"tarball": "https://registry.npmjs.org/postcss-discard-comments/-/postcss-discard-comments-7.0.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 11612,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCpmntc83kSgcU2dkRLkiz5pKGuUhzlHbFX0wh7kTB2EwIgJUJcUxudF84epqhBZWYU4tilTa/q0z6iav+WOMsiRQQ="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "trysound",
+					"email": "opensource@trysound.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-discard-comments_7.0.0_1713994431710_0.2784549540331327"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
@@ -4425,7 +4526,7 @@
 		}
 	],
 	"time": {
-		"modified": "2024-03-06T14:31:06.255Z",
+		"modified": "2024-04-24T21:33:52.149Z",
 		"created": "2015-03-18T17:51:40.594Z",
 		"1.0.0": "2015-03-18T17:51:40.594Z",
 		"1.0.1": "2015-03-18T18:00:58.638Z",
@@ -4476,7 +4577,8 @@
 		"5.1.2": "2022-05-29T18:04:54.701Z",
 		"6.0.0": "2023-03-27T16:41:02.045Z",
 		"6.0.1": "2023-12-14T17:18:08.539Z",
-		"6.0.2": "2024-03-06T14:31:05.810Z"
+		"6.0.2": "2024-03-06T14:31:05.810Z",
+		"7.0.0": "2024-04-24T21:33:51.969Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -4503,5 +4605,5 @@
 		"imagion": true,
 		"phritolay": true
 	},
-	"_downloads": 42220902
+	"_downloads": 45535563
 }

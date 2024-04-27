@@ -3,6 +3,7 @@ import path from 'path';
 import semver from 'semver';
 import spdxLicenseList from 'spdx-license-list'
 import { ignoredScopes } from '../../config/ignored-scopes.mjs';
+import { ignoredKeywords } from '../../config/ignored-keywords.mjs';
 import { invalidForks } from '../../config/invalid-forks.mjs';
 import { repositoryIs404 } from '../../config/missing-repositories.mjs';
 import { NPM_DATA_LINKS_FILE_PATH, NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, NPM_DATA_MAYBE_PLUGINS_FILE_PATH, NPM_DATA_PLUGINS_FILE_PATH, POSTCSS_MUST_MATCH_RANGE, POSTCSS_MUST_NOT_MATCH_RANGE, REQUIRED_PACKAGE_KEYWORD } from '../constants.mjs';
@@ -11,6 +12,7 @@ import { cleanupLink } from '../util/cleanup-link.mjs';
 import { fetchPlugin } from '../util/fetch-plugin.mjs';
 import { filterVersions } from '../util/filter-versions.mjs';
 import { sortObjects } from '../util/sort-objects.mjs';
+import { readJSONFromFileOrEmptyObject } from '../util/read-json.mjs';
 
 export async function listMaintainedPlugins() {
 	const result = {
@@ -42,6 +44,10 @@ export async function listMaintainedPlugins() {
 			continue;
 		}
 
+		if (plugin.package.keywords?.some((keyword) => ignoredKeywords.includes(keyword))) {
+			continue;
+		}
+
 		if (invalidForks.includes(plugin.package.name)) {
 			continue;
 		}
@@ -55,14 +61,14 @@ export async function listMaintainedPlugins() {
 		}
 
 		const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
-		const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
+		const pluginData = await readJSONFromFileOrEmptyObject(pluginFilePath);
 		if ('_downloads' in pluginData && pluginData._downloads < 50) {
 			// Plugin must at least be downloaded a 50 times a month.
 			// Anything less than that could be a single user or bot traffic.
 			continue;
 		}
 
-		const versions = Object.keys(pluginData.versions).filter(filterVersions(pluginData));
+		const versions = Object.keys(Object(pluginData.versions)).filter(filterVersions(pluginData));
 		if (!versions.length) {
 			continue;
 		}

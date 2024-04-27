@@ -1,11 +1,11 @@
 {
 	"_id": "postcss-normalize-string",
-	"_rev": "41-aed7b9c63dcb452234ab0d5e32a33ac0",
+	"_rev": "42-e279c1a0d6fdb39dc32cc13ffc18e1c9",
 	"name": "postcss-normalize-string",
 	"description": "Normalize wrapping quotes for CSS string literals.",
 	"dist-tags": {
 		"next": "5.0.0-rc.2",
-		"latest": "6.0.2",
+		"latest": "7.0.0",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
 	"versions": {
@@ -3088,6 +3088,103 @@
 				"tmp": "tmp/postcss-normalize-string_6.0.2_1709735486039_0.3338782870450876"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "postcss-normalize-string",
+			"version": "7.0.0",
+			"description": "Normalize wrapping quotes for CSS string literals.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.38"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-normalize-string@7.0.0",
+			"_integrity": "sha512-w/qzL212DFVOpMy3UGyxrND+Kb0fvCiBBujiaONIihq7VvtC7bswjWgKQU/w4VcRyDD8gpfqUiBQ4DUOwEJ6Qg==",
+			"_resolved": "/tmp/7839d34d9eb2c4d7a10ad6045674498d/postcss-normalize-string-7.0.0.tgz",
+			"_from": "file:postcss-normalize-string-7.0.0.tgz",
+			"_nodeVersion": "20.12.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-w/qzL212DFVOpMy3UGyxrND+Kb0fvCiBBujiaONIihq7VvtC7bswjWgKQU/w4VcRyDD8gpfqUiBQ4DUOwEJ6Qg==",
+				"shasum": "a119d3e63a9614570d8413d572fb9fc8c6a64e8c",
+				"tarball": "https://registry.npmjs.org/postcss-normalize-string/-/postcss-normalize-string-7.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 11686,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQCEoIxAuGxwQGf3KvRhovecHN5DD24tuuNMgWqfX4k/CAIgdq1M7VacXQfIhYqmDBKHORecRTMDcZSKiJlp4qE4egU="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-normalize-string_7.0.0_1713994447101_0.01954634112047615"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# [postcss][postcss]-normalize-string\n\n> Normalize strings with PostCSS.\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-normalize-string) do:\n\n```\nnpm install postcss-normalize-string --save\n```\n\n## Example\n\n### Input\n\n```css\np:after{ content: '\\\\'string\\\\' is intact' }\n```\n\n### Output\n\n```css\np:after{ content:\"'string' is intact\" }\n```\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## API\n\n### normalize([options])\n\n#### options\n\n##### preferredQuote\n\nType: `string`\nDefault: `double`\n\nSets what type of quote to prefer. Possible values are `single` and `double`.\n\n```js\nvar css = 'p:after{content:\"\"}';\nconsole.log(postcss(normalize({preferredQuote: 'single'})).process(css).css);\n//=> p:after{content:''}\n```\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n[postcss]: https://github.com/postcss/postcss\n",
@@ -3122,7 +3219,7 @@
 		}
 	],
 	"time": {
-		"modified": "2024-03-06T14:31:26.653Z",
+		"modified": "2024-04-24T21:34:07.433Z",
 		"created": "2017-06-01T09:59:48.547Z",
 		"4.0.0-rc.0": "2017-06-01T09:59:48.547Z",
 		"4.0.0-rc.2": "2017-08-06T19:53:21.072Z",
@@ -3157,7 +3254,8 @@
 		"5.1.0": "2022-03-01T18:55:00.094Z",
 		"6.0.0": "2023-03-27T16:41:07.852Z",
 		"6.0.1": "2023-12-14T17:18:14.904Z",
-		"6.0.2": "2024-03-06T14:31:26.236Z"
+		"6.0.2": "2024-03-06T14:31:26.236Z",
+		"7.0.0": "2024-04-24T21:34:07.253Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -3179,5 +3277,5 @@
 	},
 	"license": "MIT",
 	"readmeFilename": "README.md",
-	"_downloads": 43483668
+	"_downloads": 43357891
 }

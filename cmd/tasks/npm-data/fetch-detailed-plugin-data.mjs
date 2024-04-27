@@ -3,14 +3,8 @@ import path from 'path';
 import { fetchDownloadCount } from '../util/fetch-download-count.mjs';
 import { fetchPlugin } from '../util/fetch-plugin.mjs';
 import { shuffle } from '../util/shuffle.mjs';
-
-async function readJSONFromFileOrEmptyObject(path) {
-	try {
-		return JSON.parse(await fs.readFile(path));
-	} catch (_) {
-		return {};
-	}
-}
+import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH } from '../constants.mjs';
+import { readJSONFromFileOrEmptyObject } from '../util/read-json.mjs';
 
 async function fetchDetailedDataForOnePlugin(plugin, forced, index, total) {
 	const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
@@ -47,7 +41,7 @@ export async function fetchDetailedPluginData() {
 		let i = 0;
 		const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
 		const refreshList = shuffle(pluginsList.objects);
-		while (counter < 50 && i < refreshList.length) {
+		while (counter < 2500 && i < refreshList.length) {
 			const plugin = refreshList[i];
 			i++;
 
@@ -55,7 +49,7 @@ export async function fetchDetailedPluginData() {
 				continue;
 			}
 
-			const didFetch = await fetchDetailedDataForOnePlugin(plugin, false, counter, 50);
+			const didFetch = await fetchDetailedDataForOnePlugin(plugin, false, counter, 2500);
 			if (didFetch) {
 				fetched.add(plugin.package.name);
 				counter++
@@ -68,7 +62,7 @@ export async function fetchDetailedPluginData() {
 		let i = 0;
 		const pluginsList = JSON.parse(await fs.readFile('./npm-data/plugins.json'));
 		const refreshList = shuffle(pluginsList.objects);
-		while (counter < 50 && i < refreshList.length) {
+		while (counter < 2500 && i < refreshList.length) {
 			const plugin = refreshList[i];
 			i++;
 
@@ -76,7 +70,7 @@ export async function fetchDetailedPluginData() {
 				continue;
 			}
 
-			const didFetch = await fetchDetailedDataForOnePlugin(plugin, true, counter, 50);
+			const didFetch = await fetchDetailedDataForOnePlugin(plugin, true, counter, 2500);
 			if (didFetch) {
 				fetched.add(plugin.package.name);
 				counter++
@@ -87,9 +81,9 @@ export async function fetchDetailedPluginData() {
 	{
 		let counter = 0;
 		let i = 0;
-		const pluginsList = JSON.parse(await fs.readFile('./npm-data/maintained-plugins.json'));
+		const pluginsList = JSON.parse(await fs.readFile(NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH));
 		const refreshList = shuffle(pluginsList.objects);
-		while (counter < 50 && i < refreshList.length) {
+		while (counter < 2500 && i < refreshList.length) {
 			const plugin = refreshList[i];
 			i++;
 
@@ -97,7 +91,7 @@ export async function fetchDetailedPluginData() {
 				continue;
 			}
 
-			const didFetch = await fetchDetailedDataForOnePlugin(plugin, true, counter, 50);
+			const didFetch = await fetchDetailedDataForOnePlugin(plugin, true, counter, 2500);
 			if (didFetch) {
 				fetched.add(plugin.package.name);
 				counter++

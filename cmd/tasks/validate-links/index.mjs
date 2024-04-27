@@ -3,6 +3,7 @@ import path from 'path';
 import { NPM_DATA_LINKS_FILE_PATH, NPM_DATA_PLUGINS_FILE_PATH } from '../constants.mjs';
 import { cleanupLink } from '../util/cleanup-link.mjs';
 import { shuffle } from '../util/shuffle.mjs';
+import { readJSONFromFileOrEmptyObject } from '../util/read-json.mjs';
 
 let counter = 0;
 
@@ -54,6 +55,8 @@ export async function validateLinks() {
 
 		return true;
 	}).map((x) => {
+		x.link = cleanupLink(x.link);
+
 		return [x.link, x]
 	}));
 
@@ -63,7 +66,7 @@ export async function validateLinks() {
 	for (let i = 0; i < pluginsList.objects.length; i++) {
 		const plugin = pluginsList.objects[i];
 		const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
-		const pluginData = JSON.parse(await fs.readFile(pluginFilePath));
+		const pluginData = await readJSONFromFileOrEmptyObject(pluginFilePath);
 
 		if (pluginData.repository) {
 			let repositoryLink = (typeof pluginData.repository === 'string') ? pluginData.repository : pluginData.repository?.url;

@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-minify-font-values",
-	"_rev": "52-01df6f34f1dbd79cb3a3c7894babd80b",
+	"_rev": "53-af42d3baa01b17254d446dbbfb7a5c15",
 	"name": "postcss-minify-font-values",
 	"description": "Minify font declarations with PostCSS",
 	"dist-tags": {
-		"latest": "6.1.0",
+		"latest": "7.0.0",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -3927,6 +3927,109 @@
 				"tmp": "tmp/postcss-minify-font-values_6.1.0_1710942647607_0.9333489554524514"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "postcss-minify-font-values",
+			"version": "7.0.0",
+			"description": "Minify font declarations with PostCSS",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"author": {
+				"name": "Bogdan Chadkin",
+				"email": "trysound@yandex.ru"
+			},
+			"license": "MIT",
+			"keywords": [
+				"css",
+				"font",
+				"font-family",
+				"font-weight",
+				"optimise",
+				"postcss-plugin"
+			],
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"homepage": "https://github.com/cssnano/cssnano",
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.38"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "postcss-minify-font-values@7.0.0",
+			"_integrity": "sha512-2ckkZtgT0zG8SMc5aoNwtm5234eUx1GGFJKf2b1bSp8UflqaeFzR50lid4PfqVI9NtGqJ2J4Y7fwvnP/u1cQog==",
+			"_resolved": "/tmp/308cc64fac76fe77893452a354812768/postcss-minify-font-values-7.0.0.tgz",
+			"_from": "file:postcss-minify-font-values-7.0.0.tgz",
+			"_nodeVersion": "20.12.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-2ckkZtgT0zG8SMc5aoNwtm5234eUx1GGFJKf2b1bSp8UflqaeFzR50lid4PfqVI9NtGqJ2J4Y7fwvnP/u1cQog==",
+				"shasum": "d16a75a2548e000779566b3568fc874ee5d0aa17",
+				"tarball": "https://registry.npmjs.org/postcss-minify-font-values/-/postcss-minify-font-values-7.0.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 18587,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD2q3KFvYOb54ZCS32aEOCKUdl5cwxUc8CKX65QohZmlwIhAI4kvVSsJXDWlXYbvNcbjH/+4FboEyUl0sLViGCkBMPk"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "trysound",
+					"email": "opensource@trysound.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-minify-font-values_7.0.0_1713994439751_0.24099660816556012"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# postcss-minify-font-values [![Build Status][ci-img]][ci]\n\n> Minify font declarations with PostCSS.\n\nThis module will try to minimise the `font-family`, `font-weight` and `font` shorthand\nproperties; it can unquote font families where necessary, detect & remove\nduplicates, and cut short a declaration after it finds a keyword. For more\nexamples, see the [tests](test).\n\n```css\nh1 {\n  font:bold 2.2rem/.9 \"Open Sans Condensed\", sans-serif;\n}\n\np {\n  font-family: \"Helvetica Neue\", Arial, sans-serif, Helvetica;\n  font-weight: normal;\n}\n```\n\n```css\nh1 {\n  font:700 2.2rem/.9 Open Sans Condensed,sans-serif\n}\n\np {\n  font-family: Helvetica Neue,Arial,sans-serif;\n  font-weight: 400;\n}\n```\n\n## API\n\n### minifyFontValues([options])\n\n#### options\n\n##### removeAfterKeyword\n\nType: `boolean`\nDefault: `false`\n\nPass `true` to remove font families after the module encounters a font keyword,\nfor example `sans-serif`.\n\n##### removeDuplicates\n\nType: `boolean`\nDefault: `true`\n\nPass `false` to disable the module from removing duplicated font families.\n\n##### removeQuotes\n\nType: `boolean` | `(prop: string) => '' | 'font' | 'font-family' | 'font-weight'`\nDefault: `true`\n\nPass `false` to disable the module from removing quotes from font families.\nNote that oftentimes, this is a *safe optimisation* & is done safely. For more\ndetails, see [Mathias Bynens' article][mathias].\n\nPass a function to determine whether a css variable is one of `font`, `font-family`, and `font-weight` to determine whether the variable needs to remove quotes.\n\n## Usage\n\n```js\npostcss([ require('postcss-minify-font-values') ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n# License\n\nMIT © [Bogdan Chadkin](mailto:trysound@yandex.ru)\n\n[mathias]: https://mathiasbynens.be/notes/unquoted-font-family\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/cssnano/postcss-minify-font-values.svg\n[ci]:      https://travis-ci.org/cssnano/postcss-minify-font-values\n",
@@ -3965,7 +4068,7 @@
 		}
 	],
 	"time": {
-		"modified": "2024-03-20T13:50:48.181Z",
+		"modified": "2024-04-24T21:34:00.098Z",
 		"created": "2015-09-04T23:48:29.189Z",
 		"1.0.0": "2015-09-04T23:48:29.189Z",
 		"1.0.1": "2015-09-07T12:50:11.149Z",
@@ -4008,7 +4111,8 @@
 		"6.0.1": "2023-12-14T17:18:11.868Z",
 		"6.0.2": "2024-02-24T11:33:22.050Z",
 		"6.0.3": "2024-03-06T14:31:21.389Z",
-		"6.1.0": "2024-03-20T13:50:47.749Z"
+		"6.1.0": "2024-03-20T13:50:47.749Z",
+		"7.0.0": "2024-04-24T21:33:59.915Z"
 	},
 	"keywords": [
 		"css",
@@ -4032,5 +4136,5 @@
 	"bugs": {
 		"url": "https://github.com/cssnano/cssnano/issues"
 	},
-	"_downloads": 41950869
+	"_downloads": 45228334
 }

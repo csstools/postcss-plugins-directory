@@ -1,10 +1,10 @@
 {
 	"_id": "stylehacks",
-	"_rev": "55-adb54fd9afe7c31d8ed7e0f97819bee4",
+	"_rev": "56-550f04be5b0bb6388449b434d17a57ef",
 	"name": "stylehacks",
 	"description": "Detect/remove browser hacks from CSS files.",
 	"dist-tags": {
-		"latest": "6.1.1",
+		"latest": "7.0.0",
 		"next": "5.0.0-rc.2",
 		"nightly": "4.0.0-nightly.2020.2.6"
 	},
@@ -4362,6 +4362,109 @@
 				"tmp": "tmp/stylehacks_6.1.1_1710942647588_0.4421944786292946"
 			},
 			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "stylehacks",
+			"version": "7.0.0",
+			"description": "Detect/remove browser hacks from CSS files.",
+			"main": "src/index.js",
+			"types": "types/index.d.ts",
+			"keywords": [
+				"browsers",
+				"css",
+				"hack",
+				"hacks",
+				"optimise",
+				"postcss",
+				"postcss-plugin",
+				"stylehacks"
+			],
+			"license": "MIT",
+			"homepage": "https://github.com/cssnano/cssnano",
+			"author": {
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com",
+				"url": "http://beneb.info"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cssnano/cssnano.git"
+			},
+			"dependencies": {
+				"browserslist": "^4.23.0",
+				"postcss-selector-parser": "^6.0.16"
+			},
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.38"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_id": "stylehacks@7.0.0",
+			"_integrity": "sha512-47Nw4pQ6QJb4CA6dzF2m9810sjQik4dfk4UwAm5wlwhrW3syzZKF8AR4/cfO3Cr6lsFgAoznQq0Wg57qhjTA2A==",
+			"_resolved": "/tmp/4b12415342f1eb79b4b1b77a0726a871/stylehacks-7.0.0.tgz",
+			"_from": "file:stylehacks-7.0.0.tgz",
+			"_nodeVersion": "20.12.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-47Nw4pQ6QJb4CA6dzF2m9810sjQik4dfk4UwAm5wlwhrW3syzZKF8AR4/cfO3Cr6lsFgAoznQq0Wg57qhjTA2A==",
+				"shasum": "68e8ee54724671c0c698be82e1299c6548c31921",
+				"tarball": "https://registry.npmjs.org/stylehacks/-/stylehacks-7.0.0.tgz",
+				"fileCount": 66,
+				"unpackedSize": 38723,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDDNbAs7BLieO+jV3Vrubu7GDHclOk47ZFV8CvkDYSADwIhANv0prnoi9BaA7egEh0r1tbek4X9cHMtYHVZtf6Bzuro"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stylehacks_7.0.0_1713994453299_0.40204062564236276"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# stylehacks\n\n> Detect/remove browser hacks from CSS files.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/stylehacks) do:\n\n```\nnpm install stylehacks --save\n```\n\n\n## Example\n\nIn its default mode, stylehacks will remove hacks from your CSS file, based on\nthe browsers that you wish to support.\n\n### Input\n\n```css\nh1 {\n    _color: white;\n    color: rgba(255, 255, 255, 0.5);\n}\n```\n\n### Output\n\n```css\nh1 {\n    color: rgba(255, 255, 255, 0.5);\n}\n```\n\n\n## API\n\n### `stylehacks.detect(node)`\n\nType: `function`  \nReturns: `boolean`\n\nThis method will take any PostCSS *node*, run applicable plugins depending on\nits type, then will return a boolean depending on whether it found any of\nthe supported hacks. For example, if the `decl` node found below is passed to\nthe `detect` function, it will return `true`. But if the `rule` node is passed,\nit will return `false` instead.\n\n```css\nh1 { _color: red }\n```\n\n### `postcss([ stylehacks(opts) ])`\n\nstylehacks can also be consumed as a PostCSS plugin. See the\n[documentation](https://github.com/postcss/postcss#usage) for examples for\nyour environment.\n\n#### options\n\n##### lint\n\nType: `boolean`  \nDefault: `false`\n\nIf lint mode is enabled, stylehacks will not remove hacks from the CSS; instead,\nit will add warnings to `Result#messages`.\n\n\n## Related\n\nstylehacks works well with your existing PostCSS setup:\n\n* [stylelint] - Comprehensive & modern CSS linter, to ensure that your code\n  style rules are respected.\n\n\n## Contributing\n\nPull requests are welcome. If you add functionality, then please add unit tests\nto cover it.\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[stylelint]: https://github.com/stylelint/stylelint\n",
@@ -4396,7 +4499,7 @@
 		}
 	],
 	"time": {
-		"modified": "2024-03-20T13:50:48.196Z",
+		"modified": "2024-04-24T21:34:13.615Z",
 		"created": "2015-07-06T11:19:08.645Z",
 		"1.0.0": "2015-07-06T11:19:08.645Z",
 		"2.0.0": "2015-09-07T17:39:33.475Z",
@@ -4442,7 +4545,8 @@
 		"6.0.2": "2024-01-03T18:07:15.583Z",
 		"6.0.3": "2024-02-24T11:33:26.862Z",
 		"6.1.0": "2024-03-06T14:31:36.214Z",
-		"6.1.1": "2024-03-20T13:50:47.778Z"
+		"6.1.1": "2024-03-20T13:50:47.778Z",
+		"7.0.0": "2024-04-24T21:34:13.446Z"
 	},
 	"homepage": "https://github.com/cssnano/cssnano",
 	"keywords": [
@@ -4472,5 +4576,5 @@
 	"users": {
 		"vidhuz": true
 	},
-	"_downloads": 44169961
+	"_downloads": 44012473
 }
