@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-custom-media",
-	"_rev": "59-4edbe704a9f760d78dc0780c34a2208d",
+	"_rev": "61-c0cfd53349accee22110488eda131762",
 	"name": "postcss-custom-media",
 	"time": {
-		"modified": "2024-03-13T18:57:24.484Z",
+		"modified": "2024-05-04T21:15:11.316Z",
 		"created": "2014-08-12T12:53:35.932Z",
 		"2.0.0": "2014-08-12T12:53:35.932Z",
 		"1.0.0": "2014-08-12T13:33:42.691Z",
@@ -42,7 +42,9 @@
 		"10.0.1": "2023-09-18T20:11:55.898Z",
 		"10.0.2": "2023-10-09T17:40:02.757Z",
 		"10.0.3": "2024-02-19T21:50:21.737Z",
-		"10.0.4": "2024-03-13T18:57:24.004Z"
+		"10.0.4": "2024-03-13T18:57:24.004Z",
+		"10.0.5": "2024-05-04T16:07:56.837Z",
+		"10.0.6": "2024-05-04T21:15:11.119Z"
 	},
 	"maintainers": [
 		{
@@ -67,7 +69,7 @@
 		}
 	],
 	"dist-tags": {
-		"latest": "10.0.4"
+		"latest": "10.0.6"
 	},
 	"description": "Use Custom Media Queries in CSS",
 	"readme": "# PostCSS Custom Media [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/postcss-custom-media.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]<br><br>[<img alt=\"Baseline Status\" src=\"https://cssdb.org/images/badges-baseline/custom-media-queries.svg\" height=\"20\">][css-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/custom-media-queries.svg\" height=\"20\">][css-url] \n\n```bash\nnpm install postcss-custom-media --save-dev\n```\n\n[PostCSS Custom Media] lets you define `@custom-media` in CSS following the [Custom Media Specification].\n\n```pcss\n@custom-media --small-viewport (max-width: 30em);\n\n@media (--small-viewport) {\n\t/* styles for small viewport */\n}\n\n/* becomes */\n\n@media (max-width: 30em) {\n\t/* styles for small viewport */\n}\n```\n\n## `true` and `false`\n\nWith `@custom-media` you can use the constants `true` and `false`.\nThese are especially handy when debugging.\n\nIf you are unsure how your page is affected when a certain media query matches or not you can use these, to quickly toggle the results.\nThis plugin downgrades these queries to something that works in all browsers.\n\nQuickly check the result as if the query matches:\n\n```pcss\n@custom-media --small-viewport true;\n\n@media (--small-viewport) {\n\t/* styles for small viewport */\n}\n\n/* becomes */\n\n@media (max-color:2147477350) {\n\t/* styles for small viewport */\n}\n```\n\nQuickly check the result as if the query does not match:\n\n```pcss\n@custom-media --small-viewport false;\n\n@media (--small-viewport) {\n\t/* styles for small viewport */\n}\n\n/* becomes */\n\n@media (color:2147477350) {\n\t/* styles for small viewport */\n}\n```\n\n## logical evaluation of complex media queries\n\nIt is impossible to accurately and correctly resolve complex `@custom-media` queries\nas these depend on the browser the queries will eventually run in.\n\n_Some of these queries will have only one possible outcome but we have to account for all possible queries in this plugin._\n\n> [!NOTE]\n> When handling complex media queries you will see that your CSS is doubled for each level of complexity.<br>\n> GZIP works great to de-dupe this but having a lot of complex media queries will have a performance impact.\n\nAn example of a very complex (and artificial) use-case :\n\n```pcss\n\n@custom-media --a-complex-query tty and (min-width: 300px);\n\n@media not screen and ((not (--a-complex-query)) or (color)) {\n\t/* Your CSS */\n}\n\n/* becomes */\n\n\n@media tty and (min-width: 300px) {\n@media not screen and ((not (max-color:2147477350)) or (color)) {\n\t/* Your CSS */\n}\n}\n@media not  tty and (min-width: 300px) {\n@media not screen and ((not (color:2147477350)) or (color)) {\n\t/* Your CSS */\n}\n}\n```\n\n## Usage\n\nAdd [PostCSS Custom Media] to your project:\n\n```bash\nnpm install postcss postcss-custom-media --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomMedia = require('postcss-custom-media');\n\npostcss([\n\tpostcssCustomMedia(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Custom Media] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssCustomMedia({ preserve: true })\n```\n\n```pcss\n@custom-media --small-viewport (max-width: 30em);\n\n@media (--small-viewport) {\n\t/* styles for small viewport */\n}\n\n/* becomes */\n\n@custom-media --small-viewport (max-width: 30em);\n\n@media (max-width: 30em) {\n\t/* styles for small viewport */\n}\n\n@media (--small-viewport) {\n\t/* styles for small viewport */\n}\n```\n\n## Modular CSS Processing\n\nIf you're using Modular CSS such as, CSS Modules, `postcss-loader` or `vanilla-extract` to name a few, you'll probably \nnotice that custom media queries are not being resolved. This happens because each file is processed separately so \nunless you import the custom media query definitions in each file, they won't be resolved.\n\nTo overcome this, we recommend using the [PostCSS Global Data](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data#readme)\nplugin which allows you to pass a list of files that will be globally available. The plugin won't inject any extra code\nin the output but will provide the context needed to resolve custom media queries.\n\nFor it to run it needs to be placed before the [PostCSS Custom Media] plugin.\n\n```js\nconst postcss = require('postcss');\nconst postcssCustomMedia = require('postcss-custom-media');\nconst postcssGlobalData = require('@csstools/postcss-global-data');\n\npostcss([\n\tpostcssGlobalData({\n\t\tfiles: [\n\t\t\t'path/to/your/custom-media-queries.css'\n\t\t]\n\t}),\n\tpostcssCustomMedia(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#custom-media-queries\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-custom-media\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Custom Media]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media\n[Custom Media Specification]: https://www.w3.org/TR/mediaqueries-5/#at-ruledef-custom-media\n",
@@ -4154,6 +4156,272 @@
 				"tmp": "tmp/postcss-custom-media_10.0.4_1710356243757_0.18470032536150782"
 			},
 			"_hasShrinkwrap": false
+		},
+		"10.0.5": {
+			"name": "postcss-custom-media",
+			"description": "Use Custom Media Queries in CSS",
+			"version": "10.0.5",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Maxime Thirouin"
+				}
+			],
+			"license": "MIT",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"type": "module",
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"dependencies": {
+				"@csstools/cascade-layer-name-parser": "^1.0.10",
+				"@csstools/css-parser-algorithms": "^2.6.2",
+				"@csstools/css-tokenizer": "^2.3.0",
+				"@csstools/media-query-list-parser": "^2.1.10"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-custom-media"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"at-rule",
+				"atrule",
+				"css",
+				"csswg",
+				"custom",
+				"media",
+				"postcss",
+				"postcss-plugin",
+				"queries",
+				"query",
+				"specification",
+				"w3c"
+			],
+			"_id": "postcss-custom-media@10.0.5",
+			"gitHead": "b886bc33dd824930ea657e945076032fe95e9774",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "22.0.0",
+			"_npmVersion": "10.5.1",
+			"dist": {
+				"integrity": "sha512-K5xuavEfqSK6zzdgg5J5FvHD/iRoacK2G5i861jtphCBtelXvuOzuIFNTXyM9GEIQ31IXyfdCfklyU3r5425iA==",
+				"shasum": "6c1060d1ef9274374137244df4ef7e2d9290f063",
+				"tarball": "https://registry.npmjs.org/postcss-custom-media/-/postcss-custom-media-10.0.5.tgz",
+				"fileCount": 7,
+				"unpackedSize": 29042,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCeDA7EsbLC3A7F4TXz1v5YCfrgSE5DDA0jJVOK6GRCWQIhAItseIH5tmQ1s3e8TvX4UpOjLArWkyotbrOYIMuT7Ywm"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-media_10.0.5_1714838876677_0.7374841337946652"
+			},
+			"_hasShrinkwrap": false
+		},
+		"10.0.6": {
+			"name": "postcss-custom-media",
+			"description": "Use Custom Media Queries in CSS",
+			"version": "10.0.6",
+			"contributors": [
+				{
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es",
+					"url": "https://antonio.laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "Jonathan Neal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "Maxime Thirouin"
+				}
+			],
+			"license": "MIT",
+			"funding": [
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/csstools"
+				},
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/csstools"
+				}
+			],
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"type": "module",
+			"main": "dist/index.cjs",
+			"module": "dist/index.mjs",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"dependencies": {
+				"@csstools/cascade-layer-name-parser": "^1.0.11",
+				"@csstools/css-parser-algorithms": "^2.6.3",
+				"@csstools/css-tokenizer": "^2.3.1",
+				"@csstools/media-query-list-parser": "^2.1.11"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media#readme",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"directory": "plugins/postcss-custom-media"
+			},
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"keywords": [
+				"at-rule",
+				"atrule",
+				"css",
+				"csswg",
+				"custom",
+				"media",
+				"postcss",
+				"postcss-plugin",
+				"queries",
+				"query",
+				"specification",
+				"w3c"
+			],
+			"_id": "postcss-custom-media@10.0.6",
+			"gitHead": "bc7be9c7fb1e67b023655f1e3bcf687a1770a153",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "22.0.0",
+			"_npmVersion": "10.5.1",
+			"dist": {
+				"integrity": "sha512-BjihQoIO4Wjqv9fQNExSJIim8UAmkhLxuJnhJsLTRFSba1y1MhxkJK5awsM//6JJ+/Tu5QUxf624RQAvKHv6SA==",
+				"shasum": "e194ad7c9190390c20515d45661e9dcaaf031e84",
+				"tarball": "https://registry.npmjs.org/postcss-custom-media/-/postcss-custom-media-10.0.6.tgz",
+				"fileCount": 7,
+				"unpackedSize": 29017,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQD+flsiVxlFnebzE+fBc+Sl1G7v7Wd5YGy/+sS/NSvrBQIhANGq24S4haBy5Cd54ZRd9KMHIpp54GYMpNSY7UypG4EQ"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-custom-media_10.0.6_1714857310962_0.1776136200870062"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media#readme",
@@ -4204,5 +4472,5 @@
 			"name": "Maxime Thirouin"
 		}
 	],
-	"_downloads": 26514923
+	"_downloads": 26141682
 }
