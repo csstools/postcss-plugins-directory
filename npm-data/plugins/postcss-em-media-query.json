@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-em-media-query",
-	"_rev": "13-8e751511b9e9fe3807fc8c4d003832d0",
+	"_rev": "14-615bd7647e7e95d17a0e832e4e6541b0",
 	"name": "postcss-em-media-query",
 	"description": "PostCSS plugin for transforming min/max-width/height media queries to ems.",
 	"dist-tags": {
-		"latest": "4.1.0"
+		"latest": "4.1.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -563,6 +563,116 @@
 				"tmp": "tmp/postcss-em-media-query_4.1.0_1603267907717_0.6106565271344884"
 			},
 			"_hasShrinkwrap": false
+		},
+		"4.1.1": {
+			"name": "postcss-em-media-query",
+			"version": "4.1.1",
+			"description": "PostCSS plugin for transforming min/max-width/height media queries to ems.",
+			"main": "index.cjs.js",
+			"module": "index.esm.js",
+			"author": {
+				"name": "Ivan Nikolić",
+				"email": "niksy5@gmail.com",
+				"url": "http://ivannikolic.com"
+			},
+			"license": "MIT",
+			"sideEffects": false,
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"build": "rollup --config rollup.config.js",
+				"lint": "eslint '{index,lib/**/*,test/**/*}.js'",
+				"postpublish": "GITHUB_TOKEN=$GITHUB_RELEASE_TOKEN github-release-from-changelog",
+				"prepublishOnly": "npm run build",
+				"release": "np",
+				"test": "npm run lint && nyc mocha --require esm 'test/**/*.js' $([[ $WATCH_TEST ]] && echo --watch) && nyc check-coverage",
+				"test:watch": "WATCH_TEST=1 npm test",
+				"version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
+			},
+			"dependencies": {
+				"em-media-query": "^2.0.0"
+			},
+			"devDependencies": {
+				"changelog-verify": "^1.1.2",
+				"eslint": "^6.7.2",
+				"eslint-config-niksy": "^8.0.0",
+				"eslint-config-prettier": "^4.2.0",
+				"eslint-plugin-extend": "^0.1.1",
+				"eslint-plugin-import": "^2.18.2",
+				"eslint-plugin-jsdoc": "^18.4.3",
+				"eslint-plugin-mocha": "^6.2.2",
+				"eslint-plugin-node": "^10.0.0",
+				"eslint-plugin-prettier": "^3.0.1",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-unicorn": "^14.0.1",
+				"esm": "^3.0.51",
+				"github-release-from-changelog": "^2.1.1",
+				"husky": "^3.1.0",
+				"lint-staged": "^9.5.0",
+				"mocha": "^4.1.0",
+				"np": "^3.0.4",
+				"nyc": "^12.0.2",
+				"postcss": "^8.1.1",
+				"prettier": "^1.17.0",
+				"rollup": "^1.0.0",
+				"version-changelog": "^3.1.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.1.1"
+			},
+			"engines": {
+				"node": ">=12"
+			},
+			"keywords": [
+				"css",
+				"em",
+				"media",
+				"mq",
+				"postcss",
+				"postcss-plugin",
+				"query"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/niksy/postcss-em-media-query.git"
+			},
+			"bugs": {
+				"url": "https://github.com/niksy/postcss-em-media-query/issues"
+			},
+			"homepage": "https://github.com/niksy/postcss-em-media-query#readme",
+			"gitHead": "ea5fb8ac707cd2951cb3f531e2a38e819da0e489",
+			"_id": "postcss-em-media-query@4.1.1",
+			"_nodeVersion": "12.22.12",
+			"_npmVersion": "6.14.16",
+			"dist": {
+				"integrity": "sha512-OM///0+zp6ZXGVZIcueqbSWj+6PRh2aQmMX6r6c4jiD36MslWjg9WffrWIHsz1b4B2bUPhZ+FjZ/B+LC99vkSg==",
+				"shasum": "60a75b0a7723f471073610004f9e5677e201ea8a",
+				"tarball": "https://registry.npmjs.org/postcss-em-media-query/-/postcss-em-media-query-4.1.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 8418,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGEjHDfPgQVKpitXWIO6QSZIRu/JbhY9og751iPYPfu/AiAvsj0a32equD0pmSLn61h+16ALlMcK3G/FkhaxlTvusg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "niksy",
+				"email": "niksy5@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "niksy",
+					"email": "niksy5@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-em-media-query_4.1.1_1715069569871_0.21556613542568925"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"readme": "# postcss-em-media-query\n\n[![Build Status][ci-img]][ci]\n\n[PostCSS][postcss] plugin for transforming min/max-width/height media queries to\nems.\n\n## Install\n\n```sh\nnpm install postcss postcss-em-media-query --save\n```\n\n## Usage\n\n```js\nimport postcss from 'postcss';\nimport emMediaQuery from 'postcss-em-media-query';\n\npostcss([\n\temMediaQuery({\n\t\t/* options */\n\t})\n]);\n```\n\n```css\n/* Before */\n\n@media screen and (min-width: 600px) and (max-width: 739px) {\n\t.foo {\n\t\tcolor: red;\n\t}\n}\n\n/* After */\n\n@media screen and (min-width: 37.5em) and (max-width: 46.1875em) {\n\t.foo {\n\t\tcolor: red;\n\t}\n}\n```\n\n## Options\n\n### `precision`\n\nType: `Integer`  \nDefault: `5`\n\nRounding precision for values.\n\n## License\n\nMIT © [Ivan Nikolić](http://ivannikolic.com)\n\n<!-- prettier-ignore-start -->\n\n[ci]: https://travis-ci.com/niksy/postcss-em-media-query\n[ci-img]: https://travis-ci.com/niksy/postcss-em-media-query.svg?branch=master\n[postcss]: https://github.com/postcss/postcss\n\n<!-- prettier-ignore-end -->\n",
@@ -573,7 +683,7 @@
 		}
 	],
 	"time": {
-		"modified": "2022-06-24T09:52:29.198Z",
+		"modified": "2024-05-07T08:12:50.256Z",
 		"created": "2015-11-15T09:00:34.527Z",
 		"1.0.0": "2015-11-15T09:00:34.527Z",
 		"1.0.1": "2015-11-15T09:27:14.224Z",
@@ -581,7 +691,8 @@
 		"2.0.0": "2016-11-20T16:45:47.319Z",
 		"3.0.0": "2020-10-07T11:58:55.280Z",
 		"4.0.0": "2020-10-20T14:21:50.525Z",
-		"4.1.0": "2020-10-21T08:11:47.854Z"
+		"4.1.0": "2020-10-21T08:11:47.854Z",
+		"4.1.1": "2024-05-07T08:12:50.073Z"
 	},
 	"homepage": "https://github.com/niksy/postcss-em-media-query#readme",
 	"keywords": [
@@ -608,5 +719,5 @@
 	"license": "MIT",
 	"readmeFilename": "README.md",
 	"users": {},
-	"_downloads": 72057
+	"_downloads": 61586
 }
