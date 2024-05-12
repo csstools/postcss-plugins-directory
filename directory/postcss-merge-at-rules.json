@@ -1,6 +1,6 @@
 {
 	"name": "postcss-merge-at-rules",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "PostCSS plugin for merging and nesting CSS at rules",
 	"keywords": [
 		"postcss",
@@ -25,6 +25,7 @@
 	},
 	"homepage": "https://github.com/vis97c/postcss-merge-at-rules",
 	"scripts": {
+		"postcss": "postcss test/default.in.css -o test/default.out.css --no-map",
 		"lint": "eslint --ext .js --ignore-path .prettierignore .",
 		"test": "jest-ci --coverage",
 		"test:lint": "yarn lint && yarn test",
@@ -43,8 +44,9 @@
 		"@semantic-release/git": "^9.0.0",
 		"@types/jest": "^29.5.2",
 		"autoprefixer": "^10.4.0",
-		"eslint": "^8.3.0",
-		"eslint-ci": "^1.0.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-prettier": "^5.0.0",
 		"eslint-plugin-jest": "^25.3.0",
 		"eslint-plugin-jsdoc": "^46.2.5",
 		"husky": "^7.0.4",
@@ -52,18 +54,16 @@
 		"jest-ci": "^0.1.1",
 		"jest-cli": "^27.3.1",
 		"lint-staged": "^13.2.1",
-		"postcss": "^8.4.23",
-		"postcss-flexbugs-fixes": "^5.0.2",
-		"postcss-media-minmax": "^5.0.0",
-		"postcss-nested": "^5.0.6",
-		"prettier": "^2.0.5",
+		"postcss": "^8.2.10",
+		"postcss-cli": "^8.3.1",
+		"prettier": "^3.0.0",
 		"semantic-release": "^17.1.1",
-		"stylelint": "^13.6.1",
-		"stylelint-config-prettier": "^9.0.5",
-		"stylelint-prettier": "^3.0.0"
+		"stylelint": "^15.10.2",
+		"stylelint-config-standard-scss": "^10.0.0",
+		"stylelint-prettier": "^4.0.0"
 	},
 	"peerDependencies": {
-		"postcss": "^8.4.23"
+		"postcss": "^8.4.38"
 	},
 	"husky": {
 		"hooks": {
@@ -82,47 +82,6 @@
 			"prettier --write"
 		]
 	},
-	"eslintConfig": {
-		"parserOptions": {
-			"ecmaVersion": 2017
-		},
-		"plugins": [
-			"jsdoc"
-		],
-		"env": {
-			"node": true,
-			"es6": true,
-			"jest": true
-		},
-		"extends": [
-			"eslint:recommended",
-			"plugin:jest/recommended",
-			"plugin:jsdoc/recommended"
-		],
-		"rules": {
-			"jest/expect-expect": "off",
-			"jsdoc/require-hyphen-before-param-description": [
-				"warn",
-				"always"
-			]
-		}
-	},
-	"prettier": {
-		"printWidth": 100,
-		"tabWidth": 4,
-		"useTabs": true,
-		"endOfLine": "auto",
-		"requirePragma": false,
-		"insertPragma": false
-	},
-	"stylelint": {
-		"extends": [
-			"stylelint-prettier/recommended"
-		],
-		"rules": {
-			"indentation": null
-		}
-	},
 	"jest": {
 		"testEnvironment": "node",
 		"coverageThreshold": {
@@ -131,20 +90,20 @@
 			}
 		}
 	},
-	"gitHead": "eb1c861c17c824d28bc5a423d9df5eb90130038c",
-	"_id": "postcss-merge-at-rules@1.0.1",
+	"gitHead": "1e147b4ede6c7413788fe360b08c9a89ac751f68",
+	"_id": "postcss-merge-at-rules@1.1.0",
 	"_nodeVersion": "16.19.0",
 	"_npmVersion": "7.24.2",
 	"dist": {
-		"integrity": "sha512-V8N84WWC84CSUW2yBv8y4vo2xYfMhFrRt7rexj+hctS4+hR/DYqrVNhVCTkr2l8iQfeRzVzwChmYDwZmdj44pA==",
-		"shasum": "49a69f29fe67bbb273bb6d60b7f37ab0b939e5f4",
-		"tarball": "https://registry.npmjs.org/postcss-merge-at-rules/-/postcss-merge-at-rules-1.0.1.tgz",
-		"fileCount": 7,
-		"unpackedSize": 16097,
+		"integrity": "sha512-s8LrnUyCgEcYbGUmSJlG9Qt+M3pk9u0bIatqUlhG2iByglPXWesU3OMj3VY5vUv4HlZn04oCHP7sIvVTnXg68Q==",
+		"shasum": "115b811679e52db72630320237da52ad8e249eb0",
+		"tarball": "https://registry.npmjs.org/postcss-merge-at-rules/-/postcss-merge-at-rules-1.1.0.tgz",
+		"fileCount": 11,
+		"unpackedSize": 22382,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCIZX3g7eWbhlRcVP2iALBBTOLZ1EPOfQ5UD22D3w5/NgIgHvnWJTeYawbhHrFNU6gQPKUrZjAsCrahUAB6ML/nbPE="
+				"sig": "MEYCIQCmHc0Vm8+pUdXQnx0JdrehjP/jimekpGohXHRBPbXLewIhAOqY5bf/tWZIkm57jAnd+S9znir0R8QHxJCQtAA3KcmH"
 			}
 		]
 	},
@@ -161,8 +120,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-merge-at-rules_1.0.1_1686535620805_0.9072773072642915"
+		"tmp": "tmp/postcss-merge-at-rules_1.1.0_1715462581256_0.47587092971279876"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2023-06-12T02:07:00.987Z"
+	"_time": "2024-05-11T21:23:01.395Z"
 }
