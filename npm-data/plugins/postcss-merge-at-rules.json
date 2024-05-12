@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-merge-at-rules",
-	"_rev": "1-36c12d26ce3feb588e49a7808bba2405",
+	"_rev": "2-6fe041b627561da120f7bc55c91cb5f6",
 	"name": "postcss-merge-at-rules",
 	"dist-tags": {
-		"latest": "1.0.1"
+		"latest": "1.1.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -339,13 +339,140 @@
 				"tmp": "tmp/postcss-merge-at-rules_1.0.1_1686535620805_0.9072773072642915"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "postcss-merge-at-rules",
+			"version": "1.1.0",
+			"description": "PostCSS plugin for merging and nesting CSS at rules",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"css-optimizations",
+				"at-rules",
+				"responsive-css",
+				"merge-at-rules"
+			],
+			"author": {
+				"name": "Victor Saa",
+				"email": "vis97c@outlook.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/vis97c/postcss-merge-at-rules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/vis97c/postcss-merge-at-rules/issues"
+			},
+			"homepage": "https://github.com/vis97c/postcss-merge-at-rules",
+			"scripts": {
+				"postcss": "postcss test/default.in.css -o test/default.out.css --no-map",
+				"lint": "eslint --ext .js --ignore-path .prettierignore .",
+				"test": "jest-ci --coverage",
+				"test:lint": "yarn lint && yarn test",
+				"refresh-deps": "rm -rf node_modules && rm package-lock.json && npm i"
+			},
+			"engines": {
+				"node": ">=14.0.0"
+			},
+			"dependencies": {
+				"sort-css-media-queries": "2.2.0"
+			},
+			"devDependencies": {
+				"@commitlint/cli": "^9.1.1",
+				"@commitlint/config-conventional": "^9.1.1",
+				"@semantic-release/changelog": "^5.0.1",
+				"@semantic-release/git": "^9.0.0",
+				"@types/jest": "^29.5.2",
+				"autoprefixer": "^10.4.0",
+				"eslint": "^8.56.0",
+				"eslint-config-prettier": "^8.8.0",
+				"eslint-plugin-prettier": "^5.0.0",
+				"eslint-plugin-jest": "^25.3.0",
+				"eslint-plugin-jsdoc": "^46.2.5",
+				"husky": "^7.0.4",
+				"jest": "^27.3.1",
+				"jest-ci": "^0.1.1",
+				"jest-cli": "^27.3.1",
+				"lint-staged": "^13.2.1",
+				"postcss": "^8.2.10",
+				"postcss-cli": "^8.3.1",
+				"prettier": "^3.0.0",
+				"semantic-release": "^17.1.1",
+				"stylelint": "^15.10.2",
+				"stylelint-config-standard-scss": "^10.0.0",
+				"stylelint-prettier": "^4.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.38"
+			},
+			"husky": {
+				"hooks": {
+					"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+					"pre-commit": "lint-staged"
+				}
+			},
+			"commitlint": {
+				"extends": [
+					"@commitlint/config-conventional"
+				]
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint --fix",
+					"prettier --write"
+				]
+			},
+			"jest": {
+				"testEnvironment": "node",
+				"coverageThreshold": {
+					"global": {
+						"statements": 100
+					}
+				}
+			},
+			"gitHead": "1e147b4ede6c7413788fe360b08c9a89ac751f68",
+			"_id": "postcss-merge-at-rules@1.1.0",
+			"_nodeVersion": "16.19.0",
+			"_npmVersion": "7.24.2",
+			"dist": {
+				"integrity": "sha512-s8LrnUyCgEcYbGUmSJlG9Qt+M3pk9u0bIatqUlhG2iByglPXWesU3OMj3VY5vUv4HlZn04oCHP7sIvVTnXg68Q==",
+				"shasum": "115b811679e52db72630320237da52ad8e249eb0",
+				"tarball": "https://registry.npmjs.org/postcss-merge-at-rules/-/postcss-merge-at-rules-1.1.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 22382,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCmHc0Vm8+pUdXQnx0JdrehjP/jimekpGohXHRBPbXLewIhAOqY5bf/tWZIkm57jAnd+S9znir0R8QHxJCQtAA3KcmH"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "vis97c",
+				"email": "vis97c@hotmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "vis97c",
+					"email": "vis97c@hotmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-merge-at-rules_1.1.0_1715462581256_0.47587092971279876"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-06-12T01:41:47.480Z",
 		"1.0.0": "2023-06-12T01:41:47.655Z",
-		"modified": "2023-06-12T02:07:01.115Z",
-		"1.0.1": "2023-06-12T02:07:00.987Z"
+		"modified": "2024-05-11T21:23:01.576Z",
+		"1.0.1": "2023-06-12T02:07:00.987Z",
+		"1.1.0": "2024-05-11T21:23:01.395Z"
 	},
 	"maintainers": [
 		{
@@ -376,7 +503,7 @@
 		"url": "https://github.com/vis97c/postcss-merge-at-rules/issues"
 	},
 	"license": "MIT",
-	"readme": "# PostCSS Merge At Rules\n\n[PostCSS]: https://github.com/postcss/postcss\n[MIT]: https://github.com/yunusga/postcss-merge-at-rules/blob/master/LICENSE\n[official docs]: https://github.com/postcss/postcss#usage\n[Releases history]: https://github.com/vis97c/postcss-merge-at-rules/blob/master/CHANGELOG.md\n\n[![npm](https://img.shields.io/npm/v/postcss-merge-at-rules.svg)](https://www.npmjs.com/package/postcss-merge-at-rules)\n[![CircleCI](https://dl.circleci.com/status-badge/img/gh/vis97c/postcss-merge-at-rules/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/vis97c/postcss-merge-at-rules/tree/master)\n![license](https://img.shields.io/badge/License-MIT-orange.svg)\n[![npm](https://img.shields.io/npm/dt/postcss-merge-at-rules.svg)](https://www.npmjs.com/package/postcss-merge-at-rules)\n\n[PostCSS] plugin for merging and nesting CSS at rules.\n\n> Refer to [postcss-sort-media-queries](https://github.com/yunusga/postcss-sort-media-queries) for sorting\n\n## Table of Contents\n\n-   [Example](#example)\n-   [Install](#install)\n-   [Usage](#usage)\n-   [Options](#options)\n    -   [At Rule Pattern](#at-rule-pattern)\n    -   [Merge](#merge)\n    -   [Nest](#nest)\n-   [Changelog](#changelog)\n-   [License](#license)\n-   [Other PostCSS plugins](#other-postcss-plugins)\n-   [Thanks 💪](#thanks)\n\n## Example\n\n**before**\n\n```css\n@media screen and (width < 640px) {\n\t.header {\n\t\tcolor: #cdcdcd;\n\t}\n\t@layer defaults {\n\t\t.header {\n\t\t\tcolor: #1c1c1c;\n\t\t}\n\t}\n}\n@media screen and (min-width: 760px) {\n\t.button {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen and (width < 640px) {\n\t.main {\n\t\tcolor: #cdcdcd;\n\t}\n\t@layer defaults {\n\t\t.main {\n\t\t\tcolor: #1c1c1c;\n\t\t}\n\t}\n}\n@media screen and (min-width: 1280px) {\n\t.button {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen and (max-width: 760px) {\n\t.footer {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen and (max-width: 640px) {\n\t.footer {\n\t\tcolor: #cdcdcd;\n\t}\n}\n```\n\n**after**\n\n```css\n@media screen {\n\t@media (max-width: 760px) {\n\t\t.footer {\n\t\t\tcolor: #cdcdcd;\n\t\t}\n\t}\n\t@media (width < 640px) {\n\t\t/* combined */\n\t\t.header {\n\t\t\tcolor: #cdcdcd;\n\t\t}\n\t\t@layer defaults {\n\t\t\t.header {\n\t\t\t\tcolor: #1c1c1c;\n\t\t\t}\n\t\t\t.main {\n\t\t\t\tcolor: #1c1c1c;\n\t\t\t}\n\t\t}\n\t\t.main {\n\t\t\tcolor: #cdcdcd;\n\t\t}\n\t\t.footer {\n\t\t\tcolor: #cdcdcd;\n\t\t}\n\t}\n\t@media (min-width: 760px) {\n\t\t.button {\n\t\t\tcolor: #cdcdcd;\n\t\t}\n\t}\n\t@media (min-width: 1280px) {\n\t\t.button {\n\t\t\tcolor: #cdcdcd;\n\t\t}\n\t}\n}\n```\n\n## Install\n\nFirst thing's, install the module:\n\n```\nnpm install postcss postcss-merge-at-rules --save-dev\n```\n\n## Usage\n\nCheck you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you already use PostCSS, add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-merge-at-rules')({\n+     nest: true,\n+   }),\n    require('autoprefixer')\n  ]\n}\n```\n\nor with custom at rule matching\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-merge-at-rules')({\n+     atRulePattern: 'layer'\n+   }),\n    require('autoprefixer')\n  ]\n}\n```\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n## Options\n\n### At Rule Pattern\n\nString or regex expresion to math CSS at rules\n\n```js\nrequire(\"postcss\")([\n\trequire(\"postcss-merge-at-rules\")({\n\t\tatRulePattern: /(media|layer|supports)/im, // default value\n\t}),\n]).process(css);\n```\n\n### Merge\n\nMerge (without sorting) any valid CSS at rule.\n\n```js\nrequire(\"postcss\")([\n\trequire(\"postcss-merge-at-rules\")({\n\t\tmerge: true, // default value\n\t}),\n]).process(css);\n```\n\n### Nest\n\nNest compatible CSS at rules (media, container) within each other when possible.\n\n```js\nrequire(\"postcss\")([\n\trequire(\"postcss-merge-at-rules\")({\n\t\tnest: false, // default value\n\t}),\n]).process(css);\n```\n\n---\n\n## Changelog\n\nSee [Releases history]\n\n## License\n\n[MIT]\n\n## Thanks\n\n-   Yunus Gaziyev [@yunusga](https://github.com/yunusga)\n-   Oleh Dutchenko [@dutchenkoOleg](https://github.com/dutchenkoOleg)\n",
+	"readme": "# PostCSS Merge At Rules\n\n[PostCSS]: https://github.com/postcss/postcss\n[MIT]: https://github.com/yunusga/postcss-merge-at-rules/blob/master/LICENSE\n[official docs]: https://github.com/postcss/postcss#usage\n[Releases history]: https://github.com/vis97c/postcss-merge-at-rules/blob/master/CHANGELOG.md\n\n[![npm](https://img.shields.io/npm/v/postcss-merge-at-rules.svg)](https://www.npmjs.com/package/postcss-merge-at-rules)\n[![CircleCI](https://dl.circleci.com/status-badge/img/gh/vis97c/postcss-merge-at-rules/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/vis97c/postcss-merge-at-rules/tree/master)\n![license](https://img.shields.io/badge/License-MIT-orange.svg)\n[![npm](https://img.shields.io/npm/dt/postcss-merge-at-rules.svg)](https://www.npmjs.com/package/postcss-merge-at-rules)\n\n[PostCSS] plugin for merging and nesting CSS at rules.\n\n> Refer to [postcss-sort-media-queries](https://github.com/yunusga/postcss-sort-media-queries) for sorting\n\n## Table of Contents\n\n-   [Example](#example)\n-   [Install](#install)\n-   [Usage](#usage)\n-   [Options](#options)\n    -   [At Rule Pattern](#at-rule-pattern)\n    -   [Merge](#merge)\n    -   [Nest](#nest)\n-   [Changelog](#changelog)\n-   [License](#license)\n-   [Other PostCSS plugins](#other-postcss-plugins)\n-   [Thanks 💪](#thanks)\n\n## Example\n\n**before**\n\n```css\n@media screen and (width < 640px) {\n\t.header {\n\t\tcolor: #cdcdcd;\n\t}\n\t@layer defaults {\n\t\t.header {\n\t\t\tcolor: #1c1c1c;\n\t\t}\n\t}\n}\n@layer reset {\n\t@media screen {\n\t\t.picture {\n\t\t\tdisplay: block;\n\t\t}\n\t}\n}\n@media screen and (min-width: 760px) {\n\t.button {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen and (width < 640px) {\n\t.main {\n\t\tcolor: #cdcdcd;\n\t}\n\t@layer defaults {\n\t\t.main {\n\t\t\tcolor: #1c1c1c;\n\t\t}\n\t}\n}\n@media screen and (min-width: 1280px) {\n\t.button {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen and (max-width: 760px) {\n\t.footer {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen and (max-width: 640px) {\n\t.footer {\n\t\tcolor: #cdcdcd;\n\t}\n}\n```\n\n**after**\n\n```css\n@media screen and (max-width: 760px) {\n\t.footer {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen {\n\t@layer reset {\n\t\t.picture {\n\t\t\tdisplay: block;\n\t\t}\n\t}\n}\n@media screen and (width < 640px) {\n\t/* combined */\n\t.header {\n\t\tcolor: #cdcdcd;\n\t}\n\t@layer defaults {\n\t\t.header {\n\t\t\tcolor: #1c1c1c;\n\t\t}\n\t\t.main {\n\t\t\tcolor: #1c1c1c;\n\t\t}\n\t}\n\t.main {\n\t\tcolor: #cdcdcd;\n\t}\n\t.footer {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen and (min-width: 760px) {\n\t.button {\n\t\tcolor: #cdcdcd;\n\t}\n}\n@media screen and (min-width: 1280px) {\n\t.button {\n\t\tcolor: #cdcdcd;\n\t}\n}\n```\n\n## Install\n\nFirst thing's, install the module:\n\n```\nnpm install postcss postcss-merge-at-rules --save-dev\n```\n\n## Usage\n\nCheck you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you already use PostCSS, add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-merge-at-rules')({\n+     nest: true,\n+   }),\n    require('autoprefixer')\n  ]\n}\n```\n\nor with custom at rule matching\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-merge-at-rules')({\n+     atRulePattern: 'layer'\n+   }),\n    require('autoprefixer')\n  ]\n}\n```\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n## Options\n\n### At Rule Pattern\n\nString or regex expresion to math CSS at rules\n\n```js\nrequire(\"postcss\")([\n\trequire(\"postcss-merge-at-rules\")({\n\t\tatRulePattern: /(media|layer|supports)/im, // default value\n\t}),\n]).process(css);\n```\n\n### Flatten\n\nFlatten (without sorting) any valid CSS at rule. media at rules take precedence\n\n```js\nrequire(\"postcss\")([\n\trequire(\"postcss-merge-at-rules\")({\n\t\tflatten: true, // default value\n\t}),\n]).process(css);\n```\n\n### Merge\n\nMerge (without sorting) any valid CSS at rule.\n\n```js\nrequire(\"postcss\")([\n\trequire(\"postcss-merge-at-rules\")({\n\t\tmerge: true, // default value\n\t}),\n]).process(css);\n```\n\n### Nest\n\nNest compatible CSS at rules (media, container) within each other when possible.\n\n```js\nrequire(\"postcss\")([\n\trequire(\"postcss-merge-at-rules\")({\n\t\tnest: true, // false by default\n\t}),\n]).process(css);\n```\n\n---\n\n## Changelog\n\nSee [Releases history]\n\n## License\n\n[MIT]\n\n## Thanks\n\n-   Yunus Gaziyev [@yunusga](https://github.com/yunusga)\n-   Oleh Dutchenko [@dutchenkoOleg](https://github.com/dutchenkoOleg)\n",
 	"readmeFilename": "README.md",
-	"_downloads": 395
+	"_downloads": 348
 }

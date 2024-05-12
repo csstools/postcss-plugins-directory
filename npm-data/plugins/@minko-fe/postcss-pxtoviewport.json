@@ -1,9 +1,9 @@
 {
 	"_id": "@minko-fe/postcss-pxtoviewport",
-	"_rev": "19-4c8edcd0f3e19ca159669e7edfbe7345",
+	"_rev": "21-943e055853ccf03cf66e67fe3973e3ce",
 	"name": "@minko-fe/postcss-pxtoviewport",
 	"dist-tags": {
-		"latest": "1.3.2"
+		"latest": "1.5.0"
 	},
 	"versions": {
 		"0.0.1": {
@@ -1913,12 +1913,230 @@
 				"tmp": "tmp/postcss-pxtoviewport_1.3.2_1702652127019_0.75882369624459"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.4.0": {
+			"name": "@minko-fe/postcss-pxtoviewport",
+			"version": "1.4.0",
+			"description": "✨ A CSS post-processor that converts px to viewport units (vw, vh, vmin, vmax).",
+			"type": "module",
+			"keywords": [
+				"pxtoviewport",
+				"viewport",
+				"postcss",
+				"css",
+				"pixel",
+				"px",
+				"postcss-plugin",
+				"postcss-px-to-viewport",
+				"postcss-pxtoviewport"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "hemengke1997",
+				"email": "https://github.com/hemengke1997"
+			},
+			"main": "./dist/index.cjs",
+			"module": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"require": "./dist/index.cjs",
+					"import": "./dist/index.js"
+				}
+			},
+			"peerDependencies": {
+				"postcss": ">=8.0.0"
+			},
+			"dependencies": {
+				"@minko-fe/lodash-pro": "^0.3.0",
+				"decode-uri-component": "^0.4.1",
+				"split-on-first": "^3.0.0"
+			},
+			"devDependencies": {
+				"@commitlint/cli": "^18.6.1",
+				"@minko-fe/commitlint-config": "^2.0.7",
+				"@minko-fe/eslint-config": "^3.2.0",
+				"@minko-fe/tsconfig": "^2.1.0",
+				"bumpp": "^9.4.1",
+				"conventional-changelog-cli": "^2.2.2",
+				"cross-env": "^7.0.3",
+				"eslint": "^8.57.0",
+				"npm-run-all": "^4.1.5",
+				"postcss": "^8.4.38",
+				"postcss-nested": "^6.0.1",
+				"simple-git-hooks": "^2.11.1",
+				"tsup": "^6.7.0",
+				"typescript": "^5.4.5",
+				"vitest": "^0.34.6",
+				"vitest-e2e": "^0.0.10"
+			},
+			"simple-git-hooks": {
+				"commit-msg": "pnpm exec commitlint -e"
+			},
+			"scripts": {
+				"dev": "simple-git-hooks && tsup --watch",
+				"build": "tsup",
+				"build:pages": "pnpm run build && cd playground/spa && pnpm run build",
+				"test": "run-s test:unit test:serve test:build",
+				"test:unit": "vitest run",
+				"test:serve": "vitest run -c vitest.config.e2e.ts",
+				"test:build": "cross-env VITE_TEST_BUILD=1 vitest run -c vitest.config.e2e.ts",
+				"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+				"lint": "eslint .",
+				"up": "pnpm update --i --L",
+				"bump": "bumpp package.json -c --no-push -t --all -x \"pnpm run changelog\""
+			},
+			"_id": "@minko-fe/postcss-pxtoviewport@1.4.0",
+			"_integrity": "sha512-DS1JDCzhGCgLd7ZyQZBSjHqecNXLs3z7PV8XK/oza/TmvMpO8aNMXGvk0Oxjfi8OriCIguh6w7RMB6qky3gN/w==",
+			"_resolved": "/tmp/575383b6a5e9bb7e6a84c12498602673/minko-fe-postcss-pxtoviewport-1.4.0.tgz",
+			"_from": "file:minko-fe-postcss-pxtoviewport-1.4.0.tgz",
+			"_nodeVersion": "18.20.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-DS1JDCzhGCgLd7ZyQZBSjHqecNXLs3z7PV8XK/oza/TmvMpO8aNMXGvk0Oxjfi8OriCIguh6w7RMB6qky3gN/w==",
+				"shasum": "117b60af6972a92df62d1fdb6388abd4c457f55a",
+				"tarball": "https://registry.npmjs.org/@minko-fe/postcss-pxtoviewport/-/postcss-pxtoviewport-1.4.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 82350,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCGHY+WKG4BE+vJBZ4daF/XQOeXTs0SvhXsG9BnWwbNxAIhALmjA+SIbQmZUrLY0HRBFOrdrq7K47hSJSKPhSiLymWp"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "hemengke-",
+				"email": "23536175@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "hemengke-",
+					"email": "23536175@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pxtoviewport_1.4.0_1715399369770_0.18670454523050606"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.5.0": {
+			"name": "@minko-fe/postcss-pxtoviewport",
+			"version": "1.5.0",
+			"description": "✨ A CSS post-processor that converts px to viewport units (vw, vh, vmin, vmax).",
+			"type": "module",
+			"keywords": [
+				"pxtoviewport",
+				"viewport",
+				"postcss",
+				"css",
+				"pixel",
+				"px",
+				"postcss-plugin",
+				"postcss-px-to-viewport",
+				"postcss-pxtoviewport"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "hemengke1997",
+				"email": "https://github.com/hemengke1997"
+			},
+			"main": "./dist/index.cjs",
+			"module": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"require": "./dist/index.cjs",
+					"import": "./dist/index.js"
+				}
+			},
+			"peerDependencies": {
+				"postcss": ">=8.0.0"
+			},
+			"dependencies": {
+				"@minko-fe/lodash-pro": "^0.3.0",
+				"decode-uri-component": "^0.4.1",
+				"split-on-first": "^3.0.0"
+			},
+			"devDependencies": {
+				"@commitlint/cli": "^18.6.1",
+				"@minko-fe/commitlint-config": "^2.0.7",
+				"@minko-fe/eslint-config": "^3.2.0",
+				"@minko-fe/tsconfig": "^2.1.0",
+				"bumpp": "^9.4.1",
+				"conventional-changelog-cli": "^2.2.2",
+				"cross-env": "^7.0.3",
+				"eslint": "^8.57.0",
+				"npm-run-all": "^4.1.5",
+				"postcss": "^8.4.38",
+				"postcss-nested": "^6.0.1",
+				"simple-git-hooks": "^2.11.1",
+				"tsup": "^6.7.0",
+				"typescript": "^5.4.5",
+				"vitest": "^0.34.6",
+				"vitest-e2e": "^0.0.10"
+			},
+			"simple-git-hooks": {
+				"commit-msg": "pnpm exec commitlint -e"
+			},
+			"scripts": {
+				"dev": "simple-git-hooks && tsup --watch",
+				"build": "tsup",
+				"build:pages": "pnpm run build && cd playground/spa && pnpm run build",
+				"test": "run-s test:unit test:serve test:build",
+				"test:unit": "vitest run",
+				"test:serve": "vitest run -c vitest.config.e2e.ts",
+				"test:build": "cross-env VITE_TEST_BUILD=1 vitest run -c vitest.config.e2e.ts",
+				"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+				"lint": "eslint .",
+				"up": "pnpm update --i --L",
+				"bump": "bumpp package.json -c --no-push -t --all -x \"pnpm run changelog\""
+			},
+			"_id": "@minko-fe/postcss-pxtoviewport@1.5.0",
+			"_integrity": "sha512-sAI9nf4QujIZAAX2l/Lmxk6PACTf2HvW4hkKNzHjmHcObdkUZsxdCgxwb8aUPCu6oucpoeINiz3o7mm2eK1DxA==",
+			"_resolved": "/tmp/bc4cff6dac21e9b48ee397cdffa448ce/minko-fe-postcss-pxtoviewport-1.5.0.tgz",
+			"_from": "file:minko-fe-postcss-pxtoviewport-1.5.0.tgz",
+			"_nodeVersion": "18.20.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-sAI9nf4QujIZAAX2l/Lmxk6PACTf2HvW4hkKNzHjmHcObdkUZsxdCgxwb8aUPCu6oucpoeINiz3o7mm2eK1DxA==",
+				"shasum": "469290ac0816709c002f86d5d931f3a1f303d622",
+				"tarball": "https://registry.npmjs.org/@minko-fe/postcss-pxtoviewport/-/postcss-pxtoviewport-1.5.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 82244,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIATvd3bCa2QzvOz8odSMc0TY9Ce4DbXnqL092m2SJpVgAiAU1f4evzVfOFuTGeYSZy1sq5GZEuux0750WSlORdC7vg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "hemengke-",
+				"email": "23536175@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "hemengke-",
+					"email": "23536175@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-pxtoviewport_1.5.0_1715399793590_0.9160715191736337"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2022-08-26T08:29:51.974Z",
 		"0.0.1": "2022-08-26T08:29:52.232Z",
-		"modified": "2023-12-15T14:55:27.367Z",
+		"modified": "2024-05-11T03:56:33.957Z",
 		"0.0.2": "2022-08-29T10:27:38.640Z",
 		"0.0.3": "2022-10-11T11:14:06.566Z",
 		"0.0.4": "2022-11-09T08:22:10.017Z",
@@ -1937,7 +2155,9 @@
 		"1.3.0-beta.1": "2023-06-21T07:04:13.084Z",
 		"1.3.0": "2023-06-25T15:47:57.735Z",
 		"1.3.1": "2023-11-06T10:55:26.558Z",
-		"1.3.2": "2023-12-15T14:55:27.167Z"
+		"1.3.2": "2023-12-15T14:55:27.167Z",
+		"1.4.0": "2024-05-11T03:49:29.922Z",
+		"1.5.0": "2024-05-11T03:56:33.721Z"
 	},
 	"maintainers": [
 		{
@@ -1962,7 +2182,7 @@
 		"email": "https://github.com/hemengke1997"
 	},
 	"license": "MIT",
-	"readme": "# postcss-pxtoviewport\n\n**中文** | [English](./README-en.md)\n\n[PostCSS](https://github.com/ai/postcss)插件，可以从像素单位生成 viewport 单位(vw, vh, vmin, vmax)\n\n**如果你不需要以下新特性，可以使用官方库：[postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)**\n\n## ✨ [新特性](#-关于新特性)\n\n- 在样式文件中重写任意 `postcss-pxtoviewport` 支持的选项\n- 在样式文件动态禁用转化viewport\n- **兼容vite，_解决了打包后样式混乱的问题_**\n\n## 🔧 安装\n\n```bash\npnpm install postcss @minko-fe/postcss-pxtoviewport -D\n```\n\n## ✍️ 使用\n\n### postcss.config.js\n\n#### example\n\n```js\n// postcss.config.js\nimport pxtoviewport from '@minko-fe/postcss-pxtoviewport'\n\nexport default {\n  plugins: [\n    pxtoviewport({\n      viewportWidth: 375,\n      selectorBlackList: ['some-class'],\n      propList: ['*'],\n      atRules: ['media'],\n      // ...\n    }),\n  ],\n}\n```\n\n### options\n\n| Name              | Type                                                                | Default         | Description                                                                                    |\n| ----------------- | ------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------- |\n| unitToConvert     | `string`                                                            | `px`            | 需要转化的单位，默认 `px`                                                                      |\n| viewportWidth     | `number` \\| `((input: Input) => number)`                            | 375             | 视图窗口宽度                                                                                   |\n| unitPrecision     | `number`                                                            | 5               | 小数点后精度                                                                                   |\n| propList          | `string[]`                                                          | `['*']`         | 可以从 px 改变为 vw 的属性，参考：[propList](#propList)                                        |\n| viewportUnit      | `string`                                                            | `vw`            | 转化后的单位                                                                                   |\n| fontViewportUnit  | `string`                                                            | `vw`            | font 转化后的单位                                                                              |\n| selectorBlackList | `(string \\| RegExp)[]`                                              | []              | 忽略的选择器，保留为 px。参考：[selectorBlackList](#selectorBlackList)                         |\n| replace           | `boolean`                                                           | true            | 直接在 css 规则上替换值而不是添加备用                                                          |\n| atRules           | `boolean` \\| `string[]`                                             | false           | 允许`at-rules`中转换。参考 [At-rule](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule) |\n| minPixelValue     | `number`                                                            | 0               | 最小的 px 转化值（小于这个值的不转化）                                                         |\n| include           | `string` \\| `RegExp` \\| `((filePath: string) => boolean)` \\| `null` | null            | 包括的文件（与 exclude 相反）。优先级比 exclude 高。规则同 `exclude`                           |\n| exclude           | `string` \\| `RegExp` \\| `((filePath: string) => boolean)` \\| `null` | /node_modules/i | 忽略的文件路径。参考：[exclude](#exclude)                                                      |\n| disable           | `boolean`                                                           | false           | 关闭插件                                                                                       |\n| convertUnitOnEnd  | `ConvertUnit` \\| `ConvertUnit[]` \\| false \\| null                   | null            | 插件处理的最后阶段转换单位                                                                     |\n\n#### propList\n\n- 值需要完全匹配\n- 使用通配符 `*` 来启用所有属性. Example: `['*']`\n- 在一个词的开头或结尾使用 `*`. (`['*position*']` will match `background-position-y`)\n- 使用 `!` 不匹配一个属性. Example: `['*', '!letter-spacing']`\n- 组合 `!` 与 `*`. Example: `['*', '!font*']`\n\n#### selectorBlackList\n\n- 如果值是字符串，它会检查选择器是否包含字符串.\n  - `['body']` will match `.body-class`\n- 如果值是正则，它会检查选择器是否与正则相匹配.\n  - `[/^body$/]` will match `body` but not `.body`\n\n#### exclude\n\n- 如果值是字符串，它检查文件路径是否包含字符串\n  - `'exclude'` will match `\\project\\postcss-pxtoviewport\\exclude\\path`\n- 如果值是正则，它将检查文件路径是否与正则相匹配\n  - `/exclude/i` will match `\\project\\postcss-pxtoviewport\\exclude\\path`\n- 如果值是函数，你可以使用排除函数返回 true，文件将被忽略\n  - 回调将传递文件路径作为一个参数，它应该返回一个 boolean\n  - `function (file) { return file.includes('exclude') }`\n\n## ✨ 关于新特性\n\n### ⚙️ 在 css 中，动态设置插件选项\n\n#### 当前文件禁用插件\n\n```css\n/* pxtoviewport?disable=true */\n.rule {\n  font-size: 15px; // 15px\n}\n```\n\n#### 设置 viewportWidth\n\n```css\n/* pxtoviewport?viewportWidth=750 */\n.rule {\n  font-size: 30px; // 4vw\n}\n```\n\n🌰 以上只是简单的栗子，你可以在 css 文件中设置任意 `postcss-pxtoviewport` 支持的选项\n\n聪明的你，或许已经看出来了，`/* pxtoviewport?disable=true */` 很像浏览器 url？😼\n没错。关于规范，只需参考：[query-string](https://github.com/sindresorhus/query-string)\n\n#### 例子\n\n```css\n/* pxtoviewport?disable=false&viewportWidth=750&propList[]=*&replace=false&selectorBlackList[]=/some-class/i */\n```\n\n### 在 css 中，忽略某一行\n\n```css\n.rule {\n  /* pxtoviewport-disable-next-line */\n  font-size: 15px; // 15px\n}\n```\n\n如果你写 `15PX`（只要不是 `px`），插件也会忽略，因为 `unitToConvert` 默认是 `px`\n如果你希望使用 `PX` 忽略并且希望最后得到的单位是 `px`，你可以这样\n\n```js\n// postcss.config.js\nimport pxtoviewport from '@minko-fe/postcss-pxtoviewport'\n\nexport default {\n  plugins: [\n    pxtoviewport({\n      convertUnitOnEnd: {\n        sourceUnit: /[Pp][Xx]$/,\n        targetUnit: 'px',\n      },\n    }),\n  ],\n}\n```\n\n## ❤️ 感谢\n\n[postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)\n\n[@tcstory/postcss-px-to-viewport](https://github.com/tcstory/postcss-px-to-viewport)\n\n## 👀 相关\n\nA CSS post-processor that converts px to rem: [postcss-pxtorem](https://github.com/hemengke1997/postcss-pxtorem)\n\n## 💕 支持\n\n**如果这个仓库帮了你的忙，请不吝给个 star，谢谢！😎**\n",
+	"readme": "# postcss-pxtoviewport\n\n**中文** | [English](./README-en.md)\n\n[PostCSS](https://github.com/ai/postcss)插件，可以从像素单位生成 viewport 单位(vw, vh, vmin, vmax)\n\n**如果你不需要以下新特性，可以使用官方库：[postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)**\n\n## ✨ [新特性](#-关于新特性)\n\n- 在样式文件中重写任意 `postcss-pxtoviewport` 支持的选项\n- 在样式文件动态禁用转化viewport\n- **兼容vite，_解决了打包后样式混乱的问题_**\n\n## 🔧 安装\n\n```bash\npnpm install postcss @minko-fe/postcss-pxtoviewport -D\n```\n\n## ✍️ 使用\n\n### postcss.config.js\n\n#### example\n\n```js\n// postcss.config.js\nimport pxtoviewport from '@minko-fe/postcss-pxtoviewport'\n\nexport default {\n  plugins: [\n    pxtoviewport({\n      viewportWidth: 375,\n      selectorBlackList: ['some-class'],\n      propList: ['*'],\n      atRules: ['media'],\n      // ...\n    }),\n  ],\n}\n```\n\n### options\n\n| Name              | Type                                                                | Default         | Description                                                                                    |\n| ----------------- | ------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------- |\n| unitToConvert     | `string`                                                            | `px`            | 需要转化的单位，默认 `px`                                                                      |\n| viewportWidth     | `number` \\| `((input: Input) => number)`                            | 375             | 视图窗口宽度                                                                                   |\n| unitPrecision     | `number`                                                            | 5               | 小数点后精度                                                                                   |\n| propList          | `string[]`                                                          | `['*']`         | 可以从 px 改变为 vw 的属性，参考：[propList](#propList)                                        |\n| viewportUnit      | `string`                                                            | `vw`            | 转化后的单位                                                                                   |\n| fontViewportUnit  | `string`                                                            | `vw`            | font 转化后的单位                                                                              |\n| selectorBlackList | `(string \\| RegExp)[]`                                              | []              | 忽略的选择器，保留为 px。参考：[selectorBlackList](#selectorBlackList)                         |\n| replace           | `boolean`                                                           | true            | 直接在 css 规则上替换值而不是添加备用                                                          |\n| atRules           | `boolean` \\| `string[]`                                             | false           | 允许`at-rules`中转换。参考 [At-rule](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule) |\n| minPixelValue     | `number`                                                            | 0               | 最小的 px 转化值（小于这个值的不转化）                                                         |\n| include           | `string` \\| `RegExp` \\| `((filePath: string) => boolean)` \\| `null` | null            | 包括的文件（与 exclude 相反）。优先级比 exclude 高。规则同 `exclude`                           |\n| exclude           | `string` \\| `RegExp` \\| `((filePath: string) => boolean)` \\| `null` | /node_modules/i | 忽略的文件路径。参考：[exclude](#exclude)                                                      |\n| disable           | `boolean`                                                           | false           | 关闭插件                                                                                       |\n| convertUnit       | `ConvertUnit` \\| `ConvertUnit[]` \\| false \\| null                   | null            | 插件处理的最后阶段转换单位                                                                     |\n\n#### propList\n\n- 值需要完全匹配\n- 使用通配符 `*` 来启用所有属性. Example: `['*']`\n- 在一个词的开头或结尾使用 `*`. (`['*position*']` will match `background-position-y`)\n- 使用 `!` 不匹配一个属性. Example: `['*', '!letter-spacing']`\n- 组合 `!` 与 `*`. Example: `['*', '!font*']`\n\n#### selectorBlackList\n\n- 如果值是字符串，它会检查选择器是否包含字符串.\n  - `['body']` will match `.body-class`\n- 如果值是正则，它会检查选择器是否与正则相匹配.\n  - `[/^body$/]` will match `body` but not `.body`\n\n#### exclude\n\n- 如果值是字符串，它检查文件路径是否包含字符串\n  - `'exclude'` will match `\\project\\postcss-pxtoviewport\\exclude\\path`\n- 如果值是正则，它将检查文件路径是否与正则相匹配\n  - `/exclude/i` will match `\\project\\postcss-pxtoviewport\\exclude\\path`\n- 如果值是函数，你可以使用排除函数返回 true，文件将被忽略\n  - 回调将传递文件路径作为一个参数，它应该返回一个 boolean\n  - `function (file) { return file.includes('exclude') }`\n\n## ✨ 关于新特性\n\n### ⚙️ 在 css 中，动态设置插件选项\n\n#### 当前文件禁用插件\n\n```css\n/* pxtoviewport?disable=true */\n.rule {\n  font-size: 15px; // 15px\n}\n```\n\n#### 设置 viewportWidth\n\n```css\n/* pxtoviewport?viewportWidth=750 */\n.rule {\n  font-size: 30px; // 4vw\n}\n```\n\n🌰 以上只是简单的栗子，你可以在 css 文件中设置任意 `postcss-pxtoviewport` 支持的选项\n\n聪明的你，或许已经看出来了，`/* pxtoviewport?disable=true */` 很像浏览器 url？😼\n没错。关于规范，只需参考：[query-string](https://github.com/sindresorhus/query-string)\n\n#### 例子\n\n```css\n/* pxtoviewport?disable=false&viewportWidth=750&propList[]=*&replace=false&selectorBlackList[]=/some-class/i */\n```\n\n### 在 css 中，忽略某一行\n\n```css\n.rule {\n  /* pxtoviewport-disable-next-line */\n  font-size: 15px; // 15px\n}\n```\n\n如果你写 `15PX`（只要不是 `px`），插件也会忽略，因为 `unitToConvert` 默认是 `px`\n如果你希望使用 `PX` 忽略并且希望最后得到的单位是 `px`，你可以这样\n\n```js\n// postcss.config.js\nimport pxtoviewport from '@minko-fe/postcss-pxtoviewport'\n\nexport default {\n  plugins: [\n    pxtoviewport({\n      convertUnit: {\n        source: /px$/i,\n        target: 'px',\n      },\n    }),\n  ],\n}\n```\n\n## ❤️ 感谢\n\n[postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)\n\n[@tcstory/postcss-px-to-viewport](https://github.com/tcstory/postcss-px-to-viewport)\n\n## 👀 相关\n\nA CSS post-processor that converts px to rem: [postcss-pxtorem](https://github.com/hemengke1997/postcss-pxtorem)\n\n## 💕 支持\n\n**如果这个仓库帮了你的忙，请不吝给个 star，谢谢！😎**\n",
 	"readmeFilename": "README.md",
-	"_downloads": 83
+	"_downloads": 153
 }
