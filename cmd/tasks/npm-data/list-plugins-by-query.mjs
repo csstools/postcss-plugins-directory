@@ -70,6 +70,8 @@ export async function listPluginsByQuery(query, excluded = new Set()) {
 
 	const remainingPages = Math.ceil(result.total / 250)
 	for (let i = 1; i < remainingPages; i++) {
+		await new Promise((resolve) => setTimeout(resolve, 200));
+
 		const batch = await fetchPlugins(query, i * 250);
 
 		for (let j = 0; j < batch.objects.length; j++) {
