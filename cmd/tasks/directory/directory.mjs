@@ -32,6 +32,7 @@ async function getPullRequests(page) {
 		headers['authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
 	}
 
+	await new Promise((resolve) => setTimeout(resolve, 100));
 	const response = await fetch(
 		`https://api.github.com/repos/${THIS_REPOSITORY}/pulls?per_page=100&page=${page}`,
 		{

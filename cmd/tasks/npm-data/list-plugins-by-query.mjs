@@ -5,6 +5,7 @@ import { ignoredKeywords } from "../../config/ignored-keywords.mjs";
 import { invalidForks } from "../../config/invalid-forks.mjs";
 
 async function fetchPlugins(query, offset) {
+	await new Promise((resolve) => setTimeout(resolve, 100));
 	const response = await fetch(`${query}&from=${offset}&size=250`);
 	if (response.status !== 200) {
 		throw new Error(`Fetching plugins : ${response.statusText}`);
@@ -70,7 +71,7 @@ export async function listPluginsByQuery(query, excluded = new Set()) {
 
 	const remainingPages = Math.ceil(result.total / 250)
 	for (let i = 1; i < remainingPages; i++) {
-		await new Promise((resolve) => setTimeout(resolve, 500));
+		await new Promise((resolve) => setTimeout(resolve, 1000));
 
 		const batch = await fetchPlugins(query, i * 250);
 

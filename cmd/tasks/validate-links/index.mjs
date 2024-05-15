@@ -33,6 +33,7 @@ async function checkLinkStatus(link) {
 
 	counter++;
 
+	await new Promise((resolve) => setTimeout(resolve, 100));
 	return fetch(u, {
 		method: 'HEAD',
 		headers: headers,
