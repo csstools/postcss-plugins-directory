@@ -1,8 +1,9 @@
 {
 	"_id": "postcss-vw2rem",
+	"_rev": "1-06e5aecb54cb8d49a6b87df813fca66e",
 	"name": "postcss-vw2rem",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -92,12 +93,101 @@
 				"tmp": "tmp/postcss-vw2rem_1.0.0_1716099871452_0.08681957285617892"
 			},
 			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "postcss-vw2rem",
+			"description": "A CSS post-processor that converts vw to rem.",
+			"version": "1.0.1",
+			"author": {
+				"name": "peterczg"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/peterczg/postcss-vwtorem.git"
+			},
+			"bugs": {
+				"url": "https://github.com/peterczg/postcss-vwtorem/issues"
+			},
+			"main": "index.js",
+			"scripts": {
+				"lint": "eslint .",
+				"test": "jasmine-node spec"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint --fix",
+					"prettier --write"
+				]
+			},
+			"devDependencies": {
+				"eslint": "^6.8.0",
+				"husky": "^4.2.3",
+				"jasmine-node": "^1.16.0",
+				"lint-staged": "^10.0.8",
+				"postcss": "^8.0.0",
+				"prettier": "^1.19.1"
+			},
+			"keywords": [
+				"css",
+				"rem",
+				"vw2rem",
+				"vw-to-rem",
+				"vw",
+				"fold",
+				"ipad",
+				"postcss",
+				"postcss-plugin"
+			],
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"gitHead": "bd3504a55e8418d7b42de1ec0abb9b7351fde268",
+			"homepage": "https://github.com/peterczg/postcss-vwtorem#readme",
+			"_id": "postcss-vw2rem@1.0.1",
+			"_nodeVersion": "16.16.0",
+			"_npmVersion": "8.11.0",
+			"dist": {
+				"integrity": "sha512-GiTQXabTry/rqi684LHvLAs9+o1rU07s3nVaguZcVThV2YKm0kTH14VJ97h6dsUoKwtsYhXcvQIleOcjV8Q+zA==",
+				"shasum": "8f497700a3cf4ec81d684d12ac9bfd537890bd75",
+				"tarball": "https://registry.npmjs.org/postcss-vw2rem/-/postcss-vw2rem-1.0.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 31024,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCID/HNdJZ1284BejQWSLqNdR6vCuq6nfomCrxtnZVmmZyAiEAzQvB9oNZCavxlhZCiKdloHMsibhQa2YZA5nID5UIVNA="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "peterczg",
+				"email": "peterczg@163.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "peterczg",
+					"email": "peterczg@163.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-vw2rem_1.0.1_1716244711779_0.14820596835712996"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-05-19T06:24:31.451Z",
 		"1.0.0": "2024-05-19T06:24:31.599Z",
-		"modified": "2024-05-19T06:24:31.906Z"
+		"modified": "2024-05-20T22:38:32.132Z",
+		"1.0.1": "2024-05-20T22:38:31.956Z"
 	},
 	"maintainers": [
 		{
@@ -106,7 +196,7 @@
 		}
 	],
 	"description": "A CSS post-processor that converts vw to rem.",
-	"homepage": "https://github.com/peterczg/postcss-pxtorem#readme",
+	"homepage": "https://github.com/peterczg/postcss-vwtorem#readme",
 	"keywords": [
 		"css",
 		"rem",
@@ -120,16 +210,16 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com/peterczg/postcss-pxtorem.git"
+		"url": "git+ssh://git@github.com/peterczg/postcss-vwtorem.git"
 	},
 	"author": {
 		"name": "peterczg"
 	},
 	"bugs": {
-		"url": "https://github.com/peterczg/postcss-pxtorem/issues"
+		"url": "https://github.com/peterczg/postcss-vwtorem/issues"
 	},
 	"license": "MIT",
-	"readme": "# postcss-vw2rem \n\nA plugin for [PostCSS](https://github.com/ai/postcss) that generates rem units from pixel units.\n\nThis project is forked from [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem) under the MIT license.\n\n## Why\n\nIn some tablet or android fold devices, someone may think that arbitrarily scalling the size is inappropriate and that the size needs to be limited. `vw` is directly related to screen width, while `rem` can be restricted. \n\n## Install\n\n```shell\n$ npm install postcss postcss-vw2rem --save-dev\n```\n\n## Usage\n\nPixels are the easiest unit to use (*opinion*). The only issue with them is that they don't let browsers change the default font size of 16. This script converts every vw value to a rem from the properties you choose to allow the browser to set the font size.\n\n\n### Note\n\n`rootValue` below is set to `16`, so you can relate to the examples of `postcss-pxtorem`.\n\nWhile the default value is set to `10` in real project⚠️.\n\n### Input/Output\n\n*With the default settings, only font related properties are targeted.*\n\n```css\n// input\nh1 {\n    margin: 0 0 20vw;\n    font-size: 32vw;\n    line-height: 1.2;\n    letter-spacing: 1vw;\n}\n\n// output\nh1 {\n    margin: 0 0 20vw;\n    font-size: 2rem;\n    line-height: 1.2;\n    letter-spacing: 0.0625rem;\n}\n```\n\n### Example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar vw2rem = require('postcss-vw2rem');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(vw2rem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n### options\n\nType: `Object | Null`  \nDefault:\n```js\n{\n    rootValue: 16,\n    unitPrecision: 5,\n    propList: ['font', 'font-size', 'line-height', 'letter-spacing', 'word-spacing'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0,\n    exclude: /node_modules/i\n}\n```\n\n- `rootValue` (Number | Function) Represents the root element font size or returns the root element font size based on the [`input`](https://api.postcss.org/Input.html) parameter\n- `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.\n- `propList` (Array) The properties that can change from vw to rem.\n    - Values need to be exact matches.\n    - Use wildcard `*` to enable all properties. Example: `['*']`\n    - Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n    - Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n    - Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n- `selectorBlackList` (Array) The selectors to ignore and leave as vw.\n    - If value is string, it checks to see if selector contains the string.\n        - `['body']` will match `.body-class`\n    - If value is regexp, it checks to see if the selector matches the regexp.\n        - `[/^body$/]` will match `body` but not `.body`\n- `replace` (Boolean) Replaces rules containing rems instead of adding fallbacks.\n- `mediaQuery` (Boolean) Allow vw to be converted in media queries.\n- `minPixelValue` (Number) Set the minimum pixel value to replace.\n- `exclude` (String, Regexp, Function) The file path to ignore and leave as vw.\n    - If value is string, it checks to see if file path contains the string.\n        - `'exclude'` will match `\\project\\postcss-vw2rem\\exclude\\path`\n    - If value is regexp, it checks to see if file path matches the regexp.\n        - `/exclude/i` will match `\\project\\postcss-vw2rem\\exclude\\path`\n    - If value is function, you can use exclude function to return a true and the file will be ignored.\n        - the callback will pass the file path as  a parameter, it should returns a Boolean result.\n        - `function (file) { return file.indexOf('exclude') !== -1; }`\n- `unit` (String) Set the default unit to convert, default is `vw`.\n\n### Use with gulp-postcss and autoprefixer\n\n```js\nvar gulp = require('gulp');\nvar postcss = require('gulp-postcss');\nvar autoprefixer = require('autoprefixer');\nvar vw2rem = require('postcss-vw2rem');\n\ngulp.task('css', function () {\n\n    var processors = [\n        autoprefixer({\n            browsers: 'last 1 version'\n        }),\n        vw2rem({\n            replace: false\n        })\n    ];\n\n    return gulp.src(['build/css/**/*.css'])\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('build/css'));\n});\n```\n\n### A message about ignoring properties\nCurrently, the easiest way to have a single property ignored is to use a capital in the pixel unit declaration.\n\n```css\n// `vw` is converted to `rem`\n.convert {\n    font-size: 16vw; // converted to 1rem\n}\n\n// `Vx` or `VW` is ignored by `postcss-vw2rem` but still accepted by browsers\n.ignore {\n    border: 1vw solid; // ignored\n    border-width: 2vw; // ignored\n}\n```\n",
+	"readme": "# postcss-vw2rem \n\nA plugin for [PostCSS](https://github.com/ai/postcss) that generates rem units from vw units.\n\nThis project is forked from [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem) under the MIT license.\n\n## Why\n\nIn some tablet or android fold devices, someone may think that arbitrarily scalling the size is inappropriate and that the size needs to be limited. `vw` is directly related to screen width, while `rem` can be restricted. \n\n## Install\n\n```shell\n$ npm install postcss postcss-vw2rem --save-dev\n```\n\n## Usage\n\nPixels are the easiest unit to use (*opinion*). The only issue with them is that they don't let browsers change the default font size of 16. This script converts every vw value to a rem from the properties you choose to allow the browser to set the font size.\n\n\n### Note\n\n`rootValue` below is set to `16`, so you can relate to the examples of `postcss-pxtorem`.\n\nWhile the default value is set to `10` in real project⚠️.\n\n### Input/Output\n\n*With the default settings, only font related properties are targeted.*\n\n```css\n// input\nh1 {\n    margin: 0 0 20vw;\n    font-size: 32vw;\n    line-height: 1.2;\n    letter-spacing: 1vw;\n}\n\n// output\nh1 {\n    margin: 0 0 20vw;\n    font-size: 2rem;\n    line-height: 1.2;\n    letter-spacing: 0.0625rem;\n}\n```\n\n### Example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar vw2rem = require('postcss-vw2rem');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(vw2rem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n### options\n\nType: `Object | Null`  \nDefault:\n```js\n{\n    rootValue: 16,\n    unitPrecision: 5,\n    propList: ['font', 'font-size', 'line-height', 'letter-spacing', 'word-spacing'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0,\n    exclude: /node_modules/i\n}\n```\n\n- `rootValue` (Number | Function) Represents the root element font size or returns the root element font size based on the [`input`](https://api.postcss.org/Input.html) parameter\n- `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.\n- `propList` (Array) The properties that can change from vw to rem.\n    - Values need to be exact matches.\n    - Use wildcard `*` to enable all properties. Example: `['*']`\n    - Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n    - Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n    - Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n- `selectorBlackList` (Array) The selectors to ignore and leave as vw.\n    - If value is string, it checks to see if selector contains the string.\n        - `['body']` will match `.body-class`\n    - If value is regexp, it checks to see if the selector matches the regexp.\n        - `[/^body$/]` will match `body` but not `.body`\n- `replace` (Boolean) Replaces rules containing rems instead of adding fallbacks.\n- `mediaQuery` (Boolean) Allow vw to be converted in media queries.\n- `minPixelValue` (Number) Set the minimum pixel value to replace.\n- `exclude` (String, Regexp, Function) The file path to ignore and leave as vw.\n    - If value is string, it checks to see if file path contains the string.\n        - `'exclude'` will match `\\project\\postcss-vw2rem\\exclude\\path`\n    - If value is regexp, it checks to see if file path matches the regexp.\n        - `/exclude/i` will match `\\project\\postcss-vw2rem\\exclude\\path`\n    - If value is function, you can use exclude function to return a true and the file will be ignored.\n        - the callback will pass the file path as  a parameter, it should returns a Boolean result.\n        - `function (file) { return file.indexOf('exclude') !== -1; }`\n- `unit` (String) Set the default unit to convert, default is `vw`.\n\n### Use with gulp-postcss and autoprefixer\n\n```js\nvar gulp = require('gulp');\nvar postcss = require('gulp-postcss');\nvar autoprefixer = require('autoprefixer');\nvar vw2rem = require('postcss-vw2rem');\n\ngulp.task('css', function () {\n\n    var processors = [\n        autoprefixer({\n            browsers: 'last 1 version'\n        }),\n        vw2rem({\n            replace: false\n        })\n    ];\n\n    return gulp.src(['build/css/**/*.css'])\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('build/css'));\n});\n```\n\n### A message about ignoring properties\nCurrently, the easiest way to have a single property ignored is to use a capital in the pixel unit declaration.\n\n```css\n// `vw` is converted to `rem`\n.convert {\n    font-size: 16vw; // converted to 1rem\n}\n\n// `Vx` or `VW` is ignored by `postcss-vw2rem` but still accepted by browsers\n.ignore {\n    border: 1vw solid; // ignored\n    border-width: 2vw; // ignored\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 0
+	"_downloads": 35
 }
