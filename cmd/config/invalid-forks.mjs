@@ -1,8 +1,8 @@
 // Forks published on npm without updating sufficient information.
 // This is confusing to users because they will be unable to find the source code or contact the maintainer.
 export const invalidForks = [
-	'@alexlafroscia/postcss-color-mod-function',
 	'@alexasselin/postcss-plugin1',
+	'@alexlafroscia/postcss-color-mod-function',
 	'@andreyvolokitin/postcss-inline-svg',
 	'@developwithstyle/postcss-custom-media',
 	'@doomfist/postcss-px-to-viewport',
@@ -12,6 +12,7 @@ export const invalidForks = [
 	'@flemist/postcss-pxtorem',
 	'@gogogosir/postcss8-px-to-viewport',
 	'@hamidreza4dev/postcss-node-sass',
+	'@knagis/postcss-advanced-variables',
 	'@koddsson/postcss-sass',
 	'@nikifilini/postcss-d-ts',
 	'@outstand/postcss-extend-rule',
@@ -36,9 +37,9 @@ export const invalidForks = [
 	'postcss-custom-properties-nested',
 	'postcss-mpxtorem',
 	'postcss-px-to-viewport-ng',
-	'postcss-pxtoupx',
 	'postcss-pxtorem-clone',
-	'postcss-vwtorem',
+	'postcss-pxtoupx',
 	'postcss-rpx2vw',
+	'postcss-vwtorem',
 	'tz-postcss-px-to-viewport',
 ];
