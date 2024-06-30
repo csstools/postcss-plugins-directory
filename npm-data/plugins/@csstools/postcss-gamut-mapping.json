@@ -1,202 +1,146 @@
 {
 	"_id": "@csstools/postcss-gamut-mapping",
-	"_rev": "9-7e695d0c1ab158a65cfe7dfb2771f61c",
+	"_rev": "10-479eedfa7a50a66e337f7509f7c400fc",
 	"name": "@csstools/postcss-gamut-mapping",
+	"description": "Gamut map css colors to fit display specific gamuts",
 	"dist-tags": {
-		"latest": "1.0.9"
+		"latest": "1.0.10"
 	},
 	"versions": {
 		"1.0.0": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.0",
+			"keywords": [
+				"color",
+				"css",
+				"display-p3",
+				"gamut mapping",
+				"p3",
+				"postcss",
+				"postcss-plugin",
+				"rec2020",
+				"srgb",
+				"wide gamut"
+			],
+			"license": "MIT-0",
+			"_id": "@csstools/postcss-gamut-mapping@1.0.0",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
 			"contributors": [
 				{
+					"url": "https://antonio.laguna.es",
 					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
+					"email": "antonio@laguna.es"
 				},
 				{
 					"name": "Romain Menke",
 					"email": "romainmenke@gmail.com"
 				}
 			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"dist": {
+				"shasum": "a23d2c4bd2bd89b2ed3c5d2e062c069ad18745e0",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.0.tgz",
+				"fileCount": 9,
+				"integrity": "sha512-6UQyK8l9YaG5Ao5rBDcCnKHrLsHiQ1E0zeFQuqDJqEtinVzAPb/MwSw3TenZXL1Rnd7th3tb+4CBFHBXdW5tbQ==",
+				"signatures": [
+					{
+						"sig": "MEQCICXc7xEN4V9VB+vHaIj3LIKh2m4DdKgiAv0T3cI3/tqzAiALW9AUQHFiGGDNDtKpLnzVYL2OUKEruvHTkUiKffwtqw==",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 11516
+			},
+			"main": "dist/index.cjs",
+			"types": "dist/index.d.ts",
+			"volta": {
+				"extends": "../../package.json"
+			},
+			"module": "dist/index.mjs",
 			"engines": {
 				"node": "^14 || ^16 || >=18"
 			},
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"types": "dist/index.d.ts",
 			"exports": {
 				".": {
 					"types": "./dist/index.d.ts",
 					"import": "./dist/index.mjs",
-					"require": "./dist/index.cjs",
-					"default": "./dist/index.mjs"
+					"default": "./dist/index.mjs",
+					"require": "./dist/index.cjs"
 				}
 			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "7db41519738d5a38a3ca0c5404f72ce04b3539a1",
+			"scripts": {
+				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
+				"lint": "node ../../.github/bin/format-package-json.mjs",
+				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+				"build": "rollup -c ../../rollup/default.mjs",
+				"prepublishOnly": "npm run build && npm run test",
+				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"csstools": {
+				"cssdbId": "gamut-mapping",
+				"specUrl": "https://www.w3.org/TR/css-color-4/#gamut-mapping",
+				"exportName": "postcssGamutMapping",
+				"humanReadableName": "PostCSS Gamut Mapping"
+			},
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
+			},
+			"_npmVersion": "9.8.0",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "20.5.0",
 			"dependencies": {
+				"@csstools/css-tokenizer": "^2.2.1",
 				"@csstools/css-color-parser": "^1.4.0",
-				"@csstools/css-parser-algorithms": "2.3.2",
-				"@csstools/css-tokenizer": "^2.2.1"
+				"@csstools/css-parser-algorithms": "2.3.2"
 			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
+			"_hasShrinkwrap": false,
 			"devDependencies": {
 				"@csstools/postcss-tape": "*"
 			},
-			"scripts": {
-				"build": "rollup -c ../../rollup/default.mjs",
-				"docs": "node ../../.github/bin/generate-docs/install.mjs && node ../../.github/bin/generate-docs/readme.mjs",
-				"lint": "node ../../.github/bin/format-package-json.mjs",
-				"prepublishOnly": "npm run build && npm run test",
-				"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
-				"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+			"peerDependencies": {
+				"postcss": "^8.4"
 			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
-			"keywords": [
-				"color",
-				"css",
-				"display-p3",
-				"gamut mapping",
-				"p3",
-				"postcss",
-				"postcss-plugin",
-				"rec2020",
-				"srgb",
-				"wide gamut"
-			],
-			"csstools": {
-				"cssdbId": "gamut-mapping",
-				"exportName": "postcssGamutMapping",
-				"humanReadableName": "PostCSS Gamut Mapping",
-				"specUrl": "https://www.w3.org/TR/css-color-4/#gamut-mapping"
-			},
-			"volta": {
-				"extends": "../../package.json"
-			},
-			"_id": "@csstools/postcss-gamut-mapping@1.0.0",
-			"gitHead": "7db41519738d5a38a3ca0c5404f72ce04b3539a1",
-			"_nodeVersion": "20.5.0",
-			"_npmVersion": "9.8.0",
-			"dist": {
-				"integrity": "sha512-6UQyK8l9YaG5Ao5rBDcCnKHrLsHiQ1E0zeFQuqDJqEtinVzAPb/MwSw3TenZXL1Rnd7th3tb+4CBFHBXdW5tbQ==",
-				"shasum": "a23d2c4bd2bd89b2ed3c5d2e062c069ad18745e0",
-				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.0.tgz",
-				"fileCount": 9,
-				"unpackedSize": 11516,
-				"signatures": [
-					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEQCICXc7xEN4V9VB+vHaIj3LIKh2m4DdKgiAv0T3cI3/tqzAiALW9AUQHFiGGDNDtKpLnzVYL2OUKEruvHTkUiKffwtqw=="
-					}
-				]
-			},
-			"_npmUser": {
-				"name": "romainmenke",
-				"email": "romainmenke@gmail.com"
-			},
-			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
 			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.0_1696872736405_0.34085086636856055"
-			},
-			"_hasShrinkwrap": false
+				"tmp": "tmp/postcss-gamut-mapping_1.0.0_1696872736405_0.34085086636856055",
+				"host": "s3://npm-registry-packages"
+			}
 		},
 		"1.0.1": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.1",
-			"contributors": [
-				{
-					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
-				},
-				{
-					"name": "Romain Menke",
-					"email": "romainmenke@gmail.com"
-				}
-			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
-			"engines": {
-				"node": "^14 || ^16 || >=18"
-			},
-			"type": "module",
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"exports": {
-				".": {
-					"import": {
-						"types": "./dist/index.d.ts",
-						"default": "./dist/index.mjs"
-					},
-					"require": {
-						"default": "./dist/index.cjs"
-					}
-				}
-			},
-			"dependencies": {
-				"@csstools/css-color-parser": "^1.5.0",
-				"@csstools/css-parser-algorithms": "^2.4.0",
-				"@csstools/css-tokenizer": "^2.2.2"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
 			"keywords": [
 				"color",
 				"css",
@@ -209,109 +153,109 @@
 				"srgb",
 				"wide gamut"
 			],
+			"license": "MIT-0",
 			"_id": "@csstools/postcss-gamut-mapping@1.0.1",
-			"gitHead": "7ee9edb240598a8f58a33fa1261d60c1ae4db7ce",
-			"types": "./dist/index.d.ts",
-			"_nodeVersion": "20.10.0",
-			"_npmVersion": "10.2.3",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
 			"dist": {
-				"integrity": "sha512-GDVzfNbnc7x3GusFklvt0mYXIWVzxEtEtTFEW664NgZh/5V7Z89hZKBMl9piOAHXuxijfHtE+kul/ShfeLUvcA==",
 				"shasum": "b5b8429488979a5a48c0249a7aab1836fafc30ec",
 				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.1.tgz",
 				"fileCount": 7,
-				"unpackedSize": 11252,
+				"integrity": "sha512-GDVzfNbnc7x3GusFklvt0mYXIWVzxEtEtTFEW664NgZh/5V7Z89hZKBMl9piOAHXuxijfHtE+kul/ShfeLUvcA==",
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEUCIB/LD5K+dzf4eGlGd4OgmW3tIAZt6e0WuvGW5mij0ej1AiEAkeVnr/1d+qFPIW3RSewL/sh+JO1Ylhz7FkU9vjRslYI="
+						"sig": "MEUCIB/LD5K+dzf4eGlGd4OgmW3tIAZt6e0WuvGW5mij0ej1AiEAkeVnr/1d+qFPIW3RSewL/sh+JO1Ylhz7FkU9vjRslYI=",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
 					}
-				]
+				],
+				"unpackedSize": 11252
 			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "7ee9edb240598a8f58a33fa1261d60c1ae4db7ce",
 			"_npmUser": {
 				"name": "romainmenke",
 				"email": "romainmenke@gmail.com"
 			},
-			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.1_1702682779147_0.25409924684905594"
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
 			},
-			"_hasShrinkwrap": false
+			"_npmVersion": "10.2.3",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "20.10.0",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.2.2",
+				"@csstools/css-color-parser": "^1.5.0",
+				"@csstools/css-parser-algorithms": "^2.4.0"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.1_1702682779147_0.25409924684905594",
+				"host": "s3://npm-registry-packages"
+			}
 		},
 		"1.0.2": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.2",
-			"contributors": [
-				{
-					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
-				},
-				{
-					"name": "Romain Menke",
-					"email": "romainmenke@gmail.com"
-				}
-			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
-			"engines": {
-				"node": "^14 || ^16 || >=18"
-			},
-			"type": "module",
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"exports": {
-				".": {
-					"import": {
-						"types": "./dist/index.d.ts",
-						"default": "./dist/index.mjs"
-					},
-					"require": {
-						"default": "./dist/index.cjs"
-					}
-				}
-			},
-			"dependencies": {
-				"@csstools/css-color-parser": "^1.5.1",
-				"@csstools/css-parser-algorithms": "^2.5.0",
-				"@csstools/css-tokenizer": "^2.2.3"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
 			"keywords": [
 				"color",
 				"css",
@@ -324,109 +268,109 @@
 				"srgb",
 				"wide gamut"
 			],
+			"license": "MIT-0",
 			"_id": "@csstools/postcss-gamut-mapping@1.0.2",
-			"gitHead": "c0403f3e065cd8ed1dee9b53bedcc6472a230bca",
-			"types": "./dist/index.d.ts",
-			"_nodeVersion": "20.10.0",
-			"_npmVersion": "10.2.3",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
 			"dist": {
-				"integrity": "sha512-zf9KHGM2PTuJEm4ZYg4DTmzCir38EbZBzlMPMbA4jbhLDqXHkqwnQ+Z5+UNrU8y6seVu5B4vzZmZarTFQwe+Ig==",
 				"shasum": "bef05c2bd2ad0b2c60f96e90e36173e0a79514d1",
 				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.2.tgz",
 				"fileCount": 7,
-				"unpackedSize": 12138,
+				"integrity": "sha512-zf9KHGM2PTuJEm4ZYg4DTmzCir38EbZBzlMPMbA4jbhLDqXHkqwnQ+Z5+UNrU8y6seVu5B4vzZmZarTFQwe+Ig==",
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEYCIQDJhIExuSKC4hPoKcPUWef3r7Q0sqwOVYL4D/gmRVXdcAIhAJWKpK2pqcdDRpncYFl4YtBDZC0G+ak0HCnw6uOT5r6j"
+						"sig": "MEYCIQDJhIExuSKC4hPoKcPUWef3r7Q0sqwOVYL4D/gmRVXdcAIhAJWKpK2pqcdDRpncYFl4YtBDZC0G+ak0HCnw6uOT5r6j",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
 					}
-				]
+				],
+				"unpackedSize": 12138
 			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "c0403f3e065cd8ed1dee9b53bedcc6472a230bca",
 			"_npmUser": {
 				"name": "romainmenke",
 				"email": "romainmenke@gmail.com"
 			},
-			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.2_1704040648070_0.4158291054801386"
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
 			},
-			"_hasShrinkwrap": false
+			"_npmVersion": "10.2.3",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "20.10.0",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.2.3",
+				"@csstools/css-color-parser": "^1.5.1",
+				"@csstools/css-parser-algorithms": "^2.5.0"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.2_1704040648070_0.4158291054801386",
+				"host": "s3://npm-registry-packages"
+			}
 		},
 		"1.0.3": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.3",
-			"contributors": [
-				{
-					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
-				},
-				{
-					"name": "Romain Menke",
-					"email": "romainmenke@gmail.com"
-				}
-			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
-			"engines": {
-				"node": "^14 || ^16 || >=18"
-			},
-			"type": "module",
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"exports": {
-				".": {
-					"import": {
-						"types": "./dist/index.d.ts",
-						"default": "./dist/index.mjs"
-					},
-					"require": {
-						"default": "./dist/index.cjs"
-					}
-				}
-			},
-			"dependencies": {
-				"@csstools/css-color-parser": "^1.5.2",
-				"@csstools/css-parser-algorithms": "^2.6.0",
-				"@csstools/css-tokenizer": "^2.2.3"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
 			"keywords": [
 				"color",
 				"css",
@@ -439,109 +383,109 @@
 				"srgb",
 				"wide gamut"
 			],
+			"license": "MIT-0",
 			"_id": "@csstools/postcss-gamut-mapping@1.0.3",
-			"gitHead": "3316c399dc0d3cde5eeeb65bafea5298318fe3c0",
-			"types": "./dist/index.d.ts",
-			"_nodeVersion": "20.10.0",
-			"_npmVersion": "10.2.3",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
 			"dist": {
-				"integrity": "sha512-P0+ude1KyCy9LXOe2pHJmpcXK4q/OQbr2Sn2wQSssMw0rALGmny2MfHiCqEu8n6mf2cN6lWDZdzY8enBk8WHXQ==",
 				"shasum": "e5323fb1bf46f6d32d760e98028a8e9da9d8fe4b",
 				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.3.tgz",
 				"fileCount": 7,
-				"unpackedSize": 12494,
+				"integrity": "sha512-P0+ude1KyCy9LXOe2pHJmpcXK4q/OQbr2Sn2wQSssMw0rALGmny2MfHiCqEu8n6mf2cN6lWDZdzY8enBk8WHXQ==",
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEQCICkn4Z7mDrHcqxvyDaRvd+3r1WErhES97G2FQ8UP0lCMAiBCgGlhysArOv4IKDZyy+1F5cZArlt/atdm3L68ltzXIg=="
+						"sig": "MEQCICkn4Z7mDrHcqxvyDaRvd+3r1WErhES97G2FQ8UP0lCMAiBCgGlhysArOv4IKDZyy+1F5cZArlt/atdm3L68ltzXIg==",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
 					}
-				]
+				],
+				"unpackedSize": 12494
 			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "3316c399dc0d3cde5eeeb65bafea5298318fe3c0",
 			"_npmUser": {
 				"name": "romainmenke",
 				"email": "romainmenke@gmail.com"
 			},
-			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.3_1708330298369_0.6700415224329141"
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
 			},
-			"_hasShrinkwrap": false
+			"_npmVersion": "10.2.3",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "20.10.0",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.2.3",
+				"@csstools/css-color-parser": "^1.5.2",
+				"@csstools/css-parser-algorithms": "^2.6.0"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.3_1708330298369_0.6700415224329141",
+				"host": "s3://npm-registry-packages"
+			}
 		},
 		"1.0.4": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.4",
-			"contributors": [
-				{
-					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
-				},
-				{
-					"name": "Romain Menke",
-					"email": "romainmenke@gmail.com"
-				}
-			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
-			"engines": {
-				"node": "^14 || ^16 || >=18"
-			},
-			"type": "module",
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"exports": {
-				".": {
-					"import": {
-						"types": "./dist/index.d.ts",
-						"default": "./dist/index.mjs"
-					},
-					"require": {
-						"default": "./dist/index.cjs"
-					}
-				}
-			},
-			"dependencies": {
-				"@csstools/css-color-parser": "^1.6.0",
-				"@csstools/css-parser-algorithms": "^2.6.1",
-				"@csstools/css-tokenizer": "^2.2.4"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
 			"keywords": [
 				"color",
 				"css",
@@ -554,109 +498,109 @@
 				"srgb",
 				"wide gamut"
 			],
+			"license": "MIT-0",
 			"_id": "@csstools/postcss-gamut-mapping@1.0.4",
-			"gitHead": "278bd0b641275c3a99dc8082f563bee064b214fc",
-			"types": "./dist/index.d.ts",
-			"_nodeVersion": "20.11.1",
-			"_npmVersion": "10.2.4",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
 			"dist": {
-				"integrity": "sha512-jjHP44awnSijgddNJpZEFfmb8csFx+BiYYpX+ydyScWwLzSpve5eLXneu4uIhZmKom+WXLXWc4y7CvOfVLQ2VQ==",
 				"shasum": "675357a892740417baab4af8a403d16c891815c8",
 				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.4.tgz",
 				"fileCount": 7,
-				"unpackedSize": 12542,
+				"integrity": "sha512-jjHP44awnSijgddNJpZEFfmb8csFx+BiYYpX+ydyScWwLzSpve5eLXneu4uIhZmKom+WXLXWc4y7CvOfVLQ2VQ==",
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEQCIEX+3fEDV7qJw26+u7lZTgs7HrJuldXQqXT9z+XRaqrAAiAdMNb+w8J4TXFyD9JPt3z05fp33wb88/gTUegpqMbctA=="
+						"sig": "MEQCIEX+3fEDV7qJw26+u7lZTgs7HrJuldXQqXT9z+XRaqrAAiAdMNb+w8J4TXFyD9JPt3z05fp33wb88/gTUegpqMbctA==",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
 					}
-				]
+				],
+				"unpackedSize": 12542
 			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "278bd0b641275c3a99dc8082f563bee064b214fc",
 			"_npmUser": {
 				"name": "romainmenke",
 				"email": "romainmenke@gmail.com"
 			},
-			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.4_1710356355633_0.10236717466650491"
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
 			},
-			"_hasShrinkwrap": false
+			"_npmVersion": "10.2.4",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "20.11.1",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.2.4",
+				"@csstools/css-color-parser": "^1.6.0",
+				"@csstools/css-parser-algorithms": "^2.6.1"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.4_1710356355633_0.10236717466650491",
+				"host": "s3://npm-registry-packages"
+			}
 		},
 		"1.0.5": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.5",
-			"contributors": [
-				{
-					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
-				},
-				{
-					"name": "Romain Menke",
-					"email": "romainmenke@gmail.com"
-				}
-			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
-			"engines": {
-				"node": "^14 || ^16 || >=18"
-			},
-			"type": "module",
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"exports": {
-				".": {
-					"import": {
-						"types": "./dist/index.d.ts",
-						"default": "./dist/index.mjs"
-					},
-					"require": {
-						"default": "./dist/index.cjs"
-					}
-				}
-			},
-			"dependencies": {
-				"@csstools/css-color-parser": "^1.6.2",
-				"@csstools/css-parser-algorithms": "^2.6.1",
-				"@csstools/css-tokenizer": "^2.2.4"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
 			"keywords": [
 				"color",
 				"css",
@@ -669,109 +613,109 @@
 				"srgb",
 				"wide gamut"
 			],
+			"license": "MIT-0",
 			"_id": "@csstools/postcss-gamut-mapping@1.0.5",
-			"gitHead": "d0d8473cb77e24387012ad72a20828a4a7ef529f",
-			"types": "./dist/index.d.ts",
-			"_nodeVersion": "20.11.1",
-			"_npmVersion": "10.2.4",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
 			"dist": {
-				"integrity": "sha512-AJ74/4nHXgghLWY4/ydEhu3mzwN8c56EjIGrJsoEhKaNuGBAOtUfE5qbkc9XQQ0G2FMhHggqE+9eRrApeK7ebQ==",
 				"shasum": "f6565d5c3d8d6a728e071052eda801eebf5c118b",
 				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.5.tgz",
 				"fileCount": 7,
-				"unpackedSize": 12051,
+				"integrity": "sha512-AJ74/4nHXgghLWY4/ydEhu3mzwN8c56EjIGrJsoEhKaNuGBAOtUfE5qbkc9XQQ0G2FMhHggqE+9eRrApeK7ebQ==",
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEYCIQD8SJrL6ZOky1COztBrzSxUwjf+QHZb1yAF68P+/Jp/ZgIhAJt1oJWZbySbC71HwQCV2Ha8JOmcCQOqpAzU0WBa+HTx"
+						"sig": "MEYCIQD8SJrL6ZOky1COztBrzSxUwjf+QHZb1yAF68P+/Jp/ZgIhAJt1oJWZbySbC71HwQCV2Ha8JOmcCQOqpAzU0WBa+HTx",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
 					}
-				]
+				],
+				"unpackedSize": 12051
 			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "d0d8473cb77e24387012ad72a20828a4a7ef529f",
 			"_npmUser": {
 				"name": "romainmenke",
 				"email": "romainmenke@gmail.com"
 			},
-			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.5_1710697313416_0.2880247205050632"
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
 			},
-			"_hasShrinkwrap": false
+			"_npmVersion": "10.2.4",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "20.11.1",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.2.4",
+				"@csstools/css-color-parser": "^1.6.2",
+				"@csstools/css-parser-algorithms": "^2.6.1"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.5_1710697313416_0.2880247205050632",
+				"host": "s3://npm-registry-packages"
+			}
 		},
 		"1.0.6": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.6",
-			"contributors": [
-				{
-					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
-				},
-				{
-					"name": "Romain Menke",
-					"email": "romainmenke@gmail.com"
-				}
-			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
-			"engines": {
-				"node": "^14 || ^16 || >=18"
-			},
-			"type": "module",
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"exports": {
-				".": {
-					"import": {
-						"types": "./dist/index.d.ts",
-						"default": "./dist/index.mjs"
-					},
-					"require": {
-						"default": "./dist/index.cjs"
-					}
-				}
-			},
-			"dependencies": {
-				"@csstools/css-color-parser": "^1.6.3",
-				"@csstools/css-parser-algorithms": "^2.6.1",
-				"@csstools/css-tokenizer": "^2.2.4"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
 			"keywords": [
 				"color",
 				"css",
@@ -784,109 +728,109 @@
 				"srgb",
 				"wide gamut"
 			],
+			"license": "MIT-0",
 			"_id": "@csstools/postcss-gamut-mapping@1.0.6",
-			"gitHead": "faca8a71ea41322c7da3ad0c48a0da7610159f76",
-			"types": "./dist/index.d.ts",
-			"_nodeVersion": "20.11.1",
-			"_npmVersion": "10.2.4",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
 			"dist": {
-				"integrity": "sha512-qGFpHU9cRf9qqkbHh9cWMTlBtGi/ujPgP/znQdwkbB4TgDR1ddI5wRRrksBsx64sfoUSlIEd70bxXzD9FtfdLg==",
 				"shasum": "d45f4655f9fdaee7ed82e1cd44ca860d938626b6",
 				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.6.tgz",
 				"fileCount": 7,
-				"unpackedSize": 12135,
+				"integrity": "sha512-qGFpHU9cRf9qqkbHh9cWMTlBtGi/ujPgP/znQdwkbB4TgDR1ddI5wRRrksBsx64sfoUSlIEd70bxXzD9FtfdLg==",
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEUCIQCCuFxQ/yqNWE1rd+d9isxQYdcBMgtwJ6SWhk/wNvPPegIgJ1ME1DfSv4NqJSGuplSiOKgO+77iEu2HFI/P8gMY+CI="
+						"sig": "MEUCIQCCuFxQ/yqNWE1rd+d9isxQYdcBMgtwJ6SWhk/wNvPPegIgJ1ME1DfSv4NqJSGuplSiOKgO+77iEu2HFI/P8gMY+CI=",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
 					}
-				]
+				],
+				"unpackedSize": 12135
 			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "faca8a71ea41322c7da3ad0c48a0da7610159f76",
 			"_npmUser": {
 				"name": "romainmenke",
 				"email": "romainmenke@gmail.com"
 			},
-			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.6_1711891291305_0.013187567499296282"
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
 			},
-			"_hasShrinkwrap": false
+			"_npmVersion": "10.2.4",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "20.11.1",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.2.4",
+				"@csstools/css-color-parser": "^1.6.3",
+				"@csstools/css-parser-algorithms": "^2.6.1"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.6_1711891291305_0.013187567499296282",
+				"host": "s3://npm-registry-packages"
+			}
 		},
 		"1.0.7": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.7",
-			"contributors": [
-				{
-					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
-				},
-				{
-					"name": "Romain Menke",
-					"email": "romainmenke@gmail.com"
-				}
-			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
-			"engines": {
-				"node": "^14 || ^16 || >=18"
-			},
-			"type": "module",
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"exports": {
-				".": {
-					"import": {
-						"types": "./dist/index.d.ts",
-						"default": "./dist/index.mjs"
-					},
-					"require": {
-						"default": "./dist/index.cjs"
-					}
-				}
-			},
-			"dependencies": {
-				"@csstools/css-color-parser": "^2.0.0",
-				"@csstools/css-parser-algorithms": "^2.6.1",
-				"@csstools/css-tokenizer": "^2.2.4"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
 			"keywords": [
 				"color",
 				"css",
@@ -899,109 +843,109 @@
 				"srgb",
 				"wide gamut"
 			],
+			"license": "MIT-0",
 			"_id": "@csstools/postcss-gamut-mapping@1.0.7",
-			"gitHead": "749443ee7d9dd69944cc46eb1c10476408184d47",
-			"types": "./dist/index.d.ts",
-			"_nodeVersion": "20.11.1",
-			"_npmVersion": "10.2.4",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
 			"dist": {
-				"integrity": "sha512-vrsHsl5TN6NB5CT0rPG6JE9V2GLFftcmPtF/k4cWT4gyVMCsDyS9wEVl82sgvh/JQ32TaUo6bh8Ndl+XRJqGQw==",
 				"shasum": "6413d3f9e2612e9419cc9978aa36f87895f74e88",
 				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.7.tgz",
 				"fileCount": 7,
-				"unpackedSize": 11647,
+				"integrity": "sha512-vrsHsl5TN6NB5CT0rPG6JE9V2GLFftcmPtF/k4cWT4gyVMCsDyS9wEVl82sgvh/JQ32TaUo6bh8Ndl+XRJqGQw==",
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEUCID4PBJhZJ5SAbavInDVac4pdR06NCvD2YgOiRnwUEgQJAiEAhRaPbH5H/H9uxCkmiCykAQc3SUr2qxMJyCABC1hmvss="
+						"sig": "MEUCID4PBJhZJ5SAbavInDVac4pdR06NCvD2YgOiRnwUEgQJAiEAhRaPbH5H/H9uxCkmiCykAQc3SUr2qxMJyCABC1hmvss=",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
 					}
-				]
+				],
+				"unpackedSize": 11647
 			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "749443ee7d9dd69944cc46eb1c10476408184d47",
 			"_npmUser": {
 				"name": "romainmenke",
 				"email": "romainmenke@gmail.com"
 			},
-			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.7_1713709660976_0.9793510650644393"
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
 			},
-			"_hasShrinkwrap": false
+			"_npmVersion": "10.2.4",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "20.11.1",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.2.4",
+				"@csstools/css-color-parser": "^2.0.0",
+				"@csstools/css-parser-algorithms": "^2.6.1"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.7_1713709660976_0.9793510650644393",
+				"host": "s3://npm-registry-packages"
+			}
 		},
 		"1.0.8": {
 			"name": "@csstools/postcss-gamut-mapping",
-			"description": "Gamut map css colors to fit display specific gamuts",
 			"version": "1.0.8",
-			"contributors": [
-				{
-					"name": "Antonio Laguna",
-					"email": "antonio@laguna.es",
-					"url": "https://antonio.laguna.es"
-				},
-				{
-					"name": "Romain Menke",
-					"email": "romainmenke@gmail.com"
-				}
-			],
-			"license": "MIT-0",
-			"funding": [
-				{
-					"type": "github",
-					"url": "https://github.com/sponsors/csstools"
-				},
-				{
-					"type": "opencollective",
-					"url": "https://opencollective.com/csstools"
-				}
-			],
-			"engines": {
-				"node": "^14 || ^16 || >=18"
-			},
-			"type": "module",
-			"main": "dist/index.cjs",
-			"module": "dist/index.mjs",
-			"exports": {
-				".": {
-					"import": {
-						"types": "./dist/index.d.ts",
-						"default": "./dist/index.mjs"
-					},
-					"require": {
-						"default": "./dist/index.cjs"
-					}
-				}
-			},
-			"dependencies": {
-				"@csstools/css-color-parser": "^2.0.1",
-				"@csstools/css-parser-algorithms": "^2.6.2",
-				"@csstools/css-tokenizer": "^2.3.0"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4"
-			},
-			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/csstools/postcss-plugins.git",
-				"directory": "plugins/postcss-gamut-mapping"
-			},
-			"bugs": {
-				"url": "https://github.com/csstools/postcss-plugins/issues"
-			},
 			"keywords": [
 				"color",
 				"css",
@@ -1014,29 +958,123 @@
 				"srgb",
 				"wide gamut"
 			],
+			"license": "MIT-0",
 			"_id": "@csstools/postcss-gamut-mapping@1.0.8",
-			"gitHead": "1689addbfa93982f1a27c2f593c3f166e5c011b5",
-			"types": "./dist/index.d.ts",
-			"_nodeVersion": "22.0.0",
-			"_npmVersion": "10.5.1",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
 			"dist": {
-				"integrity": "sha512-EldA72XYuu5PL1gmtje63KcN6jd6xv7ZRM9ZZPQj9szhDOzJpne5fazS+iXy02l0KxttC2CCHyqPaLt2ynmS+A==",
 				"shasum": "e24fd259ae0e173a79b2657f072bdf144c0c5eca",
 				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.8.tgz",
 				"fileCount": 7,
-				"unpackedSize": 12132,
+				"integrity": "sha512-EldA72XYuu5PL1gmtje63KcN6jd6xv7ZRM9ZZPQj9szhDOzJpne5fazS+iXy02l0KxttC2CCHyqPaLt2ynmS+A==",
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEUCIEhF/TovIgB6FpfbV0QzgbeJwUidoYcQ94elglOGfTTrAiEAv0OtyJEZubCz238aPjtUZ1rk7VN+STEjAPFW11Y0Tf0="
+						"sig": "MEUCIEhF/TovIgB6FpfbV0QzgbeJwUidoYcQ94elglOGfTTrAiEAv0OtyJEZubCz238aPjtUZ1rk7VN+STEjAPFW11Y0Tf0=",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
 					}
-				]
+				],
+				"unpackedSize": 12132
 			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "1689addbfa93982f1a27c2f593c3f166e5c011b5",
 			"_npmUser": {
 				"name": "romainmenke",
 				"email": "romainmenke@gmail.com"
 			},
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
+			},
+			"_npmVersion": "10.5.1",
+			"description": "Gamut map css colors to fit display specific gamuts",
 			"directories": {},
+			"_nodeVersion": "22.0.0",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.3.0",
+				"@csstools/css-color-parser": "^2.0.1",
+				"@csstools/css-parser-algorithms": "^2.6.2"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.8_1714838981837_0.46783889091630626",
+				"host": "s3://npm-registry-packages"
+			}
+		},
+		"1.0.9": {
+			"name": "@csstools/postcss-gamut-mapping",
+			"version": "1.0.9",
+			"keywords": [
+				"color",
+				"css",
+				"display-p3",
+				"gamut mapping",
+				"p3",
+				"postcss",
+				"postcss-plugin",
+				"rec2020",
+				"srgb",
+				"wide gamut"
+			],
+			"license": "MIT-0",
+			"_id": "@csstools/postcss-gamut-mapping@1.0.9",
 			"maintainers": [
 				{
 					"name": "romainmenke",
@@ -1051,16 +1089,94 @@
 					"email": "jonathantneal@hotmail.com"
 				}
 			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.8_1714838981837_0.46783889091630626"
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
 			},
-			"_hasShrinkwrap": false
+			"dist": {
+				"shasum": "40358dff1e9be784a99a0925c3062c841fc1b001",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.9.tgz",
+				"fileCount": 7,
+				"integrity": "sha512-JmOeiBJj1RJriAkr+aLBaiYUpEqdNOIo3ERQ5a4uNzy18upzrQ6tz7m2Vt1GQpJ62zQj7rC5PjAhCoZCoyE31g==",
+				"signatures": [
+					{
+						"sig": "MEYCIQDuisCw9U53u1RHpexoga0O5ic9/0WAMjz0jZ8jHEGhCgIhAM/jm9fQsKABc74kD4WZGGw4Hy0joKqiYH6lrzDmEGCM",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 12580
+			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "ced5e58634cd565dc6970d9972b5ce26a18ad5bd",
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugins/postcss-gamut-mapping"
+			},
+			"_npmVersion": "10.5.1",
+			"description": "Gamut map css colors to fit display specific gamuts",
+			"directories": {},
+			"_nodeVersion": "22.0.0",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.3.1",
+				"@csstools/css-color-parser": "^2.0.2",
+				"@csstools/css-parser-algorithms": "^2.6.3"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-gamut-mapping_1.0.9_1714857483655_0.6461988299187982",
+				"host": "s3://npm-registry-packages"
+			}
 		},
-		"1.0.9": {
+		"1.0.10": {
 			"name": "@csstools/postcss-gamut-mapping",
 			"description": "Gamut map css colors to fit display specific gamuts",
-			"version": "1.0.9",
+			"version": "1.0.10",
 			"contributors": [
 				{
 					"name": "Antonio Laguna",
@@ -1101,13 +1217,14 @@
 				}
 			},
 			"dependencies": {
-				"@csstools/css-color-parser": "^2.0.2",
-				"@csstools/css-parser-algorithms": "^2.6.3",
-				"@csstools/css-tokenizer": "^2.3.1"
+				"@csstools/css-color-parser": "^2.0.3",
+				"@csstools/css-parser-algorithms": "^2.7.0",
+				"@csstools/css-tokenizer": "^2.3.2"
 			},
 			"peerDependencies": {
 				"postcss": "^8.4"
 			},
+			"scripts": {},
 			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
 			"repository": {
 				"type": "git",
@@ -1129,21 +1246,21 @@
 				"srgb",
 				"wide gamut"
 			],
-			"_id": "@csstools/postcss-gamut-mapping@1.0.9",
-			"gitHead": "ced5e58634cd565dc6970d9972b5ce26a18ad5bd",
+			"_id": "@csstools/postcss-gamut-mapping@1.0.10",
+			"gitHead": "abeba6bc7b925749ca86d908d7d9ed218ee24edc",
 			"types": "./dist/index.d.ts",
-			"_nodeVersion": "22.0.0",
-			"_npmVersion": "10.5.1",
+			"_nodeVersion": "22.1.0",
+			"_npmVersion": "10.7.0",
 			"dist": {
-				"integrity": "sha512-JmOeiBJj1RJriAkr+aLBaiYUpEqdNOIo3ERQ5a4uNzy18upzrQ6tz7m2Vt1GQpJ62zQj7rC5PjAhCoZCoyE31g==",
-				"shasum": "40358dff1e9be784a99a0925c3062c841fc1b001",
-				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.9.tgz",
+				"integrity": "sha512-iPz4/cO8YiNjAYdtAiKGBdKZdFlAvDtUr2AgvAMxCa83e9MwTIKmsJZC3Frw7VYmkfknmdElEZr1FJU+PmB2PA==",
+				"shasum": "662e067965611d6c04e98ef4716736261c43fa8b",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-gamut-mapping/-/postcss-gamut-mapping-1.0.10.tgz",
 				"fileCount": 7,
-				"unpackedSize": 12580,
+				"unpackedSize": 13085,
 				"signatures": [
 					{
 						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEYCIQDuisCw9U53u1RHpexoga0O5ic9/0WAMjz0jZ8jHEGhCgIhAM/jm9fQsKABc74kD4WZGGw4Hy0joKqiYH6lrzDmEGCM"
+						"sig": "MEQCIFEcT9hnO6QyzbQH3DXI8a5O7blKnlahGfgR/+9jbus9AiAjEeuYtikpNE+c5Sly1DHacWOaRRzZLYJgVeLStfUOlA=="
 					}
 				]
 			},
@@ -1152,31 +1269,17 @@
 				"email": "romainmenke@gmail.com"
 			},
 			"directories": {},
-			"maintainers": [
-				{
-					"name": "romainmenke",
-					"email": "romainmenke@gmail.com"
-				},
-				{
-					"name": "alaguna",
-					"email": "sombragriselros@gmail.com"
-				},
-				{
-					"name": "jonathantneal",
-					"email": "jonathantneal@hotmail.com"
-				}
-			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-gamut-mapping_1.0.9_1714857483655_0.6461988299187982"
+				"tmp": "tmp/postcss-gamut-mapping_1.0.10_1719698457037_0.48506557528096894"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-10-09T17:32:16.286Z",
+		"modified": "2024-06-29T22:00:57.394Z",
 		"1.0.0": "2023-10-09T17:32:16.570Z",
-		"modified": "2024-05-04T21:18:04.056Z",
 		"1.0.1": "2023-12-15T23:26:19.420Z",
 		"1.0.2": "2023-12-31T16:37:28.283Z",
 		"1.0.3": "2024-02-19T08:11:38.526Z",
@@ -1185,7 +1288,8 @@
 		"1.0.6": "2024-03-31T13:21:31.506Z",
 		"1.0.7": "2024-04-21T14:27:41.155Z",
 		"1.0.8": "2024-05-04T16:09:41.997Z",
-		"1.0.9": "2024-05-04T21:18:03.813Z"
+		"1.0.9": "2024-05-04T21:18:03.813Z",
+		"1.0.10": "2024-06-29T22:00:57.185Z"
 	},
 	"maintainers": [
 		{
@@ -1201,8 +1305,11 @@
 			"email": "jonathantneal@hotmail.com"
 		}
 	],
-	"description": "Gamut map css colors to fit display specific gamuts",
-	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugins/postcss-gamut-mapping"
+	},
 	"keywords": [
 		"color",
 		"css",
@@ -1215,11 +1322,13 @@
 		"srgb",
 		"wide gamut"
 	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/csstools/postcss-plugins.git",
-		"directory": "plugins/postcss-gamut-mapping"
+	"license": "MIT-0",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping#readme",
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
 	},
+	"readme": "# PostCSS Gamut Mapping [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-gamut-mapping.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]<br><br>[<img alt=\"Baseline Status\" src=\"https://cssdb.org/images/badges-baseline/gamut-mapping.svg\" height=\"20\">][css-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/gamut-mapping.svg\" height=\"20\">][css-url] \n\n```bash\nnpm install @csstools/postcss-gamut-mapping --save-dev\n```\n\n[PostCSS Gamut Mapping] lets you use wide gamut colors with gamut mapping for specific displays following the [CSS Color 4 Specification].\n\nWhen out of gamut colors are naively clipped the result can be radically different.  \nA saturated and bright color will be much darker after clipping.\n\nTo correctly adjust colors for a narrow gamut display, the colors must be mapped.  \nThis is done by lowering the `chroma` in `oklch` until the color is in gamut.  \n\nUsing the `@media (color-gamut)` media feature makes it possible to only use the wide gamut colors on displays that support them.\n\n```pcss\np {\n\tbackground-color: oklch(80% 0.05 0.39 / 0.5);\n\tcolor: oklch(20% 0.234 0.39 / 0.5);\n\tborder-color: color(display-p3 0 1 0);\n}\n\n/* becomes */\n\np {\n\tbackground-color: oklch(80% 0.05 0.39 / 0.5);\n\tcolor: rgba(48, 0, 20, 0.5);\n\tborder-color: rgb(0, 247, 79);\n}\n\n@media (color-gamut: rec2020) {\np {\n\tcolor: oklch(20% 0.234 0.39 / 0.5);\n}\n}\n\n@media (color-gamut: p3) {\np {\n\tborder-color: color(display-p3 0 1 0);\n}\n}\n```\n\n## Usage\n\nAdd [PostCSS Gamut Mapping] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-gamut-mapping --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGamutMapping = require('@csstools/postcss-gamut-mapping');\n\npostcss([\n\tpostcssGamutMapping(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gamut Mapping] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#gamut-mapping\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-gamut-mapping\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Gamut Mapping]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping\n[CSS Color 4 Specification]: https://www.w3.org/TR/css-color-4/#gamut-mapping\n",
+	"readmeFilename": "README.md",
 	"contributors": [
 		{
 			"name": "Antonio Laguna",
@@ -1231,11 +1340,5 @@
 			"email": "romainmenke@gmail.com"
 		}
 	],
-	"bugs": {
-		"url": "https://github.com/csstools/postcss-plugins/issues"
-	},
-	"license": "MIT-0",
-	"readme": "# PostCSS Gamut Mapping [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-gamut-mapping.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]<br><br>[<img alt=\"Baseline Status\" src=\"https://cssdb.org/images/badges-baseline/gamut-mapping.svg\" height=\"20\">][css-url] [<img alt=\"CSS Standard Status\" src=\"https://cssdb.org/images/badges/gamut-mapping.svg\" height=\"20\">][css-url] \n\n```bash\nnpm install @csstools/postcss-gamut-mapping --save-dev\n```\n\n[PostCSS Gamut Mapping] lets you use wide gamut colors with gamut mapping for specific displays following the [CSS Color 4 Specification].\n\nWhen out of gamut colors are naively clipped the result can be radically different.  \nA saturated and bright color will be much darker after clipping.\n\nTo correctly adjust colors for a narrow gamut display, the colors must be mapped.  \nThis is done by lowering the `chroma` in `oklch` until the color is in gamut.  \n\nUsing the `@media (color-gamut)` media feature makes it possible to only use the wide gamut colors on displays that support them.\n\n```pcss\np {\n\tbackground-color: oklch(80% 0.05 0.39 / 0.5);\n\tcolor: oklch(20% 0.234 0.39 / 0.5);\n\tborder-color: color(display-p3 0 1 0);\n}\n\n/* becomes */\n\np {\n\tbackground-color: oklch(80% 0.05 0.39 / 0.5);\n\tcolor: rgba(48, 0, 20, 0.5);\n\tborder-color: rgb(0, 247, 79);\n}\n\n@media (color-gamut: rec2020) {\np {\n\tcolor: oklch(20% 0.234 0.39 / 0.5);\n}\n}\n\n@media (color-gamut: p3) {\np {\n\tborder-color: color(display-p3 0 1 0);\n}\n}\n```\n\n## Usage\n\nAdd [PostCSS Gamut Mapping] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-gamut-mapping --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssGamutMapping = require('@csstools/postcss-gamut-mapping');\n\npostcss([\n\tpostcssGamutMapping(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Gamut Mapping] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#gamut-mapping\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-gamut-mapping\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Gamut Mapping]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-gamut-mapping\n[CSS Color 4 Specification]: https://www.w3.org/TR/css-color-4/#gamut-mapping\n",
-	"readmeFilename": "README.md",
-	"_downloads": 3027446
+	"_downloads": 2998595
 }
