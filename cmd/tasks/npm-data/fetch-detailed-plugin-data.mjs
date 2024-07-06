@@ -35,7 +35,7 @@ async function fetchDetailedDataForOnePlugin(plugin, forced, index, total) {
 
 export async function fetchDetailedPluginData() {
 	const fetched = new Set();
-	const limit = 500;
+	const limit = 100;
 
 	{
 		let counter = 0;
