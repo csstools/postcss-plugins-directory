@@ -41,7 +41,7 @@ export async function listPluginsByQuery(query, excluded = new Set()) {
 			plugin.package.keywords?.some((keyword) => ignoredKeywords.includes(keyword))
 		) {
 			if (!ignoredScopedSet.has(plugin.package.scope)) {
-				console.log(plugin.package.scope);
+				console.log(plugin.package.scope, plugin.package.name);
 				ignoredScopedSet.add(plugin.package.scope);
 			}
 			return true;
