@@ -1,10 +1,9 @@
 {
 	"_id": "@csstools/postcss-bundler",
-	"_rev": "23-576668b4eb4c7e5c46c0b17900c708e4",
+	"_rev": "24-100f04a9a4cda225595e57ccf60c034d",
 	"name": "@csstools/postcss-bundler",
-	"description": "Bundle CSS",
 	"dist-tags": {
-		"latest": "1.0.15"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"0.1.0-alpha.0": {
@@ -191,7 +190,6 @@
 				"extends": "../../package.json"
 			},
 			"module": "dist/index.mjs",
-			"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-bundler.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Bundler] bundles your CSS without changing the way you write CSS.\n\nThis plugin pack contains : \n- A ported and heavily modified version of [`postcss-import`](https://github.com/postcss/postcss-import)\n- [`@csstools/postcss-rebase-url`](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url)\n\nIt configures these plugins so that the default behavior is very similar to native CSS.\n\n```pcss\n/* examples/example.css */\n@import url(\"imports/basic.css\");\n@import url(\"npm:open-props/red\");\n\n/* examples/imports/basic.css */\n.foo {\n\tbackground: url('../../images/green.png');\n}\n\n/* becomes */\n\n/* examples/example.expect.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Bundler] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
 			"engines": {
 				"node": "^14 || ^16 || >=18"
 			},
@@ -318,7 +316,6 @@
 				"extends": "../../package.json"
 			},
 			"module": "dist/index.mjs",
-			"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-bundler.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Bundler] bundles your CSS without changing the way you write CSS.\n\nThis plugin pack contains : \n- A ported and heavily modified version of [`postcss-import`](https://github.com/postcss/postcss-import)\n- [`@csstools/postcss-rebase-url`](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url)\n\nIt configures these plugins so that the default behavior is very similar to native CSS.\n\n```pcss\n/* examples/example.css */\n@import url(\"imports/basic.css\");\n@import url(\"node_modules:open-props/red\");\n\n/* examples/imports/basic.css */\n.foo {\n\tbackground: url('../../images/green.png');\n}\n\n/* becomes */\n\n/* examples/example.expect.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Bundler] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
 			"engines": {
 				"node": "^14 || ^16 || >=18"
 			},
@@ -445,7 +442,6 @@
 				"extends": "../../package.json"
 			},
 			"module": "dist/index.mjs",
-			"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-bundler.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Bundler] bundles your CSS without changing the way you write CSS.\n\nThis plugin pack contains : \n- A ported and heavily modified version of [`postcss-import`](https://github.com/postcss/postcss-import)\n- [`@csstools/postcss-rebase-url`](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url)\n\nIt configures these plugins so that the default behavior is very similar to native CSS.\n\n```pcss\n/* examples/example.css */\n@import url(\"imports/basic.css\");\n@import url(\"node_modules:open-props/red\");\n\n/* examples/imports/basic.css */\n.foo {\n\tbackground: url('../../images/green.png');\n}\n\n/* becomes */\n\n/* examples/example.expect.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Bundler] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
 			"engines": {
 				"node": "^14 || ^16 || >=18"
 			},
@@ -572,7 +568,6 @@
 				"extends": "../../package.json"
 			},
 			"module": "dist/index.mjs",
-			"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-bundler.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Bundler] bundles your CSS without changing the way you write CSS.\n\nThis plugin pack contains : \n- A ported and heavily modified version of [`postcss-import`](https://github.com/postcss/postcss-import)\n- [`@csstools/postcss-rebase-url`](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url)\n\nIt configures these plugins so that the default behavior is very similar to native CSS.\n\n```pcss\n/* examples/example.css */\n@import url(\"imports/basic.css\");\n@import url(\"node_modules:open-props/red\");\n\n/* examples/imports/basic.css */\n.foo {\n\tbackground: url('../../images/green.png');\n}\n\n/* becomes */\n\n/* examples/example.expect.css */\n/* imports/basic.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}\n/* node_modules:open-props/red */\n:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Bundler] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
 			"engines": {
 				"node": "^14 || ^16 || >=18"
 			},
@@ -699,7 +694,6 @@
 				"extends": "../../package.json"
 			},
 			"module": "dist/index.mjs",
-			"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-bundler.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Bundler] bundles your CSS without changing the way you write CSS.\n\nThis plugin pack contains :\n- a bundler based on standard CSS `@import` statements.\n- a rebaser that rewrites URLs in your CSS.\n\nGoal and focus :\n- if your CSS works without bundling it **should** work with [PostCSS Bundler]\n- if your CSS works as a bundle it **must** work without bundling\n\n`examples/example.css` :\n```pcss\n@import url(\"imports/basic.css\");\n@import url(\"node_modules:open-props/red\");\n```\n\n`examples/imports/basic.css`:\n```pcss\n.foo {\n\tbackground: url('../../images/green.png');\n}\n```\n\nwhen bundled :\n```pcss\n/* imports/basic.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}\n/* node_modules:open-props/red */\n:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Bundler] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## `postcss-import`\n\n[`postcss-import`](https://github.com/postcss/postcss-import) is also a CSS bundler and parts of [PostCSS Bundler] are based on it.  \nWhile creating this plugin we also submitted patches to [`postcss-import`](https://github.com/postcss/postcss-import) where possible.  \n\n[PostCSS Bundler] is tuned differently and lacks configuration options that are present in [`postcss-import`](https://github.com/postcss/postcss-import).\n\n[PostCSS Bundler] is intended to just work and to be a drop-in replacement for native CSS `@import` statements.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
 			"engines": {
 				"node": "^14 || ^16 || >=18"
 			},
@@ -827,7 +821,6 @@
 				"extends": "../../package.json"
 			},
 			"module": "dist/index.mjs",
-			"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-bundler.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n[PostCSS Bundler] bundles your CSS without changing the way you write CSS.\n\nThis plugin pack contains :\n- a bundler based on standard CSS `@import` statements.\n- a rebaser that rewrites URLs in your CSS.\n\nGoal and focus :\n- if your CSS works without bundling it **should** work with [PostCSS Bundler]\n- if your CSS works as a bundle it **must** work without bundling\n\n`examples/example.css` :\n```pcss\n@import url(\"imports/basic.css\");\n@import url(\"node_modules:open-props/red\");\n```\n\n`examples/imports/basic.css`:\n```pcss\n.foo {\n\tbackground: url('../../images/green.png');\n}\n```\n\nwhen bundled :\n```pcss\n/* imports/basic.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}\n/* node_modules:open-props/red */\n:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Bundler] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## `postcss-import`\n\n[`postcss-import`](https://github.com/postcss/postcss-import) is also a CSS bundler and parts of [PostCSS Bundler] are based on it.  \nWhile creating this plugin we also submitted patches to [`postcss-import`](https://github.com/postcss/postcss-import) where possible.  \n\n[PostCSS Bundler] is tuned differently and lacks configuration options that are present in [`postcss-import`](https://github.com/postcss/postcss-import).\n\n[PostCSS Bundler] is intended to just work and to be a drop-in replacement for native CSS `@import` statements.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
 			"engines": {
 				"node": "^14 || ^16 || >=18"
 			},
@@ -2658,8 +2651,118 @@
 		},
 		"1.0.15": {
 			"name": "@csstools/postcss-bundler",
-			"description": "Bundle CSS",
 			"version": "1.0.15",
+			"keywords": [
+				"bundler",
+				"import",
+				"postcss-plugin",
+				"url"
+			],
+			"license": "MIT-0",
+			"_id": "@csstools/postcss-bundler@1.0.15",
+			"maintainers": [
+				{
+					"name": "romainmenke",
+					"email": "romainmenke@gmail.com"
+				},
+				{
+					"name": "alaguna",
+					"email": "sombragriselros@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				}
+			],
+			"contributors": [
+				{
+					"url": "https://antonio.laguna.es",
+					"name": "Antonio Laguna",
+					"email": "antonio@laguna.es"
+				},
+				{
+					"name": "Romain Menke",
+					"email": "romainmenke@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler#readme",
+			"bugs": {
+				"url": "https://github.com/csstools/postcss-plugins/issues"
+			},
+			"dist": {
+				"shasum": "4dbafad0c69cfce5293c16533c67a8ac3ce7c3e6",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-bundler/-/postcss-bundler-1.0.15.tgz",
+				"fileCount": 7,
+				"integrity": "sha512-cDeDnVOX+khvy0vp8zqMLW0Yja51pHBT14se4c1WI0jgLVqihBU363qK8APeHQCJqTUCln0z9MeY/6m7lWaDug==",
+				"signatures": [
+					{
+						"sig": "MEUCIDDD5C9fxzTD1y9HIBNh+P1hXb3vHoXTHy+pgv/Ns4KrAiEA2h7ogiLk6eKBnwjgVFVgu5AB7uN41yqaknEC2TAoADw=",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 28642
+			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "dist/index.mjs",
+			"engines": {
+				"node": "^14 || ^16 || >=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.mjs"
+					},
+					"require": {
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"funding": [
+				{
+					"url": "https://github.com/sponsors/csstools",
+					"type": "github"
+				},
+				{
+					"url": "https://opencollective.com/csstools",
+					"type": "opencollective"
+				}
+			],
+			"gitHead": "2a3e68955b015938e17db16c7fe1b3d1301b678e",
+			"scripts": {},
+			"_npmUser": {
+				"name": "romainmenke",
+				"email": "romainmenke@gmail.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/csstools/postcss-plugins.git",
+				"type": "git",
+				"directory": "plugin-packs/postcss-bundler"
+			},
+			"_npmVersion": "10.7.0",
+			"description": "Bundle CSS",
+			"directories": {},
+			"_nodeVersion": "22.1.0",
+			"dependencies": {
+				"@csstools/css-tokenizer": "^2.4.1",
+				"@csstools/postcss-rebase-url": "^1.0.11",
+				"@csstools/css-parser-algorithms": "^2.7.1"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-bundler_1.0.15_1720258732461_0.23256460719255911",
+				"host": "s3://npm-registry-packages"
+			}
+		},
+		"2.0.0": {
+			"name": "@csstools/postcss-bundler",
+			"description": "Bundle CSS",
+			"version": "2.0.0",
 			"contributors": [
 				{
 					"name": "Antonio Laguna",
@@ -2683,7 +2786,7 @@
 				}
 			],
 			"engines": {
-				"node": "^14 || ^16 || >=18"
+				"node": ">=18"
 			},
 			"type": "module",
 			"main": "dist/index.cjs",
@@ -2700,9 +2803,9 @@
 				}
 			},
 			"dependencies": {
-				"@csstools/css-parser-algorithms": "^2.7.1",
-				"@csstools/css-tokenizer": "^2.4.1",
-				"@csstools/postcss-rebase-url": "^1.0.11"
+				"@csstools/css-parser-algorithms": "^3.0.0",
+				"@csstools/css-tokenizer": "^3.0.0",
+				"@csstools/postcss-rebase-url": "^2.0.0"
 			},
 			"peerDependencies": {
 				"postcss": "^8.4"
@@ -2723,21 +2826,21 @@
 				"postcss-plugin",
 				"url"
 			],
-			"_id": "@csstools/postcss-bundler@1.0.15",
-			"gitHead": "2a3e68955b015938e17db16c7fe1b3d1301b678e",
+			"_id": "@csstools/postcss-bundler@2.0.0",
+			"gitHead": "5834a6e7564ea3fd0696e3743b52044c1d738242",
 			"types": "./dist/index.d.ts",
 			"_nodeVersion": "22.1.0",
 			"_npmVersion": "10.7.0",
 			"dist": {
-				"integrity": "sha512-cDeDnVOX+khvy0vp8zqMLW0Yja51pHBT14se4c1WI0jgLVqihBU363qK8APeHQCJqTUCln0z9MeY/6m7lWaDug==",
-				"shasum": "4dbafad0c69cfce5293c16533c67a8ac3ce7c3e6",
-				"tarball": "https://registry.npmjs.org/@csstools/postcss-bundler/-/postcss-bundler-1.0.15.tgz",
+				"integrity": "sha512-6alD8baQgJMXWsyVuFooOsC/EkNdduOmtBC9SNzZ4qWnpo1HS+v4sZKwpP8c1YhLROh35eCJ0OGurViScr6fJA==",
+				"shasum": "93e852b677fb2c90293ad028b5249e7e03bb5a09",
+				"tarball": "https://registry.npmjs.org/@csstools/postcss-bundler/-/postcss-bundler-2.0.0.tgz",
 				"fileCount": 7,
-				"unpackedSize": 28642,
+				"unpackedSize": 26500,
 				"signatures": [
 					{
 						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEUCIDDD5C9fxzTD1y9HIBNh+P1hXb3vHoXTHy+pgv/Ns4KrAiEA2h7ogiLk6eKBnwjgVFVgu5AB7uN41yqaknEC2TAoADw="
+						"sig": "MEQCIBHwXYCO0SVsLqKY0xSJJZTbNmJ0V3TtR92qoD9YWs9jAiAxySii5CRfeoS82C3ibP6z4hFrZEvVbREiyO93JNE6Bg=="
 					}
 				]
 			},
@@ -2762,14 +2865,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-bundler_1.0.15_1720258732461_0.23256460719255911"
+				"tmp": "tmp/postcss-bundler_2.0.0_1722721389365_0.15798963481940054"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-08-14T16:16:57.385Z",
-		"modified": "2024-07-06T09:38:52.791Z",
+		"modified": "2024-08-03T21:43:09.726Z",
 		"0.1.0-alpha.0": "2023-08-14T16:16:57.633Z",
 		"0.1.0-alpha.1": "2023-08-14T16:40:21.199Z",
 		"0.1.0-alpha.2": "2023-08-14T17:02:59.563Z",
@@ -2792,8 +2895,37 @@
 		"1.0.12": "2024-05-04T16:08:40.637Z",
 		"1.0.13": "2024-05-04T21:15:57.087Z",
 		"1.0.14": "2024-06-29T22:00:16.354Z",
-		"1.0.15": "2024-07-06T09:38:52.589Z"
+		"1.0.15": "2024-07-06T09:38:52.589Z",
+		"2.0.0": "2024-08-03T21:43:09.517Z"
 	},
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-plugins/issues"
+	},
+	"license": "MIT-0",
+	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler#readme",
+	"keywords": [
+		"bundler",
+		"import",
+		"postcss-plugin",
+		"url"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csstools/postcss-plugins.git",
+		"directory": "plugin-packs/postcss-bundler"
+	},
+	"description": "Bundle CSS",
+	"contributors": [
+		{
+			"name": "Antonio Laguna",
+			"email": "antonio@laguna.es",
+			"url": "https://antonio.laguna.es"
+		},
+		{
+			"name": "Romain Menke",
+			"email": "romainmenke@gmail.com"
+		}
+	],
 	"maintainers": [
 		{
 			"name": "romainmenke",
@@ -2808,34 +2940,7 @@
 			"email": "jonathantneal@hotmail.com"
 		}
 	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/csstools/postcss-plugins.git",
-		"directory": "plugin-packs/postcss-bundler"
-	},
-	"keywords": [
-		"bundler",
-		"import",
-		"postcss-plugin",
-		"url"
-	],
-	"license": "MIT-0",
-	"homepage": "https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler#readme",
-	"bugs": {
-		"url": "https://github.com/csstools/postcss-plugins/issues"
-	},
-	"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[<img alt=\"npm version\" src=\"https://img.shields.io/npm/v/@csstools/postcss-bundler.svg\" height=\"20\">][npm-url] [<img alt=\"Build Status\" src=\"https://github.com/csstools/postcss-plugins/workflows/test/badge.svg\" height=\"20\">][cli-url] [<img alt=\"Discord\" src=\"https://shields.io/badge/Discord-5865F2?logo=discord&logoColor=white\">][discord]\n\n```bash\nnpm install @csstools/postcss-bundler --save-dev\n```\n\n[PostCSS Bundler] bundles your CSS.\n\nThis plugin pack contains :\n- a bundler based on standard CSS `@import` statements.\n- [a rebaser that rewrites URLs in your CSS.](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url)\n\n`examples/example.css` :\n```pcss\n@import url(\"imports/basic.css\");\n@import url(\"node_modules:open-props/red\");\n```\n\n`examples/imports/basic.css`:\n```pcss\n.foo {\n\tbackground: url('../../images/green.png');\n}\n```\n\nwhen bundled :\n```pcss\n/* imports/basic.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}\n/* node_modules:open-props/red */\n:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n[PostCSS Bundler] runs in all Node environments, with special\ninstructions for:\n\n- [Node](INSTALL.md#node)\n- [PostCSS CLI](INSTALL.md#postcss-cli)\n- [PostCSS Load Config](INSTALL.md#postcss-load-config)\n- [Webpack](INSTALL.md#webpack)\n- [Next.js](INSTALL.md#nextjs)\n- [Gulp](INSTALL.md#gulp)\n- [Grunt](INSTALL.md#grunt)\n\n## `postcss-import`\n\n[`postcss-import`](https://github.com/postcss/postcss-import) is also a CSS bundler and parts of [PostCSS Bundler] are based on it.  \nWhile creating this plugin we also submitted patches to [`postcss-import`](https://github.com/postcss/postcss-import) where possible.  \n\n[PostCSS Bundler] is tuned differently and lacks configuration options that are present in [`postcss-import`](https://github.com/postcss/postcss-import).\n\n[PostCSS Bundler] is intended to just work and to be a drop-in replacement for native CSS `@import` statements.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
+	"readme": "# PostCSS Bundler [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n`npm install @csstools/postcss-bundler --save-dev`\n\n[PostCSS Bundler] bundles your CSS.\n\nThis plugin pack contains :\n- a bundler based on standard CSS `@import` statements.\n- [a rebaser that rewrites URLs in your CSS.](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-rebase-url)\n\n`examples/example.css` :\n```pcss\n@import url(\"imports/basic.css\");\n@import url(\"node_modules:open-props/red\");\n```\n\n`examples/imports/basic.css`:\n```pcss\n.foo {\n\tbackground: url('../../images/green.png');\n}\n```\n\nwhen bundled :\n```pcss\n/* imports/basic.css */\n.foo {\n\tbackground: url(\"../images/green.png\");\n}\n/* node_modules:open-props/red */\n:where(html){--red-0:#fff5f5;--red-1:#ffe3e3;--red-2:#ffc9c9;--red-3:#ffa8a8;--red-4:#ff8787;--red-5:#ff6b6b;--red-6:#fa5252;--red-7:#f03e3e;--red-8:#e03131;--red-9:#c92a2a;--red-10:#b02525;--red-11:#962020;--red-12:#7d1a1a}\n```\n\n## Usage\n\nAdd [PostCSS Bundler] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-bundler --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBundler = require('@csstools/postcss-bundler');\n\npostcss([\n\tpostcssBundler(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n\n\n## `postcss-import`\n\n[`postcss-import`](https://github.com/postcss/postcss-import) is also a CSS bundler and parts of [PostCSS Bundler] are based on it.  \nWhile creating this plugin we also submitted patches to [`postcss-import`](https://github.com/postcss/postcss-import) where possible.  \n\n[PostCSS Bundler] is tuned differently and lacks configuration options that are present in [`postcss-import`](https://github.com/postcss/postcss-import).\n\n[PostCSS Bundler] is intended to just work and to be a drop-in replacement for native CSS `@import` statements.\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-bundler\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Bundler]: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-bundler\n",
 	"readmeFilename": "README.md",
-	"contributors": [
-		{
-			"name": "Antonio Laguna",
-			"email": "antonio@laguna.es",
-			"url": "https://antonio.laguna.es"
-		},
-		{
-			"name": "Romain Menke",
-			"email": "romainmenke@gmail.com"
-		}
-	],
-	"_downloads": 3125
+	"_downloads": 3148
 }
