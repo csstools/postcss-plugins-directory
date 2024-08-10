@@ -1,14 +1,18 @@
 {
 	"name": "@eik/postcss-plugin",
-	"version": "4.0.0",
+	"version": "4.0.1",
 	"description": "PostCSS plugin that uses Eik defined import map files to transform bare import specifiers to absolute URLs in @import rules",
 	"main": "src/plugin.js",
+	"types": "./types/plugin.d.ts",
 	"type": "module",
 	"scripts": {
 		"test": "tap test/*.js --disable-coverage --allow-empty-coverage",
 		"test:snapshot": "TAP_SNAPSHOT=1 tap test/*.js --disable-coverage --allow-empty-coverage",
 		"lint": "eslint .",
-		"lint:fix": "eslint . --fix"
+		"lint:fix": "eslint . --fix",
+		"types": "run-s types:module types:test",
+		"types:module": "tsc",
+		"types:test": "tsc --project tsconfig.test.json"
 	},
 	"repository": {
 		"type": "git",
@@ -30,44 +34,41 @@
 	},
 	"homepage": "https://github.com/eik-lib/postcss-import-map#readme",
 	"devDependencies": {
-		"@semantic-release/changelog": "6.0.3",
-		"@semantic-release/commit-analyzer": "13.0.0",
-		"@semantic-release/git": "10.0.1",
-		"@semantic-release/github": "10.1.3",
-		"@semantic-release/npm": "12.0.1",
-		"@semantic-release/release-notes-generator": "14.0.1",
+		"@eik/eslint-config": "1.0.2",
+		"@eik/prettier-config": "1.0.1",
+		"@eik/semantic-release-config": "1.0.0",
+		"@eik/typescript-config": "1.0.0",
 		"eslint": "9.8.0",
-		"eslint-config-prettier": "9.1.0",
-		"eslint-plugin-prettier": "5.2.1",
 		"fastify": "4.28.1",
-		"globals": "15.8.0",
+		"npm-run-all": "4.1.5",
 		"postcss": "8.4.40",
-		"rollup": "4.19.1",
-		"semantic-release": "24.0.0",
 		"prettier": "3.3.3",
-		"tap": "20.0.3"
+		"rollup": "4.20.0",
+		"semantic-release": "24.0.0",
+		"tap": "20.0.3",
+		"typescript": "5.5.4"
 	},
 	"dependencies": {
-		"@eik/common-config-loader": "4.0.0-next.12",
+		"@eik/common": "4.0.7",
 		"css-url-parser": "1.1.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.0.0"
 	},
-	"_id": "@eik/postcss-plugin@4.0.0",
-	"gitHead": "663642c9868b49a930933857a0a2b2e6d144eef1",
-	"_nodeVersion": "20.15.1",
+	"_id": "@eik/postcss-plugin@4.0.1",
+	"gitHead": "260b7c0de81e64fca9447bc25e8906aa121e9b0c",
+	"_nodeVersion": "20.16.0",
 	"_npmVersion": "10.8.2",
 	"dist": {
-		"integrity": "sha512-FXcULZkg29zMu771Zq6EX4eyzyZVICPiGIHzZLb9XeGtdNWOF1oF2TZf/+ssf8PegLpUiSVGGc4+b0FGhMvm+Q==",
-		"shasum": "7a10ad8f0449277a61a6aff6b9e53d97503ce1dd",
-		"tarball": "https://registry.npmjs.org/@eik/postcss-plugin/-/postcss-plugin-4.0.0.tgz",
-		"fileCount": 5,
-		"unpackedSize": 21855,
+		"integrity": "sha512-lfhNl2lDgMRhHbtJdsNOwqym1o/ptWMPab+sNcPiceH27SVTHwVb4XnaK5pbSrPcv1x3VKn1oqreqDndvWWhqg==",
+		"shasum": "37e12a5e7e3281d861d3a6fe92a87f06f4eb16ca",
+		"tarball": "https://registry.npmjs.org/@eik/postcss-plugin/-/postcss-plugin-4.0.1.tgz",
+		"fileCount": 6,
+		"unpackedSize": 23040,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIHS0t/WoM8KwbnbhgyQ4/TWsUdMo6xhFd5bMmA0qEQyvAiAzhvdiFA+qr3X8BSnmmWZ4icJ+3EEanSqbPFhO8NJsZA=="
+				"sig": "MEQCIHcYIujcM21mczvFW3V/5iGwurPeKHmXnj30GyLJBTv2AiBoRrUae+rANOaGGhOpMHyXMseBNO+bm2axFvb9tWz8Xw=="
 			}
 		]
 	},
@@ -96,8 +97,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-plugin_4.0.0_1722259089830_0.7937310738631549"
+		"tmp": "tmp/postcss-plugin_4.0.1_1723199057147_0.2500992519584928"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2024-07-29T13:18:10.023Z"
+	"_time": "2024-08-09T10:24:17.318Z"
 }

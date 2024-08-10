@@ -1,10 +1,10 @@
 {
 	"_id": "@eik/postcss-plugin",
-	"_rev": "20-5e9edb437c7faeefb3686952ec0f0a62",
+	"_rev": "21-c326328c52eae90a0b002e911ca0703c",
 	"name": "@eik/postcss-plugin",
 	"dist-tags": {
 		"next": "3.0.0-next.2",
-		"latest": "4.0.0"
+		"latest": "4.0.1"
 	},
 	"versions": {
 		"2.0.4": {
@@ -1917,14 +1917,120 @@
 		"4.0.0": {
 			"name": "@eik/postcss-plugin",
 			"version": "4.0.0",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"import",
+				"url"
+			],
+			"author": {
+				"name": "Finn.no"
+			},
+			"license": "MIT",
+			"_id": "@eik/postcss-plugin@4.0.0",
+			"maintainers": [
+				{
+					"name": "trygve-lie",
+					"email": "post@trygve-lie.com"
+				},
+				{
+					"name": "digitalsadhu",
+					"email": "digitalsadhu@gmail.com"
+				},
+				{
+					"name": "trygve-bot",
+					"email": "trygvelie74@gmail.com"
+				},
+				{
+					"name": "stipsan",
+					"email": "stipsan@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/eik-lib/postcss-import-map#readme",
+			"bugs": {
+				"url": "https://github.com/eik-lib/postcss-import-map/issues"
+			},
+			"dist": {
+				"shasum": "7a10ad8f0449277a61a6aff6b9e53d97503ce1dd",
+				"tarball": "https://registry.npmjs.org/@eik/postcss-plugin/-/postcss-plugin-4.0.0.tgz",
+				"fileCount": 5,
+				"integrity": "sha512-FXcULZkg29zMu771Zq6EX4eyzyZVICPiGIHzZLb9XeGtdNWOF1oF2TZf/+ssf8PegLpUiSVGGc4+b0FGhMvm+Q==",
+				"signatures": [
+					{
+						"sig": "MEQCIHS0t/WoM8KwbnbhgyQ4/TWsUdMo6xhFd5bMmA0qEQyvAiAzhvdiFA+qr3X8BSnmmWZ4icJ+3EEanSqbPFhO8NJsZA==",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 21855
+			},
+			"main": "src/plugin.js",
+			"type": "module",
+			"gitHead": "663642c9868b49a930933857a0a2b2e6d144eef1",
+			"scripts": {
+				"lint": "eslint .",
+				"test": "tap test/*.js --disable-coverage --allow-empty-coverage",
+				"lint:fix": "eslint . --fix",
+				"test:snapshot": "TAP_SNAPSHOT=1 tap test/*.js --disable-coverage --allow-empty-coverage"
+			},
+			"_npmUser": {
+				"name": "trygve-bot",
+				"email": "trygvelie74@gmail.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/eik-lib/postcss-import-map.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.8.2",
+			"description": "PostCSS plugin that uses Eik defined import map files to transform bare import specifiers to absolute URLs in @import rules",
+			"directories": {},
+			"_nodeVersion": "20.15.1",
+			"dependencies": {
+				"css-url-parser": "1.1.3",
+				"@eik/common-config-loader": "4.0.0-next.12"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tap": "20.0.3",
+				"eslint": "9.8.0",
+				"rollup": "4.19.1",
+				"fastify": "4.28.1",
+				"globals": "15.8.0",
+				"postcss": "8.4.40",
+				"prettier": "3.3.3",
+				"semantic-release": "24.0.0",
+				"@semantic-release/git": "10.0.1",
+				"@semantic-release/npm": "12.0.1",
+				"eslint-config-prettier": "9.1.0",
+				"eslint-plugin-prettier": "5.2.1",
+				"@semantic-release/github": "10.1.3",
+				"@semantic-release/changelog": "6.0.3",
+				"@semantic-release/commit-analyzer": "13.0.0",
+				"@semantic-release/release-notes-generator": "14.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_4.0.0_1722259089830_0.7937310738631549",
+				"host": "s3://npm-registry-packages"
+			}
+		},
+		"4.0.1": {
+			"name": "@eik/postcss-plugin",
+			"version": "4.0.1",
 			"description": "PostCSS plugin that uses Eik defined import map files to transform bare import specifiers to absolute URLs in @import rules",
 			"main": "src/plugin.js",
+			"types": "./types/plugin.d.ts",
 			"type": "module",
 			"scripts": {
 				"test": "tap test/*.js --disable-coverage --allow-empty-coverage",
 				"test:snapshot": "TAP_SNAPSHOT=1 tap test/*.js --disable-coverage --allow-empty-coverage",
 				"lint": "eslint .",
-				"lint:fix": "eslint . --fix"
+				"lint:fix": "eslint . --fix",
+				"types": "run-s types:module types:test",
+				"types:module": "tsc",
+				"types:test": "tsc --project tsconfig.test.json"
 			},
 			"repository": {
 				"type": "git",
@@ -1946,44 +2052,41 @@
 			},
 			"homepage": "https://github.com/eik-lib/postcss-import-map#readme",
 			"devDependencies": {
-				"@semantic-release/changelog": "6.0.3",
-				"@semantic-release/commit-analyzer": "13.0.0",
-				"@semantic-release/git": "10.0.1",
-				"@semantic-release/github": "10.1.3",
-				"@semantic-release/npm": "12.0.1",
-				"@semantic-release/release-notes-generator": "14.0.1",
+				"@eik/eslint-config": "1.0.2",
+				"@eik/prettier-config": "1.0.1",
+				"@eik/semantic-release-config": "1.0.0",
+				"@eik/typescript-config": "1.0.0",
 				"eslint": "9.8.0",
-				"eslint-config-prettier": "9.1.0",
-				"eslint-plugin-prettier": "5.2.1",
 				"fastify": "4.28.1",
-				"globals": "15.8.0",
+				"npm-run-all": "4.1.5",
 				"postcss": "8.4.40",
-				"rollup": "4.19.1",
-				"semantic-release": "24.0.0",
 				"prettier": "3.3.3",
-				"tap": "20.0.3"
+				"rollup": "4.20.0",
+				"semantic-release": "24.0.0",
+				"tap": "20.0.3",
+				"typescript": "5.5.4"
 			},
 			"dependencies": {
-				"@eik/common-config-loader": "4.0.0-next.12",
+				"@eik/common": "4.0.7",
 				"css-url-parser": "1.1.3"
 			},
 			"peerDependencies": {
 				"postcss": "^8.0.0"
 			},
-			"_id": "@eik/postcss-plugin@4.0.0",
-			"gitHead": "663642c9868b49a930933857a0a2b2e6d144eef1",
-			"_nodeVersion": "20.15.1",
+			"_id": "@eik/postcss-plugin@4.0.1",
+			"gitHead": "260b7c0de81e64fca9447bc25e8906aa121e9b0c",
+			"_nodeVersion": "20.16.0",
 			"_npmVersion": "10.8.2",
 			"dist": {
-				"integrity": "sha512-FXcULZkg29zMu771Zq6EX4eyzyZVICPiGIHzZLb9XeGtdNWOF1oF2TZf/+ssf8PegLpUiSVGGc4+b0FGhMvm+Q==",
-				"shasum": "7a10ad8f0449277a61a6aff6b9e53d97503ce1dd",
-				"tarball": "https://registry.npmjs.org/@eik/postcss-plugin/-/postcss-plugin-4.0.0.tgz",
-				"fileCount": 5,
-				"unpackedSize": 21855,
+				"integrity": "sha512-lfhNl2lDgMRhHbtJdsNOwqym1o/ptWMPab+sNcPiceH27SVTHwVb4XnaK5pbSrPcv1x3VKn1oqreqDndvWWhqg==",
+				"shasum": "37e12a5e7e3281d861d3a6fe92a87f06f4eb16ca",
+				"tarball": "https://registry.npmjs.org/@eik/postcss-plugin/-/postcss-plugin-4.0.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 23040,
 				"signatures": [
 					{
 						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEQCIHS0t/WoM8KwbnbhgyQ4/TWsUdMo6xhFd5bMmA0qEQyvAiAzhvdiFA+qr3X8BSnmmWZ4icJ+3EEanSqbPFhO8NJsZA=="
+						"sig": "MEQCIHcYIujcM21mczvFW3V/5iGwurPeKHmXnj30GyLJBTv2AiBoRrUae+rANOaGGhOpMHyXMseBNO+bm2axFvb9tWz8Xw=="
 					}
 				]
 			},
@@ -2012,14 +2115,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-plugin_4.0.0_1722259089830_0.7937310738631549"
+				"tmp": "tmp/postcss-plugin_4.0.1_1723199057147_0.2500992519584928"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2021-02-18T20:28:27.015Z",
-		"modified": "2024-07-29T13:18:10.283Z",
+		"modified": "2024-08-09T10:24:17.524Z",
 		"2.0.4": "2021-02-18T20:28:27.355Z",
 		"3.0.0-next.1": "2021-02-18T20:34:56.664Z",
 		"3.0.0-next.2": "2021-03-02T13:11:45.552Z",
@@ -2038,7 +2141,8 @@
 		"3.0.12": "2023-08-19T00:49:08.251Z",
 		"3.0.13": "2023-08-23T23:50:27.504Z",
 		"3.0.14": "2024-03-06T15:05:33.794Z",
-		"4.0.0": "2024-07-29T13:18:10.023Z"
+		"4.0.0": "2024-07-29T13:18:10.023Z",
+		"4.0.1": "2024-08-09T10:24:17.318Z"
 	},
 	"bugs": {
 		"url": "https://github.com/eik-lib/postcss-import-map/issues"
@@ -2080,5 +2184,5 @@
 	],
 	"readme": "# @eik/postcss-plugin\n\nPostCSS [Eik](https://eik.dev/) plugin to support the use of import maps to map \"bare\" import specifiers in CSS @import rules.\n\n## Installation\n\n```bash\n$ npm install @eik/postcss-plugin\n```\n\n## Usage\n\n```js\nconst postcss = require('postcss');\nconst plugin = require('@eik/postcss-plugin');\nconst fs = require('fs');\n\n// CSS to be processed\nconst css = fs.readFileSync('css/input.css', 'utf8');\n\npostcss()\n    .use(plugin())\n    .process(css, {\n        // `from` option is needed here\n        from: 'css/input.css',\n    })\n    .then(function (result) {\n        console.log(result.css);\n    });\n```\n\n## Description\n\nThis plugin transforms \"bare\" import specifiers to absolute URL specifiers in\nCSS modules by applying an Import Map ahead of time.\n\nFor a more detailed description of Import Maps, please see our [Import Maps section](https://eik.dev/docs/mapping_import_map).\n\nThe main target for Import Maps is to map import statements in EcmaScript Modules but it can be applied to CSS import statements too.\n\nGiven the following CSS:\n\n```css\n@import 'normalize.css';\n\nbody {\n    background: black;\n}\n```\n\nwhen applaying the following Import Map:\n\n```json\n{\n    \"imports\": {\n        \"normalize.css\": \"https://cdn.eik.dev/normalize.css@8/normalize.css\"\n    }\n}\n```\n\none will get a transformed CSS like so:\n\n```css\n@import 'https://cdn.eik.dev/normalize.css@8/normalize.css';\n\nbody {\n    background: black;\n}\n```\n\n## Options\n\nThis plugin takes the following as options:\n\n| option | default         | type     | required | details                                                                       |\n| ------ | --------------- | -------- | -------- | ----------------------------------------------------------------------------- |\n| path   | `process.cwd()` | `string` | `false`  | Path to directory containing a eik.json file or package.json with eik config. |\n| urls   | `[]`            | `array`  | `false`  | Array of import map URLs to fetch from.                                       |\n| maps   | `[]`            | `array`  | `false`  | Array of import map as objects.                                               |\n\nThe plugin will attempt to read import map URLs from [`eik.json` or `package.json`](https://eik.dev/docs/overview_eik_json) files in the root of the current working directory if present.\n\n```js\npostcss()\n    .use(\n        plugin()\n    )\n    .process(css, {...})\n    .then(...);\n```\n\nThe path to the location of an `eik.json` file can be specified with the `path` option.\n\n```js\npostcss()\n    .use(\n        plugin({ path: '/path/to/eik-json-folder' })\n    )\n    .process(css, {...})\n    .then(...);\n```\n\nThe plugin can also be told which URLs to load import maps from directly using the `urls` option.\n\n```js\npostcss()\n    .use(\n        plugin({ urls: 'http://myserver/import-map' })\n    )\n    .process(css, {...})\n    .then(...);\n```\n\nAdditionally, individual mappings can be specified using the `maps` option.\n\n```js\npostcss()\n    .use(\n        plugin({\n            maps: [{\n                \"imports\": {\n                    \"normalize.css\": \"https://cdn.eik.dev/normalize.css@8/normalize.css\",\n                },\n            }],\n        })\n    )\n    .process(css, {...})\n    .then(...);\n```\n\n### Precedence\n\nIf several of the options are used, `maps` takes precedence over `urls` which takes precedence over values loaded from an `eik.json` or `package.json` file.\n\nie. in the following example\n\n```js\npostcss()\n    .use(\n        plugin({\n            path: '/path/to/eik-json-folder',\n            urls: ['http://myserver/import-map'],\n            maps: [{\n                \"imports\": {\n                    \"normalize.css\": \"https://cdn.eik.dev/normalize.css@8/normalize.css\",\n                },\n            }],\n        })\n    )\n    .process(css, {...})\n    .then(...);\n```\n\nAny import map URLs in `eik.json` will be loaded first, then merged with (and overridden if necessary by) the result of fetching from `http://myserver/import-map` before finally being merged with (and overriden if necessary by) specific mappings defined in `maps`.\n\n## PostCSS Import Usage\n\nIf you're using [postcss-import](https://github.com/postcss/postcss-import) make sure you update the `plugins` option.\n`postcss.config.js`\n\n```js\nmodule.exports = (ctx) => ({\n    plugins: [\n        require('@eik/postcss-plugin')(),\n        require('postcss-import')({\n            // It needs to be added here as well to ensure everything is mapped\n            plugins: [require('@eik/postcss-plugin')],\n        }),\n    ],\n});\n```\n\n## License\n\nCopyright (c) 2020 Finn.no\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 7420
+	"_downloads": 6976
 }

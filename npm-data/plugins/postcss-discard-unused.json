@@ -1,12 +1,11 @@
 {
 	"_id": "postcss-discard-unused",
-	"_rev": "57-7b7ac76bb08989dd16b398953d8bf5a8",
+	"_rev": "58-9a3d03623ab7870198b6d0ace49f0cc4",
 	"name": "postcss-discard-unused",
-	"description": "Discard unused counter styles, keyframes and fonts.",
 	"dist-tags": {
 		"nightly": "4.0.0-nightly.2020.2.6",
 		"next": "5.0.0-rc.2",
-		"latest": "7.0.1"
+		"latest": "7.0.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1248,7 +1247,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfGpfmCRA9TVsSAnZWagAAN5oP/RAxSVQXOitzUrBPc8QS\neJYUuW6Zll8TvG0kk7ZFTB/Yh8Yvt9ICW2vW4u1ThvjPbBm36o6u2DrXFHsF\nkYW/J1V4nVQHDHSik6Yn6elBMODjiV7C1YyaqMw+HaoRz0yvGybgu2SbbLQK\ntUzjwRYJs46FtL7UGtI0mPVajz476aGK9zO4nDUzPoCYbZjZ7XC23Z23Nqg6\neSxLlFB/2Mtet3LE2yvJKbsf2SPtHHriVoyNs/9vSWbTGz61Lf48jp6VXqNe\n9C6gzsUMI/a/30zFJwSGqBZps6BcpxliQyWMV+N0kxOtDCTlPXGFgvvUuZx/\ni1sQ54P2ngWAE9CwJBMcjAIReQQNBSk8W7jZvDPFGALMV18t4aK+nwcV95hB\n1oD04+z94ghEEVue231JrS3lx/FyvU2OSBFFZ98+JGHBPeATFPQL6krwSSME\nlh01V1v7wSR4GcpGV0+owf44lO6+SvDELEXanJyDQm+NRJJALPTro8Vqbqly\nDoqgcEbzp7szGjaaJN1SJgzd/TspPL8fmxCMuu/lOYRcEf/0MecoWdkpvp41\np9YEFcusiqznF5PcqX/zOpUNavltLd256NbqV3k+/Wj0EVJGZj5I7qMbr5BH\n/iZ+7s4D3nvbNbuk6RbOhhSQJlAkquUMqRwQ2SxZWoezuJ+xPWGyuf0kfQ3t\nYzgS\r\n=JdKS\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1340,7 +1338,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfHGg8CRA9TVsSAnZWagAAKb8P/37rvLS4tULpttoiQssE\nYM3+Dof2YLh7e+XSwtlicXzVWBDl7fxch90oEg1XK4HaLRWdNNWdztyPPw7n\nIRh//ixISfuMDzqfEnaQqyuEBiaGorspaqtJSkTqr8OkFUMA41emoMOmAxkk\n5t9AhI9guhQ3bBG04m65ugOR8wN02SMgbofVpR7KjKEPxUAETIPekMLonAkD\nJP8ZfANUIP3iZFBNl6QS2qGrQ2pJ5NJxQ+09hnAf4fk3vgEm/G40Ou4daDzN\nRvWB0xiiihl4u9c45qtSlOeslNbhQJ5eaM2Y1H0k0Ler4almBM8lUKgrs/8+\nVn2J+6WAV643NaYhrwqkj5RsvgcXBD9gCXDc4pJpw8CQNx6c2KGcA6S/R3vu\nKA66D/XabxdqhPa+VIhXOfe8klF7OLf58xt+r2cw/wo4BHFOG6hhGWO+q9kb\nPLE8Sus0fIAR5H4IlrCto8potTmcHa/ZjSE97GjrwNWdoeW2DKaEA6D2gAHt\nune6+Sz4uWEYmNaOdMxbRHr5Hk4iXy9l9gfuvR2j4Oc2Lx/JfAx4EzRy7l4Z\nFsP47DmnbF/UebI4jlcfV0WdsGfJocg9DGfeCqkJWtISezJhYqVgDRK/txih\nwTu1SXOA8DPufbzyt1RAAWb05KWZrK2TABF4NTwPNJPBNYpO4xSlFDdK5LGK\nZtTM\r\n=d/YC\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1432,7 +1429,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfJFGYCRA9TVsSAnZWagAA6JMP/jP2ZzS7mnzzWifIUOu6\n/8YwQAlYVBBNbW0fiJjgjeH4JNKkBd+AZCABYUmSqB+ZpsU0FxFqagsMrLkm\nP70qTt943Q1TG18mLIFac7VnWh531Xtdl2kjG/EgZ6S/zS2emk02x/iAzLG1\nhuFjPq5LNyKts+vVSzgKA5w9pDvvxWBdJeXQqq0WRutFo346OtsfC65xdiod\nC/i2g1+xzaeBc5uwoxP9RGHqBDjInKR+v1I4CaLAUer1m7xOdla6UV1GKMgw\n4AH8CVv8Ou/BOURhJe1ar6hnyIkpvMn2GnluzxXu2SnySwlIvvpV2MzjMjUy\nIuj29WYdsTEGUPqZVwVRj8GWGMF/aceSqm7nUUSpsc/XPn6tZSbWh4kxzA0B\n+URQksF2wSqerWEuo0A1WUZ6M1j3/fALhngi6uuofcQp/psdnov+98wkxWN9\n9jzlSgUCeGYl77/IbhmKCQHrfJ4pSfPWv3RtaCwXZoZ2HXIfgt9+wuOJg3Xi\n2rkD2PHnH/CT01F+og3JJGnAqOSk6g+620HnoTaEKwQ4S8mFUYDPy0oKYuWI\nIk8GBFyVryfQd4YLn7XBt131+n6U9qy/A6rWPudDV5BKLxSXWB6+jQwozT3m\nn2Y6rzhSGJfZRgfYhu2P6URd8bVZcx3jwSFYjF0mWkc4po0RKe5fh5u4YPob\nqNlx\r\n=LTQQ\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1524,7 +1520,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfJaMYCRA9TVsSAnZWagAA4B8QAIjBprA3UXs1Ie2wAzVL\nbl+luCZOuXc0AQXqZY+t8MVmFnxsD0NBGzjjG9l2I9+onATSfGTf+Q2o0mvD\nNYDZ4ycUHbw8gXbzp+pXzmNDK+VvoLXg1/BPgqIQqbJHPqqpL6rnJ4JIXsM+\nLFFXlYVdfpBQBQgg6grz4chJtT+yjqwTHYnkLMFMJeqwo3x2eZTMLiXZleFp\nBGmnrT2s6YlfVeK4GW3NeUHkfgd8Pftqm8zkQkYQjsKeqdqICt/7LuWkjVOf\nvi2E2fLJXZ3I+jiD6kvKhPH/v1cy5l0H0rPBycgLHKRkaQS1tuChGUmkXArF\n8t86GKCxvKeWCvR6vtLvitWF0yHXpvgH0HZSet03BjFS2WKJt7Cva7X4Nlnx\nnkTlVxF7VFqaIuWZaB+ENLNLnNaRCbkrQy4FFS3RWWjT6D7wYes5bAx99HuB\n1Vtmpo+/Tq14BKvcEDiRnaqfGVXCrVlz0N2Cd3okf/82K/6EZ6hT2YJW31U7\nHS2D7HpLqf7WBG3YMxPO9ekPHyCnVN8F1PijbQRekerY2XTDsF/xJmm7T0ko\nnn9Ffq62OY3qJRp1Z+RRO8oteaNycFucD4txgkLYqVP+tIBFavY0DM+S0esu\n6AB4HrJKnCJ7I9SlU/ZtUFnQN8Qhd8h7iR9adiPJWlVV9OKORGku7UTJiJ4p\n839L\r\n=XkY/\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1616,7 +1611,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfKVmZCRA9TVsSAnZWagAArn4P/1sUyKKjqKWdbkbjbV/q\nzXhtso09YPDhpCPGPu93+4Uih7r8pwkayUiVAT0zcgXfOnHzXUlFQ8DczmlD\n28DJ3cxo72GbhsGlOnLv0uDu2UoCX+0iiRqlDRJyYiPJHnYqnnMRGupMgpIj\n2aoa56BIgYPqRk5Xv0yrFYyS1n1ZJdwaAz7NPDAX9CCbIByht7GtGKV/h9po\nDJ6hk6sN2QwCM4EJ72QhyUYN2hNMDIoUMEekwwZtMadkr+oRzyUk+TYs9WTR\ncxY4F559f/fJabFFQTeO/FMIXkELBm+G1d6VFkpphK0ZL1UnhbinFeeCOI+O\ntrJeEE3VQl2Tzy6rC5wKPG/mQP3g7D1iR4+/kB87uQ8ND9mN42tvsXYTMbzq\ncbbDPhmssm+t8oXzwFODLVuaqxT+up3z43tZc4I7dwapr7KMeTPM2RgDSflo\nHcTYfcGcRL8TIXC3MKPQgtiTKpgl/5hmWgjXUpQ70Bam1B/5oqrnayqlfiyL\nhYpkK9VTJpK9u8XPh4upgfuIFZF2I+6LO1woU3dj9+J0gruZtp7Nenh8BZL2\npqGEguAL7UDWXmxSF/VEKfBLn2P+vN8vp+ija8XQ5D0US8Rox5M8GBP30lWu\nkobY92h9pziJivRgxWSeWkR8sageSaM4/KFZw5MMRtt2sQx23uoIWCwf2lkr\nmJKI\r\n=tiaK\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1708,7 +1702,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfMYC2CRA9TVsSAnZWagAAvFQP/j2ELeTXI7T/faQplUbO\nznf4nWqBh10gqZpsPu19lWiN7+hzVMBX4i8LGL6AfvRaNEEp5mrlXUvhS8BC\nLQXKIFOSaFrEMTPyyFlF1Ur/NBKZY6RNjcgUEWosBDczXFwmIfNPFrslE3Uv\n2ZBCqUHTMBXJhmjokWHVf5kKg/qJk84E6tsVoHLM+BN404/YQEnXFALKHDxV\nVbEuP2qRLbc7kFzotej96NENK8gDD0G9nZ9T5NeSYC9jKGW7zjLwJ+25ykz7\n1UDam4JhDvMC1Ux6tqs+f6pcnKxqzIVNCFvhSmoEDMGhhtxbybLPdCE+aV+n\nKKWuIbdElXABjivetl4uUXm1wWyqiaukht3HSHxC/amsMLSJZncMFlPDKriY\ndsm5u7RYlTzX6e1hKZm6HlaEq2X2ngA/9VGfSybXKOvlcYxSAyDIajDSFreg\n4mXwiEgWhiiwcdZUxcKMHLCyPS49oq7HKvomTjpjP1Zg+IR4PfPBPFjkwddm\n3QPldseCahv6Ya3zinmyJMAZy0KO2jdZJUUezV4be9qhZkiKPEUe2kU88ol9\n7H8ZKYNithiCzBXHjl6qyODl23NfEkfkiVR9dbqqEB0jxR3v6g8ghutuINi1\nHXmWaB4Qb6YA6Q45AjDLgQWtbc+V1DUF2s5iXL9ZPQC++/mj/3SJ6oZH5G0H\nG/Bs\r\n=O+Dv\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -1800,7 +1793,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfOrtZCRA9TVsSAnZWagAAeZwP/0m9Jql7KeG35szurj8D\nXK4AdeTdIeaFZZ7coP8BM0CY0fmdM4oU3dBUYLkI0hY/j4WNXE6nP4CDB+4K\nK0AuTuPzK//sVwSTxvtaWuZ6nndtDxLZo1dsd6m64uFnY7rRt4gfh8EmQWlL\ntAI14HlNpf98d/a9sMMYSuKviM7gx3GA2zgdqcTqYKhYCUXS38BehHKL6mK3\nGFAhAC5DjRcTAVR3WlUyUT0lWA/mxB4b219dBHjdF9q23bWk/dF8EP8H9Z3P\nWrtSZVyPstPgZcG54V0wnZKukhOSMgDQnKv8JPvGrdQmNu9Zp9PocQrsC1bl\n50cmfAHtJLlvEO3Tklp3i54h5HDdsT5JnI2xBdWhP3DTRyjW/8X1CYE+DHqM\njo9OrljP/fQFic6McLdYLzhiNFZsM8wtnUW5T4tGxzMj+K/movyfQEF/hBBn\n9NqjPqNfxjpwTv/LvBI5RSPLXp4AMHXopr/BFaEGJUvEfqEaIl974Y5vpoyo\nKs0lz9xevQKUnYPulmBFac7ARCzdPgd0db/YhH5MymCq0gVccZMwoZhnTdnP\n0kipl3I8/YlSS7t3KrLeUfusTuiKWlrYDyK0gAfqkL+r08UJt6VpqeGsiV/H\nA7tOlx81ARRpGr+6d14C6vDFQbyQMys/nOLez6E18bLy4XNR26IpB2WfdXg1\nUuDI\r\n=kImu\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -1892,7 +1884,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfQ/XxCRA9TVsSAnZWagAAC7gQAJnPt9KPg+kzWDPZ9OzX\nrwa/RGutEC1qohVNW0/uC3nD36x9gZtJpNGtmubwTHYZY0Zbbg86yZ/qQbKe\nukmcA1khIIYkD9uyAP+oXh0mZBBxGeqM97NoYfplanU5YDw4zXwpOatLRRZW\nRUupoG8mtwTHVi+BcyT15qo7hvY/CUG/KF185PQE9Ki/dVIwabxUFrPwCVsX\nNj2+V7RM3yxxLHLqQORL2/PkNmRp8dVGHWCWVgIzbDK0xNR77hfxDQgXxbKW\nZWtYeQoxm49RpdfMniD4Lk7fi7t/Y65rKTsidABHhdgsCDM0gkqmgT50V2Uc\nf2nUlsMdkgnBirZyUu1RP4hs/U0pMMSKa+2UsMp2JCmcrRnkAjV4YDXVGoDE\nSJ4O5xXJ6MpGOaoOKvLFpJG3VpxlYjaF5czYDGfD3vA1D2YzNKX1k2D7IwXa\nRKQuyqGsC4Qe4m1Yu+fOwX1D6bvcB3mhq+SFcRZcpZUfr5f12zBBkn7EYn0c\nBAAhldN3vEQkXAhsOdRWIdnY5aXgOKsTjJ1/rvc8x93zL19fZLicb67DAYdG\nAA0aGDcDxTbezoHDZlZPxFBZr0IRm11D6LeQT5Xb7lCEC8RrgdbArtVQQiU6\nHMvYNmkmRQlXHOQ0GouiXPLdWFXFh/Zj6Xy3Udbm8SS6S8bJQ4Tq1UdEwiyB\nnwOS\r\n=3Gxi\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -1984,7 +1975,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfRUdTCRA9TVsSAnZWagAAlgkQAJ+4wr4E9RFR3yufL7Qr\nk1Xux7hFHNMnyfFmNfnvgQ+8AkPijjSJ+bc8jY3UuryBrHbbEH2UzBzJp8qS\naDoZgYM8bzWEyatW7F6Ub+SRSIiKFvtwTOlr9PSQDQbBWa7jjikSkco1ppqr\nzGki7zYTI55q0cpaT7PYLsXbZs2JIR2WmBlfNt9zDdSAAunqiqCrCz6YHMlm\nYJtRxtveEfR5bBLnoEWe81xbi8mDM4uH0x52rRrGdFO8uabFWS5ieia6q2BN\nmzUjPjHmyzEAXA23gAZ/R0Zbt1Jbmr0Rd4xjIgWdoll8WaKxiHJm1Iwh+dGG\nBHDhd49oiteDol+hkYa96UCFLyr5wg982dMGtz2p4dS6G8e/dFK2BzCb5TSv\nHVSl3D6J58E84A6iFNw8mSWnIePZCwmcnwDiKQk9pgonCcwHjG/y+pwctnMa\nrXss1Asacv4FNM93Ch8dyoTINj0Dls+iAX7RkfcOMUVl4ntX1BsyT/9FWXZu\nMYX2DRmOKoybfgF35dSlN3rlOMI/joIqIf8vhVlogg4ZqIlzrl1wD5r4oI8f\nxYRzHhs6lgxSS9lr5D6axhsY+5+tETGMsOSAOJFNTzcXHr5P2s2CVd1v5Lyw\npg9a8eKdwCgt0BQYXO6b3b9TFI6ralQxoSKBm6xAIeus3bKGJKWtYsgpgcUV\nDPmy\r\n=h1ne\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2076,7 +2066,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfSovHCRA9TVsSAnZWagAAqjAP/0465Gl+T1xLHc+7+K2b\nbszLi6j6tCsbjhRwi3CVJJTqZxnsUek7pD7yiFrPD1RXZxwiBdxAro6MLq6/\ntnB/nrolGeSFruUqNpfFTXFE48nc1dJdHDNtlI5Wt2FWj7g01mJZO8JWS8de\nmw7yNNf+zdX+OtlguJU246j3dclOGW+KJRD42cFsAXmpMMa600D8dSpFOx+w\nlol6GCV+qhX5oolSrT0hhtN3P1YukgegZVNrevaUR/wSuHArBG4QJ0e/Dp7Z\nqfNO9PafmhggnvtGQYOpLWZ70JGHxhyugFAnt5N8CpDvoo7y2ndPTdCUTjCY\nR5D86qQq19h5YmrzuR4bPPLB6F/Htg0NgoUckUnm7gRhwoPgBP0RLgSGa68Z\n194lOWbETO1WEgZz//X0W+/tFlsiHAidpHvhv+RdmO9iGreLtMfnfoV+8DGh\nqfU4slHOWUpw/9txTgF8yZWNE73mjtfMw09KFTytXpINbYkPEaCww+R8x+X3\nqJZ6TmvQKJ8m9NVv3ipayNYlI5ptxP0dGd1RojWCeJpsiQzavxe3OZtXVIBb\nCd5KZz5ZlozZPHpkoCf4/Bq7m0R44r7lq9Ayhg1SQTcRF6IJAB6RmgOrRcd5\npgeW0IW4hsk5cC4Aeb4Vqo7FINnBkgGIj+geakABydmIA2kKOIKOm4VrpKN6\ntKiA\r\n=EWB0\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2168,7 +2157,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfToIzCRA9TVsSAnZWagAAsHYP/R/RgHbMKEaDRYgZjpc4\n6yFUICWQmZCqgU7iDKonfXJHX3vuPGOqE87RxJHhaEK6Qph9CeTJzBIzx0dA\nYQZZFhM0n7fZMa79Yb1OEFV0m5rmmGlVSDQ6WmznEd7XAM9H1fL8L3GnVfTW\n8zdi8KYgYJaT+fKaWJnttF4D7DgmduD9SAG2sd8TwYLMOuZ2kckdvqa9BFp0\n17+DOxjETcrArHooYoLdOBdP2O1i2ofOT1sG8mKCEeI8h1XtKJHQ67KTrVCh\nnoxf9GogdUNBD7ipyVP4KgFJfI1M/J/ZKwQipt8DtMzQ/IBVg9pTHzzo+ybx\nB7GwZOJDiO8gMNViudGXV462v495FKqg+RhyYx6VVzOx1NeSfzW3fS0PZE5R\nWslthwCHcofbjQTE/EeMuhnk0EwKwzS3gQ2c1B8ROOqt7t1Y3oU2z7Mwq4g2\nuEhRxt81uOogvy29aOelMkVcBGb+zpuLZ9tulqPwQqn7R27E9RkUB1ow70xl\nW+zBk42Jvr15kpdrrqf6SGrAWB4F5kZXrny22Hk95u66nbVtq6JUj9fgeS+8\nJDva39PVWFFvf28CRg1Q5MgRtgOCC0x/0TnfMKVDag5+pvIeV3+/JcMjhqBo\nlTtv79c6xBr3F2gEXwg97GJPZ7bKMC8MMSPrtjStBVraV4O4H4oQye8vJGfW\n7B7c\r\n=eFTT\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2260,7 +2248,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfUSVPCRA9TVsSAnZWagAAvcMP/RNFr3aCUDNyPNee9btH\nnZyQ7tR44chIT3OjEoDhb1KQh0a4Zaoe7mAr+LAMmBPDG+6vSo9vi3fq7dAT\ngM0D9Oq905A7i7S5C/9cRtjIS5OGk3trIac3iI/673EhpVtNOKzSegMrd6qj\nVesv/JbZ7aSQxUp/zSeQFs+8No9v6YsKvX0MhkXmRR3OfUg+QKnahw2CfQSp\nukZFdSYXd53Uf5H7hCGxXFUY+YkJDU7gydyIaW0F0eRWYbNskfL3uAWhABBV\nUe9BaCqIg44iqzmv8LpwDCh6vD7JgAFre1fSmOfGQwFRLkgef3VYnUJckUgN\nboOlfjEUxK02nf/OweQEal9tRszczTuUWGC368eRS9O3gpvptLSYpCmp1JD2\nH1SmOdkWlqX7Aut8TnZ6AvjhWA9gAgGGnBDHhg3IKzkCavBD9saBMxLvyMiO\nkvVqc1cXjMFzrPPFdgLhVq3TdAEgSAJn3FylugB7ClfPr9Ocgtuzk6PmnRcz\n8xHq9wyhe1KZqTFMhJ0pAPVKb9RnxyK0kBY7x1Z+R0P9OIAnW9FHGhje/dUC\nF0oBkn4iUYnlvyiy4RQSK5r5vwnJRz1Dby50/WyCYX1uDUXXTTb1GEgacGS6\nrcGWkyaKXPDOVJyNtRkAXL+emJFLVPlTsShMuI5qh2UiYjHj4QoGk7qJ1ycH\nGJcZ\r\n=DBcP\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2360,7 +2347,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfWQ5lCRA9TVsSAnZWagAANlAP/37XR0hu+7lq9sTfXMZ8\n+qBMsUAPpaECvz2lmku6b2YnzrNi0KcSS+ajfdjfBWeLU0LwN9+XWyooPlIc\nhIyqMBbXw4uJ2y94Tv6Vb2Dn2tUbv6tcKq7X5F1MrK7GtV6K2mXHIVfV4d3n\ngGpvt18MqCKVe8dgaalWY1/SSpqml3cSHC45lrAWnebKUmRMDs/VDjno2nRx\n/NVmY/10qP884Gtmhw/NK0X/HgS81bxinkYdrjuYz749D7NZFZW0a6JKaeA4\nkNk3oi4+LxMOuPJSjwPwzqvIFS+yGR0382HohjtkViTulB16FjBAfeTggIkb\nIb5f9wIfapzljCzBAS/SVnmXgAx6iEMo6j2fFzlJMcqL6jyEQauh9u18qsO3\n+ZlndysXgCNtixZg4ys6sfAAetkW4xlwInVRZdKdwGxOZcdtXWZvbi6KwBo1\nsPUy7l2+oXo9aEYIUtJF1Fv4oyYS12MJpt0L5ilTxQudTp7jFJeMjLSguf5D\nwFi6wyu4w71SsbSqVWoJL2x9jsu7BB3j7usuVDXRK95iAA6FHUGUd9Dxyjvm\n0cy+So+rJARhoBNFdmsmr8FQufGeI+mwVmyE0IeoiOt85T0FjCvF45/xIyvy\nuaJafUtM1vpuTUStmQShUOzdCRsazZMeKRla9HBbxizUOfRQcf4XjUNMMvD6\ncI1e\r\n=+PaQ\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2460,7 +2446,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfjxx7CRA9TVsSAnZWagAAy08QAJiEH2/k6RDFQmDr+DXE\n0guaMAkDxP93vBAGhK47+ApuA+JYR8LEajaExIy88FgBc72UmB8haudtad8R\nd+Szcq7K6i4qdiL93edN//B+x1TSTsCiGTG2583Kq87+7bp4vBYcqqXs/1xW\nuAepRea41zh/TSZgcTcANMEtwsvIQw+nkLyUgBT5uJctnkuOzGdyGoGuzk1y\n1ECFdFlC9h1hnsPBVAB3koAOUudPV1jBBeKPQRDF5kbR2RfOMwN8J9kF4Tb6\n0l0tifX4v52XGloI8WJ/ItWWFcBThg9FbyZA5S2EkDATD68iqPnEflhdEryd\n82gtLeAh07MAzbySJ5bWblA6NzfDZ0qorEARjM0BQaY3s0UFFVQoDOXA8y11\nwHauX4xhiDq5hTNx3NJMdIytv8thg5A6kk9jHTvwD5zqpram3A0eJUFidyPb\nR/3ju0APzGBBMMzXdfafYNV5Z6G4H52xs305ADEqmjZj/RvZTQKv6feJcjcD\nmGOWlgW2uILqGgaDaUEGIgdjDUQ9PBbHPxKB78YNKZKu8UUrfpcOhxLpFjV/\nc9V6aR9Zgb/O4eoIx9JnLslKTYExdyEVBFiimv8Y+zgVidFN1mM5qYzYE4+T\n6ygfG9x0mvIAMaLyJuPltkEJUMOJ2g4T3XTGK5yZl/+7wqMUyPGv8hAJJUOL\nzBJP\r\n=XYj6\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2560,7 +2545,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf+fEkCRA9TVsSAnZWagAAsFUP/RkT46z2oYelXbMDZRBf\nSp0y7I5JOn6Sm5tcdhQKfK5/QegK+4BsYVnmX9en8I57KyzuO9VwniR/I53f\nLkQjuvaldlidQHaAyROMhPLiQMzHtR0yhlLcLcjai1Kbk4yRAwZl0MmhXsfF\n5qkZ4nAMa7edHWxqQv/iPkpUoYfxlJ/0aHLLZOfqr9K1ZiSCPajnkLQnSKjA\n2slFyUyJcoDLD2+U18vo084Kys/V11F95Py+0YE8gyQ3oLSB8iuuazq9XJ3A\nuRLdXYxpDxQ5Gq1Hz5QHv8Ma+nUpcDbyqaC02vuWCs3ZmXpIFWBw9c8vziS2\neu3yYXhC8FggjOUNWByU3cD9kyBPZKrt0h1xKa4TlmR8VnR9uNhTqaYUs+bh\nZnxq9tpmGpgYKTwQ/JBq89UtmUZBsVmEs9HAzqGZs71PemTSpRrEeWTocXWC\nSP//xx8pi985sg5TxEhIlofBoRShnzlspr6n6FHN7un9Vfa3obsLAAfR8+ts\nAD2h+oywrYm/RC2wVX0begMhtQshuCkT7y2kyhmvJjuLQGEH7q8GZYwYRe2L\nR+KUp2E1+9COaTRG5Lk7cInCaV5aiVwPTBVwMgygwVe8ueaCg+we1EGf7MUm\nGPQtwyMpPKQGF6w6IJ2FTJoYicRrrqp3urQ12COyOWzLcMwjEzKHhwZUkUdZ\nOVhT\r\n=tiyY\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2660,7 +2644,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf/JR7CRA9TVsSAnZWagAAMFUP/0zVitFREZG5Bs8ilxQ8\n+e3Xf9X1LcrnO9KIhO9ZNi+M7o0AHzbo4V10mGjQW8NCisP3XvDBnr1BwS5l\nATBrmeUFb4onNvbHmoRxqq/xY4bVMLUM4KTTWTaAWCUG73AcqqwV+sjuAQ+U\nLoV2NoXkn2qBObJDfBL2o2AE8q6le3wAvS3svuLvhbom/0AXOuMpS1AA3ef6\n/WciGC6i2gS+XEbys3wDdh7pBiXBm7vX8UwX7snY6C1qN4m59J7njOUiKUve\ne3rIuSsThv6ncxk+0BU/Hf+k33ndOdDLOH2tXYIld3lP/m530Xy5Y3viiP0b\nKo5drES8D419D6+JR75FvPd/JmYX1D0YFgWSiPRXdVjrC7FmZEzovLm5Wl0A\n98jLgwxJrLPj79YUqKJMI6agUpqB5lu9ChESYMUqI+uJ9U0E72v0Yzl9Rg4j\n03utVxbVBEK9Z5YtgeXeNzjwWmO4CumMc/fVFksZCW0LG/iEwfM7xXKO8aga\npCohKYHyyo1EVd6fG7witpqBC888siO1VjeaZ4BISAdN34o36B4/kRVrF67q\nIpZLC4vGjy6zRg/YVhER0pjaFzV3s9Z5O/AOB3pwgDyaEf8Kx++o1mcyRrkV\nE8l/bOgRLLC6O1hAiUDrnH+i46jBKcJc7pnLizjkJ8crJ2z5hPHoOveHhnmD\nY55O\r\n=pVG3\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2764,7 +2747,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgHtEFCRA9TVsSAnZWagAAEywP/j5pL0YOCPcfyzc6Dh9E\nP4+n0VO1APneStcKXoDDkfk/BTsHEaaVk6i/zMvUYL3ABwpR4fpVBMh4JY5T\nsRySxMIv0pw0ukPAIcrYLHuxDSXI8oTK0kryhfaopvUY7/WnCGVAhyHkHwhr\nCWPuKditoAfzpCKd48L+sbWGAkYvRYdB45XfIvUwS1zvUwNLFviUMN7/j97E\n4MFqrddW3QbpnuJwzTuEz02SKr+nCLDVdpSkm4y1uKnobEGXmqSexVqFSmdt\nLC6lcEWWXcRKCKA/epHxMZ22elMFVrvD4FMd6gEYCLR0MtlVFkGU71ef+KQt\n/TbnHHVbO48O0GlFAxe6iL37hwgf6mDpp7OvWjFq86atacbzdccsTuSPkl6J\nzIiXEdFdJwSun5QHbT6+9xwWMHOkSwqbwGJnLmZ3LEgGSEPB1+YA63ExC3OK\nJORZZiCmal5fkxhFI0dkZIrOGLOUcyaTz2L90ajL+lO98IHanWPlOyu0TGPC\n7lcr2tjAfu9teZup3YwnIFF47he+3HRZi00qV+G2IcYwlBVFXGPuOup2UzrL\nUp4nFioUeXNmCSU3pzRFpSQGVmFoYUvIAtQ6RG3uJH5kccxxYG2etc1xLt7V\nqgUhPid7vlWbtwC1GBNldCmzITksHpIYMdPMV5Rvf4aTEJxozg4415KTP3wD\nWjVm\r\n=JSLe\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2872,7 +2854,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgL/ZYCRA9TVsSAnZWagAA3SMP/1EdcLXoX7wD93F2+RZW\nvzhEDvl734qGrx9/Oo7fb03YT+wr4Capzsdcp3i7/Wxt087Ns4xvjKpjuJlw\nZfnoz3zD5e8KuirzaRKx1Jn0GK/u66E6AGgN61lOpDnOCpIWytM13gvWGFrc\nnwGluXUoalrUc6uC0FCdZ6JvFwKJTsmkY+5TK5EUKWEL0rwcQcNDIzFCHGIb\nWkOjlx9ssxp9NjhtsRnB8XLohmTHCaiWH7TP7VELmtHi5lpvejoIEqjFyEDw\ncD92HR+pzuxQyvpW301zkUZYgNE2UN0IEWz80tvBvDGu4Pco5KbAA7zzGarX\nj8lvosjF/7wpx0EjVpYd0WlrgWy9HnFBglqlw5Qp6c1g4eubbjk5nD+BTR2V\n/vAnS2yRu4eW6ZAgbIf/Qde0CSmxYmN1i93V0y3VcUZUWqbRvhFgEXZfTi5e\n1F029qfzT63r5Bc+AEsXNxTZeSsFTRtan50YyhsC+v+BntY8/obFcEhCqPIj\noG4u1gx1vdsmNp4atThDRrGJ9yPeP1Cf9IWbw2Hex5J5KsTyfUf9UiwqdaDg\nyV0lLmYd3LZPIgiS5TC88udyVPIw0U5imakrtKCi0HnOMce/rtdfnrVK7Fcu\nl4J1OCComYwIHg+9LY0L/qPCy/DP3NJVFZXCGSo/nK9KEoFoGWkTnilWYBdz\nHt7l\r\n=h9kL\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": "^10 || ^12 || >=14.0"
 			},
@@ -2981,7 +2962,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgQf7GCRA9TVsSAnZWagAAXMcP/jF90Ia7UhOhBCUzTkQW\nxqJVgg97BTj+bSCqrNC/p3bdyTIXCC/OvvVgO27JXzzNPllr6g/daKv2gSwL\nly2/16BcqDYKkzRuW6CIC4uu3fkoyjJYtHgigu/D6uMB5yc2aRlCo0qqKelv\nJNfTJkj0MYEnzZkFUpyW6JmDL73z/uOGaJMWv0HL5vHDNobx8oPKkGkWDvXv\nJYjS+vQjjxHDRenexHf67IxJGzON7ksbdOgbOr+TKL4vk5zCuMIVKKY9OlL8\n91WjNw/R7u28rUq0pY1AzAu9gn07REJ3bM6a4Gyl8XyMnYsXd2cwumvVtKQO\nRgqRFELzZwEYCO3OczP+IDmyUIFe3y1MytQz0+22N5GzPstg2NimN6jhm7QD\nxSiwm67qCCeqvQxxz99CE+fwDad7PO/UHMX94+uZ0TvhDcbTXoqlmYrHCkcg\nT96a+IPUc0gALr4h7i5v1IjVSnR3mOpcX7tcG4u74LRW78HYNyKV0KDY63IN\nTNXg9IUB1wCWryuPI7r9SVIZguXLP+Wq5lCJxQ6JNCRN2wfhSRA/VGQS3zhv\n5uDbuIpg5xYQcb9QRm3V0D28B+U4HWtw6BanRT+U53PVD9M1e7pZyIxQ/T5q\nu7s1zHRsOp8v8QYXTdVKBK+jVo/l2JlYmwZe6ijHzHDon6qxPyti8ViorW7Z\nsSLN\r\n=yQPM\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": "^10 || ^12 || >=14.0"
 			},
@@ -3090,7 +3070,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgT476CRA9TVsSAnZWagAAIdsQAJjy+WiW/U2vUXgnzG3l\n7OCJ1cTpYKiJm6/uYXyBJWqTS7Jx0tXi2d8mL72ML0eWHWAgbO0Z5gTfS2FS\nk0vJpwBuCzV4XskDyOhGUJuknFslU3+immx84q3/Yo9TVASIQbycAuR7glEF\n6qxrxt946xR0msVZQq/i5Wb95rIY+0rQeRH112I5IOUr8CkjL+CL6QCD92Zh\n9zhqdGjLY7HFngXbTFE+mlku/mLwJwkDwTbbJIEw505IxIs1n8f3OkTHlkYG\n33RhPxMfckk5pVDz6l0POZ3JlxP/RQu1vCGLMjEOP27yTsBr3f4dTh+zaalI\nMGLTcSmhv/+CunLfA0uOH3hzJyHozYLQCEd5rkxK6JyJ+UlHknl74qCyjrxF\nsEr5z9gB98RUiiDNipEDbrpwo5LosqwL3d/pjRugF8RthM6J9+ZCNUlgDNje\ndEqxbEqAk8/j8bMKE1kdy1Ux2icLovJE6N2Orn9/7XPqK7K4DkvLFinNhj8x\naqwL9P5vZTq7pv21g9PoDjvvWBT+cX3+s1KUfm7mWr90IGWmbS1V86PdEqrI\nM+OoT1TZESXeQAzlbUEh29N5SEk9WyoFIu9kNTt8xCcIq4b1bhC8EvtUmQeU\nxOmMMDDvb1PMrytOkEZOuxoBR/7GOdJlGe3i5vv9Opu2rt9YcWpBbL6IkIfb\nfATz\r\n=1QUv\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 			"engines": {
 				"node": "^10 || ^12 || >=14.0"
 			},
@@ -4382,6 +4361,110 @@
 		"7.0.1": {
 			"name": "postcss-discard-unused",
 			"version": "7.0.1",
+			"keywords": [
+				"css",
+				"minify",
+				"optimise",
+				"postcss",
+				"postcss-plugin",
+				"unused"
+			],
+			"author": {
+				"url": "http://beneb.info",
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "postcss-discard-unused@7.0.1",
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "trysound",
+					"email": "opensource@trysound.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/cssnano/cssnano",
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"dist": {
+				"shasum": "4456bfb7ceba9073239bab0c674412216430d844",
+				"tarball": "https://registry.npmjs.org/postcss-discard-unused/-/postcss-discard-unused-7.0.1.tgz",
+				"fileCount": 6,
+				"integrity": "sha512-3myaiuHge0HaY+OMA42/xlXnVixhPQPmfxrpiLO3FBipgW/4A3UnWnAtlfo49tuxsCx4ZrS6+h/sa/68WNGWPg==",
+				"signatures": [
+					{
+						"sig": "MEQCIEKo/N2fkQ17bu83li94Z6HldlJEMW5nexRz1JDFfXANAiBZeFsBH+JQY1aOn0kpenBTpMGYvCtss3UfNMYAGVlUeQ==",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 11365
+			},
+			"main": "src/index.js",
+			"_from": "file:postcss-discard-unused-7.0.1.tgz",
+			"types": "types/index.d.ts",
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"_resolved": "/tmp/3e72fb4e3249d852de9b38dcac72aa71/postcss-discard-unused-7.0.1.tgz",
+			"_integrity": "sha512-3myaiuHge0HaY+OMA42/xlXnVixhPQPmfxrpiLO3FBipgW/4A3UnWnAtlfo49tuxsCx4ZrS6+h/sa/68WNGWPg==",
+			"repository": {
+				"url": "git+https://github.com/cssnano/cssnano.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.5.2",
+			"description": "Discard unused counter styles, keyframes and fonts.",
+			"directories": {},
+			"_nodeVersion": "20.13.1",
+			"dependencies": {
+				"postcss-selector-parser": "^6.1.0"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"postcss": "^8.4.38"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-discard-unused_7.0.1_1717582214856_0.2177947009908423",
+				"host": "s3://npm-registry-packages"
+			}
+		},
+		"7.0.2": {
+			"name": "postcss-discard-unused",
+			"version": "7.0.2",
 			"description": "Discard unused counter styles, keyframes and fonts.",
 			"main": "src/index.js",
 			"types": "types/index.d.ts",
@@ -4405,7 +4488,7 @@
 				"url": "git+https://github.com/cssnano/cssnano.git"
 			},
 			"dependencies": {
-				"postcss-selector-parser": "^6.1.0"
+				"postcss-selector-parser": "^6.1.1"
 			},
 			"bugs": {
 				"url": "https://github.com/cssnano/cssnano/issues"
@@ -4414,27 +4497,27 @@
 				"node": "^18.12.0 || ^20.9.0 || >=22.0"
 			},
 			"devDependencies": {
-				"postcss": "^8.4.38"
+				"postcss": "^8.4.40"
 			},
 			"peerDependencies": {
 				"postcss": "^8.4.31"
 			},
-			"_id": "postcss-discard-unused@7.0.1",
-			"_integrity": "sha512-3myaiuHge0HaY+OMA42/xlXnVixhPQPmfxrpiLO3FBipgW/4A3UnWnAtlfo49tuxsCx4ZrS6+h/sa/68WNGWPg==",
-			"_resolved": "/tmp/3e72fb4e3249d852de9b38dcac72aa71/postcss-discard-unused-7.0.1.tgz",
-			"_from": "file:postcss-discard-unused-7.0.1.tgz",
-			"_nodeVersion": "20.13.1",
-			"_npmVersion": "10.5.2",
+			"_id": "postcss-discard-unused@7.0.2",
+			"_integrity": "sha512-X4tWgMGYNUkFRzd5DPvx6RnvVz2ATdcthB0xpPCa1yS7X2v9pB6WvR33DSFWJmWT/LLDRgkIA/UZhe5dHLNNUw==",
+			"_resolved": "/tmp/1581f2531a909a9ddf91fb9a2b67acd4/postcss-discard-unused-7.0.2.tgz",
+			"_from": "file:postcss-discard-unused-7.0.2.tgz",
+			"_nodeVersion": "20.16.0",
+			"_npmVersion": "10.8.1",
 			"dist": {
-				"integrity": "sha512-3myaiuHge0HaY+OMA42/xlXnVixhPQPmfxrpiLO3FBipgW/4A3UnWnAtlfo49tuxsCx4ZrS6+h/sa/68WNGWPg==",
-				"shasum": "4456bfb7ceba9073239bab0c674412216430d844",
-				"tarball": "https://registry.npmjs.org/postcss-discard-unused/-/postcss-discard-unused-7.0.1.tgz",
+				"integrity": "sha512-X4tWgMGYNUkFRzd5DPvx6RnvVz2ATdcthB0xpPCa1yS7X2v9pB6WvR33DSFWJmWT/LLDRgkIA/UZhe5dHLNNUw==",
+				"shasum": "36da2afb303b373e90f550aba55756d38a3efbec",
+				"tarball": "https://registry.npmjs.org/postcss-discard-unused/-/postcss-discard-unused-7.0.2.tgz",
 				"fileCount": 6,
-				"unpackedSize": 11365,
+				"unpackedSize": 11366,
 				"signatures": [
 					{
 						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEQCIEKo/N2fkQ17bu83li94Z6HldlJEMW5nexRz1JDFfXANAiBZeFsBH+JQY1aOn0kpenBTpMGYvCtss3UfNMYAGVlUeQ=="
+						"sig": "MEYCIQCLVhwEr2SKIFQOekYWizn+nzrsF5niOIRnc9KxTvwgpQIhAMt0CBRyLaMZ9JebVozy4zugsbkX4K+VpQql4qQYUqyT"
 					}
 				]
 			},
@@ -4479,14 +4562,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-discard-unused_7.0.1_1717582214856_0.2177947009908423"
+				"tmp": "tmp/postcss-discard-unused_7.0.2_1723211303337_0.8285841727249577"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2015-06-09T15:37:35.990Z",
-		"modified": "2024-06-05T10:10:15.197Z",
+		"modified": "2024-08-09T13:48:23.747Z",
 		"1.0.0": "2015-06-09T15:37:35.990Z",
 		"1.0.1": "2015-08-03T09:35:58.417Z",
 		"1.0.2": "2015-08-07T13:19:42.740Z",
@@ -4533,8 +4616,32 @@
 		"6.0.4": "2024-03-06T14:31:21.377Z",
 		"6.0.5": "2024-03-20T13:50:47.710Z",
 		"7.0.0": "2024-04-24T21:33:59.518Z",
-		"7.0.1": "2024-06-05T10:10:15.005Z"
+		"7.0.1": "2024-06-05T10:10:15.005Z",
+		"7.0.2": "2024-08-09T13:48:23.508Z"
 	},
+	"bugs": {
+		"url": "https://github.com/cssnano/cssnano/issues"
+	},
+	"author": {
+		"name": "Ben Briggs",
+		"email": "beneb.info@gmail.com",
+		"url": "http://beneb.info"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/cssnano/cssnano",
+	"keywords": [
+		"css",
+		"minify",
+		"optimise",
+		"postcss",
+		"postcss-plugin",
+		"unused"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cssnano/cssnano.git"
+	},
+	"description": "Discard unused counter styles, keyframes and fonts.",
 	"maintainers": [
 		{
 			"name": "beneb",
@@ -4569,29 +4676,7 @@
 			"email": "sahaaniketh@gmail.com"
 		}
 	],
-	"author": {
-		"name": "Ben Briggs",
-		"email": "beneb.info@gmail.com",
-		"url": "http://beneb.info"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/cssnano/cssnano.git"
-	},
-	"keywords": [
-		"css",
-		"minify",
-		"optimise",
-		"postcss",
-		"postcss-plugin",
-		"unused"
-	],
-	"license": "MIT",
-	"homepage": "https://github.com/cssnano/cssnano",
-	"bugs": {
-		"url": "https://github.com/cssnano/cssnano/issues"
-	},
 	"readme": "# [postcss][postcss]-discard-unused\n\n> Discard unused counter styles, keyframes and fonts.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-unused) do:\n\n```\nnpm install postcss-discard-unused --save\n```\n\n\n## Example\n\nThis module will discard unused at rules in your CSS file, if it cannot find\nany selectors that make use of them. It works on `@counter-style`, `@keyframes`\nand `@font-face`.\n\n### Input\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\n@counter-style custom2 {\n    system: extends decimal;\n    suffix: \"| \"\n}\n\na {\n    list-style: custom\n}\n```\n\n### Output\n\n```css\n@counter-style custom {\n    system: extends decimal;\n    suffix: \"> \"\n}\n\na {\n    list-style: custom\n}\n```\n\nNote that this plugin is not responsible for normalising font families, as it\nmakes the assumption that you will write your font names consistently, such that\nit considers these two declarations differently:\n\n```css\nh1 {\n    font-family: \"Helvetica Neue\"\n}\n\nh2 {\n    font-family: Helvetica Neue\n}\n```\n\nHowever, you can mitigate this by including [postcss-minify-font-values][mfv]\n*before* this plugin, which will take care of normalising quotes, and\ndeduplicating. For more examples, see the [tests](src/__tests__/index.js).\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## API\n\n### discardUnused([options])\n\n#### options\n\n##### fontFace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused font face rules.\n\n##### counterStyle\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused counter style rules.\n\n##### keyframes\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused keyframe rules.\n\n##### namespace\n\nType: `boolean`  \nDefault: `true`\n\nPass `false` to disable discarding unused namespace rules.\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n[mfv]:     https://github.com/trysound/postcss-minify-font-values\n",
 	"readmeFilename": "README.md",
-	"_downloads": 3293924
+	"_downloads": 3288913
 }

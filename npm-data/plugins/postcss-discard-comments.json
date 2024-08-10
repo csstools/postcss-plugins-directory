@@ -1,12 +1,11 @@
 {
 	"_id": "postcss-discard-comments",
-	"_rev": "68-a69a3bc399282f12fce5e54805d8e4f0",
+	"_rev": "69-8b9d4333e5debce07d84a116f4dfc447",
 	"name": "postcss-discard-comments",
-	"description": "Discard comments in your CSS files with PostCSS.",
 	"dist-tags": {
 		"nightly": "4.0.0-nightly.2020.2.6",
 		"next": "5.0.0-rc.2",
-		"latest": "7.0.1"
+		"latest": "7.0.2"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1489,7 +1488,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfGpfVCRA9TVsSAnZWagAAGm0P/1g8zNsZytJkbmYkReyp\nk7zQ7tjPChaKdFSETJdCKoUIrr0KhosDHMEUdtn5TB7j8dSEvmYLe8wWTdrI\nvD3h2USRnuUF8sZ2vUC/hRSern/jl3Gb00QDgU2cL9oyYarWQ7tg8rFxrOV1\nOLAkoUhlloaOWT8uZ00bHeIN0Cfky91ILKAigm6Tl1qbgO+sYJ3yPCjXrzPA\nBhdbQ/gr9kYvhaQD4Fl0fkPsFDoYck+Q2RSj0nvuTQUPa5RxsOg1gGr51ETy\nJ8eFd7jnKkD5mfac98L5GFNF57rTyfM304V08e32shwYqHcmVSPkNE5LQ0bO\npjo5M6iDGXZNbfxEUgXsX85kbCMz2+WVYtswLz/MJ9ybXzKql1YPzyy7Ll8M\ncYcIh0A3dFL2hQTs9uzlD/fJ7DeDM2+9nj/3nzRF1HRdDlGvVCpcmtj9TRF0\nEhJnam0g6XxpVZJUcmqw6JOnZOzsANz1MnloNmOD7MH3Mm+0sHgGxf/QMHXQ\n4Kvdt7y71/gJafeKkqZ0aD/+OvEJYGY61MS1A5HT6qJT+2vGL6mttnhHwj8P\ngN88TAI/qxExmXG0SzvbffDnKw/s+2AkR3K3wR5GJLXRd0j3r8TK8gtRg5S7\nHucsPA6cSe87gm3g6yU8X/GNCZLmvujbfkoNhb2IVtRHEM6LIzoeRSkYsWSD\nuo5i\r\n=cM3D\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1577,7 +1575,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfHGguCRA9TVsSAnZWagAA5gkP/jpvGYxv7P/XIBaGgUXX\nngyQWoWait1iYuFfCStp0Q2DwW2nlLdbb9sbiMuEnBSsYaVE/FP7a/sDCC1q\niTzhcDqfF0Jlspztp14F1dTSJQXUUFmNj9EFHkxfKWZP5nuSONH+08O31Y9S\nW/Pi0hkZw7nana4f78lkvg+2gFibo8rFV07wqa3ID/0Z7wLBuejC/NDMR53d\nb2sv6cMD1BK8smpixFmvY0E3NTrjixjcHQb48siv0iV+V2UX13QpksDGZXZF\nVerP9S6Lc5L0ycJjrnfZP46ZqD7NZhQMFfoGreF5rpvPesApETXxPajxZIXf\nuMWwRPvAM6yTcY1nsEEy41xWCx/FPqiLlhLlAAvTsR3d1mplKRKyL8SypStW\nrLwIsOC23Egg3y0YnO634YaqGrGYlM+NOqMzce8iz3YeofCsLOWfvSsI2E43\nGaTN+6tMlD6LJW10jTzdcX+vp8nuAHtgG24lrH63SnaSBtOn1xqKZ8q1Nuxs\ntlvormzELW9wnrzyLGt7cGvKkqWOFIOML6Ib0O1KUmqnu/f8Cz50QyXhl+Pa\neGNP2Tz9K9XpjWaZgi+TolaNoN4kYWypsFgOzJnPY5PXwBbQKzWvhbDYkqFV\nLrIAWIDeKehp9rZEp6yPG15b7ZsCkjvtUDw9FbE6z3mUTfZVmjAA6g6K6NAi\nbqY+\r\n=Okoj\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1665,7 +1662,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfJFGJCRA9TVsSAnZWagAA15cP/3g7zqcRzU6XM/vRz+r5\n/9oRW9samSDr7+W3orRgi/FBv0nBay7veOgw4UxwmrlC9gWo6hOOvjFQu/i4\nOaHYuuBqq7hDNKfuqWYbC6XKU9dFhwYGyNubwKDzv6KgIT/ZkM58/aVnqnuV\nmLiNxIHVbXsFljnB4i6Cn6AK6BwhFZja2UqsKrTe/A93HD2Nql1BSzRrf1Sn\nPOrGS2SuuUSmFwhcg3/mzhLA/XLgG8IXDTRa6WSSf2dQb3h+e88nM13JiWPM\ns4hYCesCL39ZEfzg7uZcfrMHuqVOwRPMwIlulcJCFxJCQ0yPuwht1GwAAukz\nnnSkdi40aMCsf04wwQNAex7smHihLtTehu84AFhgylThi5v2cYQYwpXiuuMO\nVZNUhmDLeHSRon9Y/VF73a9O4kNNigRJ+9UWJSifTJFoljv1g8cTaB2cPhB9\naW5wM3M3vXIRFLkpr2Gtqy8Ifh4rx42oKJOyUmuKYT1Puup97wCWIXBPgrzD\nsxkXZH/+byzCXgSCCZNW3HLOmufhlLuIXj0/oPkH50RAyo+0CgdBh7HKLZp6\nU5tF6bgU5/HyvPVz8ZZXqkDR+JyA+oe0vVlW47gXvFKyS/EOzUrJBtnnk265\nDIfnOPth3nJvLD+JDZcII6nzHKREkXNABcKxb30K0Lm3Jlh7zUxXY95hLCy2\neqwx\r\n=VjAC\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1753,7 +1749,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfJaMJCRA9TVsSAnZWagAArG8P/0B6Ns8Xclvh6w6BTlBs\nwg2N5fUA1wCAmjt0+iwKgJ7QTHFmNxdWe2eGaDoR1T8wlinbM5RBEVouL/fV\nopTuVUnnf4Cm2FhZYFdxGist3PhkHqwvMfaa1+zQ1ZAEY4pMZ0T2NXnSN8K1\n6yry+RXvggUwoFezRm8nLaGQy4HiJQHcNBYwzs+sF4xdTn1kvwjwmOAWhrYc\n4NFkD6iiCvjvCVVn58123UR0qEeQdnhDvgv3WanzZdAenUDGtSLw9J4xtz3R\nvEv4O+gYQZsBeG0STzhQeSlnuXgmEQw8lGR7rzfuYsA2dy2jgjL3CNPkANrT\nMASApIL9ZMpMQiRSVfw+OZP7Le/gIc2FmoCMQfmqyOUA8zb4T0jkocSi0Y4F\nD/QG+cYBFfs5+1WjPIbiExoteWZyKZve5vrirOElZkzDhXRK9C4SUfNc/Sln\nL10pu9LOkCS34pAnfwm7EGas/jDP4RyaiJuSPq78VnwQGJEzIVvYU92rnliA\nL/vAzOGnQ4xxW42LiCHoVt9aKi6FeataeTUEAEYplooOCXC2n8OrTeMgIglC\nSPkoHN1BZpwZrt/kH/d9Ozyqy1dtx5LHQ1KdQmWh0vofWvWL+YVPHYiR9ZGO\nRTOmeTXhjtIRSmgI5Vos5Huevfn0VKRMn7S6RWN1qiGWpljl6rUiMFkgJQUu\nzADv\r\n=GQIo\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1841,7 +1836,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfKVmJCRA9TVsSAnZWagAAMcUQAIHq6PaFCjNC2KN2DxEi\nrqHsqdS+ZnoUO9Ec1taZoj8TVSk4ZbZGw4E2EEmwNlGh0PxD1BdfThnzPO+f\ng4A0siwyfewf8iqAxGLkFRokt5Malc8SZ+1FGXcMocKE660jcmBFmZWEiv6i\nFWSGVOscNA+d1m3OUwCEMcK7cbdbCujvdqkb+Lm6pxDBxXm1eigXIU3sWpkj\nNQSPEG4CGMYFQCdELhLEevaMBurq+YM+t8j0Rpf8KTIZwtSI36lD5WCHhsjc\nVm+HktzILrBipViT5K36LelNHnYgWI9fZRH1OfYjELdCZT+N078CKgjx+COr\nUf9aqDS+58xyyMJR/LaUizcXrw3G9K0Dod3wft6YcU6rwN/v2wMg7MDSoXCu\nH8ljztD/fmpiHVXq2gIMTwRgZZUMd41KaQsyOq56SIUZqXGJ2B+DamLIxr9h\nxAN9lLLn3sBtnOwjogWSFR69WVF5c2KIT2eKI9I9kUlMrI/y9CrXp0k3wgCx\niHxwDEIAMsuJvZhWSPc0pJP0mtqjLs+HBAWvv1mOOfL8o3MP6KIPvxMphAsz\n8+CFFxRGeoiTaRKCrtv7WT1r6/Ui7nSpDf0jMKkjc/7YW21lippI63Eb5o4S\nAoxdeNICuvvu3GNF9p1JnzakXAhDaOPdlTMm1oCqyz9gP5jl/umytw9JBW/M\nyAEi\r\n=/rFk\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=6.9.0"
 			},
@@ -1929,7 +1923,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfMYCnCRA9TVsSAnZWagAAij8P/3G1vzqjltF3f8M3WJqm\n2+5flrqjgbTV7SotAvYJD1KDeqFXr2m4sXtdS1vTCfsqX+jSyfMXOKLZmbnu\nkbkCHHzE7ptDcPduuLfkpx8iD2ux7Q4gY5CVlV99MAXww0JNVhEQfwmmabq5\nMOWK5ICPcqt4+u1fx4Cqm6FcjO4jywBN3vGML+tjNR8QDFueXE8aFQxTvQOR\nnLcCs/AuH8Tupcg43jHlnIAaQjTn9l+aH5glMzfEKGg8d0bZpc6khlX1mf4e\nH+O/TZi6QktAdW5kRqAlL2Q5UILaio7AroFYbLNmvhTt0ON1xD8WXnyECHyx\nsi0kHHNymVxxB945DImelRzVxZt2rdP772TohXpgfa7vT/idKn+xi+Om0Hmz\nYqJgGmp+YG39/KUJAbRWF8ynNvedydEKHLT6adex3l00zidpVRk4jjY4Sy4i\nClaYwqRP2K6FZGc5g6p1W0gFND0bTej1u605jMSW8j1nI8czLsYAFMYd4Rhf\na25DLQ9F/DzJ7b7aWzSxnSGUvFjMLlpW60ZuTV3ssIoNDXumemm9IErH110B\nNwjs0KtGS/vRF0SFgPVizbctyX067Gd+ZhX6vG4/ClNkyWIbFcpWIdijv0vf\nxRDcWiiQX7QtOzLL3CQ8gqOWt9A+vcTaoPHB5bMY5dMRlDF4WJ8XsskNI6lt\nushQ\r\n=gWd+\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2017,7 +2010,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfOrtHCRA9TVsSAnZWagAABrIP/1ZXhVIoYklF6c1ZmpcV\nv3yclivhsctTK+EQmnIrUM4a7Y0PsRfhB0L0jnbinwh2GNiyGux0SoSiB56D\n7NkxWF/4T26VdsNj8fbcMLzIbIlzi4sBnlbr8ViXpzRGqelURNbtumzgirB6\nvW1u7Uhs9QpEQVlW4z07XAXHvzeZO6iDXn3Fz+sbaVI2zI2/j2jiZL68WprO\nFTXaQfI679dDrrdH5IU9yOGcrg+2xjis3XfbdHU17Ek6HJd1AMPVwcxMphN+\nfP5+hdPbuQNKLbiUDCpJ1A61fio8xq6RTX2Jbcu3kgTC7vnuLGAZXbfpYfMp\nkUWO05xgZ4j25om4U/wJJsiygakE+iV7enRHW6pQAM0fLE5S7ClqVQAXHszB\nmSwUwQXeFnys9/4uU4cFf1+dwu9PohGPJoCwgEKQ+x3hdDlwtNH3Vzoo+z1s\nIpTQmno4Wvaiaw8Lh9/H7gFSpWIse5G2owvdfz3pPRmDXMFRTzbJ21DoiNYA\nU+ij1Zkn/zDEo2OvakbAOWGDhs5p2FvCMP3b0LpFDTdDqVJmjVXmnWCoamCd\nm5r/n+Z+pjjwOeiwKzCKlm3ZHFlCFL8Nt//bxgkMctHR8u0hPzrpxXcWBUYK\nHFhtzr/CDU6oK6LGoChf2+ZyfxFRhdIsVunIrkvDwlnHuvL3+h4XWPElJ4Ys\nUWUR\r\n=oOYA\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2105,7 +2097,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfQ/XcCRA9TVsSAnZWagAAj2kQAJY+FPnqfXIVHWjZilC5\nUsgALI/re4Zk6d279NvDnwfIqh7a/2OYzzM1BHQj1vwZTU5dCIg3TPgWOwDX\n+Jfgr6a37l0Xd4Mh2AdPwlXWEEJJHnSzKMEhDObdx6zeN+arEF9EIsxhXMCO\nbV/YUuxZXH0vIDSYAXuBS59T04M+G+0AI9cXZOYrHlXdGbJF6d+rVsqiORA/\nUcvdh6k8biMQ+M5SceDRtxPrSFC4pCX6xrnO0wfQD8wBQy8RiKK/XOuJsrst\neGHd6KN636DVKMNds9HU0OFey0LmjxPW/4BRMKx5aqTLybWBa/nUUcaCuP+T\nOmEHeZhLrTYr17nA+W6Cd6ZWdpUxA9oSzjSZLvkM4uSteVHC9EbLfWlxDibl\nZr4RZmXnHcigd+mTSZ9c4FWs0PU6Q7wsVY4Afgcl5TQeCMgtvm1srl0Dxg+A\nXuTnXegQYoYoF8HAyRMuexuHfV2SKx7WizWX7qjoW/j0BcJ/cR+SULYXyfR6\nDbEl7wQQ/K7Gz1Ljc0IqWvVM+GL5eJL9lsYq4zKb18ZCWmkT17aFqhcvBB7d\nakaSDisXdUUB9Kwm+FNGKyKbBfvO0CRHCem9BaB2a4YP2K1Emib6M5YpdPcv\n7bUpiX/Z3gTyI3up3Y5FC9sA3QCtGvpTxNvFGdw/JCkowA5C3e4H51vNbvp8\nPqUS\r\n=u/Yz\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2193,7 +2184,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfRUdBCRA9TVsSAnZWagAAYNwP/jMjVLxxwK3SepmHP5y0\ndiqJBWa4MCq+QolKB6+ou2KZLGSQVMKvMq0DOwCqL3DIZFXkf20ZNCBlDX9G\n8nD/0noPNL9GTFVaeOcKpJDqA3hwOvg+VetYn4bK/wjC1Gf/E6fOz3lAHmRo\nZn3g85wmZcyN84k3dQ2eQeVA2NA/dvF6zZSeEaIe7bSnkcidYKMCACmyQMAa\ndHcA84E5U51z9KCXZwZLIIGN8GFXQMXSJeSpjucn6aF7ucRvqhAdCgJiRArR\ndD543y/zs0X9cEiBppvIYzPFpoyHqpikTUOs80Jkw2YTltik/b0+tb9vIjIG\noRbZejvY3tUQJFIYUyG7wJUzmH0k0U24uamYfdvjebe6s7jGpfYeXqkVC2NN\nQjn8k4PVDZsL5KGyeNDxGRfugZp+Kn8Jg75iGP6W0usMW6XRVz3V2n4TJd4U\nJ56EqVwIAuZDxIKLS+4MtXtxmu4lXdl4wHl9Ed4fzqVXPRXlNqABsbpIbAHs\nqCiV4r14D6AXpcuYICKVfXhVX1KZLOp//WBTak62A1HlSKfi8V9vEtBSkpM9\nNxZ7ZnxN7VzpeEjQHj8uxb4PlkYf40SyYGfvTpIQ4I8OzrsmEhETK0fx+boc\nWpeQHWE3ZQfKbJ1bY9YxPhIt52q1OQMYaPOtcelbaN7MDZ0aLAvaNT87uIjf\nPI81\r\n=basx\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2281,7 +2271,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfSou4CRA9TVsSAnZWagAAX6AP/ihIycat8XE29sqXdVEo\n6Pn/qjedRefomelGHRy810Ykaajaybo3AOiTP03tqIuf+G6GDt5O2YeXht+f\nfUzDR5/cQVQ3vu5kWnjyJa2DZIGw6+ZZ3a2EeL2Ex/a0WFOY0Pk3c+ycB+Qe\nKV5TaJM4Jn32jwtPyQtHCC/MhTchukxRhi3Jvk7aXR5tFd80vS+aYOYOUhqx\nikQw2/XxwlmAG/Z1u96JZSQ70o7vmusnYrRjXqWo5Cw2fAXPh0hY6mmrEZag\nALPwT6h2cUPir1veJRWPjnvBdoUAojUC3rAVU4J1gGqgpCTg+y6hbNOVhqO/\nTXfzasIvJHoAriiS4I2q23kwHP/XpJq+srjDDVul+EXCwM/10A9kYxFDIQQb\nPk6aTSfWEuelvOYQXuy6T5Yl3ftSM9l2SW0r5D6798WqtE7BKhSOusKC43BX\n149UJwwbOsMlvBwLRKxCFKnzz7SooVeoDtbSCr90o4fefMYciXcw9YHn2TSv\nA5rI0HQSTP+6xm26pIIGjJCc4KFFTYOfk+L02JqYRvzAjkL2QmIkvbATRQ4c\nzg9wmYCO53B9ia8YUg4MM0kZi3g4LCNyjZf65rWyJzxHeuboTvmG6o0laT92\npOApRLSz9dSAMAHlhByJ0ZTJ0W3vOxTQ0Rz54cGtDvIH+ek66/QeeH1sNfk4\ndeqx\r\n=brsY\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2369,7 +2358,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfToIdCRA9TVsSAnZWagAAVisP/A816aS+nhrApl9z55n1\ng9ppiqhQ1zisYIrpVf8JkWiyCDbONKHmXfhT6KwL4D+chVN/j++W9kqiYxau\nnZdLW0wrQGGE+ExNN14l9NqI8UPW+7GjNROeYQrQn6R0RRwkVPZhcdV4aFMO\nJO6DCrSGvpVz6m3/KbnS1qeUBfOk7RlA4QDoQrURAReMme/ZK23bfIFuKIHm\nHHuY8HQ67flj7tM7Ks9whjKO771TV7ZyH7sf7NtXIDsVnFwplSjcmVgBu1Zi\nrzNDQY0Mek5D7Vn6IBQ/Z+e9caHFtYGz7K+gZJwM2jU+iIzHHV1GK54L21Kj\nfz28X+5csTnP+pN0WiD7N5mNzi9TRxCe8OyzGOSFtMKSArfRI+IKixpXbfjK\npGV4YfV11DNF/HB3N760ga1jhwtPvQq+j6HJ6gm4+Re5/ZXrcGYvTnlQS6m8\nunvXcCgYBH499u2vUI4uzXt3t+mA4Gwdtfx6Piy8PsvwmZ2c/IRKxXo2NO/e\nKIk2fj6EhaDTaSNJGJ3aLyFV7CLJPZE9Qcc1B9OF/WovxFt35blacuK32bBA\n2CQO3y+R8Lv0LsmR1p48RrQqJU9l7Kk9IgcVqrocaYTlFjt9oV/1GkiTVZqY\nTJrP/txOvLEIeNrE3s/Cp2CPI3DHx4vvYw9FGGV4x3o74/+FAzGWeLSXdpvF\n6AsQ\r\n=Otvy\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2457,7 +2445,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfUSVBCRA9TVsSAnZWagAAVsEP/RqK7EuKIpbsvRdIf6q0\nyADsE/vmbxAW4RFDFpLJBvvrIBGT/IZ6QXGSvb2Gn99+FAUtD7KRNITndMmP\noYGjdLd3QvB/DvUookXPQUJANJ+Cp7MygOfoNUsAavZaNt0ky0rpLbw597I3\nXBwSZHboUiJKl1zzne74Uod29SazB+5Rw86KroIjbZSb8gR559zCCiJLnYWs\nqSb/jwp7WDYZrMC4tcik5iOtmWCcHetn+TZJSQaIRddOlr8de634Z4myfwUI\nmGJmJSM6dwUMrVjEz9TAUgQfmuaQZKcoVx/80Ph6BaKRGHgjlw2EwwdO1Np0\nOhAyLiHn2FIAzD82hcy7ym+TJ/BTQHMYm7iFU5Mjv8WbTCi5y3Bj/POmdnif\n0nNNKnFCbL9tPqY5LP3qAGakvowDbdVvsXgW7GsgOJsdIWBK4XvbQjO0sxrn\nN2wf4x0H7clQ6CCqPnqkZnIrA1D2WaulAGZd9DfFObhATpWuW1bddAywRTOI\nj+FoQFpLqsDwYDoMj16M9D7KuwJaIllz6WH3BsiuJkhArQ8ZkUbkLJmVrXrL\nEZIrwYX55I7A7hGVCQR8oH6cVPKv+I2vp7D6jmkTL505+QKArm4Qj0ABTV+i\nYgLL78EHpMRy9o5Je99wDXi49XsNHwtsa+k5SRd6uwdlwzWIDQefF9zJ7rTf\n1isa\r\n=MHMR\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2553,7 +2540,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfWQ5VCRA9TVsSAnZWagAA/fUP/R7BCoz4p0Ai8NNrv7sJ\nTQJORyByOR8qZILhnzkf1UywgkVcmMYwv3hKV45xD9Ls7wrugtX4HOkNSdF8\nJG30jWsxIZ3XDpOsLZMe/+Sc3Cot5o+DMJW3bv2/llDjuNG2GyxLguAVj1Nq\n8xZ6zx8jAKdl64dL2TXaoVVo0GrkuDUGHrZ70RphsiFgXRxcX69j1Bu8suQN\nqjyp2y56wuIuGAcBZbZbzmbKRrD4bGwYWYN4xWkrbdsV8d+unOUxD/DoVXK5\nA5CVe6Ay0z9ca1IWqWt6C2ctExF87k9fuKaYcSYk1/vtZ0S+rKL2gM8a6Zp7\n9h+WpH3D5YWJ/GXPr9h5Fp73HHV68IcmM1823zJ58k7ruAkV6vuwVPuOHzQI\nNZdKs50DLcLoNMFeLTWq8Wf2o9HuVFAXzQA6sQl10PNzYrtdWoyRF2/esOwb\ntm6THXNdYnnyoq5Ef7ssA3Xa7g9BwCiWvIftgc/2w7BDukFRklIzv+nIPFNM\n/WSLyjslvu5V2JmnWOmpSpB1iVdWdkTKe/oArhnElV6PLkYwFY0HpLpqXj2I\nSNl66chWQUsqI3MVCgJJbrTQsI8sGfKi6z1kgHov4G4HkLH1GFJdHvJ95grb\n7rni5y0QMk8PjvvEFDmiOAOH7lnwj8OI2mRqu+f988A1NUiqMGmCgdEMbaKK\n5g96\r\n=LePu\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2649,7 +2635,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfjxxpCRA9TVsSAnZWagAAYJEP/2UYSQCdsdBcDmikkywY\na60Yj0pFcLgBdz5vnf/1LAp1IRhvFxI0516B6rn1hugQsuiQmc2z2rSC4y3m\nxmI/wH7dOJGKQXRxFqAJWQGT4wLzftIGYHDG2tV5kHpTPqHy/+89tjyWRzhv\n5434/y3969i0DbpZkujRhnTKSykFbTtRLZ/tNobe5GLA6QPMG+X+MXlVUGkg\nQw6NThVXVMtX3TMwO/B2xye1uq3tfaHLQRZOzUCs/wDv6ylP3MIylHy9dy/K\n7Wu4C7GaSxoouRa0p3nHGrl5UJ7Zr0DMMJ/E1sa8wxQNfXBg66ybRasKThjy\nrG2XOZJwhAaemj0nqTgL11RKodMZL8jo6gKgPG97HOX2jG3wXM18c5wG0m0i\nRjeq1G43VwcNyvYnH9yS8wqi7OYVDQ4xt09Wey8Jd7NkIEDuekekncwkhFA1\nzJ+0nEJeTnAbgCYUF+DoMRLiPQEd1nThkCZlUIST5NbFcFmQciAjdRsKdKCM\nwt1sy5HT/H4gFjpAMe/ZnA/SWeRdCiyRy8ZR2S9nQHa+OaGVK5ZzBplLxH2y\nRlQkvSrH33uLFoKEE0i4FUYteIh1i6ZsBq62hKC/B3yoSM8ZMmuC5QwqTWtt\njA6IM0jLqHHfwqZJVrh0c3draS2oGaF9+kfRu/Ps/WP74A7W3wjBl27vQHef\nlcV6\r\n=XhIc\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2745,7 +2730,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf+fEWCRA9TVsSAnZWagAA6R4QAKEe3YKtfIp212tjMaM+\nIT9wOX+AOWzuWs+X73HUP14EWp8n+OeSM3NEtkNZ6ZjWuM3ByZS77QMaJ+kE\n3iwCyBEzi5qvS1lfzPFc6WBYpWm7QkTs9zEhb0QfK6E7U5UG7ucBvUMx2cRY\n3eg9/iYv8gUhNbX4bfDxo4v/QSVDh8/1kOUaS1a2dV3jMN/LgWDUgPGCWsI8\nDaaTT3KcEir2HXzHBYsoO32kr1KwXebaj+kgP7VgK5WD5u5BnAFjVKpG41bQ\nh6BGPeACZX2XNZEx+qglAXC9BlFpA1I3MZ63bCD7NxA35jxxYfSyX+HU4K5I\nf866HKqMrN1QlWWDFn9fDzGDeSu+znwHc6we/GLQffO4VlDWFH/TrIx52Kbt\nh1RBM9y16fPZFOD4Aj57mLW2uwT72dzY7I6BZAcctfjzHn+sbFcEm0Gt04XG\nL0aVT6zdG1Q3pDMy68RAb6YUxZ49KLyZMg7cmJwSJjK1USZhv1UmmovhDid7\ngDRr+h/cj6Bjl4svSXLyYSLS8UkAkS6mzpzIQrBMgQ+Y9QhoPRqG/WT7kY5l\ndTIxSFrHszVoFwArqXG18s9iPhLdXECdg54CQ0khjDFDIndxXTOXyPbLP9RX\n0spfvDlnT6R+Z+eSlYUHLeCSev1yIGVhk49mpgk7Q1kLcvVL8X8X9WKrtsbF\nz63e\r\n=qDAv\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2841,7 +2825,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf/JRrCRA9TVsSAnZWagAAp94P/AjovESH1TfJqttrWUbM\navkHO7hlnROXCVgAJx7uPb2EnXER6Bkl4VeSUG7pmJMGWdxFfSm8NhJ07Iqt\nGfeWr8fPR1R21jIvKs2sV296vCJFjMezaUTSegsOyw4mR6Xi3q+xQpbMF6li\nnPocNHHXBY9HyWlR3BZhE95ZuO0kQQEvivIOSsEzuoWTqbIWxhuffCr4ZeS1\niJBmQDzBxxA+HPE202sTErz+F9jPICcgrHmD6oQqP0QxjmNcKT/GOhEdmL/4\n0lBrR5+yKxZrPL0c5LpakRoc+chfSsv86uvk+hAtRBjkyH4irYMKkiQftdi+\n9/GiAMEAf5Sn4oXoMup/JHFPj/mxTv7jRTODax3OgoLLUKioa2VHFYCQDFza\nr+Geh/bPXM2UE4AsBR+y8HY6GzPhMjuy597L3L2pFjyMaKXq2H7V6I0ov1eI\nX28rFP3M4yKHmGNwbyZGANIBJw/lecnbQeLcFFDNfFKzddNI7g6HuPr7277s\nGXwZAe/43MNVXAQSwiESJzjzU3AK1/zVqvnJav70Iw4Esz2Qc+3rqJMPw4q6\n8XR4MxWv0Lu0aQ9HYV/g+lCOvkT4kW+Qxxo67FeQhUymlqJnFSIv7LwmGM1m\n5KdZtqfWOk2xAS2AjbTlaTzDsNjCRLq23g006Ibz3HZ6VytDZMJg23uxgjkN\nWC4D\r\n=mCrO\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -2940,7 +2923,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgHtD3CRA9TVsSAnZWagAArKoP/1Fw1bba+fFVV3tpfdtO\njrolIvkqEBTWxT1qaiO8K1gf8lLgdSQIYPp4wA20RHLIlO8F1qFSU0ow6uyp\nEDyQ0VmoEcKUKGeTpmbz9qSVXJUhFYjR/p+yEvFuDfpozf6TCLbFSZEbl/3L\nMPAvFh099eZeiKn3oKCDzAf6pnFWyqeqs0FSPaGeQv0QHVJNFPKY3AJExTwE\n5uWjxRWPs9AQ2ri6M1BCcK4F5R8ujOfTo3cbGnysV4FkuPYi/M4eQqYlS9m1\nnLFZHFXbLFpjNqgg4FxwcJoRSK82FjnAW6n8jjzTHCsaV2hh8yThLWxbMrud\nhQvDyIVqyKjliF1Wjl1M+bu33qrN8fs+i4gi10qJmOuLOayNzfYlT/pX9gtY\nrG5F8LcPsrsOwNDYS6bzQsTel4ho8btsPZi6vwYO2FPnWjoG2uuet79Xw8Am\nhIxSJWRwAVzSVbvPsAyPfmIbY3OQSZ3Ktrk3MpjI5txy0JXvM1nu8tK2fQco\nprQrrktfawfwbQzC/e1yyO6G7E6SNJJ3TUFZIGX+7xHkJSN8g2zDR0GrpUuG\nerWhu1AlIfKSMzPbRAQocydi3mqKLKoG/US06S3AkRorZn5cFth/y8SPfapd\nHLgwzLVakF6uE0NDnAGSG+LZQIGk8WvoZCU5m5ZXEalHcYxjkfo0K8/Rm+aE\n1PwV\r\n=aMAG\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": ">=10.13.0"
 			},
@@ -3043,7 +3025,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgL9M8CRA9TVsSAnZWagAAuwQP/03NYZweYqWfH/FWAQaO\nts6Gqv6Sz+Td6tinDS/eIgGL2dpmpN1sm3pEEEAB/1tSUmXGCFF0V+zKDVlk\n4F4UehOV+snznn1OUYgrpdgWmS2K+vG5UgO+aWg4zLcdThLwW7zqcqrGvzfC\nrfCX3K7okAG1DjHvz93Wg7Xq2Q3zl0nL7yZGhDpfVCbZhFKgCRLrPiPgk1V8\nDz6WqyjseCoi/nKE0papxjNw1QGxQn0wwu35a8YpIEehmuujmpWi47Ekq8wc\nBz+aiBZXZ3jJhXCRqiYTGACkAsdNuZ1haFMGl5Sn1H+Xxxrp4UAcnM0FxRGX\nBGBz+ponPkl+RksThDOtx527z3CJ7Yx0g2rWS6K9tZtSvuaFtGG7AVX9zWuT\nBvKUTj6MVpxp2TkLOkPAheWh/YIbwS8URcJTx1EHAiJ3srCb++gtoEisJGb2\npGFnJvk/fmlDetuOUkNi7iECkiesS2p+2ajLH9gHjIBEPq1d/IqVIa/QXy4e\nFu2k7aqnLtF2k4tU+y/mM2SxiW+R1hMebNwu6p0MlMkXjhqMec5asS9/r2GI\nt0kYiovt+9ZwPqyTuWLMhBlYdFWNUmeqn6Oamez2R98/iAdM5se2JtGvgM2+\nukFQaDkhrKE81GqQGPrt2KgsFNfZDw9aLCExsp20yyW/FUI1Kr7iARErNFQ9\nJHgx\r\n=flka\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": "^10 || ^12 || >=14.0"
 			},
@@ -3147,7 +3128,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgL/ZYCRA9TVsSAnZWagAAaLwP/0YAsDXK8/ZrUebjrJuK\nJuypZ0HeEintiI8f/+KPLragHooPWrHNFEnQZX4odj3bVaTyIXjB0TpPO3uy\nQPpvrLMpmFCcb5pY/+Q+YxyYO+y/cEqMB59G8c4SSuBkT2Q/RypHaIhzQYiH\nRQb0/T350zTlHNVtXiHgg/PZmHdGVYZo4iNW5TOUe9R1qO3zJy+5809NYjM7\nqEtH3mc1f+3DpRfYg3xNsFtwBjx7FtynAr9A8GaKvjWGLkKzfU1Zl2rqAP6z\nTIZSEurIhQmFrISVfSIT2pQE+YXBCCQ57CWISCiqXZ3wyE1g2da6uKhGesSJ\nSemYZt1gf30TQ9EsHiH6ZkyGX13Oja00Wk0Dgqp0t3Ea4SaIZS3WGxkc8mXH\nCbhKYrZV//4XZLeGOkdhgIq3OF/pOIUooWeh7hhYmK7zJc0QPTuqOWyY/gWF\nZCWUU1nP9g7D5ZGS3NjDdLi6ALAe2iX4iepRoAVFIwH/b+6TjiRHSgCIz0dM\nrUWCBrDqRuhMQd6aMvoDZW5dbLwgulQuwRsHfZWj7nm5n9G+QT81OFUNSau5\n7PAmonnWHflKkY19is4eoc37D0Jj9IRc9Eqck7U2mVfQf4+WstzCWscMvCuJ\nDsvSx9oOonsFm/1E3/zsihaPvezf9AXQ/gXznH12J/VH3JmRm4Jp6r/89lzF\nkPrJ\r\n=hoh0\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": "^10 || ^12 || >=14.0"
 			},
@@ -3251,7 +3231,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgQf7FCRA9TVsSAnZWagAAUm8P/197Sk1r7+0vTEpr5dGj\nE0IqAB1OC5PjYek8BmZ0pb2jEsxc7EG5d3uet0Ls7bGDMLUzrGEZqvf4p0Oo\nem59X8w/HnaoD6pLNfmsDC15vow/ytxdwnaAMzjlBuCedRwV4eZvtvWpH2eh\nXiyfs9F9JagKMyaxcJLcZfyhbpQawglmrKiBs2gsTvzqK7/b7D+cP8+H8xlP\n0Gm5C2kwehlcPNr0xbULRLjv8eZdR3BekaRY/SPJV41DvLM9PjYawbBEfXay\npTe97gM3+u6L9Th3L4qyNiel7yAFxo6zvDqDI4YO+gA1m7zBzGif1k16agbo\n+T6EeJ+M9hu0xmlrcMdOQHblk5zYaHqBBvwFsEvAE1mz/zSet+gYkEnNn8MV\nk20jRhsxqRvv61R8Rt79jgjH2LP8GrlTdUa0A2GfGeB+ozssBr5r/FLu7m8H\nA8SO9ThIb0g/7JefzUFwwKhkuz5qOuIy6uvc1qHVvuqskUrLoBmpmiiAZ2kZ\nU4w2rdUzHu7hJfOBdP3R7Iy7GMczgk+0ZudrrA1KxGYruq4w52ZdVsfbCnXi\nvWOjZUuXAt0A66v27fhNZmRF2d+vFg63A6H6LI1tQ1deY+T70FQ5U22xWoB/\nk9xioTctlTxWvzGxE+l4sG0jhgnx70/YzR4vhE7T/IccfQCH30JzInPf1Ubg\nhto9\r\n=/woW\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": "^10 || ^12 || >=14.0"
 			},
@@ -3355,7 +3334,6 @@
 				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgT476CRA9TVsSAnZWagAAE9kP/jRfGocYCQaTZeWQjx/W\nF3CHVIkt4WSdgBZsd9FiKA9UTqybxDp4Q4vYbAqWUlnkIqNXFmRf46tdSzL7\nLDxu/kgtVkYlWiBJx5IyePALAKxbSok/ScpKo49RA0ia1eIN6HvXlxsn1HB+\nYowxXrhCjExSH6GztRJcGBJcfEs+kDf/cmr7zvth17SSP3ZrGB/WHrZ9Y8gD\nWqpZABNK/Pov/x2oJFMZLNRf4w5HEjnS1JczhWx/XOfZzA+96lpvBssK2bAf\ns6v/L3cEwskx36AmVzogN8G0X/93tghEgOc/CePjTHXaFYmmTyxSEt/QWRRW\nqtLBFkOzrRellAngnNdR9CP1/mRzKPdkVAUFZl/6tdLu9gh2q7+PQ/qRg3Rd\nMpjYHIuAOLpJV+ExoUIh0EtuIVueZBt/7pBK+SOBRFRFedjpt0zLP6zP7ah/\nraG/LEUmHNns//ztoC7Q4TXCUQ/kpJKbVfUFRvT5sFVcc4UP3ltHDGPiZqTo\nQpQ5eGO5FME2f7mQMCbKw9xHj0909W3R7Cuk8vekNOSfPbR/2re47q9PHFF9\nEOPYcVIBtCT0+87tVD0WAEA42cN8cjTFxF4VlYTzi1SypmZD5znPU8o80M8J\njjVs8EUS+6YmOCi6iD6rzOgeIrG1becw6v99jNs/zSyrGNFFeyKz48gd0h3+\nm52n\r\n=jm3j\r\n-----END PGP SIGNATURE-----\r\n"
 			},
 			"main": "dist/index.js",
-			"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 			"engines": {
 				"node": "^10 || ^12 || >=14.0"
 			},
@@ -4492,6 +4470,110 @@
 		"7.0.1": {
 			"name": "postcss-discard-comments",
 			"version": "7.0.1",
+			"keywords": [
+				"css",
+				"comments",
+				"postcss",
+				"postcss-plugin"
+			],
+			"author": {
+				"url": "http://beneb.info",
+				"name": "Ben Briggs",
+				"email": "beneb.info@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "postcss-discard-comments@7.0.1",
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "trysound",
+					"email": "opensource@trysound.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "ai",
+					"email": "andrey@sitnik.ru"
+				},
+				{
+					"name": "chriseppstein",
+					"email": "chris@eppsteins.net"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				},
+				{
+					"name": "cssnano-bot",
+					"email": "sahaaniketh@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/cssnano/cssnano",
+			"bugs": {
+				"url": "https://github.com/cssnano/cssnano/issues"
+			},
+			"dist": {
+				"shasum": "00b01c5a99e95f97927b0ba12a1c422ab90bf55f",
+				"tarball": "https://registry.npmjs.org/postcss-discard-comments/-/postcss-discard-comments-7.0.1.tgz",
+				"fileCount": 12,
+				"integrity": "sha512-GVrQxUOhmle1W6jX2SvNLt4kmN+JYhV7mzI6BMnkAWR9DtVvg8e67rrV0NfdWhn7x1zxvzdWkMBPdBDCls+uwQ==",
+				"signatures": [
+					{
+						"sig": "MEQCICxXtodsTOgKiRFT6kawmowEGa/R1fpyhXoYI4I+6RZSAiB0HDse2b1lD+/RPWjcJx65op2l0LgaiKa6ZGJu45fDgA==",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 13262
+			},
+			"main": "src/index.js",
+			"_from": "file:postcss-discard-comments-7.0.1.tgz",
+			"types": "types/index.d.ts",
+			"engines": {
+				"node": "^18.12.0 || ^20.9.0 || >=22.0"
+			},
+			"_npmUser": {
+				"name": "ludovicofischer",
+				"email": "livrerie@gmail.com"
+			},
+			"_resolved": "/tmp/8e43f1f469f0b90f890f499919deae8e/postcss-discard-comments-7.0.1.tgz",
+			"_integrity": "sha512-GVrQxUOhmle1W6jX2SvNLt4kmN+JYhV7mzI6BMnkAWR9DtVvg8e67rrV0NfdWhn7x1zxvzdWkMBPdBDCls+uwQ==",
+			"repository": {
+				"url": "git+https://github.com/cssnano/cssnano.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.7.0",
+			"description": "Discard comments in your CSS files with PostCSS.",
+			"directories": {},
+			"_nodeVersion": "20.14.0",
+			"dependencies": {
+				"postcss-selector-parser": "^6.1.0"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"postcss": "^8.4.38",
+				"postcss-scss": "^4.0.9",
+				"postcss-simple-vars": "^7.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-discard-comments_7.0.1_1718786784796_0.5853596132620369",
+				"host": "s3://npm-registry-packages"
+			}
+		},
+		"7.0.2": {
+			"name": "postcss-discard-comments",
+			"version": "7.0.2",
 			"description": "Discard comments in your CSS files with PostCSS.",
 			"main": "src/index.js",
 			"types": "types/index.d.ts",
@@ -4513,7 +4595,7 @@
 				"url": "git+https://github.com/cssnano/cssnano.git"
 			},
 			"dependencies": {
-				"postcss-selector-parser": "^6.1.0"
+				"postcss-selector-parser": "^6.1.1"
 			},
 			"bugs": {
 				"url": "https://github.com/cssnano/cssnano/issues"
@@ -4522,29 +4604,29 @@
 				"node": "^18.12.0 || ^20.9.0 || >=22.0"
 			},
 			"devDependencies": {
-				"postcss": "^8.4.38",
+				"postcss": "^8.4.40",
 				"postcss-scss": "^4.0.9",
 				"postcss-simple-vars": "^7.0.1"
 			},
 			"peerDependencies": {
 				"postcss": "^8.4.31"
 			},
-			"_id": "postcss-discard-comments@7.0.1",
-			"_integrity": "sha512-GVrQxUOhmle1W6jX2SvNLt4kmN+JYhV7mzI6BMnkAWR9DtVvg8e67rrV0NfdWhn7x1zxvzdWkMBPdBDCls+uwQ==",
-			"_resolved": "/tmp/8e43f1f469f0b90f890f499919deae8e/postcss-discard-comments-7.0.1.tgz",
-			"_from": "file:postcss-discard-comments-7.0.1.tgz",
-			"_nodeVersion": "20.14.0",
-			"_npmVersion": "10.7.0",
+			"_id": "postcss-discard-comments@7.0.2",
+			"_integrity": "sha512-/Hje9Ls1IYcB9duELO/AyDUJI6aQVY3h5Rj1ziXgaLYCTi1iVBLnjg/TS0D6NszR/kDG6I86OwLmAYe+bvJjiQ==",
+			"_resolved": "/tmp/6d71062341dc9d0ff421ef1a055ef928/postcss-discard-comments-7.0.2.tgz",
+			"_from": "file:postcss-discard-comments-7.0.2.tgz",
+			"_nodeVersion": "20.16.0",
+			"_npmVersion": "10.8.1",
 			"dist": {
-				"integrity": "sha512-GVrQxUOhmle1W6jX2SvNLt4kmN+JYhV7mzI6BMnkAWR9DtVvg8e67rrV0NfdWhn7x1zxvzdWkMBPdBDCls+uwQ==",
-				"shasum": "00b01c5a99e95f97927b0ba12a1c422ab90bf55f",
-				"tarball": "https://registry.npmjs.org/postcss-discard-comments/-/postcss-discard-comments-7.0.1.tgz",
+				"integrity": "sha512-/Hje9Ls1IYcB9duELO/AyDUJI6aQVY3h5Rj1ziXgaLYCTi1iVBLnjg/TS0D6NszR/kDG6I86OwLmAYe+bvJjiQ==",
+				"shasum": "b402b2957a1ecefc77a44062ea6563190eaa8903",
+				"tarball": "https://registry.npmjs.org/postcss-discard-comments/-/postcss-discard-comments-7.0.2.tgz",
 				"fileCount": 12,
-				"unpackedSize": 13262,
+				"unpackedSize": 13283,
 				"signatures": [
 					{
 						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEQCICxXtodsTOgKiRFT6kawmowEGa/R1fpyhXoYI4I+6RZSAiB0HDse2b1lD+/RPWjcJx65op2l0LgaiKa6ZGJu45fDgA=="
+						"sig": "MEQCIGohGFI2zMKIjir/HSVamq+UM/pnnOTYTXVks3n7O8sbAiBboPx2Pl+reCnSXhleVSniBvVHz8bYiwaZNtlXbIs7bg=="
 					}
 				]
 			},
@@ -4589,14 +4671,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-discard-comments_7.0.1_1718786784796_0.5853596132620369"
+				"tmp": "tmp/postcss-discard-comments_7.0.2_1723211303489_0.25536905907609"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2015-03-18T17:51:40.594Z",
-		"modified": "2024-06-19T08:46:25.148Z",
+		"modified": "2024-08-09T13:48:23.827Z",
 		"1.0.0": "2015-03-18T17:51:40.594Z",
 		"1.0.1": "2015-03-18T18:00:58.638Z",
 		"1.0.2": "2015-03-25T13:12:33.077Z",
@@ -4648,8 +4730,30 @@
 		"6.0.1": "2023-12-14T17:18:08.539Z",
 		"6.0.2": "2024-03-06T14:31:05.810Z",
 		"7.0.0": "2024-04-24T21:33:51.969Z",
-		"7.0.1": "2024-06-19T08:46:24.977Z"
+		"7.0.1": "2024-06-19T08:46:24.977Z",
+		"7.0.2": "2024-08-09T13:48:23.638Z"
 	},
+	"bugs": {
+		"url": "https://github.com/cssnano/cssnano/issues"
+	},
+	"author": {
+		"name": "Ben Briggs",
+		"email": "beneb.info@gmail.com",
+		"url": "http://beneb.info"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/cssnano/cssnano",
+	"keywords": [
+		"css",
+		"comments",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cssnano/cssnano.git"
+	},
+	"description": "Discard comments in your CSS files with PostCSS.",
 	"maintainers": [
 		{
 			"name": "beneb",
@@ -4684,31 +4788,11 @@
 			"email": "sahaaniketh@gmail.com"
 		}
 	],
-	"author": {
-		"name": "Ben Briggs",
-		"email": "beneb.info@gmail.com",
-		"url": "http://beneb.info"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/cssnano/cssnano.git"
-	},
-	"keywords": [
-		"css",
-		"comments",
-		"postcss",
-		"postcss-plugin"
-	],
-	"license": "MIT",
-	"homepage": "https://github.com/cssnano/cssnano",
-	"bugs": {
-		"url": "https://github.com/cssnano/cssnano/issues"
-	},
 	"readme": "# [postcss][postcss]-discard-comments\n\n> Discard comments in your CSS files with PostCSS.\n\n\n## Install\n\nWith [npm](https://npmjs.org/package/postcss-discard-comments) do:\n\n```\nnpm install postcss-discard-comments --save\n```\n\n\n## Example\n\n### Input\n\n```css\nh1/* heading */{\n    margin: 0 auto\n}\n```\n\n### Output\n\n```css\nh1 {\n    margin: 0 auto\n}\n```\n\nThis module discards comments from your CSS files; by default, it will remove\nall regular comments (`/* comment */`) and preserve comments marked as important\n(`/*! important */`).\n\nNote that this module does not handle source map comments because they are not\navailable to it; PostCSS handles this internally, so if they are removed then\nyou will have to [configure source maps in PostCSS][maps].\n\n[maps]: https://github.com/postcss/postcss/blob/master/docs/source-maps.md\n\n\n## API\n\n### comments([options])\n\n#### options\n\n##### remove(function)\n\nType: `function`\nReturn: `boolean`\nVariable: `comment` contains a comment without `/**/`\n\nFor each comment, return true to remove, or false to keep the comment.\n\n```js\nfunction(comment) {}\n```\n\n```js\nvar css = '/* headings *//*@ h1 */h1{margin:0 auto}/*@ h2 */h2{color:red}';\nconsole.log(postcss(comments({\n    remove: function(comment) { return comment[0] == \"@\"; }\n})).process(css).css);\n//=> /* headings */h1{margin:0 auto}h2{color:red}\n```\n**NOTE:** If you use the `remove` function other options will not be available.\n\n##### removeAll\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAll: true})).process(css).css);\n//=> h1{margin:0 auto}h2{color:red}\n```\n\n##### removeAllButFirst\n\nType: `boolean`\nDefault: `false`\n\nRemove all comments marked as important, but the first one.\n\n```js\nvar css = '/*! heading */h1{margin:0 auto}/*! heading 2 */h2{color:red}';\nconsole.log(postcss(comments({removeAllButFirst: true})).process(css).css);\n//=> /*! heading */h1{margin:0 auto}h2{color:red}\n```\n\n\n## Usage\n\nSee the [PostCSS documentation](https://github.com/postcss/postcss#usage) for\nexamples for your environment.\n\n\n## Contributors\n\nSee [CONTRIBUTORS.md](https://github.com/cssnano/cssnano/blob/master/CONTRIBUTORS.md).\n\n\n## License\n\nMIT © [Ben Briggs](http://beneb.info)\n\n\n[postcss]: https://github.com/postcss/postcss\n",
 	"readmeFilename": "README.md",
 	"users": {
 		"imagion": true,
 		"phritolay": true
 	},
-	"_downloads": 45992870
+	"_downloads": 46006866
 }
