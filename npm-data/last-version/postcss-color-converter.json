@@ -1,12 +1,19 @@
 {
 	"name": "postcss-color-converter",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "PostCSS plugin for convert colors.",
 	"keywords": [
 		"postcss-plugin",
 		"color",
 		"converter"
 	],
+	"scripts": {
+		"test": "mocha ./test/*.test.js",
+		"lint": "eslint --config ./.eslintrc-full.js **/*.js --fix",
+		"postcss": "postcss ./test/fixtures/*.test.{css,scss} --config ./test/fixtures/postcss.config.js -r",
+		"pack": "npm pack",
+		"release": "npm login && npx clean-publish"
+	},
 	"author": {
 		"name": "Eduard Trayt",
 		"email": "eduard2011rus@gmail.com",
@@ -26,29 +33,52 @@
 		"color-name": "~1.1.4",
 		"postcss-values-parser": "^5.0.0"
 	},
+	"devDependencies": {
+		"@logux/eslint-config": "^33.0.0",
+		"chai": "4.2.0",
+		"clean-publish": "^4.0.0",
+		"eslint": "8.9.0",
+		"eslint-config-postcss": "^3.0.7",
+		"eslint-config-standard": "^14.1.0",
+		"eslint-plugin-es5": "^1.4.1",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jest": "^22.19.0",
+		"eslint-plugin-node": "^10.0.0",
+		"eslint-plugin-prefer-let": "^1.0.1",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-security": "^1.4.0",
+		"eslint-plugin-standard": "^4.0.1",
+		"eslint-plugin-unicorn": "^12.1.0",
+		"mocha": "9.2.0",
+		"postcss": "^8.0.0",
+		"postcss-cli": "^8.3.1",
+		"postcss-scss": "^3.0.5"
+	},
 	"peerDependencies": {
 		"postcss": "^8.0.0"
+	},
+	"eslintConfig": {
+		"extends": "eslint-config-postcss"
 	},
 	"engines": {
 		"node": ">=8.3.0"
 	},
-	"gitHead": "a3908fb839472650b38e848bad86e7b5d8a4ecc6",
-	"_id": "postcss-color-converter@1.1.0",
-	"_nodeVersion": "16.14.2",
-	"_npmVersion": "8.5.0",
+	"gitHead": "c84e2a4a4109ac7a64ec42f7884c4f286eeccff7",
+	"_id": "postcss-color-converter@1.1.1",
+	"_nodeVersion": "14.16.0",
+	"_npmVersion": "6.14.11",
 	"dist": {
-		"integrity": "sha512-y6NQOg3nJgG0h0JCmh9O0HB9jYlACIqkbd9WrVB6KhsHfKZmqJHHCfN9j8SUTtqUjNut/AWA11aI91sA7IdzPw==",
-		"shasum": "4b2cc1382815d985a410bf578c59c3dc8b7687a1",
-		"tarball": "https://registry.npmjs.org/postcss-color-converter/-/postcss-color-converter-1.1.0.tgz",
-		"fileCount": 7,
-		"unpackedSize": 14658,
+		"integrity": "sha512-aKkdIcZuVa3Ku5j1vjllPg+0VtgTia8u7i3HG8iX0UJ49RPjfiSD9XH6xSeR7X0NwialeIsx1W6M3xD7Epc/6A==",
+		"shasum": "544bd1c0534061ad269343f8c51a68ef842cb461",
+		"tarball": "https://registry.npmjs.org/postcss-color-converter/-/postcss-color-converter-1.1.1.tgz",
+		"fileCount": 8,
+		"unpackedSize": 17022,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIAdnjLLLd9Afz1/UzokR2vANpswtZS63g3DekYcunHDFAiEAgJ72JTJR39pQ3N+Rdib+j/eKZucfet9FPHJ1vlKE8YQ="
+				"sig": "MEQCIHd1O8MX5qte4MHzcu7fU9VkOQ6qVAHlesuF2n6pQ/CjAiBYklvOQhcFDTk98pofmVMqOGZGXTjyChfLiBANfeiPVw=="
 			}
-		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiSCKeACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmowIA/+N313rDXRhioUFdcEtyyScjG66+1yNZDr60B9mSvA4A9yueX6\r\n0/PkcpoesCSx0zpg3GdV7A2nCQIFW6gmmcruOiOQfE2jPsG0Gk9seIPOKRtF\r\nnQoLQ5ckAo3ZN3YlAaRyy114nyeiDk+MaU9fTK8MUnQrcTLwPANueS7807Ij\r\nkdJGM6jCDduvze5hJvczfqj2fznMGYhcFPjG/jywgAzuBjU0N8hHRPgi+Nm1\r\nvqx++WHJKEwtBUVJtXDuRGObJgI2C7xBtlqJsFAhUSIFSW0QvVxiXBxjpMVQ\r\neUpU/sAjCZl0stgef7TCOunsj+MEpaGZGXXY7GG6XImhOt/zh6iQEeytXpC5\r\nQd8AgTRyWZEUawF3+ucEoG36HpKVjRS4eTpmZyKH2okmrY2HPl531HOHNNqy\r\nwycF6txJIxhVDmOiVsw651wQujgPWG0mHw+02VOn8UDHe+H7Tfd+RkhHlL0A\r\nvNdCe0KRpKuh2xqa34oNZzRLlSSsKgn+dfDQLuClJwxqtsbdvY1GQJmZLAxs\r\nMut+8exYiwftv4an/H5Fi+GJe02EuMtfhSRy9TIkTgPSZWZn0qoKXAUiYbQ4\r\nDHGJHg8DzEpDFTtU9YRGCoiGLZC5xaiQkcgRwlOMYZ22IZifi4IE540dWGs+\r\nQQqX+CEh+YyiZJHuydUgQeSco50ALJGM1Uk=\r\n=a8l8\r\n-----END PGP SIGNATURE-----\r\n"
+		]
 	},
 	"_npmUser": {
 		"name": "ed-msl",
@@ -63,8 +93,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-color-converter_1.1.0_1648894622461_0.2626962809329516"
+		"tmp": "tmp/postcss-color-converter_1.1.1_1721711563799_0.7617743322296044"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-04-02T10:17:02.632Z"
+	"_time": "2024-07-23T05:12:44.087Z"
 }
