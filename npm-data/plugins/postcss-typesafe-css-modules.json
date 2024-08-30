@@ -1,0 +1,143 @@
+{
+	"_id": "postcss-typesafe-css-modules",
+	"name": "postcss-typesafe-css-modules",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-typesafe-css-modules",
+			"version": "0.0.1",
+			"description": "PostCSS plugin for generating typesafe CSS modules",
+			"packageManager": "yarn@4.3.1",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"modules",
+				"css modules",
+				"components",
+				"typescript",
+				"typesafe"
+			],
+			"main": "./dist/main/index.js",
+			"types": "./dist/types/index.d.ts",
+			"exports": {
+				".": {
+					"require": {
+						"types": "./dist/types/index.d.ts",
+						"default": "./dist/main/index.js"
+					}
+				}
+			},
+			"scripts": {
+				"build": "run-p 'build:**'",
+				"build:transpile": "swc ./src --config-file .swcrc --out-dir dist/main --strip-leading-paths",
+				"build:typecheck": "tsc -p tsconfig.json",
+				"lint": "prettier --check 'src/**/*.ts'",
+				"lint-fix": "prettier --write 'src/**/*.ts'",
+				"clean": "rm -rf dist"
+			},
+			"dependencies": {
+				"fs-extra": "^11.2.0",
+				"lines-and-columns": "^2.0.4",
+				"postcss-modules": "^6.0.0",
+				"source-map": "^0.7.4"
+			},
+			"devDependencies": {
+				"@changesets/cli": "^2.27.7",
+				"@swc/cli": "^0.4.0",
+				"@swc/core": "^1.7.5",
+				"@types/fs-extra": "^11.0.4",
+				"@types/node": "^20.10.5",
+				"npm-run-all": "^4.1.5",
+				"postcss": "^8.4.40",
+				"prettier": "^3.3.3",
+				"typescript": "~5.5.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/styu/postcss-typesafe-css-modules.git"
+			},
+			"publishConfig": {
+				"access": "public"
+			},
+			"engines": {
+				"node": ">=20"
+			},
+			"_id": "postcss-typesafe-css-modules@0.0.1",
+			"gitHead": "172d34b4edccb0abe34fbba0bd7e5619099e348d",
+			"bugs": {
+				"url": "https://github.com/styu/postcss-typesafe-css-modules/issues"
+			},
+			"homepage": "https://github.com/styu/postcss-typesafe-css-modules#readme",
+			"_nodeVersion": "20.9.0",
+			"_npmVersion": "10.1.0",
+			"dist": {
+				"integrity": "sha512-6MD3yWGnBh0d98M1ALECq1tD7hTCmVWG8yJrN5K1yM9qMpcg/ABVbg+bHmGxd/0OsgKJt4C+3ERhJaoritGjQg==",
+				"shasum": "2f6e58b4173078844fece83c31b6b64c21cfffac",
+				"tarball": "https://registry.npmjs.org/postcss-typesafe-css-modules/-/postcss-typesafe-css-modules-0.0.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 27857,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIErpOMIUlnruBhxYgcW2h3eBgLtoIw+cjTl3DG1bz0PjAiBmLHmvQ0OwdWVB/aCR7OXIltF931LQdC68Lg953hyjyw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "styu",
+				"email": "styu314@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "styu",
+					"email": "styu314@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-typesafe-css-modules_0.0.1_1722740936046_0.3997760788950815"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2024-08-04T03:08:55.944Z",
+		"0.0.1": "2024-08-04T03:08:56.200Z",
+		"modified": "2024-08-04T03:08:56.466Z"
+	},
+	"maintainers": [
+		{
+			"name": "styu",
+			"email": "styu314@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin for generating typesafe CSS modules",
+	"homepage": "https://github.com/styu/postcss-typesafe-css-modules#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"modules",
+		"css modules",
+		"components",
+		"typescript",
+		"typesafe"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/styu/postcss-typesafe-css-modules.git"
+	},
+	"bugs": {
+		"url": "https://github.com/styu/postcss-typesafe-css-modules/issues"
+	},
+	"readme": "# postcss-typesafe-css-modules\n\nA [PostCSS](https://postcss.org/) plugin for type safe [CSS modules](https://github.com/css-modules/css-modules) by tapping into the [postcss-modules](https://github.com/madyankin/postcss-modules) plugin.\n\n## Overview\n\nThis plugin takes CSS modules one step further by generating `.js` and `.d.ts` files for each CSS module file. This means that CSS class names imported from a CSS module file will be typechecked so that developers can't reference non-existent classes.\n\nFor example, if you have the following CSS module file:\n\n```css\n// header.module.css\n.header {\n    font-size: 1.5rem;\n}\n```\n\nIn your corresponding TypeScript file, the following would work:\n\n```tsx\nimport React from \"react\";\nimport * as css from \"./header.module.css\";\n\nexport const Header: React.FC = () => {\n    return <header className={css.header}>Hello</header>;\n};\n```\n\nHowever, referencing a non-existent class will fail to compile:\n\n```tsx\nimport React from \"react\";\nimport * as css from \"./header.module.css\";\n\nexport const Header: React.FC = () => {\n    // Will fail to compile\n    return <header className={css.nonExistent}>Hello</header>;\n};\n```\n\n## Usage\n\n// Todo\n",
+	"readmeFilename": "README.md",
+	"_downloads": 87
+}
