@@ -1,6 +1,6 @@
 {
 	"name": "postcss-normalize",
-	"version": "10.0.1",
+	"version": "13.0.0",
 	"description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
 	"author": {
 		"name": "Jonathan Neal",
@@ -17,7 +17,6 @@
 	},
 	"main": "./index.cjs",
 	"module": "./index.mjs",
-	"types": "./index.d.ts",
 	"exports": {
 		"require": "./index.cjs",
 		"import": "./index.mjs",
@@ -25,36 +24,28 @@
 	},
 	"scripts": {
 		"prepublishOnly": "npm test",
-		"build": "rollup --config .rollup.js --silent",
-		"lint": "package-check && eslint --cache .gitignore --quiet",
-		"test": "npm run lint && npm run build && npm run tape",
+		"build": "rollup --config .rollup.mjs --silent",
+		"test": "npm run build && npm run tape && node .test.cjs && node .test.mjs",
 		"tape": "postcss-tape"
 	},
 	"engines": {
-		"node": ">= 12"
+		"node": ">= 18"
 	},
 	"peerDependencies": {
 		"browserslist": ">= 4",
 		"postcss": ">= 8"
 	},
 	"dependencies": {
-		"@csstools/normalize.css": "*",
+		"@csstools/normalize.css": "12.1.1",
 		"postcss-browser-comments": "^4",
-		"sanitize.css": "*"
+		"sanitize.css": "13.0.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.15.5",
-		"@babel/plugin-syntax-import-meta": "^7.10.4",
-		"@babel/preset-env": "^7.15.6",
-		"@skypack/package-check": "^0.2.2",
 		"browserslist": "^4.16.5",
-		"eslint": "^7.32.0",
-		"postcss": "^8.2.13",
+		"postcss": "^8.4.31",
 		"postcss-import": "^14.0.2",
 		"postcss-tape": "^6.0.1",
-		"pre-commit": "^1.2.2",
-		"rollup": "^2.56.3",
-		"rollup-plugin-babel": "^4.4.0"
+		"rollup": "^4.21.2"
 	},
 	"babel": {
 		"plugins": [
@@ -69,25 +60,6 @@
 			]
 		]
 	},
-	"eslintConfig": {
-		"extends": "eslint:recommended",
-		"ignorePatterns": [
-			".tape.js"
-		],
-		"parserOptions": {
-			"ecmaVersion": 12,
-			"sourceType": "module",
-			"ecmaFeatures": {
-				"modules": true
-			}
-		},
-		"rules": {
-			"semi": [
-				"error",
-				"never"
-			]
-		}
-	},
 	"keywords": [
 		"postcss",
 		"css",
@@ -96,30 +68,37 @@
 		"browsers",
 		"fixes"
 	],
-	"gitHead": "f50e2298f542761f10b1492a93b6a042d1dcafef",
-	"_id": "postcss-normalize@10.0.1",
-	"_nodeVersion": "16.6.1",
-	"_npmVersion": "7.20.3",
+	"_id": "postcss-normalize@13.0.0",
+	"gitHead": "b8840b0b4aca53e17a2d208008438a44db1a1f37",
+	"_nodeVersion": "20.17.0",
+	"_npmVersion": "10.8.3",
 	"dist": {
-		"integrity": "sha512-+5w18/rDev5mqERcG3W5GZNMJa1eoYYNGo8gB7tEwaos0ajk3ZXAI4mHGcNT47NE+ZnZD1pEpUOFLvltIwmeJA==",
-		"shasum": "464692676b52792a06b06880a176279216540dd7",
-		"tarball": "https://registry.npmjs.org/postcss-normalize/-/postcss-normalize-10.0.1.tgz",
-		"fileCount": 6,
-		"unpackedSize": 32052,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhQeDDCRA9TVsSAnZWagAA+tgQAJhmNODu/Uwej7tn6S6n\nJLSwvn6N1WIo4jor0J7a/NAgDTBHjeU7MbgnLZxCpVRUZna2zlY/Nviltopv\nxq9OYgPpG3EMJw8/DYkq0BI0OO2cwMvPxCU6jtTECk4VaDXA3yPxx4fNT0Xm\n/Sfd9B1ubTE0M7ktVSHrHkYturZh2tenq+X+veM689S3RrWmsyqWVA6rm+kV\ns3PYAazPtjIbDCg98Hy+VM8hGvbY4it02eaA5hZ6BJKorQbNPldyk86cD4tE\n+7hKv3s+whue6icJ9fvLC+o+xysjETDEEaUaiHvGQSksHOPeXDp9DooZgtyt\nIROfW3zYuLkATaqgUmQxIdYpn6riNlL22EfRJU3VzpjjrxnpN1ZRd20Y70UP\n5SRitPIcEyqiwGtDCbzQQri1IXj8EizL2dXTxHSoxN9KPVgTeg+Dpzwj/xNS\nAijBMI50liFWrNY1L4HSeWMvh5Tazw9RtkzWu/dLmNeQeMnkjTkw/tpW9AZE\ni0ijgCFYc1NjKY+FhWJiMtNWF21VtbinsNTr0x/X3fSeZRpCIG4dccO9nEQ+\n6fKo5bpVq2bxokX84OcEqgJu33wcysqpoXn2vlm2Jqvn+iJ4/4LVzyn9NW+G\nW4hTHF0VR9jutIbTKKIVEPsFx4Vzkg4zniyCycnIhRcwftaey2+qGVCsWSl7\nG2mL\r\n=IP8E\r\n-----END PGP SIGNATURE-----\r\n",
+		"integrity": "sha512-EdlY4gQiS8DluldxUsgsgzMA1+4mRd4FQ7x8yGT934X3IBTJ0ZW3OG6xNneaHTv2BNzwnQ5mrnmrA/7yxVvnYw==",
+		"shasum": "e61212727c73a2ada863df305b6be9467f45a2f9",
+		"tarball": "https://registry.npmjs.org/postcss-normalize/-/postcss-normalize-13.0.0.tgz",
+		"fileCount": 5,
+		"unpackedSize": 29877,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIBhDrITerQI/R1ADZaIZOLxZRpfFJPJDq5odDjTk3qjFAiBRapg1ClDgDBozZK3lxSUf7Vhf0rWA/rhhZOwD2PkKhQ=="
+				"sig": "MEUCIGJeu6v2LsUrz7racWg2J6rbnLs0n9yr0CNmav0cmRXXAiEAhfoO3fI7XAl7G4/N8BpduL0mwcUB7eR40beBDmjzwvg="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "jonathantneal",
-		"email": "jonathantneal@hotmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
 		{
 			"name": "jonathantneal",
 			"email": "jonathantneal@hotmail.com"
@@ -127,8 +106,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-normalize_10.0.1_1631707331152_0.30839804873133647"
+		"tmp": "tmp/postcss-normalize_13.0.0_1725724346839_0.38871130192697456"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2021-09-15T12:02:11.307Z"
+	"_time": "2024-09-07T15:52:27.033Z"
 }
