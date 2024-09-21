@@ -119,5 +119,5 @@
 	],
 	"readme": "# postcss-property-rollup\n\n> Combines multiple blocks of custom properties\n\n## Installation\n\n```sh\nnpm install postcss-property-rollup\n```\n\n## Usage\n\nOn the command line:\n\n```sh\npostcss -u postcss-property-rollup -o dist/index.css src/index.css\n```\n\nor in the PostCSS configuration:\n\n```js\nmodule.exports = {\n  plugins: {\n    \"postcss-property-rollup\": {},\n  },\n};\n```\n\nThis plugin turns this:\n\n```css\n.lorem {\n  --spectrum-actionbutton-background-color: blue;\n  --spectrum-actionbutton-border-color: transparent;\n}\n\n.ipsum {\n  --spectrum-actionbutton-background-color: purple;\n}\n```\n\nInto this:\n\n```css\n.ipsum {\n  --spectrum-actionbutton-border-color: transparent;\n  --spectrum-actionbutton-background-color: purple;\n}\n```\n\nThe resulting selector comes from the last rule unless a `newSelector` option is provided, and all duplicate properties in the subsequent rules override the previous declarations.\n\n## Options\n\n### `newSelector`\n\nType: `string`<br>\nDefault: `null`\n\nThe selector to use for the combined rule. If not provided, the last selector in the list will be used.\n\n### `ignore`\n\nType: `string[]`<br>\nDefault: `[]`\n\nAn array of selectors to ignore when combining rules.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 23
+	"_downloads": 18
 }

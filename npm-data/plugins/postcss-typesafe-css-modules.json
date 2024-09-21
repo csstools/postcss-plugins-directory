@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-typesafe-css-modules",
-	"_rev": "9-fa8782b897766d4d22f7c7deccf20b9c",
+	"_rev": "10-2b814fc9fdd3408014cb07c6ad40a72a",
 	"name": "postcss-typesafe-css-modules",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"0.0.1": {
@@ -933,6 +933,112 @@
 		"1.0.0": {
 			"name": "postcss-typesafe-css-modules",
 			"version": "1.0.0",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"modules",
+				"css modules",
+				"components",
+				"typescript",
+				"typesafe"
+			],
+			"_id": "postcss-typesafe-css-modules@1.0.0",
+			"maintainers": [
+				{
+					"name": "styu",
+					"email": "styu314@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/styu/postcss-typesafe-css-modules#readme",
+			"bugs": {
+				"url": "https://github.com/styu/postcss-typesafe-css-modules/issues"
+			},
+			"dist": {
+				"shasum": "cc7f4a45cd18dafa584e8ddb25f09f506ee8a0ef",
+				"tarball": "https://registry.npmjs.org/postcss-typesafe-css-modules/-/postcss-typesafe-css-modules-1.0.0.tgz",
+				"fileCount": 19,
+				"integrity": "sha512-/4zdyNopcjeE1VYiU2xl8T30gK1KE7HAdDX4xJneoGTtDH/6+4WqtBlPPmwdvbVAsYEOmMp6rBEeCdtZPxENbg==",
+				"signatures": [
+					{
+						"sig": "MEQCIHC1JYohvkR9lpcrZoDypxX5PwG1qLKuwvQfNKjx/o2AAiBOOSP07Ot8eSaJX6E6JEH9XCkg5eeKxZKQONKRwm+JvQ==",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 64600
+			},
+			"main": "./dist/cjs/index.js",
+			"types": "./dist/types/index.d.ts",
+			"module": "./dist/esm/index.mjs",
+			"engines": {
+				"node": ">=20"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/types/index.d.ts",
+					"import": "./dist/esm/index.mjs",
+					"default": "./dist/cjs/index.js"
+				}
+			},
+			"gitHead": "96c1ea3b8ce5c1e47949efd5570f7a81b449ff51",
+			"scripts": {
+				"lint": "prettier --check 'src/**/*.ts'",
+				"build": "run-p 'build:**'",
+				"clean": "rm -rf dist",
+				"lint-fix": "prettier --write 'src/**/*.ts'",
+				"watch-cjs": "swc ./src -w -s --config-file cjs.swcrc --out-dir dist/cjs --strip-leading-paths",
+				"watch-esm": "swc ./src -w -s --config-file esm.swcrc --out-dir dist/esm --strip-leading-paths --out-file-extension mjs",
+				"build:typecheck": "tsc -p tsconfig.json",
+				"build:transpile-cjs": "swc ./src --config-file cjs.swcrc --out-dir dist/cjs --strip-leading-paths",
+				"build:transpile-esm": "swc ./src --config-file esm.swcrc --out-dir dist/esm --strip-leading-paths --out-file-extension mjs"
+			},
+			"_npmUser": {
+				"name": "styu",
+				"email": "styu314@gmail.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/styu/postcss-typesafe-css-modules.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.8.2",
+			"description": "PostCSS plugin for generating typesafe CSS modules",
+			"directories": {},
+			"_nodeVersion": "20.17.0",
+			"dependencies": {
+				"fs-extra": "^11.2.0",
+				"source-map": "^0.7.4",
+				"postcss-modules": "^6.0.0",
+				"lines-and-columns": "^2.0.4"
+			},
+			"publishConfig": {
+				"access": "public"
+			},
+			"_hasShrinkwrap": false,
+			"packageManager": "yarn@4.3.1",
+			"devDependencies": {
+				"postcss": "^8.4.40",
+				"@swc/cli": "^0.4.0",
+				"chokidar": "^3.6.0",
+				"prettier": "^3.3.3",
+				"@swc/core": "^1.7.5",
+				"typescript": "~5.5.4",
+				"@types/node": "^20.10.5",
+				"npm-run-all": "^4.1.5",
+				"@changesets/cli": "^2.27.7",
+				"@types/fs-extra": "^11.0.4",
+				"@swc/plugin-transform-imports": "^3.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-typesafe-css-modules_1.0.0_1725653820025_0.15083442488722332",
+				"host": "s3://npm-registry-packages"
+			}
+		},
+		"2.0.0": {
+			"name": "postcss-typesafe-css-modules",
+			"version": "2.0.0",
 			"description": "PostCSS plugin for generating typesafe CSS modules",
 			"packageManager": "yarn@4.3.1",
 			"keywords": [
@@ -945,26 +1051,28 @@
 				"typescript",
 				"typesafe"
 			],
-			"main": "./dist/cjs/index.js",
-			"module": "./dist/esm/index.mjs",
-			"types": "./dist/types/index.d.ts",
+			"type": "module",
 			"exports": {
 				".": {
-					"types": "./dist/types/index.d.ts",
-					"import": "./dist/esm/index.mjs",
-					"default": "./dist/cjs/index.js"
+					"import": {
+						"types": "./dist/esm/index.d.mts",
+						"default": "./dist/esm/index.mjs"
+					},
+					"require": {
+						"types": "./dist/cjs/index.d.cts",
+						"default": "./dist/cjs/index.cjs"
+					}
 				}
 			},
 			"scripts": {
 				"build": "run-p 'build:**'",
-				"build:transpile-esm": "swc ./src --config-file esm.swcrc --out-dir dist/esm --strip-leading-paths --out-file-extension mjs",
-				"build:transpile-cjs": "swc ./src --config-file cjs.swcrc --out-dir dist/cjs --strip-leading-paths",
-				"build:typecheck": "tsc -p tsconfig.json",
+				"build:cjs": "rm -rf dist/cjs && mkdir -p dist/cjs && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json && tsc -p tsconfig.cjs.json --outDir dist/cjs",
+				"build:esm": "rm -rf dist/esm && mkdir -p dist/esm && echo '{ \"type\": \"module\" }' > dist/esm/package.json && tsc -p tsconfig.esm.json --outDir dist/esm",
 				"clean": "rm -rf dist",
 				"lint": "prettier --check 'src/**/*.ts'",
 				"lint-fix": "prettier --write 'src/**/*.ts'",
-				"watch-esm": "swc ./src -w -s --config-file esm.swcrc --out-dir dist/esm --strip-leading-paths --out-file-extension mjs",
-				"watch-cjs": "swc ./src -w -s --config-file cjs.swcrc --out-dir dist/cjs --strip-leading-paths"
+				"watch-cjs": "run build:cjs --watch",
+				"watch-esm": "run build:esm --watch"
 			},
 			"dependencies": {
 				"fs-extra": "^11.2.0",
@@ -974,12 +1082,8 @@
 			},
 			"devDependencies": {
 				"@changesets/cli": "^2.27.7",
-				"@swc/cli": "^0.4.0",
-				"@swc/core": "^1.7.5",
-				"@swc/plugin-transform-imports": "^3.0.1",
 				"@types/fs-extra": "^11.0.4",
 				"@types/node": "^20.10.5",
-				"chokidar": "^3.6.0",
 				"npm-run-all": "^4.1.5",
 				"postcss": "^8.4.40",
 				"prettier": "^3.3.3",
@@ -998,8 +1102,8 @@
 			"engines": {
 				"node": ">=20"
 			},
-			"_id": "postcss-typesafe-css-modules@1.0.0",
-			"gitHead": "96c1ea3b8ce5c1e47949efd5570f7a81b449ff51",
+			"_id": "postcss-typesafe-css-modules@2.0.0",
+			"gitHead": "a9f06a83a496f0dd64b1a1503b0726199c2fe4ab",
 			"bugs": {
 				"url": "https://github.com/styu/postcss-typesafe-css-modules/issues"
 			},
@@ -1007,15 +1111,15 @@
 			"_nodeVersion": "20.17.0",
 			"_npmVersion": "10.8.2",
 			"dist": {
-				"integrity": "sha512-/4zdyNopcjeE1VYiU2xl8T30gK1KE7HAdDX4xJneoGTtDH/6+4WqtBlPPmwdvbVAsYEOmMp6rBEeCdtZPxENbg==",
-				"shasum": "cc7f4a45cd18dafa584e8ddb25f09f506ee8a0ef",
-				"tarball": "https://registry.npmjs.org/postcss-typesafe-css-modules/-/postcss-typesafe-css-modules-1.0.0.tgz",
-				"fileCount": 19,
-				"unpackedSize": 64600,
+				"integrity": "sha512-Ta0zoBx+T/IQJ0eq0AvrV/EBSnz000hPATxUWFWoI2OMR6R+nymRfSw8/vcbXkH4JuQ/qVrKP/Z0QbX+rUsrSQ==",
+				"shasum": "4ce540b710ae17c8d189c7b0d63225961e4f5925",
+				"tarball": "https://registry.npmjs.org/postcss-typesafe-css-modules/-/postcss-typesafe-css-modules-2.0.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 24054,
 				"signatures": [
 					{
 						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEQCIHC1JYohvkR9lpcrZoDypxX5PwG1qLKuwvQfNKjx/o2AAiBOOSP07Ot8eSaJX6E6JEH9XCkg5eeKxZKQONKRwm+JvQ=="
+						"sig": "MEYCIQCuGseOE+GtyhW6p0beUvhJDTz4P6v2GqzldudS0wu9NQIhAIYdBkbsO7+CEsaLa70ZsG00sRcBhrBf23TEQgK5v9W2"
 					}
 				]
 			},
@@ -1032,14 +1136,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-typesafe-css-modules_1.0.0_1725653820025_0.15083442488722332"
+				"tmp": "tmp/postcss-typesafe-css-modules_2.0.0_1726844695564_0.8425403034502161"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-08-04T03:08:55.944Z",
-		"modified": "2024-09-06T20:17:00.436Z",
+		"modified": "2024-09-20T15:04:55.975Z",
 		"0.0.1": "2024-08-04T03:08:56.200Z",
 		"0.1.0": "2024-08-30T21:38:46.415Z",
 		"0.1.1": "2024-08-30T21:59:00.841Z",
@@ -1049,7 +1153,8 @@
 		"0.2.2": "2024-09-01T16:13:02.146Z",
 		"0.3.0": "2024-09-01T19:46:25.059Z",
 		"0.4.0": "2024-09-04T17:10:28.747Z",
-		"1.0.0": "2024-09-06T20:17:00.269Z"
+		"1.0.0": "2024-09-06T20:17:00.269Z",
+		"2.0.0": "2024-09-20T15:04:55.820Z"
 	},
 	"bugs": {
 		"url": "https://github.com/styu/postcss-typesafe-css-modules/issues"
@@ -1078,5 +1183,5 @@
 	],
 	"readme": "# postcss-typesafe-css-modules\n\nA [PostCSS](https://postcss.org/) plugin for type safe [CSS modules](https://github.com/css-modules/css-modules) by tapping into the [postcss-modules](https://github.com/madyankin/postcss-modules) plugin.\n\n## Overview\n\nThis plugin takes CSS modules one step further by generating `.js` and `.d.ts` files for each CSS module file. This means that CSS class names imported from a CSS module file will be typechecked so that developers can't reference non-existent classes. Source maps are also generated so that you can navigate from a CSS module class name directly to the Sass file.\n\nFor example, if you have the following SCSS module file:\n\n```css\n// header.module.scss\n$page-width: 850px;\n\n:export {\n    pageWidth: $page-width;\n}\n\n.header {\n    font-size: 1.5rem;\n}\n```\n\nIn your corresponding TypeScript file, the following would work:\n\n```tsx\nimport React from \"react\";\nimport * as css from \"./header.module.scss\";\n\nexport const Header: React.FC = () => {\n    const width = css.pageWidth; // \"850px\"\n    return <header className={css.header}>Hello</header>;\n};\n```\n\nHowever, referencing a non-existent class will fail to compile:\n\n```tsx\nimport React from \"react\";\nimport * as css from \"./header.module.scss\";\n\nexport const Header: React.FC = () => {\n    // Will fail to compile\n    return <header className={css.nonExistent}>Hello</header>;\n};\n```\n\nNote that if there is a naming conflict between an exported variable (via `:export`) and a class name, this plugin will throw to prevent surprising behavior:\n\n```css\n// header.module.scss\n$header-width: 850px;\n\n:export {\n    // Will cause an error\n    header: $header-width;\n}\n\n.header {\n    font-size: 1.5rem;\n}\n```\n\n## Usage\n\nAdd this plugin to your build tool, along with the [SCSS parser](https://github.com/postcss/postcss-scss).\n\n```\nnpm install postcss postcss-scss postcss-typesafe-css-modules --save-dev\n```\n\n### PostCSS\n\nIn the following example, we are compiling Sass via PostCSS as well:\n\n```js\n// postcss.config.mjs\nimport scssPlugin from \"@csstools/postcss-sass\";\nimport scss from \"postcss-scss\";\nimport cssModulesPlugin from \"postcss-typesafe-css-modules\";\n\nexport default {\n    syntax: scss,\n    plugins: [scssPlugin(), cssModulesPlugin],\n};\n```\n\nAlternatively, in CommonJS:\n\n```js\n// postcss.config.js\nmodule.exports = {\n    syntax: require(\"postcss-scss\"),\n    plugins: [\n        require(\"@csstools/postcss-sass\")(),\n        require(\"postcss-typesafe-css-modules\").default,\n    ],\n};\n```\n\nFor each SCSS module file, the following files will get written to disk in the output directory (`--dir` if using the [postcss-cli](https://github.com/postcss/postcss-cli)):\n\n```\n# In this example, build/postcss is the output directory for PostCSS\nsrc/\n  hello.module.scss\n  hello.tsx                   # Contains the import for header.module.scss\nbuild/\n  postcss/\n    _hello.css                # Compiled CSS that is imported by hello.module.scss.js\n    hello.module.scss.js      # File actually imported by hello.tsx\n    hello.module.scss.js.map\n    hello.module.scss.d.ts\n    hello.module.scss.d.ts\n```\n\n## Options\n\nCurrently this plugin has one option, forwarded to postcss-modules. See [Generating scoped names](https://www.npmjs.com/package/postcss-modules#generating-scoped-names) for how to configure this option:\n\n```js\nimport cssModulesPlugin from \"postcss-typesafe-css-modules\";\ncssModulesPlugin.default({\n    generateScopedName: /* Your desired scoped name behavior */\n})\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 582
+	"_downloads": 609
 }
