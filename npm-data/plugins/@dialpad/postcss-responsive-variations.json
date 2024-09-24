@@ -1,8 +1,7 @@
 {
 	"_id": "@dialpad/postcss-responsive-variations",
-	"_rev": "18-303ca8a1b91158ef19ce09a344800921",
+	"_rev": "25-ee4cf8757c0aedde4cbda038e991d0c8",
 	"name": "@dialpad/postcss-responsive-variations",
-	"description": "PostCSS plugin for creating responsive variations from a list of classes",
 	"dist-tags": {
 		"latest": "1.1.5"
 	},
@@ -590,24 +589,41 @@
 	},
 	"time": {
 		"created": "2021-11-29T20:11:21.913Z",
-		"modified": "2024-06-14T20:01:18.134Z",
+		"modified": "2024-09-19T19:18:07.982Z",
 		"1.1.2": "2021-11-29T20:11:22.114Z",
 		"1.1.3": "2021-12-01T00:45:17.819Z",
 		"1.1.4": "2023-03-11T01:38:11.505Z",
 		"1.1.5": "2023-03-28T18:46:24.378Z"
 	},
+	"bugs": {
+		"url": "https://github.com/dialpad/postcss-responsive-variations/issues"
+	},
+	"author": {
+		"name": "juliodialpad",
+		"email": "julio.ortega@dialpad.com"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/dialpad/postcss-responsive-variations#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss-responsive-variations",
+		"responsive"
+	],
+	"repository": {
+		"url": "git+https://github.com/dialpad/postcss-responsive-variations.git",
+		"type": "git"
+	},
+	"description": "PostCSS plugin for creating responsive variations from a list of classes",
 	"maintainers": [
+		{
+			"email": "awreyjustin@gmail.com",
+			"name": "jawrey"
+		},
 		{
 			"email": "ssuresh@dialpad.com",
 			"name": "sanjeevdialpad"
-		},
-		{
-			"email": "parikshit.hegde@dialpad.com",
-			"name": "parikshit07"
-		},
-		{
-			"email": "ashton.meuser@dialpad.com",
-			"name": "ashtondialpad"
 		},
 		{
 			"email": "thiru.arjunan@dialpad.com",
@@ -626,83 +642,23 @@
 			"name": "leonardxfce-dialpad"
 		},
 		{
-			"email": "jawrey@dialpad.com",
-			"name": "jawreydialpad"
-		},
-		{
-			"email": "gshirodkar@dialpad.com",
-			"name": "gaureshts"
-		},
-		{
-			"email": "prachi.choudhary@dialpad.com",
-			"name": "prachidialpad"
-		},
-		{
-			"email": "avade@dialpad.com",
-			"name": "arjundialpad"
-		},
-		{
 			"email": "jimut.dhali@dialpad.com",
 			"name": "jimut-dialpad"
-		},
-		{
-			"email": "julio.ortega@dialpad.com",
-			"name": "juliodialpad"
 		},
 		{
 			"email": "sarun.nandakumar@dialpad.com",
 			"name": "sarundialpad"
 		},
 		{
-			"email": "jake.k.nielsen@gmail.com",
-			"name": "jknielse"
-		},
-		{
-			"email": "robertdong@gmail.com",
-			"name": "robertdong"
-		},
-		{
-			"email": "andrew.paugh@dialpad.com",
-			"name": "andrewdialpad"
-		},
-		{
 			"email": "rhurst+info@dialpad.com",
 			"name": "dialpadadmin"
-		},
-		{
-			"email": "hello@joshuahynes.com",
-			"name": "hynes"
-		},
-		{
-			"email": "ryan.lafferty@dialpad.com",
-			"name": "dialpad-ryan"
 		},
 		{
 			"email": "brad.paugh@dialpad.com",
 			"name": "braddialpad"
 		}
 	],
-	"author": {
-		"name": "juliodialpad",
-		"email": "julio.ortega@dialpad.com"
-	},
-	"repository": {
-		"url": "git+https://github.com/dialpad/postcss-responsive-variations.git",
-		"type": "git"
-	},
-	"keywords": [
-		"postcss",
-		"css",
-		"postcss-plugin",
-		"postcss-responsive-variations",
-		"responsive"
-	],
-	"license": "MIT",
-	"homepage": "https://github.com/dialpad/postcss-responsive-variations#readme",
-	"bugs": {
-		"url": "https://github.com/dialpad/postcss-responsive-variations/issues"
-	},
 	"readme": "# postcss-responsive-variations\n\n[PostCSS] plugin for creating responsive variations from a list of classes.\n\n```css\n/* Input example */\n.foo {\n    .background-color: red;\n}\n```\n\n```css\n/* Output example */\n.foo {\n  .background-color: red;\n}\n\n@media (max-width: 480px){\n  .sm\\:foo {\n    .background-color: red;\n  }\n}\n\n@media (max-width: 640px){\n  .md\\:foo {\n  .background-color: red;\n  }\n}\n\n@media (max-width: 980px){\n  .lg\\:foo {\n  .background-color: red;\n  }\n}\n\n@media (max-width: 1264px){\n  .xl\\:foo {\n  .background-color: red;\n  }\n}\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss @dialpad/postcss-responsive-variations\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-responsive-variations'),\n    require('autoprefixer')\n  ]\n}\n```\n\n**Step 4:** Create the responsive breakpoints and the classes you need and pass it to the plugin argument.\n\n```diff\n+const breakpoints = [\n+  { prefix: 'sm\\\\:', mediaQuery: '(max-width: 480px)' },\n+  { prefix: 'md\\\\:', mediaQuery: '(max-width: 640px)' },\n+  { prefix: 'lg\\\\:', mediaQuery: '(max-width: 980px)' },\n+  { prefix: 'xl\\\\:', mediaQuery: '(max-width: 1264px)' },\n+];\n\n+const classes = [\n+ '.foo',\n+ /\\.bar-*/\n+];\n\nmodule.exports = {\n  plugins: [\n+   require('postcss-responsive-variations')({breakpoints, classes}),\n    require('autoprefixer')\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n[PostCSS]: https://github.com/postcss/postcss\n",
 	"readmeFilename": "README.md",
-	"_downloads": 1066
+	"_downloads": 866
 }
