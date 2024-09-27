@@ -1,6 +1,6 @@
 {
 	"_id": "postcss-classes-to-mixins",
-	"_rev": "275-84ad0f01b32fa1e8d96b421514d4a164",
+	"_rev": "282-c1e252bb31eb352eb3778e0fa549c298",
 	"name": "postcss-classes-to-mixins",
 	"dist-tags": {
 		"latest": "3.0.1"
@@ -6051,7 +6051,7 @@
 	},
 	"time": {
 		"created": "2019-01-14T14:41:35.669Z",
-		"modified": "2024-08-12T12:19:22.434Z",
+		"modified": "2024-09-25T12:48:08.362Z",
 		"0.0.1": "2019-01-14T14:41:35.791Z",
 		"0.0.2": "2019-01-14T15:43:43.198Z",
 		"0.0.3": "2019-01-14T15:54:48.370Z",
@@ -6096,28 +6096,28 @@
 	"description": "PostCSS plugin to intelligently convert CSS classes to SASS, Less and Stylus mixins",
 	"maintainers": [
 		{
+			"email": "stianasunde@gmail.com",
+			"name": "stians"
+		},
+		{
+			"email": "kjell.ove.nordlien@nrk.no",
+			"name": "kjellovenordlien"
+		},
+		{
+			"email": "morten.skramstad@nrk.no",
+			"name": "maar1052"
+		},
+		{
+			"email": "joakim.mohn@gmail.com",
+			"name": "joakimmohn"
+		},
+		{
+			"email": "marie.hovland@nrk.no",
+			"name": "mariehovland"
+		},
+		{
 			"email": "sondre.bader.wang@nrk.no",
 			"name": "sondrbw"
-		},
-		{
-			"email": "magnus.thoren@nrk.no",
-			"name": "maggashi"
-		},
-		{
-			"email": "vmangrud@gmail.com",
-			"name": "vetlemangrud"
-		},
-		{
-			"email": "tobias.meyer.innleggen@nrk.no",
-			"name": "2bias_nrk"
-		},
-		{
-			"email": "greta.soreide.gjengedal@nrk.no",
-			"name": "gretagj"
-		},
-		{
-			"email": "havar.hagelund@gmail.com",
-			"name": "havarhagelund"
 		},
 		{
 			"email": "ingrid.rye@nrk.no",
@@ -6798,5 +6798,5 @@
 	],
 	"readme": "# postcss-classes-to-mixins\n\n> [PostCSS] plugin to intelligently convert CSS classes to SASS, Less and Stylus mixins.\n\n## Installation\n\n```\nnpm install --save-dev postcss postcss-classes-to-mixins\n```\n\n## Example\n\nInput:\n\n```css\n/* style.css */\n.red-btn {\n    background: red;\n    color: white;\n}\n```\n\nOutput:\n```scss\n/* style.scss */\n@mixin red-btn() {\n    background: red;\n    color: white;\n}\n```\n\n## Usage\n\n```js\nimport postcss from 'postcss'\nimport classesToMixins from 'postcss-classes-to-mixins'\nimport fs from 'fs'\n\nconst css = fs.readFileSync('style.css')\n\npostcss([\n  classesToMixins({     // Object: options\n    scss: 'style.scss', // String: sass output\n    less: 'style.less',  // String: less output\n    styl: 'style.styl', // String: stylus output\n    mixinsOnly: false // Defaults to false. true strips all non-classname selectors (like `body` etc.)\n  })\n]).process(css, {from: 'undefined'})\n.then((done) => console.log('done!'))\n```\n\nThis will write the output to the file paths specified.\nSee [PostCSS] docs for examples for your environment.\n\nNow, import the exported stylesheet and start using the mixins:\n\n```scss\n/* my.scss */\n@import 'style.scss'\n\n.red-green-btn {\n  @include red-button;\n  color: green;\n}\n```\n\n\n\n## Why?\n\nWhen sharing CSS between projects you often want to distribute it so people can consume it in Sass, Less and Stylus.\nThis can be tricky without maintaining separate versions of the code written in each of these languages. Also,\nwhen loading different versions of the same stylesheet globally (by widgets on the same page) name space collisions\nwill eventually occur, resulting in styling errors.\n\nThis plugin will solve that:\n\n- Versioning: Class names from the exported CSS are no longer global and won't collide with each other.\nInstead they are built into your own classes by extending them. This also makes your HTML more clean, as you don't need to use several\nclasses (`class=\"standard-btn red-btn my-btn\"`) to style one thing.\n\n- Three shaking: Using mixins you only include the styles that you actually use in your project, which is nice\nfor load. Loading the entire stylesheet globally (several times for each widget) is wasteful and not nice.\n\n[PostCSS]: https://github.com/postcss/postcss\n",
 	"readmeFilename": "readme.md",
-	"_downloads": 104
+	"_downloads": 235
 }
