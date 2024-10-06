@@ -1,0 +1,115 @@
+{
+	"_rev": "3-b0245de515a9b8de4d79bb87915d81d8",
+	"time": {
+		"created": "2024-10-05T05:40:45.548Z",
+		"modified": "2024-10-05T05:40:46.046Z",
+		"0.1.0": "2024-05-18T03:58:08.823Z",
+		"0.1.1": "2024-10-05T05:04:57.270Z",
+		"0.1.2": "2024-10-05T05:40:45.716Z"
+	},
+	"_id": "postcss-plugin-add-encapsulation-selector",
+	"name": "postcss-plugin-add-encapsulation-selector",
+	"dist-tags": {
+		"latest": "0.1.2"
+	},
+	"versions": {
+		"0.1.2": {
+			"name": "postcss-plugin-add-encapsulation-selector",
+			"version": "0.1.2",
+			"description": "PostCSS plugin to add encapsulation selector.",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "madogiwa0124",
+				"email": "madogiwa0124@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/madogiwa0124/postcss-plugin-add-encapsulation-selector.git"
+			},
+			"main": "src/index.js",
+			"peerDependencies": {
+				"postcss": "^8.4.27"
+			},
+			"devDependencies": {
+				"@biomejs/biome": "1.7.3",
+				"postcss": "^8.4.47"
+			},
+			"scripts": {
+				"lint": "biome lint src test",
+				"test": "node --test test/index.test.js"
+			},
+			"bugs": {
+				"url": "https://github.com/madogiwa0124/postcss-plugin-add-encapsulation-selector/issues"
+			},
+			"homepage": "https://github.com/madogiwa0124/postcss-plugin-add-encapsulation-selector#readme",
+			"_id": "postcss-plugin-add-encapsulation-selector@0.1.2",
+			"_integrity": "sha512-/cFYhVhKMQ2rVDv+FdJulmzBW+1/B/tFiM4HIErUhXlcpGtx9Jod3hUVtNUiKAtKsrasitXey96K0RZLS5lHSg==",
+			"_resolved": "/private/var/folders/64/xvnj2cdn0_v5qcjgv4rbt44w0000gn/T/e151eb056a1853ed08bf0a5d8616e99c/postcss-plugin-add-encapsulation-selector-0.1.2.tgz",
+			"_from": "file:postcss-plugin-add-encapsulation-selector-0.1.2.tgz",
+			"_nodeVersion": "20.12.2",
+			"_npmVersion": "10.5.0",
+			"dist": {
+				"integrity": "sha512-/cFYhVhKMQ2rVDv+FdJulmzBW+1/B/tFiM4HIErUhXlcpGtx9Jod3hUVtNUiKAtKsrasitXey96K0RZLS5lHSg==",
+				"shasum": "4e69d7ade0b25b92446a736f83d18f01f2e4472b",
+				"tarball": "https://registry.npmjs.org/postcss-plugin-add-encapsulation-selector/-/postcss-plugin-add-encapsulation-selector-0.1.2.tgz",
+				"fileCount": 4,
+				"unpackedSize": 4188,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIDsBjrdsoLpMGSQneV/R1fQFGE72hhIfczX5efDzzd45AiAY646pWjpEBv1vmgcHkiAXRPu30dy0ZRl1l9+Fh412mg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "madogiwa0124",
+				"email": "madogiwa0124@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "madogiwa0124",
+					"email": "madogiwa0124@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-plugin-add-encapsulation-selector_0.1.2_1728106845549_0.003133011067514291"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"maintainers": [
+		{
+			"name": "madogiwa0124",
+			"email": "madogiwa0124@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin to add encapsulation selector.",
+	"homepage": "https://github.com/madogiwa0124/postcss-plugin-add-encapsulation-selector#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/madogiwa0124/postcss-plugin-add-encapsulation-selector.git"
+	},
+	"author": {
+		"name": "madogiwa0124",
+		"email": "madogiwa0124@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/madogiwa0124/postcss-plugin-add-encapsulation-selector/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Plugin Add Encapsulation Selector\n\n[PostCSS](https://postcss.org/) plugin to add encapsulation selector.\n\nThis plugin can modify styles with any selector as follows,\nand can limit them to having the specified selector or being a child element of the specified selector.\n\n## Installation\n\n```sh\nnpm install -D postcss-plugin-add-encapsulation-selector\n```\n\n## Usage\n\nPlease add the following description to the PostCSS configuration file.\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-plugin-add-encapsulation-selector', {\n+     targetRegexp: /\\.target/,\n+     capsuleSelector: '.capsule'\n+   }),\n  ]\n}\n```\n\nThe style of the selector that matches `targetRegexp` is limited to having the selector specified by `capsuleSelector`, or being a child element of `capsuleSelector`.\n\n```diff\n- .target{ color: red; } .not-target { color: blue; }\n+ .capsule.target, .capsule .target{ color: red; } .not-target { color: blue; }\n```\n\n### Options\n\n#### `targetRegexp`\n\n- Type: RegExp\n- Default: `/\\.+/`\n\nA regular expression that matches the selector to be encapsulated.\n\n### `capsuleSelector`\n\n- Type: string | undefined\n- Default: undefined\n\nThe string of the selector used for encapsulation.\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
