@@ -1,6 +1,6 @@
 {
 	"name": "postcss-input-range",
-	"version": "5.0.0",
+	"version": "6.0.0",
 	"description": "Style range inputs with unprefixed pseudo-classes",
 	"author": {
 		"name": "Jonathan Neal",
@@ -25,46 +25,27 @@
 		}
 	},
 	"scripts": {
-		"build": "rollup --config .rollup.js --silent",
+		"build": "rollup --config .rollup.mjs --silent",
 		"clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
 		"prepublishOnly": "npm run clean && npm run build && npm run test",
-		"test": "npm run lint && npm run test:tape",
-		"lint": "echint && eslint src/{*,**/*}.js --cache --ignore-path .gitignore --quiet",
-		"test:tape": "postcss-tape"
+		"test": "postcss-tape"
 	},
 	"engines": {
-		"node": "^12 || ^14 || >=16"
+		"node": ">=18"
 	},
 	"dependencies": {
-		"postcss-selector-parser": "^6.0.10"
+		"postcss-selector-parser": "^7.0.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.17.2",
-		"@babel/eslint-parser": "^7.17.0",
-		"@babel/preset-env": "^7.16.11",
-		"echint": "^4.0.1",
-		"echint-config-dev": "1.0.0",
-		"eslint": "^8.13.0",
-		"eslint-config-dev": "2.0.0",
 		"postcss": "^8.4.6",
 		"postcss-tape": "^6.0.1",
-		"rollup": "^2.67.2",
-		"rollup-plugin-babel": "^4.4.0"
+		"rollup": "^4.0.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.0.0"
 	},
 	"postcssConfig": {
 		"config": ".tape.js"
-	},
-	"echint": {
-		"extends": "dev"
-	},
-	"eslintConfig": {
-		"extends": "dev",
-		"parserOptions": {
-			"sourceType": "module"
-		}
 	},
 	"keywords": [
 		"postcss",
@@ -79,30 +60,33 @@
 		"thumbs",
 		"tracks"
 	],
-	"gitHead": "fa8faf950266e5f3388447c5c573107cb45148ec",
-	"_id": "postcss-input-range@5.0.0",
-	"_nodeVersion": "16.13.2",
-	"_npmVersion": "8.1.2",
+	"_id": "postcss-input-range@6.0.0",
+	"gitHead": "1316489379a8760e42b0cbe09ffc0b0b2c99ebf7",
+	"_nodeVersion": "20.17.0",
+	"_npmVersion": "10.8.3",
 	"dist": {
-		"integrity": "sha512-fL6spCg2tvVUMaWGImNYV78azlfQP0/wON7im188apJxIq0HMUwysTdMeN3TvS+Co/bjJvU2BuEhqg1LZfCuxw==",
-		"shasum": "059065ef09f081ae1a33bc1eafac3d2bbef24861",
-		"tarball": "https://registry.npmjs.org/postcss-input-range/-/postcss-input-range-5.0.0.tgz",
+		"integrity": "sha512-6kxU+P0G7gM1AWF7tGLK9fM6qUJI7+I+tubPvMDdfBsljpTuVpBxqvWySOLAqi1FHBW0d5ZpqYvgEnwep7zi9A==",
+		"shasum": "c5ef15a4e6787b94d7a406f04ffad5edcafcc516",
+		"tarball": "https://registry.npmjs.org/postcss-input-range/-/postcss-input-range-6.0.0.tgz",
 		"fileCount": 6,
-		"unpackedSize": 18721,
+		"unpackedSize": 17720,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIQCdIq6lnmwr1R2zlkxW99ATzccmblB3m4wmjOKp7zSlPwIgLpp93T4+4AMzKAc3d/2tjoyi9fMiEmVLq4xjdKhCi60="
+				"sig": "MEUCIQCuJjs37dIo7/4YBBHETaCxVNcpDRQLcv8pvoYKwMcXhAIgfOBDsuWdTdSmhfuT7hl9cPqxwlZuu03sMqoJDz7LyGM="
 			}
-		],
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiVTOdACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqWsQ/+OcZRlaytP+DXT94Sr05Ckci4COF/d/E/LrO0E473qE3qOsSm\r\nzPd0g3AauavG8YPQRvutuC12voYr7IT+6ZLwhe9YB2tPRI5do3d2cHeMF6+x\r\nVKAQAzd12LRHr2apA4pVjcVYkjUcNTufJSc5+jG8gpaMXl/lJTtGW3pEA2Sv\r\npqiu8N4O5aMSkA5Gjxk1ZlipYrFtw/36TMM71bHcQsG8U8A7qJB30AdGQIbd\r\n1jyzGAaJKn+CLMmt6PTbDVNx79KxEeTcD7snOqXqLHgN6m/2aczEdoA8tuuE\r\n9pRcGvIz2WE84XMW3CdK3tmDkMfo7lYt1YUP+3RVILx5jM6h2croHbrmztCN\r\nXbQnkTrmCVvZ04mn+8Z9Dn/QbMnzEsWVdlumk4T2uu0vxI6LqvzEWGLXIVWu\r\nzVI0C4leNxpZ3ExFVujFmFp7JMbC5p1RCmA8GWUwXVUMeyxK1t6OQKQp+AYa\r\nYShKalfqJkKzot1NSvdKKcGDoCuTrSkFFIOEvAAdRpDz5WukYuNGhaUc7SI/\r\nt3ndWchOGosF1bp/m9LVsPxc8lWS0U+TiFPEoh9PBRUU3MDyzbmkGaorkGEl\r\n1nZCd/lHqa2crDL+b8vMK+WlfGiwyESNDjMA4Xc8J6WJoVsDhQUg+IiiI89B\r\njmEXj6KYXjtu8BkqL0f2v61mfHE9bYKLJXA=\r\n=xWyk\r\n-----END PGP SIGNATURE-----\r\n"
+		]
 	},
 	"_npmUser": {
-		"name": "alaguna",
-		"email": "sombragriselros@gmail.com"
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
 	},
 	"directories": {},
 	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
 		{
 			"name": "alaguna",
 			"email": "sombragriselros@gmail.com"
@@ -114,8 +98,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-input-range_5.0.0_1649750940847_0.740736383143233"
+		"tmp": "tmp/postcss-input-range_6.0.0_1729718266108_0.6153743595013348"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2022-04-12T08:09:00.998Z"
+	"_time": "2024-10-23T21:17:46.261Z"
 }
