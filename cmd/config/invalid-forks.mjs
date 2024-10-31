@@ -4,6 +4,7 @@ export const invalidForks = [
 	'@alexasselin/postcss-plugin1',
 	'@alexlafroscia/postcss-color-mod-function',
 	'@andreyvolokitin/postcss-inline-svg',
+	'@azabraao/css-declaration-sorter',
 	'@developwithstyle/postcss-custom-media',
 	'@doomfist/postcss-px-to-viewport',
 	'@dr.pogodin/postcss-modules-parser',
