@@ -1,0 +1,158 @@
+{
+	"name": "nth-grid",
+	"version": "1.0.0",
+	"author": {
+		"name": "John Hildenbiddle"
+	},
+	"description": "Nth-Grid is a versatile semantic CSS grid system with legacy browser support for Less, PostCSS, Sass, and Stylus.",
+	"license": "MIT",
+	"homepage": "https://github.com/jhildenbiddle/nth-grid",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/jhildenbiddle/nth-grid.git"
+	},
+	"bugs": {
+		"url": "https://github.com/jhildenbiddle/nth-grid/issues"
+	},
+	"keywords": [
+		"css",
+		"flex",
+		"flexbox",
+		"gap",
+		"grid",
+		"ie",
+		"ie7",
+		"ie8",
+		"ie9",
+		"ie10",
+		"ie11",
+		"legacy",
+		"less",
+		"mixin",
+		"plugin",
+		"postcss",
+		"postcss-plugin",
+		"sass",
+		"sassdoc",
+		"scss",
+		"semantic",
+		"styl",
+		"stylus"
+	],
+	"main": "dist/postcss/index.js",
+	"devDependencies": {
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.3.1",
+		"@rollup/plugin-babel": "^6.0.4",
+		"@rollup/plugin-commonjs": "^25.0.7",
+		"@rollup/plugin-eslint": "^9.0.5",
+		"@rollup/plugin-json": "^6.1.0",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@rollup/plugin-terser": "^0.4.4",
+		"autoprefixer": "^10.3.4",
+		"browser-sync": "^3.0.2",
+		"compression": "^1.7.3",
+		"cpx": "^1.5.0",
+		"css-device-frames": "^1.0.1",
+		"dart-sass": "^1.25.0",
+		"dedent": "^1.5.1",
+		"eslint": "^8.56.0",
+		"eslint-plugin-jest": "^27.6.3",
+		"handlebars": "^4.0.12",
+		"jest": "^29.7.0",
+		"less": "^4.1.1",
+		"lodash.camelcase": "^4.3.0",
+		"lodash.merge": "^4.6.1",
+		"markdownlint-cli": "^0.39.0",
+		"mkdirp": "^3.0.1",
+		"nodemon": "^3.0.3",
+		"npm-run-all": "^4.1.5",
+		"postcss-cli": "^11.0.0",
+		"replace-in-file": "^7.1.0",
+		"rimraf": "^5.0.5",
+		"rollup": "^4.9.6",
+		"sass": "^1.41.1",
+		"sassdoc": "^2.5.1",
+		"stylus": "^0.62.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"scripts": {
+		"build": "npm-run-all -s build:dist -p build:demo build:fixtures build:docs:sass build:sassdoc",
+		"build:demo": "npm-run-all -s build:demo:hbs -p build:demo:less build:demo:postcss build:demo:sass build:demo:stylus",
+		"build:demo:hbs": "node build/build-demo.js",
+		"build:demo:less": "lessc --include-path=dist demo/grids-less.less demo/grids-less.css",
+		"build:demo:postcss": "postcss demo/*.pcss ---dir demo --ext css",
+		"build:demo:sass": "run-p build:demo:sass-*",
+		"build:demo:sass-styles": "sass src/demo/sass:demo --load-path=dist --no-source-map",
+		"build:demo:sass-import": "dart-sass demo/grids-sass-import.scss demo/grids-sass-import.css --load-path=dist --no-source-map",
+		"build:demo:sass-use": "sass demo/grids-sass-use.scss demo/grids-sass-use.css --load-path=dist --no-source-map",
+		"build:demo:stylus": "stylus demo -o demo --include dist",
+		"build:dist": "rimraf dist/* && run-p build:dist:*",
+		"build:dist:less": "run-p build:dist:less:*",
+		"build:dist:less:mixin": "cpx './src/less/*.less' ./dist/less && replace-in-file ./dist/**/*.less --configFile ./replace.config.js --quiet",
+		"build:dist:less:plugin": "rollup -c rollup.less.config.mjs",
+		"build:dist:postcss": "rollup -c rollup.postcss.config.mjs",
+		"build:dist:sass": "cpx './src/sass/*.scss' ./dist/sass && replace-in-file ./dist/**/*.scss --configFile ./replace.config.js --quiet",
+		"build:dist:stylus": "cpx './src/stylus/*.styl' ./dist/stylus && replace-in-file ./dist/**/*.styl --configFile ./replace.config.js --quiet",
+		"build:docs:sass": "sass src/docs/sass:docs --load-path=dist --load-path=node_modules/css-device-frames/dist/ --no-source-map",
+		"build:fixtures": "rimraf tests/fixtures/* && node build/build-fixtures.js",
+		"build:sassdoc": "rimraf docs/sassdoc/* && sassdoc ./dist/sass -d ./docs/sassdoc -c ./sassdoc.config.json",
+		"clean": "rimraf demo/* dist/* docs/sassdoc/* tests/fixtures/*",
+		"lint": "eslint . && markdownlint *.md docs/*.md --ignore node_modules",
+		"lint:fix": "eslint . --fix",
+		"prepare": "run-s clean build",
+		"serve": "node server.js",
+		"start": "npm-run-all -s build -p watch serve",
+		"test": "jest",
+		"test:watch": "jest --watch & nodemon --delay 1 -C -q -w tests/fixtures -e '*' -x run-s test",
+		"version": "run-s prepare lint test && git add -A docs/sassdoc",
+		"watch": "run-p watch:**",
+		"watch:demo:less": "nodemon -C -q -w demo -e less -x run-s build:demo:less",
+		"watch:demo:postcss": "nodemon -C -q -w demo -e pcss -x run-s build:demo:postcss",
+		"watch:demo:sass": "nodemon -C -q -w demo -w src/demo -e scss -x run-s build:demo:sass",
+		"watch:demo:stylus": "nodemon -C -q -w demo -e styl -x run-s build:demo:stylus",
+		"watch:dist": "nodemon -C -q -w dist -e '*' -x run-s build:demo build:fixtures",
+		"watch:src:less": "nodemon -C -q -w src/less -e '*' -x run-s build:dist:less",
+		"watch:src:postcss": "nodemon -C -q -w src/postcss -e '*' -x run-s build:dist:postcss build:dist:less",
+		"watch:src:sass": "nodemon -C -q -w src/sass -e '*' -x run-s build:dist:sass build:sassdoc",
+		"watch:src:docs:sass": "nodemon -C -q -w src/docs -e '*' -x run-s build:docs:sass",
+		"watch:src:stylus": "nodemon -C -q -w src/stylus -e '*' -x run-s build:dist:stylus",
+		"watch:src:templates": "nodemon -C -q -w src/templates -e '*' -x run-p build:demo build:fixtures"
+	},
+	"_id": "nth-grid@1.0.0",
+	"gitHead": "b9cf63a83651e683118f55b18ecd03c8987b5751",
+	"_nodeVersion": "20.10.0",
+	"_npmVersion": "10.2.3",
+	"dist": {
+		"integrity": "sha512-pIfrqCvRv0kBB36JtRn2ha6MEB9hB/9I6Zjknh30rdAFnP3J/ffJVy+p9Zv4ubNOp5hsfdJPXJTxtK5/g/mvqQ==",
+		"shasum": "8d7c49bb880f34709359958c9c36f6fcf5bd88bd",
+		"tarball": "https://registry.npmjs.org/nth-grid/-/nth-grid-1.0.0.tgz",
+		"fileCount": 13,
+		"unpackedSize": 357302,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCGqQVn8Wr5I8weC0CFiDLdsvDIIe9EKA4b2zJ+YkLUHQIgcn/ji20gAo6e/7MiNAzcwI2E0PEWVuq0CBa2j+sxnXA="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "jhildenbiddle",
+		"email": "john@hildenbiddle.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "jhildenbiddle",
+			"email": "john@hildenbiddle.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/nth-grid_1.0.0_1707257813759_0.8134322299778389"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2024-02-06T22:16:53.933Z"
+}
