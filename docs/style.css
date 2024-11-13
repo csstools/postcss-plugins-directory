@@ -1,16 +1,18 @@
 :root {
-	--color-green: rgb(59, 121, 11);
+	--color-green: rgb(59, 121, 11); /* old css tools */
+	--color-red: rgb(221, 58, 11); /* postcss */
+	--color-theme: #639; /* css */
 }
 body {
-	accent-color: rgb(59, 121, 11);
-	accent-color: var(--color-green);
+	accent-color: #639;
+	accent-color: var(--color-theme);
 	font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
 	margin: 0 auto;
 	max-width: 520px;
 	padding: 16px;
 }
 code {
-	background-color: hsl(0, 0%, 95%);
+	background-color: hsl(0deg, 0%, 95%);
 	padding: 0.125rem 0.375rem;
 }
 dl {
@@ -23,7 +25,7 @@ dd {
 	margin-bottom: 1.25rem;
 }
 dd code {
-	border: 3px hsl(0, 0%, 50%) double;
+	border: 3px hsl(0deg, 0%, 50%) double;
 	padding: 0.125rem 0.375rem;
 }
 li {
@@ -53,20 +55,32 @@ p:last-child {
 .header h1 {
 	margin-top: 0;
 }
+.csstools-logo {
+	margin-bottom: 36px;
+}
+@media (min-width: 560px) {
+	.csstools-logo {
+			margin-top: 16px;
+		}
+}
+.csstools-logo img {
+	height: 100px;
+}
 .plugin {
 	margin: 1rem 0;
 }
 .plugin details {
-	border: 1px solid rgb(59, 121, 11);
-	border: 1px solid var(--color-green);
+	border: 1px solid #639;
+	border: 1px solid var(--color-theme);
+	border-radius: 5px;
 	box-sizing: border-box;
 }
 .plugin summary {
-	background-color: rgb(59, 121, 11);
-	background-color: var(--color-green);
+	background-color: hsl(var(--random-hue), 85%, 92%);
 	box-sizing: border-box;
-	color: white;
+	color: black;
 	padding: 1rem 16px;
+	border-radius: 4px;
 }
 .plugin summary > h3:first-child {
 	display: inline;
@@ -85,10 +99,10 @@ p:last-child {
 	margin: 0;
 	padding: 0.25rem 8px;
 }
-.plugin-anchor-link:link, .plugin-anchor-link:visited, area[href].plugin-anchor-link {
+.plugin-anchor-link:link, .plugin-anchor-link:visited {
 	color: currentColor;
-	color: rgb(59, 121, 11);
-	color: var(--color-green);
+	color: rebeccapurple;
+	color: var(--color-theme);
 	display: block;
 	font-size: 1.25rem;
 	padding: 0.5rem 1rem;
@@ -97,8 +111,8 @@ p:last-child {
 }
 .plugin-anchor-link:-moz-any-link {
 	color: currentColor;
-	color: rgb(59, 121, 11);
-	color: var(--color-green);
+	color: rebeccapurple;
+	color: var(--color-theme);
 	display: block;
 	font-size: 1.25rem;
 	padding: 0.5rem 1rem;
@@ -107,8 +121,8 @@ p:last-child {
 }
 .plugin-anchor-link:any-link {
 	color: currentColor;
-	color: rgb(59, 121, 11);
-	color: var(--color-green);
+	color: rebeccapurple;
+	color: var(--color-theme);
 	display: block;
 	font-size: 1.25rem;
 	padding: 0.5rem 1rem;
@@ -119,7 +133,7 @@ p:last-child {
 	display: inline-block;
 	transition: transform 256ms;
 }
-.plugin-anchor-link:link:hover .plugin-anchor-link__icon, .plugin-anchor-link:visited:hover .plugin-anchor-link__icon, area[href].plugin-anchor-link:hover .plugin-anchor-link__icon {
+.plugin-anchor-link:link:hover .plugin-anchor-link__icon, .plugin-anchor-link:visited:hover .plugin-anchor-link__icon {
 	transform: scale(1.5);
 }
 .plugin-anchor-link:-moz-any-link:hover .plugin-anchor-link__icon {
@@ -129,10 +143,10 @@ p:last-child {
 	transform: scale(1.5);
 }
 .plugin .button-copy-npm-cmd {
-	background-color: hsl(0, 0%, 95%);
-	border: 3px hsl(0, 0%, 50%) double;
-	color: rgb(59, 121, 11);
-	color: var(--color-green);
+	background-color: hsl(0deg, 0%, 95%);
+	border: 3px hsl(0deg, 0%, 50%) double;
+	color: #639;
+	color: var(--color-theme);
 	font-family: 'Comic Sans MS';
 	font-size: 13px;
 	line-height: 1.1538461;
@@ -142,7 +156,7 @@ p:last-child {
 	        user-select: none;
 }
 .plugin .button-copy-npm-cmd:active {
-	border: 3px hsl(0, 0%, 50%) solid;
+	border: 3px hsl(0deg, 0%, 50%) solid;
 }
 #search {
 	margin: 1rem 0;

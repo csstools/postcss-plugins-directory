@@ -20,6 +20,7 @@ export function renderPage(body, numberOfPlugins, searchData, allKeywords) {
 </head>
 
 <body>
+	<img class="csstools-logo" src="./css-tools.svg" alt="CSS Tools" width="220" height="100">
 	<div class="header">
 		<img src="./postcss.svg" width="100" height="100" alt="PostCSS logo">
 		<h1>PostCSS Plugin Directory</h1>
