@@ -9,7 +9,7 @@ export function renderPage(body, numberOfPlugins, searchData, allKeywords) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PostCSS Plugin Directory</title>
+	<title>PostCSS Plugin Directory - CSS Tools</title>
 
 	<script type="text/javascript" src="./script.js" defer=""></script>
 	<link rel="stylesheet" href="./style.css">
