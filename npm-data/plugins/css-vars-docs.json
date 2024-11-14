@@ -1,0 +1,145 @@
+{
+	"_id": "css-vars-docs",
+	"name": "css-vars-docs",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "css-vars-docs",
+			"version": "1.0.0",
+			"description": "Generates a comment block with all CSS variables from the specified file to improve readability and provide documentation. The block is added at the beginning of the file, or in the first <style> block for non-CSS files, if available.",
+			"main": "lib/cli.cjs",
+			"bin": {
+				"css-vars-docs": "lib/cli.cjs",
+				"cssvarsdocs": "lib/cli.cjs",
+				"cssvd": "lib/cli.cjs"
+			},
+			"exports": {
+				".": "./lib/cli.cjs",
+				"./postcss-plugin": "./lib/postcss.cjs",
+				"./cli": "./lib/cli.cjs"
+			},
+			"scripts": {
+				"dev": "chokidar 'lib/*' -c 'npm run build'",
+				"build": "npm run build:clear && npm run build:copy && npm run build:uglify",
+				"build:clear": "rimraf dist",
+				"build:copy": "mkdir -p dist && copyfiles lib/* package.json README.md LICENSE dist/",
+				"build:uglify": "uglifyjs dist/lib/css-vars-docs.cjs -o dist/lib/css-vars-docs.cjs --mangle --compress && uglifyjs dist/lib/cli.cjs -o dist/lib/cli.cjs --mangle --compress && uglifyjs dist/lib/postcss.cjs -o dist/lib/postcss.cjs --mangle --compress",
+				"test": "jest",
+				"format": "prettier --write .",
+				"format:check": "prettier --check .",
+				"lint": "eslint ."
+			},
+			"dependencies": {
+				"commander": "12.1.0",
+				"glob": "11.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "8.4.49"
+			},
+			"devDependencies": {
+				"@semantic-release/changelog": "6.0.3",
+				"chokidar-cli": "3.0.0",
+				"copyfiles": "2.4.1",
+				"eslint": "9.14.0",
+				"eslint-config-prettier": "9.1.0",
+				"eslint-plugin-prettier": "5.2.1",
+				"jest": "29.7.0",
+				"prettier": "3.3.3",
+				"rimraf": "6.0.1",
+				"semantic-release": "24.2.0",
+				"uglify-js": "3.19.3"
+			},
+			"keywords": [
+				"css",
+				"variables",
+				"documentation",
+				"postcss-plugin",
+				"css-vars"
+			],
+			"author": {
+				"name": "Timo Schlotmann"
+			},
+			"license": "MIT",
+			"engines": {
+				"node": ">=14"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/timo-schlotmann/css-vars-docs.git"
+			},
+			"bugs": {
+				"url": "https://github.com/timo-schlotmann/css-vars-docs/issues"
+			},
+			"homepage": "https://github.com/timo-schlotmann/css-vars-docs#readme",
+			"_id": "css-vars-docs@1.0.0",
+			"gitHead": "9f94479defac9203cf397a5ba6fb6ad6a117ab34",
+			"_nodeVersion": "20.8.1",
+			"_npmVersion": "10.9.0",
+			"dist": {
+				"integrity": "sha512-bUi4sO4AUaOS/zu4QpK05IIHbz4cg9fP++bIQU2WFRAv69ezTN1ZPsug83pzu9eSUKSChDFwxnFhcXsI4E1QbQ==",
+				"shasum": "66275dfd42168fc002ed7e65520e3071d12afad6",
+				"tarball": "https://registry.npmjs.org/css-vars-docs/-/css-vars-docs-1.0.0.tgz",
+				"fileCount": 21,
+				"unpackedSize": 53238,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDo53Rv4slQJbhHr50j+9fHp6lQ3O6rVmAIyFYy9aO3YAIhAJpEsjoTaK0nkEcYpzARsd5pmRfANZCja5Z4/hhNxsLP"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "timo.schlotmann",
+				"email": "timo.schlotmann@webevolutions.de"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "timo.schlotmann",
+					"email": "timo.schlotmann@webevolutions.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/css-vars-docs_1.0.0_1731521843628_0.7572975979421646"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2024-11-13T18:17:23.627Z",
+		"1.0.0": "2024-11-13T18:17:23.787Z",
+		"modified": "2024-11-13T18:17:24.044Z"
+	},
+	"maintainers": [
+		{
+			"name": "timo.schlotmann",
+			"email": "timo.schlotmann@webevolutions.de"
+		}
+	],
+	"description": "Generates a comment block with all CSS variables from the specified file to improve readability and provide documentation. The block is added at the beginning of the file, or in the first <style> block for non-CSS files, if available.",
+	"homepage": "https://github.com/timo-schlotmann/css-vars-docs#readme",
+	"keywords": [
+		"css",
+		"variables",
+		"documentation",
+		"postcss-plugin",
+		"css-vars"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/timo-schlotmann/css-vars-docs.git"
+	},
+	"author": {
+		"name": "Timo Schlotmann"
+	},
+	"bugs": {
+		"url": "https://github.com/timo-schlotmann/css-vars-docs/issues"
+	},
+	"license": "MIT",
+	"readme": "# CssVarsDocs\n\nGenerates a comment block with all CSS variables from the specified file to improve readability and provide documentation. The block is added at the beginning of the file, or in the first `<style>` block for non-CSS files if available.\n\n## Installation (not required when using `npx` or `pnpx`)\n\n**As a Project Dependency:**\n\n```sh\nnpm install -D css-vars-docs\n```\n\nor\n\n```sh\npnpm add -D css-vars-docs\n```\n\n**Global Installation:**\n\n```sh\nnpm install -g css-vars-docs\n```\n\nor\n\n```sh\npnpm add -g css-vars-docs\n```\n\n## Usage\n\n**Without Installation:**\n\n```sh\nnpx css-vars-docs [options]\n```\n\nor\n\n```sh\npnpx css-vars-docs [options]\n```\n\n### With Global Installation or as a Dependency:\n\n```sh\ncss-vars-docs [options]\ncssvarsdocs [options]\ncssvd [options]\n```\n\n## Available Options for the CLI\n\n| Option                                | Description                                                                                 |\n| ------------------------------------- | ------------------------------------------------------------------------------------------- |\n| `-f, --files <files>`                 | Files to process, separated by spaces or commas                                             |\n| `-n, --new-lines-before-group`        | Add a new line between variable groups                                                      |\n| `-t, --title <title>`                 | Header for the comment block                                                                |\n| `-b, --block-identifier <identifier>` | Unique identifier for generated blocks                                                      |\n| `-i, --indent <indent>`               | Default indentation                                                                         |\n| `-is, --indent-style`                 | Add extra indentation in `<style>` blocks                                                   |\n| `-ex, --exclude-node-modules`         | Exclude `node_modules` by default                                                           |\n| `-lc, --load-config`                  | Boolean. Set to `false` to ignore configuration files (default: `true`, loads if available) |\n| `-lp, --log-prefix <prefix>`          | Prefix for log messages                                                                     |\n| `-ll, --log-level <level>`            | Log level: `0` = errors only, `1` = changes only, `2` = verbose, `3` = debug                |\n| `-r, --remove`                        | Remove existing comments from the files                                                     |\n| `-p, --preview`                       | Perform a dry run without writing to files                                                  |\n\n---\n\n## Configuration\n\n**CssVarsDocs** uses a default configuration to process files. This configuration can be customized using CLI options, or by creating a configuration file in the root directory of the project, allowing default configuration overrides to be retained across runs without the need to pass additional options.\n\n**Supported Configuration File Names:**\n\n```sh\ncss-vars-docs.config.{js,mjs,cjs}\ncssvarsdocs.config.{js,mjs,cjs}\ncssvd.config.{js,mjs,cjs}\n```\n\n**Configuration hierarchy:**\n\n1. Default settings\n2. Configuration file (if present)\n3. CLI options (highest priority)\n\n## Example of using a configuration file\n\nCreate a configuration file, for example `css-vars-docs.config.mjs`:\n\n```javascript\nexport default {\n    indent: '    ',\n    files: ['src/assets/*.css', 'src/assets/*.scss', 'src/*.html'],\n    logLevel: 0\n};\n```\n\nRun the command without additional arguments:\n\n```sh\nnpx css-vars-docs\n```\n\nor\n\n```sh\ncss-vars-docs\n```\n\n## More Examples\n\nProcess a specific file, `style.css`:\n\n```sh\ncss-vars-docs -f style.css\n```\n\nProcess all `.css` files in the `assets` directory:\n\n```sh\ncss-vars-docs -f assets/**/*.css\n```\n\nProcess all `.css` files in `assets` with `logLevel` set to 3:\n\n```sh\ncss-vars-docs -f assets/**/*.css -ll 3\n```\n\nProcess all `.css` files in `assets` and all `.vue` files in `components`:\n\n```sh\ncss-vars-docs -f \"assets/**/*.css,components/*.vue\"\n```\n\nProcess all files with `logLevel` 3:\n\n```sh\ncss-vars-docs -ll 3\n```\n\nRemove comments from all files with `logLevel` 3:\n\n```sh\ncss-vars-docs -r -ll 3\n```\n\n## Example of using the Postcss plugin\n\n```javascript\n// postcss.config.js\nconst cssVarsDocs = require('css-vars-docs');\n\nmodule.exports = {\n    plugins: [\n        cssVarsDocs({\n            logLevel: 3,\n            preview: true // Use `preview` to see affected files without modifying them\n        })\n        // other plugins\n    ]\n};\n```\n\n## Example of using in your code\n\n```javascript\nconst CssVarsDocs = require('css-vars-docs');\n\nconst cssVarsDocs = new CssVarsDocs({\n    // options\n});\n\ncssVarsDocs.processFiles();\n```\n\n## License\n\nThis project is licensed under the MIT License.\n\n## Notes\n\nThis tool modifies files directly, so please use with caution and consider committing your code beforehand if necessary.\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
