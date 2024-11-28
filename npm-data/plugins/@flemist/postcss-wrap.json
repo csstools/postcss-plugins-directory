@@ -1,0 +1,751 @@
+{
+	"_id": "@flemist/postcss-wrap",
+	"_rev": "5-1c6bd422229e888b2c3b1f3aeeead5fd",
+	"name": "@flemist/postcss-wrap",
+	"dist-tags": {
+		"latest": "0.0.5"
+	},
+	"versions": {
+		"0.0.0": {
+			"name": "@flemist/postcss-wrap",
+			"version": "0.0.0",
+			"description": "PostCSS plugin to wrap all css with selector or media",
+			"main": "dist/index.cjs",
+			"types": "dist/index.d.ts",
+			"engines": {
+				"node": ">=14",
+				"yarn": "^1.22"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NikolayMakhonin/postcss-wrap.git"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"wrap",
+				"media"
+			],
+			"author": {
+				"name": "NikolayMakhonin"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/NikolayMakhonin/postcss-wrap/issues"
+			},
+			"homepage": "https://github.com/NikolayMakhonin/postcss-wrap#readme",
+			"publishConfig": {
+				"access": "public"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn build && yarn run test:mocha:ci",
+				"lint": "eslint \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"lint:fix": "eslint --fix \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"build:js": "rollup -c && cpy \"**/assets/**\" \"../dist/\" --parents --cwd=src",
+				"build:types": "tsc --outDir dist/node --declaration",
+				"build": "rimraf dist && yarn run build:js && yarn run build:types",
+				"coverage:check": "nyc check-coverage --report-dir tmp/coverage/all/lcov --lines 50 --functions 50 --branches 50 --statements 50",
+				"test:mocha": "mocha ./src/**/*.test.ts",
+				"test:mocha:coverage": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts",
+				"test:mocha:watch": "mocha --watch ./src/**/*.test.ts",
+				"test:mocha:ci": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts ./dist/**/*.test.cjs",
+				"coveralls": "yarn run coverage:check && nyc report --reporter=text-lcov | coveralls"
+			},
+			"devDependencies": {
+				"@rollup/plugin-alias": "^3.1.9",
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-json": "^4.1.0",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"@rollup/plugin-replace": "^4.0.0",
+				"@rollup/plugin-typescript": "^8.3.1",
+				"@types/assert": "^1.5.6",
+				"@types/fs-extra": "^9.0.13",
+				"@types/mocha": "^9.1.0",
+				"@types/node": "^17.0.23",
+				"@typescript-eslint/eslint-plugin": "^5.17.0",
+				"@typescript-eslint/parser": "^5.17.0",
+				"cpy-cli": "^4.1.0",
+				"eslint": "^8.12.0",
+				"eslint-config-pro": "^2.1.1",
+				"fs-extra": "^10.0.1",
+				"globby": "^11.1.0",
+				"mocha": "^9.2.2",
+				"nodemon": "^2.0.15",
+				"nyc": "^15.1.0",
+				"postcss": "^8.4.14",
+				"rimraf": "^3.0.2",
+				"rollup": "^2.70.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-multi-input": "^1.3.1",
+				"ts-node": "^10.7.0",
+				"tsconfig-paths": "^3.14.1",
+				"typescript": "^4.6.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.14"
+			},
+			"dependencies": {
+				"tslib": "^2.3.1"
+			},
+			"gitHead": "d10177eeb9827e1be768ecff4b3c566d7d5e0c56",
+			"_id": "@flemist/postcss-wrap@0.0.0",
+			"_nodeVersion": "14.17.6",
+			"_npmVersion": "6.14.15",
+			"dist": {
+				"integrity": "sha512-V5z1sx2aIzO1KE0UQDn1D5+6pTIbad4bpiZUt6mdcG+5TJULqcgFYw+Z6pb04bPtPfd1PvdSC3QUa8OCCZXbCg==",
+				"shasum": "8692d8f44608b9f6c8002a11a4c229012a2852ce",
+				"tarball": "https://registry.npmjs.org/@flemist/postcss-wrap/-/postcss-wrap-0.0.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 5805,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQC9tV8Eh0gBRlkgvrMxkyNdVy0C7PV3v2E7TepxkFLXvQIgDfQoQ2t9HVlUws77LbgbEkJ6XVMkGFP0otUke09KXwk="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiijIeACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo3ug//cOgFYYv9Ki1ktDoLwgB3xZ33LckDPUzrUCHMuRPNS++9/Kj7\r\nTciaJUnssfHj0UFiLgyunQX8OnudSo4VBawhPfJxfufRw5WRxXKsZCM4hMZ/\r\nIRgqNx5cbsksL7ImegPfdcYGGYWtceFC1SD3EspM7CQ38NRvoKdB7y3x6EIK\r\n4qTLvnS/xkrgpG/DjzOAFzRjhD/NlbYs4Oxx987660jMpYWVrDaxxSycqzbu\r\nfWCc5jJjtFrfBWFwa0dUMLZGd4jWDrBGRsX9qzeHJd2RPAuEOaeYXqTb66Kz\r\nfCZWnYR0kiBNPvi5onHRnl8pWJqW3nHRlyQ1XxmOmE05V62VbqKNKDXtmJsI\r\nxx+YSLrg8aVW0Jwz1IgvkS0jMgJTzzi40fx/b1fKn2I9ahfHDf3Hy+Tdi7l6\r\nnO8zSLCzJJj/28dykncBL0xStf5rM0XCjN0YrLEpDs7shg9/HkUHBJ0cSl1U\r\njvXbhiCbkG9Aqkp5GaSxvyWc8sb8ZAhJ9z9flvvJgd52MJPafDctaZF3lUsl\r\n2nv1z0dXw4jUMg7mDaDfomSdXaI8xKlLA+NqVeekxE52qRzXfVPeKI2TxVkY\r\ncT0dxd6wnkwwB9Uv7/D+0CDpfks6qKnV7ZYyv6Pfq8Lq0Ee/rsWWKHjMzenI\r\nA/Cg2Xl5sFn7tztUSiWf4SyPg9VdFY/KQWc=\r\n=o7b6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "nikolay_makhonin",
+				"email": "nikolay.makhonin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "nikolay_makhonin",
+					"email": "nikolay.makhonin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-wrap_0.0.0_1653223966312_0.845280330048024"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.1": {
+			"name": "@flemist/postcss-wrap",
+			"version": "0.0.1",
+			"description": "PostCSS plugin to wrap all css with selector or media",
+			"main": "dist/index.cjs",
+			"types": "dist/index.d.ts",
+			"engines": {
+				"node": ">=14",
+				"yarn": "^1.22"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NikolayMakhonin/postcss-wrap.git"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"wrap",
+				"media"
+			],
+			"author": {
+				"name": "NikolayMakhonin"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/NikolayMakhonin/postcss-wrap/issues"
+			},
+			"homepage": "https://github.com/NikolayMakhonin/postcss-wrap#readme",
+			"publishConfig": {
+				"access": "public"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn build && yarn run test:mocha:ci",
+				"lint": "eslint \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"lint:fix": "eslint --fix \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"build:js": "rollup -c && cpy \"**/assets/**\" \"../dist/\" --parents --cwd=src",
+				"build:types": "tsc --outDir dist/node --declaration",
+				"build": "rimraf dist && yarn run build:js && yarn run build:types",
+				"coverage:check": "nyc check-coverage --report-dir tmp/coverage/all/lcov --lines 50 --functions 50 --branches 50 --statements 50",
+				"test:mocha": "mocha ./src/**/*.test.ts",
+				"test:mocha:coverage": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts",
+				"test:mocha:watch": "mocha --watch ./src/**/*.test.ts",
+				"test:mocha:ci": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts ./dist/**/*.test.cjs",
+				"coveralls": "yarn run coverage:check && nyc report --reporter=text-lcov | coveralls"
+			},
+			"devDependencies": {
+				"@rollup/plugin-alias": "^3.1.9",
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-json": "^4.1.0",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"@rollup/plugin-replace": "^4.0.0",
+				"@rollup/plugin-typescript": "^8.3.1",
+				"@types/assert": "^1.5.6",
+				"@types/fs-extra": "^9.0.13",
+				"@types/mocha": "^9.1.0",
+				"@types/node": "^17.0.23",
+				"@typescript-eslint/eslint-plugin": "^5.17.0",
+				"@typescript-eslint/parser": "^5.17.0",
+				"cpy-cli": "^4.1.0",
+				"eslint": "^8.12.0",
+				"eslint-config-pro": "^2.1.1",
+				"fs-extra": "^10.0.1",
+				"globby": "^11.1.0",
+				"mocha": "^9.2.2",
+				"nodemon": "^2.0.15",
+				"nyc": "^15.1.0",
+				"postcss": "^8.4.14",
+				"rimraf": "^3.0.2",
+				"rollup": "^2.70.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-multi-input": "^1.3.1",
+				"ts-node": "^10.7.0",
+				"tsconfig-paths": "^3.14.1",
+				"typescript": "^4.6.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.14"
+			},
+			"dependencies": {
+				"tslib": "^2.3.1"
+			},
+			"gitHead": "817ce08f859af919b790e8ef4e09f5cc61740908",
+			"_id": "@flemist/postcss-wrap@0.0.1",
+			"_nodeVersion": "14.17.6",
+			"_npmVersion": "6.14.15",
+			"dist": {
+				"integrity": "sha512-l3fv9GdIrSafmz9HJfBu0yoxTdx5/xwcM8NYivzTfxCBShIMKc4beKAwHyHp8Qhoy9cNV7cj53ec0TREUipbig==",
+				"shasum": "fe0f7faf38107d0c767da9d4e146fc40558c0548",
+				"tarball": "https://registry.npmjs.org/@flemist/postcss-wrap/-/postcss-wrap-0.0.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 5805,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDmM8OhYlT3brA1mUMrMyL2DZGoaMCNGPXZxqkBPbzCMwIgeNZnPjVcmJpP7WApkAlr/S+Sqv7w6dQVNdougyaOUFU="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiimsJACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqXZBAApKrARxBuW7stRQl9JjjzjBB2FsVM+Fz3vmjjcAU2wQbVsho7\r\nJMo+gI1FzG61WcxDq5DnV1sz+7M2pPgtdLv1+kz3+vZQl6QHts8icwylH2YR\r\nXm39APHbql6tX6q6/UQRytjQi9wSfRQab4zMqaykXftavzqFGjDMSmadNczY\r\n5lrnoA2c2GQyPrUZCbvFyY4FeK+5mbfnVNcB5wAShZzN1d0bFwet8+77QG20\r\nhMmJAIX3k/kz+tgxcVftscZ9c8VyvrQLSS89iGJyDBprPslydzAWGW1VyA8t\r\nvgHgItJtnG668utGbaF6joTdJobPKggKfjBwJ7PaIrNB5H+9dTGWj4RWG06q\r\nL9IC204xvvddQg4II8DHtFYqUoyE6ET2QQDqPUErAWnsqwjoYDFtRccecr6t\r\n5TrH74a7xwGqEzx8t8BY0z5BVD1NbHvUakTw3yp47KHHbg/YqAbAXNP52YYW\r\njjAHsQ7yaAfHpP9jHz7AS85WGtbl9ZUnw68/PZ+DN/jPqlpz6Vh8UfHjv+nw\r\n19SUCe8D6ooOipkfRA7sgWDquKZCRnOERfjrf1n0U2f6RyDbUcRhn02onezP\r\nnabK0zicXz643upMxtmwVzwzKpm1GQW+cME2grOQs+Oti1xXDBV3fLt909v1\r\nMzubzIQ70dM9vm7kpHy6VZ5a3C1gfFnVJEk=\r\n=RdZ9\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "nikolay_makhonin",
+				"email": "nikolay.makhonin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "nikolay_makhonin",
+					"email": "nikolay.makhonin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-wrap_0.0.1_1653238537675_0.1653781746798162"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.2": {
+			"name": "@flemist/postcss-wrap",
+			"version": "0.0.2",
+			"description": "PostCSS plugin to wrap all css with selector or media",
+			"main": "dist/index.cjs",
+			"types": "dist/index.d.ts",
+			"engines": {
+				"node": ">=14",
+				"yarn": "^1.22"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NikolayMakhonin/postcss-wrap.git"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"wrap",
+				"media"
+			],
+			"author": {
+				"name": "NikolayMakhonin"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/NikolayMakhonin/postcss-wrap/issues"
+			},
+			"homepage": "https://github.com/NikolayMakhonin/postcss-wrap#readme",
+			"publishConfig": {
+				"access": "public"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn build && yarn run test:mocha:ci",
+				"lint": "eslint \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"lint:fix": "eslint --fix \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"build:js": "rollup -c && cpy \"**/assets/**\" \"../dist/\" --parents --cwd=src",
+				"build:types": "tsc --outDir dist/node --declaration",
+				"build": "rimraf dist && yarn run build:js && yarn run build:types",
+				"coverage:check": "nyc check-coverage --report-dir tmp/coverage/all/lcov --lines 50 --functions 50 --branches 50 --statements 50",
+				"test:mocha": "mocha ./src/**/*.test.ts",
+				"test:mocha:coverage": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts",
+				"test:mocha:watch": "mocha --watch ./src/**/*.test.ts",
+				"test:mocha:ci": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts ./dist/**/*.test.cjs",
+				"coveralls": "yarn run coverage:check && nyc report --reporter=text-lcov | coveralls"
+			},
+			"devDependencies": {
+				"@rollup/plugin-alias": "^3.1.9",
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-json": "^4.1.0",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"@rollup/plugin-replace": "^4.0.0",
+				"@rollup/plugin-typescript": "^8.3.1",
+				"@types/assert": "^1.5.6",
+				"@types/fs-extra": "^9.0.13",
+				"@types/mocha": "^9.1.0",
+				"@types/node": "^17.0.23",
+				"@typescript-eslint/eslint-plugin": "^5.17.0",
+				"@typescript-eslint/parser": "^5.17.0",
+				"cpy-cli": "^4.1.0",
+				"eslint": "^8.12.0",
+				"eslint-config-pro": "^2.1.1",
+				"fs-extra": "^10.0.1",
+				"globby": "^11.1.0",
+				"mocha": "^9.2.2",
+				"nodemon": "^2.0.15",
+				"nyc": "^15.1.0",
+				"postcss": "^8.4.14",
+				"rimraf": "^3.0.2",
+				"rollup": "^2.70.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-multi-input": "^1.3.1",
+				"ts-node": "^10.7.0",
+				"tsconfig-paths": "^3.14.1",
+				"typescript": "^4.6.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.14"
+			},
+			"dependencies": {
+				"tslib": "^2.3.1"
+			},
+			"gitHead": "c2b6cb611ccaf36833be64a15a8c22ea2f731317",
+			"_id": "@flemist/postcss-wrap@0.0.2",
+			"_nodeVersion": "14.17.6",
+			"_npmVersion": "6.14.15",
+			"dist": {
+				"integrity": "sha512-8EBuKPyiUrzae2v+3JGnhaMGCwiN58WJm2uisBAaFWUn8chMesjzpJWfKsLF1ohR95K1TOhu2pNUMiYaXGwzwg==",
+				"shasum": "b8d94742c510676307c72f6af5865f0e1d69ae00",
+				"tarball": "https://registry.npmjs.org/@flemist/postcss-wrap/-/postcss-wrap-0.0.2.tgz",
+				"fileCount": 8,
+				"unpackedSize": 5991,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQDxTdz6aNT8oiFwcWlpMeZNnTbYvmg0FXHMuIcn+6v/eQIhAPNPV3Vy65cHdnfLcfxOVXNHAsdXPvQcu0zhoTV38fke"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiimyGACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoeJg//Z5M8phWOdCiRLolizvXU7kWB4/qIks4iSL3P4pWU4bCrlOoZ\r\njOmcnJkF2dz5jMwoeS+P3oXfJSJc8hYhr70dE9B97R8MbQ8kQi9b2e95ucZx\r\nJr8egVcxhsdVlQ/gdugMeS9TwiEW8HY0xLn3Xl9LqY0oyi9v8bGG4vvnGa9X\r\nCTUha2H5g359yJW9u3kipTqNQZdRZA95ydHk57PgA4rENJcLEK6eLA1t0Nx6\r\nsAEplQd8I1fhccZck0MC6CFnpaFu9mNqcKsbKkrhz9jcF5VQ5ieMBAsbeTBM\r\nGvBMWdrxg9uGpu3FW3wj7UOwy3X2tefHgXyoRHm8hk6gdzi5TSaj9i3eMX6X\r\nPTDVAnLSmJaN1bF1KOEbfmOCh/5sVNah7o+G5UW/NZa8i04CI08Uh3y2tzSA\r\nV/Wx/2x30OY2fS0xR63B88cw2rdgtCON89Pbes6Uy/68g0II/BU+LNlB2bk/\r\nUH8s08i4u65qWe2wgrYeoRfK1lCGUC0vqSMarj3OOC4Go/EYXbLtdIYRLSG9\r\nmq/gYyEMJGx8tBkNgW5ebgCz8hJSTzZwIYh9ZEkfBPArrvsL8CYPJl0fwqnn\r\nbpCPq9MkCkpO5jnbnQhT0IAFC6b7KEvjjo71BHSEMC4dvIV13xGH5qdS7MUc\r\nsSS+Ruj3i9Mp85tERrGQE73G7E8346dSlDU=\r\n=iREF\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "nikolay_makhonin",
+				"email": "nikolay.makhonin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "nikolay_makhonin",
+					"email": "nikolay.makhonin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-wrap_0.0.2_1653238917957_0.7251003035352828"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.3": {
+			"name": "@flemist/postcss-wrap",
+			"version": "0.0.3",
+			"description": "PostCSS plugin to wrap all css with selector or media",
+			"main": "dist/index.cjs",
+			"types": "dist/index.d.ts",
+			"engines": {
+				"node": ">=14",
+				"yarn": "^1.22"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NikolayMakhonin/postcss-wrap.git"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"wrap",
+				"media"
+			],
+			"author": {
+				"name": "NikolayMakhonin"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/NikolayMakhonin/postcss-wrap/issues"
+			},
+			"homepage": "https://github.com/NikolayMakhonin/postcss-wrap#readme",
+			"publishConfig": {
+				"access": "public"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn build && yarn run test:mocha:ci",
+				"lint": "eslint \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"lint:fix": "eslint --fix \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"build:js": "rollup -c && cpy \"**/assets/**\" \"../dist/\" --parents --cwd=src",
+				"build:types": "tsc --outDir dist --declaration",
+				"build": "rimraf dist && yarn run build:js && yarn run build:types",
+				"coverage:check": "nyc check-coverage --report-dir tmp/coverage/all/lcov --lines 50 --functions 50 --branches 50 --statements 50",
+				"test:mocha": "mocha ./src/**/*.test.ts",
+				"test:mocha:coverage": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts",
+				"test:mocha:watch": "mocha --watch ./src/**/*.test.ts",
+				"test:mocha:ci": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts ./dist/**/*.test.cjs",
+				"coveralls": "yarn run coverage:check && nyc report --reporter=text-lcov | coveralls"
+			},
+			"devDependencies": {
+				"@rollup/plugin-alias": "^3.1.9",
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-json": "^4.1.0",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"@rollup/plugin-replace": "^4.0.0",
+				"@rollup/plugin-typescript": "^8.3.1",
+				"@types/assert": "^1.5.6",
+				"@types/fs-extra": "^9.0.13",
+				"@types/mocha": "^9.1.0",
+				"@types/node": "^17.0.23",
+				"@typescript-eslint/eslint-plugin": "^5.17.0",
+				"@typescript-eslint/parser": "^5.17.0",
+				"cpy-cli": "^4.1.0",
+				"eslint": "^8.12.0",
+				"eslint-config-pro": "^2.1.1",
+				"fs-extra": "^10.0.1",
+				"globby": "^11.1.0",
+				"mocha": "^9.2.2",
+				"nodemon": "^2.0.15",
+				"nyc": "^15.1.0",
+				"postcss": "^8.4.14",
+				"rimraf": "^3.0.2",
+				"rollup": "^2.70.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-multi-input": "^1.3.1",
+				"ts-node": "^10.7.0",
+				"tsconfig-paths": "^3.14.1",
+				"typescript": "^4.6.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.14"
+			},
+			"dependencies": {
+				"tslib": "^2.3.1"
+			},
+			"gitHead": "1e31a1aecfc1ff148c072908ff3c99a7682ef805",
+			"_id": "@flemist/postcss-wrap@0.0.3",
+			"_nodeVersion": "14.17.6",
+			"_npmVersion": "6.14.15",
+			"dist": {
+				"integrity": "sha512-CKmMzZJvsRq9TBVO6F2ArIbIusjV7TZSMiEKAyhAnbpgiesv0EaTlmZH0y5FTU869uh3U0B7rQ7TEqIPhuvTRg==",
+				"shasum": "4776cb819a024b1f7ad20304861d9c3aae7acb0a",
+				"tarball": "https://registry.npmjs.org/@flemist/postcss-wrap/-/postcss-wrap-0.0.3.tgz",
+				"fileCount": 8,
+				"unpackedSize": 5986,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCVgajQxpreNi0+FGm6U8PaeiP0jy6zfP++3j43Zi+x4wIhAIn5JOr4rUvs0FK+TIRcVkaUKTGSvMU0CRBhlHjaM0IV"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiim2tACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoYjA//WbKpkSHVRKC8bHHEMbOhPirjgDfAn/xI0iYLaAZ9dfeAoN/A\r\nkWP2EpEiUr8SgAYZpZHIYoJQQzaRJYcPfBVqN2PMfY4rLfBrow05drtVHmdk\r\nVCKpI3uZoJv00ja2nwYcacshqBRq/Eq0KTy9jFqiWwckDpfi4fn/qR2+36Rg\r\nn0M44uXjrKHTDHejndAiPnWHwuSUOqMceaINDvoM7qJ3EMu8v32K4QJXCesC\r\nKZ4OLzydo6xrMUXPl+9Q9l6U0890XdbF4YX8u795Byo5yFcXW1+zjRMh6FBv\r\n82JWpZJVZtQqDD0S9tY/ch0+XAGuoRTNOOW6GCyHcTJ0qg9dW1OxLniFMBdj\r\nXitUchY6b2ZNgiUGlWJF2mWEglysy1WKaWKhqcsY0ueSKeCR986SXXRMpjbX\r\neK69zSATIT18QlKexUe8iisani4w8aYJ5qLGZKSj57pDad3C0B3hbZplULgw\r\nuPT71s/ASz8kGDeorP7w9rWOBh+vVaTQbI4VD3Reh5/GZ+lD2nCtyJUAQZ/z\r\nrIIuwieVMFhrwC1iToS3GY+t3/d47Z/QCH8I9UmFmmsQvA8Yk7zWPI5yXwha\r\nkzctw2c8WifHNz9CwJFe1jEgldMMnFZhZJWOwZInGIpvSQ5OK6JGXE94ILDS\r\nRiaTtGkZmkQlhvdx8iKxcIvIHtMNLOHf+yM=\r\n=gfpV\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "nikolay_makhonin",
+				"email": "nikolay.makhonin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "nikolay_makhonin",
+					"email": "nikolay.makhonin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-wrap_0.0.3_1653239213393_0.36816722318360373"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.4": {
+			"name": "@flemist/postcss-wrap",
+			"version": "0.0.4",
+			"description": "PostCSS plugin to wrap all css with selector or media",
+			"main": "dist/index.cjs",
+			"types": "dist/index.d.ts",
+			"engines": {
+				"node": ">=14",
+				"yarn": "^1.22"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NikolayMakhonin/postcss-wrap.git"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"wrap",
+				"media"
+			],
+			"author": {
+				"name": "NikolayMakhonin"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/NikolayMakhonin/postcss-wrap/issues"
+			},
+			"homepage": "https://github.com/NikolayMakhonin/postcss-wrap#readme",
+			"publishConfig": {
+				"access": "public"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn build && yarn run test:mocha:ci",
+				"lint": "eslint \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"lint:fix": "eslint --fix \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"build:js": "rollup -c && cpy \"**/assets/**\" \"../dist/\" --parents --cwd=src",
+				"build:types": "tsc --outDir dist --declaration",
+				"build": "rimraf dist && yarn run build:js && yarn run build:types",
+				"coverage:check": "nyc check-coverage --report-dir tmp/coverage/all/lcov --lines 50 --functions 50 --branches 50 --statements 50",
+				"test:mocha": "mocha ./src/**/*.test.ts",
+				"test:mocha:coverage": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts",
+				"test:mocha:watch": "mocha --watch ./src/**/*.test.ts",
+				"test:mocha:ci": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts ./dist/**/*.test.cjs",
+				"coveralls": "yarn run coverage:check && nyc report --reporter=text-lcov | coveralls"
+			},
+			"devDependencies": {
+				"@rollup/plugin-alias": "^3.1.9",
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-json": "^4.1.0",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"@rollup/plugin-replace": "^4.0.0",
+				"@rollup/plugin-typescript": "^8.3.1",
+				"@types/assert": "^1.5.6",
+				"@types/fs-extra": "^9.0.13",
+				"@types/mocha": "^9.1.0",
+				"@types/node": "^17.0.23",
+				"@typescript-eslint/eslint-plugin": "^5.17.0",
+				"@typescript-eslint/parser": "^5.17.0",
+				"cpy-cli": "^4.1.0",
+				"eslint": "^8.12.0",
+				"eslint-config-pro": "^2.1.1",
+				"fs-extra": "^10.0.1",
+				"globby": "^11.1.0",
+				"mocha": "^9.2.2",
+				"nodemon": "^2.0.15",
+				"nyc": "^15.1.0",
+				"postcss": "^8.4.14",
+				"rimraf": "^3.0.2",
+				"rollup": "^2.70.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-multi-input": "^1.3.1",
+				"ts-node": "^10.7.0",
+				"tsconfig-paths": "^3.14.1",
+				"typescript": "^4.6.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.14"
+			},
+			"dependencies": {
+				"tslib": "^2.3.1"
+			},
+			"gitHead": "1e31a1aecfc1ff148c072908ff3c99a7682ef805",
+			"_id": "@flemist/postcss-wrap@0.0.4",
+			"_nodeVersion": "14.17.6",
+			"_npmVersion": "6.14.15",
+			"dist": {
+				"integrity": "sha512-+V510lc9O8dncSGuGOiVG/DQolXZw/knPjxYHBKNoUhFUT6HqXylVcDWBOYRrCBLJQHZ3Zmb3Vzd/zI/ZyW9xg==",
+				"shasum": "d629d9df3ea590ef58e6ddfed715c4eb606cba09",
+				"tarball": "https://registry.npmjs.org/@flemist/postcss-wrap/-/postcss-wrap-0.0.4.tgz",
+				"fileCount": 6,
+				"unpackedSize": 5709,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEYCIQCRBnBaO/xG3S4gCWe7AsseQuB+YZ1/yP7ZUcwKBx3xgAIhAO6VQGNK/HQPaSQLTJuQzd+teVaXQWEYV5j4lXHNg+BK"
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiim7zACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrXFQ/+IlpYMPc1d1YuT7ZMNs5BeBwzRRj2y7hM2jiGqduYWLcnzzS6\r\nEisGm/zDMLommP+4ALKDND7P5dZBLbY8ChfZEEHDaOLWtadWhXrqGzAh9Lei\r\n4pbHpw7PfKUt0Zxp0zQUXPMNTU3Gj3h3lLeYcup2Ir0jWCT1ln3ygw0onihf\r\ng8iMb8xbcAjN+h7tyw1+LiA/qMkLMME/E1vg5FZpZEPhSu5ya90bmCyq+LQH\r\n7emVT9NypoiWlaei0qLO95rdHLuXF+ePxusbzss+gEM+d71RfGQrL+XF3Mnb\r\n8hGc2ImZeATht+xBb0qid/EMNmKdKYOSogpQkYH4PK+tPO54L7wvbXlYNILu\r\n562OX4UlJiSfNfSEkEntDKWcube2jM/fnV6cMQZOvv7+Ly6VcDzcOybMHl7Q\r\nGuB8SJscQBF6PAqNCMMnc8DkV6Gh+nr47mQ9snGE1HidriuYVE/SuvNd3vO3\r\nAyIXi1JsxkBFjOh4kYlc0c+ShJ6hTzTFNX7gyQFwBFZVxqRBilPpjUZX8brx\r\nugteAxwFPA6372BjQ5oCO8I7PdVis+rsrODcbKCvKlqh/HPifAi27sFMT7Lh\r\ne2GhpTx74wFm/mHZS4jHouAOE7vZPlVwBM+6ifn2CJ2S3XvhsOhuHGiVDfr5\r\nv/ODWPScIiWJ9IioZgcSrXKdQHoxUvIR52M=\r\n=YBRp\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "nikolay_makhonin",
+				"email": "nikolay.makhonin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "nikolay_makhonin",
+					"email": "nikolay.makhonin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-wrap_0.0.4_1653239539114_0.8789311450987016"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.0.5": {
+			"name": "@flemist/postcss-wrap",
+			"version": "0.0.5",
+			"description": "PostCSS plugin to wrap all css with selector or media",
+			"main": "dist/index.cjs",
+			"types": "dist/index.d.ts",
+			"engines": {
+				"node": ">=14",
+				"yarn": "^1.22"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/NikolayMakhonin/postcss-wrap.git"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"wrap",
+				"media"
+			],
+			"author": {
+				"name": "NikolayMakhonin"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/NikolayMakhonin/postcss-wrap/issues"
+			},
+			"homepage": "https://github.com/NikolayMakhonin/postcss-wrap#readme",
+			"publishConfig": {
+				"access": "public"
+			},
+			"scripts": {
+				"prepublishOnly": "yarn build && yarn run test:mocha:ci",
+				"lint": "eslint \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"lint:fix": "eslint --fix \"./src/**/*.{ts,js,cjs,mjs}\"",
+				"build:js": "rollup -c && cpy \"**/assets/**\" \"../dist/\" --parents --cwd=src",
+				"build:types": "tsc --outDir dist --declaration",
+				"build": "rimraf dist && yarn run build:js && yarn run build:types",
+				"coverage:check": "nyc check-coverage --report-dir tmp/coverage/all/lcov --lines 50 --functions 50 --branches 50 --statements 50",
+				"test:mocha": "mocha ./src/**/*.test.ts",
+				"test:mocha:coverage": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts",
+				"test:mocha:watch": "mocha --watch ./src/**/*.test.ts",
+				"test:mocha:ci": "rimraf tmp/coverage/mocha && nyc --all mocha ./src/**/*.test.ts ./dist/**/*.test.cjs",
+				"coveralls": "yarn run coverage:check && nyc report --reporter=text-lcov | coveralls"
+			},
+			"devDependencies": {
+				"@rollup/plugin-alias": "^3.1.9",
+				"@rollup/plugin-commonjs": "^21.0.3",
+				"@rollup/plugin-json": "^4.1.0",
+				"@rollup/plugin-node-resolve": "^13.1.3",
+				"@rollup/plugin-replace": "^4.0.0",
+				"@rollup/plugin-typescript": "^8.3.1",
+				"@types/assert": "^1.5.6",
+				"@types/fs-extra": "^9.0.13",
+				"@types/mocha": "^9.1.0",
+				"@types/node": "^17.0.23",
+				"@typescript-eslint/eslint-plugin": "^5.17.0",
+				"@typescript-eslint/parser": "^5.17.0",
+				"cpy-cli": "^4.1.0",
+				"eslint": "^8.12.0",
+				"eslint-config-pro": "^2.1.1",
+				"fs-extra": "^10.0.1",
+				"globby": "^11.1.0",
+				"mocha": "^9.2.2",
+				"nodemon": "^2.0.15",
+				"nyc": "^15.1.0",
+				"postcss": "^8.4.14",
+				"rimraf": "^3.0.2",
+				"rollup": "^2.70.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-multi-input": "^1.3.1",
+				"ts-node": "^10.7.0",
+				"tsconfig-paths": "^3.14.1",
+				"typescript": "^4.6.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.14"
+			},
+			"dependencies": {
+				"tslib": "^2.3.1"
+			},
+			"gitHead": "e5ee36fd247e6697eaea23a4a75f3745ff1f791b",
+			"_id": "@flemist/postcss-wrap@0.0.5",
+			"_nodeVersion": "14.17.6",
+			"_npmVersion": "6.14.15",
+			"dist": {
+				"integrity": "sha512-8pG71mITfTRhnMHaJrqY4TJb+7jAXzA2ZP1CbzBqXkCESUyU9TsIhf8HBdohEy4aKyjKOnmrB4F/nlEKzLfECA==",
+				"shasum": "4d389b50141112910c1d5c9881ee330d896d4093",
+				"tarball": "https://registry.npmjs.org/@flemist/postcss-wrap/-/postcss-wrap-0.0.5.tgz",
+				"fileCount": 6,
+				"unpackedSize": 5960,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIQDeDumd6v4m8dfYbWBUp/Roy+naP5hCe+3xrnJKH7qGYAIgZMAU0wVErQFxAFEKVwBqJQCBzuK6GsWi42hixZp2rwU="
+					}
+				],
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiinHpACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo+7w//VQD58tDc/MGBMb5epP3ecCiKMRoxkdluLFRx+oVatQw4mJnG\r\nHHEO7nYSJ/gpukPvUT3jEQ/AOJurEmi80Ip/i/+sQ22Em02/h1UEjT2iZyld\r\nS1KrrYVod7eG7X8tIQT02nEozLf9W4hZgWs5vyqUlOWmZpTVuis4DOzcfIdu\r\nJwtNtRIfR2RIysXyXHt7/DsbMudWLwLzDCBzriPA6d7+NTWe/JSYL+184J4G\r\nf9hSE9n6GTC3mcW2w6qh73VbAf5M5kTqroFyWLhbJmouC6a8ZDysY8RDghR0\r\nm6fVC7ZwFlDAYWA21myrpvDiJYXhXUwOokWBLJ+yw0YEASLL4AeefWV2Eiwm\r\nTJsfMwOKBuG0JH6vjQOkRa4tbjU3kllN046b+0H7s9wB3xxm9fnagBKvAGOq\r\nXQ77WJz3dhOivypjzR69U2b4Q+eESsyLoxwZ9JBSa3dGvAg7VIUmMa1INFCY\r\nz/ddXCiZ6XDQCA/qMRclg90G0GeL4jvxTYjSppJuPcie4PnAoO+Rlf2yKqMO\r\nHq8zBGZMc8Wgb8VV1ejRhA89xUP+1aAkRX+UYBxXroETcO6BfJdnbgX+eRt4\r\ndY/JpxZPIjLyrjVqS9Jt9Nb+vF+j1TT/onzVUhhVxi3LBmjJOOtZalPTdHzn\r\n9QNcK8q5dmCDJp5b2xZ0PKtmrAs3RPuTCNU=\r\n=YPh6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "nikolay_makhonin",
+				"email": "nikolay.makhonin@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "nikolay_makhonin",
+					"email": "nikolay.makhonin@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/postcss-wrap_0.0.5_1653240297197_0.7560741845646444"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2022-05-22T12:52:46.252Z",
+		"0.0.0": "2022-05-22T12:52:46.533Z",
+		"modified": "2022-05-22T17:24:57.387Z",
+		"0.0.1": "2022-05-22T16:55:37.828Z",
+		"0.0.2": "2022-05-22T17:01:58.056Z",
+		"0.0.3": "2022-05-22T17:06:53.582Z",
+		"0.0.4": "2022-05-22T17:12:19.257Z",
+		"0.0.5": "2022-05-22T17:24:57.330Z"
+	},
+	"maintainers": [
+		{
+			"name": "nikolay_makhonin",
+			"email": "nikolay.makhonin@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin to wrap all css with selector or media",
+	"homepage": "https://github.com/NikolayMakhonin/postcss-wrap#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"wrap",
+		"media"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NikolayMakhonin/postcss-wrap.git"
+	},
+	"author": {
+		"name": "NikolayMakhonin"
+	},
+	"bugs": {
+		"url": "https://github.com/NikolayMakhonin/postcss-wrap/issues"
+	},
+	"license": "ISC",
+	"readme": "[![NPM Version][npm-image]][npm-url]\n[![NPM Downloads][downloads-image]][downloads-url]\n[![Build Status][github-image]][github-url]\n[![Test Coverage][coveralls-image]][coveralls-url]\n\n# Usage\n```ts\nimport postcssWrap from '@flemist/postcss-wrap'\n\nconst input = '.class1{} .class2{}'\nconst output = await postcss(postcssWrap({\n  type: 'atrule',\n  props: {\n    name: 'media',\n    params: '(prefers-color-scheme: dark)',\n  },\n})).process(input)\n\n// output: @media (prefers-color-scheme: dark) {.class1{} .class2{}}\n```\n\n```ts\nimport postcssWrap from '@flemist/postcss-wrap'\n\nconst input = '.class1{} .class2{}'\nconst output = await postcss(postcssWrap({\n  type: 'rule',\n  props: {\n    name: 'media',\n    selectors: ['.app', '.dev'],\n  },\n})).process(input)\n\n// output: .app, .dev {.class1{} .class2{}}\n```\n\n[npm-image]: https://img.shields.io/npm/v/@flemist/postcss-wrap.svg\n[npm-url]: https://npmjs.org/package/@flemist/postcss-wrap\n[downloads-image]: https://img.shields.io/npm/dm/@flemist/postcss-wrap.svg\n[downloads-url]: https://npmjs.org/package/@flemist/postcss-wrap\n[github-image]: https://github.com/NikolayMakhonin/postcss-wrap/actions/workflows/test.yml/badge.svg\n[github-url]: https://github.com/NikolayMakhonin/postcss-wrap/actions\n[coveralls-image]: https://coveralls.io/repos/github/NikolayMakhonin/postcss-wrap/badge.svg\n[coveralls-url]: https://coveralls.io/github/NikolayMakhonin/postcss-wrap\n",
+	"readmeFilename": "README.md",
+	"_downloads": 22
+}
