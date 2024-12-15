@@ -1,0 +1,101 @@
+{
+	"_id": "@u1f992/postcss-device-cmyk",
+	"name": "@u1f992/postcss-device-cmyk",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "@u1f992/postcss-device-cmyk",
+			"version": "0.1.0",
+			"main": "dist/index.js",
+			"scripts": {
+				"format": "prettier --write src/**/*.ts postcss.config.js",
+				"build": "npm run format && tsc",
+				"test": "npm run build && postcss test/postcss/src/style.css --output test/postcss/dest/style.css"
+			},
+			"keywords": [
+				"css",
+				"device-cmyk",
+				"postcss-plugin"
+			],
+			"homepage": "https://github.com/u1f992/postcss-device-cmyk",
+			"author": {
+				"name": "Koutaro Mukai"
+			},
+			"license": "GPL-3.0",
+			"description": "Converts CSS device-cmyk colors to unique RGB with a reverse mapping table.",
+			"type": "module",
+			"devDependencies": {
+				"@types/node": "^22.10.2",
+				"postcss-cli": "^11.0.0",
+				"postcss-import": "^16.1.0",
+				"prettier": "^3.4.2",
+				"typescript": "^5.7.2"
+			},
+			"dependencies": {
+				"lcms-wasm": "^1.0.3",
+				"postcss": "^8.4.49"
+			},
+			"_id": "@u1f992/postcss-device-cmyk@0.1.0",
+			"gitHead": "2695f62b6e5fcd305dfcf74eeb5849162385b2af",
+			"types": "./dist/index.d.ts",
+			"_nodeVersion": "22.12.0",
+			"_npmVersion": "10.9.0",
+			"dist": {
+				"integrity": "sha512-TPXZ2+nYQaXfsM9JtaRrDW3lShMSP2NfqTURBBSQiPZrEKqOGwVvHBpkPels86nxLMHq29JXUhpH4062+55KMQ==",
+				"shasum": "47480f3fc1c1f945216c18503c7f676f11bbdab6",
+				"tarball": "https://registry.npmjs.org/@u1f992/postcss-device-cmyk/-/postcss-device-cmyk-0.1.0.tgz",
+				"fileCount": 62,
+				"unpackedSize": 164944,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEQCIGkERUsmrWcpp99/+rQ6yqc+lPmkT0VWgaMPKExUEWNvAiA+sIbqFscocqRzYRQmc2YM0/TBu9nnGoOxBW6reFeCxg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "u1f992",
+				"email": "mukai.k1011k@outlook.jp"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "u1f992",
+					"email": "mukai.k1011k@outlook.jp"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-device-cmyk_0.1.0_1734182261554_0.6146970099341753"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2024-12-14T13:17:41.469Z",
+		"0.1.0": "2024-12-14T13:17:41.777Z",
+		"modified": "2024-12-14T13:17:42.089Z"
+	},
+	"maintainers": [
+		{
+			"name": "u1f992",
+			"email": "mukai.k1011k@outlook.jp"
+		}
+	],
+	"description": "Converts CSS device-cmyk colors to unique RGB with a reverse mapping table.",
+	"homepage": "https://github.com/u1f992/postcss-device-cmyk",
+	"keywords": [
+		"css",
+		"device-cmyk",
+		"postcss-plugin"
+	],
+	"author": {
+		"name": "Koutaro Mukai"
+	},
+	"license": "GPL-3.0",
+	"readme": "# postcss-device-cmyk\n\n```\n$ npm install --save-dev postcss-cli postcss-import @u1f992/postcss-device-cmyk\n```\n\nThis PostCSS plugin is designed to facilitate CMYK color PDF output for CSS processing engines that do not support [`device-cmyk`](https://drafts.csswg.org/css-color-5/#device-cmyk) (which includes the vast majority of engines).\n\nThe plugin identifies all instances of the `device-cmyk` function in the input CSS file(s), converts them to approximate RGB colors, and replaces them in the CSS. The converted RGB colors are carefully adjusted to ensure uniqueness, even for very similar CMYK colors (e.g., `device-cmyk(1 0 0 0)` and `device-cmyk(0.99 0 0 0)`), which are mapped to distinct RGB values. Additionally, the plugin generates a JSON file containing a reverse conversion table. This table enables the original CMYK colors to be restored from the RGB colors in the PDF using scripts in software such as InDesign or Scribus.\n\nFor detailed usage instructions, please refer to [postcss.config.js](postcss.config.js).\n\n## License\n\nGPL-3.0 except [src/ciede2000.ts](src/ciede2000.ts) (MIT).\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
