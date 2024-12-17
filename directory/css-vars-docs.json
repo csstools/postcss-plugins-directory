@@ -1,6 +1,6 @@
 {
 	"name": "css-vars-docs",
-	"version": "1.1.1",
+	"version": "1.2.1",
 	"description": "Generates a comment block with all CSS variables from the specified file to improve readability and provide documentation. The block is added at the beginning of the file, or in the first <style> block for non-CSS files, if available.",
 	"main": "dist/cli.cjs",
 	"bin": {
@@ -10,14 +10,20 @@
 	},
 	"exports": {
 		".": "./dist/cli.cjs",
-		"./postcss-plugin": "./dist/postcss.cjs",
+		"./postcss-plugin": "./dist/postcss-plugin.cjs",
+		"./vite-plugin": {
+			"require": "./dist/vite-plugin.cjs",
+			"default": "./dist/vite-plugin.cjs",
+			"types": "./dist/vite-plugin.d.ts"
+		},
+		"./css-vars-docs": "./dist/css-vars-docs.cjs",
 		"./cli": "./dist/cli.cjs"
 	},
 	"scripts": {
 		"dev": "chokidar 'lib/*' -c 'npm run build'",
-		"build": "npm run build:clear && npm run build:uglify",
+		"build": "npm run build:clear && npm run build:uglify && copyfiles -u 1 lib/*.d.ts dist/",
 		"build:clear": "rimraf dist",
-		"build:uglify": "mkdir -p dist && uglifyjs lib/css-vars-docs.cjs -o dist/css-vars-docs.cjs --mangle --compress && uglifyjs lib/cli.cjs -o dist/cli.cjs --mangle --compress && uglifyjs lib/postcss.cjs -o dist/postcss.cjs --mangle --compress",
+		"build:uglify": "mkdir -p dist && uglifyjs lib/css-vars-docs.cjs -o dist/css-vars-docs.cjs --mangle --compress && uglifyjs lib/cli.cjs -o dist/cli.cjs --mangle --compress && uglifyjs lib/postcss-plugin.cjs -o dist/postcss-plugin.cjs --mangle --compress && uglifyjs lib/vite-plugin.cjs -o dist/vite-plugin.cjs --mangle --compress",
 		"test": "jest",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
@@ -65,20 +71,20 @@
 		"url": "https://github.com/timo-schlotmann/css-vars-docs/issues"
 	},
 	"homepage": "https://github.com/timo-schlotmann/css-vars-docs#readme",
-	"_id": "css-vars-docs@1.1.1",
-	"gitHead": "1ab29e8033e41449b0ffaaccc19caddc4eafa8fa",
+	"_id": "css-vars-docs@1.2.1",
+	"gitHead": "8e571be10a4155d8c522b4e0970be21561e7be0b",
 	"_nodeVersion": "20.8.1",
 	"_npmVersion": "10.9.0",
 	"dist": {
-		"integrity": "sha512-OCP1urwy5eF7RrJvEivzVkdcriYIDHiULx0gcrvVPKKZclZS3yhfX2u2TpKRbOayzvJSw/qjbVfNLb5McEbjGw==",
-		"shasum": "8a8b0a88fa54e988dcf88581658d2787a44ae282",
-		"tarball": "https://registry.npmjs.org/css-vars-docs/-/css-vars-docs-1.1.1.tgz",
-		"fileCount": 7,
-		"unpackedSize": 17044,
+		"integrity": "sha512-eh4NZk4YKIPC0k91G6v2mxSh+rwmDw6XUNbOGb5aXXr/fXfvEG4QRQxI+c5HLDm0Rc/b47ZoqckuURfXTio0SQ==",
+		"shasum": "ce6d2a52c05775d2def1023617125303bb566004",
+		"tarball": "https://registry.npmjs.org/css-vars-docs/-/css-vars-docs-1.2.1.tgz",
+		"fileCount": 9,
+		"unpackedSize": 19140,
 		"signatures": [
 			{
 				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCIB7p8529LldvYrXHBiYcwj4OwgD/t2RMv7pwXQtS/VwlAiBhutpRV9NEPgo5UEGTZBN8isiWLly7+CpkQ8ebVmoHSw=="
+				"sig": "MEUCIFTE2/2FAXZJMiI68Wtx+RJJZc3dkYV2IGE5nnS1D7WeAiEA6T3m6WhUalK2eoZe8lWIUQlc062AafPwe6LcZHZ1iC8="
 			}
 		]
 	},
@@ -94,9 +100,9 @@
 		}
 	],
 	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/css-vars-docs_1.1.1_1731568435891_0.8232967550744463"
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/css-vars-docs_1.2.1_1734363066186_0.7732075996589554"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2024-11-14T07:13:56.112Z"
+	"_time": "2024-12-16T15:31:06.377Z"
 }
