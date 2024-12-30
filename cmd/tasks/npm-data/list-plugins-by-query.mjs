@@ -32,11 +32,7 @@ export async function listPluginsByQuery(query, excluded = new Set()) {
 			return true;
 		}
 
-		let scope = plugin.package.scope;
-		if (!scope && plugin.package.name.startsWith('@')) {
-			scope = plugin.package.name.split('/')[0].slice(1);
-		}
-
+		const scope = packageNameAndScope(plugin.package.name).scope;
 		if (ignoredScopes.includes(scope)) {
 			return true;
 		}

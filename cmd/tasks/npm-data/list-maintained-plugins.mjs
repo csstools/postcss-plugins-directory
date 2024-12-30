@@ -13,6 +13,7 @@ import { fetchPlugin } from '../util/fetch-plugin.mjs';
 import { filterVersions } from '../util/filter-versions.mjs';
 import { sortObjects } from '../util/sort-objects.mjs';
 import { readJSONFromFileOrEmptyObject } from '../util/read-json.mjs';
+import { packageNameAndScope } from '../util/package-name-and-scope.mjs';
 
 export async function listMaintainedPlugins() {
 	const result = {
@@ -40,7 +41,7 @@ export async function listMaintainedPlugins() {
 	};
 	for (let i = 0; i < pluginsList.objects.length; i++) {
 		const plugin = pluginsList.objects[i];
-		if (ignoredScopes.includes(plugin.package.scope)) {
+		if (ignoredScopes.includes(packageNameAndScope(plugin.package.name).scope)) {
 			continue;
 		}
 
@@ -136,13 +137,7 @@ export async function listMaintainedPlugins() {
 				// Plugins must link to a repository
 				continue;
 			}
-			const packageNameWithoutScope = (() => {
-				if (!plugin.package.scope || plugin.package.scope === 'unscoped') {
-					return plugin.package.name;
-				}
-
-				return plugin.package.name.slice(`@${plugin.package.scope}/`.length);
-			})();
+			const packageNameWithoutScope = packageNameAndScope(plugin.package.name).name;
 
 			const key = `${packageRepository} - ${packageNameWithoutScope}`;
 			if (repositoriesByPackageName.has(key)) {

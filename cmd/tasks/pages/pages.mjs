@@ -8,6 +8,7 @@ import { traverseDir } from '../util/traverse-dir.mjs';
 import { renderPage } from './render-page.mjs';
 import { renderPlugin } from './render-plugin.mjs';
 import { readJSONFromFileOrEmptyObject } from '../util/read-json.mjs';
+import { packageNameAndScope } from '../util/package-name-and-scope.mjs';
 
 const leadingDigits = /^\d+/;
 
@@ -46,8 +47,10 @@ export async function pages() {
 			continue;
 		}
 
-		pluginData.scope = maintainedPluginsData.get(pluginData.name).package.scope;
-		pluginData.unscopedPackageName = unscopedPackageName(pluginData);
+		const nameAndScope = packageNameAndScope(maintainedPluginsData.get(pluginData.name).package.name);
+
+		pluginData.scope = nameAndScope.scope;
+		pluginData.unscopedPackageName = nameAndScope.name;
 		pluginData.unPrefixedPackageName = unPrefixPackageName(pluginData);
 		pluginData.unPrefixedPackageNameWithoutLeadingNumbers = pluginData.unPrefixedPackageName.replace(leadingDigits, '');
 		pluginData.repository = maintainedPluginsData.get(pluginData.name).package.links?.repository;
@@ -59,9 +62,9 @@ export async function pages() {
 			return a.unPrefixedPackageNameWithoutLeadingNumbers.localeCompare(b.unPrefixedPackageNameWithoutLeadingNumbers);
 		}
 
-		if (a.scope === 'unscoped') {
+		if (!a.scope) {
 			return -1;
-		} else if (b.scope === 'unscoped') {
+		} else if (!b.scope) {
 			return 1;
 		} else {
 			return a.name.localeCompare(b.name);
@@ -120,14 +123,6 @@ export async function pages() {
 
 	await fs.writeFile(PAGES_KEYWORDS_FILE_PATH, JSON.stringify(allKeywordsSorted, null, 2));
 	await fs.writeFile(PAGES_INDEX_HTML_FILE_PATH, renderPage(result, counter, searchData, allKeywordsSorted));
-}
-
-function unscopedPackageName(pluginData) {
-	if (!pluginData.scope || pluginData.scope === 'unscoped') {
-		return pluginData.name;
-	}
-
-	return pluginData.name.slice(`@${pluginData.scope}/`.length);
 }
 
 function unPrefixPackageName(pluginData) {
