@@ -3,6 +3,7 @@ import { sortObjects } from "../util/sort-objects.mjs";
 import { ignoredScopes } from '../../config/ignored-scopes.mjs';
 import { ignoredKeywords } from "../../config/ignored-keywords.mjs";
 import { invalidForks } from "../../config/invalid-forks.mjs";
+import { packageNameAndScope } from "../util/package-name-and-scope.mjs";
 
 async function fetchPlugins(query, offset) {
 	await new Promise((resolve) => setTimeout(resolve, 100));
