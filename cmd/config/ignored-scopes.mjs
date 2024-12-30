@@ -16,6 +16,7 @@ export const ignoredScopes = [
 	'diotoborg',
 	'diotobtea',
 	'dramaorg',
+	'dramaorg',
 	'drftgyhuji7npm',
 	'drtyhu8npm',
 	'ellentorg',

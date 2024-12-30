@@ -32,7 +32,12 @@ export async function listPluginsByQuery(query, excluded = new Set()) {
 			return true;
 		}
 
-		if (ignoredScopes.includes(plugin.package.scope)) {
+		let scope = plugin.package.scope;
+		if (!scope && plugin.package.name.startsWith('@')) {
+			scope = plugin.package.name.split('/')[0].slice(1);
+		}
+
+		if (ignoredScopes.includes(scope)) {
 			return true;
 		}
 
@@ -40,9 +45,9 @@ export async function listPluginsByQuery(query, excluded = new Set()) {
 			plugin.package.keywords?.length > 100 ||
 			plugin.package.keywords?.some((keyword) => ignoredKeywords.includes(keyword))
 		) {
-			if (!ignoredScopedSet.has(plugin.package.scope)) {
-				console.log(plugin.package.scope, plugin.package.name);
-				ignoredScopedSet.add(plugin.package.scope);
+			if (!ignoredScopedSet.has(scope)) {
+				console.log('scope that should be ignored', scope, plugin.package.name);
+				ignoredScopedSet.add(scope);
 			}
 			return true;
 		}
