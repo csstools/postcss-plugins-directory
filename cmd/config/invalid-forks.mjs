@@ -28,6 +28,7 @@ export const invalidForks = [
 	'@pumpn/postcss-unique-selectors',
 	'@pumpn/stylehacks',
 	'@rdil/postcss-color-mod-function',
+	'@saptool/postcss-pxtorem',
 	'@teranes/postcss-variables',
 	'@voodeng/postcss-px-to-viewport',
 	'@z1c1/postcss-px-to-viewport',
