@@ -1,0 +1,117 @@
+{
+	"_id": "postcss-change-dir",
+	"name": "postcss-change-dir",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-change-dir",
+			"version": "0.1.0",
+			"description": "PostCSS plugin for RTL-optimizations",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss plugin",
+				"rtl",
+				"ltr",
+				"right to left",
+				"left to right"
+			],
+			"author": {
+				"name": "ame"
+			},
+			"license": "MIT",
+			"main": "lib/index.js",
+			"dependencies": {
+				"rtlcss": "4.0.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.19.3",
+				"@babel/preset-env": "^7.20.2",
+				"babel-eslint": "^10.0.3",
+				"eslint": "^7.0.0",
+				"eslint-config-airbnb-base": "^14.0.0",
+				"eslint-plugin-import": "^2.20.1",
+				"jest": "^29.3.1",
+				"postcss-import": "^12.0.1"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"scripts": {
+				"build": "babel ./src --out-dir ./lib --ignore '**/__tests__/*'",
+				"lint": "eslint ./src",
+				"prepare": "npm run lint && npm run build && npm test",
+				"start": "jest --watch",
+				"test": "jest"
+			},
+			"engines": {
+				"node": ">=14.0.0"
+			},
+			"_id": "postcss-change-dir@0.1.0",
+			"gitHead": "eb99e483063bb2578cc19b1c26ccdff50965d08e",
+			"_nodeVersion": "18.20.4",
+			"_npmVersion": "10.7.0",
+			"dist": {
+				"integrity": "sha512-VqZBTCthmDl0DjOJ0bSVS692fJD9DSrSkljxx0j3Oy75Hg6pl8LBHgOP2hn+CHYWFCJHWkDTMm3k0/sq5O3oVw==",
+				"shasum": "fa3dadc841f0d4e927ae69c91d07b72c89c5ab1e",
+				"tarball": "https://registry.npmjs.org/postcss-change-dir/-/postcss-change-dir-0.1.0.tgz",
+				"fileCount": 21,
+				"unpackedSize": 56350,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIENlHbG9ID0MCq7h6UVShFd2HtYR8Da6nYmNHl+Wf8IBAiEAvHE+0fXWj+fDrAXqSlRaLE2Qlpq49hgl194q22HLbmc="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "true-ame",
+				"email": "1456723200@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "true-ame",
+					"email": "1456723200@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-change-dir_0.1.0_1735637375566_0.8674909892925771"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2024-12-31T09:29:35.565Z",
+		"0.1.0": "2024-12-31T09:29:35.796Z",
+		"modified": "2024-12-31T09:29:36.109Z"
+	},
+	"maintainers": [
+		{
+			"name": "true-ame",
+			"email": "1456723200@qq.com"
+		}
+	],
+	"description": "PostCSS plugin for RTL-optimizations",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss plugin",
+		"rtl",
+		"ltr",
+		"right to left",
+		"left to right"
+	],
+	"author": {
+		"name": "ame"
+	},
+	"license": "MIT",
+	"readme": "# POSTCSS-CHANGE-DIR\n\n[PostCSS]插件，用于响应式 RTL\n\n生成 RTL 规则，翻转属性。\n使用一个文件即可适用于两个方向！\n\n- [POSTCSS-CHANGE-DIR](#postcss-change-dir)\n  - [示例](#示例)\n    - [简单属性](#简单属性)\n    - [动画](#动画)\n    - [值指令](#值指令)\n    - [属性指令](#属性指令)\n    - [忽略特定声明](#忽略特定声明)\n  - [使用](#使用)\n    - [与 Webpack 一起使用：](#与-webpack-一起使用)\n    - [与 Gulp 一起使用：](#与-gulp-一起使用)\n    - [选项](#选项)\n  - [致谢](#致谢)\n\n## 示例\n\n### 简单属性\n\n大多数情况下，你只需要翻转属性名称或值\n从`left`变为`right`，或者改变全值简写中的值顺序\n从`top-right-bottom-left`变为`top-left-bottom-right`。\n\nLTR 输入：\n\n```css\n.foo {\n  float: right;\n  margin-left: 13px;\n  text-align: right;\n  font-size: 13px;\n  border-color: lightgray;\n  border-width: 2px 0 2px 2px;\n  border-style: solid dashed solid solid;\n}\n\n.foo {\n  text-align: center;\n}\n```\n\nLTR+RTL 输出：\n\n```css\n.foo {\n  font-size: 13px;\n}\n\n[dir] .foo {\n  border-color: lightgray;\n}\n\n[dir='ltr'] .foo {\n  float: right;\n  margin-left: 13px;\n  text-align: right;\n  border-width: 2px 0 2px 2px;\n  border-style: solid dashed solid solid;\n}\n\n[dir='rtl'] .foo {\n  float: left;\n  margin-right: 13px;\n  text-align: left;\n  border-width: 2px 2px 2px 0;\n  border-style: solid solid solid dashed;\n}\n\n[dir] .foo {\n  text-align: center;\n}\n```\n\n### 动画\n\n可翻转的关键帧动画将被拆分为两个基于方向的规则，分别带有`-ltr`或`-rtl`后缀\n\nLTR 输入：\n\n```css\n.foo {\n  animation: 1s slide 0s ease-in-out;\n}\n\n@keyframes slide {\n  from {\n    transform: translate(-1000px);\n  }\n  to {\n    transform: translate(0);\n  }\n}\n```\n\nLTR+RTL 输出：\n\n```css\n[dir='ltr'] .foo {\n  animation: 1s slide-ltr 0s ease-in-out;\n}\n\n[dir='rtl'] .foo {\n  animation: 1s slide-rtl 0s ease-in-out;\n}\n\n@keyframes slide-ltr {\n  from {\n    transform: translate(-1000px);\n  }\n  to {\n    transform: translate(0);\n  }\n}\n\n@keyframes slide-rtl {\n  from {\n    transform: translate(1000px);\n  }\n  to {\n    transform: translate(0);\n  }\n}\n```\n\n### 值指令\n\n要转换声明值，请使用值指令：\n\n- `/* rtl:prepend:{value} */` - 在当前值之前添加{value}\n- `/* rtl:append:{value} */` - 在当前值之后添加{value}\n- `/* rtl:{value} */` - 用提供的值替换当前值\n\n**源代码**\n\n```css\n.foo {\n  font-weight: bold;\n  font-family: 'Droid Sans', 'Helvetica Neue', Arial, sans-serif /*rtl:prepend:\"Droid Arabic Kufi\",*/;\n  transform: rotate(45deg) /* rtl:append: scaleX(-1) */;\n  flex-direction: row /* rtl: row-reverse */;\n}\n```\n\n**结果**\n\n```css\n.foo {\n  font-weight: bold;\n}\n\n[dir='ltr'] .foo {\n  font-family: 'Droid Sans', 'Helvetica Neue', Arial, sans-serif /*rtl:prepend:\"Droid Arabic Kufi\",*/;\n  transform: rotate(45deg) /* rtl:append: scaleX(-1) */;\n  flex-direction: row /* rtl: row-reverse */;\n}\n\n[dir='rtl'] .foo {\n  font-family: 'Droid Arabic Kufi', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;\n  transform: rotate(45deg) scaleX(-1);\n  flex-direction: row-reverse;\n}\n```\n\n### 属性指令\n\n要转换声明属性名称，请使用属性指令：\n\n- `/* rtl:as:{prop} */` - 将属性处理为{prop}。适用于自定义属性（底层使用[rtlcss 别名][别名文档]）\n\n**源代码**\n\n```css\n:root {\n  --padding/* rtl:as:padding */: 1rem 2rem 3rem 4rem;\n}\n```\n\n**结果**\n\n```css\n[dir='ltr']:root {\n  --padding/* rtl:as:padding */: 1rem 2rem 3rem 4rem;\n}\n\n[dir='rtl']:root {\n  --padding/* rtl:as:padding */: 1rem 4rem 3rem 2rem;\n}\n```\n\n### 忽略特定声明\n\n要跳过翻转特定声明，请使用一些支持的指令：\n\n- `/* rtl:ignore */` - 忽略以下规则*或*包含声明\n- `/* rtl:begin:ignore */` 和 `/* rtl:end:ignore */` - 在作用域内忽略规则\n\n忽略一条规则：\n\n```css\n/* rtl:ignore */\n.foo {\n  padding-left: 0;\n}\n```\n\n块语法以忽略作用域内的规则：\n\n```css\n/* rtl:begin:ignore */\n.foo {\n  padding-left: 0;\n}\n.bar {\n  direction: ltr;\n}\n/* rtl:end:ignore */\n```\n\n值语法以忽略单个 CSS 声明：\n\n```css\n.foo {\n  margin-left: 20px;\n  padding-right: 20px /* rtl:ignore */;\n}\n```\n\n`/*!` 符号也可以使用：\n\n```css\n/*! rtl:ignore */\n.foo {\n  padding-left: 0;\n}\n```\n\n## 使用\n\n1. 将其插入 PostCSS\n\n   ```js\n   const postcss = require('postcss')\n   const rtl = require('postcss-change-dir')\n\n   postcss([rtl(options)])\n   ```\n\n   查看[PostCSS]文档以获取你的环境示例。\n\n2. 通过在`<html>`元素上切换`dir=\"ltr\"`和`dir=\"rtl\"`来管理方向。\n\n### 与 Webpack 一起使用：\n\n```js\nmodule.exports = {\n  module: {\n    rules: [\n      {\n        test: /\\.css$/,\n        use: [\n          { loader: 'style-loader' },\n          { loader: 'css-loader' },\n          {\n            loader: 'postcss-loader',\n            options: {\n              plugins: function () {\n                return [require('postcss-change-dir')(options)]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n}\n```\n\n### 与 Gulp 一起使用：\n\n```js\ngulp\n  .src('style.css')\n  .pipe(postcss([rtl(options)]))\n  .pipe(gulp.dest('./dest'))\n```\n\n### 选项\n\n- `addPrefixToSelector`: 自定义函数，用于添加前缀到选择器。可选。\n  示例：\n\n  ```js\n  function addPrefixToSelector(selector, prefix) {\n    return `${prefix} > ${selector}` // 使选择器变为 [dir=rtl] > .selector\n  }\n  ```\n\n  **注意：** 返回的字符串*必须*包含`prefix`以避免无限递归\n\n- `onlyDirection`: 仅生成单向版本：`ltr`或`rtl`\n\n- `prefixType`: 在添加属性和类选择器之间切换。可选：\n\n  - `attribute`（默认，推荐）：`.foo` => `[dir=rtl] .foo`\n  - `class`（适用于 IE6）：`.foo` => `.dir-rtl .foo`\n\n- `prefix`: 使用自定义字符串，而不是'dir'，用于添加的属性和类选择器\n\n  - 例如：`'data-my-custom-dir'`（对于属性 prefixType）：`.foo` => `[data-my-custom-dir=rtl] .foo`\n  - 例如：`'my-custom-dir'`（对于类 prefixType）：`.foo` => `.my-custom-dir-rtl .foo`\n\n- `removeComments`（默认：`true`）：处理后删除`rtl:*`注释\n\n- `fromRTL`（默认：`false`）：假设所有样式都是用 RTL 方向编写的，并为它们生成相应的 LTR 样式\n\n- `blacklist`：处理将被忽略的 CSS 属性数组\n  示例：\n  ```js\n  ;['padding-left', 'padding-right']\n  ```\n- `whitelist`：将被处理的 CSS 属性数组（仅它们）\n  示例：\n  ```js\n  ;['margin', 'border-color']\n  ```\n- `aliases`: 查看 rtlcss [别名文档][别名文档]\n  示例：\n\n  ```js\n  {\n      `--spacing`: 'padding'\n  }\n  ```\n\n## 致谢\n\n非常感谢以下项目：\n\n- [PostCSS][PostCSS]\n- [RTLCSS][RTLCSS]\n\n[PostCSS]: https://github.com/postcss/postcss\n[RTLCSS]: https://github.com/MohammadYounes/rtlcss\n[rtlcss-directives]: http://rtlcss.com/learn/getting-started/why-rtlcss/#processing-directives\n[aliases documentation]: https://rtlcss.com/learn/usage-guide/aliases/\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
