@@ -289,5 +289,5 @@
 	"license": "MIT",
 	"readme": "# Kolache\n\n[![Build Status][ci-img]][ci]\n\nImport and distribute configurable CSS packages via npm.\n\n[postcss]: https://github.com/postcss/postcss\n[ci-img]: https://travis-ci.org/keithjgrant/kolache.svg\n[ci]: https://travis-ci.org/keithjgrant/kolache\n\nFull documentation at [kolache.keithjgrant.com](https://kolache.keithjgrant.com).\n\n```scss\n/* main.css */\n@import 'button' as .button;\n@import 'button:variant' as .button--danger {\n  $color: red;\n}\n\n/* button.css */\n@export {\n  $(name) {\n    display: inline-block;\n    padding: 0.5em;\n    border: 1px solid blue;\n    background-color: blue;\n  }\n}\n\n@export as 'variant' {\n  $(name) {\n    border-color: $color;\n    color: $color;\n  }\n}\n```\n\nCompiles to:\n\n```css\n.button {\n  display: inline-block;\n  padding: 0.5em;\n  border: 1px solid blue;\n  background-color: blue;\n}\n\n.button--danger {\n  border-color: red;\n  color: red;\n}\n```\n\n## Usage\n\n```js\npostcss([require('kolache')]);\n```\n\nSee [PostCSS] docs for examples for your environment.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 8
+	"_downloads": 11
 }
