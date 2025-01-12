@@ -1,0 +1,131 @@
+{
+	"_id": "postcss-figma-blur-fix",
+	"name": "postcss-figma-blur-fix",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-figma-blur-fix",
+			"version": "0.0.1",
+			"description": "PostCSS plugin that adjusts blur values imported from Figma to ensure they visually match the blur effect in browsers. Perfect for syncing design and implementation.",
+			"author": {
+				"name": "Ivan Bulakhov",
+				"email": "kabarchonok@gmail.com"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kabarchonok/postcss-figma-blur-fix.git"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"postcss-figma-blur-fix"
+			],
+			"engines": {
+				"node": ">=18.0.0",
+				"pnpm": "^9.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.27"
+			},
+			"devDependencies": {
+				"@antfu/eslint-config": "^3.13.0",
+				"eslint": "^9.18.0",
+				"postcss": "^8.4.27"
+			},
+			"eslintConfig": {
+				"parserOptions": {
+					"ecmaVersion": 2017
+				},
+				"env": {
+					"node": true,
+					"es6": true
+				},
+				"extends": [
+					"eslint:recommended"
+				]
+			},
+			"scripts": {
+				"unit": "node --test index.test.js",
+				"test": "npm run unit && eslint .",
+				"release": "pnpm dlx bumpp -r && pnpm -r publish"
+			},
+			"_id": "postcss-figma-blur-fix@0.0.1",
+			"bugs": {
+				"url": "https://github.com/kabarchonok/postcss-figma-blur-fix/issues"
+			},
+			"homepage": "https://github.com/kabarchonok/postcss-figma-blur-fix#readme",
+			"_integrity": "sha512-9iZTHcXcGJz6q1W55l/1rJej2TLoPtjUbfde6qefHdG+tYChHBNH+1nhc5FAgmqQt436QI9zRMPxa3D4R+8hQQ==",
+			"_resolved": "/private/var/folders/kp/68w5sj291qz3fm4t4rszzzjm0000gn/T/c61f0638f8f85e48a15514f790a24aec/postcss-figma-blur-fix-0.0.1.tgz",
+			"_from": "file:postcss-figma-blur-fix-0.0.1.tgz",
+			"_nodeVersion": "23.6.0",
+			"_npmVersion": "10.9.2",
+			"dist": {
+				"integrity": "sha512-9iZTHcXcGJz6q1W55l/1rJej2TLoPtjUbfde6qefHdG+tYChHBNH+1nhc5FAgmqQt436QI9zRMPxa3D4R+8hQQ==",
+				"shasum": "654c7088138a88f45269c457c73689f7ff4bf364",
+				"tarball": "https://registry.npmjs.org/postcss-figma-blur-fix/-/postcss-figma-blur-fix-0.0.1.tgz",
+				"fileCount": 14,
+				"unpackedSize": 16246,
+				"signatures": [
+					{
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+						"sig": "MEUCIEsm6EKcqg4D26xS1JeXuAcVfUfv9OVVpigzNP+a3j8jAiEA3jOKDHPGLfcHSbEsMrErzFnPa0N665gj8Gt+QilsVGg="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "kabarchonok",
+				"email": "bulahoff7@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "kabarchonok",
+					"email": "bulahoff7@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-figma-blur-fix_0.0.1_1736634794420_0.8285608859301659"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-01-11T22:33:14.419Z",
+		"0.0.1": "2025-01-11T22:33:14.595Z",
+		"modified": "2025-01-11T22:33:14.893Z"
+	},
+	"maintainers": [
+		{
+			"name": "kabarchonok",
+			"email": "bulahoff7@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin that adjusts blur values imported from Figma to ensure they visually match the blur effect in browsers. Perfect for syncing design and implementation.",
+	"homepage": "https://github.com/kabarchonok/postcss-figma-blur-fix#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"postcss-figma-blur-fix"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kabarchonok/postcss-figma-blur-fix.git"
+	},
+	"author": {
+		"name": "Ivan Bulakhov",
+		"email": "kabarchonok@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/kabarchonok/postcss-figma-blur-fix/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-figma-blur-fix\n\n> [PostCSS](https://github.com/postcss/postcss) plugin that adjusts blur values imported from Figma by multiplying them by 0.45. This ensures the blur effect in browsers visually matches the design as seen in Figma.\n\n## Why do you need it?\n\nFigma and browsers use different algorithms to render blur effects, often resulting in inconsistent visuals. A blur value from Figma may appear significantly stronger or weaker when implemented in CSS.\n\nThe plugin solves this by simply multiplying the blur() value by 0.45, so that the browser output closely resembles the original design.\n\n> [!NOTE]\n> This plugin only works with absolute `px` values.\n> If your CSS uses other units like `em`, `rem`, etc., the plugin will not change those values. Make sure your values are in px for the plugin to work correctly.\n\n## Examples\n\ninput:\n\n```css\n.filter {\n    filter: blur(25.5px);\n}\n\n.backdrop-filter {\n    backdrop-filter: blur(15px);\n}\n\n.multiple-values {\n    filter: opacity(90%) blur(30px);\n}\n```\n\noutput:\n\n```css\n.filter {\n    filter: blur(11.475px);\n}\n\n.backdrop-filter {\n    backdrop-filter: blur(6.75px);\n}\n\n.multiple-values {\n    filter: opacity(90%) blur(13.5px);\n}\n```\n\n## Usage\ninstall:\n\n```bash\nnpm install --save-dev postcss-figma-blur-fix\n```\n\nAdd to PostCSS plugins:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-figma-blur-fix'),\n    require('autoprefixer')\n  ]\n}\n```\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
