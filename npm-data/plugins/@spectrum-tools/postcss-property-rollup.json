@@ -1,9 +1,9 @@
 {
 	"_id": "@spectrum-tools/postcss-property-rollup",
-	"_rev": "2-6dcdc45f4ff4afe42d7f524f6df95efb",
+	"_rev": "3-7eb971156156336627e79e80a83c5be1",
 	"name": "@spectrum-tools/postcss-property-rollup",
 	"dist-tags": {
-		"latest": "0.0.0",
+		"latest": "0.0.1",
 		"s2-foundations": "0.0.0"
 	},
 	"versions": {
@@ -74,12 +74,98 @@
 				"tmp": "tmp/postcss-property-rollup_0.0.0_1722459553538_0.8979594991861084",
 				"host": "s3://npm-registry-packages"
 			}
+		},
+		"0.0.1": {
+			"name": "@spectrum-tools/postcss-property-rollup",
+			"version": "0.0.1",
+			"description": "Combines custom properties from multiple selectors into a single selector",
+			"license": "Apache-2.0",
+			"author": {
+				"name": "Adobe"
+			},
+			"contributors": [
+				{
+					"name": "Cassondra Roberts",
+					"email": "castastrophe@users.noreply.github.com"
+				}
+			],
+			"main": "index.js",
+			"peerDependencies": {
+				"postcss": ">=8"
+			},
+			"devDependencies": {
+				"ava": "^6.2.0",
+				"c8": "^10.1.3",
+				"postcss": "^8.5.2"
+			},
+			"keywords": [
+				"css",
+				"theming",
+				"custom properties",
+				"postcss",
+				"postcss-plugin"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adobe/spectrum-css.git",
+				"directory": "plugins/postcss-property-rollup"
+			},
+			"bugs": {
+				"url": "https://github.com/adobe/spectrum-css/issues"
+			},
+			"homepage": "https://opensource.adobe.com/spectrum-css/",
+			"_id": "@spectrum-tools/postcss-property-rollup@0.0.1",
+			"gitHead": "03dce551ec07c81acede72daf75ccb88494867f1",
+			"_nodeVersion": "20.18.2",
+			"_npmVersion": "10.8.2",
+			"dist": {
+				"integrity": "sha512-0/2en7oSZdfx1eAx1TK9LGqK9jBadlg+4RuruHZVwsXftnyJ+HAxDhhhmLPFSPYyFDGPvM0ItjnNFZSR9lNuIg==",
+				"shasum": "f070a12ba789e80b8cc3311ac69df46e25f84ffd",
+				"tarball": "https://registry.npmjs.org/@spectrum-tools/postcss-property-rollup/-/postcss-property-rollup-0.0.1.tgz",
+				"fileCount": 4,
+				"unpackedSize": 6864,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIBEW6F4EYl09DC57CcZ7/NgDld1gKu8n7UHqb4u0nW6cAiBEiEtxjvJv9TuugFkLA+PKbjJmPdTEL2p+DfcAEyQPAQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "patrickfulton",
+				"email": "patrickfulton@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "patrickfulton",
+					"email": "patrickfulton@gmail.com"
+				},
+				{
+					"name": "aramos-adobe",
+					"email": "abdulr@adobe.com"
+				},
+				{
+					"name": "cdransf",
+					"email": "hi@coryd.dev"
+				},
+				{
+					"name": "castastrophe",
+					"email": "castastrophe+npm@hey.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-property-rollup_0.0.1_1739389670459_0.2541724683169704"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-07-31T20:59:13.427Z",
-		"modified": "2024-08-30T17:06:32.958Z",
-		"0.0.0": "2024-07-31T20:59:13.714Z"
+		"modified": "2025-02-12T19:47:50.890Z",
+		"0.0.0": "2024-07-31T20:59:13.714Z",
+		"0.0.1": "2025-02-12T19:47:50.630Z"
 	},
 	"author": {
 		"name": "Adobe"
@@ -101,23 +187,32 @@
 	],
 	"maintainers": [
 		{
-			"email": "abdulr@adobe.com",
-			"name": "aramos-adobe"
+			"name": "patrickfulton",
+			"email": "patrickfulton@gmail.com"
 		},
 		{
-			"email": "hi@coryd.dev",
-			"name": "cdransf"
+			"name": "aramos-adobe",
+			"email": "abdulr@adobe.com"
 		},
 		{
-			"email": "patrickfulton@gmail.com",
-			"name": "patrickfulton"
+			"name": "cdransf",
+			"email": "hi@coryd.dev"
 		},
 		{
-			"email": "castastrophe+npm@hey.com",
-			"name": "castastrophe"
+			"name": "castastrophe",
+			"email": "castastrophe+npm@hey.com"
 		}
 	],
-	"readme": "# postcss-property-rollup\n\n> Combines multiple blocks of custom properties\n\n## Installation\n\n```sh\nnpm install postcss-property-rollup\n```\n\n## Usage\n\nOn the command line:\n\n```sh\npostcss -u postcss-property-rollup -o dist/index.css src/index.css\n```\n\nor in the PostCSS configuration:\n\n```js\nmodule.exports = {\n  plugins: {\n    \"postcss-property-rollup\": {},\n  },\n};\n```\n\nThis plugin turns this:\n\n```css\n.lorem {\n  --spectrum-actionbutton-background-color: blue;\n  --spectrum-actionbutton-border-color: transparent;\n}\n\n.ipsum {\n  --spectrum-actionbutton-background-color: purple;\n}\n```\n\nInto this:\n\n```css\n.ipsum {\n  --spectrum-actionbutton-border-color: transparent;\n  --spectrum-actionbutton-background-color: purple;\n}\n```\n\nThe resulting selector comes from the last rule unless a `newSelector` option is provided, and all duplicate properties in the subsequent rules override the previous declarations.\n\n## Options\n\n### `newSelector`\n\nType: `string`<br>\nDefault: `null`\n\nThe selector to use for the combined rule. If not provided, the last selector in the list will be used.\n\n### `ignore`\n\nType: `string[]`<br>\nDefault: `[]`\n\nAn array of selectors to ignore when combining rules.\n",
+	"readme": "# postcss-property-rollup\n\n> Combines multiple blocks of custom properties\n\n## Installation\n\n```sh\nnpm install postcss-property-rollup\n```\n\n## Usage\n\nOn the command line:\n\n```sh\npostcss -u postcss-property-rollup -o dist/index.css src/index.css\n```\n\nor in the PostCSS configuration:\n\n```js\nmodule.exports = {\n\tplugins: {\n\t\t\"postcss-property-rollup\": {},\n\t},\n};\n```\n\nThis plugin turns this:\n\n```css\n.lorem {\n\t--spectrum-actionbutton-background-color: blue;\n\t--spectrum-actionbutton-border-color: transparent;\n}\n\n.ipsum {\n\t--spectrum-actionbutton-background-color: purple;\n}\n```\n\nInto this:\n\n```css\n.ipsum {\n\t--spectrum-actionbutton-border-color: transparent;\n\t--spectrum-actionbutton-background-color: purple;\n}\n```\n\nThe resulting selector comes from the last rule unless a `newSelector` option is provided, and all duplicate properties in the subsequent rules override the previous declarations.\n\n## Options\n\n### `newSelector`\n\nType: `string`<br>\nDefault: `null`\n\nThe selector to use for the combined rule. If not provided, the last selector in the list will be used.\n\n### `ignore`\n\nType: `string[]`<br>\nDefault: `[]`\n\nAn array of selectors to ignore when combining rules.\n\n### `keyword`\n\nType: `string`<br>\nDefault: `combine`\n\nThe `@` prefixed comment keyword to search for when determining what code to roll-up into the new selector.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 5
+	"homepage": "https://opensource.adobe.com/spectrum-css/",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/adobe/spectrum-css.git",
+		"directory": "plugins/postcss-property-rollup"
+	},
+	"bugs": {
+		"url": "https://github.com/adobe/spectrum-css/issues"
+	},
+	"_downloads": 12
 }
