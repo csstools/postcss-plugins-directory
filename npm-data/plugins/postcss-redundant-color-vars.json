@@ -187,5 +187,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Redundant Color Vars\n\n[![npm](https://img.shields.io/npm/v/postcss-redundant-color-vars.svg)](https://www.npmjs.com/package/postcss-redundant-color-vars)\n[![Build Status][ci-img]][ci]\n\n[PostCSS] plugin that fixes a [bug in safari](https://bugs.webkit.org/show_bug.cgi?id=185940) when using custom properties in certain color declarations.\n\n[postcss]: https://github.com/postcss/postcss\n[ci-img]: https://travis-ci.com/caseyjacobson/postcss-redundant-color-vars.svg\n[ci]: https://travis-ci.com/caseyjacobson/postcss-redundant-color-vars\n\n### Input\n\n```css\n.foo {\n  border: 1px solid hsla(var(--primary-color), 0.5);\n}\n\n.bar {\n  box-shadow: inset 1px 1px 4px rgb(var(--secondary-color));\n}\n```\n\n### Output\n\n```css\n.foo {\n  --redundant-border: hsla(var(--primary-color), 0.5);\n  border: 1px solid var(--redundant-border);\n}\n\n.bar {\n  --redundant-box-shadow: rgb(var(--secondary-color));\n  box-shadow: inset 1px 1px 4px var(--redundant-box-shadow);\n}\n```\n\n## Usage\n\n```js\npostcss([require('postcss-redundant-color-vars')]);\n```\n\nSee [PostCSS] docs for examples for your environment.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 31
+	"_downloads": 29
 }
