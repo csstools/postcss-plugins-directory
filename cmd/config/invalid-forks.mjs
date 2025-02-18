@@ -33,6 +33,7 @@ export const invalidForks = [
 	'@voodeng/postcss-px-to-viewport',
 	'@z1c1/postcss-px-to-viewport',
 	'@zhbhun/postcss-pxtorem',
+	'elrh-postcss-jit-props',
 	'esm-test-pfx',
 	'fix-postcss-flexibility-mao',
 	'postcss-8-px-to-viewport-',
