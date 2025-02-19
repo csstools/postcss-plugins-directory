@@ -140,5 +140,5 @@
 	"license": "MIT",
 	"readme": "# postcss-plugin-youdeyiwu-mp\r\n\r\npostcss-plugin-youdeyiwu-mp 尤得一物-小程序插件\r\n\r\n使用 postcss 处理微信小程序样式相关问题，例如替换 tailwind css 根样式的 * 通配符\r\n\r\n```css\r\n*, :before, :after {\r\n    /* Input example */\r\n}\r\n```\r\n\r\n```css\r\npage, :before, :after {\r\n    /* Output example */\r\n}\r\n```\r\n\r\n# 1. 相关\r\n\r\n尤得一物-小程序 [youdeyiwu-mp](https://github.com/dafengzhen/youdeyiwu-mp)\r\n\r\n# 2. 安装\r\n\r\n- npm\r\n\r\n```bash\r\nnpm install -D @youdeyiwu/postcss-plugin-mp\r\n```\r\n\r\n- yarn\r\n\r\n```bash\r\nyarn add -D @youdeyiwu/postcss-plugin-mp\r\n```\r\n\r\n# 3. 使用\r\n\r\n- 编辑 postcss.config.js 文件添加插件\r\n\r\n```diff\r\n+ const youdeyiwuMp = require('@youdeyiwu/postcss-plugin-mp');\r\n\r\nmodule.exports = {\r\n    plugins: [\r\n        // tailwindcss ...\r\n+       youdeyiwuMp({\r\n+         rootSelectorReplace: [{ find: '*,', replace: 'page,' }],\r\n+       }),\r\n        // ...\r\n    ],\r\n};\r\n```\r\n\r\n# 4. 配置\r\n\r\n- rootSelectorReplace 可选。查询选择器并替换内容\r\n\r\n```typescript\r\nrootSelectorReplace: {\r\n    find: string;\r\n    replace: string;\r\n}\r\n[];\r\n```\r\n\r\n# 5. 其它\r\n\r\n注意构建需要安装前置依赖\r\n\r\n```bash\r\nyarn add -D postcss\r\n```\r\n\r\n# 6. License\r\n\r\n[MIT](https://opensource.org/licenses/MIT)\r\n\r\n",
 	"readmeFilename": "README.md",
-	"_downloads": 4
+	"_downloads": 14
 }

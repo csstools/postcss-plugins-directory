@@ -1,0 +1,112 @@
+{
+	"_id": "postcss-filter-fallback",
+	"name": "postcss-filter-fallback",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-filter-fallback",
+			"version": "1.0.0",
+			"description": "A PostCSS plugin to add fallback for CSS filters using -webkit-filter.",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/linsk1998/postcss-filter-fallback.git"
+			},
+			"homepage": "https://github.com/linsk1998/postcss-filter-fallback#readme",
+			"bugs": {
+				"url": "https://github.com/linsk1998/postcss-filter-fallback/issues"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "jest tests/filters-spec.test.js",
+				"publish:npm": "npm publish --registry=https://registry.npmjs.org"
+			},
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"filter",
+				"fallback"
+			],
+			"author": {
+				"name": "Your Name"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"onecolor": "^3.0.4",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"jest": "^27.0.0",
+				"postcss": "^8.0.0"
+			},
+			"_id": "postcss-filter-fallback@1.0.0",
+			"_nodeVersion": "20.11.0",
+			"_npmVersion": "10.2.4",
+			"dist": {
+				"integrity": "sha512-EY5JysDSvnhp++t9afixPR1Skk3JaTDQbHgDFBMg6ez6q8+/CDsYJmvgymkHaR3rGtFGd1xEMBopqHDbfwXGKw==",
+				"shasum": "a473d72ab50f126aa4e24f7f9608dfff56cedb05",
+				"tarball": "https://registry.npmjs.org/postcss-filter-fallback/-/postcss-filter-fallback-1.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 20319,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEYCIQCzGkf6wGOLwzqNLgdQdvKpbWIjtnpdXJKUOq0RLkRPJAIhAJSeG8XBejvV+5e0f1tNoUNNXW7P2oeHl7rSYg+YVFTA"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "linsk",
+				"email": "linsk@live.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "linsk",
+					"email": "linsk@live.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-filter-fallback_1.0.0_1739894660911_0.060340370049216885"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-02-18T16:04:20.911Z",
+		"1.0.0": "2025-02-18T16:04:21.098Z",
+		"modified": "2025-02-18T16:04:21.407Z"
+	},
+	"maintainers": [
+		{
+			"name": "linsk",
+			"email": "linsk@live.com"
+		}
+	],
+	"description": "A PostCSS plugin to add fallback for CSS filters using -webkit-filter.",
+	"homepage": "https://github.com/linsk1998/postcss-filter-fallback#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"filter",
+		"fallback"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/linsk1998/postcss-filter-fallback.git"
+	},
+	"author": {
+		"name": "Your Name"
+	},
+	"bugs": {
+		"url": "https://github.com/linsk1998/postcss-filter-fallback/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Filter Fallback\n\n<img src=\"https://postcss.org/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">\n\n[![npm version](https://img.shields.io/npm/v/postcss-filter-fallback.svg)](https://www.npmjs.com/package/postcss-filter-fallback)\n[![Build Status](https://github.com/linsk1998/postcss-filter-fallback/workflows/CI/badge.svg)](https://github.com/linsk1998/postcss-filter-fallback/actions)\n[![License](https://img.shields.io/npm/l/postcss-filter-fallback.svg)](https://github.com/linsk1998/postcss-filter-fallback/blob/main/LICENSE)\n\n`postcss-filter-fallback` is a PostCSS plugin that automatically inserts multiple implementations of CSS `filter` properties to enhance browser compatibility, especially for older browsers.\n\n## Features\n\n**Automatic Fallback Insertion**: It adds fallback filter implementations for different browsers, ensuring consistent visual effects across a wide range of browsers.\n\n**Support for Multiple Filters**: Supports a variety of CSS filter functions including `grayscale`, `sepia`, `saturate`, `hue-rotate`, `invert`, `opacity`, `brightness`, `contrast`, `blur`, and `drop-shadow`.\n\n**Customizable Options**: Offers several options to fine - tune the behavior of the plugin according to your project requirements.\n\n## Installation\n\nInstall the plugin using npm:\n\n```\nnpm install postcss-filter-fallback --save-dev\n```\n\nAdd it to your PostCSS configuration. If you are using a `postcss.config.js` file, it could look like this:\n\n\n```javascript\nmodule.exports = {\n    plugins: [\n        require('postcss-filter-fallback')({\n            oldIE: true,\n            svg: true,\n            webkit: false,\n            strict: false,\n            skipIfDuplicated: true\n        })\n    ]\n};\n```\n\n## Options\n\n`oldIE`**(Boolean)**:\n\nIf set to `true`, the plugin will generate filter fallbacks specifically for old Internet Explorer browsers. Defaults to `false`.\n\n`svg`**(Boolean)**:\n\nWhen `true`, the plugin will use SVG - based filter fallbacks. This can be useful for browsers that have better support for SVG filters. Defaults to `false`.\n\n`webkit`**(Boolean)**:\n\nEnables the generation of WebKit - specific filter prefixes. Set to `true` if you want to support Safari and other WebKit - based browsers. Defaults to `false`.\n\n`strict`**(Boolean)**:\n\nIn strict mode. When `true`, error filter gammer will throw. Defaults to `false`.\n\n`skipIfDuplicated`**(Boolean)**:\n\nIf set to `true` (default), the plugin will skip generating fallbacks for filters that already have multiple implementations in the CSS. This helps prevent over - writing or adding redundant code.\n\n## Example\n\nBefore:\n\n```css\n.blur {\n\tfilter: blur(2px);\n}\n```\n\nAfter:\n\n```css\n.blur {\n\tfilter: progid:DXImageTransform.Microsoft.Blur(pixelradius=2);\n\tfilter: url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"filter\"><feGaussianBlur stdDeviation=\"2\" /></filter></svg>#filter');\n\tfilter: blur(2px);\n}\n```\n\n## Supported Filters\n\nIt converts all 10 CSS shorthand filters:\n\n* grayscale\n* sepia\n* saturate\n* hue-rotate\n* invert\n* opacity\n* brightness\n* contrast\n* blur\n* drop-shadow\n\nLearn [more about CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)\n\n## License\n\n[MIT License](LICENSE) Copyright (c) 2025 [Linsk](https://github.com/linsk1998)\n\nThis package is an adaptation of [pleeease-filters](https://github.com/iamvdo/pleeease-filters) MIT © 2014 [Vincent De Oliveira &middot; iamvdo](https://github.com/iamvdo)\n\npleeease-filters module is an adaptation of [CSS-Filters-Polyfill](https://github.com/Schepp/CSS-Filters-Polyfill). Copyright (c) 2012 - 2013 Christian Schepp Schaefer\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
