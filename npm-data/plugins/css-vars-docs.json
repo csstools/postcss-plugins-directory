@@ -1,9 +1,9 @@
 {
 	"_id": "css-vars-docs",
-	"_rev": "7-a0be4bf7ed03e1da94c8d06fb4cef442",
+	"_rev": "8-1a4f5d6fd0a9c0dd894b5877ce03ca5d",
 	"name": "css-vars-docs",
 	"dist-tags": {
-		"latest": "1.4.0"
+		"latest": "1.5.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -785,6 +785,137 @@
 		"1.4.0": {
 			"name": "css-vars-docs",
 			"version": "1.4.0",
+			"keywords": [
+				"css",
+				"variables",
+				"documentation",
+				"postcss-plugin",
+				"css-vars"
+			],
+			"author": {
+				"name": "Timo Schlotmann"
+			},
+			"license": "MIT",
+			"_id": "css-vars-docs@1.4.0",
+			"maintainers": [
+				{
+					"name": "timo.schlotmann",
+					"email": "timo.schlotmann@webevolutions.de"
+				}
+			],
+			"homepage": "https://github.com/timo-schlotmann/css-vars-docs#readme",
+			"bugs": {
+				"url": "https://github.com/timo-schlotmann/css-vars-docs/issues"
+			},
+			"bin": {
+				"cssvd": "dist/cjs/cli.cjs",
+				"cssvarsdocs": "dist/cjs/cli.cjs",
+				"css-vars-docs": "dist/cjs/cli.cjs"
+			},
+			"dist": {
+				"shasum": "b8d0e7aedfeae8e1d96e6e7d9697654891fd9528",
+				"tarball": "https://registry.npmjs.org/css-vars-docs/-/css-vars-docs-1.4.0.tgz",
+				"fileCount": 21,
+				"integrity": "sha512-i+SxK2gMPlz30F+iaB2A3OjHCQIJoLOOZW13z0FMcOmz0ih/9CAi+yJbMhr6p9YbGjRomroQLFiNou827KqNOw==",
+				"signatures": [
+					{
+						"sig": "MEUCIQDf2hDnbe+3P5oaElWcWR7A4wY7RcD1QhcE3TySUETjLAIgfiJw8yQYKX60hXCJf0dzMpg99FE/SxSooeeEBw1qPJs=",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 38651
+			},
+			"main": "dist/cli.cjs",
+			"types": "dist/cjs/cli.d.ts",
+			"module": "dist/esm/cli.mjs",
+			"engines": {
+				"node": ">=14"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/cjs/css-vars-docs.d.ts",
+					"import": "./dist/esm/css-vars-docs.mjs",
+					"require": "./dist/cjs/css-vars-docs.cjs"
+				},
+				"./cli": {
+					"types": "./dist/cjs/css-vars-docs.d.ts",
+					"import": "./dist/esm/cli.mjs",
+					"require": "./dist/cjs/cli.cjs"
+				},
+				"./vite-plugin": {
+					"types": "./dist/cjs/vite-plugin.d.ts",
+					"import": "./dist/esm/vite-plugin.mjs",
+					"require": "./dist/cjs/vite-plugin.cjs"
+				},
+				"./postcss-plugin": {
+					"types": "./dist/cjs/postcss-plugin.d.ts",
+					"import": "./dist/esm/postcss-plugin.mjs",
+					"require": "./dist/cjs/postcss-plugin.cjs"
+				}
+			},
+			"gitHead": "07d50de23abe211370cad2c82f4005eee2c9f2ab",
+			"scripts": {
+				"dev": "tsc --watch -p tsconfig.cjs.json",
+				"lint": "eslint .",
+				"test": "jest",
+				"build": "npm run build:clear && npm run build:cjs && npm run build:esm && npm run build:fix-extensions && npm run build:uglify && copyfiles package.json dist",
+				"format": "prettier --write .",
+				"build:cjs": "tsc -p tsconfig.cjs.json",
+				"build:esm": "tsc -p tsconfig.esm.json",
+				"uglify:cjs": "uglifyjs dist/cjs/css-vars-docs.cjs -o dist/cjs/css-vars-docs.cjs --mangle --compress && uglifyjs dist/cjs/cli.cjs -o dist/cjs/cli.cjs --mangle --compress && uglifyjs dist/cjs/postcss-plugin.cjs -o dist/cjs/postcss-plugin.cjs --mangle --compress && uglifyjs dist/cjs/vite-plugin.cjs -o dist/cjs/vite-plugin.cjs --mangle --compress",
+				"uglify:esm": "uglifyjs dist/esm/css-vars-docs.mjs -o dist/esm/css-vars-docs.mjs --mangle --compress && uglifyjs dist/esm/cli.mjs -o dist/esm/cli.mjs --mangle --compress && uglifyjs dist/esm/postcss-plugin.mjs -o dist/esm/postcss-plugin.mjs --mangle --compress && uglifyjs dist/esm/vite-plugin.mjs -o dist/esm/vite-plugin.mjs --mangle --compress",
+				"build:clear": "rimraf dist",
+				"build:uglify": "npm run uglify:cjs && npm run uglify:esm",
+				"format:check": "prettier --check .",
+				"build:fix-extensions": "node scripts/dual-extensions.js"
+			},
+			"_npmUser": {
+				"name": "timo.schlotmann",
+				"email": "timo.schlotmann@webevolutions.de"
+			},
+			"repository": {
+				"url": "git+https://github.com/timo-schlotmann/css-vars-docs.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.0",
+			"description": "Generates a comment block with all CSS variables from the specified file to improve readability and provide documentation. The block is added at the beginning of the file, or in the first <style> block for non-CSS files, if available.",
+			"directories": {},
+			"_nodeVersion": "20.8.1",
+			"dependencies": {
+				"glob": "11.0.0",
+				"commander": "12.1.0"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"jest": "29.7.0",
+				"eslint": "9.14.0",
+				"rimraf": "6.0.1",
+				"ts-jest": "^29.2.5",
+				"prettier": "3.3.3",
+				"copyfiles": "2.4.1",
+				"uglify-js": "3.19.3",
+				"typescript": "5.7.2",
+				"@types/glob": "8.1.0",
+				"@types/jest": "^29.5.14",
+				"@types/node": "20.11.27",
+				"chokidar-cli": "3.0.0",
+				"@types/commander": "2.12.5",
+				"semantic-release": "24.2.0",
+				"eslint-config-prettier": "9.1.0",
+				"eslint-plugin-prettier": "5.2.1",
+				"@semantic-release/changelog": "6.0.3"
+			},
+			"peerDependencies": {
+				"postcss": "8.4.49"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/css-vars-docs_1.4.0_1734448401765_0.8710637803670205",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"1.5.0": {
+			"name": "css-vars-docs",
+			"version": "1.5.0",
 			"description": "Generates a comment block with all CSS variables from the specified file to improve readability and provide documentation. The block is added at the beginning of the file, or in the first <style> block for non-CSS files, if available.",
 			"main": "dist/cli.cjs",
 			"module": "dist/esm/cli.mjs",
@@ -879,20 +1010,20 @@
 				"url": "https://github.com/timo-schlotmann/css-vars-docs/issues"
 			},
 			"homepage": "https://github.com/timo-schlotmann/css-vars-docs#readme",
-			"_id": "css-vars-docs@1.4.0",
-			"gitHead": "07d50de23abe211370cad2c82f4005eee2c9f2ab",
+			"_id": "css-vars-docs@1.5.0",
+			"gitHead": "0dc0eef4ef588fd6582a9062b7a9800cbca30385",
 			"_nodeVersion": "20.8.1",
 			"_npmVersion": "10.9.0",
 			"dist": {
-				"integrity": "sha512-i+SxK2gMPlz30F+iaB2A3OjHCQIJoLOOZW13z0FMcOmz0ih/9CAi+yJbMhr6p9YbGjRomroQLFiNou827KqNOw==",
-				"shasum": "b8d0e7aedfeae8e1d96e6e7d9697654891fd9528",
-				"tarball": "https://registry.npmjs.org/css-vars-docs/-/css-vars-docs-1.4.0.tgz",
+				"integrity": "sha512-K2fPBDeDBfGuIPo3UzGtVjOjlUWV1rE7SP8DFLx3RGbu+MAVyyMn9YHN4IHXaDD+hbxa6b/qiCuJYp8s15u8DA==",
+				"shasum": "9b6e2e387b52a368711f5196d429b58d0e2aef6c",
+				"tarball": "https://registry.npmjs.org/css-vars-docs/-/css-vars-docs-1.5.0.tgz",
 				"fileCount": 21,
-				"unpackedSize": 38651,
+				"unpackedSize": 38858,
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEUCIQDf2hDnbe+3P5oaElWcWR7A4wY7RcD1QhcE3TySUETjLAIgfiJw8yQYKX60hXCJf0dzMpg99FE/SxSooeeEBw1qPJs="
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIQCxnyX1AXyQNPGrnlTSYOfgx17kZKAVBEymlbj5JwQAlQIgfQ64sLia7E3kDcEHUWdkX8La+Tyh2GCoC+5LhBbxbhE="
 					}
 				]
 			},
@@ -909,14 +1040,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/css-vars-docs_1.4.0_1734448401765_0.8710637803670205"
+				"tmp": "tmp/css-vars-docs_1.5.0_1740055576780_0.06270320703488674"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-11-13T18:17:23.627Z",
-		"modified": "2024-12-17T15:13:22.118Z",
+		"modified": "2025-02-20T12:46:17.195Z",
 		"1.0.0": "2024-11-13T18:17:23.787Z",
 		"1.1.0": "2024-11-14T06:40:22.187Z",
 		"1.1.1": "2024-11-14T07:13:56.112Z",
@@ -924,7 +1055,8 @@
 		"1.2.1": "2024-12-16T15:31:06.377Z",
 		"1.3.0": "2024-12-17T13:20:10.310Z",
 		"1.3.1": "2024-12-17T13:43:45.956Z",
-		"1.4.0": "2024-12-17T15:13:21.960Z"
+		"1.4.0": "2024-12-17T15:13:21.960Z",
+		"1.5.0": "2025-02-20T12:46:17.034Z"
 	},
 	"bugs": {
 		"url": "https://github.com/timo-schlotmann/css-vars-docs/issues"
@@ -952,7 +1084,7 @@
 			"email": "timo.schlotmann@webevolutions.de"
 		}
 	],
-	"readme": "# CssVarsDocs\n\n**CssVarsDocs** generates a comment block containing all CSS variables from a specified file to improve readability and provide automatic documentation. Comments are added at the beginning of CSS files or inside `<style>` blocks for non-CSS files (e.g., HTML or Vue).\n\n---\n\n## Features\n\n-   CLI Tool for direct file modification\n-   Supports PostCSS and Vite as plugins\n-   Compatible with CommonJS and ES Modules (Dual Output)\n-   Flexible configuration via CLI options or configuration files\n\n---\n\n## Installation\n\n### Use without Installation (`npx`/`pnpx`)\n\n```sh\nnpx css-vars-docs [options]\npnpx css-vars-docs [options]\n```\n\n### Install Locally (as a Dev Dependency)\n\n```sh\nnpm install -D css-vars-docs\npnpm add -D css-vars-docs\n```\n\n### Install Globally\n\n```sh\nnpm install -g css-vars-docs\n```\n\n---\n\n## Usage\n\n### CLI Usage\n\nRun the CLI directly:\n\n```sh\nnpx css-vars-docs [options]\n```\n\nOr globally:\n\n```sh\ncss-vars-docs [options]\n```\n\n### Example Commands\n\n1. Process specific files:\n\n    ```sh\n    css-vars-docs -f \"src/**/*.css\"\n    ```\n\n2. Run a dry run (no file changes):\n\n    ```sh\n    css-vars-docs --preview\n    ```\n\n3. Remove comments:\n    ```sh\n    css-vars-docs --remove\n    ```\n\n### CLI Options\n\n| Option                                | Description                                                        |\n| ------------------------------------- | ------------------------------------------------------------------ |\n| `-f, --files <files>`                 | Files to process, separated by spaces or commas                    |\n| `-r, --remove`                        | Remove existing comments from the files                            |\n| `-p, --preview`                       | Dry run: show changes without writing to files                     |\n| `-t, --title <title>`                 | Header for the comment block                                       |\n| `-b, --block-identifier <identifier>` | Unique identifier for generated blocks                             |\n| `-i, --indent <indent>`               | Default indentation                                                |\n| `-is, --indent-style`                 | Add extra indentation in `<style>` blocks                          |\n| `-ex, --exclude-node-modules`         | Exclude `node_modules` by default                                  |\n| `-n, --new-lines-before-group`        | Add a new line between variable groups                             |\n| `-lp, --log-prefix <prefix>`          | Prefix for log messages                                            |\n| `-ll, --log-level <level>`            | Log level: `0` = errors, `1` = changes, `2` = verbose, `3` = debug |\n| `-lc, --load-config`                  | Load config file: `true` (default) or `false`                      |\n\n---\n\n## Configuration Files\n\n`css-vars-docs` supports multiple configuration file formats out of the box. You can use the same configuration file for both CLI and programmatic usage, regardless of the module system (CommonJS or ESM).\n\n**Supported Files**:\n\n| File Format                | Description                                                             |\n| -------------------------- | ----------------------------------------------------------------------- |\n| `css-vars-docs.config.cjs` | CommonJS configuration file.                                            |\n| `css-vars-docs.config.mjs` | ES Module configuration file.                                           |\n| `css-vars-docs.config.js`  | Automatically interpreted as CommonJS or ESM based on your environment. |\n\n### Example Configuration Files\n\n#### CommonJS (`css-vars-docs.config.cjs`)\n\n```js\nmodule.exports = {\n    indent: '    ',\n    files: ['src/**/*.css', 'src/**/*.vue'],\n    logLevel: 2,\n    newLinesBeforeGroup: true,\n    preview: false\n};\n```\n\n#### ES Module (`css-vars-docs.config.mjs`)\n\n```js\nexport default {\n    indent: '    ',\n    files: ['src/**/*.css', 'src/**/*.vue'],\n    logLevel: 2,\n    newLinesBeforeGroup: true,\n    preview: false\n};\n```\n\n---\n\n## PostCSS Config\n\n**PostCSS Config:**\n\n```javascript\nconst cssVarsDocs = require('css-vars-docs/postcss-plugin');\n\nmodule.exports = {\n    plugins: [\n        cssVarsDocs({\n            logLevel: 3\n        })\n    ]\n};\n```\n\n---\n\n## Vite Config\n\n**Vite Config:**\n\n```javascript\nimport { defineConfig } from 'vite';\nimport cssVarsDocsVite from 'css-vars-docs/vite-plugin';\n\nexport default defineConfig({\n    plugins: [\n        cssVarsDocsVite({\n            delay: 200, // Delay between file processing\n            extensions: ['.css', '.vue'], // Files to process\n            config: {\n                logLevel: 2,\n                preview: false\n            }\n        })\n    ]\n});\n```\n\n---\n\n## Programmatic Usage\n\nYou can use `CssVarsDocs` directly in your Node.js scripts:\n\n```javascript\nimport { CssVarsDocs } from 'css-vars-docs';\n\nconst cssVarsDocs = new CssVarsDocs({\n    files: ['src/**/*.css'],\n    logLevel: 2\n});\n\ncssVarsDocs.processFiles();\n```\n\n---\n\n## Dual Output: ESM and CJS\n\n**Why Dual Output?**\n\n-   **ESM**: Modern JavaScript environments and bundlers (e.g., Vite, Rollup).\n-   **CJS**: Node.js CLI compatibility and legacy projects.\n\nNode.js automatically selects the correct format based on your environment.\n\n**Example Imports**:\n\n```javascript\n// ESM\nimport { CssVarsDocs } from 'css-vars-docs';\n\n// CommonJS\nconst { CssVarsDocs } = require('css-vars-docs');\n```\n\n---\n\n## License\n\nThis project is licensed under the MIT License.\n\n---\n\n## Notes\n\n**This tool modifies files directly.** Use the `preview` option to test changes before applying them. Always consider committing your code before running file modifications.\n",
+	"readme": "# CssVarsDocs\n\n**CssVarsDocs** generates a comment block containing all CSS variables from a specified file to improve readability and provide automatic documentation. Comments are added at the beginning of CSS files or inside `<style>` blocks for non-CSS files (e.g., HTML or Vue).\n\n---\n\n## Features\n\n-   CLI Tool for direct file modification\n-   Supports PostCSS and Vite as plugins\n-   Compatible with CommonJS and ES Modules (Dual Output)\n-   Flexible configuration via CLI options or configuration files\n\n---\n\n## Installation\n\n### Use without Installation (`npx`/`pnpx`)\n\n```sh\nnpx css-vars-docs [options]\npnpx css-vars-docs [options]\n```\n\n### Install Locally (as a Dev Dependency)\n\n```sh\nnpm install -D css-vars-docs\npnpm add -D css-vars-docs\n```\n\n### Install Globally\n\n```sh\nnpm install -g css-vars-docs\n```\n\n---\n\n## Usage\n\n### CLI Usage\n\nRun the CLI directly:\n\n```sh\nnpx css-vars-docs [options]\n```\n\nOr globally:\n\n```sh\ncss-vars-docs [options]\n```\n\n### Example Commands\n\n1. Process specific files:\n\n    ```sh\n    css-vars-docs -f \"src/**/*.css\"\n    ```\n\n2. Run a dry run (no file changes):\n\n    ```sh\n    css-vars-docs --preview\n    ```\n\n3. Remove comments:\n    ```sh\n    css-vars-docs --remove\n    ```\n\n### CLI Options\n\n| Option                                | Description                                                        |\n| ------------------------------------- | ------------------------------------------------------------------ |\n| `-f, --files <files>`                 | Files to process, separated by spaces or commas                    |\n| `-r, --remove`                        | Remove existing comments from the files                            |\n| `-p, --preview`                       | Dry run: show changes without writing to files                     |\n| `-t, --title <title>`                 | Header for the comment block                                       |\n| `-b, --block-identifier <identifier>` | Unique identifier for generated blocks                             |\n| `-i, --indent <indent>`               | Default indentation                                                |\n| `-is, --indent-style`                 | Add extra indentation in `<style>` blocks                          |\n| `-ex, --exclude-node-modules`         | Exclude `node_modules` by default                                  |\n| `-n, --new-lines-before-group`        | Add a new line between variable groups                             |\n| `-lp, --log-prefix <prefix>`          | Prefix for log messages                                            |\n| `-ll, --log-level <level>`            | Log level: `0` = errors, `1` = changes, `2` = verbose, `3` = debug |\n| `-lc, --load-config`                  | Load config file: `true` (default) or `false`                      |\n\n---\n\n## Configuration Files\n\n`css-vars-docs` supports multiple configuration file formats out of the box. You can use the same configuration file for both CLI and programmatic usage, regardless of the module system (CommonJS or ESM).\n\n**Supported Files**:\n\n| File Format                | Description                                                             |\n| -------------------------- | ----------------------------------------------------------------------- |\n| `css-vars-docs.config.cjs` | CommonJS configuration file.                                            |\n| `css-vars-docs.config.mjs` | ES Module configuration file.                                           |\n| `css-vars-docs.config.js`  | Automatically interpreted as CommonJS or ESM based on your environment. |\n\n### Example Configuration Files\n\n#### CommonJS (`css-vars-docs.config.cjs`)\n\n```js\nmodule.exports = {\n    indent: '    ',\n    files: ['src/**/*.css', 'src/**/*.vue'],\n    logLevel: 2,\n    newLinesBeforeGroup: true,\n    preview: false\n};\n```\n\n#### ES Module (`css-vars-docs.config.mjs`)\n\n```js\nexport default {\n    indent: '    ',\n    files: ['src/**/*.css', 'src/**/*.vue'],\n    logLevel: 2,\n    newLinesBeforeGroup: true,\n    preview: false\n};\n```\n\n---\n\n## PostCSS Config\n\n**PostCSS Config:**\n\n```javascript\nconst cssVarsDocs = require('css-vars-docs/postcss-plugin');\n\nmodule.exports = {\n    plugins: [\n        cssVarsDocs({\n            logLevel: 3\n        })\n    ]\n};\n```\n\n---\n\n## Vite Config\n\n**Vite Config:**\n\n```javascript\nimport { defineConfig } from 'vite';\nimport cssVarsDocsVite from 'css-vars-docs/vite-plugin';\n\nexport default defineConfig({\n    plugins: [\n        cssVarsDocsVite({\n            delay: 200, // Delay between file processing\n            extensions: ['.css', '.vue'], // Files to process\n            exclude: ['variables.css'] // Exclude files to process\n            config: {\n                logLevel: 2,\n                preview: false\n            }\n        })\n    ]\n});\n```\n\n---\n\n## Programmatic Usage\n\nYou can use `CssVarsDocs` directly in your Node.js scripts:\n\n```javascript\nimport { CssVarsDocs } from 'css-vars-docs';\n\nconst cssVarsDocs = new CssVarsDocs({\n    files: ['src/**/*.css'],\n    logLevel: 2\n});\n\ncssVarsDocs.processFiles();\n```\n\n---\n\n## Dual Output: ESM and CJS\n\n**Why Dual Output?**\n\n-   **ESM**: Modern JavaScript environments and bundlers (e.g., Vite, Rollup).\n-   **CJS**: Node.js CLI compatibility and legacy projects.\n\nNode.js automatically selects the correct format based on your environment.\n\n**Example Imports**:\n\n```javascript\n// ESM\nimport { CssVarsDocs } from 'css-vars-docs';\n\n// CommonJS\nconst { CssVarsDocs } = require('css-vars-docs');\n```\n\n---\n\n## License\n\nThis project is licensed under the MIT License.\n\n---\n\n## Notes\n\n**This tool modifies files directly.** Use the `preview` option to test changes before applying them. Always consider committing your code before running file modifications.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 54
+	"_downloads": 50
 }
