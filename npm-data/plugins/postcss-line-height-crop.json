@@ -267,5 +267,5 @@
 	"license": "MIT",
 	"readme": "# postcss-line-height-crop\n\n[PostCSS] plugin to crop line-height from text. So that designs can be realized even more accurately..\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n  /* Input example */\n.foo {\n  line-height-crop: 12 18;\n}\n```\n\n```css\n  /* Output example */\n.foo {\n}\n.foo {\n  padding: 0.1pt;\n}\n\n.foo::before,\n.foo::after {\n  content: '';\n  display: block;\n  height: 0;\n  width: 0;\n}\n\n.foo::before {\n  margin-top: -0.06em;\n}\n\n.foo::after {\n  margin-bottom: -0.09em;\n}\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-line-height-crop\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-line-height-crop'),\n    require('autoprefixer')\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
 	"readmeFilename": "README.md",
-	"_downloads": 52
+	"_downloads": 50
 }
