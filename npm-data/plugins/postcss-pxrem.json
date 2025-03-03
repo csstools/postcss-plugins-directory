@@ -1,0 +1,142 @@
+{
+	"_id": "postcss-pxrem",
+	"name": "postcss-pxrem",
+	"dist-tags": {
+		"latest": "6.1.1"
+	},
+	"versions": {
+		"6.1.1": {
+			"name": "postcss-pxrem",
+			"description": "A CSS post-processor that converts px to rem.",
+			"version": "6.1.1",
+			"author": {
+				"name": "postcss-pxrem"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/Forzoom/postcss-pxrem.git"
+			},
+			"bugs": {
+				"url": "https://github.com/Forzoom/postcss-pxrem/issues"
+			},
+			"main": "./dist/lib/index.js",
+			"module": "./dist/es/index.js",
+			"types": "./dist/types/index.d.ts",
+			"scripts": {
+				"build": "modern build",
+				"lint": "eslint .",
+				"publish": "npm publish",
+				"test": "jest"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint --fix",
+					"prettier --write"
+				]
+			},
+			"devDependencies": {
+				"@modern-js/module-tools": "2.63.0",
+				"@babel/core": "7.26.9",
+				"@babel/cli": "7.26.4",
+				"@babel/preset-env": "7.26.9",
+				"@babel/preset-typescript": "7.26.0",
+				"@jest/globals": "29.7.0",
+				"babel-jest": "29.7.0",
+				"eslint": "^6.8.0",
+				"husky": "^4.2.3",
+				"jest": "29.7.0",
+				"lint-staged": "^10.0.8",
+				"postcss": "^8.0.0",
+				"prettier": "^1.19.1",
+				"typescript": "5.7.3"
+			},
+			"keywords": [
+				"css",
+				"rem",
+				"pixel",
+				"px",
+				"postcss",
+				"postcss-plugin"
+			],
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"packageManager": "pnpm@8.5.0+sha512.786922e3fd8620c162bdf6ca1c80e8d663f5bc5bcc8b7f4c87d4f17011d97055a3d3dcc6cc2603d387b4e63ffad2c524275cb2cd202cce4721071a7d3d22fb13",
+			"_id": "postcss-pxrem@6.1.1",
+			"gitHead": "670bef7b2971992074cc0957d2ec748ddbb5ae40",
+			"homepage": "https://github.com/Forzoom/postcss-pxrem#readme",
+			"_nodeVersion": "20.14.0",
+			"_npmVersion": "10.7.0",
+			"dist": {
+				"integrity": "sha512-E85TXarNmyX2Tf1aZZLvGkYL24NBtHnukt6yBFpaKrph4ejgWaZl2+3hw2kIT7Ykqiv4iADDHRW8Oh2FSi5gvg==",
+				"shasum": "4d7ebb29a0a98d1d59909560e5313f6be982643e",
+				"tarball": "https://registry.npmjs.org/postcss-pxrem/-/postcss-pxrem-6.1.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 24489,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIQD2F3XqKgj7J2jD+MBxIHWGxzsIjySaM5cxDlPaWl0x4AIgMGOo6JoKcbQ7dhM6QVt/X4J4b2Oc7ObijuE0J3xUGyU="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "forzoom",
+				"email": "forzoomhm@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "forzoom",
+					"email": "forzoomhm@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-pxrem_6.1.1_1740916188908_0.7508123067807602"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-03-02T11:49:48.907Z",
+		"6.1.1": "2025-03-02T11:49:49.101Z",
+		"modified": "2025-03-02T11:49:49.328Z"
+	},
+	"maintainers": [
+		{
+			"name": "forzoom",
+			"email": "forzoomhm@gmail.com"
+		}
+	],
+	"description": "A CSS post-processor that converts px to rem.",
+	"homepage": "https://github.com/Forzoom/postcss-pxrem#readme",
+	"keywords": [
+		"css",
+		"rem",
+		"pixel",
+		"px",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/Forzoom/postcss-pxrem.git"
+	},
+	"author": {
+		"name": "postcss-pxrem"
+	},
+	"bugs": {
+		"url": "https://github.com/Forzoom/postcss-pxrem/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-pxrem\n\nA plugin for [PostCSS](https://github.com/ai/postcss) that generates rem units from pixel units. This repo is forked from [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem), and it solves some bug which exists in old repo.\n\n## Install\n\n```shell\n$ npm install postcss postcss-pxrem --save-dev\n```\n\n## Usage\n\nPixels are the easiest unit to use (*opinion*). The only issue with them is that they don't let browsers change the default font size of 16. This script converts every px value to a rem from the properties you choose to allow the browser to set the font size.\n\n\n### Input/Output\n\n*With the default settings, only font related properties are targeted.*\n\n```css\n// input\nh1 {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n// output\nh1 {\n    margin: 0 0 20px;\n    font-size: 2rem;\n    line-height: 1.2;\n    letter-spacing: 0.0625rem;\n}\n```\n\n### Example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxtorem = require('postcss-pxrem');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxtorem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n### options\n\nType: `Object | Null`  \nDefault:\n```js\n{\n    rootValue: 16,\n    unitPrecision: 5,\n    propList: ['font', 'font-size', 'line-height', 'letter-spacing', 'word-spacing'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0,\n    exclude: /node_modules/i\n}\n```\n\n- `rootValue` (Number | Function) Represents the root element font size or returns the root element font size based on the [`input`](https://api.postcss.org/Input.html) parameter\n- `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.\n- `propList` (Array) The properties that can change from px to rem.\n    - Values need to be exact matches.\n    - Use wildcard `*` to enable all properties. Example: `['*']`\n    - Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n    - Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n    - Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n- `selectorBlackList` (Array) The selectors to ignore and leave as px.\n    - If value is string, it checks to see if selector contains the string.\n        - `['body']` will match `.body-class`\n    - If value is regexp, it checks to see if the selector matches the regexp.\n        - `[/^body$/]` will match `body` but not `.body`\n- `replace` (Boolean) Replaces rules containing rems instead of adding fallbacks.\n- `mediaQuery` (Boolean) Allow px to be converted in media queries.\n- `minPixelValue` (Number) Set the minimum pixel value to replace.\n- `exclude` (String, Regexp, Function) The file path to ignore and leave as px.\n    - If value is string, it checks to see if file path contains the string.\n        - `'exclude'` will match `\\project\\postcss-pxrem\\exclude\\path`\n    - If value is regexp, it checks to see if file path matches the regexp.\n        - `/exclude/i` will match `\\project\\postcss-pxrem\\exclude\\path`\n    - If value is function, you can use exclude function to return a true and the file will be ignored.\n        - the callback will pass the file path as  a parameter, it should returns a Boolean result.\n        - `function (file) { return file.indexOf('exclude') !== -1; }`\n- `unit` (String) Set the default unit to convert, default is `px`.\n\n### Use with gulp-postcss and autoprefixer\n\n```js\nvar gulp = require('gulp');\nvar postcss = require('gulp-postcss');\nvar autoprefixer = require('autoprefixer');\nvar pxtorem = require('postcss-pxrem');\n\ngulp.task('css', function () {\n\n    var processors = [\n        autoprefixer({\n            browsers: 'last 1 version'\n        }),\n        pxtorem({\n            replace: false\n        })\n    ];\n\n    return gulp.src(['build/css/**/*.css'])\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('build/css'));\n});\n```\n\n### A message about ignoring properties\nCurrently, the easiest way to have a single property ignored is to use a capital in the pixel unit declaration.\n\n```css\n// `px` is converted to `rem`\n.convert {\n    font-size: 16px; // converted to 1rem\n}\n\n// `Px` or `PX` is ignored by `postcss-pxrem` but still accepted by browsers\n.ignore {\n    border: 1Px solid; // ignored\n    border-width: 2PX; // ignored\n}\n```\n",
+	"readmeFilename": "README.md",
+	"_downloads": 0
+}
