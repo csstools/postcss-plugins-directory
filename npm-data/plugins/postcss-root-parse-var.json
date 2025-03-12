@@ -124,5 +124,5 @@
 	"license": "MIT",
 	"readme": "# postcss-root-parse-var\n\nSimple PostCSS plugin to add support for **`parse-var()`**, allowing a CSS variable to be parsed from `:root` or a selector of your choice.\n\nThis is useful if you are using another PostCSS plugin/function that requires a static value and differs from fallback PostCSS plugins that replace all variables with static values.\n\n### Installation\n\n```shell\nyarn add postcss-root-parse-var --dev\n```\n\nRequire `postcssRootParseVar` at the top of Webpack or Mix:\n```js\nconst postcssRootParseVar = require('postcss-root-parse-var');\n```\n\n#### Using Webpack\n\n```js\npostcss([postcssRootParseVar]);\n```\n\n#### Using Mix Sass (Sage 10)\n\n```js\nmix\n    .sass('resources/assets/styles/editor.scss', 'styles')\n    .options({\n        postCss: [postcssRootParseVar]\n    });\n```\n\n### Config\n\nSome config can be passed into `postcssRootParseVar()` in Webpack or Mix. \n\n```js\npostcssRange({\n    root: ':root',\n    prefix: 'parse-var',\n})\n```\n\n### Usage\n\n```scss\n:root {\n    --screen-md: 48rem;\n    --screen-lg: 75rem,\n}\n\n```\n\n`parse-var(--screen-md)`\n\nThis will parse the variable resulting in a static value of `48rem`.\n\n`font-size: range(2rem, 6rem, parse-var(--screen-md), parse-var(--screen-lg))`\n",
 	"readmeFilename": "README.md",
-	"_downloads": 4
+	"_downloads": 3
 }
