@@ -1,10 +1,10 @@
 {
 	"_id": "@stylexswc/postcss-plugin",
-	"_rev": "23-5f660053f9fe8c381c626b326acc4c1b",
+	"_rev": "31-2b4bbf25c1bf8a8a337c052fad550e15",
 	"name": "@stylexswc/postcss-plugin",
 	"dist-tags": {
-		"latest": "0.6.6",
-		"next": "0.6.6-rc.2"
+		"latest": "0.7.0",
+		"next": "0.7.0-rc.5"
 	},
 	"versions": {
 		"0.6.0-rc.1": {
@@ -2374,31 +2374,7 @@
 		},
 		"0.6.6": {
 			"name": "@stylexswc/postcss-plugin",
-			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
 			"version": "0.6.6",
-			"config": {
-				"scripty": {
-					"path": "../../scripts/packages"
-				}
-			},
-			"dependencies": {
-				"@stylexjs/babel-plugin": "^0.10.1",
-				"@stylexswc/rs-compiler": "0.6.6",
-				"fast-glob": "^3.3.2",
-				"glob-parent": "^6.0.2",
-				"is-glob": "^4.0.3",
-				"postcss": "^8.4.49"
-			},
-			"devDependencies": {
-				"@babel/types": "^7.23.9",
-				"@stylexswc/eslint-config": "0.6.6",
-				"@stylexswc/typescript-config": "0.6.6",
-				"@types/babel__core": "^7.20.5",
-				"@types/glob-parent": "^5.1.3",
-				"@types/is-glob": "^4.0.4",
-				"@types/loader-utils": "^2.0.6",
-				"@types/node": "^22.5.1"
-			},
 			"keywords": [
 				"postcss",
 				"postcss-plugin",
@@ -2406,17 +2382,775 @@
 				"swc"
 			],
 			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.6.6",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "3c966541da9c6925aab503905767895fb3ca3612",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.6.6.tgz",
+				"fileCount": 15,
+				"integrity": "sha512-qkibXK9gSeJZ4GaIyn6+bSi5dGyWJ3jZ8uTgy77+R2LKBicuYljhwKc2051UWmXilpdRTRMqlwSH12YWtoTkug==",
+				"signatures": [
+					{
+						"sig": "MEUCIQC7oNfLEEsVFW18OIMvhBKCu7Z4KFKLLuIaSXX66f8WAAIgF/OCcVRkKCJ4evartxH2QjJrOzLvlOVQloPB+DJeY/E=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.6.6",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 20780
+			},
 			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.6.6.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
 			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "echo \"Error: no test specified\" && exit 0",
+				"build": "scripty --ts",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "dwlad",
+				"email": "dwlad90@gmail.com"
+			},
+			"_resolved": "/tmp/7c15278e8dcff4096330390e0502d3ca/stylexswc-postcss-plugin-0.6.6.tgz",
+			"_integrity": "sha512-qkibXK9gSeJZ4GaIyn6+bSi5dGyWJ3jZ8uTgy77+R2LKBicuYljhwKc2051UWmXilpdRTRMqlwSH12YWtoTkug==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.2",
+			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.13.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.4.49",
+				"fast-glob": "^3.3.2",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.10.1",
+				"@stylexswc/rs-compiler": "0.6.6"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"@types/node": "^22.5.1",
+				"@babel/types": "^7.23.9",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"@types/loader-utils": "^2.0.6",
+				"@stylexswc/eslint-config": "0.6.6",
+				"@stylexswc/typescript-config": "0.6.6"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.6.6_1739626556658_0.7603600596280888",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.7.0-rc.1": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.7.0-rc.1",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"stylex",
+				"swc"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.7.0-rc.1",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "340a0f695ce17573a9d39ac4621b1375813f48ad",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.7.0-rc.1.tgz",
+				"fileCount": 15,
+				"integrity": "sha512-gJIbGcvE4OMJ4LrEyT45LQzAP8yrjjywQ9rOEuGSEcgn/8Jqh4jZjDdAX+ZNkQnwMDTazWi/gjeOYY3ETvTfog==",
+				"signatures": [
+					{
+						"sig": "MEUCIQCgnzTByIT0Lw8ywuhMbiSie5QxTbckfkOOxAlrXEnJpAIgbVgryGmGiAmHVG/8unkyX8yut2CNxAf2nG/m7meeGzY=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.7.0-rc.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 20804
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.7.0-rc.1.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "echo \"Error: no test specified\" && exit 0",
+				"build": "scripty --ts",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "dwlad",
+				"email": "dwlad90@gmail.com"
+			},
+			"_resolved": "/tmp/e9e46b718aa807385cf61e4c43e6bd52/stylexswc-postcss-plugin-0.7.0-rc.1.tgz",
+			"_integrity": "sha512-gJIbGcvE4OMJ4LrEyT45LQzAP8yrjjywQ9rOEuGSEcgn/8Jqh4jZjDdAX+ZNkQnwMDTazWi/gjeOYY3ETvTfog==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.2",
+			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.13.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.4.49",
+				"fast-glob": "^3.3.2",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.11.1",
+				"@stylexswc/rs-compiler": "0.7.0-rc.1"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"@types/node": "^22.5.1",
+				"@babel/types": "^7.23.9",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"@types/loader-utils": "^2.0.6",
+				"@stylexswc/eslint-config": "0.7.0-rc.1",
+				"@stylexswc/typescript-config": "0.7.0-rc.1"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.7.0-rc.1_1741282555984_0.49773867392950266",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.7.0-rc.2": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.7.0-rc.2",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"stylex",
+				"swc"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.7.0-rc.2",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "aa09762958f6f9a3307be43665e29cae3f234caf",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.7.0-rc.2.tgz",
+				"fileCount": 15,
+				"integrity": "sha512-M6s+46MOuwLCb8ClfOwS9O/6v4ryoTV64Pu8WqTY8eMnqjAJjQRkKO8PiD5uZswLjcwi7GTVYaItv9iJdaYcKQ==",
+				"signatures": [
+					{
+						"sig": "MEQCIBxvUm4NTI8stMPfozXSjBiXTsTGP5D07pt5auY5RXvEAiA8Wyox4JwAXsDfk0DVSp7KDuWg4rW1+A9a9e70zHuWXQ==",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.7.0-rc.2",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 20804
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.7.0-rc.2.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "echo \"Error: no test specified\" && exit 0",
+				"build": "scripty --ts",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "dwlad",
+				"email": "dwlad90@gmail.com"
+			},
+			"_resolved": "/tmp/220571159e06252e16d026ed0f257845/stylexswc-postcss-plugin-0.7.0-rc.2.tgz",
+			"_integrity": "sha512-M6s+46MOuwLCb8ClfOwS9O/6v4ryoTV64Pu8WqTY8eMnqjAJjQRkKO8PiD5uZswLjcwi7GTVYaItv9iJdaYcKQ==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.2",
+			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.13.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.3",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.11.1",
+				"@stylexswc/rs-compiler": "0.7.0-rc.2"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"@types/node": "^22.13.9",
+				"@babel/types": "^7.26.9",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"@types/loader-utils": "^2.0.6",
+				"@stylexswc/eslint-config": "0.7.0-rc.2",
+				"@stylexswc/typescript-config": "0.7.0-rc.2"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.7.0-rc.2_1741371378453_0.9119128592978165",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.7.0-dev.1": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.7.0-dev.1",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"stylex",
+				"swc"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.7.0-dev.1",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "80863e743839bc3f8ecc0f33ed8412d6212ee6b9",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.7.0-dev.1.tgz",
+				"fileCount": 15,
+				"integrity": "sha512-XW7upyKG909WyUFQD0BwA6O0crlE5LY0oqBoS3K9eiwK5N5Spm1PyWGY8nhu8Tx/adig+zEbefjXjR+vWDqQgw==",
+				"signatures": [
+					{
+						"sig": "MEUCIFZtS4psaW4gYL27iBtdPFriy7UHB+YnezeUa7h2HYy2AiEAvJAhCaglpTJzqDfKUJGiAA9BLIof9zNn0xTwyv70asI=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.7.0-dev.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 20808
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.7.0-dev.1.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "echo \"Error: no test specified\" && exit 0",
+				"build": "scripty --ts",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "dwlad",
+				"email": "dwlad90@gmail.com"
+			},
+			"_resolved": "/tmp/13deaa173ef4098f3ef42dc08ca92c12/stylexswc-postcss-plugin-0.7.0-dev.1.tgz",
+			"_integrity": "sha512-XW7upyKG909WyUFQD0BwA6O0crlE5LY0oqBoS3K9eiwK5N5Spm1PyWGY8nhu8Tx/adig+zEbefjXjR+vWDqQgw==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.2",
+			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.13.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.3",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.11.1",
+				"@stylexswc/rs-compiler": "0.7.0-dev.1"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"@types/node": "^22.13.9",
+				"@babel/types": "^7.26.9",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"@types/loader-utils": "^2.0.6",
+				"@stylexswc/eslint-config": "0.7.0-dev.1",
+				"@stylexswc/typescript-config": "0.7.0-dev.1"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.7.0-dev.1_1741464826227_0.9802171246778812",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.7.0-rc.3": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.7.0-rc.3",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"stylex",
+				"swc"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.7.0-rc.3",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "f91e48c5a15fbf5a502d631d0caa849898c2dad9",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.7.0-rc.3.tgz",
+				"fileCount": 15,
+				"integrity": "sha512-KiW6vuXAAdRh+LwRywdrU2VD2gpzJs7+OsOhanTk+HUFiOXbd97gvZZ9YVaQETC6djzieuykmHcEdrUIGWkwDw==",
+				"signatures": [
+					{
+						"sig": "MEYCIQDoelds6CCW6ifiKaoFcpnD8kQf6PoKRFFfoIxblRLKoQIhAPuqC1Ddi4pBp94zEPE+HvDKbECaKegwCJhmq4PG4BxU",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.7.0-rc.3",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 20804
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.7.0-rc.3.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "echo \"Error: no test specified\" && exit 0",
+				"build": "scripty --ts",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "dwlad",
+				"email": "dwlad90@gmail.com"
+			},
+			"_resolved": "/tmp/26a659d7d297bf9e1baf45ae5339d06c/stylexswc-postcss-plugin-0.7.0-rc.3.tgz",
+			"_integrity": "sha512-KiW6vuXAAdRh+LwRywdrU2VD2gpzJs7+OsOhanTk+HUFiOXbd97gvZZ9YVaQETC6djzieuykmHcEdrUIGWkwDw==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.2",
+			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.13.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.3",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.11.1",
+				"@stylexswc/rs-compiler": "0.7.0-rc.3"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"@types/node": "^22.13.9",
+				"@babel/types": "^7.26.9",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"@types/loader-utils": "^2.0.6",
+				"@stylexswc/eslint-config": "0.7.0-rc.3",
+				"@stylexswc/typescript-config": "0.7.0-rc.3"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.7.0-rc.3_1741735077026_0.9669089439111511",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.7.0-rc.4": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.7.0-rc.4",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"stylex",
+				"swc"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.7.0-rc.4",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "6a44702790336d07053940c624557fb536e6f927",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.7.0-rc.4.tgz",
+				"fileCount": 15,
+				"integrity": "sha512-cRGa70tD/gI+mbDSbVlUrjof8YJ74/ymntNEh+E/WIsXQo2VcOSIsUbzWIOV/qeAQFBWRO6/ORk8y9Ptqis08A==",
+				"signatures": [
+					{
+						"sig": "MEUCIBrDxejmE53v2mUJAjWiG5fidabCRq5vWjSmLfmE14AQAiEAojinTTOEK4c0EYvPFMBzVpcqoT0efAFU2yM8v+yTkLA=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.7.0-rc.4",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 20804
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.7.0-rc.4.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "echo \"Error: no test specified\" && exit 0",
+				"build": "scripty --ts",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "dwlad",
+				"email": "dwlad90@gmail.com"
+			},
+			"_resolved": "/tmp/40c8c999f1279e63e28a4184f0ebd17c/stylexswc-postcss-plugin-0.7.0-rc.4.tgz",
+			"_integrity": "sha512-cRGa70tD/gI+mbDSbVlUrjof8YJ74/ymntNEh+E/WIsXQo2VcOSIsUbzWIOV/qeAQFBWRO6/ORk8y9Ptqis08A==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.2",
+			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.13.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.3",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.11.1",
+				"@stylexswc/rs-compiler": "0.7.0-rc.4"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"@types/node": "^22.13.9",
+				"@babel/types": "^7.26.9",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"@types/loader-utils": "^2.0.6",
+				"@stylexswc/eslint-config": "0.7.0-rc.4",
+				"@stylexswc/typescript-config": "0.7.0-rc.4"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.7.0-rc.4_1741962525452_0.7783959938460783",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.7.0-rc.5": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.7.0-rc.5",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"stylex",
+				"swc"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.7.0-rc.5",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "e89dfbddd706dda5f425c46dde59662c041dffa9",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.7.0-rc.5.tgz",
+				"fileCount": 15,
+				"integrity": "sha512-y0hhR7zda3iGHuJeDiu1oe8FIPORSK7+bunI7uczHhNhN6K3tk44cxUAPkJzEqMQSD6nmYn1s2NwBTNmUTVE8g==",
+				"signatures": [
+					{
+						"sig": "MEMCH1yzYMRLQqbqFn567M7e4uQU7S8Sd03T//tGmDqSnBkCIAo0H/7cHgdliBsjsijdP72mI8soQrTR8a6oUtGAgLEN",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.7.0-rc.5",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 20806
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.7.0-rc.5.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "echo \"Error: no test specified\" && exit 0",
+				"build": "scripty --ts",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "dwlad",
+				"email": "dwlad90@gmail.com"
+			},
+			"_resolved": "/tmp/c5dd92fa9c9e65a940a4ab139f6c6948/stylexswc-postcss-plugin-0.7.0-rc.5.tgz",
+			"_integrity": "sha512-y0hhR7zda3iGHuJeDiu1oe8FIPORSK7+bunI7uczHhNhN6K3tk44cxUAPkJzEqMQSD6nmYn1s2NwBTNmUTVE8g==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.2",
+			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.13.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.3",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.11.1",
+				"@stylexswc/rs-compiler": "0.7.0-rc.5"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"@types/node": "^22.13.10",
+				"@babel/types": "^7.26.10",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"@types/loader-utils": "^2.0.6",
+				"@stylexswc/eslint-config": "0.7.0-rc.5",
+				"@stylexswc/typescript-config": "0.7.0-rc.5"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.7.0-rc.5_1742243490826_0.05618638445311008",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.7.0": {
+			"name": "@stylexswc/postcss-plugin",
+			"description": "StyleX PostCSS plugin with NAPI-RS compiler",
+			"version": "0.7.0",
+			"private": false,
+			"license": "MIT",
+			"sideEffects": false,
 			"publishConfig": {
 				"registry": "https://registry.npmjs.org/",
 				"access": "public"
 			},
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"dependencies": {
+				"@stylexjs/babel-plugin": "^0.11.1",
+				"@stylexswc/rs-compiler": "0.7.0",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.3"
+			},
+			"devDependencies": {
+				"@babel/types": "^7.26.10",
+				"@stylexswc/eslint-config": "0.7.0",
+				"@stylexswc/typescript-config": "0.7.0",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"@types/is-glob": "^4.0.4",
+				"@types/loader-utils": "^2.0.6",
+				"@types/node": "^22.13.10"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"stylex",
+				"swc"
+			],
+			"main": "dist/index.js",
 			"repository": {
 				"type": "git",
 				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git"
 			},
-			"sideEffects": false,
 			"scripts": {
 				"build": "scripty --ts",
 				"check:artifacts": "scripty",
@@ -2429,25 +3163,25 @@
 				"test": "echo \"Error: no test specified\" && exit 0",
 				"typecheck": "scripty"
 			},
-			"_id": "@stylexswc/postcss-plugin@0.6.6",
+			"_id": "@stylexswc/postcss-plugin@0.7.0",
 			"types": "./dist/index.d.ts",
 			"bugs": {
 				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
 			},
 			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin#readme",
-			"_integrity": "sha512-qkibXK9gSeJZ4GaIyn6+bSi5dGyWJ3jZ8uTgy77+R2LKBicuYljhwKc2051UWmXilpdRTRMqlwSH12YWtoTkug==",
-			"_resolved": "/tmp/7c15278e8dcff4096330390e0502d3ca/stylexswc-postcss-plugin-0.6.6.tgz",
-			"_from": "file:stylexswc-postcss-plugin-0.6.6.tgz",
+			"_integrity": "sha512-0r6ql6PVMF9+glijQqamz6rqqZ0VIJQAtwqkIBoJUcjZJPz5x1nCKFok4Sn1IKlZ3bKRuTQOVUWNYBwO9sYbtg==",
+			"_resolved": "/tmp/5647ba5d6fe5cfb09c6b6fe331a07d3a/stylexswc-postcss-plugin-0.7.0.tgz",
+			"_from": "file:stylexswc-postcss-plugin-0.7.0.tgz",
 			"_nodeVersion": "22.13.0",
 			"_npmVersion": "10.9.2",
 			"dist": {
-				"integrity": "sha512-qkibXK9gSeJZ4GaIyn6+bSi5dGyWJ3jZ8uTgy77+R2LKBicuYljhwKc2051UWmXilpdRTRMqlwSH12YWtoTkug==",
-				"shasum": "3c966541da9c6925aab503905767895fb3ca3612",
-				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.6.6.tgz",
+				"integrity": "sha512-0r6ql6PVMF9+glijQqamz6rqqZ0VIJQAtwqkIBoJUcjZJPz5x1nCKFok4Sn1IKlZ3bKRuTQOVUWNYBwO9sYbtg==",
+				"shasum": "de1077ad08245e9ef2eafc615b4a1f81ba23747e",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.7.0.tgz",
 				"fileCount": 15,
-				"unpackedSize": 20780,
+				"unpackedSize": 20786,
 				"attestations": {
-					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.6.6",
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.7.0",
 					"provenance": {
 						"predicateType": "https://slsa.dev/provenance/v1"
 					}
@@ -2455,7 +3189,7 @@
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEUCIQC7oNfLEEsVFW18OIMvhBKCu7Z4KFKLLuIaSXX66f8WAAIgF/OCcVRkKCJ4evartxH2QjJrOzLvlOVQloPB+DJeY/E="
+						"sig": "MEYCIQDXWxNGmBTeGWAsyOCDY9VIrM3UkGXfPggK0Jh6Xt4riwIhALNKEsaU9rJsAVTaW1C38Bs187tfFJN8q5WZLze+eE/J"
 					}
 				]
 			},
@@ -2472,14 +3206,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-plugin_0.6.6_1739626556658_0.7603600596280888"
+				"tmp": "tmp/postcss-plugin_0.7.0_1742409194400_0.3812065215586886"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2025-01-06T21:22:46.008Z",
-		"modified": "2025-02-15T13:35:57.269Z",
+		"modified": "2025-03-19T18:33:15.031Z",
 		"0.6.0-rc.1": "2025-01-06T21:22:46.344Z",
 		"0.6.0-rc.2": "2025-01-07T19:24:10.899Z",
 		"0.6.0": "2025-01-09T22:22:23.309Z",
@@ -2503,7 +3237,14 @@
 		"0.6.5": "2025-02-07T11:00:45.325Z",
 		"0.6.6-rc.1": "2025-02-12T21:29:17.593Z",
 		"0.6.6-rc.2": "2025-02-14T16:37:53.742Z",
-		"0.6.6": "2025-02-15T13:35:56.848Z"
+		"0.6.6": "2025-02-15T13:35:56.848Z",
+		"0.7.0-rc.1": "2025-03-06T17:35:56.161Z",
+		"0.7.0-rc.2": "2025-03-07T18:16:18.622Z",
+		"0.7.0-dev.1": "2025-03-08T20:13:46.423Z",
+		"0.7.0-rc.3": "2025-03-11T23:17:57.227Z",
+		"0.7.0-rc.4": "2025-03-14T14:28:45.637Z",
+		"0.7.0-rc.5": "2025-03-17T20:31:31.016Z",
+		"0.7.0": "2025-03-19T18:33:14.638Z"
 	},
 	"bugs": {
 		"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
@@ -2529,5 +3270,5 @@
 	],
 	"readme": "# PostCSS plugin with NAPI-RS StyleX compiler integration\n\n`PostCSS plugin` for an unofficial\n[`napi-rs`](https://github.com/dwlad90/stylex-swc-plugin/tree/develop/crates/stylex-rs-compiler)\ncompiler that includes the StyleX SWC code transformation under the hood.\n\n## Installation\n\nTo install the package, run the following command:\n\n```bash\nnpm install --save-dev @stylexswc/postcss-plugin\n```\n\n## Usage\n\nModify `postcss.config.js`. For example:\n\n```js\nmodule.exports = {\n  plugins: {\n    '@stylexjs/postcss-plugin': {\n      include: ['src/**/*.{js,jsx,ts,tsx}'],\n    },\n    autoprefixer: {},\n  },\n};\n```\n\nUse on of the plugins to process JS/TS files with StyleX code. For example:\n\n```js\n/// next.config.js\nconst path = require('path');\nconst stylexPlugin = require('@stylexswc/nextjs-plugin');\nconst rootDir = __dirname;\n\nmodule.exports = stylexPlugin({\n  // Add any StyleX options here\n  rsOptions: {\n    aliases: {\n      '@/*': [path.join(rootDir, '*')],\n    },\n    unstable_moduleResolution: {\n      type: 'commonJS',\n    },\n  },\n  // It's important to prevent creating a new CSS file with StyleX classes twice\n  extractCSS: false,\n})({\n  transpilePackages: ['@stylexjs/open-props'],\n  // Optionally, add any other Next.js config below\n});\n```\n\n> [!WARNING]\n> Each plugin of `@stylexswc` namespace accepts an `extractCSS`\n> option to control CSS extraction. When using the `postcss` plugin, this option\n> should be set to `false` to avoid double generation of CSS files with StyleX\n> styles.\n\n&nbsp;\n\n> [!NOTE]\n> This approach requires transpiling JS/TS files with StyleX code twice:\n> first the source code and then using the PostCSS plugin. To avoid this\n> behavior when using `NextJS`, use the regular `@stylexswc/nextjs-plugin`\n> passing the `transformCss` parameter to transform the generated CSS if it's\n> possible, for example:\n>\n> ```js\n> /// next.config.js\n>\n> //...other code\n> transformCss: async css => {\n>   const postcss = require('postcss');\n>   const result = await postcss([require('autoprefixer')]).process(css);\n>   return result.css;\n> },\n> //...other code\n> ```\n\nAdd the following CSS file to your project:\n\n```css\n/*[fileName].css*/\n\n/**\n * The @stylex directive is used by the @stylexjs/postcss-plugin.\n * It is automatically replaced with generated CSS during builds.\n */\n@stylex;\n```\n\nAnd import it in your JS/TS files:\n\n```js\nimport '[fileName].css';\n```\n\n## Plugin Options\n\nThe plugin accepts the following configuration options:\n\n### `rsOptions`\n\n- Type: `StyleXOptions`\n- Optional\n- Default: `{}`\n- Description: StyleX compiler options passed to the StyleX compiler\n\n### `useCSSLayers`\n\n- Type: `boolean`\n- Optional\n- Default: `false`\n- Description: Whether to use CSS layers for better style isolation\n\n### `exclude`\n\n- Type: `string[]`\n- Optional\n- Description: Array of glob patterns to exclude from processing\n\n### `include`\n\n- Type: `string[]`\n- Optional\n- Description: Array of glob patterns to include for processing\n\n### `cwd`\n\n- Type: `string`\n- Optional\n- Default: `process.cwd()`\n- Description: Current working directory for resolving files\n\n### `isDev`\n\n- Type: `boolean`\n- Optional\n- Description: Whether the plugin is running in development mode\n",
 	"readmeFilename": "README.md",
-	"_downloads": 957
+	"_downloads": 573
 }
