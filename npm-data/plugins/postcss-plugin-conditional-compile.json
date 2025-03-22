@@ -94,5 +94,5 @@
 	"license": "MIT",
 	"readme": "# babel-plugin-conditional-compile\n**[README-zh-CN](README_zh_CN.md)**\n\n## Overview\n\nA Babel plugin for conditional compilation.\n\n## Install\n\nTo install the plugin, run the following command:\n\n```bash\nnpm install --save-dev postcss-plugin-conditional-compile\n```\n\nOr, if you're using Yarn:\n\n```bash\nyarn add --dev postcss-plugin-conditional-compile\n```\n\n## Usage\n\n### Configuration\n\nAdd the plugin to your postcss configuration file.\n\n**postcss.config.js**\n\n```js\nmodule.exports = {  \n  plugins: [\n    ...\n    require('./babel-plugin-conditional-compile')({  \n      targetPlat: 'WX'\n    }) \n  ]  \n}\n```\n\n### Coding with Conditional Compilation\n\nIn your css files, you can use special comments to mark code blocks for conditional compilation.\n\n```css\n@media screen and (min-width: 480px) {\n  body {\n      background-color: lightgreen;\n  }\n}\n\n/* ifdef targetPlat=WX|TT */\n.wx {\n  border: 1px solid black;\n}\n\nul li {\npadding: 5px;\n}\n/* endif */\n\n/* ifndef targetPlat=WX|TT */\n.tt1 {\n  border: 1px solid black;\n}\n\nul li {\npadding: 5px;\n}\n/* endif */\n\n.a {}\n```\n\n## License\n[LICENSE](LICENSE)\n\n",
 	"readmeFilename": "README.md",
-	"_downloads": 12
+	"_downloads": 1
 }

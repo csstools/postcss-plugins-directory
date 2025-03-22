@@ -501,5 +501,5 @@
 	"license": "MIT",
 	"readme": "# postcss-scss-import-reorder\n\n> [PostCSS](https://github.com/postcss/postcss) plugin to move `@import` statements to the top of a sass file.\n\n## Installation\n\nWith `yarn`\n\n```\n$ yarn add postcss-scss-import-reorder\n```\n\nOr `npm`:\n\n```\n$ npm install --save postcss-scss-import-reorder\n```\n\n## Usage\n\n```js\nconst fs = require('fs'),\n\tpostcss = require('postcss'),\n\tsyntax = require('postcss-scss'),\n\treorderImports = require('postcss-scss-import-reorder')\n\t\nconst scss = fs.readFileSync('scss/input.scss', 'utf-8')\n\t\npostcss([reorderImports()]).process(scss, {\n  syntax: syntax,\n  from: 'scss/input.scss',\n})\n```\n\n`scss/input.scss`:\n\n```css\n\n@import 'a';\n\n.u-important {\n  @include important-element;\n}\n\n@import 'b';\n\n.u-standard-spacing {\n  padding: get-spacing();\n}\n\n@import 'c';\n```\n\nWill give you:\n\n```css\n@import 'a';\n@import 'b';\n@import 'c';\n\n@if $set-spacing-size == 'big' {\n  $global-spacing: '1.5rem' !global;\n}\n@else {\n  $global-spacing: '1rem' !global;\n}\n\n@mixin important-element {\n  color:red;\n}\n\n@function get-spacing() {\n  return $global-spacing;\n}\n```\n\nFor more information see [the scss-extractor documentation](https://github.com/christophersmith262/scss-extractor).\n",
 	"readmeFilename": "README.md",
-	"_downloads": 3
+	"_downloads": 4
 }
