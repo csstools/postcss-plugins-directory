@@ -1,0 +1,123 @@
+{
+	"_id": "postcss-import-styled-js",
+	"name": "postcss-import-styled-js",
+	"dist-tags": {
+		"latest": "1.0.21"
+	},
+	"versions": {
+		"1.0.21": {
+			"name": "postcss-import-styled-js",
+			"version": "1.0.21",
+			"description": "Compiles Styled export to CSS at compile time",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"styled-js",
+				"postcss-import-styled-js"
+			],
+			"homepage": "https://github.com/web-atoms/postcss-styled-js#readme",
+			"bugs": {
+				"url": "https://github.com/web-atoms/postcss-styled-js/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/web-atoms/postcss-styled-js.git"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Akash Kava"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1",
+				"manual-test": "node --enable-source-maps ./index.js ./manual-test/body.css.js",
+				"postversion": "git push --follow-tags"
+			},
+			"peerDependencies": {
+				"postcss": "^8.5.3",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"dependencies": {
+				"glob": "^11.0.1",
+				"source-map": "^0.7.4",
+				"stacktrace-parser": "^0.1.11",
+				"tslib": "^2.8.1"
+			},
+			"devDependencies": {
+				"@types/node": "^22.13.14",
+				"postcss": "^8.5.3",
+				"postcss-value-parser": "^4.2.0",
+				"typescript": "^5.8.2"
+			},
+			"_id": "postcss-import-styled-js@1.0.21",
+			"gitHead": "f5abb74d0435e7133088bf731106c8bb174ebc01",
+			"_nodeVersion": "22.14.0",
+			"_npmVersion": "10.9.2",
+			"dist": {
+				"integrity": "sha512-/MCIVqiiDepHViJTBdOf0WOkQQWHucxw7DVf3ppxUfeu5zkQ0UT4kASYMl9JxhF9dZ/YEn28ABsicThzTsHMZw==",
+				"shasum": "8855acb1a29e44aa760e18945f646e05cb67417b",
+				"tarball": "https://registry.npmjs.org/postcss-import-styled-js/-/postcss-import-styled-js-1.0.21.tgz",
+				"fileCount": 43,
+				"unpackedSize": 80312,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIQD5avPWo4YipoNuT1rAQaMMlLehmbZeIV6vDQQ/r5eRCAIgCBEYVUvpGvKGz7fDk1rlPOogQWfwfi7I5/6xTj+S/vM="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ackava",
+				"email": "ackava@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ackava",
+					"email": "ackava@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-import-styled-js_1.0.21_1743577772720_0.4984492245676413"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-04-02T07:09:32.602Z",
+		"1.0.21": "2025-04-02T07:09:32.995Z",
+		"modified": "2025-04-02T07:09:33.274Z"
+	},
+	"maintainers": [
+		{
+			"name": "ackava",
+			"email": "ackava@gmail.com"
+		}
+	],
+	"description": "Compiles Styled export to CSS at compile time",
+	"homepage": "https://github.com/web-atoms/postcss-styled-js#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"styled-js",
+		"postcss-import-styled-js"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/web-atoms/postcss-styled-js.git"
+	},
+	"author": {
+		"name": "Akash Kava"
+	},
+	"bugs": {
+		"url": "https://github.com/web-atoms/postcss-styled-js/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Styled JS\nImport JavaScript file which exports `styled.css`\n\n## Why, Why, Why another tool?\nSome how CSS post processing are little complicated, and do not provide best editing experience and we cannot debug what is being generated.\n\n# Benefits\n1. You \n\n## Getting Started\n### Installation\n1. `npm install -D postcss-import-styled-js\n2. Add `postcss-import-styled-js` as a plugin\n```js\nmodule.exports = (ctx) => ({\n    map: { ... ctx.options.map, sourcesContent: false },\n    plugins: [\n        require(\"postcss-import-styled-js\")(), // <-- this one\n        require('postcss-preset-env')(),\n        require(\"postcss-import\")(),\n        require(\"postcss-import-ext-glob\")(),\n        require(\"postcss-nested\")(),\n        require(\"cssnano\")()\n    ]\n});\n```\n\n\n## Examples\n\n\nmain.css\n```css\n\n/** This will import JS files */\n@import-styled-js \"./**/*.css.js\";\n\n```\n\n### Sample CSS JS File\n\nbody.css.js\n```js\nimport styled from \"postcss-import-styled-js\";\n\nconst animations = Object.entries({\n    div: \"red\",\n    span: \"blue\"\n}).map(([name, color]) =>\n    styled.css `\n        & ${name} {\n            color: ${color};\n        }\n`);\n\nexport default styled.css `\n    body {\n        font-weight: 500;\n        ${animations}\n    }\n\n`;\n```\n\nAbove code will be transpiled as,\n\n```css\nbody {\n    font-weight: 500;\n\n    & div {\n        color: red;\n    }\n    & span {\n        color: blue;\n    }\n}\n```\n\n# What is happening?\n\n`postcss-import-styled-js` will compile all `.css.js` files to `.css` file and import the generated file in the target main css file.",
+	"readmeFilename": "README.md",
+	"_rev": "1-d39925f228d16734e958dd18bb0a0307",
+	"_downloads": 0
+}
