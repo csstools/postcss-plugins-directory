@@ -1,0 +1,127 @@
+{
+	"_rev": "12-be75634a03bdfee464bf40d43b6c5878",
+	"time": {
+		"created": "2025-04-07T11:15:23.059Z",
+		"modified": "2025-04-07T11:15:23.633Z",
+		"1.0.0": "2025-04-06T15:08:35.372Z",
+		"1.0.1": "2025-04-06T15:48:35.531Z",
+		"1.0.3": "2025-04-06T19:35:20.559Z",
+		"1.0.4": "2025-04-07T11:15:23.311Z"
+	},
+	"_id": "@lab4studio/postcss-px-to-rem",
+	"name": "@lab4studio/postcss-px-to-rem",
+	"dist-tags": {
+		"latest": "1.0.4"
+	},
+	"versions": {
+		"1.0.4": {
+			"name": "@lab4studio/postcss-px-to-rem",
+			"version": "1.0.4",
+			"description": "PostCSS plugin to convert px to rem/em with advanced syntax support",
+			"main": "index.js",
+			"exports": {
+				".": "./index.js",
+				"./package.json": "./package.json"
+			},
+			"engines": {
+				"node": ">=14.0.0"
+			},
+			"scripts": {
+				"test": "jest",
+				"test:watch": "jest --watch",
+				"test:coverage": "jest --coverage",
+				"lint": "eslint ./src/**/*.js",
+				"prepublishOnly": "npm test && npm run lint"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"rem",
+				"em",
+				"units",
+				"conversion"
+			],
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"eslint": "^8.0.0",
+				"eslint-config-airbnb-base": "^15.0.0",
+				"eslint-plugin-import": "^2.25.0",
+				"jest": "^29.0.0",
+				"postcss": "^8.0.0"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lab4studio/postcss-px-to-rem.git"
+			},
+			"bugs": {
+				"url": "https://github.com/lab4studio/postcss-px-to-rem/issues"
+			},
+			"homepage": "https://github.com/lab4studio/postcss-px-to-rem#readme",
+			"_id": "@lab4studio/postcss-px-to-rem@1.0.4",
+			"gitHead": "deb3bc30b880267a0cc7fa51209d583913ff626e",
+			"_nodeVersion": "20.19.0",
+			"_npmVersion": "10.8.2",
+			"dist": {
+				"integrity": "sha512-5/NMjK0DZ4uCwpJzgfqjiO4gno/2tdpeH58kKgbFufgV3qbFhKYnp5mS+WdVt9HYZTIIJ8SBeQd1ufC1m8CEuw==",
+				"shasum": "73a577eea2442d738dcd202d7a55620902b9975d",
+				"tarball": "https://registry.npmjs.org/@lab4studio/postcss-px-to-rem/-/postcss-px-to-rem-1.0.4.tgz",
+				"fileCount": 9,
+				"unpackedSize": 6441,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIDQCrps7ZF9jZWGNGFyvndkn+z1epC8Wj+Nr6AMsbkoAAiEAtaXPIz2QJ9JeC7KMCDSO/RrC2RV27IIMcl5DTIE2Fis="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "lab4studio",
+				"email": "lab4studio@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "lab4studio",
+					"email": "lab4studio@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-px-to-rem_1.0.4_1744024523143_0.16161715277180955"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"maintainers": [
+		{
+			"name": "lab4studio",
+			"email": "lab4studio@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin to convert px to rem/em with advanced syntax support",
+	"homepage": "https://github.com/lab4studio/postcss-px-to-rem#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"rem",
+		"em",
+		"units",
+		"conversion"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lab4studio/postcss-px-to-rem.git"
+	},
+	"bugs": {
+		"url": "https://github.com/lab4studio/postcss-px-to-rem/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-px-to-rem\n\nA lightweight [PostCSS](https://github.com/postcss/postcss) plugin that converts pixel (`px`) units to relative `rem` or `em` units—improving scalability and accessibility in your CSS.\n\n```css\nh1 {\n    @apply text-[length:rem(32px_16px_3)];\n}\n```\n\n---\n\n## Installation\n\nInstall via npm:\n\n```bash\nnpm install -D @lab4studio/postcss-px-to-rem\n```\n\nThen add the plugin to your `postcss.config.cjs`:\n\n```js\nmodule.exports = {\n    plugins: {\n        '@lab4studio/postcss-px-to-rem': {\n            base: 16,\n            precision: 2,\n        },\n    },\n};\n```\n\n> **Note:** Both `base` and `precision` options are optional. Defaults are `base: 16` and `precision: 4`.\n\n---\n\n## Why use it?\n\nWhile pixel units are convenient, they do not scale with user preferences—such as browser-level font size settings. This plugin allows you to retain the simplicity of `px` while outputting responsive and accessible `rem`/`em` values.\n\n---\n\n## Usage\n\nThis plugin parses and converts any `rem(...)` or `em(...)` functions inside your CSS values:\n\n```css\nh1 {\n    @apply text-[length:rem(32px_16px_3)];\n}\n\n<div class=\"px-[em(13_12_2)]\">{{ markdown }}</div>\n```\n\n> **Note:** You can omit the unit if using the plugin in a compatible utility or expression context.\n\n---\n\n## Input → Output Example\n\n```css\n/* Input */\nh1 {\n    margin: 0 0 rem(16px);\n    font-size: rem(20px_10);\n    line-height: 1.2;\n    letter-spacing: em(1px);\n}\n```\n\n```css\n/* Output */\nh1 {\n    margin: 0 0 1rem;\n    font-size: 2rem;\n    line-height: 1.2;\n    letter-spacing: 0.0625em;\n}\n```\n\n---\n\n## Plugin Options\n\n```js\n{\n    base: 16,       // Base font size to calculate rem/em values\n    precision: 5    // Decimal precision for converted values\n}\n```\n\n- **`base`** (`number`) – The root font size used as a reference for conversion.\n- **`precision`** (`number`) – Number of decimal places to retain in the result.\n\n---\n\n## License\n\nMIT License – see [LICENSE-MIT](./LICENSE-MIT) for details.\n",
+	"readmeFilename": "README.md",
+	"_downloads": 50
+}
