@@ -92,5 +92,5 @@
 	"license": "MIT",
 	"readme": "# postcss-hover-media-query\n\nPostcss plugin that optimize the hover style in css.\n\n## Install\n\n```bash\n(npm|yarn|pnpm|bun) i -D postcss @cookie_gg/postcss-hover-media-query\n```\n\n## Usage\n\n```js:postcss.config.js\nmodule.exports = {\n  ...\n  plugins: [\n    // other plugins...\n    ['@cookie_gg/postcss-hover-media-query', {\n        forceHoverable: false,\n      }\n    ]\n  ]\n  ...\n}\n```\n\n```css:style.css\n/* before */\nmain h1:hover, main h2 {\n  color: blue;\n}\n\n/* after */\n@media (hover: hover) {\n  main h1:hover {\n    color: blue;\n  }\n}\nmain h2 {\n  color: blue;\n}\n```\n\n## Options\n\n**forceHoverable: `Boolean`**\n\n> default: 'false'\n\nIf you set this option to true, you can use `:force-hover` pseudo class which supports unknown elements.\n\n```css:style.css\n/* before */\nmain h1:force-hover {\n  color: blue;\n}\n\n/* after */\n@media (hover: hover) {\n  main h1:where(:any-link, :enabled, summary):hover {\n    color: blue;\n  }\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 6
+	"_downloads": 4
 }
