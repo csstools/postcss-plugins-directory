@@ -464,5 +464,5 @@
 	],
 	"readme": "# postcss-use-logical\n\nPostCSS plugin that essentially does the opposite of [`postcss-logical`](https://www.npmjs.com/package/postcss-logical); it converts physical CSS properties into their logical equivalents.\n\nCheck out demo/playground at: https://logical.mynk.app/\n\n## Usage\n\nThis plugin is designed to be run as a one-off script for migrating entire codebases from physical properties to logical ones. It probably should *not* be added to your project's regular PostCSS config.\n\n```\nnpm install postcss postcss-use-logical\n```\n\n```js\nimport postcss from 'postcss';\nimport postcssUseLogical from 'postcss-use-logical';\n\npostcss([postcssUseLogical]).process(/* ... */);\n```\n\n> **Note**\n> This plugin will convert _all_ physical properties, which may not always be desirable. Always verify the changes manually.\n\n## Example\n\nInput:\n\n```css\n.element {\n  height: 100px;\n  max-width: 400px;\n  width: 200px;\n  padding-top: 10px;\n  padding-bottom: 20px;\n  margin: 0 auto;\n}\n```\n\nOutput:\n\n```css\n.element {\n  block-size: 100px;\n  max-inline-size: 400px;\n  inline-size: 200px;\n  padding-block: 10px 20px;\n  margin-block: 0;\n  margin-inline: auto;\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 18
+	"_downloads": 43
 }
