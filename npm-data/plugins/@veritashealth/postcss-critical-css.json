@@ -1,6 +1,6 @@
 {
 	"_id": "@veritashealth/postcss-critical-css",
-	"_rev": "1-3d612d81d162d69ab1b8bc0000ccc1ed",
+	"_rev": "3-7113893646d847e013f30721c3e0be04",
 	"name": "@veritashealth/postcss-critical-css",
 	"dist-tags": {
 		"latest": "4.0.2"
@@ -133,12 +133,6 @@
 		"4.0.2": {
 			"name": "@veritashealth/postcss-critical-css",
 			"version": "4.0.2",
-			"description": "Generate critical CSS using PostCSS",
-			"main": "index.js",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/veritashealth/postcss-critical-css.git"
-			},
 			"keywords": [
 				"postcss-plugin",
 				"postcss",
@@ -151,112 +145,118 @@
 				"name": "Zach Green"
 			},
 			"license": "MIT",
-			"devDependencies": {
-				"@babel/cli": "^7.21.0",
-				"@babel/core": "^7.21.0",
-				"@babel/eslint-parser": "^7.19.1",
-				"@babel/node": "^7.20.7",
-				"@babel/preset-env": "^7.20.2",
-				"@babel/preset-flow": "^7.18.6",
-				"@commitlint/cli": "^17.4.4",
-				"@commitlint/config-conventional": "^17.4.4",
-				"chalk": "^4.0.0",
-				"cssnano": "^5.1.15",
-				"eslint": "^8.35.0",
-				"eslint-config-prettier": "^8.7.0",
-				"eslint-config-standard": "^17.0.0",
-				"eslint-plugin-flowtype": "^8.0.3",
-				"eslint-plugin-import": "^2.25.2",
-				"eslint-plugin-node": "^11.1.0",
-				"eslint-plugin-prettier": "^4.2.1",
-				"eslint-plugin-promise": "^6.1.1",
-				"flow-bin": "^0.105.0",
-				"fs-extra": "^11.1.0",
-				"husky": "^8.0.3",
-				"lint-staged": "^9.5.0",
-				"minimist": "^0.2.4",
-				"postcss": "^8.4.21",
-				"postcss-reporter": "^7.0.5",
-				"prettier": "^2.8.4",
-				"process": "^0.11.10",
-				"standard-version": "^9.5.0",
-				"tape": "^5.6.3"
-			},
-			"peerDependencies": {
-				"postcss": "^8.4.21"
-			},
-			"scripts": {
-				"build": "eslint src/** && npm run flow && babel src --out-dir dist",
-				"example": "babel-node example/example.js",
-				"flow": "flow; test $? -eq 0 -o $? -eq 2",
-				"eslint": "eslint test/**/*.js && eslint src/**",
-				"format": "prettier --write \"**/*.{js,md,yml,.eslintrc}\"",
-				"prerelease": "npm run build && npm test",
-				"pretest": "babel-node test/preTest.js",
-				"release": "standard-version",
-				"test": "npm run test-default && npm run test-no-preserve && npm run test-output-path && npm run test-output-dest && npm run test-no-args && npm run test-no-minify",
-				"test-no-args": "npm run pretest -- --noArgs && tape test --noArgs --test=default",
-				"test-no-minify": "npm run pretest -- --minify=false --fixtures-dir=fixtures-no-minify && tape test --fixtures-dir=fixtures-no-minify --test=default,this",
-				"test-output-dest": "npm run pretest -- --outputDest='custom.css' --fixtures-dir=fixtures-output-dest && tape test --outputDest='custom.css' --fixtures-dir=fixtures-output-dest --test=default",
-				"test-default": "npm run pretest && tape test",
-				"test-no-preserve": "npm run pretest -- --fixtures-dir=fixtures-no-preserve --preserve=false && tape test --fixtures-dir=fixtures-no-preserve --preserve=false",
-				"test-output-path": "npm run pretest -- --outputPath='test/fixtures-output-path' && tape test --outputPath='test/fixtures-output-path' --test=default",
-				"prepare": "husky install\n"
-			},
-			"husky": {
-				"hooks": {
-					"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-					"pre-commit": "lint-staged"
-				}
-			},
-			"lint-staged": {
-				"*.js": [
-					"eslint -- --fix",
-					"git add"
-				]
-			},
 			"_id": "@veritashealth/postcss-critical-css@4.0.2",
-			"gitHead": "b8af7098f26491320b33432c159cae39d0dbfe38",
-			"bugs": {
-				"url": "https://github.com/veritashealth/postcss-critical-css/issues"
-			},
-			"homepage": "https://github.com/veritashealth/postcss-critical-css#readme",
-			"_nodeVersion": "22.2.0",
-			"_npmVersion": "10.7.0",
-			"dist": {
-				"integrity": "sha512-8TDU0Og9Y215DD6hbbcHDpdP4t/NNw03TZvML5m7xUCFRaJkApTGRdmQKJGIcX5rTq4Ztogw7sVxssZBNzpADQ==",
-				"shasum": "3cfd36a9ddebe52cdcccd7028d4fb75869c90a51",
-				"tarball": "https://registry.npmjs.org/@veritashealth/postcss-critical-css/-/postcss-critical-css-4.0.2.tgz",
-				"fileCount": 12,
-				"unpackedSize": 29010,
-				"signatures": [
-					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEYCIQC2iMT5go15tlmjejvDBkyAUCbBlKbJlb1LirwmBGEzTgIhALfCGRqyp0zM9NNyA5Fhm6zz0XjPj18l0HUuxIKNUJFw"
-					}
-				]
-			},
-			"_npmUser": {
-				"name": "veritashealth",
-				"email": "dev@veritashealth.com"
-			},
-			"directories": {},
 			"maintainers": [
 				{
 					"name": "veritashealth",
 					"email": "dev@veritashealth.com"
 				}
 			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-critical-css_4.0.2_1723775349734_0.7563151672747308"
+			"homepage": "https://github.com/veritashealth/postcss-critical-css#readme",
+			"bugs": {
+				"url": "https://github.com/veritashealth/postcss-critical-css/issues"
 			},
-			"_hasShrinkwrap": false
+			"dist": {
+				"shasum": "3cfd36a9ddebe52cdcccd7028d4fb75869c90a51",
+				"tarball": "https://registry.npmjs.org/@veritashealth/postcss-critical-css/-/postcss-critical-css-4.0.2.tgz",
+				"fileCount": 12,
+				"integrity": "sha512-8TDU0Og9Y215DD6hbbcHDpdP4t/NNw03TZvML5m7xUCFRaJkApTGRdmQKJGIcX5rTq4Ztogw7sVxssZBNzpADQ==",
+				"signatures": [
+					{
+						"sig": "MEYCIQC2iMT5go15tlmjejvDBkyAUCbBlKbJlb1LirwmBGEzTgIhALfCGRqyp0zM9NNyA5Fhm6zz0XjPj18l0HUuxIKNUJFw",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 29010
+			},
+			"main": "index.js",
+			"husky": {
+				"hooks": {
+					"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+					"pre-commit": "lint-staged"
+				}
+			},
+			"gitHead": "b8af7098f26491320b33432c159cae39d0dbfe38",
+			"scripts": {
+				"flow": "flow; test $? -eq 0 -o $? -eq 2",
+				"test": "npm run test-default && npm run test-no-preserve && npm run test-output-path && npm run test-output-dest && npm run test-no-args && npm run test-no-minify",
+				"build": "eslint src/** && npm run flow && babel src --out-dir dist",
+				"eslint": "eslint test/**/*.js && eslint src/**",
+				"format": "prettier --write \"**/*.{js,md,yml,.eslintrc}\"",
+				"example": "babel-node example/example.js",
+				"prepare": "husky install\n",
+				"pretest": "babel-node test/preTest.js",
+				"release": "standard-version",
+				"prerelease": "npm run build && npm test",
+				"test-default": "npm run pretest && tape test",
+				"test-no-args": "npm run pretest -- --noArgs && tape test --noArgs --test=default",
+				"test-no-minify": "npm run pretest -- --minify=false --fixtures-dir=fixtures-no-minify && tape test --fixtures-dir=fixtures-no-minify --test=default,this",
+				"test-no-preserve": "npm run pretest -- --fixtures-dir=fixtures-no-preserve --preserve=false && tape test --fixtures-dir=fixtures-no-preserve --preserve=false",
+				"test-output-dest": "npm run pretest -- --outputDest='custom.css' --fixtures-dir=fixtures-output-dest && tape test --outputDest='custom.css' --fixtures-dir=fixtures-output-dest --test=default",
+				"test-output-path": "npm run pretest -- --outputPath='test/fixtures-output-path' && tape test --outputPath='test/fixtures-output-path' --test=default"
+			},
+			"_npmUser": {
+				"name": "veritashealth",
+				"email": "dev@veritashealth.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/veritashealth/postcss-critical-css.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.7.0",
+			"description": "Generate critical CSS using PostCSS",
+			"directories": {},
+			"lint-staged": {
+				"*.js": [
+					"eslint -- --fix",
+					"git add"
+				]
+			},
+			"_nodeVersion": "22.2.0",
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tape": "^5.6.3",
+				"chalk": "^4.0.0",
+				"husky": "^8.0.3",
+				"eslint": "^8.35.0",
+				"cssnano": "^5.1.15",
+				"postcss": "^8.4.21",
+				"process": "^0.11.10",
+				"flow-bin": "^0.105.0",
+				"fs-extra": "^11.1.0",
+				"minimist": "^0.2.4",
+				"prettier": "^2.8.4",
+				"@babel/cli": "^7.21.0",
+				"@babel/core": "^7.21.0",
+				"@babel/node": "^7.20.7",
+				"lint-staged": "^9.5.0",
+				"@commitlint/cli": "^17.4.4",
+				"postcss-reporter": "^7.0.5",
+				"standard-version": "^9.5.0",
+				"@babel/preset-env": "^7.20.2",
+				"@babel/preset-flow": "^7.18.6",
+				"eslint-plugin-node": "^11.1.0",
+				"@babel/eslint-parser": "^7.19.1",
+				"eslint-plugin-import": "^2.25.2",
+				"eslint-plugin-promise": "^6.1.1",
+				"eslint-config-prettier": "^8.7.0",
+				"eslint-config-standard": "^17.0.0",
+				"eslint-plugin-flowtype": "^8.0.3",
+				"eslint-plugin-prettier": "^4.2.1",
+				"@commitlint/config-conventional": "^17.4.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.21"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-critical-css_4.0.2_1723775349734_0.7563151672747308",
+				"host": "s3://npm-registry-packages"
+			}
 		}
 	},
 	"time": {
 		"created": "2023-03-09T16:39:26.986Z",
-		"modified": "2024-08-16T02:29:10.177Z",
+		"modified": "2025-03-25T20:45:10.322Z",
 		"4.0.1": "2023-03-09T16:39:27.311Z",
 		"4.0.2": "2024-08-16T02:29:09.986Z"
 	},
@@ -277,17 +277,17 @@
 		"critical css"
 	],
 	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/veritashealth/postcss-critical-css.git"
+		"url": "git+https://github.com/veritashealth/postcss-critical-css.git",
+		"type": "git"
 	},
 	"description": "Generate critical CSS using PostCSS",
 	"maintainers": [
 		{
-			"name": "veritashealth",
-			"email": "dev@veritashealth.com"
+			"email": "dev@veritashealth.com",
+			"name": "veritashealthllc"
 		}
 	],
 	"readme": "# PostCSS Critical CSS\n\nThis plugin allows the user to define and output critical CSS using custom atRules, and/or custom CSS properties. Critical CSS may be output to one or more files, as defined within the [plugin options](#plugin-options) and/or within the CSS. Depending on the plugin options used, processed CSS may be left unchanged, or critical CSS may be removed from it.\n\n## Install\n\n`npm install @veritashealth/postcss-critical-css --save`\n\n## Examples\n\nAn example is available in this repo. See the `/example` directory, and use the command `npm run example` to test it out.\n\n## Usage examples\n\nAll examples given below show the input CSS and the critical CSS that is output from it. Note that the input CSS will remain unchanged, unless `preserve` is set to `false` in the [plugin options](#plugin-options). Use `npm run example` to see how this works.\n\n### Using the `@critical` atRule\n\n```css\n/* In foo.css */\n@critical;\n\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\nWill output:\n\n```css\n/* In critical.css */\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\n### Using the `@critical` atRule with a custom file path\n\n```css\n/* In foo.css */\n@critical bar.css;\n\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\nWill output:\n\n```css\n/* In bar.css */\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\n### Using the `@critical` atRule with multiple custom file paths\n\n```css\n/* In foo.css */\n@critical bar.css baz.css;\n\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\nWill output:\n\n```css\n/* In bar.css and also in baz.css*/\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\n### Using the `@critical` atRule with a subset of styles\n\n```css\n/* In foo.css */\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n\n@critical {\n  .bar {\n    border: 10px solid gold;\n    color: gold;\n  }\n}\n```\n\nWill output:\n\n```css\n/* In critical.css */\n.bar {\n  border: 10px solid gold;\n  color: gold;\n}\n```\n\n### Using the `@critical` atRule with a subset of styles\n\n```css\n/* In foo.css */\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n\n@critical critical-1.css critical-2.css {\n  .bar {\n    border: 10px solid gold;\n    color: gold;\n  }\n}\n```\n\nWill output:\n\n```css\n/* In critical-1.css and also in critical-2.css */\n.bar {\n  border: 10px solid gold;\n  color: gold;\n}\n```\n\n### Using the custom property, `critical-selector`\n\n```css\n/* In foo.css */\n.foo {\n  critical-selector: this;\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\nWill output:\n\n```css\n/* In critical.css */\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\n### Using the custom property, `critical-selector`, with a custom selector.\n\n```css\n/* In foo.css */\n.foo {\n  critical-selector: .bar;\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\nWill output:\n\n```css\n/* In critical.css */\n.bar {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\n### Using the custom property, `critical-filename`\n\n```css\n/* in foo.css */\n.foo {\n  critical-selector: this;\n  critical-filename: secondary-critical.css;\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\nWill output:\n\n```css\n/* In secondary-critical.css */\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n```\n\n### Using the custom property, `critical-selector`, with value `scope`\n\nThis allows the user to output the entire scope of a module, including children.\n\n```css\n/* in foo.css */\n.foo {\n  critical-selector: scope;\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n\n.foo a {\n  color: blue;\n  text-decoration: none;\n}\n```\n\nWill output:\n\n```css\n/* In critical.css */\n.foo {\n  border: 3px solid gray;\n  display: flex;\n  padding: 1em;\n}\n\n.foo a {\n  color: blue;\n  text-decoration: none;\n}\n```\n\n## Plugin options\n\nThe plugin takes a single object as its only parameter. The following properties are valid:\n\n| Arg | Type | Description | Default |\n---|---|---|---|\n| `outputPath` | `string`  | Path to which critical CSS should be output | Current working directory |\n| `outputDest` | `string`  | Default critical CSS file name | `\"critical.css\"` |\n| `preserve`   | `boolean` | Whether or not to remove selectors from primary CSS document once they’ve been marked as critical. This should prevent duplication of selectors across critical and non-critical CSS.  | `true` |\n| `minify`     | `boolean` | Minify output CSS?                                             | `true` |\n| `destDelim`  | `string`  | Delimiter that separates multiple critical destination files.  | `” “` |\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2
+	"_downloads": 20
 }
