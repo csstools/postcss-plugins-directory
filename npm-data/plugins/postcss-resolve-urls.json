@@ -638,5 +638,5 @@
 	"license": "MIT",
 	"readme": "# postcss-resolve-urls\n\nA [PostCSS](https://esbuild.github.io/) plugin for resolving relative URLs\n\n> **IMPORTANT** This plugin depends on source maps\n\nGiven a directory structure like this\n```\nproject/\n├── images/\n│   ├── logo.svg\n└── css/\n    ├── partials/\n    │   └── partial.css\n    ├── input.css\n    └── output.css\n```\n\n```css\n/** input.css */\n@import './partials/partials.css';\n\n/** partial.css */\nsection {\n    background-image: url('../../images/logo.svg')\n}\n\n/** output.css */\nsection {\n    background-image: url('../images/logo.svg')\n}\n```\n\n## Install\n`npm i -D postcss-resolve-urls`\n\n## Usage\n\n```js\nimport postCssResolveUrls from 'postcss-resolve-urls'\n\nconst output = postcss([\n        postCssResolveUrls()\n    ])\n    .process(YOUR_INPUT_CSS);\n```\n\nIf this PostCSS plugin helped you in any way please consider buying me a book @ my buymeacoffee.com page\n\n[![\"Buy Me A Coffee\"][bmc-badge]][bmc-page]\n\n### TODO:\n- Include tests\n\n[bmc-page]: https://www.buymeacoffee.com/bognarlaszlo\n[bmc-badge]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg\n",
 	"readmeFilename": "README.md",
-	"_downloads": 18
+	"_downloads": 27
 }
