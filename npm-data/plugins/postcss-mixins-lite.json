@@ -1,0 +1,136 @@
+{
+	"_id": "postcss-mixins-lite",
+	"name": "postcss-mixins-lite",
+	"dist-tags": {
+		"latest": "12.0.0"
+	},
+	"versions": {
+		"12.0.0": {
+			"name": "postcss-mixins-lite",
+			"version": "12.0.0",
+			"description": "PostCSS plugin for mixins (lite fork)",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"mixins",
+				"sass"
+			],
+			"author": {
+				"name": "Andrey Sitnik",
+				"email": "andrey@sitnik.ru"
+			},
+			"contributors": [
+				{
+					"name": "Tim Totten",
+					"email": "2010@totten.ca"
+				}
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/supernovus/postcss-mixins-lite.git"
+			},
+			"engines": {
+				"node": "^18.0 || ^ 20.0 || >= 22.0"
+			},
+			"funding": [
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/postcss/"
+				},
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/ai"
+				}
+			],
+			"peerDependencies": {
+				"postcss": "^8.2.14"
+			},
+			"dependencies": {
+				"postcss-js": "^4.0.1",
+				"postcss-simple-vars": "^7.0.1"
+			},
+			"packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f",
+			"_id": "postcss-mixins-lite@12.0.0",
+			"gitHead": "02a1f2c38c3d86b2703a20a419ea0851d4fe03dd",
+			"bugs": {
+				"url": "https://github.com/supernovus/postcss-mixins-lite/issues"
+			},
+			"homepage": "https://github.com/supernovus/postcss-mixins-lite#readme",
+			"_nodeVersion": "20.19.0",
+			"_npmVersion": "10.8.2",
+			"dist": {
+				"integrity": "sha512-MjsSxtWC4A9RMczJ/OZp+jbpS/12L1Uzj9vCN+iRzs3BLPFnSr81p/MQkJUgv7wpeXO8K1hORVRPbbq5XwoJpg==",
+				"shasum": "8883e4e7998ba608220712d2446b96b79d43c118",
+				"tarball": "https://registry.npmjs.org/postcss-mixins-lite/-/postcss-mixins-lite-12.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 8798,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEYCIQDGgBj1pEPMJv871HYRNswNegniof05y5HA/yJ/T4aS5gIhAOuDC69eym23OjBl5lkh7J8IN7ccDXz01nh8+OH6JCVo"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "supernovus",
+				"email": "2010@totten.ca"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "supernovus",
+					"email": "2010@totten.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-mixins-lite_12.0.0_1745357926024_0.7392700705255348"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-04-22T21:38:46.023Z",
+		"12.0.0": "2025-04-22T21:38:46.276Z",
+		"modified": "2025-04-22T21:38:46.827Z"
+	},
+	"maintainers": [
+		{
+			"name": "supernovus",
+			"email": "2010@totten.ca"
+		}
+	],
+	"description": "PostCSS plugin for mixins (lite fork)",
+	"homepage": "https://github.com/supernovus/postcss-mixins-lite#readme",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"mixins",
+		"sass"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/supernovus/postcss-mixins-lite.git"
+	},
+	"contributors": [
+		{
+			"name": "Tim Totten",
+			"email": "2010@totten.ca"
+		}
+	],
+	"author": {
+		"name": "Andrey Sitnik",
+		"email": "andrey@sitnik.ru"
+	},
+	"bugs": {
+		"url": "https://github.com/supernovus/postcss-mixins-lite/issues"
+	},
+	"license": "MIT",
+	"readme": "# PostCSS Mixins (lite version)\n\n<img align=\"right\" width=\"135\" height=\"95\"\n     title=\"Philosopher’s stone, logo of PostCSS\"\n     src=\"https://postcss.org/logo-leftp.svg\">\n\n[PostCSS] plugin for mixins; this is a **fork** of [postcss-mixins] that strips\nout all of the filesystem related functionality, and adds the optional ability\nto change the rule tags used.\n\nNote, that you must set this plugin before [postcss-simple-vars]\nand [postcss-nested].\n\n```css\n@define-mixin icon $network, $color: blue {\n    .icon.is-$(network) {\n        color: $color;\n        @mixin-content;\n    }\n    .icon.is-$(network):hover {\n        color: white;\n        background: $color;\n    }\n}\n\n@mixin icon twitter {\n    background: url(twt.png);\n}\n@mixin icon youtube, red {\n    background: url(youtube.png);\n}\n```\n\n```css\n.icon.is-twitter {\n    color: blue;\n    background: url(twt.png);\n}\n.icon.is-twitter:hover {\n    color: white;\n    background: blue;\n}\n.icon.is-youtube {\n    color: red;\n    background: url(youtube.png);\n}\n.icon.is-youtube:hover {\n    color: white;\n    background: red;\n}\n```\n\n[postcss-utilities] collection is better for `clearfix` and other popular hacks.\nFor simple cases you can use [postcss-define-property].\n\n[postcss-define-property]: https://github.com/daleeidd/postcss-define-property\n[postcss-utilities]:       https://github.com/ismamz/postcss-utilities\n[postcss-simple-vars]:     https://github.com/postcss/postcss-simple-vars\n[postcss-nested]:          https://github.com/postcss/postcss-nested\n[postcss-mixins]:          https://github.com/postcss/postcss-mixins\n[PostCSS]:                 https://github.com/postcss/postcss\n\n<a href=\"https://evilmartians.com/?utm_source=postcss-mixins\">\n  <img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\"\n       alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n\n## Docs\nRead full docs **[here](https://github.com/supernovus/postcss-mixins-lite#readme)**.\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-330d25d47f77b3de2a45fac7e048cb86",
+	"_downloads": 0
+}
