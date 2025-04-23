@@ -1,0 +1,124 @@
+{
+	"name": "postcss-glitch",
+	"version": "3.2.38",
+	"description": "PostCSS plugin for glitch effect",
+	"main": "dist/index.js",
+	"repository": "https://github.com/crftd/postcss-glitch.git",
+	"author": "Crash <hex22a@gmail.com>",
+	"license": "MIT",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"glitch",
+		"effect",
+		"animation"
+	],
+	"scripts": {
+		"start": "yarn build:ci",
+		"check-types": "tsc",
+		"cypress": "cypress open",
+		"size": "NODE_ENV=production npx size-limit --why",
+		"lint": "CI=true NODE_ENV=production npx size-limit && eslint ./src --ext .js,.jsx,.ts,.tsx",
+		"test": "jest --ci",
+		"jest": "jest",
+		"build:ci": "CI=true yarn build",
+		"build:dev": "NODE_ENV=development webpack-cli --mode=development",
+		"build": "NODE_ENV=production webpack-cli --mode=production"
+	},
+	"engines": {
+		"node": ">=12"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged",
+			"post-merge": "yarn outdated"
+		}
+	},
+	"size-limit": [
+		{
+			"limit": "110 KB",
+			"config": "./webpack.config.js",
+			"path": "./dist/index.js"
+		}
+	],
+	"devDependencies": {
+		"@babel/cli": "^7.11.6",
+		"@babel/core": "^7.11.6",
+		"@babel/plugin-proposal-class-properties": "^7.10.4",
+		"@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+		"@babel/preset-env": "^7.11.5",
+		"@babel/preset-typescript": "^7.10.4",
+		"@size-limit/preset-big-lib": "^4.6.0",
+		"@types/jest": "^26.0.14",
+		"@types/node": "^14.11.2",
+		"@typescript-eslint/eslint-plugin": "^4.3.0",
+		"@typescript-eslint/parser": "^4.3.0",
+		"babel-eslint": "^10.1.0",
+		"babel-jest": "^26.3.0",
+		"babel-loader": "^8.1.0",
+		"babel-polyfill": "^6.26.0",
+		"cypress": "^5.3.0",
+		"cypress-image-snapshot": "^3.1.1",
+		"eslint": "^7.10.0",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-config-airbnb-typescript": "^11.0.0",
+		"eslint-config-prettier": "^6.12.0",
+		"eslint-plugin-import": "^2.22.1",
+		"husky": "^4.3.0",
+		"jest": "^26.4.2",
+		"jest-ts-auto-mock": "^1.0.11",
+		"pnp-webpack-plugin": "^1.6.4",
+		"postcss": "^8.1.1",
+		"prettier": "2.1.2",
+		"pretty-quick": "^3.0.2",
+		"size-limit": "^4.6.0",
+		"ts-auto-mock": "^2.6.4",
+		"ts-jest": "^26.4.0",
+		"ts-loader": "^8.0.4",
+		"ttypescript": "^1.5.12",
+		"typescript": "^4.0.3",
+		"webpack": "^4.44.2",
+		"webpack-bundle-analyzer": "^3.9.0",
+		"webpack-cli": "^3.3.12"
+	},
+	"browserslist": [
+		"last 1 version",
+		"> 1%"
+	],
+	"peerDependencies": {
+		"postcss": "^8.1.1"
+	},
+	"_id": "postcss-glitch@3.2.38",
+	"dist": {
+		"shasum": "490bb145ed29e636aab6c83e12e26b71e2e1f9fe",
+		"integrity": "sha512-uFGeBTUMJ0LlULRAKKKNSkJztUfHlgTIo5ptStpqOt9G8Q0j5FzvaZTT37QXtaet+snpftn6EqJycq+7a9e1xw==",
+		"tarball": "https://registry.npmjs.org/postcss-glitch/-/postcss-glitch-3.2.38.tgz",
+		"fileCount": 8,
+		"unpackedSize": 96621,
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfdHCBCRA9TVsSAnZWagAAJQUP+wQ6K7XwlfSXluxOMcOV\n+17/567LRoE8yFxcMFombjhMcaM4xxsBWsveHqdCGYCVvIFMuWmB32kmiQjw\nb2D765y0NeWcBGVw1IE/wo8iY6tLh1M8jWySqtOl22Nnsvu60GAsAeMf46i9\nCU0WgLcoTTWJ5mi3aaUw5dEsnX7S1DJh12Ln34EqnLM73KrVcx26is8PYFPW\n6VgDB3SRaxJZCIMkgzzeLn4Jx2jkn4wdMy10E1znm/3wF9shFFWHkCHL/rN+\n+mxGyLwbdjI+UUAxRTMPM1o5Awdk/PQ0MvBNY1ME0MI40UBh+ANdX+Q6P/TA\nyk46ndZkinWKV9GCPcygehVtGCRXKBCmGCKr2jEKAIqTzGPDV3dK1CKJcieV\nP0LAPdQWFx0m+zSYrlakaqX9A12KTcsqPLbO59+RdDlvf37iLB111FBbdKjT\n80aj6vZvjq16Go2uVanJ+8HdZUluuUvbJECX/usMieIBU5GfPtPg+cSAil5Y\n0i4NZiJ0YdKy08LgZ0DYLxVaXjnXUtkIF1CIC4d7KMaqdPlbj9WZDVIiUJI5\n56hDpJzKEXuWa0JboTD7+3Kyggla2GcWvLy2BSHsOKAXFjU6or364Tp+DH4s\nsIHi7PFk+S0jgxMM/foHsQxNOjtSwKchFe+lGnuQ/OiF6pb4fVDUgqQMs4Ug\nA15i\r\n=rrXW\r\n-----END PGP SIGNATURE-----\r\n",
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQCIToGANeDn/32lFGu5rJ4S5tmRyu5V2LiiEsLRguM5vQIhAMwnN4jYgyCX/V+UfANaWwcKD+q85mtWQcqq36DIo8KW"
+			}
+		]
+	},
+	"maintainers": [
+		{
+			"name": "hex22a",
+			"email": "hex22a@gmail.com"
+		}
+	],
+	"_npmUser": {
+		"name": "hex22a",
+		"email": "hex22a@gmail.com"
+	},
+	"directories": {},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-glitch_3.2.38_1601466475328_0.43926859343167957"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2020-09-30T11:48:16.809Z"
+}
