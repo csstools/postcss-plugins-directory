@@ -493,5 +493,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Plugin Prefix\n\n[PostCSS] plugin postcss plugin for add css prefix.\n\n[postcss]: https://github.com/postcss/postcss\n\n```css\n/* Input example */\na {\n}\n.ant-test {\n}\n```\n\n```css\n/* Output example */\n#test a {\n}\n#test .ant-test {\n}\n```\n\n## Usage\n\nCheck you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you already use PostCSS, add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('@jerexyz/postcss-plugin-prefix')({\n+      prefix: '#test',\n+      matchRule: (selector) => {\n+        if (/^.ant/.test(selector)) {\n+          return true;\n+        }\n+        if (!/^[.#]/.test(selector)) {\n+          return true;\n+        }\n+        return false;\n+      },\n+    }),\n    require('autoprefixer')\n  ]\n}\n```\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
 	"readmeFilename": "README.md",
-	"_downloads": 32
+	"_downloads": 17
 }
