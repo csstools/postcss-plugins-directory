@@ -111,5 +111,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Plugin Add Encapsulation Selector\n\n[PostCSS](https://postcss.org/) plugin to add encapsulation selector.\n\nThis plugin can modify styles with any selector as follows,\nand can limit them to having the specified selector or being a child element of the specified selector.\n\n## Installation\n\n```sh\nnpm install -D postcss-plugin-add-encapsulation-selector\n```\n\n## Usage\n\nPlease add the following description to the PostCSS configuration file.\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-plugin-add-encapsulation-selector', {\n+     targetRegexp: /\\.target/,\n+     capsuleSelector: '.capsule'\n+   }),\n  ]\n}\n```\n\nThe style of the selector that matches `targetRegexp` is limited to having the selector specified by `capsuleSelector`, or being a child element of `capsuleSelector`.\n\n```diff\n- .target{ color: red; } .not-target { color: blue; }\n+ .capsule.target, .capsule .target{ color: red; } .not-target { color: blue; }\n```\n\n### Options\n\n#### `targetRegexp`\n\n- Type: RegExp\n- Default: `/\\.+/`\n\nA regular expression that matches the selector to be encapsulated.\n\n### `capsuleSelector`\n\n- Type: string | undefined\n- Default: undefined\n\nThe string of the selector used for encapsulation.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 3
+	"_downloads": 7
 }
