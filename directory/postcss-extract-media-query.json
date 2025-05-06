@@ -1,15 +1,17 @@
 {
 	"name": "postcss-extract-media-query",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"description": "PostCSS plugin to extract all media query from CSS and emit as separate files.",
 	"author": {
-		"name": "Kai Falkowski"
+		"name": "Kai Tran"
 	},
 	"license": "MIT",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"prepare": "husky install",
-		"test": "mocha"
+		"build": "tsc",
+		"prepare": "husky install && npm run build",
+		"test": "jest"
 	},
 	"keywords": [
 		"postcss",
@@ -22,19 +24,25 @@
 		"split",
 		"combine"
 	],
+	"engines": {
+		"node": ">=16.0.0"
+	},
 	"dependencies": {
-		"app-root-path": "^3.0.0",
-		"kleur": "^4.1.4",
-		"lodash": "^4.17.10"
+		"app-root-path": "^3.1.0",
+		"kleur": "^4.1.5",
+		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
-		"chai": "^4.3.4",
+		"@types/jest": "^29.5.14",
+		"@types/lodash": "^4.17.16",
+		"@types/node": "^22.15.3",
 		"husky": "^7.0.0",
-		"mocha": "^9.1.2",
-		"postcss": "^8.3.9",
-		"prettier": "^2.4.1",
-		"pretty-quick": "^3.1.1",
-		"rimraf": "^3.0.2"
+		"jest": "^29.7.0",
+		"prettier": "^3.5.3",
+		"pretty-quick": "^4.1.1",
+		"rimraf": "^6.0.1",
+		"ts-jest": "^29.3.2",
+		"typescript": "^5.8.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.0.0"
@@ -43,25 +51,24 @@
 		"type": "git",
 		"url": "git+https://github.com/SassNinja/postcss-extract-media-query.git"
 	},
-	"gitHead": "1e1605169fcf40f9ecb41b1ab2527e0fe86979f0",
+	"_id": "postcss-extract-media-query@3.1.0",
+	"gitHead": "db0168b6d83a1d1e3b7884a7d52cb594e4cadd5b",
 	"bugs": {
 		"url": "https://github.com/SassNinja/postcss-extract-media-query/issues"
 	},
 	"homepage": "https://github.com/SassNinja/postcss-extract-media-query#readme",
-	"_id": "postcss-extract-media-query@3.0.0",
-	"_nodeVersion": "14.16.0",
-	"_npmVersion": "6.14.11",
+	"_nodeVersion": "22.4.1",
+	"_npmVersion": "10.8.1",
 	"dist": {
-		"integrity": "sha512-DEafLfZY5ubQ9zcoUS0hDLr0JborOYwtdL90RzlXvZgO8CqFj/bOAsYC4ncPBWFW8la4qTzq2S6fTaGeC7wLUg==",
-		"shasum": "a8e2bf41605cefdc722a4b8aa41f1c5213d01258",
-		"tarball": "https://registry.npmjs.org/postcss-extract-media-query/-/postcss-extract-media-query-3.0.0.tgz",
-		"fileCount": 50,
-		"unpackedSize": 34119,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh22/ZCRA9TVsSAnZWagAAiPQQAJq4DGhugj41KRfMgXBN\nNHtnLX6I5EHBjf7+/nNLD3HbBd5N3ljGPfWRvY1/hB/rXeM40c7ARc5LE8pb\nB1vVJ67uCH7M2zeQuK/2QiKY4ggS38b79h09ddHKxX3xK/5UCUCr7Vb+mvt+\nKgU+yv+ZwsGoRAfcucs9iu+zAycUFYkN98cnP4V5FjKdcMsOci2h/U+O9+Dn\nNNc9tea/8g/oiLETdcvGxfM1AtAkU0KXn2vSEPNPyHW9e6IHkXD6eRT/k0Po\noCur7KzXbgkKLpWagHt+VX1cN21f7dS8ospTgUtfb+/395AJvuamr8FNPK+g\n3QVZEE9bSWCJyAyPoroW7fZVmkaaEQZr/kZOwqHE2dopE2B8GBcuSqN0c5id\n92hmlVifaSN2t9F6ie/PmA5zajt25czP5azIVYdlbES7OJq9WvxZ7LlKSCAR\nxl5xWA57w+gVoTzD9CZ3MRxGkuIKtpqCkW+lItg9cE3RpmoisAxdmlt6z/Hq\nRSai+J1pHdt7aU6UzY//WvxZZPHS0nEAnUehd46VfxWjM0CMIsFmz+ASSZ6O\nMxyk1qhuNqMO2DV5vPY1+0oERfTerbxO66/14dPGomWKTu4t56Dunncv2JNP\nY1GLSvYxwVLDiUpDhCSGunxI7+u5KOiV4sa6jif6+NsWm0f1M4V4tb6KOYI1\n3D8a\r\n=IzJo\r\n-----END PGP SIGNATURE-----\r\n",
+		"integrity": "sha512-EH2bohjzlxDUl3TJS+a6YAvACkWdU4+CWy86yjjU2MPDF7GyXdh4Qr50HE8k+JjYvVDaJRFPHXqhXP0Dpmhylg==",
+		"shasum": "6346bb38754884219a772556770e2a711b2953a1",
+		"tarball": "https://registry.npmjs.org/postcss-extract-media-query/-/postcss-extract-media-query-3.1.0.tgz",
+		"fileCount": 9,
+		"unpackedSize": 21774,
 		"signatures": [
 			{
-				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQDIIn0ckOy4osEVujccJO8qO3tgPbCbNDTfDbrtaXs5FAIhAKezORZPBh/4VGDrgkf9FtTbG+/hqxn9KZUODbYbM8NS"
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEUCICder1DEqJvO+WrqkdtqInt4LOV0Xzx+xZMUIZy1XYQwAiEA/YWrICcqxwpciOnur0gdza9VIWu0Y70JecMPZnukb8A="
 			}
 		]
 	},
@@ -77,9 +84,9 @@
 		}
 	],
 	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-extract-media-query_3.0.0_1635068046021_0.9208827684049095"
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-extract-media-query_3.1.0_1746444257918_0.0563947532238358"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2021-10-24T09:34:06.202Z"
+	"_time": "2025-05-05T11:24:18.111Z"
 }
