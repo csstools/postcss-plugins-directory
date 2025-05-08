@@ -1,13 +1,20 @@
 {
+	"_rev": "3-b06dfc4f796dd05a697e91205b0bae19",
+	"time": {
+		"created": "2025-05-07T09:28:17.504Z",
+		"modified": "2025-05-07T09:28:17.977Z",
+		"1.0.0": "2025-05-06T02:00:59.938Z",
+		"1.0.1": "2025-05-07T09:28:17.746Z"
+	},
 	"_id": "postcss-any-hover",
 	"name": "postcss-any-hover",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
-		"1.0.0": {
+		"1.0.1": {
 			"name": "postcss-any-hover",
-			"version": "1.0.0",
+			"version": "1.0.1",
 			"description": "A PostCSS plugin that wraps `:hover` selectors with `@media (any-hover: hover) {}` to ensure hover effects only apply on hoverable devices",
 			"keywords": [
 				"postcss",
@@ -21,15 +28,11 @@
 			"author": {
 				"name": "kondo0602"
 			},
-			"type": "module",
-			"main": "index.cjs.js",
-			"module": "index.es.mjs",
 			"repository": {
 				"type": "git",
 				"url": "git+https://github.com/kondo0602/postcss-any-hover.git"
 			},
 			"scripts": {
-				"build": "rollup -c",
 				"lint": "eslint .",
 				"test": "vitest",
 				"test:watch": "vitest watch"
@@ -60,8 +63,8 @@
 					"es6": true
 				}
 			},
-			"_id": "postcss-any-hover@1.0.0",
-			"gitHead": "58b5ee28bf537b121e50810e5d703ca95bd3ef16",
+			"_id": "postcss-any-hover@1.0.1",
+			"gitHead": "6db5e2a3ec8348267c5e241cfe43d319d403550c",
 			"bugs": {
 				"url": "https://github.com/kondo0602/postcss-any-hover/issues"
 			},
@@ -69,15 +72,15 @@
 			"_nodeVersion": "22.15.0",
 			"_npmVersion": "10.9.2",
 			"dist": {
-				"integrity": "sha512-lnQZKYjWCqkQll3Nd4XiwVQmYAM8nbJfEiFqfcXaeixa7cGLPL/Dgdm3YW/EM4vzXHCM41adXvuN2cQKIpXowQ==",
-				"shasum": "71392260b579cacefc97269f0c927b7b98276ade",
-				"tarball": "https://registry.npmjs.org/postcss-any-hover/-/postcss-any-hover-1.0.0.tgz",
-				"fileCount": 3,
-				"unpackedSize": 3281,
+				"integrity": "sha512-g7bLYWq8kDOzF8VdUZuA03hndCNUnksMkkZXkTQK+ETWBNH3alskNkdtLbtKe3hjGpl0GceGjNGKOpI5W0nArw==",
+				"shasum": "59ba456e966515e8ac50a70ce04e6647f9ca4491",
+				"tarball": "https://registry.npmjs.org/postcss-any-hover/-/postcss-any-hover-1.0.1.tgz",
+				"fileCount": 4,
+				"unpackedSize": 5217,
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEQCIE5vlXT14QA7poUtG/RP1w7YTdQPV+OxZCOmQawSlmgyAiAUfZikgoKIW0GmEhcCsOtjj8t/9e/uKDmWkcforkQJAg=="
+						"sig": "MEYCIQDLffdabqmVnxHpdd2nazgcrzy1fuW8uBTuNJb2wk2YQAIhAIu2jQq1Sq7CnMt5nA7gJ+Mw93rgYXgqBfjKDuZpqhV5"
 					}
 				]
 			},
@@ -94,15 +97,10 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-any-hover_1.0.0_1746496859752_0.6472539413299316"
+				"tmp": "tmp/postcss-any-hover_1.0.1_1746610097504_0.9633631680064207"
 			},
 			"_hasShrinkwrap": false
 		}
-	},
-	"time": {
-		"created": "2025-05-06T02:00:59.751Z",
-		"1.0.0": "2025-05-06T02:00:59.938Z",
-		"modified": "2025-05-06T02:01:00.268Z"
 	},
 	"maintainers": [
 		{
@@ -133,6 +131,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Any Hover\n\nA PostCSS plugin that wraps `:hover` selectors with `@media (any-hover: hover) {}`.\n\nThe hover effect should be disabled on touch devices as it can cause the hover state to persist after a tap, resulting in unexpected UI behavior and a confusing user experience.\n\nWrap with `@media (any-hover: hover) {}` to apply the `:hover` effect only on hoverable devices.\n\n```css\n /* before */\n.foo:hover {\n  color: red;\n}\n\n/* after */\n@media (any-hover: hover) {\n  .foo:hover {\n    color: red;\n  }\n}\n```\n\n## Options\n\n### `alsoApplyToFocusVisible`\n\nType: `Boolean` Default: `false`\n\nYou may want to apply the same style to `:focus-visible` as you do to `:hover` to clearly indicate which element is focused during keyboard navigation.\n\nWhen using the `alsoApplyToFocusVisible` option, the styles defined for `:hover` will also be applied to `:focus-visible`.\n\n```css\n/* before */\n.foo:hover {\n  color: red;\n}\n\n/* after */\n.foo:focus-visible {\n  color: red;\n}\n\n@media (any-hover: hover) {\n  .foo:hover {\n    color: red;\n  }\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_rev": "1-8b70a425aaef71ae058270e2a0aeb129",
-	"_downloads": 0
+	"_downloads": 21
 }
