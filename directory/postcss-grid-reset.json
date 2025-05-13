@@ -1,6 +1,6 @@
 {
 	"name": "postcss-grid-reset",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "PostCSS plugin for resetting CSS Grid.",
 	"keywords": [
 		"postcss",
@@ -8,6 +8,9 @@
 		"postcss-plugin",
 		"grid"
 	],
+	"scripts": {
+		"test": "jest-ci --coverage && eslint-ci ."
+	},
 	"author": {
 		"name": "Andrej Gajdos",
 		"email": "agajdy@gmail.com"
@@ -23,24 +26,68 @@
 	"peerDependencies": {
 		"postcss": "^8.1.0"
 	},
+	"devDependencies": {
+		"clean-publish": "^1.1.8",
+		"eslint": "^7.10.0",
+		"eslint-ci": "^1.0.0",
+		"eslint-plugin-jest": "^24.0.2",
+		"husky": "^4.3.0",
+		"jest": "^26.4.2",
+		"jest-ci": "^0.1.1",
+		"jest-cli": "^26.4.2",
+		"lint-staged": "^10.4.0",
+		"postcss": "^8.1.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": "eslint --fix"
+	},
+	"eslintConfig": {
+		"parserOptions": {
+			"ecmaVersion": 2017
+		},
+		"env": {
+			"node": true,
+			"es6": true
+		},
+		"extends": [
+			"eslint:recommended",
+			"plugin:jest/recommended"
+		],
+		"rules": {
+			"jest/expect-expect": "off"
+		}
+	},
+	"jest": {
+		"testEnvironment": "node",
+		"coverageThreshold": {
+			"global": {
+				"statements": 100
+			}
+		}
+	},
+	"_id": "postcss-grid-reset@1.0.3",
+	"gitHead": "f8bce4c93b8eaa43998a43acc13a1dee7bb4f2be",
 	"bugs": {
 		"url": "https://github.com/AndrejGajdos/postcss-grid-reset/issues"
 	},
 	"homepage": "https://github.com/AndrejGajdos/postcss-grid-reset#readme",
-	"_id": "postcss-grid-reset@1.0.2",
-	"_nodeVersion": "14.9.0",
-	"_npmVersion": "6.14.8",
+	"_nodeVersion": "20.12.2",
+	"_npmVersion": "10.5.0",
 	"dist": {
-		"integrity": "sha512-7F1hrUOhffKWLHxlXq7+CE9j9zwtGdBASFMjRHGQDU9KQzZUDH0Z+ARkfiA1CVS5khgc4U9tMmHdUO+hIVu8Mw==",
-		"shasum": "02519ab7983f1a6d64d133ac7e46d53052a3894c",
-		"tarball": "https://registry.npmjs.org/postcss-grid-reset/-/postcss-grid-reset-1.0.2.tgz",
-		"fileCount": 5,
-		"unpackedSize": 4799,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfujUyCRA9TVsSAnZWagAAnqcQAJN2DP4I5WaV9U8K+581\nEpmXvyMFdOgTY1miK6EkuPgHiKlqk1JBfpP0/K8zPC1CHZO5LKv6ud5HzbSa\nDOmdXpi7Ug0DNYBOxt5NDzdva1QbxenwiVa8dDiDasJoS5l8NKrxhxY5gAdM\n1QdZ8tgtT8VU9GenMTwW2w9cyBfrdzJVjp/ww0UjfqaIYlht6EDX/q3+8SVA\nHXiBPO2Ezp4XzQQ+C4r/kOZT+DBRLYwxndJWME0MFocM0wee8YmmsKcGUCsz\n2XJFjsMef2yl0unpRpLFfYxOOvIWjf+A3sI0cFeEocNh0glapGE3OEV3BZ3F\n5h9beFugR113uLqcVZbYyDfGVZQjFHWsTuAeBXUgcN/GVtWgOvPUkdZlTVGy\nyJHhDGeX7OVfBWNTUZGHR1GmS4kpy25wYMGmks6Dk7TyaSzsO4yGAjByVYPL\nSbzGVdAP88EkwGwHlnTyQ6frRUC9GK+8tdEWBEUgIvo8IJLSWt3W96BOvZ8O\ncZxFrprIfNDd3uSkn8ElA80QZA/N/rs53d8q6ydzq63LvkMt0HJ4toK+ddp2\nCzRCfn8EFrAWdDocgL5g6tkJDGRWXVq+KYt2dHp6KfCqu5ArskS+8YD099ix\nw7Ess0bGTC6SX4f6Rhy8rIZ8mdOFgApx/44cG00cwDeTcOxJFPhULbPgZFDu\n33Jl\r\n=VVxw\r\n-----END PGP SIGNATURE-----\r\n",
+		"integrity": "sha512-DMAoBs9L71Tt5+ns62mqkcOq+DW9acIKUtkHoS6t5Xn3OwmLUhOr9PQBN/79jRTZDmPRLx8KA0xzDCPt3Ijy6Q==",
+		"shasum": "ff7ce14fb17d09d5e36f538ed5f30a490fbb0dc2",
+		"tarball": "https://registry.npmjs.org/postcss-grid-reset/-/postcss-grid-reset-1.0.3.tgz",
+		"fileCount": 9,
+		"unpackedSize": 6483,
 		"signatures": [
 			{
-				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCooG0XJR3iNjDCqRQ8ur7tTGytcnZ2Vx/ecNFzaQ7FAQIhALCNQyBpwuAAV6FCpGdJ26IIlH499UVWScxjoX8h3ePl"
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEQCIHAdGYZhR4fENWxhWW9tmc1syfxwlZo7F1eXvYNemHPRAiBGgbyhL9BfXtR1t1hdn7oeEivsZaS5Sdluk8ABDB3sGg=="
 			}
 		]
 	},
@@ -56,9 +103,9 @@
 		}
 	],
 	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-grid-reset_1.0.2_1606038834190_0.01614832583595338"
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-grid-reset_1.0.3_1747036750335_0.9263939684560698"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2020-11-22T09:53:54.498Z"
+	"_time": "2025-05-12T07:59:10.558Z"
 }
