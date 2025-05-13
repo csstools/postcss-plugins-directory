@@ -1,6 +1,6 @@
 {
 	"name": "postcss-flexbox-reset",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "PostCSS plugin for resetting flexbox",
 	"keywords": [
 		"postcss",
@@ -8,6 +8,9 @@
 		"postcss-plugin",
 		"flexbox"
 	],
+	"scripts": {
+		"test": "jest-ci --coverage && eslint-ci ."
+	},
 	"author": {
 		"name": "Andrej Gajdos",
 		"email": "agajdy@gmail.com"
@@ -23,24 +26,68 @@
 	"peerDependencies": {
 		"postcss": "^8.1.0"
 	},
+	"devDependencies": {
+		"clean-publish": "^1.1.8",
+		"eslint": "^7.10.0",
+		"eslint-ci": "^1.0.0",
+		"eslint-plugin-jest": "^24.0.2",
+		"husky": "^4.3.0",
+		"jest": "^26.4.2",
+		"jest-ci": "^0.1.1",
+		"jest-cli": "^26.4.2",
+		"lint-staged": "^10.4.0",
+		"postcss": "^8.1.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": "eslint --fix"
+	},
+	"eslintConfig": {
+		"parserOptions": {
+			"ecmaVersion": 2017
+		},
+		"env": {
+			"node": true,
+			"es6": true
+		},
+		"extends": [
+			"eslint:recommended",
+			"plugin:jest/recommended"
+		],
+		"rules": {
+			"jest/expect-expect": "off"
+		}
+	},
+	"jest": {
+		"testEnvironment": "node",
+		"coverageThreshold": {
+			"global": {
+				"statements": 100
+			}
+		}
+	},
+	"_id": "postcss-flexbox-reset@1.0.5",
+	"gitHead": "e0c91128562536b4e111eca48da51e494ba5786e",
 	"bugs": {
 		"url": "https://github.com/AndrejGajdos/postcss-flexbox-reset/issues"
 	},
 	"homepage": "https://github.com/AndrejGajdos/postcss-flexbox-reset#readme",
-	"_id": "postcss-flexbox-reset@1.0.4",
-	"_nodeVersion": "14.9.0",
-	"_npmVersion": "6.14.8",
+	"_nodeVersion": "20.12.2",
+	"_npmVersion": "10.5.0",
 	"dist": {
-		"integrity": "sha512-96GDEDUgl3DF2PQrYaZWPX6/nxXkAtqZ+wnnKjvWHVtbKimK4jIoZ9sRgTCZ4XsacIRfT1kNKG3sX3B24WzhFA==",
-		"shasum": "49e4a578381f4ca0b602276598e947ec3bb56b2d",
-		"tarball": "https://registry.npmjs.org/postcss-flexbox-reset/-/postcss-flexbox-reset-1.0.4.tgz",
-		"fileCount": 5,
-		"unpackedSize": 5207,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfujUbCRA9TVsSAnZWagAAOWkQAJUsWBmIYcIfmQ2ItoNL\niyWIoVlbSbRU6RiiHNn1XGPoqnuhKa3D+wD/14kXrC4aLhRDGy6N26EEc33B\n5HRGypdHmkJOcDLb5L8gctu/4yXVY97rr94sZKeXUGkAjMKz6OO7Sq9Ywgew\nHILQw24UotSMtq/aq8qYwtUV/42+OydKZUvxmJH3j5OMui+/9lcnGPf2g3W3\neKKqDPKpCRIEysSHOSLWCL5VFN2arHqNshaqRoI+kkClCYfMfIDufTujLN83\noxaRQ3v+obRYZTL3/rT5NZNBZFcoA6lYeU8jguoCYI5a1T/eXre2gjiHolPW\nuQJ/IQln0MGIBxkFTzHghQLWUcmV5p51uwAsyZsj5YHNiGoq4snNzRhPXTLL\nBuUUs0lVzrzwV8d8RY4X4g6l4QIQu9tDRp4CoImqX0zQv6EvvkYKu2w+OaIL\nhTw72E71fELu/heE2agNudyQ4ageUb/uXqiQ5MwOeps4z22DsI1ATs8eseKK\n9DhkAaptXzkRL4EN4X0Gux6+688Vwn4Pu+KuS6eoiapNJLJbMQc/9oaE8BUl\nVFI4M90j5GpErpnw4l0S59+eOogEVNEqCmhFAnClbH0WKhKUmWs+ZGvoOmFs\n+GJIOG/L/YfMMOQfXMA5jscvzeAH87WKn4suXZQnle7WhD7wcJ1Wo9eE3TIH\nLTGX\r\n=s1dU\r\n-----END PGP SIGNATURE-----\r\n",
+		"integrity": "sha512-b0PgAtRZBLDWUdwPYHAOED4qCMlsG5Tx/cHQ1Z2WRF2eKE7q9wmH46DQl0ZnqjJT9ZRgJFQzLI1m+Hvczwposg==",
+		"shasum": "ac92f1370ecd14928377cdf2aebff274848005bc",
+		"tarball": "https://registry.npmjs.org/postcss-flexbox-reset/-/postcss-flexbox-reset-1.0.5.tgz",
+		"fileCount": 9,
+		"unpackedSize": 6924,
 		"signatures": [
 			{
-				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEMCHw2CVjgXqA2cGtPgeBMJiPUF2vRgv0qq+dUo7JzLjRICICC/y+R93/tTH9k0PleP9xKXebzir0Sy4XVaAt8byULT"
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEYCIQCuh5v0d1d2/tIEGgrEkAISCuhznLwTcp5+qNq43LzGBgIhAKw9x4t9lsZesEOGtL0fd4jnqLAXxASaTldHy3OZuht1"
 			}
 		]
 	},
@@ -56,9 +103,9 @@
 		}
 	],
 	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-flexbox-reset_1.0.4_1606038811283_0.8828246197793481"
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-flexbox-reset_1.0.5_1747036739654_0.3032745571224462"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2020-11-22T09:53:31.462Z"
+	"_time": "2025-05-12T07:58:59.827Z"
 }
