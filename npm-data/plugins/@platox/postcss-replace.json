@@ -1,0 +1,120 @@
+{
+	"_id": "@platox/postcss-replace",
+	"name": "@platox/postcss-replace",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "@platox/postcss-replace",
+			"description": "A CSS post-processor that converts px to rem.",
+			"private": false,
+			"version": "0.0.1",
+			"author": {
+				"name": "platox"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"scripts": {
+				"lint": "eslint .",
+				"test": "jasmine-node spec"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged"
+				}
+			},
+			"lint-staged": {
+				"*.js": [
+					"eslint --fix",
+					"prettier --write"
+				]
+			},
+			"devDependencies": {
+				"eslint": "^6.8.0",
+				"husky": "^4.2.3",
+				"jasmine-node": "^1.16.0",
+				"lint-staged": "^10.0.8",
+				"postcss": "^8.0.0",
+				"prettier": "^1.19.1"
+			},
+			"keywords": [
+				"css",
+				"rem",
+				"pixel",
+				"px",
+				"postcss",
+				"postcss-plugin"
+			],
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"packageManager": "pnpm@9.15.9+sha512.68046141893c66fad01c079231128e9afb89ef87e2691d69e4d40eee228988295fd4682181bae55b58418c3a253bde65a505ec7c5f9403ece5cc3cd37dcf2531",
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_id": "@platox/postcss-replace@0.0.1",
+			"gitHead": "5f7c3602c333a8f57e347808eb6676ec45de1fc3",
+			"_nodeVersion": "20.19.0",
+			"_npmVersion": "10.8.2",
+			"dist": {
+				"integrity": "sha512-MVg91/t/E9ssx6KnvwmKX7WiSuUj51N4qgvUo92uizdrYThU4J1KnX5Gdz6To+/ryjiitheAkY8McotDyD4lfA==",
+				"shasum": "b0905f6ae5c28741bf2024f0e647d85d33148d38",
+				"tarball": "https://registry.npmjs.org/@platox/postcss-replace/-/postcss-replace-0.0.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 30997,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIAvjtJsJyRI7tCj01rVGaD6SPWkiO5r8F+UJpGYG8uVsAiEArciP9dHETDrcV7EnwVmKw9jKnMyjiYfUVaJkPnHbPV0="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "platoxdev",
+				"email": "development@platoxai.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "platoxdev",
+					"email": "development@platoxai.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-replace_0.0.1_1747050376630_0.4585065754677229"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-05-12T11:46:16.540Z",
+		"0.0.1": "2025-05-12T11:46:16.824Z",
+		"modified": "2025-05-12T11:46:17.162Z"
+	},
+	"maintainers": [
+		{
+			"name": "platoxdev",
+			"email": "development@platoxai.com"
+		}
+	],
+	"description": "A CSS post-processor that converts px to rem.",
+	"keywords": [
+		"css",
+		"rem",
+		"pixel",
+		"px",
+		"postcss",
+		"postcss-plugin"
+	],
+	"author": {
+		"name": "platox"
+	},
+	"license": "MIT",
+	"readme": "# postcss-pxtorem [![NPM version](https://badge.fury.io/js/postcss-pxtorem.svg)](http://badge.fury.io/js/postcss-pxtorem)\n\nA plugin for [PostCSS](https://github.com/ai/postcss) that generates rem units from pixel units.\n\n## Install\n\n```shell\n$ npm install postcss postcss-pxtorem --save-dev\n```\n\n## Usage\n\nPixels are the easiest unit to use (*opinion*). The only issue with them is that they don't let browsers change the default font size of 16. This script converts every px value to a rem from the properties you choose to allow the browser to set the font size.\n\n\n### Input/Output\n\n*With the default settings, only font related properties are targeted.*\n\n```css\n// input\nh1 {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n// output\nh1 {\n    margin: 0 0 20px;\n    font-size: 2rem;\n    line-height: 1.2;\n    letter-spacing: 0.0625rem;\n}\n```\n\n### Example\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar pxtorem = require('postcss-pxtorem');\nvar css = fs.readFileSync('main.css', 'utf8');\nvar options = {\n    replace: false\n};\nvar processedCss = postcss(pxtorem(options)).process(css).css;\n\nfs.writeFile('main-rem.css', processedCss, function (err) {\n  if (err) {\n    throw err;\n  }\n  console.log('Rem file written.');\n});\n```\n\n### options\n\nType: `Object | Null`  \nDefault:\n```js\n{\n    rootValue: 16,\n    unitPrecision: 5,\n    propList: ['font', 'font-size', 'line-height', 'letter-spacing', 'word-spacing'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0,\n    exclude: /node_modules/i\n}\n```\n\n- `rootValue` (Number | Function) Represents the root element font size or returns the root element font size based on the [`input`](https://api.postcss.org/Input.html) parameter\n- `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.\n- `propList` (Array) The properties that can change from px to rem.\n    - Values need to be exact matches.\n    - Use wildcard `*` to enable all properties. Example: `['*']`\n    - Use `*` at the start or end of a word. (`['*position*']` will match `background-position-y`)\n    - Use `!` to not match a property. Example: `['*', '!letter-spacing']`\n    - Combine the \"not\" prefix with the other prefixes. Example: `['*', '!font*']`\n- `selectorBlackList` (Array) The selectors to ignore and leave as px.\n    - If value is string, it checks to see if selector contains the string.\n        - `['body']` will match `.body-class`\n    - If value is regexp, it checks to see if the selector matches the regexp.\n        - `[/^body$/]` will match `body` but not `.body`\n- `replace` (Boolean) Replaces rules containing rems instead of adding fallbacks.\n- `mediaQuery` (Boolean) Allow px to be converted in media queries.\n- `minPixelValue` (Number) Set the minimum pixel value to replace.\n- `exclude` (String, Regexp, Function) The file path to ignore and leave as px.\n    - If value is string, it checks to see if file path contains the string.\n        - `'exclude'` will match `\\project\\postcss-pxtorem\\exclude\\path`\n    - If value is regexp, it checks to see if file path matches the regexp.\n        - `/exclude/i` will match `\\project\\postcss-pxtorem\\exclude\\path`\n    - If value is function, you can use exclude function to return a true and the file will be ignored.\n        - the callback will pass the file path as  a parameter, it should returns a Boolean result.\n        - `function (file) { return file.indexOf('exclude') !== -1; }`\n- `unit` (String) Set the default unit to convert, default is `px`.\n\n### Use with gulp-postcss and autoprefixer\n\n```js\nvar gulp = require('gulp');\nvar postcss = require('gulp-postcss');\nvar autoprefixer = require('autoprefixer');\nvar pxtorem = require('postcss-pxtorem');\n\ngulp.task('css', function () {\n\n    var processors = [\n        autoprefixer({\n            browsers: 'last 1 version'\n        }),\n        pxtorem({\n            replace: false\n        })\n    ];\n\n    return gulp.src(['build/css/**/*.css'])\n        .pipe(postcss(processors))\n        .pipe(gulp.dest('build/css'));\n});\n```\n\n### A message about ignoring properties\nCurrently, the easiest way to have a single property ignored is to use a capital in the pixel unit declaration.\n\n```css\n// `px` is converted to `rem`\n.convert {\n    font-size: 16px; // converted to 1rem\n}\n\n// `Px` or `PX` is ignored by `postcss-pxtorem` but still accepted by browsers\n.ignore {\n    border: 1Px solid; // ignored\n    border-width: 2PX; // ignored\n}\n```\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-ad5260983ddb3d8f74d30883257d555e",
+	"_downloads": 0
+}

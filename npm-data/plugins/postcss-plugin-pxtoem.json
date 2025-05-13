@@ -125,5 +125,5 @@
 	"license": "MIT",
 	"readme": "# 参照pxtorem将单位修改为em\n\n## Install\n\n```shell\n$ npm install postcss-plugin-pxtoem --save-dev\n```\n\n### Input/Output\n\n*With the default settings, only font related properties are targeted.*\n\n```css\n// input\nh1 {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    letter-spacing: 1px;\n}\n\n// output\nh1 {\n    margin: 0 0 20px;\n    font-size: 2em;\n    line-height: 1.2;\n    letter-spacing: 0.0625em;\n}\n```\n\n### options\n\nType: `Object | Null`  \nDefault:\n```js\n{\n    rootValue: 16,\n    unitPrecision: 5,\n    propList: ['font', 'font-size', 'line-height', 'letter-spacing'],\n    selectorBlackList: [],\n    replace: true,\n    mediaQuery: false,\n    minPixelValue: 0,\n    exclude: /node_modules/i\n}\n```\n\n### A message about ignoring properties\nCurrently, the easiest way to have a single property ignored is to use a capital in the pixel unit declaration.\n\n```css\n// `px` is converted to `em`\n.convert {\n    font-size: 16px; // converted to 1em\n}\n\n// `Px` or `PX` is ignored by `postcss-pxtoem` but still accepted by browsers\n.ignore {\n    border: 1Px solid; // ignored\n    border-width: 2PX; // ignored\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 17
+	"_downloads": 15
 }
