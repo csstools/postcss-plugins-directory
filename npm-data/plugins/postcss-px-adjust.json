@@ -264,5 +264,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Px Adjust [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin adjust px.\n\n当我们按照设计规范产出一套样式库时，这个插件非常有用。\n比如设计规范是 @2x 的尺寸，那我们可以按照设计稿写下原始尺寸，再通过这个插件转换为需要的尺寸。\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/syaka-yin/postcss-px-adjust.svg\n[ci]:      https://travis-ci.org/syaka-yin/postcss-px-adjust\n\n```css\na {\n    width: 250px;\n    font: 24px / 36px red;\n}\na::after {\n    content: '';\n    border: 1px solid #000;\n}\n```\n\n```css\na {\n    width: 125px;\n    font: 12px / 18px red;\n}\na::after {\n    content: '';\n    border: 1px solid #000;\n}\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-px-adjust')(options) ])\n```\n\n### Options\n\noptions 是一个 Object，属性如下:\n\n| 属性名 | 含义 | 值类型 | 默认值 | 示例 |\n|:--|:--|:--|:--|:--|\n| unit | 匹配的单位 | String 或 String[] | ['px', 'pt', 'rpx'] | 'pp' |\n| replace | 匹配到的尺寸做替换 | Function | (match, value, unit) => value + unit | (match, value, unit) => parseInt(value / 2) + unit |\n| mediaQuery | 是否处理媒体查询条件中的单位 | Boolean | false | true |\n",
 	"readmeFilename": "README.md",
-	"_downloads": 12
+	"_downloads": 17
 }
