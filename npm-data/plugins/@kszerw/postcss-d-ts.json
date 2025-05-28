@@ -1,0 +1,195 @@
+{
+	"_id": "@kszerw/postcss-d-ts",
+	"name": "@kszerw/postcss-d-ts",
+	"dist-tags": {
+		"latest": "1.2.1"
+	},
+	"versions": {
+		"1.2.1": {
+			"name": "@kszerw/postcss-d-ts",
+			"version": "1.2.1",
+			"description": "[FORKED] PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets (fork of postcss-d-ts and modified for my needs)",
+			"homepage": "https://github.com/konrad-szerwinski/postcss-d-ts#readme",
+			"keywords": [
+				"css",
+				"d.ts",
+				"css-modules",
+				"postcss-plugin",
+				"typescript",
+				"declare",
+				"declarations",
+				"sass"
+			],
+			"author": {
+				"name": "Andrii Kirmas",
+				"email": "kirmas@phystech.edu",
+				"url": "https://about.me/kirmas"
+			},
+			"contributors": [
+				{
+					"name": "Konrad Szerwiński",
+					"email": "konrad.szerwnski@hexagon.com"
+				}
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/konrad-szerwinski/postcss-d-ts.git"
+			},
+			"scripts": {
+				"setup": "git config include.path ../.gitconfig && git-hooks-wrapper init",
+				"dev": "npm run jest -- --watch --coverage=false",
+				"test": "npm run build",
+				"build": "npm run compile",
+				"prebuild": "npm run t",
+				"postbuild": "npm run docs",
+				"compile": "tsc --project tsconfig.compile.json",
+				"precompile": "rm -rf docs dist unpacked && mkdir docs",
+				"postcompile": "./postcompile.sh",
+				"t": "npm run t/utils && npm run t/func && npm run t/tsc",
+				"t/utils": "npm run jest -- --config jest.config.utils.json",
+				"t/func": "npm run jest --",
+				"t/tsc": "cd __unit__ && tsc && cd ../__func__ && tsc",
+				"jest": "jest --runInBand --detectOpenHandles",
+				"docs": "cd dist && find . -type f -iname '*.json' -exec cp {} ../docs/ \\;",
+				"np": "np",
+				"eslint": "eslint --fix .",
+				"ci": "npm ci --prefer-offline --no-audit --silent --quiet --no-progress"
+			},
+			"devDependencies": {
+				"@logux/eslint-config": "^44.2.0",
+				"@mysticatea/eslint-plugin": "^13.0.0",
+				"@types/globby": "^9.1.0",
+				"@types/jest": "^26.0.23",
+				"@types/react": "^16.14.8",
+				"@typescript-eslint/eslint-plugin": "^4.25.0",
+				"bootstrap3": "npm:bootstrap@^3.4.1",
+				"bootstrap4": "npm:bootstrap@^4.6.0",
+				"eslint": "^7.27.0",
+				"eslint-config-standard": "^16.0.3",
+				"eslint-plugin-import": "^2.23.4",
+				"eslint-plugin-jest": "^24.3.6",
+				"eslint-plugin-no-use-extend-native": "^0.5.0",
+				"eslint-plugin-node": "^11.1.0",
+				"eslint-plugin-optimize-regex": "^1.2.0",
+				"eslint-plugin-prefer-let": "^1.1.0",
+				"eslint-plugin-promise": "^4.3.1",
+				"eslint-plugin-react": "^7.24.0",
+				"eslint-plugin-security": "^1.4.0",
+				"eslint-plugin-sonarjs": "^0.6.0",
+				"eslint-plugin-standard": "^5.0.0",
+				"eslint-plugin-unicorn": "^27.0.0",
+				"git-hooks-wrapper": "^0.7.1",
+				"globby": "^11.0.3",
+				"jest": "^26.6.3",
+				"material10": "npm:material-components-web@^10.0.0",
+				"np": "^6.3.2",
+				"npm-run-all": "^4.1.5",
+				"postcss": "^7.0.35",
+				"postcss8": "npm:postcss@^8.3.0",
+				"ts-jest": "^26.5.6",
+				"typescript": "^4.3.2"
+			},
+			"peerDependencies": {
+				"postcss": ">=7",
+				"react-classnaming": "*"
+			},
+			"engines": {
+				"node": ">=10.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/konrad-szerwinski/postcss-d-ts/labels/bug"
+			},
+			"main": "dist/index.js",
+			"types": "dist/",
+			"publishConfig": {
+				"access": "public"
+			},
+			"np": {
+				"yarn": false,
+				"branch": "master",
+				"2fa": false
+			},
+			"dependencies": {},
+			"_id": "@kszerw/postcss-d-ts@1.2.1",
+			"gitHead": "a23034e6abab5f5e140dbc521c1f081395235939",
+			"_nodeVersion": "22.14.0",
+			"_npmVersion": "10.9.2",
+			"dist": {
+				"integrity": "sha512-7bxuQrzYr6pfok1GtNS/tHxf5NUsNffVla2xsiPyQuLAjbp2RAzAfzQrmRrlfjUn4rYATDDZzPoB1YbFUAJLXw==",
+				"shasum": "7d41315c7d72ca4049523a422e5f1276663e4019",
+				"tarball": "https://registry.npmjs.org/@kszerw/postcss-d-ts/-/postcss-d-ts-1.2.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 27672,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIG7o4HEptvzwQyU+0/4vcPetO39vnqeed123zdGqH3yUAiA1iqsTzCKLxxKa3bx1qQbc+JYg0V0JY7ddGGOjR+oeQA=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "kszerwin",
+				"email": "konrad.szerwinski@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "kszerwin",
+					"email": "konrad.szerwinski@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-d-ts_1.2.1_1748350090636_0.8505793158681623"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-05-27T12:48:10.557Z",
+		"1.2.1": "2025-05-27T12:48:10.819Z",
+		"modified": "2025-05-27T12:48:11.060Z"
+	},
+	"maintainers": [
+		{
+			"name": "kszerwin",
+			"email": "konrad.szerwinski@gmail.com"
+		}
+	],
+	"description": "[FORKED] PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets (fork of postcss-d-ts and modified for my needs)",
+	"homepage": "https://github.com/konrad-szerwinski/postcss-d-ts#readme",
+	"keywords": [
+		"css",
+		"d.ts",
+		"css-modules",
+		"postcss-plugin",
+		"typescript",
+		"declare",
+		"declarations",
+		"sass"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/konrad-szerwinski/postcss-d-ts.git"
+	},
+	"contributors": [
+		{
+			"name": "Konrad Szerwiński",
+			"email": "konrad.szerwnski@hexagon.com"
+		}
+	],
+	"author": {
+		"name": "Andrii Kirmas",
+		"email": "kirmas@phystech.edu",
+		"url": "https://about.me/kirmas"
+	},
+	"bugs": {
+		"url": "https://github.com/konrad-szerwinski/postcss-d-ts/labels/bug"
+	},
+	"license": "MIT",
+	"readme": "# [postcss-d-ts](https://github.com/askirmas/postcss-d-ts) [<img src=\"https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.svg\" alt=\"logo\" height=\"51px\" align=\"right\" />](https://github.com/askirmas/postcss-d-ts)\r\n\r\n[PostCSS] plugin to generate [`.d.ts`] of all used CSS classes and ids in imported stylesheets\r\n\r\n[![build@ci](https://github.com/askirmas/postcss-d-ts/workflows/build/badge.svg)](https://github.com/askirmas/postcss-d-ts/actions)\r\n[![codecov](https://codecov.io/gh/askirmas/postcss-d-ts/branch/master/graph/badge.svg?token=TFJ9TMJ3YJ)](https://codecov.io/gh/askirmas/postcss-d-ts)\r\n[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=askirmas_postcss-d-ts&metric=alert_status)](https://sonarcloud.io/dashboard?id=askirmas_postcss-d-ts)\r\n[![Maintainability](https://api.codeclimate.com/v1/badges/f6a1ef03e39733e2827c/maintainability)](https://codeclimate.com/github/askirmas/postcss-d-ts/maintainability)\r\n[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/askirmas/postcss-d-ts/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/askirmas/postcss-d-ts/?branch=master)\r\n[![DeepScan grade](https://deepscan.io/api/teams/13158/projects/16299/branches/346523/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=13158&pid=16299&bid=346523)\r\n[![CodeFactor](https://www.codefactor.io/repository/github/askirmas/postcss-d-ts/badge)](https://www.codefactor.io/repository/github/askirmas/postcss-d-ts)\r\n\r\n[![dependencies Status](https://status.david-dm.org/gh/askirmas/postcss-d-ts.svg)](https://david-dm.org/askirmas/postcss-d-ts)\r\n[![version](https://img.shields.io/npm/v/postcss-d-ts)](https://www.npmjs.com/package/postcss-d-ts)\r\n[![license](https://img.shields.io/npm/l/postcss-d-ts)](https://github.com/askirmas/postcss-d-ts/blob/master/LICENSE)\r\n\r\n<p align=\"center\"><a href=\"https://github.com/askirmas/postcss-d-ts/blob/master/images/postcss-d-ts.gif\"><img src=\"https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.gif\"/></a></p>\r\n\r\n## Goal\r\n\r\nProvide [contract](https://en.wikipedia.org/wiki/Design_by_contract) between JS and CSS.\r\n\r\n## Installation and setup\r\n\r\n```bash\r\nnpm install postcss-d-ts\r\n```\r\n\r\n```diff\r\n// postcss.config.js\r\nmodule.exports = {\r\n\tplugins: [\r\n\t  \"postcss-preset-env\",\r\n  \t...\r\n+\t  \"postcss-d-ts\"  // or \"postcss-d-ts/dist/7\" for postcss v7\r\n\t]\r\n}\r\n```\r\n\r\nCheck [postcss#usage](https://github.com/postcss/postcss#Usage) for details.\r\n\r\n## Features\r\n\r\n### Languages <img src=\"https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.frameworks.gif\" width=\"50%\" align=\"right\"/>\r\n\r\nLanguage agnostic because of PostCss philosophy\r\n\r\n<br clear=\"all\"/>\r\n\r\n### CSS libraries/frameworks\r\n\r\nIn [./\\_\\_typing\\_\\_/](https://github.com/askirmas/postcss-d-ts/blob/master/__typing__/) results of applying to some popular libraries: [bootstrap v3](https://github.com/askirmas/postcss-d-ts/blob/master/__typing__/bootstrap3.SHOULD.d.ts), [bootstrap v4](https://github.com/askirmas/postcss-d-ts/blob/master/__typing__/bootstrap4.SHOULD.d.ts), [material v10](https://github.com/askirmas/postcss-d-ts/blob/master/__typing__/material10.SHOULD.d.ts), [tailwind v2](https://github.com/askirmas/postcss-d-ts/commit/9514c9e62539127ffd9eaf85fb014efe2daec793#diff-f4d033574661830df6b3d15cfd8d47b76c2ed02cc525b1934242dcff8fc816c0).\r\n\r\n## Applyment <img src=\"https://raw.githubusercontent.com/askirmas/postcss-d-ts/master/images/postcss-d-ts.full.gif\" width=\"50%\" align=\"right\"/>\r\n\r\nCSS content:\r\n\r\n```css\r\n/* some.css or some.module.css */\r\n.class1 { ... }\r\n.class2 { ... }\r\n```\r\n\r\nGenerated declaration from template (i.e. default *[./src/\\_css-template.d.ts](https://github.com/askirmas/postcss-d-ts/blob/master/src/_css-template.d.ts)*):\r\n\r\n```typescript\r\ndeclare const identifiersMap: CssIdentifiersMap\r\n\r\nexport default identifiersMap\r\n\r\nexport type CssIdentifiersMap = {\r\n  \"class1\": string|undefined\r\n  \"class2\": string|undefined\r\n}\r\n```\r\n\r\nThus, in Component (i.e. React):\r\n\r\n```tsx\r\nimport moduleClasses from \"./some.module.css\"\r\n\r\nconst {\r\n  class1,\r\n  class2,\r\n  //@ts-expect-error - we have only .class1 and .class2\r\n  class3\r\n} = moduleClasses\r\n\r\nconst Component = () => <div className={`${class1} ${class2}`}/>\r\n```\r\n\r\n## Options\r\n\r\n### `template: string`\r\n\r\nLocal path to a custom template for declarations generating.\r\n\r\n- Default: *[./src/\\_css-template.d.ts](https://github.com/askirmas/postcss-d-ts/blob/master/src/_css-template.d.ts)*\r\n\r\n```typescript\r\ndeclare const identifiersMap: CssIdentifiersMap\r\n\r\nexport default identifiersMap\r\n\r\nexport type CssIdentifiersMap = {\r\n  \"__identifier__\": string|undefined\r\n}\r\n```\r\n\r\n- Example: *[./\\_\\_func\\_\\_/template--custom\\_path/template.d.ts](https://github.com/askirmas/postcss-d-ts/blob/master/__func__/template--custom_path/)*\r\n\r\n```typescript\r\nimport type { CSSProperties } from \"react\";\r\ninterface Styled {\r\n  __identifier__: Record<string, CSSProperties>;\r\n}\r\ndeclare const styled: Styled;\r\nexport default styled;\r\nexport declare const __identifier__: CSSProperties;\r\n```\r\n\r\n### `identifierKeyword: string`\r\nThe word in `d.ts` template to be replaced with CSS classes, ids, etc.\r\n\r\n```diff\r\n// postcss.config.js\r\nmodule.exports = {\r\n  plugins: {\r\n    \"postcss-d-ts\": {\r\n+     identifierKeyword: \"data\"\r\n    }\r\n  }\r\n}\r\n```\r\n\r\n```diff\r\n// _css-template.d.ts\r\nexport type CssIdentifiersMap = {\r\n-  \"__identifier__\": string|undefined\r\n+  \"data\": string|undefined\r\n}\r\n```\r\n\r\n### `checkMode: boolean `\r\n\r\nThrow an error instead of declaration file rewrite. By default, this mode is on for `NODE_ENV === 'production'`\r\n\r\n### `modulesOnly: boolean`\r\n\r\nDefines, if plugin should generate d.ts files only for `module` StyleSheet files or not\r\n\r\n### Other options\r\n\r\nFull list in different formats\r\n\r\n- [JSON schema](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings):\r\n  - https://askirmas.github.io/postcss-d-ts/schema.json\r\n  - *<u>./node_modules/postcss-d-ts/dist/schema.json</u>*\r\n  - For all config file replace `schema.json` with `postconfig.schema.json`\r\n\r\n- TypeScript\r\n\r\n```typescript\r\nimport { Options } from \"postcss-d-ts/dist/options.types\"\r\n```\r\n\r\n- JSDoc:\r\n\r\n```javascript\r\n/** @type {{\r\n *  plugins: Array<\r\n*    [\"postcss-d-ts\", import(\"postcss-d-ts/dist/options.types\").Options]\r\n *  >\r\n * }}\r\n */\r\nmodule.exports = {\r\n  plugins: [\r\n    [\"postcss-d-ts\", {}]\r\n  ]\r\n}\r\n```\r\n\r\n## Additional notes\r\n\r\n### CLI\r\n\r\nSimply install [`postcss-cli`] and add it to `npm scripts` with desired options: [example@cra](https://github.com/askirmas/postcss-d-ts/blob/f9f07f009a02db69d9332bdd029a95420ce1a6d9/__recipes__/create-react-app/package.json#L23) and another:\r\n\r\n```json\r\n// package.json\r\n{\r\n  \"scripts\": {\r\n    \"postcss-d-ts\": \"postcss --use postcss-d-ts styles/index.css --watch > /dev/null\"\r\n  }\r\n}\r\n```\r\n\r\n### With `create-react-app`\r\n\r\nYou need to launch [postcss] as a separate process.  See commit https://github.com/askirmas/postcss-d-ts/commit/f9f07f009a02db69d9332bdd029a95420ce1a6d9 as an additional option how to establish\r\n\r\n[postcss]: https://github.com/postcss/postcss\r\n\r\n[postcss]: https://github.com/postcss/postcss\r\n[`postcss`]: https://github.com/postcss/postcss-cli\r\n[`postcss-cli`]: https://www.npmjs.com/package/postcss-cli\r\n[`.d.ts`]: https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html\r\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-2f1ba1b06c20dcf108375e620058330e",
+	"_downloads": 0
+}
