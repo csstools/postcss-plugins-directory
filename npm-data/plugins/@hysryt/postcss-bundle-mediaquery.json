@@ -144,5 +144,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Bundle MediaQuery\nPostCSS plugin to bundle media queries that have same rules.\n\n## Example\n```css\n/* Input example */\n@media (max-width: 400px) {\n  .box1 {\n    width: 200px;\n  }\n}\n\n@media (max-width: 400px) {\n  .box2 {\n    width: 200px;\n  }\n}\n```\n```css\n/* Output example */\n@media (max-width: 400px) {\n  .box1 {\n    width: 200px;\n  }\n  .box2 {\n    width: 200px;\n  }\n}\n```\n\n## Add Comments\n```js\n/* postcss.config.js */\nmodule.exports = () => ({\n  plugins: {\n    '@hysryt/postcss-bundle-mediaquery': {\n      'comments': {\n        '(max-width: 767px)': 'for smartphone',\n        '(min-width: 768px)': 'for pc',\n      }\n    }\n  }\n})\n```\n```css\n/* Input */\n.box1 {\n  background-color: red;\n}\n\n@media (max-width: 767px) {\n  .box1 {\n    width: 800px;\n  }\n}\n\n@media (min-width: 768px) {\n  .box1 {\n    width: 200px;\n  }\n}\n```\n```css\n/* Output */\n.box1 {\n  background-color: red;\n}\n\n/* \n * for smartphone\n */\n\n@media (max-width: 767px) {\n  .box1 {\n    width: 800px;\n  }\n}\n\n/* \n * for pc\n */\n\n@media (min-width: 768px) {\n  .box1 {\n    width: 200px;\n  }\n}\n```",
 	"readmeFilename": "README.md",
-	"_downloads": 7
+	"_downloads": 6
 }
