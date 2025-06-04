@@ -295,5 +295,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Auto Add Px [![Build Status][ci-img]][ci]\r\n\r\n[PostCSS] plugin to add px unit for number of length.\r\n\r\n[PostCSS]: https://github.com/postcss/postcss\r\n[ci-img]:  https://travis-ci.org/tomgou/postcss-auto-add-px.svg\r\n[ci]:      https://travis-ci.org/tomgou/postcss-auto-add-px\r\n\r\n```\r\nconst postcss = require('postcss');\r\nconst pxplugin = require('postcss-auto-add-px');\r\nconst fs = require('fs');\r\n\r\ntry{\r\n  fs.readFile('./demo/index.less', (err, css) => {\r\n    postcss([pxplugin()])\r\n      .process(css.toString(), { from: './demo/index.less', to: './demo/dist/index.less' })\r\n      .then(result => {\r\n        fs.writeFile('./demo/dist/index.less', result.css, () => true)\r\n      })\r\n  })\r\n} catch (err) {\r\n  console.log(err)\r\n}\r\n```\r\n## Webpack config\r\n```\r\n{\r\n  test: /\\.vue$/,\r\n  loader: 'vue-loader',\r\n  options: {\r\n    vueLoaderConfig,\r\n    postcss: [require('postcss-auto-add-px')(), require('autoprefixer')()]\r\n  }\r\n}\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\npostcss([ require('postcss-auto-add-px') ])\r\n```\r\n\r\nSee [PostCSS] docs for examples for your environment.\r\n",
 	"readmeFilename": "README.md",
-	"_downloads": 17
+	"_downloads": 10
 }
