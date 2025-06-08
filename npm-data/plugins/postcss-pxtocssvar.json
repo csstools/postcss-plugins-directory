@@ -294,5 +294,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Pxtocssvar [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin convert px to calc(var(--base)).\n\n用于解决的情况:\n\n1. webview高度由内容撑开, 而preact + vw/rem布局无法撑开webview\n2. webview宽度不固定, 比如小卡webview加边距, 大卡webview占满, 而小卡内容需要在类似占满的比例展示\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/deepkolos/postcss-pxtocssvar.svg\n[ci]:      https://travis-ci.org/deepkolos/postcss-pxtocssvar\n\n```css\nhtml {\n    --base: calc(385 / 1080);\n}\n\n.foo {\n  width: 100px;\n}\n```\n\n```css\nhtml {\n    --base: calc(385 / 1080);\n}\n\n.foo {\n  width: calc(100px * var(--base));\n}\n```\n\n## Usage\n\n```js\npostcss([ require('postcss-pxtocssvar') ])\n```\n\nSee [PostCSS] docs for examples for your environment.\n\n\n## 已知问题\n\n减号需要加空格: 1px - 2px\n",
 	"readmeFilename": "README.md",
-	"_downloads": 9
+	"_downloads": 6
 }
