@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-rename",
-	"_rev": "19-f5b27e197e4a736ec6d7a6352d335f38",
+	"_rev": "20-e7beea498e6774ac65a33f805cb74fc4",
 	"name": "postcss-rename",
 	"dist-tags": {
-		"latest": "0.7.1"
+		"latest": "0.8.0"
 	},
 	"versions": {
 		"0.0.0-PLACEHOLDER": {
@@ -1865,6 +1865,7 @@
 				"name": "google-wombot",
 				"email": "node-team-npm+wombot@google.com"
 			},
+			"deprecated": "this package was a bad release",
 			"repository": {
 				"url": "git+https://github.com/google/postcss-rename.git",
 				"type": "git"
@@ -1890,8 +1891,7 @@
 			"_npmOperationalInternal": {
 				"tmp": "tmp/postcss-rename_0.7.0_1748975877868_0.7536055893753459",
 				"host": "s3://npm-registry-packages-npm-production"
-			},
-			"deprecated": "this package was a bad release"
+			}
 		},
 		"0.7.1": {
 			"name": "postcss-rename",
@@ -1988,11 +1988,116 @@
 				"tmp": "tmp/postcss-rename_0.7.1_1748989296593_0.10134682112408289",
 				"host": "s3://npm-registry-packages-npm-production"
 			}
+		},
+		"0.8.0": {
+			"name": "postcss-rename",
+			"version": "0.8.0",
+			"description": "A PostCSS plugin to replace CSS names based on a customizable renaming scheme.",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin"
+			],
+			"exports": {
+				".": {
+					"require": "./build/src/index.js",
+					"types": "./build/src/index.d.ts"
+				},
+				"./variable": {
+					"require": "./build/src/variable.js",
+					"types": "./build/src/variable.d.ts"
+				}
+			},
+			"scripts": {
+				"test": "jest",
+				"check": "gts check",
+				"clean": "gts clean",
+				"compile": "tsc -p .",
+				"fix": "gts fix",
+				"prepare": "npm run compile",
+				"pretest": "npm run compile",
+				"posttest": "npm run check"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/google/postcss-rename.git"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^7.1.0",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^26.0.24",
+				"@types/node": "^12.20.55",
+				"gts": "^6.0.2",
+				"jest": "^29.7.0",
+				"jest-cli": "^29.7.0",
+				"postcss": "^8.5.3",
+				"ts-jest": "^29.3.4",
+				"typescript": "^5.8.3"
+			},
+			"engines": {
+				"node": ">=20.0.0"
+			},
+			"_id": "postcss-rename@0.8.0",
+			"contributors": [
+				{
+					"name": "Google Inc."
+				},
+				{
+					"name": "Voxtok Inc."
+				},
+				{
+					"name": "Riku Ayanokoji",
+					"email": "riku.ayanokoji@gmail.com"
+				},
+				{
+					"name": "Yves Brissaud",
+					"email": "yves.brissaud@gmail.com"
+				}
+			],
+			"gitHead": "249074845c6de53153c18ab74f8cb292dcc51aba",
+			"bugs": {
+				"url": "https://github.com/google/postcss-rename/issues"
+			},
+			"homepage": "https://github.com/google/postcss-rename#readme",
+			"_nodeVersion": "20.19.2",
+			"_npmVersion": "10.8.2",
+			"dist": {
+				"integrity": "sha512-QV8cCSubAkUT/EVIhZY+NRF4cDNzIziR7vSE1dFE797reOPIsczFTXyZfFh3t623cDrdsAhxPFf8XJcYaCbScQ==",
+				"shasum": "fd6b2fa3c59d6a8584327e5a0bee4f02cf8da67c",
+				"tarball": "https://registry.npmjs.org/postcss-rename/-/postcss-rename-0.8.0.tgz",
+				"fileCount": 28,
+				"unpackedSize": 135492,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIEBjwwFW1mNEUydYu1Cp8KiAJF1zDwtcbc0kNrPPa4gQAiBLcRen7ifFRpmWyySx9elgLsz7s5nZe9906jZXnkfGbQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "google-wombot",
+				"email": "node-team-npm+wombot@google.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "google-wombot",
+					"email": "node-team-npm+wombot@google.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-rename_0.8.0_1749490918934_0.22780849951165605"
+			},
+			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2020-01-24T13:48:45.151Z",
-		"modified": "2025-06-03T22:23:37.033Z",
+		"modified": "2025-06-09T17:41:59.310Z",
 		"0.0.0-PLACEHOLDER": "2020-01-24T13:48:45.304Z",
 		"0.1.0": "2020-02-21T02:12:59.774Z",
 		"0.1.1": "2020-02-21T03:03:05.722Z",
@@ -2009,7 +2114,8 @@
 		"0.6.0": "2021-06-09T06:25:48.518Z",
 		"0.6.1": "2022-06-05T03:28:48.207Z",
 		"0.7.0": "2025-06-03T18:37:58.080Z",
-		"0.7.1": "2025-06-03T22:21:36.799Z"
+		"0.7.1": "2025-06-03T22:21:36.799Z",
+		"0.8.0": "2025-06-09T17:41:59.124Z"
 	},
 	"bugs": {
 		"url": "https://github.com/google/postcss-rename/issues"
@@ -2022,10 +2128,10 @@
 		"postcss-plugin"
 	],
 	"repository": {
-		"url": "git+https://github.com/google/postcss-rename.git",
-		"type": "git"
+		"type": "git",
+		"url": "git+https://github.com/google/postcss-rename.git"
 	},
-	"description": "A PostCSS plugin to replace class names based on a customizable renaming scheme.",
+	"description": "A PostCSS plugin to replace CSS names based on a customizable renaming scheme.",
 	"contributors": [
 		{
 			"name": "Google Inc."
@@ -2048,7 +2154,7 @@
 			"email": "node-team-npm+wombot@google.com"
 		}
 	],
-	"readme": "[![Build status](https://github.com/google/postcss-rename/actions/workflows/ci.yml/badge.svg)](https://github.com/google/postcss-rename/actions)\n\nA [PostCSS](https://github.com/postcss/postcss) plugin to replace class names\nbased on a customizable renaming scheme.\n\n* [Usage](#usage)\n* [Options](#options)\n  * [`strategy`](#strategy)\n  * [`by`](#by)\n  * [`prefix`](#prefix)\n  * [`except`](#except)\n  * [`ids`](#ids)\n  * [`outputMapCallback`](#outputMapCallback)\n\n## Usage\n\n`postcss-rename` makes it possible to rename CSS class names in the generated\nstylesheet, which helps reduce the size of the CSS that is sent down to your\nusers. It's designed to be used along with a plugin for a build system like\nWebpack that can rewrite HTML templates and/or references in JS. If you write\nsuch a plugin, let us know and we'll link it here!\n\n## Options\n\n### `strategy`\n\nThe renaming strategy to use:\n\n* `\"none\"`: Don't change names at all. This is the default strategy.\n\n* `\"debug\"`: Add an underscore at the end of each name. This is useful for\n  keeping classes readable during debugging while still verifying that your\n  templates and JavaScript aren't accidentally using non-renamed classes.\n\n* `\"minimal\"`: Use the shortest possible names, in order of appearance: the\n  first class is renamed to `.a`, the second to `.b`, and so on.\n\nThis can also be a function that takes a CSS name (the full name in by-whole\nmode and the part in by-part mode) and returns its renamed value.\n\n### `by`\n\nWhether to rename in \"by-whole mode\" or \"by-part mode\".\n\n* `\"whole\"`: Rename the entire name at once, so for example `.tall-image` might\n  become `.a`. This is the default mode.\n\n* `\"part\"`: Rename each hyphenated section of a name separately, so for example\n  `.tall-image` might become `.a-b`.\n\n### `prefix`\n\nA string prefix to add before every renamed class. This applies even if\n[`strategy`](#strategy) is set to `none`.\n\nIn by-part mode, the prefix is applied to the entire class, but it isn't\nincluded in the [output map](#outputMapCallback).\n\n### `except`\n\nAn array (or other `Iterable`) of names that shouldn't be renamed.\n\n### `ids`\n\nWhether to rename ID selectors as well as class selectors. Defaults to `false`.\n\n### `outputMapCallback`\n\nA callback that's passed a map from original class names to their renamed\nequivalents, so that an HTML template or JS class references can also be\nrenamed.\n\nIn by-part mode, this contains separate entries for each part of a class name.\nIt doesn't contain any names that weren't renamed because of\n[`except`](#except).\n\nDisclaimer: This is not an officially supported Google product.\n",
+	"readme": "[![Build status](https://github.com/google/postcss-rename/actions/workflows/ci.yml/badge.svg)](https://github.com/google/postcss-rename/actions)\n\nA [PostCSS](https://github.com/postcss/postcss) plugin to replace CSS names\nbased on a customizable renaming scheme.\n\n* [Getting Started](#getting-started)\n* [Usage](#usage)\n* [Options](#options)\n  * [`strategy`](#strategy)\n  * [`by`](#by)\n  * [`prefix`](#prefix)\n  * [`except`](#except)\n  * [`ids`](#ids)\n  * [`outputMapCallback`](#outputMapCallback)\n\n## Getting Started\nIf using TypeScript, you will need `\"moduleResolution\"` to be `\"node16\"` or\nhigher.\n\nInstall the plugin using npm\n\n```\nnpm install --save-dev postcss postcss-rename\n```\n\nYou can insert these plugins into your PostCSS stack\n\n```cjs\nconst postcss = require('postcss');\nconst classRename = require('postcss-rename');\nconst variableRename = require('postcss-rename/variable');\n\nconst myProcessedCss = postcss([\n    classRename({ /* class renaming options here, see Options */ }),\n    variableRename({ /* variable renaming options here, see Options */ }),\n]).process(input).css;\n```\n\n\n## Usage\n\n`postcss-rename` makes it possible to rename CSS names in the generated\nstylesheet, which helps reduce the size of the CSS that is sent down to your\nusers. It's designed to be used along with a plugin for a build system like\nWebpack that can rewrite HTML templates and/or references in JS. If you write\nsuch a plugin, let us know and we'll link it here!\n\n## Options\n\n### `strategy`\n\nThe renaming strategy to use:\n\n* `\"none\"`: Don't change names at all. This is the default strategy.\n\n* `\"debug\"`: Add an underscore at the end of each name. This is useful for\n  keeping classes readable during debugging while still verifying that your\n  templates and JavaScript aren't accidentally using non-renamed classes.\n\n* `\"minimal\"`: Use the shortest possible names, in order of appearance: the\n  first class is renamed to `.a`, the second to `.b`, and so on.\n\nThis can also be a function that takes a CSS name (the full name in by-whole\nmode and the part in by-part mode) and returns its renamed value.\n\n### `by`\n\n> *Note*: this option only works for selector renaming.\n\nWhether to rename in \"by-whole mode\" or \"by-part mode\".\n\n* `\"whole\"`: Rename the entire name at once, so for example `.tall-image` might\n  become `.a`. This is the default mode.\n\n* `\"part\"`: Rename each hyphenated section of a name separately, so for example\n  `.tall-image` might become `.a-b`.\n\nThis only applies to classes, and variables are always renamed in \"by-whole\nmode\"\n\n### `prefix`\n\nA string prefix to add before every renamed class. This applies even if\n[`strategy`](#strategy) is set to `none`.\n\nIn by-part mode, the prefix is applied to the entire class, but it isn't\nincluded in the [output map](#outputMapCallback).\n\nWhen a prefix is given while renaming variables, a dash (\"-\") is added in\nbetween the prefix and the renamed CSS variable.\n\n### `except`\n\nAn array (or other `Iterable`) of names that shouldn't be renamed.\n\n### `ids`\n\n> *Note*: this option only works for selector renaming.\n\nWhether to rename ID selectors as well as class selectors. Defaults to `false`.\nThis does not apply to variable renaming.\n\n### `outputMapCallback`\n\nA callback that's passed a map from original class names to their renamed\nequivalents, so that an HTML template or JS class references can also be\nrenamed.\n\nIn by-part mode, this contains separate entries for each part of a class name.\nIt doesn't contain any names that weren't renamed because of\n[`except`](#except).\n\nDisclaimer: This is not an officially supported Google product.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 6584
+	"_downloads": 6675
 }
