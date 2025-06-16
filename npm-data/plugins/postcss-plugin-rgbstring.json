@@ -188,5 +188,5 @@
 	},
 	"readme": "## About\n\nPostCSS plugin which transforms colors into individual `rrr, ggg, bbb` values for use in contextual or theme-aware colors.\nWhen using with TailwindCSS, this plugin needs to run after Tailwind.\n\n### Example\n\n**In your `postcss.config.js`**\n\n```js\nmodule.exports = {\n  \"tailwindcss\": {},\n  \"postcss-plugin-rgbstring\": {},\n  \"autoprefixer\": {},\n};\n```\n\n**In your css**\n\n```css\n@layer base {\n  :root {\n    --bg-primary: rgbstring(theme(colors.gray.100));\n    --text-primary: rgbstring(#111);\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --bg-primary: rgbstring(theme(colors.gray.900));\n      --text-primary: rgbstring(#eee);\n    }\n  }\n}\n```\n\n**In your tailwind config**\n\n```js\nfunction fromVariable(variableName) {\n  return ({ opacityValue }) => {\n    if (opacityValue !== undefined)\n      return `rgba(var(${variableName}), ${opacityValue})`;\n    return `rgb(var(${variableName}))`;\n  };\n}\n\nmodule.exports = {\n  theme: {\n    backgroundColor: {\n      primary: fromVariable(\"--bg-primary\"),\n    },\n    textColor: {\n      primary: fromVariable(\"--text-primary\"),\n    },\n  },\n};\n```\n\n**In your template**\n\n```html\n<div class=\"bg-primary text-primary\">Content</div>\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 7
+	"_downloads": 2
 }
