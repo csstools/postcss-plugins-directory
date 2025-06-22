@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-media-hover-any-hover",
-	"_rev": "5-dd5f54b7e952dd4da37d915231e5d67a",
+	"_rev": "6-f04fde128dfa3080d2f68d78d0e9a79b",
 	"name": "postcss-media-hover-any-hover",
 	"dist-tags": {
-		"latest": "0.3.0"
+		"latest": "0.4.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -373,6 +373,97 @@
 		"0.3.0": {
 			"name": "postcss-media-hover-any-hover",
 			"version": "0.3.0",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"any-hover",
+				"postcss-media-hover-any-hover"
+			],
+			"author": {
+				"name": "hiro"
+			},
+			"license": "MIT",
+			"_id": "postcss-media-hover-any-hover@0.3.0",
+			"maintainers": [
+				{
+					"name": "hiro0218",
+					"email": "hiro0218@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/hiro0218/postcss-media-hover-any-hover#readme",
+			"bugs": {
+				"url": "https://github.com/hiro0218/postcss-media-hover-any-hover/issues"
+			},
+			"dist": {
+				"shasum": "ff287ca615c2d51f24c7b7e9fc04a5172253a205",
+				"tarball": "https://registry.npmjs.org/postcss-media-hover-any-hover/-/postcss-media-hover-any-hover-0.3.0.tgz",
+				"fileCount": 4,
+				"integrity": "sha512-yWpivUBXJ6jkLqsok6wMzoyRvN/8QxI/wJnsYHMWJNk6iSn401gbFpsY3QOflgZm4pCRGKBrs8eMbZo5z8ohzQ==",
+				"signatures": [
+					{
+						"sig": "MEUCIQCiCcd7rtYUytdb7MS93PbzNRCC6kfBCWcplooXsMb9bgIgRJHHHb0w7XK4K1OIOwObZG6ZEP9yywnhVowNM3SElHQ=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 6304
+			},
+			"main": "index.js",
+			"engines": {
+				"node": ">=20.11.0"
+			},
+			"gitHead": "f7349937f809f8a287514131ff86530466798dbc",
+			"scripts": {
+				"test": "npm run unit && eslint .",
+				"unit": "node --test index.test.js"
+			},
+			"_npmUser": {
+				"name": "hiro0218",
+				"email": "hiro0218@gmail.com"
+			},
+			"prettier": {
+				"semi": true,
+				"printWidth": 120,
+				"singleQuote": true,
+				"trailingComma": "all"
+			},
+			"repository": {
+				"url": "git+https://github.com/hiro0218/postcss-media-hover-any-hover.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.2.4",
+			"description": "PostCSS plugin wraps selectors with :hover with an @media (any-hover: hover) block",
+			"directories": {},
+			"_nodeVersion": "20.11.0",
+			"eslintConfig": {
+				"env": {
+					"es6": true,
+					"node": true
+				},
+				"extends": [
+					"eslint:recommended"
+				],
+				"parserOptions": {
+					"ecmaVersion": 2022
+				}
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"eslint": "^8.47.0",
+				"postcss": "^8.4.38",
+				"prettier": "3.2.5"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.27"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-media-hover-any-hover_0.3.0_1748151227742_0.7082378750086398",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.4.0": {
+			"name": "postcss-media-hover-any-hover",
+			"version": "0.4.0",
 			"description": "PostCSS plugin wraps selectors with :hover with an @media (any-hover: hover) block",
 			"keywords": [
 				"postcss",
@@ -384,7 +475,11 @@
 			"main": "index.js",
 			"scripts": {
 				"unit": "node --test index.test.js",
-				"test": "npm run unit && eslint ."
+				"test": "npm run unit && eslint .",
+				"perf": "node --test performance.test.js",
+				"lint": "eslint .",
+				"format": "prettier --write .",
+				"prepare": "husky"
 			},
 			"author": {
 				"name": "hiro"
@@ -405,21 +500,13 @@
 				"postcss": "^8.4.27"
 			},
 			"devDependencies": {
-				"eslint": "^8.47.0",
-				"postcss": "^8.4.38",
-				"prettier": "3.2.5"
-			},
-			"eslintConfig": {
-				"parserOptions": {
-					"ecmaVersion": 2022
-				},
-				"env": {
-					"node": true,
-					"es6": true
-				},
-				"extends": [
-					"eslint:recommended"
-				]
+				"@eslint/js": "^9.29.0",
+				"eslint": "^9.29.0",
+				"globals": "^16.2.0",
+				"husky": "^9.1.7",
+				"nano-staged": "^0.8.0",
+				"postcss": "^8.5.6",
+				"prettier": "3.5.3"
 			},
 			"prettier": {
 				"printWidth": 120,
@@ -427,26 +514,40 @@
 				"singleQuote": true,
 				"semi": true
 			},
-			"_id": "postcss-media-hover-any-hover@0.3.0",
-			"gitHead": "f7349937f809f8a287514131ff86530466798dbc",
+			"nano-staged": {
+				"*.js": [
+					"prettier --write",
+					"eslint --fix"
+				],
+				"*.{json,md}": [
+					"prettier --write"
+				]
+			},
+			"_id": "postcss-media-hover-any-hover@0.4.0",
+			"gitHead": "8df5b26c8263b253560efb1903f859d16a559913",
 			"_nodeVersion": "20.11.0",
 			"_npmVersion": "10.2.4",
 			"dist": {
-				"integrity": "sha512-yWpivUBXJ6jkLqsok6wMzoyRvN/8QxI/wJnsYHMWJNk6iSn401gbFpsY3QOflgZm4pCRGKBrs8eMbZo5z8ohzQ==",
-				"shasum": "ff287ca615c2d51f24c7b7e9fc04a5172253a205",
-				"tarball": "https://registry.npmjs.org/postcss-media-hover-any-hover/-/postcss-media-hover-any-hover-0.3.0.tgz",
-				"fileCount": 4,
-				"unpackedSize": 6304,
+				"integrity": "sha512-BKirsTMuOKn6NWPX0yjiqGnnqn0ZuTAtx4FPj6MEQx5tTraMRauRKP9D4hnMp4TLmq1a7PTn24jWOgYq13kj7A==",
+				"shasum": "917742c30342a0101e5c6e327b1bb51632708309",
+				"tarball": "https://registry.npmjs.org/postcss-media-hover-any-hover/-/postcss-media-hover-any-hover-0.4.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 13220,
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEUCIQCiCcd7rtYUytdb7MS93PbzNRCC6kfBCWcplooXsMb9bgIgRJHHHb0w7XK4K1OIOwObZG6ZEP9yywnhVowNM3SElHQ="
+						"sig": "MEUCIEv7/ez2Ou2hy+0+uy4lt4I3N56U06vQSh9OYpcXUYN8AiEA8BQOhbtmxV6gVgtfeceK4P31g05NAl+LSRCOOf0AFMA="
 					}
 				]
 			},
 			"_npmUser": {
 				"name": "hiro0218",
-				"email": "hiro0218@gmail.com"
+				"email": "hiro0218@gmail.com",
+				"actor": {
+					"name": "hiro0218",
+					"email": "hiro0218@gmail.com",
+					"type": "user"
+				}
 			},
 			"directories": {},
 			"maintainers": [
@@ -457,19 +558,20 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-media-hover-any-hover_0.3.0_1748151227742_0.7082378750086398"
+				"tmp": "tmp/postcss-media-hover-any-hover_0.4.0_1750487359827_0.19875366639160896"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-05-01T15:44:23.348Z",
-		"modified": "2025-05-25T05:33:48.109Z",
+		"modified": "2025-06-21T06:29:20.200Z",
 		"0.1.0": "2024-05-01T15:44:23.476Z",
 		"0.2.0": "2024-05-01T15:51:11.905Z",
 		"0.2.1": "2024-05-01T16:10:52.065Z",
 		"0.2.2": "2024-12-09T13:54:50.706Z",
-		"0.3.0": "2025-05-25T05:33:47.928Z"
+		"0.3.0": "2025-05-25T05:33:47.928Z",
+		"0.4.0": "2025-06-21T06:29:20.039Z"
 	},
 	"bugs": {
 		"url": "https://github.com/hiro0218/postcss-media-hover-any-hover/issues"
@@ -497,7 +599,7 @@
 			"email": "hiro0218@gmail.com"
 		}
 	],
-	"readme": "## Install\n\n```bash\nnpm i -D postcss-media-hover-any-hover\n```\n\n### PostCSS Config\n\n`postcss.config.js`:\n\n```js\nmodule.exports = {\n  plugins: [\n    require('postcss-media-hover-any-hover')()\n  ]\n};\n```\n\n### JavaScript API\n\n```js\nconst fs = require('fs');\nconst postcss = require('postcss');\nconst postcssMediaHoverAnyHover = require('postcss-media-hover-any-hover');\n\nconst css = fs.readFileSync('input.css', 'utf8');\n\nconst output = postcss().use(postcssMediaHoverAnyHover()).process(css).css;\n```\n\n\n## Usage\n\nThis plugin automatically wraps rules containing `:hover` selectors with `@media (any-hover: hover)`.\nThis ensures hover effects only apply on devices that support hover functionality.\n\n### Basic Example\n\n```css\n// Input\na {\n  &:hover {\n    text-decoration: underline;\n  }\n}\n\n// Output\na {\n  @media (any-hover: hover) {\n    &:hover {\n      text-decoration: underline;\n    }\n  }\n}\n```\n\n### Multiple Selectors Example\n\n```css\n// Input\na:hover, button:hover {\n  color: red;\n}\n\n// Output\n@media (any-hover: hover) {\n  a:hover, button:hover {\n    color: red;\n  }\n}\n```\n\n### Mixed Selectors Example\n\n```css\n// Input\na {\n  color: blue;\n  &:hover {\n    color: red;\n  }\n}\n\n// Output\na {\n  color: blue;\n  @media (any-hover: hover) {\n    &:hover {\n      color: red;\n    }\n  }\n}\n```\n\n### Nested Selectors Example\n\n```css\n// Input\n.container {\n  .button:hover {\n    color: blue;\n  }\n}\n\n// Output\n.container {\n  @media (any-hover: hover) {\n    .button:hover {\n      color: blue;\n    }\n  }\n}\n```\n\n### Combining with Existing Media Queries\n\n```css\n// Input\n@media (min-width: 768px) {\n  a:hover {\n    color: purple;\n  }\n}\n\n// Output\n@media (min-width: 768px) {\n  @media (any-hover: hover) {\n    a:hover {\n      color: purple;\n    }\n  }\n}\n```\n",
+	"readme": "# postcss-media-hover-any-hover\n\n[![npm version](https://img.shields.io/npm/v/postcss-media-hover-any-hover.svg?style=flat-square)](https://www.npmjs.com/package/postcss-media-hover-any-hover)\n[![npm downloads](https://img.shields.io/npm/dm/postcss-media-hover-any-hover.svg?style=flat-square)](https://www.npmjs.com/package/postcss-media-hover-any-hover)\n\npostcss-media-hover-any-hover is a PostCSS plugin that automatically wraps CSS `:hover` selectors with `@media (any-hover: hover)` blocks.\nThis prevents unintended hover effects (the so-called \"sticky hover\" problem) on touch and hybrid devices, ensuring that hover styles are only applied on devices where a pointing device (like a mouse) is available.\n\n- Desktop (with mouse): Hover effects are enabled\n- Smartphones/Tablets: Hover effects are disabled\n- Hybrid devices (e.g., Surface): Hover effects are enabled only when a mouse is connected\n\nBy using this plugin, you can achieve optimal hover behavior for each device type without sacrificing CSS maintainability.\n\n## Install\n\n```bash\nnpm i -D postcss-media-hover-any-hover\n```\n\n### PostCSS Config\n\n`postcss.config.js`:\n\n```js\nmodule.exports = {\n  plugins: [require('postcss-media-hover-any-hover')()],\n};\n```\n\n### JavaScript API\n\n```js\nconst fs = require('fs');\nconst postcss = require('postcss');\nconst postcssMediaHoverAnyHover = require('postcss-media-hover-any-hover');\n\nconst css = fs.readFileSync('input.css', 'utf8');\n\nconst output = postcss().use(postcssMediaHoverAnyHover()).process(css).css;\n```\n\n## Usage\n\nThis plugin automatically wraps rules containing `:hover` selectors with `@media (any-hover: hover)`.\nThis ensures hover effects only apply on devices that support hover functionality.\n\n### Basic Example\n\n```css\n/* Input */\na {\n  &:hover {\n    text-decoration: underline;\n  }\n}\n\n/* Output */\na {\n  @media (any-hover: hover) {\n    &:hover {\n      text-decoration: underline;\n    }\n  }\n}\n```\n\n### Multiple Selectors Example\n\n```css\n/* Input */\na:hover,\nbutton:hover {\n  color: red;\n}\n\n/* Output */\n@media (any-hover: hover) {\n  a:hover,\n  button:hover {\n    color: red;\n  }\n}\n```\n\n### Mixed Selectors Example\n\n```css\n/* Input */\na {\n  color: blue;\n  &:hover {\n    color: red;\n  }\n}\n\n/* Output */\na {\n  color: blue;\n  @media (any-hover: hover) {\n    &:hover {\n      color: red;\n    }\n  }\n}\n```\n\n### Nested Selectors Example\n\n```css\n/* Input */\n.container {\n  .button:hover {\n    color: blue;\n  }\n}\n\n/* Output */\n.container {\n  @media (any-hover: hover) {\n    .button:hover {\n      color: blue;\n    }\n  }\n}\n```\n\n### Combining with Existing Media Queries\n\n```css\n/* Input */\n@media (min-width: 768px) {\n  a:hover {\n    color: purple;\n  }\n}\n\n/* Output */\n@media (min-width: 768px) {\n  @media (any-hover: hover) {\n    a:hover {\n      color: purple;\n    }\n  }\n}\n```\n\n### Plugin Options\n\nThis plugin accepts the following options:\n\n```js\npostcssMediaHoverAnyHover({\n  // 'any-hover' or 'hover', default: 'any-hover'\n  mediaFeature: 'any-hover',\n\n  // Whether to transform :hover within existing media queries, default: false\n  transformNestedMedia: false,\n\n  // Exclude specific selector patterns, default: []\n  excludeSelectors: ['.no-transform:hover'],\n});\n```\n\n#### `mediaFeature` Option\n\nChoose between `'any-hover'` (default) and `'hover'`:\n\n- `'any-hover'`: Uses `@media (any-hover: hover)` which checks if any input device supports hover\n- `'hover'`: Uses `@media (hover: hover)` which only checks if the primary input device supports hover\n\n```js\n// Using hover instead of any-hover\npostcss().use(postcssMediaHoverAnyHover({ mediaFeature: 'hover' }));\n```\n\n#### `transformNestedMedia` Option\n\nControls whether to transform `:hover` selectors that are already inside a media query:\n\n```js\n// Transform :hover even when already inside media queries\npostcss().use(postcssMediaHoverAnyHover({ transformNestedMedia: true }));\n```\n\n#### `excludeSelectors` Option\n\nSpecify selectors that should not be transformed:\n\n```js\n// Exclude specific selectors from transformation\npostcss().use(\n  postcssMediaHoverAnyHover({\n    excludeSelectors: ['.no-transform:hover', '.special-button:hover'],\n  }),\n);\n```\n\n## Performance\n\nThis plugin is optimized to work fast and efficiently:\n\n- Early returns to avoid unnecessary processing\n- Optimized regular expression patterns\n- Data structures for fast lookups\n- Memory usage optimization\n\nThe plugin performs well even with large CSS files. To run performance tests:\n\n```bash\nnpm run perf\n```\n\n### Performance Test Results Example\n\n```\n# Small CSS (145 characters)\nAverage execution time: 0.15ms/iteration\n\n# Medium CSS (about 20k characters)\nAverage execution time: 1.81ms/iteration\n\n# Large CSS (about 170k characters)\nAverage execution time: 19.99ms/iteration\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2557
+	"_downloads": 2704
 }
