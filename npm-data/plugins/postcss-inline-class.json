@@ -146,5 +146,5 @@
 	"license": "MIT",
 	"readme": "# postcss-inline-class\n\nInline CSS classes in other CSS classes using postcss.\n\n## Examples\n\n### Minimal example\n\n```css\n.a {\n    color: red;\n}\n\n.b {\n    @inline .a;\n    font-size: 14px;\n}\n```\n\nbecomes\n\n```css\n.a {\n    color: red;\n}\n\n.b {\n    color: red;\n    font-size: 14px;\n}\n```\n\n### Multiple blocks\n\n```css\n.a {\n    color: red;\n}\n\n.a, .b {\n    font-size: 14px\n}\n\n.c {\n    @inline .a;\n}\n```\n\nbecomes\n\n```css\n.a {\n    color: red;\n}\n\n.a, .b {\n    font-size: 14px\n}\n\n.c {\n    color: red;\n    font-size: 14px;\n}\n```\n\n### Different files\n\n```css\n/* foo.css */\n\n.a {\n    color: red;\n}\n\n/* bar.css */\n\n.b {\n    @inline .a from './foo.css';\n    font-size: 14px;\n}\n```\n\nbecomes\n\n\n```css\n/* foo.css */\n\n.a {\n    color: red;\n}\n\n/* bar.css */\n\n.b {\n    color: red;\n    font-size: 14px;\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 2
+	"_downloads": 4
 }
