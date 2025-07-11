@@ -73,6 +73,13 @@ export async function updateTheDirectory() {
 			const pluginDataFile = pluginDataFiles[i];
 			if (!pluginsSet.has(pluginDataFile)) {
 				await fs.rm(pluginDataFile);
+				continue;
+			}
+
+			const pluginData = JSON.parse(await fs.readFile(pluginDataFile));
+			if (maliciousPackages[pluginData.name]?.includes(pluginData.version)) {
+				await fs.rm(pluginDataFile);
+				continue;
 			}
 		}
 	}
@@ -119,12 +126,9 @@ export async function updateTheDirectory() {
 			continue
 		}
 
-		console.log(plugin.package.name, lastVersion);
-
 		if (maliciousPackages[plugin.package.name]?.includes(lastVersion)) {
 			continue
 		}
-
 
 		await fs.writeFile(directoryFilePath, updatedData);
 

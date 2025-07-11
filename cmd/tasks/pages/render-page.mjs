@@ -37,6 +37,7 @@ export function renderPage(body, numberOfPlugins, searchData, allKeywords) {
 		<li>valid peer dependency value for postcss</li>
 		<li><a href="https://opensource.org/licenses/alphabetical">OSI approved license</a></li>
 		<li>package version greater than 1.0.0</li>
+		<li><a href="https://github.com/DataDog/malicious-software-packages-dataset">not listed as a malicious package</a></li>
 	</ul>
 
 	<hr>
