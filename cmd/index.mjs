@@ -7,6 +7,7 @@ import { listMaintainedPlugins } from "./tasks/npm-data/list-maintained-plugins.
 import { listMaybePlugins } from "./tasks/npm-data/list-maybe-plugins.mjs";
 import { pages } from "./tasks/pages/pages.mjs";
 import { validateLinks } from "./tasks/validate-links/index.mjs";
+import { listMaliciousPackages } from "./tasks/npm-data/fetch-malicious-packages-list.mjs";
 
 await main()
 async function main() {
@@ -30,12 +31,16 @@ async function main() {
 			pages()
 			break;
 		case 'npm-data':
+			await listMaliciousPackages();
 			await listAllPlugins();
 			await listMaybePlugins();
 			await fetchDetailedPluginData();
 			await validateLinks();
 			await listMaintainedPlugins();
 			await lastPluginVersionInfo();
+			break;
+		case 'npm-list-malicious-packages':
+			await listMaliciousPackages();
 			break;
 		case 'npm-list-all-plugins':
 			await listAllPlugins();
@@ -80,6 +85,7 @@ function printSubCommandsAndExit() {
 		'npm-last-plugin-version-info',
 		'npm-list-all-plugins',
 		'npm-list-maintained-plugins',
+		'npm-list-malicious-packages',
 		'npm-list-maybe-plugins',
 		'npm-validate-links',
 		'pages',

@@ -1,4 +1,5 @@
 export const NPM_DATA_PLUGINS_FILE_PATH = './npm-data/plugins.json';
+export const NPM_DATA_MALICIOUS_PACKAGES_PATH = './npm-data/malicious-packages.json';
 export const NPM_DATA_MAYBE_PLUGINS_FILE_PATH = './npm-data/maybe-plugins.json';
 export const NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH = './npm-data/maintained-plugins.json';
 export const NPM_DATA_LINKS_FILE_PATH = './npm-data/links.json';

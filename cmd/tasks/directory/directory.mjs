@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import semver from 'semver';
-import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, THIS_REPOSITORY } from '../constants.mjs';
+import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, NPM_DATA_MALICIOUS_PACKAGES_PATH, THIS_REPOSITORY } from '../constants.mjs';
 import { filterVersions } from '../util/filter-versions.mjs';
 import { traverseDir } from '../util/traverse-dir.mjs';
 
@@ -61,6 +61,7 @@ export async function updateTheDirectory() {
 	const existingUpdates = await listAllPullRequests();
 
 	const pluginsList = JSON.parse(await fs.readFile(NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH));
+	const maliciousPackages = JSON.parse(await fs.readFile(NPM_DATA_MALICIOUS_PACKAGES_PATH));
 
 	{
 		const pluginDataFiles = await traverseDir('./directory');
@@ -117,6 +118,13 @@ export async function updateTheDirectory() {
 		if (existingUpdates.has(updateName)) {
 			continue
 		}
+
+		console.log(plugin.package.name, lastVersion);
+
+		if (maliciousPackages[plugin.package.name]?.includes(lastVersion)) {
+			continue
+		}
+
 
 		await fs.writeFile(directoryFilePath, updatedData);
 
