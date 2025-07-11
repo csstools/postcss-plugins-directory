@@ -10,6 +10,7 @@
 - valid `peerDependency` value for `postcss`
 - [`OSI` approved license](https://opensource.org/licenses/alphabetical)
 - package version greater than `1.0.0`
+- [not listed as a malicious package](https://github.com/DataDog/malicious-software-packages-dataset)
 
 ## Requirements for plugin forks :
 
