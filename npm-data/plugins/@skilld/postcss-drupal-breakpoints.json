@@ -153,5 +153,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Drupal Breakpoints [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin to get drupal theme breakpoints in css variables.\n\n[PostCSS]: https://github.com/postcss/postcss\n[ci-img]:  https://travis-ci.org/iberdinsky-skilld/postcss-drupal-breakpoints.svg\n[ci]:      https://travis-ci.org/iberdinsky-skilld/postcss-drupal-breakpoints\n\n## Input\n\ncss\n```css\n@drupal-breakpoint wide_1x {\n  .pager {\n    display: none;\n  }\n}\n```\n\nTHEMENAME.breakpoints.yml\n```yml\nTHEMENAME.mobile:\n  label: mobile\n  mediaQuery: '(min-width: 0em)'\n  weight: 0\n  multipliers:\n    - 1x\nTHEMENAME.wide:\n  label: wide\n  mediaQuery: 'screen and (min-width: 40em)'\n  weight: 1\n  multipliers:\n    - 1x\n```\n\npostcss.config.js\n```js\nmodule.exports = ctx => ({\n  plugins: [\n    require('postcss-drupal-breakpoints')({\n      importFrom: './THEMENAME.breakpoints.yml',\n      themeName: 'THEMENAME'\n    }),\n  ]\n});\n\n```\n\n## Output\n\n```css\n@media screen and (min-width: 40em) {\n  .pager {\n    display: none;\n  }\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 68
+	"_downloads": 90
 }

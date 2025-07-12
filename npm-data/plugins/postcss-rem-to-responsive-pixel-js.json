@@ -1,0 +1,122 @@
+{
+	"_id": "postcss-rem-to-responsive-pixel-js",
+	"name": "postcss-rem-to-responsive-pixel-js",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-rem-to-responsive-pixel-js",
+			"version": "1.0.0",
+			"description": "Convert rem units to px or rpx units using PostCSS (JavaScript version with include feature)",
+			"main": "index.js",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"postcss-rem",
+				"postcss-pxtorem",
+				"responsive",
+				"css",
+				"rem",
+				"pixel",
+				"px",
+				"rpx",
+				"uni-app",
+				"uni",
+				"wechat",
+				"mp",
+				"miniprogram",
+				"小程序",
+				"微信",
+				"tailwindcss",
+				"include",
+				"exclude"
+			],
+			"author": {
+				"name": "Your Name"
+			},
+			"license": "MIT",
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"_id": "postcss-rem-to-responsive-pixel-js@1.0.0",
+			"gitHead": "4d69d58e359f058bac35964cc454a5b5491a6d6f",
+			"_nodeVersion": "18.19.0",
+			"_npmVersion": "10.2.3",
+			"dist": {
+				"integrity": "sha512-mfiSk/uBZiDIbIeYEomu9MiX2BGZwlZyQ3+OkygbCl5y/IgI9I3WDTuJMfWQnUwv/btS00DDS8W/im33bb4yaw==",
+				"shasum": "23f32a380d96c4a3fe15390f7d4cbd3289e3c063",
+				"tarball": "https://registry.npmjs.org/postcss-rem-to-responsive-pixel-js/-/postcss-rem-to-responsive-pixel-js-1.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 12870,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEYCIQDRrnDe/PKldtZF7CShwruX18rzWeCu4/R9Fp4dJhF6LgIhALhask5EEvDlN+DVttrqVjY/GXaSU751Iij7ZcSyOfMu"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "yuze_im",
+				"email": "guhunjixu@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "yuze_im",
+					"email": "guhunjixu@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-rem-to-responsive-pixel-js_1.0.0_1752284907101_0.8402242097900401"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-07-12T01:48:27.100Z",
+		"1.0.0": "2025-07-12T01:48:27.294Z",
+		"modified": "2025-07-12T01:48:27.569Z"
+	},
+	"maintainers": [
+		{
+			"name": "yuze_im",
+			"email": "guhunjixu@gmail.com"
+		}
+	],
+	"description": "Convert rem units to px or rpx units using PostCSS (JavaScript version with include feature)",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"postcss-rem",
+		"postcss-pxtorem",
+		"responsive",
+		"css",
+		"rem",
+		"pixel",
+		"px",
+		"rpx",
+		"uni-app",
+		"uni",
+		"wechat",
+		"mp",
+		"miniprogram",
+		"小程序",
+		"微信",
+		"tailwindcss",
+		"include",
+		"exclude"
+	],
+	"author": {
+		"name": "Your Name"
+	},
+	"license": "MIT",
+	"readme": "# postcss-rem-to-responsive-pixel (JavaScript版本)\n\n一个用于将CSS中的rem单位转换为px或rpx单位的PostCSS插件，支持include/exclude功能。\n\n## 特性\n\n- ✅ 将rem单位转换为px或rpx单位\n- ✅ 支持include功能：指定需要处理的文件或文件夹\n- ✅ 支持exclude功能：排除不需要处理的文件\n- ✅ 支持小程序rpx单位\n- ✅ 灵活的配置选项\n- ✅ 媒体查询支持\n- ✅ 选择器黑名单\n- ✅ 属性白名单\n\n## 安装\n\n```bash\nnpm install postcss-rem-to-responsive-pixel-js --save-dev\n```\n\n## 使用方法\n\n### 基础用法\n\n```js\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require('postcss-rem-to-responsive-pixel-js')({\n      rootValue: 16,\n      propList: ['*'],\n      transformUnit: 'px',\n    }),\n  ],\n}\n```\n\n### 小程序开发\n\n```js\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require('tailwindcss'),\n    require('postcss-rem-to-responsive-pixel-js')({\n      rootValue: 32,\n      propList: ['*'],\n      transformUnit: 'rpx',\n      include: ['src/**/*.css', 'src/**/*.scss'],\n      exclude: [/node_modules/],\n    }),\n  ],\n}\n```\n\n## 配置选项\n\n```js\nconst defaultOptions = {\n  rootValue: 16,                    // 根字体大小\n  unitPrecision: 5,                 // 数值精度\n  selectorBlackList: [],            // 选择器黑名单\n  propList: ['font', 'font-size', 'line-height', 'letter-spacing'],  // 处理的属性\n  replace: true,                    // 是否替换原值\n  mediaQuery: false,                // 是否处理媒体查询\n  minRemValue: 0,                   // 最小转换值\n  exclude: [/node_modules/i],       // 排除文件\n  include: [],                      // 包含文件（新功能）\n  transformUnit: 'px',              // 输出单位 'px' | 'rpx'\n  disabled: false,                  // 是否禁用\n}\n```\n\n### include选项详解\n\n`include`选项支持多种格式：\n\n#### 1. 字符串数组（文件路径匹配）\n```js\n{\n  include: ['src/components', 'src/pages', 'index.css']\n}\n```\n\n#### 2. 正则表达式数组\n```js\n{\n  include: [/\\.css$/, /\\.scss$/, /components/]\n}\n```\n\n#### 3. 函数\n```js\n{\n  include: (filePath) => {\n    return filePath.includes('components') || filePath.endsWith('.module.css')\n  }\n}\n```\n\n#### 4. 混合使用\n```js\n{\n  include: ['src/components', /\\.module\\.css$/, (path) => path.includes('theme')]\n}\n```\n\n### exclude优先级\n\n当同时设置`include`和`exclude`时，`exclude`具有更高的优先级：\n\n```js\n{\n  include: ['src/**/*.css'],\n  exclude: ['src/vendor/**/*.css']  // 这些文件不会被处理\n}\n```\n\n## 使用示例\n\n### 输入\n```css\nh1 {\n  margin: 0 0 20px;\n  font-size: 2rem;\n  line-height: 1.2;\n  letter-spacing: 0.0625rem;\n}\n```\n\n### 输出（transformUnit: 'px'）\n```css\nh1 {\n  margin: 0 0 20px;\n  font-size: 32px;\n  line-height: 1.2;\n  letter-spacing: 1px;\n}\n```\n\n### 输出（transformUnit: 'rpx'）\n```css\nh1 {\n  margin: 0 0 20px;\n  font-size: 32rpx;\n  line-height: 1.2;\n  letter-spacing: 1rpx;\n}\n```\n\n## 忽略转换\n\n使用大写的`REM`或`Rem`可以忽略转换：\n\n```css\n.ignore {\n  font-size: 1REM;  /* 不会被转换 */\n  margin: 2rem;     /* 会被转换 */\n}\n```\n\n## 文件结构\n\n```\n├── index.js      # 主入口文件\n├── shared.js     # 共享工具函数\n├── defaults.js   # 默认配置\n├── regex.js      # 正则表达式\n└── README.md     # 使用说明\n```\n\n## API\n\n### 主要函数\n\n- `postcssRemToResponsivePixel(options)` - 创建插件实例\n- `getConfig(options)` - 合并配置选项\n- `createIncludeMatcher(include)` - 创建文件包含匹配器\n- `createExcludeMatcher(exclude)` - 创建文件排除匹配器\n\n## 许可证\n\nMIT",
+	"readmeFilename": "README.md",
+	"_rev": "1-ca6f54105fe764502014e1274415a81b",
+	"_downloads": 0
+}
