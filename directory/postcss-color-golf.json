@@ -1,6 +1,6 @@
 {
 	"name": "postcss-color-golf",
-	"version": "1.1.0",
+	"version": "2.0.1",
 	"description": "PostCSS plugin that aggressively minifies and optimizes CSS color values for maximum code golf and minimal output characters.",
 	"author": {
 		"name": "xero",
@@ -12,12 +12,13 @@
 	"types": "dist/index.d.ts",
 	"exports": {
 		"import": "./dist/index.mjs",
-		"require": "./dist/index.cjs"
+		"require": "./dist/cjs-proxy.cjs",
+		"default": "./dist/index.cjs"
 	},
 	"scripts": {
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"build": "tsup src/index.ts --format esm,cjs"
+		"build": "tsup src/index.ts --format esm,cjs && printf '%s' \"module.exports=require('./index.cjs').default;\" > ./dist/cjs-proxy.cjs"
 	},
 	"repository": {
 		"type": "git",
@@ -48,8 +49,8 @@
 		"typescript": "^5.8.3",
 		"vitest": "^3.2.4"
 	},
-	"_id": "postcss-color-golf@1.1.0",
-	"gitHead": "57c5ec2768dfb816820855bdd4d461a3398b32f5",
+	"_id": "postcss-color-golf@2.0.1",
+	"gitHead": "91965cf77ffb346e9fc2df1384dbdc367b302809",
 	"bugs": {
 		"url": "https://github.com/xero/postcss-color-golf/issues"
 	},
@@ -57,26 +58,21 @@
 	"_nodeVersion": "22.8.0",
 	"_npmVersion": "10.8.2",
 	"dist": {
-		"integrity": "sha512-ba8bAQ7m+Dsfs2H2yA3b0k+poadC3h/UHEmgblJaoVdm5L2Zr5XD+3hogUldU0yFA7Sr/DItmmH4Z8LcaFvLuQ==",
-		"shasum": "196d2de648325ac4a0ccc2a3aa24a286e6837f56",
-		"tarball": "https://registry.npmjs.org/postcss-color-golf/-/postcss-color-golf-1.1.0.tgz",
-		"fileCount": 7,
-		"unpackedSize": 21795,
+		"integrity": "sha512-njoXonNux39IERoFxHPH0owgzY+mNggn4le9fXA1LiwlnfaMK0pzIkeRCTdu+N3rMQbHrNrSc3h/1DoyM/hNOQ==",
+		"shasum": "041b1d167b41ed0eac99469a5b52f09a9dc1a8a5",
+		"tarball": "https://registry.npmjs.org/postcss-color-golf/-/postcss-color-golf-2.0.1.tgz",
+		"fileCount": 8,
+		"unpackedSize": 25175,
 		"signatures": [
 			{
 				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEUCIQC7IGGMMMQ/vFZxCT4T4wuamjhagPJH9LTn2q1l1/S2nQIgMwkerqMjYoruHVz8gcQ0y6YP1tt9E62gJWB9a6Hz34g="
+				"sig": "MEUCIQC/6kjowWkpSFIb6S5u5qh69xULnUY+sPV3i/EqnqTXigIgbt26WsGb+myOuFCERApRDbnX9emDxdcpaKjyrFFIIdU="
 			}
 		]
 	},
 	"_npmUser": {
 		"name": "xero",
-		"email": "andrew.harrison@brandingbrand.com",
-		"actor": {
-			"name": "xero",
-			"email": "andrew.harrison@brandingbrand.com",
-			"type": "user"
-		}
+		"email": "andrew.harrison@brandingbrand.com"
 	},
 	"directories": {},
 	"maintainers": [
@@ -87,8 +83,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-color-golf_1.1.0_1750778703282_0.5282841414420578"
+		"tmp": "tmp/postcss-color-golf_2.0.1_1752651873701_0.414022012047905"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2025-06-24T15:25:03.453Z"
+	"_time": "2025-07-16T07:44:33.876Z"
 }
