@@ -1,9 +1,9 @@
 {
 	"_id": "@react-zero-ui/core",
-	"_rev": "5-e9247701fb3846ecdddd9025634cdd33",
+	"_rev": "7-11810d963df8ee67a32ecf528479a6fc",
 	"name": "@react-zero-ui/core",
 	"dist-tags": {
-		"latest": "0.2.4"
+		"latest": "0.2.6"
 	},
 	"versions": {
 		"0.1.0": {
@@ -530,6 +530,262 @@
 		"0.2.4": {
 			"name": "@react-zero-ui/core",
 			"version": "0.2.4",
+			"keywords": [
+				"react",
+				"ui",
+				"state",
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"zero-config",
+				"react-zero-ui",
+				"postcss-react-zero-ui",
+				"pre-rendering",
+				"no-rerender",
+				"zero-ui"
+			],
+			"author": {
+				"name": "Austinserb",
+				"email": "serbaustin@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "@react-zero-ui/core@0.2.4",
+			"maintainers": [
+				{
+					"name": "austinserb",
+					"email": "owner@serbyte.net"
+				}
+			],
+			"homepage": "https://github.com/react-zero-ui/core#readme",
+			"bugs": {
+				"url": "https://github.com/react-zero-ui/core/issues"
+			},
+			"dist": {
+				"shasum": "4b79c83b3f649ff55ea7b742c3e7ba2811202fd3",
+				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.2.4.tgz",
+				"fileCount": 27,
+				"integrity": "sha512-z61smTK7tR71ckHhksQMuRTaK0fBSzE1KUOs9nGgSUY4dVpvjiVOpelzjz4bxj7qYB4etA5hFg6wDb97TaDkYA==",
+				"signatures": [
+					{
+						"sig": "MEUCIHTqayWeEJtrqnKaLMizZX0hZQtxNDADDfGTQ7i3J/DEAiEA8jdemCikUfk5hUjdYCheWfHUlsR8G05CdYh3ft7mU1U=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 89787
+			},
+			"main": "./dist/index.js",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.js",
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js"
+				},
+				"./cli": {
+					"types": "./dist/cli/init.d.ts",
+					"import": "./dist/cli/init.cjs",
+					"require": "./dist/cli/init.cjs"
+				},
+				"./vite": {
+					"types": "./dist/postcss/vite.d.ts",
+					"import": "./dist/postcss/vite.js"
+				},
+				"./postcss": {
+					"types": "./dist/postcss/index.d.ts",
+					"require": "./dist/postcss/index.cjs"
+				}
+			},
+			"gitHead": "47a835d9516e4d2386ef59a905ffcdffae4c560e",
+			"private": false,
+			"scripts": {
+				"dev": "tsc -p tsconfig.json --watch",
+				"build": "tsc -p tsconfig.build.json",
+				"prepack": "pnpm run build",
+				"test:all": "pnpm run test:vite && pnpm run test:next && pnpm run test:unit && pnpm run test:cli && pnpm run test:integration",
+				"test:cli": "node --test __tests__/unit/cli.test.cjs",
+				"test:next": "playwright test -c __tests__/config/playwright.next.config.js",
+				"test:unit": "tsx --test src/**/*.test.ts",
+				"test:vite": "playwright test -c __tests__/config/playwright.vite.config.js",
+				"test:integration": "node --test __tests__/unit/index.test.cjs"
+			},
+			"_npmUser": {
+				"name": "austinserb",
+				"email": "owner@serbyte.net"
+			},
+			"repository": {
+				"url": "git+https://github.com/react-zero-ui/core.git",
+				"type": "git",
+				"directory": "packages/core"
+			},
+			"_npmVersion": "10.8.2",
+			"description": "Zero re-render, global UI state management for React",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "20.16.0",
+			"dependencies": {
+				"fast-glob": "^3.3.3",
+				"lru-cache": "^11.1.0",
+				"@babel/types": "^7.28.0",
+				"@babel/parser": "^7.28.0",
+				"@babel/traverse": "^7.28.0",
+				"@babel/generator": "^7.28.0",
+				"@babel/code-frame": "^7.27.1"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsx": "^4.20.3",
+				"@types/react": "^19.1.8",
+				"@playwright/test": "^1.54.0",
+				"@types/babel__traverse": "^7.20.7",
+				"@types/babel__generator": "^7.27.0",
+				"@types/babel__code-frame": "^7.0.6"
+			},
+			"peerDependencies": {
+				"react": ">=16.8.0",
+				"postcss": "^8.5.5",
+				"tailwindcss": "^4.1.10",
+				"@tailwindcss/postcss": "^4.1.10"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/core_0.2.4_1752220300504_0.08217065894789388",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.2.5": {
+			"name": "@react-zero-ui/core",
+			"version": "0.2.5",
+			"keywords": [
+				"react",
+				"ui",
+				"state",
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"zero-config",
+				"react-zero-ui",
+				"postcss-react-zero-ui",
+				"pre-rendering",
+				"no-rerender",
+				"zero-ui"
+			],
+			"author": {
+				"name": "Austinserb",
+				"email": "serbaustin@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "@react-zero-ui/core@0.2.5",
+			"maintainers": [
+				{
+					"name": "austinserb",
+					"email": "owner@serbyte.net"
+				}
+			],
+			"homepage": "https://github.com/react-zero-ui/core#readme",
+			"bugs": {
+				"url": "https://github.com/react-zero-ui/core/issues"
+			},
+			"dist": {
+				"shasum": "35dd5146157b17643c03afc093d28ac5459ae88d",
+				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.2.5.tgz",
+				"fileCount": 27,
+				"integrity": "sha512-CnPQb3+0JceshLPaOsUToPtvKYwRYqnXm/ilmCgOC2uWwocvaSjLOynlvU7rocL+mr45lGuBkJhluR2pFgq85w==",
+				"signatures": [
+					{
+						"sig": "MEYCIQDutbaNeDDZm/pirakZcnC6c9NCvkSkYzqhxEJkrCa6MAIhAPqBuhzb9XmyE6678G9ZR25YFbBIWUJQ/Ja7sQwriRZ2",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 89745
+			},
+			"main": "./dist/index.js",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.js",
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js"
+				},
+				"./cli": {
+					"types": "./dist/cli/init.d.ts",
+					"import": "./dist/cli/init.cjs",
+					"require": "./dist/cli/init.cjs"
+				},
+				"./vite": {
+					"types": "./dist/postcss/vite.d.ts",
+					"import": "./dist/postcss/vite.js"
+				},
+				"./postcss": {
+					"types": "./dist/postcss/index.d.ts",
+					"require": "./dist/postcss/index.cjs"
+				}
+			},
+			"gitHead": "93176d2c1fad541a6662eb26b88e9ef18d1d3202",
+			"private": false,
+			"scripts": {
+				"dev": "tsc -p tsconfig.json --watch",
+				"build": "tsc -p tsconfig.build.json",
+				"prepack": "pnpm run build",
+				"test:all": "pnpm run test:vite && pnpm run test:next && pnpm run test:unit && pnpm run test:cli && pnpm run test:integration",
+				"test:cli": "node --test __tests__/unit/cli.test.cjs",
+				"test:next": "playwright test -c __tests__/config/playwright.next.config.js",
+				"test:unit": "tsx --test src/**/*.test.ts",
+				"test:vite": "playwright test -c __tests__/config/playwright.vite.config.js",
+				"test:integration": "node --test __tests__/unit/index.test.cjs"
+			},
+			"_npmUser": {
+				"name": "austinserb",
+				"email": "owner@serbyte.net"
+			},
+			"repository": {
+				"url": "git+https://github.com/react-zero-ui/core.git",
+				"type": "git",
+				"directory": "packages/core"
+			},
+			"_npmVersion": "10.8.2",
+			"description": "Zero re-render, global UI state management for React",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "20.16.0",
+			"dependencies": {
+				"fast-glob": "^3.3.3",
+				"lru-cache": "^11.1.0",
+				"@babel/types": "^7.28.0",
+				"@babel/parser": "^7.28.0",
+				"@babel/traverse": "^7.28.0",
+				"@babel/generator": "^7.28.0",
+				"@babel/code-frame": "^7.27.1"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsx": "^4.20.3",
+				"@types/react": "^19.1.8",
+				"@playwright/test": "^1.54.0",
+				"@types/babel__traverse": "^7.20.7",
+				"@types/babel__generator": "^7.27.0",
+				"@types/babel__code-frame": "^7.0.6"
+			},
+			"peerDependencies": {
+				"react": ">=16.8.0",
+				"postcss": "^8.5.5",
+				"tailwindcss": "^4.1.10",
+				"@tailwindcss/postcss": "^4.1.10"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/core_0.2.5_1753134549924_0.4244370780712483",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.2.6": {
+			"name": "@react-zero-ui/core",
+			"version": "0.2.6",
 			"description": "Zero re-render, global UI state management for React",
 			"private": false,
 			"type": "module",
@@ -621,20 +877,20 @@
 				"@types/react": "^19.1.8",
 				"tsx": "^4.20.3"
 			},
-			"_id": "@react-zero-ui/core@0.2.4",
+			"_id": "@react-zero-ui/core@0.2.6",
 			"gitHead": "47a835d9516e4d2386ef59a905ffcdffae4c560e",
 			"_nodeVersion": "20.16.0",
 			"_npmVersion": "10.8.2",
 			"dist": {
-				"integrity": "sha512-z61smTK7tR71ckHhksQMuRTaK0fBSzE1KUOs9nGgSUY4dVpvjiVOpelzjz4bxj7qYB4etA5hFg6wDb97TaDkYA==",
-				"shasum": "4b79c83b3f649ff55ea7b742c3e7ba2811202fd3",
-				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.2.4.tgz",
+				"integrity": "sha512-juxFvQZDt5tOo8roz6ElQPtjCsJlHAwEGtfV8bt9iphT2OXVLLCUSkJg6xOkVii46xz57ssaggi4Lt/VxY8Lkw==",
+				"shasum": "394ab2c7e728798f9de0f106e03496a8bbe51706",
+				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.2.6.tgz",
 				"fileCount": 27,
 				"unpackedSize": 89787,
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEUCIHTqayWeEJtrqnKaLMizZX0hZQtxNDADDfGTQ7i3J/DEAiEA8jdemCikUfk5hUjdYCheWfHUlsR8G05CdYh3ft7mU1U="
+						"sig": "MEQCICSx0g3rfHjJPpMVdBRTE0LOLUIXPWsZrFtipNbRCF7xAiBlwCpoIMX+sotMo+nM72dotwu2t0f1FPHe7gDEbmZoew=="
 					}
 				]
 			},
@@ -651,19 +907,21 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/core_0.2.4_1752220300504_0.08217065894789388"
+				"tmp": "tmp/core_0.2.6_1753136905381_0.7929591709456414"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2025-06-25T17:45:40.422Z",
-		"modified": "2025-07-11T07:51:40.891Z",
+		"modified": "2025-07-21T22:28:25.783Z",
 		"0.1.0": "2025-06-25T17:45:40.723Z",
 		"0.2.0": "2025-07-08T23:24:22.661Z",
 		"0.2.2": "2025-07-08T23:49:52.715Z",
 		"0.2.3": "2025-07-09T00:47:45.148Z",
-		"0.2.4": "2025-07-11T07:51:40.691Z"
+		"0.2.4": "2025-07-11T07:51:40.691Z",
+		"0.2.5": "2025-07-21T21:49:10.148Z",
+		"0.2.6": "2025-07-21T22:28:25.579Z"
 	},
 	"bugs": {
 		"url": "https://github.com/react-zero-ui/core/issues"
