@@ -124,5 +124,5 @@
 	"license": "MIT",
 	"readme": "# postcss-webfontloader\n\nProvides fallbacks for loading fonts with [webfontloader][].\n\n## Setup\n\n```sh\nyarn add postcss-webfontloader\n```\n\n```js\n// postcss.config.js\nmodule.exports = {\n  plugins: {\n    'postcss-webfontloader': {\n      modules: false,\n      families: [\n        'Lora',\n      ],\n    },\n  },\n}\n```\n\n## Basic usage\n\n### Input\n\n```css\n/* base.css */\nbody {\n  font-family: Lora, Georgia, serif;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: \"Helvetica Neue\", Helvetica, sans-serif;\n}\n```\n\n### Output\n\n```css\n/* base.css */\nbody {\n  font-family: Georgia, serif;\n}\n.wf-active body {\n  font-family: Lora, Georgia, serif;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: \"Helvetica Neue\", Helvetica, sans-serif;\n}\n```\n\n### Output for CSS Modules\n\nIf you're using CSS Modules, set `modules` to `true` to get the following output:\n\n```css\n/* base.css */\nbody {\n  font-family: Georgia, serif;\n}\n:global(.wf-active) body {\n  font-family: Lora, Georgia, serif;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: \"Helvetica Neue\", Helvetica, sans-serif;\n}\n```\n\n[webfontloader]: https://github.com/typekit/webfontloader\n",
 	"readmeFilename": "readme.md",
-	"_downloads": 10
+	"_downloads": 7
 }
