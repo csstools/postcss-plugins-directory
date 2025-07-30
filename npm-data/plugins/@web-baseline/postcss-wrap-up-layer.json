@@ -1,9 +1,9 @@
 {
 	"_id": "@web-baseline/postcss-wrap-up-layer",
-	"_rev": "1-e148f613c1659f7b9f54023b4f887a24",
+	"_rev": "3-8653b29a64f38a1154daaae8957ccb4e",
 	"name": "@web-baseline/postcss-wrap-up-layer",
 	"dist-tags": {
-		"latest": "0.2.0"
+		"latest": "0.3.0"
 	},
 	"versions": {
 		"0.1.0": {
@@ -105,6 +105,109 @@
 		"0.2.0": {
 			"name": "@web-baseline/postcss-wrap-up-layer",
 			"version": "0.2.0",
+			"keywords": [
+				"postcss",
+				"css",
+				"css cascade layer",
+				"postcss-plugin"
+			],
+			"author": {
+				"url": "https://github.com/TM-SunnyDay/",
+				"name": "TM-SunnyDay",
+				"email": "sunnyday@chongying.studio"
+			},
+			"license": "MIT",
+			"_id": "@web-baseline/postcss-wrap-up-layer@0.2.0",
+			"maintainers": [
+				{
+					"name": "sunnyday_qt",
+					"email": "1581272410@qq.com"
+				}
+			],
+			"homepage": "https://github.com/web-baseline/postcss-wrap-up-layer#readme",
+			"bugs": {
+				"url": "https://github.com/web-baseline/postcss-wrap-up-layer/issues"
+			},
+			"dist": {
+				"shasum": "9db37442302091e18e8259771c03d97563a54f19",
+				"tarball": "https://registry.npmjs.org/@web-baseline/postcss-wrap-up-layer/-/postcss-wrap-up-layer-0.2.0.tgz",
+				"fileCount": 16,
+				"integrity": "sha512-7gUpYzrFb5DLAMMmnDTCTSAZb/5GQdvFCtCGEsC50A2+jHFomScK2Sj7Z/QkWPb8pbuQAs87A+TNCgiPl4G+HA==",
+				"signatures": [
+					{
+						"sig": "MEUCIQDCt7AAEFtMnry43MeEm9/Soz0rAB05kYIZHiGKQ2y0zwIgZ7qZdqvIqKGLS8b5wLAxLuuZZY1peBpOTAsPk25tyZ4=",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 17879
+			},
+			"main": "./dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.mjs",
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs"
+				},
+				"./transform": {
+					"types": "./dist/transform.d.ts",
+					"import": "./dist/transform.mjs",
+					"require": "./dist/transform.cjs"
+				}
+			},
+			"gitHead": "34e0fab3993df2d91aa7244d6a56b6448882fe83",
+			"scripts": {
+				"test": "vitest",
+				"build": "unbuild"
+			},
+			"_npmUser": {
+				"name": "sunnyday_qt",
+				"email": "1581272410@qq.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/web-baseline/postcss-wrap-up-layer.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.7.0",
+			"description": "PostCSS plugin to add cascade layers to CSS",
+			"directories": {},
+			"_nodeVersion": "20.14.0",
+			"publishConfig": {
+				"access": "public"
+			},
+			"_hasShrinkwrap": false,
+			"packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
+			"devDependencies": {
+				"eslint": "^8.47.0",
+				"vitest": "^2.1.8",
+				"postcss": "^8.4.27",
+				"unbuild": "^2.0.0",
+				"prettier": "^3.4.2",
+				"@vitest/ui": "^2.1.8",
+				"typescript": "^5.4.5",
+				"@types/node": "^20.12.12",
+				"postcss-sorting": "^9.1.0",
+				"typescript-eslint": "^7.10.0",
+				"@vitest/coverage-v8": "^2.1.8",
+				"@rushstack/eslint-patch": "^1.10.3",
+				"@stylistic/eslint-plugin": "^2.1.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.27"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-wrap-up-layer_0.2.0_1736834118443_0.662719386736865",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.3.0": {
+			"name": "@web-baseline/postcss-wrap-up-layer",
+			"version": "0.3.0",
 			"description": "PostCSS plugin to add cascade layers to CSS",
 			"type": "module",
 			"main": "./dist/index.cjs",
@@ -132,8 +235,9 @@
 				"postcss-plugin"
 			],
 			"scripts": {
-				"build": "unbuild",
-				"test": "vitest"
+				"type-check": "tsc --noEmit --project tsconfig.vitest.json",
+				"build": "npm run type-check && unbuild",
+				"test": "npm run type-check && vitest"
 			},
 			"license": "MIT",
 			"author": {
@@ -152,39 +256,43 @@
 				"postcss": "^8.4.27"
 			},
 			"devDependencies": {
-				"@rushstack/eslint-patch": "^1.10.3",
-				"@stylistic/eslint-plugin": "^2.1.0",
-				"@types/node": "^20.12.12",
-				"@vitest/coverage-v8": "^2.1.8",
-				"@vitest/ui": "^2.1.8",
-				"eslint": "^8.47.0",
+				"@eslint/compat": "^1.3.1",
+				"@eslint/css": "^0.10.0",
+				"@eslint/js": "^9.31.0",
+				"@eslint/markdown": "^7.0.0",
+				"@stylistic/eslint-plugin": "^5.2.0",
+				"@tsconfig/node22": "^22.0.2",
+				"@types/node": "^24.0.14",
+				"@vitest/coverage-v8": "^3.2.4",
+				"@vitest/ui": "^3.2.4",
+				"eslint": "^9.31.0",
+				"globals": "^16.3.0",
 				"postcss": "^8.4.27",
-				"postcss-sorting": "^9.1.0",
-				"prettier": "^3.4.2",
-				"typescript": "^5.4.5",
-				"typescript-eslint": "^7.10.0",
-				"unbuild": "^2.0.0",
-				"vitest": "^2.1.8"
+				"prettier": "^3.6.2",
+				"typescript": "^5.8.3",
+				"typescript-eslint": "^8.37.0",
+				"unbuild": "^3.6.0",
+				"vitest": "^3.2.4"
 			},
-			"packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
-			"_id": "@web-baseline/postcss-wrap-up-layer@0.2.0",
-			"gitHead": "34e0fab3993df2d91aa7244d6a56b6448882fe83",
+			"packageManager": "pnpm@10.12.1",
+			"_id": "@web-baseline/postcss-wrap-up-layer@0.3.0",
+			"gitHead": "f786486a96df1accf26ca7ce700c125693cea77d",
 			"bugs": {
 				"url": "https://github.com/web-baseline/postcss-wrap-up-layer/issues"
 			},
 			"homepage": "https://github.com/web-baseline/postcss-wrap-up-layer#readme",
-			"_nodeVersion": "20.14.0",
-			"_npmVersion": "10.7.0",
+			"_nodeVersion": "22.16.0",
+			"_npmVersion": "10.9.2",
 			"dist": {
-				"integrity": "sha512-7gUpYzrFb5DLAMMmnDTCTSAZb/5GQdvFCtCGEsC50A2+jHFomScK2Sj7Z/QkWPb8pbuQAs87A+TNCgiPl4G+HA==",
-				"shasum": "9db37442302091e18e8259771c03d97563a54f19",
-				"tarball": "https://registry.npmjs.org/@web-baseline/postcss-wrap-up-layer/-/postcss-wrap-up-layer-0.2.0.tgz",
-				"fileCount": 16,
-				"unpackedSize": 17879,
+				"integrity": "sha512-doKu/SG4JhrzH5eWY/PhYU77RM08mJVt27JwOaOoo7tIaT77oRBJ3yV1OZRc6+1UZUuDfylJrjcZjt5owZjENQ==",
+				"shasum": "fa2b8df2d85e0d650e26d9a2540809b3961a5df7",
+				"tarball": "https://registry.npmjs.org/@web-baseline/postcss-wrap-up-layer/-/postcss-wrap-up-layer-0.3.0.tgz",
+				"fileCount": 17,
+				"unpackedSize": 36037,
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEUCIQDCt7AAEFtMnry43MeEm9/Soz0rAB05kYIZHiGKQ2y0zwIgZ7qZdqvIqKGLS8b5wLAxLuuZZY1peBpOTAsPk25tyZ4="
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEYCIQDMxwTzsmX37soxJz3XALm6ANidxNw0isSgwZltlnlZeQIhALIb7qYlrZmiT5oyqs5XMbc/tPmQsgh2SZujy4HGglOC"
 					}
 				]
 			},
@@ -201,16 +309,17 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-wrap-up-layer_0.2.0_1736834118443_0.662719386736865"
+				"tmp": "tmp/postcss-wrap-up-layer_0.3.0_1753779200127_0.8465768369704372"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2024-05-28T07:36:43.677Z",
-		"modified": "2025-01-14T05:55:18.845Z",
+		"modified": "2025-07-29T08:53:20.502Z",
 		"0.1.0": "2024-05-28T07:36:43.948Z",
-		"0.2.0": "2025-01-14T05:55:18.627Z"
+		"0.2.0": "2025-01-14T05:55:18.627Z",
+		"0.3.0": "2025-07-29T08:53:20.313Z"
 	},
 	"bugs": {
 		"url": "https://github.com/web-baseline/postcss-wrap-up-layer/issues"
@@ -239,7 +348,7 @@
 			"email": "1581272410@qq.com"
 		}
 	],
-	"readme": "# Wrap up layer (@web-baseline/postcss-wrap-up-layer)\n\n[![License](https://img.shields.io/github/license/web-baseline/postcss-wrap-up-layer)](https://github.com/web-baseline/postcss-wrap-up-layer/blob/main/LICENSE)\n[![Typescript](https://img.shields.io/npm/types/@web-baseline/postcss-wrap-up-layer)](https://www.typescriptlang.org/)\n[![NPM Download](https://img.shields.io/npm/dw/@web-baseline/postcss-wrap-up-layer)](https://www.npmjs.com/package/@web-baseline/postcss-wrap-up-layer)\n[![GitHub star](https://img.shields.io/github/stars/web-baseline/postcss-wrap-up-layer?style=social)](https://github.com/web-baseline/postcss-wrap-up-layer)\n\n\n_✨ 为 CSS 文件添加级联层 ✨_\n\n\n[English](./README.md) | **简体中文**\n\n\n```shell\nnpm install @web-baseline/postcss-wrap-up-layer\n```\n\n\n## 特性\n\n为 CSS 文件添加 [级联层](https://developer.mozilla.org/docs/Web/CSS/@layer)，通常用于在 Web 开发中处理自动导入的组件库样式。允许通过规则为不同的库添加不同的级联层，方便管理样式优先级。\n\n每个文件仅会按照 **首个匹配的规则** 进行处理，当前一条规则的匹配范围包含后面的规则时，后面的规则将**不会**生效。\n\n\n### 示例\n\n```ts\nimport WrapUpLayer from '@web-baseline/postcss-wrap-up-layer';\n\nWrapUpLayer({\n  rules: [\n    {\n      /** 这条规则会生效 */\n      includes: /^node_modules\\/lib-name/,\n      layerName: 'lib.lib-name',\n    },\n    {\n      includes: /^node_modules\\//,\n      layerName: 'lib',\n    },\n    {\n      /** 这条规则不会生效，因为上一条规则的范围包含了这条规则 */\n      includes: /^node_modules\\/other-lib/,\n      layerName: 'lib.other-lib',\n    },\n    {\n      includes: (file) => file.startsWith('src/assets/base'),\n      layerName: 'base',\n    },\n  ],\n});\n```\n\n```css\n/** 输入文件: `node_modules/lib-name/index.css` */\n/* <element class=\"component\"> style */\n.component {\n  height: 4rem;\n}\n\n/** 输出: */\n@layer lib.lib-name {\n  /* <element class=\"component\"> style */\n  .component {\n    height: 4rem;\n  }\n}\n```\n\n```css\n/** 输入文件: `node_modules/other-lib/index.css` */\n/* <p> style */\np {\n  margin-bottom: 0.2em;\n}\n\n/** 输出: */\n@layer lib {\n  /* <p> style */\n  p {\n    margin-bottom: 0.2em;\n  }\n}\n```\n\n```css\n/** 输入文件: `src/assets/base-normalize.css` */\n@layer normalize {\n  /* <body> style */\n  body {\n    margin: 0;\n  }\n}\n\n/** 输出: */\n@layer base {\n  @layer normalize {\n    /* <body> style */\n    body {\n      margin: 0;\n    }\n  }\n}\n```\n\n## 选项类型\n\n```ts\nexport type RuleItem = {\n  includes: RegExp | ((path: string, input: import('postcss').Input) => boolean);\n  layerName: string;\n};\n\nexport type PluginOptions = {\n  rules: RuleItem[];\n  /** 如果设置为true，将会忽略仅包含注释的文件 */\n  ignoreOnlyComments?: boolean;\n};\n```\n",
+	"readme": "# Wrap up layer (@web-baseline/postcss-wrap-up-layer)\n\n[![License](https://img.shields.io/github/license/web-baseline/postcss-wrap-up-layer)](https://github.com/web-baseline/postcss-wrap-up-layer/blob/main/LICENSE)\n[![Typescript](https://img.shields.io/npm/types/@web-baseline/postcss-wrap-up-layer)](https://www.typescriptlang.org/)\n[![codecov](https://codecov.io/gh/web-baseline/postcss-wrap-up-layer/branch/main/badge.svg)](https://codecov.io/gh/web-baseline/postcss-wrap-up-layer)\n[![NPM Download](https://img.shields.io/npm/dw/@web-baseline/postcss-wrap-up-layer)](https://www.npmjs.com/package/@web-baseline/postcss-wrap-up-layer)\n[![GitHub star](https://img.shields.io/github/stars/web-baseline/postcss-wrap-up-layer?style=social)](https://github.com/web-baseline/postcss-wrap-up-layer)\n\n\n_✨ 为 CSS 文件添加级联层 ✨_\n\n\n[English](./README.md) | **简体中文**\n\n\n```shell\nnpm install @web-baseline/postcss-wrap-up-layer\n```\n\n\n## 特性\n\n为 CSS 文件添加 [级联层](https://developer.mozilla.org/docs/Web/CSS/@layer)，通常用于在 Web 开发中处理自动导入的组件库样式。允许通过规则为不同的库添加不同的级联层，方便管理样式优先级。\n\n每个文件仅会按照 **首个匹配的规则** 进行处理，当前一条规则的匹配范围包含后面的规则时，后面的规则将**不会**生效。\n\n\n### 示例\n\n#### 使用过滤规则 (Filter Rules)\n\n```ts\nimport WrapUpLayer from '@web-baseline/postcss-wrap-up-layer';\n\nWrapUpLayer({\n  rules: [\n    {\n      /** 这条规则会生效 */\n      includes: /^node_modules\\/lib-name/,\n      layerName: 'lib.lib-name',\n    },\n    {\n      includes: /^node_modules\\//,\n      layerName: 'lib',\n    },\n    {\n      /** 这条规则不会生效，因为上一条规则的范围包含了这条规则 */\n      includes: /^node_modules\\/other-lib/,\n      layerName: 'lib.other-lib',\n    },\n    {\n      includes: (file) => file.startsWith('src/assets/base'),\n      layerName: 'base',\n    },\n  ],\n});\n```\n\n#### 使用映射规则 (Map Rules)\n\n```ts\nimport WrapUpLayer from '@web-baseline/postcss-wrap-up-layer';\n\nWrapUpLayer({\n  rules: [\n    {\n      map: (path, input) => {\n        // 动态决定层名\n        if (path.startsWith('node_modules/')) {\n          const match = path.match(/node_modules\\/([^\\/]+)/);\n          return match ? `lib.${match[1]}` : 'lib';\n        }\n        if (path.startsWith('src/components/')) {\n          return 'components';\n        }\n        if (path.startsWith('src/')) {\n          return 'app';\n        }\n        // 返回 false 表示不处理此文件\n        return false;\n      },\n    },\n  ],\n});\n```\n\n#### 使用转换选项 (Transform Options)\n\n```ts\nimport WrapUpLayer from '@web-baseline/postcss-wrap-up-layer';\n\nWrapUpLayer({\n  rules: [\n    {\n      includes: /^node_modules\\//,\n      layerName: 'lib',\n      // 规则级别的转换选项\n      transformOptions: {\n        outsideAtRules: ['import'], // @import 规则将保持在 @layer 外面\n      },\n    },\n  ],\n  // 全局转换选项\n  transformOptions: {\n    outsideAtRules: ['charset', 'namespace'], // 默认已包含这些\n  },\n});\n```\n\n#### 映射规则返回对象\n\n```ts\nimport WrapUpLayer from '@web-baseline/postcss-wrap-up-layer';\n\nWrapUpLayer({\n  rules: [\n    {\n      map: (path, input) => {\n        if (path.startsWith('src/pages/')) {\n          return {\n            layerName: 'pages',\n            transformOptions: {\n              outsideAtRules: ['import'], // 为特定文件配置转换选项\n            },\n          };\n        }\n        return false;\n      },\n    },\n  ],\n});\n```\n\n```css\n/** 输入文件: `node_modules/lib-name/index.css` */\n/* <element class=\"component\"> style */\n.component {\n  height: 4rem;\n}\n\n/** 输出: */\n@layer lib.lib-name {\n  /* <element class=\"component\"> style */\n  .component {\n    height: 4rem;\n  }\n}\n```\n\n```css\n/** 输入文件: `node_modules/other-lib/index.css` */\n/* <p> style */\np {\n  margin-bottom: 0.2em;\n}\n\n/** 输出: */\n@layer lib {\n  /* <p> style */\n  p {\n    margin-bottom: 0.2em;\n  }\n}\n```\n\n```css\n/** 输入文件: `src/assets/base-normalize.css` */\n@layer normalize {\n  /* <body> style */\n  body {\n    margin: 0;\n  }\n}\n\n/** 输出: */\n@layer base {\n  @layer normalize {\n    /* <body> style */\n    body {\n      margin: 0;\n    }\n  }\n}\n```\n\n#### 转换选项示例输出\n\n插件对 `@import` 规则有特殊的处理逻辑：\n\n1. **当 `@import` 在 `outsideAtRules` 中时**：`@import` 规则保持在 `@layer` 外面，不做任何修改\n2. **当 `@import` 不在 `outsideAtRules` 中时**：插件会尝试为 `@import` 规则添加 `layer()` 函数\n3. **当 `@import` 已存在 `layer()` 函数时**：插件会将现有的层名作为子层，包装在当前规则的层名下（如 `layer(base)` 变为 `layer(pages.base)`）\n\n```css\n/** 输入文件: `src/pages/index.css` (配置了 outsideAtRules: ['import']) */\n@import \"common.css\";\n.page {\n  padding: 1rem;\n}\n\n/** 输出: */\n@import \"common.css\";\n@layer pages {\n  .page {\n    padding: 1rem;\n  }\n}\n```\n\n```css\n/** 输入文件: `src/pages/about.css` (默认处理 @import) */\n@import \"reset.css\";\n.about {\n  margin: 0;\n}\n\n/** 输出: */\n@import \"reset.css\" layer(pages);\n@layer pages {\n  .about {\n    margin: 0;\n  }\n}\n```\n\n```css\n/** 输入文件: `src/pages/contact.css` (已存在 layer 函数) */\n@import \"base.css\" layer(base);\n.contact {\n  background: white;\n}\n\n/** 输出: */\n@import \"base.css\" layer(pages.base);\n@layer pages {\n  .contact {\n    background: white;\n  }\n}\n```\n\n## 选项类型\n\n```ts\n// 过滤规则：基于文件路径匹配\nexport interface FilterRuleItem {\n  includes: RegExp | ((path: string, input: import('postcss').Input) => boolean);\n  layerName: string;\n  transformOptions?: TransformOptions;\n}\n\n// 映射规则：动态生成层名\nexport interface MapRuleItem {\n  map: (path: string, input: import('postcss').Input) =>\n    string | boolean | { layerName: string; transformOptions?: TransformOptions };\n}\n\nexport type RuleItem = FilterRuleItem | MapRuleItem;\n\nexport interface TransformOptions {\n  /** 指定哪些 @规则 应该保持在 @layer 外面 */\n  outsideAtRules?: string[];\n}\n\nexport type PluginOptions = {\n  rules: RuleItem[];\n  /** 如果设置为true，将会忽略仅包含注释的文件 */\n  ignoreOnlyComments?: boolean;\n  /** 全局转换选项 */\n  transformOptions?: TransformOptions;\n};\n```\n\n### 规则类型说明\n\n- **过滤规则 (FilterRuleItem)**: 使用 `includes` 属性来匹配文件路径，匹配成功则应用指定的 `layerName`\n- **映射规则 (MapRuleItem)**: 使用 `map` 函数动态决定层名，可以返回：\n  - `string`: 层名\n  - `boolean`: `false` 表示不处理该文件\n  - `object`: 包含 `layerName` 和可选的 `transformOptions`\n\n### 转换选项说明\n\n`transformOptions` 可以在以下地方配置：\n1. **全局级别**: 在 `PluginOptions.transformOptions` 中\n2. **规则级别**: 在 `FilterRuleItem.transformOptions` 中\n3. **映射返回**: 在 `MapRuleItem.map` 返回的对象中\n\n**选项优先级与合并规则：**\n- 规则级别的选项优先级高于全局选项\n- 仅自动合并第一层选项对象，嵌套的数组或对象不会自动合并\n  - `outsideAtRules` 数组不会合并，规则级别的配置将完全替换全局配置\n- 如果需要嵌套处理（如合并数组），可以通过多次创建插件来实现\n\n#### 嵌套处理示例\n\n```ts\nimport WrapUpLayer from '@web-baseline/postcss-wrap-up-layer';\n\n// 第一个处理插件实例\nconst specificPlugin = WrapUpLayer({\n  rules: [\n    {\n      map: (path: string) => {\n        const g = /^node_modules[\\\\/](?:@([^\\\\/]+)[\\\\/])?([^\\\\/]+)[\\\\/]/.exec(path);\n        return g ? (g[1] ? g[1] : g[2]) : false;\n      },\n    },\n  ],\n});\n\n// 第二个处理插件实例：为整个 node_modules 添加 lib 层\nconst globalPlugin = WrapUpLayer({\n  rules: [\n    {\n      includes: /^node_modules\\//,\n      layerName: 'lib',\n    },\n  ],\n});\n\n// 在 PostCSS 配置中使用多个插件实例\nexport default {\n  plugins: [\n    specificPlugin,\n    globalPlugin,\n  ],\n};\n```\n\n\n```css\n/** 输入文件内容 */\n@import 'common.css';\na { width: 100%; }\n\n/** 当文件为 `node_modules/test-lib/index.css` 时，输出： */\n@import 'common.css' layer(lib.test-lib);\n@layer lib { @layer test-lib { a { width: 100%; } } }\n\n/** 当文件为 `node_modules/@scoped/test-lib/index.css` 时，输出： */\n@import 'common.css' layer(lib.scoped);\n@layer lib { @layer scoped { a { width: 100%; } } }\n\n/** 当文件为 `node_modules/index.css` 时，输出： */\n@import 'common.css' layer(lib);\n@layer lib { a { width: 100%; } }\n```\n\n\n#### 默认的 outsideAtRules\n\n默认情况下，以下 @规则 会保持在 @layer 外面：\n- `charset`\n- `namespace`\n- `property`\n- `font-face`\n- `keyframes`\n\n可以通过 `transformOptions.outsideAtRules` 添加更多规则（如 `import`）。\n",
 	"readmeFilename": "README.zh-CN.md",
-	"_downloads": 35651
+	"_downloads": 28215
 }
