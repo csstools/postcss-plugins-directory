@@ -1,9 +1,9 @@
 {
 	"_id": "@react-zero-ui/core",
-	"_rev": "7-11810d963df8ee67a32ecf528479a6fc",
+	"_rev": "11-797c49e5e9a26e58231f7c4cf8b558d8",
 	"name": "@react-zero-ui/core",
 	"dist-tags": {
-		"latest": "0.2.6"
+		"latest": "0.3.1"
 	},
 	"versions": {
 		"0.1.0": {
@@ -786,43 +786,6 @@
 		"0.2.6": {
 			"name": "@react-zero-ui/core",
 			"version": "0.2.6",
-			"description": "Zero re-render, global UI state management for React",
-			"private": false,
-			"type": "module",
-			"main": "./dist/index.js",
-			"module": "./dist/index.js",
-			"types": "./dist/index.d.ts",
-			"sideEffects": false,
-			"exports": {
-				".": {
-					"types": "./dist/index.d.ts",
-					"import": "./dist/index.js"
-				},
-				"./postcss": {
-					"types": "./dist/postcss/index.d.ts",
-					"require": "./dist/postcss/index.cjs"
-				},
-				"./vite": {
-					"types": "./dist/postcss/vite.d.ts",
-					"import": "./dist/postcss/vite.js"
-				},
-				"./cli": {
-					"types": "./dist/cli/init.d.ts",
-					"require": "./dist/cli/init.cjs",
-					"import": "./dist/cli/init.cjs"
-				}
-			},
-			"scripts": {
-				"prepack": "pnpm run build",
-				"build": "tsc -p tsconfig.build.json",
-				"dev": "tsc -p tsconfig.json --watch",
-				"test:next": "playwright test -c __tests__/config/playwright.next.config.js",
-				"test:vite": "playwright test -c __tests__/config/playwright.vite.config.js",
-				"test:integration": "node --test __tests__/unit/index.test.cjs",
-				"test:cli": "node --test __tests__/unit/cli.test.cjs",
-				"test:all": "pnpm run test:vite && pnpm run test:next && pnpm run test:unit && pnpm run test:cli && pnpm run test:integration",
-				"test:unit": "tsx --test src/**/*.test.ts"
-			},
 			"keywords": [
 				"react",
 				"ui",
@@ -842,86 +805,512 @@
 				"email": "serbaustin@gmail.com"
 			},
 			"license": "MIT",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/react-zero-ui/core.git",
-				"directory": "packages/core"
-			},
-			"bugs": {
-				"url": "https://github.com/react-zero-ui/core/issues"
-			},
-			"homepage": "https://github.com/react-zero-ui/core#readme",
-			"engines": {
-				"node": ">=18.0.0"
-			},
-			"peerDependencies": {
-				"@tailwindcss/postcss": "^4.1.10",
-				"postcss": "^8.5.5",
-				"react": ">=16.8.0",
-				"tailwindcss": "^4.1.10"
-			},
-			"dependencies": {
-				"@babel/generator": "^7.28.0",
-				"@babel/parser": "^7.28.0",
-				"@babel/traverse": "^7.28.0",
-				"@babel/types": "^7.28.0",
-				"fast-glob": "^3.3.3",
-				"@babel/code-frame": "^7.27.1",
-				"lru-cache": "^11.1.0"
-			},
-			"devDependencies": {
-				"@playwright/test": "^1.54.0",
-				"@types/babel__code-frame": "^7.0.6",
-				"@types/babel__generator": "^7.27.0",
-				"@types/babel__traverse": "^7.20.7",
-				"@types/react": "^19.1.8",
-				"tsx": "^4.20.3"
-			},
 			"_id": "@react-zero-ui/core@0.2.6",
-			"gitHead": "47a835d9516e4d2386ef59a905ffcdffae4c560e",
-			"_nodeVersion": "20.16.0",
-			"_npmVersion": "10.8.2",
-			"dist": {
-				"integrity": "sha512-juxFvQZDt5tOo8roz6ElQPtjCsJlHAwEGtfV8bt9iphT2OXVLLCUSkJg6xOkVii46xz57ssaggi4Lt/VxY8Lkw==",
-				"shasum": "394ab2c7e728798f9de0f106e03496a8bbe51706",
-				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.2.6.tgz",
-				"fileCount": 27,
-				"unpackedSize": 89787,
-				"signatures": [
-					{
-						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEQCICSx0g3rfHjJPpMVdBRTE0LOLUIXPWsZrFtipNbRCF7xAiBlwCpoIMX+sotMo+nM72dotwu2t0f1FPHe7gDEbmZoew=="
-					}
-				]
-			},
-			"_npmUser": {
-				"name": "austinserb",
-				"email": "owner@serbyte.net"
-			},
-			"directories": {},
 			"maintainers": [
 				{
 					"name": "austinserb",
 					"email": "owner@serbyte.net"
 				}
 			],
-			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/core_0.2.6_1753136905381_0.7929591709456414"
+			"homepage": "https://github.com/react-zero-ui/core#readme",
+			"bugs": {
+				"url": "https://github.com/react-zero-ui/core/issues"
 			},
-			"_hasShrinkwrap": false
+			"dist": {
+				"shasum": "394ab2c7e728798f9de0f106e03496a8bbe51706",
+				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.2.6.tgz",
+				"fileCount": 27,
+				"integrity": "sha512-juxFvQZDt5tOo8roz6ElQPtjCsJlHAwEGtfV8bt9iphT2OXVLLCUSkJg6xOkVii46xz57ssaggi4Lt/VxY8Lkw==",
+				"signatures": [
+					{
+						"sig": "MEQCICSx0g3rfHjJPpMVdBRTE0LOLUIXPWsZrFtipNbRCF7xAiBlwCpoIMX+sotMo+nM72dotwu2t0f1FPHe7gDEbmZoew==",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 89787
+			},
+			"main": "./dist/index.js",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.js",
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js"
+				},
+				"./cli": {
+					"types": "./dist/cli/init.d.ts",
+					"import": "./dist/cli/init.cjs",
+					"require": "./dist/cli/init.cjs"
+				},
+				"./vite": {
+					"types": "./dist/postcss/vite.d.ts",
+					"import": "./dist/postcss/vite.js"
+				},
+				"./postcss": {
+					"types": "./dist/postcss/index.d.ts",
+					"require": "./dist/postcss/index.cjs"
+				}
+			},
+			"gitHead": "47a835d9516e4d2386ef59a905ffcdffae4c560e",
+			"private": false,
+			"scripts": {
+				"dev": "tsc -p tsconfig.json --watch",
+				"build": "tsc -p tsconfig.build.json",
+				"prepack": "pnpm run build",
+				"test:all": "pnpm run test:vite && pnpm run test:next && pnpm run test:unit && pnpm run test:cli && pnpm run test:integration",
+				"test:cli": "node --test __tests__/unit/cli.test.cjs",
+				"test:next": "playwright test -c __tests__/config/playwright.next.config.js",
+				"test:unit": "tsx --test src/**/*.test.ts",
+				"test:vite": "playwright test -c __tests__/config/playwright.vite.config.js",
+				"test:integration": "node --test __tests__/unit/index.test.cjs"
+			},
+			"_npmUser": {
+				"name": "austinserb",
+				"email": "owner@serbyte.net"
+			},
+			"repository": {
+				"url": "git+https://github.com/react-zero-ui/core.git",
+				"type": "git",
+				"directory": "packages/core"
+			},
+			"_npmVersion": "10.8.2",
+			"description": "Zero re-render, global UI state management for React",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "20.16.0",
+			"dependencies": {
+				"fast-glob": "^3.3.3",
+				"lru-cache": "^11.1.0",
+				"@babel/types": "^7.28.0",
+				"@babel/parser": "^7.28.0",
+				"@babel/traverse": "^7.28.0",
+				"@babel/generator": "^7.28.0",
+				"@babel/code-frame": "^7.27.1"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsx": "^4.20.3",
+				"@types/react": "^19.1.8",
+				"@playwright/test": "^1.54.0",
+				"@types/babel__traverse": "^7.20.7",
+				"@types/babel__generator": "^7.27.0",
+				"@types/babel__code-frame": "^7.0.6"
+			},
+			"peerDependencies": {
+				"react": ">=16.8.0",
+				"postcss": "^8.5.5",
+				"tailwindcss": "^4.1.10",
+				"@tailwindcss/postcss": "^4.1.10"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/core_0.2.6_1753136905381_0.7929591709456414",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.2.7": {
+			"name": "@react-zero-ui/core",
+			"version": "0.2.7",
+			"keywords": [
+				"react",
+				"ui",
+				"state",
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"zero-config",
+				"react-zero-ui",
+				"postcss-react-zero-ui",
+				"pre-rendering",
+				"no-rerender",
+				"zero-ui"
+			],
+			"author": {
+				"name": "Austinserb",
+				"email": "serbaustin@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "@react-zero-ui/core@0.2.7",
+			"maintainers": [
+				{
+					"name": "austinserb",
+					"email": "owner@serbyte.net"
+				}
+			],
+			"homepage": "https://github.com/react-zero-ui/core#readme",
+			"bugs": {
+				"url": "https://github.com/react-zero-ui/core/issues"
+			},
+			"dist": {
+				"shasum": "f882dd11ebc7862be814b04d75180a504a6de368",
+				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.2.7.tgz",
+				"fileCount": 27,
+				"integrity": "sha512-LMu+Zm4VHiJOiLNbs5fhLUK0+RxpnlurjgA7D24LuXBDLuYd22cQKiYBUOidi92nmo9uq4s8hMz7TGiAqhcc3w==",
+				"signatures": [
+					{
+						"sig": "MEYCIQDrYzSXxWrUcAlpKJeVhNMT+gDiqFNz2ZyvuDfGdezPYgIhAKQ9mdhV5s8zsCpm1gCHUyL7vY12iBRi7nr7sK/CpYfr",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 90164
+			},
+			"main": "./dist/index.js",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.js",
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js"
+				},
+				"./cli": {
+					"types": "./dist/cli/init.d.ts",
+					"import": "./dist/cli/init.cjs",
+					"require": "./dist/cli/init.cjs"
+				},
+				"./vite": {
+					"types": "./dist/postcss/vite.d.ts",
+					"import": "./dist/postcss/vite.js"
+				},
+				"./postcss": {
+					"types": "./dist/postcss/index.d.ts",
+					"require": "./dist/postcss/index.cjs"
+				}
+			},
+			"gitHead": "8fdd63d1454e41b837672ad95f3a93876844608d",
+			"private": false,
+			"scripts": {
+				"dev": "tsc -p tsconfig.json --watch",
+				"build": "tsc -p tsconfig.build.json",
+				"prepack": "pnpm run build",
+				"test:all": "pnpm run test:vite && pnpm run test:next && pnpm run test:unit && pnpm run test:cli && pnpm run test:integration",
+				"test:cli": "node --test __tests__/unit/cli.test.cjs",
+				"test:next": "playwright test -c __tests__/config/playwright.next.config.js",
+				"test:unit": "tsx --test src/**/*.test.ts",
+				"test:vite": "playwright test -c __tests__/config/playwright.vite.config.js",
+				"test:integration": "node --test __tests__/unit/index.test.cjs"
+			},
+			"_npmUser": {
+				"name": "austinserb",
+				"email": "owner@serbyte.net"
+			},
+			"repository": {
+				"url": "git+https://github.com/react-zero-ui/core.git",
+				"type": "git",
+				"directory": "packages/core"
+			},
+			"_npmVersion": "11.5.1",
+			"description": "Zero re-render, global UI state management for React",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.17.1",
+			"dependencies": {
+				"fast-glob": "^3.3.3",
+				"lru-cache": "^11.1.0",
+				"@babel/types": "^7.28.0",
+				"@babel/parser": "^7.28.0",
+				"@babel/traverse": "^7.28.0",
+				"@babel/generator": "^7.28.0",
+				"@babel/code-frame": "^7.27.1"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsx": "^4.20.3",
+				"@types/react": "^19.1.8",
+				"@playwright/test": "^1.54.0",
+				"@types/babel__traverse": "^7.20.7",
+				"@types/babel__generator": "^7.27.0",
+				"@types/babel__code-frame": "^7.0.6"
+			},
+			"peerDependencies": {
+				"react": ">=16.8.0",
+				"postcss": "^8.5.5",
+				"tailwindcss": "^4.1.10",
+				"@tailwindcss/postcss": "^4.1.10"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/core_0.2.7_1753944059597_0.20709156711539856",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.3.0": {
+			"name": "@react-zero-ui/core",
+			"version": "0.3.0",
+			"keywords": [
+				"react",
+				"ui",
+				"state",
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"zero-config",
+				"react-zero-ui",
+				"postcss-react-zero-ui",
+				"pre-rendering",
+				"no-rerender",
+				"zero-ui"
+			],
+			"author": {
+				"name": "Austinserb",
+				"email": "serbaustin@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "@react-zero-ui/core@0.3.0",
+			"maintainers": [
+				{
+					"name": "austinserb",
+					"email": "owner@serbyte.net"
+				}
+			],
+			"homepage": "https://github.com/react-zero-ui/core#readme",
+			"bugs": {
+				"url": "https://github.com/react-zero-ui/core/issues"
+			},
+			"dist": {
+				"shasum": "a1ef58c6fe3cf39d2faa0825b3052f6d857441cc",
+				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.3.0.tgz",
+				"fileCount": 33,
+				"integrity": "sha512-7nehr1sXuOgVjAeZPbQGfR3fWa6Z/OiAXBCPZnyQEcltM9kaZ+83AP69+Oq9V2YGkuUyg8JT+iAXeVl+2XDVfA==",
+				"signatures": [
+					{
+						"sig": "MEUCIEziueI1uZq70dKpl8gAmgPb16LRUR0u4Vel2Eod/ANtAiEAqwaKoXZakBwnceqAqSdoI3dB690ONJ+HOxtvjhAGVwU=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 62306
+			},
+			"main": "./dist/index.js",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.js",
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js"
+				},
+				"./cli": {
+					"types": "./dist/cli/init.d.ts",
+					"import": "./dist/cli/init.js",
+					"require": "./dist/cli/init.js"
+				},
+				"./vite": {
+					"types": "./dist/postcss/vite.d.ts",
+					"import": "./dist/postcss/vite.js"
+				},
+				"./postcss": {
+					"types": "./dist/postcss/index.d.cts",
+					"require": "./dist/postcss/index.cjs"
+				}
+			},
+			"gitHead": "31e6ee77ef13d0633eab3e98ae4d3c4672a51e18",
+			"private": false,
+			"scripts": {
+				"dev": "tsc -p tsconfig.json --watch",
+				"build": "tsc -p tsconfig.build.json",
+				"prepack": "pnpm run build",
+				"test:all": "pnpm run test:vite && pnpm run test:next && pnpm run test:unit && pnpm run test:cli && pnpm run test:integration",
+				"test:cli": "node --test __tests__/unit/*.test.cjs",
+				"test:next": "playwright test -c __tests__/config/playwright.next.config.js",
+				"test:unit": "tsx --test src/**/*.test.ts",
+				"test:vite": "playwright test -c __tests__/config/playwright.vite.config.js",
+				"test:integration": "node --test __tests__/unit/index.test.cjs"
+			},
+			"_npmUser": {
+				"name": "austinserb",
+				"email": "owner@serbyte.net"
+			},
+			"repository": {
+				"url": "git+https://github.com/react-zero-ui/core.git",
+				"type": "git",
+				"directory": "packages/core"
+			},
+			"_npmVersion": "11.5.1",
+			"description": "Zero re-render, global UI state management for React",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.17.1",
+			"dependencies": {
+				"fast-glob": "^3.3.3",
+				"lru-cache": "^11.1.0",
+				"@babel/types": "^7.28.0",
+				"@babel/parser": "^7.28.0",
+				"@babel/generator": "^7.28.0",
+				"@babel/code-frame": "^7.27.1"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsx": "^4.20.3",
+				"@types/react": "^19.1.8",
+				"@babel/traverse": "^7.28.0",
+				"@playwright/test": "^1.54.0",
+				"@types/babel__traverse": "^7.20.7",
+				"@types/babel__generator": "^7.27.0",
+				"@types/babel__code-frame": "^7.0.6"
+			},
+			"peerDependencies": {
+				"react": ">=16.8.0",
+				"postcss": "^8.5.5",
+				"tailwindcss": "^4.1.10",
+				"@tailwindcss/postcss": "^4.1.10"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/core_0.3.0_1754038458769_0.06714958959546324",
+				"host": "s3://npm-registry-packages-npm-production"
+			},
+			"deprecated": "❌ Version 0.3.0 is broken (missing Babel runtime). Please upgrade to 0.3.1 or later."
+		},
+		"0.3.1": {
+			"name": "@react-zero-ui/core",
+			"version": "0.3.1",
+			"keywords": [
+				"react",
+				"ui",
+				"state",
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"zero-config",
+				"react-zero-ui",
+				"postcss-react-zero-ui",
+				"pre-rendering",
+				"no-rerender",
+				"zero-ui"
+			],
+			"author": {
+				"name": "Austinserb",
+				"email": "serbaustin@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "@react-zero-ui/core@0.3.1",
+			"maintainers": [
+				{
+					"name": "austinserb",
+					"email": "owner@serbyte.net"
+				}
+			],
+			"homepage": "https://github.com/react-zero-ui/core#readme",
+			"bugs": {
+				"url": "https://github.com/react-zero-ui/core/issues"
+			},
+			"dist": {
+				"shasum": "7997401918e96fc93dae3223321b05b9565eadfd",
+				"tarball": "https://registry.npmjs.org/@react-zero-ui/core/-/core-0.3.1.tgz",
+				"fileCount": 33,
+				"integrity": "sha512-h3A3GOxFyiJ62Ot6g5hAvfF+kEtSimzcCfW41147P2+HUzgdWsYI5ZjadIEwhXF2inBU7eFJcmnm3gSVdfbiOg==",
+				"signatures": [
+					{
+						"sig": "MEUCIQDsm7CZtcgGUCrDYIqvC4Pzjoyv06Fpjp9cF67l+Z4bSQIgS50qBYSg8+kAZ5kud4bNRPyMqiX3RF/xhbmEKLmiORY=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 62347
+			},
+			"main": "./dist/index.js",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.js",
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js"
+				},
+				"./cli": {
+					"types": "./dist/cli/init.d.ts",
+					"import": "./dist/cli/init.js",
+					"require": "./dist/cli/init.js"
+				},
+				"./vite": {
+					"types": "./dist/postcss/vite.d.ts",
+					"import": "./dist/postcss/vite.js"
+				},
+				"./postcss": {
+					"types": "./dist/postcss/index.d.cts",
+					"require": "./dist/postcss/index.cjs"
+				}
+			},
+			"gitHead": "31e6ee77ef13d0633eab3e98ae4d3c4672a51e18",
+			"private": false,
+			"scripts": {
+				"dev": "tsc -p tsconfig.json --watch",
+				"build": "tsc -p tsconfig.build.json",
+				"smoke": "node scripts/smoke-test.js",
+				"prepack": "pnpm run build",
+				"test:all": "pnpm run test:vite && pnpm run test:next && pnpm run test:unit && pnpm run test:cli && pnpm run test:integration",
+				"test:cli": "node --test __tests__/unit/*.test.cjs",
+				"test:next": "playwright test -c __tests__/config/playwright.next.config.js",
+				"test:unit": "tsx --test src/**/*.test.ts",
+				"test:vite": "playwright test -c __tests__/config/playwright.vite.config.js",
+				"test:integration": "node --test __tests__/unit/index.test.cjs"
+			},
+			"_npmUser": {
+				"name": "austinserb",
+				"email": "owner@serbyte.net"
+			},
+			"repository": {
+				"url": "git+https://github.com/react-zero-ui/core.git",
+				"type": "git",
+				"directory": "packages/core"
+			},
+			"_npmVersion": "11.5.1",
+			"description": "Zero re-render, global UI state management for React",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "22.17.1",
+			"dependencies": {
+				"fast-glob": "^3.3.3",
+				"lru-cache": "^11.1.0",
+				"@babel/types": "^7.28.0",
+				"@babel/parser": "^7.28.0",
+				"@babel/traverse": "^7.28.0",
+				"@babel/generator": "^7.28.0",
+				"@babel/code-frame": "^7.27.1"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsx": "^4.20.3",
+				"@types/react": "^19.1.8",
+				"@playwright/test": "^1.54.0",
+				"@types/babel__traverse": "^7.20.7",
+				"@types/babel__generator": "^7.27.0",
+				"@types/babel__code-frame": "^7.0.6"
+			},
+			"peerDependencies": {
+				"react": ">=16.8.0",
+				"postcss": "^8.5.5",
+				"tailwindcss": "^4.1.10",
+				"@tailwindcss/postcss": "^4.1.10"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/core_0.3.1_1754079870872_0.08999748872415703",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
 		}
 	},
 	"time": {
 		"created": "2025-06-25T17:45:40.422Z",
-		"modified": "2025-07-21T22:28:25.783Z",
+		"modified": "2025-08-01T21:00:29.300Z",
 		"0.1.0": "2025-06-25T17:45:40.723Z",
 		"0.2.0": "2025-07-08T23:24:22.661Z",
 		"0.2.2": "2025-07-08T23:49:52.715Z",
 		"0.2.3": "2025-07-09T00:47:45.148Z",
 		"0.2.4": "2025-07-11T07:51:40.691Z",
 		"0.2.5": "2025-07-21T21:49:10.148Z",
-		"0.2.6": "2025-07-21T22:28:25.579Z"
+		"0.2.6": "2025-07-21T22:28:25.579Z",
+		"0.2.7": "2025-07-31T06:40:59.771Z",
+		"0.3.0": "2025-08-01T08:54:18.961Z",
+		"0.3.1": "2025-08-01T20:24:31.067Z"
 	},
 	"bugs": {
 		"url": "https://github.com/react-zero-ui/core/issues"
@@ -947,8 +1336,8 @@
 		"zero-ui"
 	],
 	"repository": {
-		"type": "git",
 		"url": "git+https://github.com/react-zero-ui/core.git",
+		"type": "git",
 		"directory": "packages/core"
 	},
 	"description": "Zero re-render, global UI state management for React",
@@ -960,5 +1349,5 @@
 	],
 	"readme": "# React Zero‑UI (Beta)\n\n**Instant UI state updates. ZERO React re‑renders. <1 KB runtime.**\n\nPre‑render your UI once, flip a `data-*` attribute to update — that's it.\n\n<a href=\"https://bundlephobia.com/package/@austinserb/react-zero-ui@1.0.19\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://badgen.net/bundlephobia/minzip/@austinserb/react-zero-ui@1.0.19\" alt=\"npm version\" /> </a><a href=\"https://www.npmjs.com/package/@react-zero-ui/core\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://img.shields.io/npm/v/@react-zero-ui/core\" alt=\"npm version\" /></a> <a href=\"https://opensource.org/licenses/MIT\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://img.shields.io/badge/License-MIT-yellow.svg\" alt=\"License: MIT\" /></a> ![CI](https://github.com/react-zero-ui/core/actions/workflows/ci.yml/badge.svg?branch=main)\n\n---\n\n## 📚 Quick Links\n\n- [⚡️ Quick Start](#️-quick-start)\n- [🏄 Usage](#-usage)\n- [🧬 How it works](#-how-it-works)\n- [✅ Features](#-features)\n- [🏗 Best Practices](#-best-practices)\n\n---\n\n## 🚀 Live Demo\n\n| Example                                 | Link                                                                                                                                           | What it shows                                                 | Link to Code                                                                                                                                 |\n| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |\n| Interactive menu with render tracker    | <a href=\"https://zero-ui.dev/\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Main Demo↗</strong></a>                                      | Compare Zero‑UI vs. React side‑by‑side while toggling a menu. | <a href=\"https://github.com/react-zero-ui/core/tree/main/examples/demo\" target=\"_blank\" rel=\"noopener noreferrer\">Github</a>                 |\n| React benchmark (10 000 nested nodes)   | <a href=\"https://zero-ui.dev/react\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>React 10k↗</strong></a>                                 | How long the traditional React render path takes.             | <a href=\"https://github.com/react-zero-ui/core/tree/main/examples/demo/src/app/react\" target=\"_blank\" rel=\"noopener noreferrer\">Github</a>   |\n| Zero‑UI benchmark (10 000 nested nodes) | <a href=\"https://zero-ui.dev/zero-ui\" target=\"_blank\" rel=\"noopener noreferrer\"><strong style=\"text-align: nowrap;\">Zero‑UI 10k↗</strong></a> | Identical DOM, but powered by Zero‑UI's `data-*` switch.      | <a href=\"https://github.com/react-zero-ui/core/tree/main/examples/demo/src/app/zero-ui\" target=\"_blank\" rel=\"noopener noreferrer\">Github</a> |\n\n---\n\n## 🧐 Why Zero‑UI?\n\nEvery `setState` in React triggers the full VDOM → Diff → Reconciliation → Paint pipeline. For _pure UI state_ (themes, menus, toggles) that work is wasted.\n\n**Zero‑UI introduces \"_PRE‑rendering_\":**\n\n1. Tailwind variants for every state are **generated at build‑time**.\n2. The app **pre‑renders once**.\n3. Runtime state changes only **flip a `data-*` attribute on `<body>`**.\n\nResult → **5-10× faster visual updates** with **ZERO additional bundle cost**.\n\n### 📊 Micro‑benchmarks (Apple M1)\n\n| Nodes updated | React state | Zero‑UI | Speed‑up |\n| ------------- | ----------- | ------- | -------- |\n| 10,000        | \\~50 ms     | \\~5 ms  | **10×**  |\n| 25,000        | \\~180 ms    | \\~15 ms | **12×**  |\n| 50,000        | \\~300 ms    | \\~20 ms | **15×**  |\n\nRe‑run these numbers yourself via the links above.\n\n---\n\n## ⚡️ Quick Start\n\n> **Prerequisite:** Tailwind CSS v4 must already be initialized in your project.\n\n```bash\n# Inside an existing *Next.js (App Router)* or *Vite* repo\nnpx create-zero-ui\n```\n\nThat's it — the CLI patch‑installs the required Babel & PostCSS plugins and updates `configs` for you.\n\n### Manual Install\n\n```bash\nnpm install @react-zero-ui/core\n```\n\nThen follow **Setup →** for your bundler.\n\n---\n\n## 🔧 Setup\n\n### Vite\n\n```js\n// vite.config.*\nimport { zeroUIPlugin } from '@react-zero-ui/core/vite';\n\nexport default {\n\t// ❗️Remove the default `tailwindcss()` plugin — Zero‑UI extends it internally\n\tplugins: [zeroUIPlugin()],\n};\n```\n\n### Next.js (App Router)\n\n1. **Spread `bodyAttributes` on `<body>`** in your root layout.\n\n   ```tsx\n   // app/layout.tsx\n   import { bodyAttributes } from '@react-zero-ui/core/attributes';\n   // or:  import { bodyAttributes } from '../.zero-ui/attributes';\n\n   export default function RootLayout({ children }) {\n   \treturn (\n   \t\t<html lang=\"en\">\n   \t\t\t<body {...bodyAttributes}>{children}</body>\n   \t\t</html>\n   \t);\n   }\n   ```\n\n2. **Add the PostCSS plugin (must come _before_ Tailwind).**\n\n   ```js\n   // postcss.config.js\n   module.exports = { plugins: { '@react-zero-ui/core/postcss': {}, tailwindcss: {} } };\n   ```\n\n---\n\n## 🏄 Usage\n\n![react zero ui usage explained](https://raw.githubusercontent.com/react-zero-ui/core/main/docs/assets/useui-explained.webp)\n\n---\n\n## 🛠 API\n\n### `useUI(key, defaultValue)`\n\n```ts\nconst [staleValue, setValue] = useUI<'open' | 'closed'>('sidebar', 'closed');\n```\n\n- `key` → becomes `data-{key}` on `<body>`.\n- `defaultValue` → optional, prevents FOUC.\n- **Note:** the returned `staleValue` does **not** update (`useUI` is write‑only).\n\n### Tailwind variants\n\n```jsx\n<div className=\"sidebar-open:translate-x-0 sidebar-closed:-translate-x-full\" />\n```\n\nAny `data-{key}=\"{value}\"` pair becomes a variant: `{key}-{value}:`.\n\n---\n\n## 🧬 How it works\n\n1. **`useUI`** → writes to `data-*` attributes on `<body>`.\n2. **Babel plugin** → scans code, finds every `key/value`, injects them into **PostCSS**.\n3. **PostCSS plugin** → generates static Tailwind classes **at build‑time**.\n4. **Runtime** → changing state only touches the attribute — no VDOM, no reconciliation, no re‑paint.\n\n---\n\n## ✅ Features\n\n- **Zero React re‑renders** for UI‑only state.\n- **Global setters** — call from any component or util.\n- **Tiny**: < 1 KB gzipped runtime.\n- **TypeScript‑first**.\n- **SSR‑friendly** (Next.js & Vite SSR).\n- **Framework‑agnostic CSS** — generated classes work in plain HTML / Vue / Svelte as well.\n\n---\n\n## 🏗 Best Practices\n\n1. **UI state only** → themes, layout toggles, feature flags.\n2. **Business logic stays in React** → fetching, data mutation, etc.\n3. **Kebab‑case keys** → e.g. `sidebar-open`.\n4. **Provide defaults** to avoid Flash‑Of‑Unstyled‑Content.\n\n---\n\n## 📜 License\n\n[MIT](LICENSE) © Austin Serb\n\n---\n\nBuilt with ❤️ for the React community. If Zero‑UI makes your app feel ZERO fast, please ⭐️ the repo!\n",
 	"readmeFilename": "README.md",
-	"_downloads": 556
+	"_downloads": 636
 }
