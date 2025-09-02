@@ -229,5 +229,5 @@
 	"license": "MIT",
 	"readme": "# postcss-modules-standalone\nProvides a standalone build of postcss-modules for use in browsers and other non-Node.js environments.\n\n# Install\n`npm install postcss-modules-standalone`\n\n# Build\n`npm run build`\n\n# Usage\n\nAdd below code to your html code:\n\n```\n<script src=\"/path/to/postcss-modules-standalone/index.bundle.min.js\"></script>\n\nor use cdn\n\n<script src=\"https://cdn.jsdelivr.net/npm/postcss-modules-standalone/index.bundle.min.js\"></script>\n```\n\nThen you can call postcss:\n \n```\nconst postcss = require('postcss');\nconst pm = require('postcss-modules');\nconst fs = require('fs');\n\nfs.writeFileSync('/styles.css', `\n:global .page {\n  padding: 20px;\n}\n\n.title {\n  composes: title from \"./mixins.css\";\n  color: green;\n}\n\n.article {\n  font-size: 16px;\n}`);\nfs.writeFileSync('/mixins.css', `\n.title {\n  color: black;\n  font-size: 40px;\n}\n\n.title:hover {\n  color: red;\n}`);\n\nlet exported;\npostcss([pm({\n  getJSON: function (cssFileName, json, outputFileName) {\n    exported = JSON.stringify(json);\n  },\n})])\n  .process(fs.readFileSync('/styles.css', 'utf-8'))\n  .then(value => {\n    const css=`${value.css}\nexported {\n  --json: ${exported}\n}`;\n    console.log(css);\n  })\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 15
+	"_downloads": 7
 }
