@@ -3,6 +3,10 @@
 	--color-red: rgb(221, 58, 11); /* postcss */
 	--color-theme: #639; /* css */
 }
+:root {
+	--csstools-color-scheme--light:  ;
+	color-scheme: dark;
+}
 body {
 	accent-color: #639;
 	accent-color: var(--color-theme);
@@ -10,13 +14,15 @@ body {
 	margin: 0 auto;
 	max-width: 520px;
 	padding: 16px;
+	background-color: rgb(35, 35, 35);
+	color: rgb(230, 230, 230);
 }
 code {
-	background-color: hsl(0deg, 0%, 95%);
+	background-color: rgb(25, 25, 25);
 	padding: 0.125rem 0.375rem;
 }
 dl {
-	padding-left: 16px;
+	padding-left: 24px;
 }
 dt {
 	margin-bottom: 0.5rem;
@@ -25,7 +31,7 @@ dd {
 	margin-bottom: 1.25rem;
 }
 dd code {
-	border: 3px hsl(0deg, 0%, 50%) double;
+	border: 3px hsl(0deg, 0%, 60%) double;
 	padding: 0.125rem 0.375rem;
 }
 li {
@@ -37,6 +43,28 @@ p {
 }
 p:last-child {
 	margin-bottom: 0;
+}
+:link, :visited {
+	color: rgb(203, 194, 216);
+}
+@supports (color: color-mix(in lch, red, blue)) {
+:link, :visited {
+	color: color-mix(in oklab, var(--color-theme), rgb(230, 230, 230) 80%);
+}
+}
+:-moz-any-link {
+	color: rgb(203, 194, 216);
+}
+:any-link {
+	color: rgb(203, 194, 216);
+}
+@supports (color: color-mix(in lch, red, blue)) {
+:-moz-any-link {
+	color: color-mix(in oklab, var(--color-theme), rgb(230, 230, 230) 80%);
+}
+:any-link {
+	color: color-mix(in oklab, var(--color-theme), rgb(230, 230, 230) 80%);
+}
 }
 #detailed-plugin-info {
 	margin: 1rem 0;
@@ -70,17 +98,54 @@ p:last-child {
 	margin: 1rem 0;
 }
 .plugin details {
-	border: 1px solid #639;
-	border: 1px solid var(--color-theme);
+	background-clip: padding-box;
+	border: solid 1px transparent;
 	border-radius: 5px;
 	box-sizing: border-box;
+	color: white;
+	--gradient-at: top right;
+	background:
+		radial-gradient(
+			ellipse at top right,
+			hsl(var(--random-hue) 95% 65% / 0.6),
+			rgba(130, 93, 175, 0.6)
+		) padding-box;
+}
+@supports (color: color-mix(in lch, red, blue)) and (color: hsl(0 0% 0% / 0)) and (color: lab(from red l 1 1% / calc(alpha + 0.1))) {
+.plugin details {
+	background:
+		radial-gradient(
+			ellipse at var(--gradient-at),
+			hsl(var(--random-hue) 95% 65% / 0.6),
+			rgb(from color-mix(in oklab, var(--color-theme), white 20%) r g b / 0.6)
+		) padding-box;
+}
+}
+.plugin:nth-child(2n) details {
+	--gradient-at: top left;
+}
+.plugin:nth-child(3n) details {
+	--gradient-at: bottom left;
+}
+.plugin:nth-child(5n) details {
+	--gradient-at: bottom right;
+}
+.plugin:nth-child(7n) details {
+	--gradient-at: right;
+}
+.plugin:nth-child(11n) details {
+	--gradient-at: top;
+}
+.plugin:nth-child(13n) details {
+	--gradient-at: bottom;
+}
+.plugin:nth-child(17n) details {
+	--gradient-at: left;
 }
 .plugin summary {
-	background-color: hsl(var(--random-hue), 85%, 92%);
+	/* background-color: rgb(30 30 30); */
 	box-sizing: border-box;
-	color: black;
-	padding: 1rem 16px;
-	border-radius: 4px;
+	padding: 2rem 24px;
 }
 .plugin summary > h3:first-child {
 	display: inline;
@@ -92,42 +157,55 @@ p:last-child {
 	font-family: monospace;
 	margin: 2rem 0 0 -8px;
 	max-width: 360px;
-	padding: 0 16px;
+	padding: 0 24px;
 }
 .plugin li {
 	display: inline-block;
 	margin: 0;
 	padding: 0.25rem 8px;
 }
+.plugin code {
+	background-color: rgb(35, 35, 35);
+}
 .plugin-anchor-link:link, .plugin-anchor-link:visited {
 	color: currentColor;
-	color: rebeccapurple;
-	color: var(--color-theme);
+	color: color-mix(in oklab, rebeccapurple, white 80%);
 	display: block;
 	font-size: 1.25rem;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 24px;
 	-webkit-text-decoration: none;
 	text-decoration: none;
 }
+@supports (color: color-mix(in lch, red, blue)) {
+.plugin-anchor-link:link, .plugin-anchor-link:visited {
+	color: color-mix(in oklab, var(--color-theme), white 80%);
+}
+}
 .plugin-anchor-link:-moz-any-link {
 	color: currentColor;
-	color: rebeccapurple;
-	color: var(--color-theme);
+	color: color-mix(in oklab, rebeccapurple, white 80%);
 	display: block;
 	font-size: 1.25rem;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 24px;
 	-webkit-text-decoration: none;
 	text-decoration: none;
 }
 .plugin-anchor-link:any-link {
 	color: currentColor;
-	color: rebeccapurple;
-	color: var(--color-theme);
+	color: color-mix(in oklab, rebeccapurple, white 80%);
 	display: block;
 	font-size: 1.25rem;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 24px;
 	-webkit-text-decoration: none;
 	text-decoration: none;
+}
+@supports (color: color-mix(in lch, red, blue)) {
+.plugin-anchor-link:-moz-any-link {
+	color: color-mix(in oklab, var(--color-theme), white 80%);
+}
+.plugin-anchor-link:any-link {
+	color: color-mix(in oklab, var(--color-theme), white 80%);
+}
 }
 .plugin-anchor-link__icon {
 	display: inline-block;
@@ -143,10 +221,9 @@ p:last-child {
 	transform: scale(1.5);
 }
 .plugin .button-copy-npm-cmd {
-	background-color: hsl(0deg, 0%, 95%);
-	border: 3px hsl(0deg, 0%, 50%) double;
-	color: #639;
-	color: var(--color-theme);
+	background-color: rgb(35, 35, 35);
+	border: 3px hsl(0deg, 0%, 60%) double;
+	color: rgb(222, 213, 236);
 	font-family: 'Comic Sans MS';
 	font-size: 13px;
 	line-height: 1.1538461;
@@ -154,6 +231,12 @@ p:last-child {
 	-webkit-user-select: none;
 	   -moz-user-select: none;
 	        user-select: none;
+	cursor: copy;
+}
+@supports (color: color-mix(in lch, red, blue)) {
+.plugin .button-copy-npm-cmd {
+	color: color-mix(in oklab, var(--color-theme), white 80%);
+}
 }
 .plugin .button-copy-npm-cmd:active {
 	border: 3px hsl(0deg, 0%, 50%) solid;
