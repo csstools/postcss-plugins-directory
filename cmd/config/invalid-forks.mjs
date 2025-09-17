@@ -35,6 +35,7 @@ export const invalidForks = [
 	'@saptool/postcss-pxtorem',
 	'@teranes/postcss-variables',
 	'@voodeng/postcss-px-to-viewport',
+	'@weapp-tailwindcss/postcss-calc',
 	'@z1c1/postcss-px-to-viewport',
 	'@zhaojjiang/postcss-pxtorem',
 	'@zhbhun/postcss-pxtorem',
