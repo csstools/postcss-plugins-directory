@@ -77,7 +77,7 @@ export async function updateTheDirectory() {
 			}
 
 			const pluginData = JSON.parse(await fs.readFile(pluginDataFile));
-			if (maliciousPackages[pluginData.name].length) {
+			if (maliciousPackages[pluginData.name]?.length) {
 				await fs.rm(pluginDataFile);
 				continue;
 			}
