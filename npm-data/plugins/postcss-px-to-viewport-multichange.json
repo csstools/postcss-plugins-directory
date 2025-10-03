@@ -274,5 +274,5 @@
 	"license": "MIT",
 	"readme": "# postcss-px-to-viewport [![NPM version](https://badge.fury.io/js/postcss-px-to-viewport.svg)](http://badge.fury.io/js/postcss-px-to-viewport)\r\n\r\nA plugin for [PostCSS](https://github.com/ai/postcss) that generates viewport units (vw, vh, vmin, vmax) from pixel units.\r\n\r\n> 基于[evrone/postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)修改\r\n\r\n- 增加下方配置解决第三方 ui 库转换后缩小的问题\r\n- 增加`exclude`排除文件配置\r\n- 增加`rules` 自定义转换规则配置\r\n- 增加`multiple` 转换倍数\r\n\r\n```javascript\r\n# 配置参数\r\n'postcss-px-to-viewport-rxdey': {\r\n      viewportWidth: 750,\r\n      unitPrecision: 5,\r\n      viewportUnit: 'vw',\r\n      selectorBlackList: ['.ignore'],\r\n      minPixelValue: 1,\r\n      mediaQuery: false,\r\n      exclude: ['node_modules'],\r\n      multiple: 100,\r\n      rules: {\r\n        path: 'vux',\r\n        fn: (pixels, vw) => {\r\n          return vw*2 + 'vw';\r\n        },\r\n      },\r\n    },\r\n```\r\n\r\n> `exclude` 接收 文件夹名/文件名(带后缀);\r\n\r\n> `exclude` 配置优先级大于`rules`对象中的`path`，`rules`配置会被直接排除;\r\n\r\n> `rules` 接收对象，`path`为生效路径，不做配置或为空默认全局生效，参数同`exclude`;\r\n\r\n> `rules.fn` 自定义转换规则，返回转换后的数值，没有返回值则不生效！，`pixels`：原始像素数值,`vw`：正常转换后的 vw 值,`opt`：上方填写的配置参数；\r\n\r\n> `multiple` 转换时的倍数，`(pixels / viewportSize) * 100`原转换公式；\r\n",
 	"readmeFilename": "README.md",
-	"_downloads": 9
+	"_downloads": 2
 }
