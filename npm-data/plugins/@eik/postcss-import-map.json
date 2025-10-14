@@ -1,6 +1,6 @@
 {
 	"_id": "@eik/postcss-import-map",
-	"_rev": "15-862bb0ee3297cf5a936e18e0e6b81993",
+	"_rev": "18-619ea977d1d39958ef848b8affe08a61",
 	"name": "@eik/postcss-import-map",
 	"dist-tags": {
 		"latest": "2.0.4"
@@ -1382,12 +1382,13 @@
 			"_npmOperationalInternal": {
 				"tmp": "tmp/postcss-import-map_2.0.4_1609240957270_0.9414903117046616",
 				"host": "s3://npm-registry-packages"
-			}
+			},
+			"deprecated": "Package no longer supported. Contact Support at https://www.npmjs.com/support for more info."
 		}
 	},
 	"time": {
 		"created": "2020-08-25T23:18:57.350Z",
-		"modified": "2025-03-03T20:57:01.381Z",
+		"modified": "2025-10-13T13:28:23.213Z",
 		"0.0.0": "2020-08-25T23:18:58.010Z",
 		"1.0.0": "2020-08-26T08:08:48.358Z",
 		"1.1.0": "2020-08-26T13:57:23.529Z",
@@ -1424,19 +1425,23 @@
 	"description": "PostCSS plugin that uses Eik defined import map files to transform bare import specifiers to absolute URLs in @import rules",
 	"maintainers": [
 		{
-			"email": "post@trygve-lie.com",
-			"name": "trygve-lie"
+			"name": "digitalsadhu",
+			"email": "digitalsadhu@gmail.com"
 		},
 		{
-			"email": "digitalsadhu@gmail.com",
-			"name": "digitalsadhu"
+			"name": "trygve-bot",
+			"email": "trygvelie74@gmail.com"
 		},
 		{
-			"email": "trygvelie74@gmail.com",
-			"name": "trygve-bot"
+			"name": "trygve-lie",
+			"email": "post@trygve-lie.com"
+		},
+		{
+			"name": "wllm",
+			"email": "william@killerud.com"
 		}
 	],
 	"readme": "# postcss-import-map\n\nPostCSS [Eik](https://eik.dev/) plugin to support the use of import maps to map \"bare\" import specifiers in CSS @import rules.\n\n**Notes:**\n\n-   **This plugin should probably be used as the first plugin of your list.**\n-   **If you use `postcss-import` please [read this.](#postcss-import-usage)**\n\n## Installation\n\n```bash\n$ npm install @eik/postcss-import-map\n```\n\n## Usage\n\n```js\n// dependencies\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar eikImportMapPlugin = require('@eik/postcss-import-map');\n\n// css to be processed\nvar css = fs.readFileSync('css/input.css', 'utf8');\n\n// process css\npostcss()\n    .use(\n        eikImportMapPlugin({\n            imports: {\n                'normalize.css':\n                    'https://unpkg.com/normalize.css@8/normalize.css',\n            },\n        })\n    )\n    .process(css, {\n        // `from` option is needed here\n        from: 'css/input.css',\n    })\n    .then(function (result) {\n        var output = result.css;\n\n        console.log(output);\n    });\n```\n\n`css/input.css`:\n\n```css\n@import 'normalize.css';\n\nbody {\n    background: black;\n}\n```\n\nwill give you:\n\n```css\n@import 'https://unpkg.com/normalize.css@8/normalize.css';\n\nbody {\n    background: black;\n}\n```\n\n## PostCSS Import Usage\n\nIf you're using [postcss-import](https://github.com/postcss/postcss-import) make sure you update the `plugins` option.\n`postcss.config.js`\n\n```js\nmodule.exports = (ctx) => ({\n    plugins: [\n        require('@eik/postcss-import-map')(),\n        require('postcss-import')({\n            // It needs to be added here as well to ensure everything is mapped\n            plugins: [require('@eik/postcss-import-map')],\n        }),\n    ],\n});\n```\n\n## Options\n\nThis plugin takes an [import map](https://github.com/WICG/import-maps) as options:\n\n| option  | default        | type     | required | details                                                     |\n| ------- | -------------- | -------- | -------- | ----------------------------------------------------------- |\n| path    | `cwd/eik.json` | `string` | `false`  | Path to eik.json file.                                      |\n| urls    | `[]`           | `array`  | `false`  | Array of import map URLs to fetch from.                     |\n| imports | `{}`           | `object` | `false`  | Mapping between \"bare\" import specifiers and absolute URLs. |\n\nThis module only cares about \"bare\" import specifies which map to absolute\nURLs in the import map. Any other import specifiers defined in the import map\nare ignored.\n\n## License\n\nCopyright (c) 2020 Finn.no\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
 	"readmeFilename": "README.md",
-	"_downloads": 60
+	"_downloads": 57
 }
