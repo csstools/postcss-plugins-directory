@@ -1,24 +1,6 @@
 {
 	"name": "@eik/postcss-plugin",
 	"version": "5.0.6",
-	"description": "PostCSS plugin that uses Eik defined import map files to transform bare import specifiers to absolute URLs in @import rules",
-	"main": "src/plugin.js",
-	"types": "./types/plugin.d.ts",
-	"type": "module",
-	"scripts": {
-		"clean": "rimraf .tap node_modules types",
-		"test": "tap test/*.js --disable-coverage --allow-empty-coverage",
-		"test:snapshot": "TAP_SNAPSHOT=1 tap test/*.js --disable-coverage --allow-empty-coverage",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix",
-		"types": "run-s types:module types:test",
-		"types:module": "tsc",
-		"types:test": "tsc --project tsconfig.test.json"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/eik-lib/postcss-plugin.git"
-	},
 	"keywords": [
 		"css",
 		"postcss",
@@ -30,58 +12,7 @@
 		"name": "Finn.no"
 	},
 	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/eik-lib/postcss-plugin/issues"
-	},
-	"homepage": "https://github.com/eik-lib/postcss-plugin#readme",
-	"devDependencies": {
-		"@eik/eslint-config": "1.0.21",
-		"@eik/prettier-config": "1.0.1",
-		"@eik/semantic-release-config": "1.0.8",
-		"@eik/typescript-config": "1.0.0",
-		"eslint": "9.35.0",
-		"fastify": "5.6.0",
-		"npm-run-all2": "8.0.4",
-		"postcss": "8.5.6",
-		"prettier": "3.6.2",
-		"rimraf": "6.0.1",
-		"rollup": "4.50.1",
-		"semantic-release": "24.2.7",
-		"tap": "21.1.0",
-		"typescript": "5.9.2"
-	},
-	"dependencies": {
-		"@eik/common": "5.1.7",
-		"css-url-parser": "1.1.4"
-	},
-	"peerDependencies": {
-		"postcss": "^8.0.0"
-	},
-	"engines": {
-		"node": ">=20"
-	},
 	"_id": "@eik/postcss-plugin@5.0.6",
-	"gitHead": "d20d008309704f401ccf756cb620998cd54ba05f",
-	"_nodeVersion": "22.19.0",
-	"_npmVersion": "10.9.3",
-	"dist": {
-		"integrity": "sha512-qiQc/J1Knu/D38FeGza3qLmctnyWExmO6WJE5UH99OcdF8M1jdLnZnEPG1b3JieoVOGYYs3t+3hjTB/uvwsPeA==",
-		"shasum": "07eddc713f3a702421e1e22d0c68c2f2aec4bde8",
-		"tarball": "https://registry.npmjs.org/@eik/postcss-plugin/-/postcss-plugin-5.0.6.tgz",
-		"fileCount": 6,
-		"unpackedSize": 26149,
-		"signatures": [
-			{
-				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEQCICMObnc2ZxoTslWuU2E0gtmkXUYaA3rrCLdVtwPlShRhAiAGwNtocfMNLxNRCCOZDQE9myTT6iXue+zycvWteBLSIA=="
-			}
-		]
-	},
-	"_npmUser": {
-		"name": "trygve-bot",
-		"email": "trygvelie74@gmail.com"
-	},
-	"directories": {},
 	"maintainers": [
 		{
 			"name": "trygve-lie",
@@ -96,10 +27,79 @@
 			"email": "trygvelie74@gmail.com"
 		}
 	],
-	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-plugin_5.0.6_1757440475601_0.6621087745005803"
+	"homepage": "https://github.com/eik-lib/postcss-plugin#readme",
+	"bugs": {
+		"url": "https://github.com/eik-lib/postcss-plugin/issues"
+	},
+	"dist": {
+		"shasum": "07eddc713f3a702421e1e22d0c68c2f2aec4bde8",
+		"tarball": "https://registry.npmjs.org/@eik/postcss-plugin/-/postcss-plugin-5.0.6.tgz",
+		"fileCount": 6,
+		"integrity": "sha512-qiQc/J1Knu/D38FeGza3qLmctnyWExmO6WJE5UH99OcdF8M1jdLnZnEPG1b3JieoVOGYYs3t+3hjTB/uvwsPeA==",
+		"signatures": [
+			{
+				"sig": "MEQCICMObnc2ZxoTslWuU2E0gtmkXUYaA3rrCLdVtwPlShRhAiAGwNtocfMNLxNRCCOZDQE9myTT6iXue+zycvWteBLSIA==",
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+			}
+		],
+		"unpackedSize": 26149
+	},
+	"main": "src/plugin.js",
+	"type": "module",
+	"types": "./types/plugin.d.ts",
+	"engines": {
+		"node": ">=20"
+	},
+	"gitHead": "d20d008309704f401ccf756cb620998cd54ba05f",
+	"scripts": {
+		"lint": "eslint .",
+		"test": "tap test/*.js --disable-coverage --allow-empty-coverage",
+		"clean": "rimraf .tap node_modules types",
+		"types": "run-s types:module types:test",
+		"lint:fix": "eslint . --fix",
+		"types:test": "tsc --project tsconfig.test.json",
+		"types:module": "tsc",
+		"test:snapshot": "TAP_SNAPSHOT=1 tap test/*.js --disable-coverage --allow-empty-coverage"
+	},
+	"_npmUser": {
+		"name": "trygve-bot",
+		"email": "trygvelie74@gmail.com"
+	},
+	"repository": {
+		"url": "git+https://github.com/eik-lib/postcss-plugin.git",
+		"type": "git"
+	},
+	"_npmVersion": "10.9.3",
+	"description": "PostCSS plugin that uses Eik defined import map files to transform bare import specifiers to absolute URLs in @import rules",
+	"directories": {},
+	"_nodeVersion": "22.19.0",
+	"dependencies": {
+		"@eik/common": "5.1.7",
+		"css-url-parser": "1.1.4"
 	},
 	"_hasShrinkwrap": false,
+	"devDependencies": {
+		"tap": "21.1.0",
+		"eslint": "9.35.0",
+		"rimraf": "6.0.1",
+		"rollup": "4.50.1",
+		"fastify": "5.6.0",
+		"postcss": "8.5.6",
+		"prettier": "3.6.2",
+		"typescript": "5.9.2",
+		"npm-run-all2": "8.0.4",
+		"semantic-release": "24.2.7",
+		"@eik/eslint-config": "1.0.21",
+		"@eik/prettier-config": "1.0.1",
+		"@eik/typescript-config": "1.0.0",
+		"@eik/semantic-release-config": "1.0.8"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"_npmOperationalInternal": {
+		"tmp": "tmp/postcss-plugin_5.0.6_1757440475601_0.6621087745005803",
+		"host": "s3://npm-registry-packages-npm-production"
+	},
 	"_time": "2025-09-09T17:54:35.872Z"
 }
