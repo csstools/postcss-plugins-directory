@@ -316,5 +316,5 @@
 	"license": "SEE LICENSE file",
 	"readme": "# PostCSS CSS variable fallback value Parser\n\n> *NOTICE:* This plugin is provided as-is without support, implied or otherwise.\n\n[PostCSS] plugin to parse CSS variable `var(...)` functions to their static fallback value\n\n[PostCSS]: https://github.com/postcss/postcss\n\n```css\n.foo {\n    /* Input example */\n\n    border-radius: var(--sds-g-radius-border, 12%);\n}\n```\n\n```css\n.foo {\n  /* Output example */\n\n  border-radius: 12%;\n  border-radius: var(--sds-g-radius-border, 12%);\n}\n```\n\n\n\n## Usage\n\nCheck you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you already use PostCSS, add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-css-variable-value'),\n    require('autoprefixer')\n  ]\n}\n```\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n[official docs]: https://github.com/postcss/postcss#usage\n\n### Options\n\n* `preserve`: if set to false the plugin will not preserve the existing declaration and overwrite instead\n",
 	"readmeFilename": "README.md",
-	"_downloads": 70
+	"_downloads": 104
 }
