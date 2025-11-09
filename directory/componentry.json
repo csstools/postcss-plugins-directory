@@ -1,0 +1,171 @@
+{
+	"name": "componentry",
+	"version": "7.2.0",
+	"keywords": [
+		"accessibility",
+		"components-library",
+		"design-systems",
+		"postcss-plugin",
+		"react",
+		"tailwindcss",
+		"typescript"
+	],
+	"license": "MIT",
+	"_id": "componentry@7.2.0",
+	"maintainers": [
+		{
+			"name": "dhedgecock",
+			"email": "hedgecock.D@gmail.com"
+		},
+		{
+			"name": "crystal-ball-ci",
+			"email": "hedgecock.d+crystal-ball-ci@gmail.com"
+		}
+	],
+	"contributors": [
+		{
+			"name": "Dan Hedgecock",
+			"email": "hedgecock.d@gmail.com"
+		},
+		{
+			"name": "Phillip Sauerbeck",
+			"email": "psauerbeck@gmail.com"
+		}
+	],
+	"homepage": "https://github.com/crystal-ball/componentry#readme",
+	"bugs": {
+		"url": "https://github.com/crystal-ball/componentry/issues"
+	},
+	"dist": {
+		"shasum": "262156fca4dac40f1f768bca889c43503a27b4be",
+		"tarball": "https://registry.npmjs.org/componentry/-/componentry-7.2.0.tgz",
+		"fileCount": 311,
+		"integrity": "sha512-ZWWceFIaS2jCOnl2CDeoaVLzY16bXSv7SiKQlOjUBA8ofqLMFh+bI7t44IFtHOdUfhhzBARgMJ/835nlxpDvsg==",
+		"signatures": [
+			{
+				"sig": "MEUCIFzTOqJ5G1pqs3jM2Wzz/P4rCsE35ClhKwoQo188+b9IAiEAu4TRyHeoAxP6DQeamsblBnpuMTqMs8L0cr6Ao7AmP0Y=",
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+			}
+		],
+		"unpackedSize": 712506
+	},
+	"main": "./dist/commonjs/index.js",
+	"types": "./types/index.d.ts",
+	"module": "./dist/browser/index.js",
+	"exports": {
+		".": {
+			"node": {
+				"import": "./dist/browser/index.js",
+				"require": "./dist/commonjs/index.js"
+			},
+			"browser": {
+				"import": "./dist/browser/index.js",
+				"require": "./dist/commonjs/index.js"
+			},
+			"default": "./dist/browser/index.js"
+		},
+		"./babel": "./dist/commonjs/plugin-babel/index.js",
+		"./postcss": "./dist/commonjs/plugin-postcss/index.js",
+		"./api-docs": "./dist/api-docs.json"
+	},
+	"gitHead": "08c64aace09309ce943f8fd29fb631d355266947",
+	"scripts": {
+		"test": "npm run test:lint && npm run test:types && npm run test:unit",
+		"clean": "rm -rf dist types",
+		"start": "npm run compile && storybook dev -p 6006 --no-open",
+		"types": "tsc",
+		"format": "prettier --write . !CHANGELOG.md !coverage",
+		"compile": "npm run compile:browser && npm run compile:commonjs",
+		"typedoc": "typedoc ./src/api-types.ts --json dist/api-docs.json",
+		"test:lint": "NODE_ENV=test eslint --format=pretty .",
+		"test:unit": "BABEL_ENV=test NODE_ENV=test jest",
+		"test:types": "tsc",
+		"test:watch": "BABEL_ENV=test NODE_ENV=test JEST_NOTIFY=true jest --watch",
+		"type-check": "tsc --noEmit",
+		"babel:watch": "BABEL_ENV=browser babel src --watch --out-dir dist/browser --ignore '**/*.spec.js'",
+		"postpublish": "npm run clean",
+		"prepublishOnly": "npm run clean && npm run compile && npm run types && npm run typedoc",
+		"build-storybook": "storybook build",
+		"compile:browser": "BABEL_ENV=browser babel src -x '.ts,.tsx' --out-dir dist/browser",
+		"compile:commonjs": "BABEL_ENV=commonjs babel src -x '.ts,.tsx' --out-dir dist/commonjs",
+		"type-check:watch": "tsc --noEmit --watch"
+	},
+	"_npmUser": {
+		"name": "dhedgecock",
+		"email": "hedgecock.D@gmail.com"
+	},
+	"repository": {
+		"url": "git+https://github.com/crystal-ball/componentry.git",
+		"type": "git"
+	},
+	"_npmVersion": "9.6.7",
+	"description": "React component library for building custom design systems",
+	"directories": {},
+	"sideEffects": false,
+	"_nodeVersion": "18.17.1",
+	"dependencies": {
+		"clsx": "^1.1",
+		"nanoid": "^3.2",
+		"lilconfig": "^2.0",
+		"@babel/runtime": "^7.17"
+	},
+	"_hasShrinkwrap": false,
+	"devDependencies": {
+		"jest": "29.7.0",
+		"react": "18.2.0",
+		"eslint": "8.52.0",
+		"postcss": "8.4.31",
+		"typedoc": "0.25.2",
+		"webpack": "5.89.0",
+		"prettier": "3.0.3",
+		"chromatic": "7.4.0",
+		"react-dom": "18.2.0",
+		"storybook": "7.5.1",
+		"@babel/cli": "7.23.0",
+		"typescript": "5.2.2",
+		"@babel/core": "7.23.2",
+		"tailwindcss": "3.3.3",
+		"@types/react": "18.2.31",
+		"autoprefixer": "10.4.16",
+		"node-notifier": "10.0.1",
+		"@storybook/react": "7.5.1",
+		"@types/react-dom": "18.2.14",
+		"@storybook/addons": "7.5.1",
+		"@storybook/theming": "7.5.1",
+		"babel-plugin-tester": "11.0.4",
+		"eslint-plugin-react": "7.33.2",
+		"@testing-library/dom": "9.3.3",
+		"@storybook/addon-links": "7.5.1",
+		"@testing-library/react": "14.0.0",
+		"eslint-config-prettier": "9.0.0",
+		"eslint-plugin-jsx-a11y": "6.7.1",
+		"eslint-plugin-prettier": "5.0.1",
+		"jest-environment-jsdom": "29.7.0",
+		"eslint-config-eloquence": "23.1.0",
+		"eslint-plugin-storybook": "^0.6.15",
+		"@babel/preset-typescript": "7.23.2",
+		"@storybook/addon-mdx-gfm": "^7.5.1",
+		"@storybook/addon-postcss": "2.0.0",
+		"@storybook/react-webpack5": "^7.5.1",
+		"@testing-library/jest-dom": "6.1.4",
+		"@typescript-eslint/parser": "6.8.0",
+		"eslint-plugin-react-hooks": "4.6.0",
+		"@storybook/addon-essentials": "7.5.1",
+		"@testing-library/user-event": "14.5.1",
+		"eslint-plugin-testing-library": "6.1.0",
+		"@babel/plugin-transform-runtime": "7.23.2",
+		"@storybook/addon-styling-webpack": "^0.0.5",
+		"@typescript-eslint/eslint-plugin": "6.8.0"
+	},
+	"peerDependencies": {
+		"react": ">=16.14",
+		"postcss": "8",
+		"postcss-js": "4",
+		"postcss-nested": "5 || 6"
+	},
+	"_npmOperationalInternal": {
+		"tmp": "tmp/componentry_7.2.0_1698007342764_0.8684054924081583",
+		"host": "s3://npm-registry-packages"
+	},
+	"_time": "2023-10-22T20:42:22.986Z"
+}

@@ -123,5 +123,5 @@
 	"license": "MIT",
 	"readme": "# postcss-plugin-chain\n\nUtility for chaining multiple [PostCSS](https://postcss.org/) plugins as a single one.\n\n```js\n// Define the plugin:\nimport chainPlugins from 'postcss-plugin-chain';\n\nconst shapesPlugin = chainPlugins('postcss-shapes', [\n  require('postcss-circle'),\n  require('postcss-triangle'),\n]);\n\n// And use it:\npostcss([shapesPlugin]);\n```\n\n## Installation\n\n```sh\nyarn add --dev postcss-plugin-chain\n```\n\n## Usage\n\n`chainPlugins()` function accepts 2 parameters: `pluginName` and `pluginsToChain` - both pretty self-explanatory.\n\nReturned value is an asynchronous [postcss plugin](http://api.postcss.org/postcss.html#.plugin).\n\n## Options\n\nIf the plugin created with `chainPlugins` is initialized with options it passes them down to all chained plugins.\n\nIf you need to control the options passed to some specific plugins (e.g. map options names or set some defaults), you can wrap the plugin in a function:\n\n```js\nconst chainedPlugin = chainPlugins('options-example', [\n  options => require('postcss-calc')({ ...options, selectors: true }),\n  // ...\n]);\n```\n\n## License\n\n[MIT](./LICENSE)\n",
 	"readmeFilename": "README.md",
-	"_downloads": 721
+	"_downloads": 915
 }

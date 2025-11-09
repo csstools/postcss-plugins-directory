@@ -1,6 +1,6 @@
 {
 	"_id": "@zohodesk/postcss-rtl",
-	"_rev": "73-15a7b49378dd2c4bcc114df259b68f08",
+	"_rev": "72-adc6129bd52496533a6aa71bbaf85dc8",
 	"name": "@zohodesk/postcss-rtl",
 	"dist-tags": {
 		"beta": "1.5.3",
@@ -673,7 +673,7 @@
 	},
 	"time": {
 		"created": "2019-10-10T11:41:02.572Z",
-		"modified": "2025-10-29T11:37:03.627Z",
+		"modified": "2025-09-16T06:43:01.782Z",
 		"1.5.0": "2019-10-10T11:41:02.926Z",
 		"1.5.1": "2019-10-10T12:04:49.320Z",
 		"1.5.2": "2019-10-11T13:19:36.213Z",
@@ -711,10 +711,6 @@
 		{
 			"email": "skumaresh007@gmail.com",
 			"name": "skumaresan"
-		},
-		{
-			"email": "selvasupriya.v@zohocorp.com",
-			"name": "selvasupriya"
 		},
 		{
 			"email": "kathiresanramkumar95@gmail.com",
@@ -873,7 +869,7 @@
 			"name": "immanuel.sm"
 		},
 		{
-			"email": "ravikumar.selvam@zohomail.in",
+			"email": "raviking4042@gmail.com",
 			"name": "ravikumars"
 		},
 		{
@@ -915,5 +911,5 @@
 	],
 	"readme": "# PostCSS-RTL\n\n\n\nGenerates RTL rules with flipped properties.\nUse one file for both directions!\n\n* [Examples](#examples)\n    * [Simple properties](#simple-properties)\n    * [Animations](#animations)\n    * [Value directives](#value-directives)\n    * [Ignoring specific declarations](#ignoring-specific-declarations)\n* [Usage](#usage)\n    * [With Webpack](#with-webpack)\n    * [With Gulp](#with-gulp)\n    * [Options](#options)\n\n## Examples\n\n### Simple properties\n\nIn most cases all you need is flip property name or value\nfrom `left` to `right` or change values order in full-valued shorthand\nfrom `top-right-bottom-left` to `top-left-bottom-right`.\n\nLTR input:\n```css\n.foo {\n    float: right;\n    margin-left: 13px;\n    text-align: right;\n    font-size: 13px;\n    border-color: lightgray;\n    border-width: 2px 0 2px 2px;\n    border-style: solid dashed solid solid\n}\n\n.foo {\n    text-align: center;\n}\n```\n\nLTR+RTL output:\n```css\n.foo {\n    font-size: 13px\n}\n\n[dir] .foo {\n    border-color: lightgray\n}\n\n[dir=\"ltr\"] .foo {\n    float: right;\n    margin-left: 13px;\n    text-align: right;\n    border-width: 2px 0 2px 2px;\n    border-style: solid dashed solid solid\n}\n\n[dir=\"rtl\"] .foo {\n    float: left;\n    margin-right: 13px;\n    text-align: left;\n    border-width: 2px 2px 2px 0;\n    border-style: solid solid solid dashed\n}\n\n[dir] .foo {\n    text-align: center\n}\n```\n\n### Animations\nFlippable keyframes-animations will be splitted to two\ndirection-based rules with `-ltr` or `-rtl` suffixes\n\nLTR input:\n```css\n.foo {\n    animation: 1s slide 0s ease-in-out\n}\n\n@keyframes slide {\n    from {\n        transform: translate( -1000px )\n    }\n    to {\n        transform: translate( 0 )\n    }\n}\n```\n\nLTR+RTL output:\n```css\n[dir=\"ltr\"] .foo {\n    animation: 1s slide-ltr 0s ease-in-out\n}\n\n[dir=\"rtl\"] .foo {\n    animation: 1s slide-rtl 0s ease-in-out\n}\n\n@keyframes slide-ltr {\n    from {\n        transform: translate( -1000px )\n    }\n    to {\n        transform: translate( 0 )\n    }\n}\n\n@keyframes slide-rtl {\n    from {\n        transform: translate( 1000px )\n    }\n    to {\n        transform: translate( 0 )\n    }\n}\n```\n\n### Value directives\n\nTo transform declaration values use value directives:\n\n* `/* rtl:prepend:{value} */` - to prepend the {value} before the current value\n* `/* rtl:append:{value} */` - to append the {value} after the current value\n* `/* rtl:{value} */` - to replace the current value with the supplied value\n\n**Source**\n\n```css\n.foo {\n    font-weight: bold;\n    font-family: \"Droid Sans\", \"Helvetica Neue\", Arial, sans-serif/*rtl:prepend:\"Droid Arabic Kufi\",*/;\n    transform: rotate(45deg)/* rtl:append: scaleX(-1) */;\n    flex-direction: row/* rtl: row-reverse */;\n}\n```\n\n**Result**\n\n```css\n.foo {\n    font-weight: bold;\n}\n\n[dir=ltr] .foo {\n    font-family: \"Droid Sans\", \"Helvetica Neue\", Arial, sans-serif/*rtl:prepend:\"Droid Arabic Kufi\",*/;\n    transform: rotate(45deg)/* rtl:append: scaleX(-1) */;\n    flex-direction: row/* rtl: row-reverse */;\n}\n\n[dir=rtl] .foo {\n    font-family: \"Droid Arabic Kufi\", \"Droid Sans\", \"Helvetica Neue\", Arial, sans-serif;\n    transform: rotate(45deg) scaleX(-1);\n    flex-direction: row-reverse;\n}\n```\n\n### Ignoring specific declarations\nTo skip flipping specific declarations use some of supported directives:\n\n* `/* rtl:ignore */` - to ignore the following rule *or* the containing declaration\n* `/* rtl:begin:ignore */` and `/* rtl:end:ignore */` - to ignore rules within scope\n\nIgnore one rule:\n```css\n/* rtl:ignore */\n.foo {\n    padding-left: 0\n}\n```\n\nBlock-syntax to ignore rules within scope:\n```css\n/* rtl:begin:ignore */\n.foo {\n    padding-left: 0\n}\n.bar {\n    direction: ltr\n}\n/* rtl:end:ignore */\n```\n\nValue-syntax to ignore a single CSS declaration:\n```css\n.foo {\n    margin-left: 20px;\n    padding-right: 20px /* rtl:ignore */;\n}\n```\n\n`/*!` notation will work too:\n```css\n/*! rtl:ignore */\n.foo {\n    padding-left: 0\n}\n```\n\n## Usage\n1. Plug it to PostCSS\n\n    ```js\n    const postcss = require('postcss')\n    const rtl = require('postcss-rtl')\n\n    postcss([ rtl( options ) ])\n    ```\n\n    See [PostCSS] docs for examples for your environment.\n\n2. Manage direction by switching between `dir=\"ltr\"` and `dir=\"rtl\"` on `<html>` element.\n\n### With Webpack:\n```js\nmodule.exports = {\n  module: {\n    rules: [ {\n      test: /\\.css$/,\n      use: [\n        { loader: 'style-loader' },\n        { loader: 'css-loader' },\n        { loader: 'postcss-loader',\n          options: {\n            plugins: function () {\n              return [ require( 'postcss-rtl' )( options ) ]\n            }\n          }\n        }\n      ]\n    } ]\n  }\n}\n```\n\n### With Gulp:\n```js\ngulp.src( 'style.css' )\n    .pipe( postcss( [ rtl( options ) ]) )\n    .pipe( gulp.dest( './dest' ) )\n```\n\n### Options\n* `addPrefixToSelector`: Custom function for adding prefix to selector. Optional.\n    Example:\n    ```js\n    function addPrefixToSelector ( selector, prefix ) {\n        return `${prefix} > ${selector}` // Make selectors like [dir=rtl] > .selector\n    }\n    ```\n  **note:** the returned string _must_ include `prefix` to avoid an infinite recursion\n\n* `onlyDirection`: generate only one-direction version: `ltr` or `rtl`\n\n* `prefixType`: Switches between adding attributes and classes. Optional: \n    * `attribute` (by default, recommended): `.foo` => `[dir=rtl] .foo`\n    * `class` (useful for IE6): `.foo` => `.dir-rtl .foo`\n    \n* `prefix`: Uses a custom string, instead of 'dir', for the added attribute and class selectors\n    * e.g. `'data-my-custom-dir'` (for attribute prefixType): `.foo` => `[data-my-custom-dir=rtl] .foo`\n    * e.g. `'my-custom-dir'` (for class prefixType): `.foo` => `.my-custom-dir-rtl .foo`\n    \n* `removeComments` (default: `true`): remove `rtl:*` comments after process them   \n\n* `fromRTL`: assume all styles are written in RTL direction and generate corresponding LTR styles for them  \n\n",
 	"readmeFilename": "README.md",
-	"_downloads": 839
+	"_downloads": 799
 }
