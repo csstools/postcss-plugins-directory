@@ -283,5 +283,5 @@
 	"license": "MIT",
 	"readme": "# PostCSS Split Module\n\n[PostCSS] plugin used for css module split into sep dir, and generate json or d.ts.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n## Usage\n\nCheck you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you already use PostCSS, add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-split-module'),\n    require('autoprefixer')\n  ]\n}\n```\n\nUsually work with rollup-plugin-postcss\n```js\nrollup_postcss({\n  plugins: [\n    postcssSplit(),\n  ],\n  modules: true,\n}),\n```\nAssume you have src/Task/Task.css\n\nThis will generate .css.d.ts to build/components/Task/Task.css and build/components/Task/Task.css.d.ts\n\n## Options\n\n### outputType\n\nexport file type, `ts` or `json`, default is `ts`\n\n`ts` will generate .d.ts\n\n### outputDir\n\nexport path, default is `./build/components/`\n\n`Task/Task.styl` -> `./build/components/Task/Task.css.d.ts`\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
 	"readmeFilename": "README.md",
-	"_downloads": 5
+	"_downloads": 4
 }
