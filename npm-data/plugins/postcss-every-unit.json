@@ -1,0 +1,130 @@
+{
+	"_id": "postcss-every-unit",
+	"name": "postcss-every-unit",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-every-unit",
+			"version": "1.0.0",
+			"description": "A PostCSS plugin that converts every recognized length and time unit to CSS-compatible units",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"build": "tsc",
+				"prepublishOnly": "npm run build",
+				"test": "node test/test.js",
+				"demo": "node demo/watch.js"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"units",
+				"length",
+				"time",
+				"conversion"
+			],
+			"author": {
+				"name": "marcus",
+				"email": "marcus@funky.rocks"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/vimona3ds/postcss-every-unit.git"
+			},
+			"bugs": {
+				"url": "https://github.com/vimona3ds/postcss-every-unit/issues"
+			},
+			"homepage": "https://github.com/vimona3ds/postcss-every-unit",
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"devDependencies": {
+				"@types/node": "^20.0.0",
+				"postcss": "^8.4.0",
+				"typescript": "^5.0.0",
+				"live-server": "^1.2.2"
+			},
+			"engines": {
+				"node": ">=14.0.0"
+			},
+			"gitHead": "8b9e1e087e5931efe35577308ed020385a0e1024",
+			"_id": "postcss-every-unit@1.0.0",
+			"_nodeVersion": "24.11.0",
+			"_npmVersion": "11.6.1",
+			"dist": {
+				"integrity": "sha512-tN0cOSwziNUrCceJfYxoon+iYVG8XLY7+oJYNGJYN8jCKn1Srw3DAlnF/kV9OuYNHQtMSiS9yufJ/5bv6Iz7Jg==",
+				"shasum": "bfa382061010a60a7682c2b60c63a0f7f18e6f50",
+				"tarball": "https://registry.npmjs.org/postcss-every-unit/-/postcss-every-unit-1.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 25574,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCID0Jhw8YwmYHicD4BxfO3DFwLZizgCinUzKh8PH1UIkRAiAE6ok2y7bApIIKpiFTEpQlk+vnunG3PgWWZm7er+6iEA=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "vimona3ds",
+				"email": "marcus@funky.rocks"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "vimona3ds",
+					"email": "marcus@funky.rocks"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-every-unit_1.0.0_1762751541784_0.5734413931432845"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-11-10T05:12:21.782Z",
+		"1.0.0": "2025-11-10T05:12:21.975Z",
+		"modified": "2025-11-10T05:12:22.231Z"
+	},
+	"maintainers": [
+		{
+			"name": "vimona3ds",
+			"email": "marcus@funky.rocks"
+		}
+	],
+	"description": "A PostCSS plugin that converts every recognized length and time unit to CSS-compatible units",
+	"homepage": "https://github.com/vimona3ds/postcss-every-unit",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"units",
+		"length",
+		"time",
+		"conversion"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vimona3ds/postcss-every-unit.git"
+	},
+	"author": {
+		"name": "marcus",
+		"email": "marcus@funky.rocks"
+	},
+	"bugs": {
+		"url": "https://github.com/vimona3ds/postcss-every-unit/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-every-unit\n\nA PostCSS plugin that converts every recognized length and time unit in real life to CSS-compatible units.\n\nWant to use light-years, furlongs, or jiffies in your CSS? Now you can!\n\n**Note**: AI wrote this. It's a shitpost.\n\n## Features\n\n- Converts ALL length units to a target unit (default: inches)\n- Converts ALL time units to a target unit (default: seconds)\n- Properly handles `calc()` expressions and CSS custom properties\n- Supports multiple aliases for each unit (e.g., `mi`, `mile`, `miles` all work)\n- Works with any CSS property that accepts length or time values\n\n## Installation\n\n```bash\nnpm install postcss-every-unit --save-dev\n```\n\n## Live Demo\n\nWant to see it in action? Run the live demo:\n\n```bash\nnpm run build  # Build the plugin first\nnpm install    # Install demo dependencies\nnpm run demo   # Start the demo server\n```\n\nThis will:\n1. Start a live server at http://localhost:8080\n2. Watch `demo/input.css` for changes\n3. Show side-by-side input/output CSS in your browser\n4. Auto-refresh when you edit the input file\n\nTry editing `demo/input.css` and watch the conversions happen in real-time!\n\n## Usage\n\n### PostCSS Config\n\n```js\nmodule.exports = {\n  plugins: [\n    require('postcss-every-unit')({\n      targetLengthUnit: 'in',  // Convert all lengths to inches (default)\n      targetTimeUnit: 's',      // Convert all times to seconds (default)\n      precision: 6              // Decimal places (0 = no rounding, default: 0)\n    })\n  ]\n}\n```\n\n### Examples\n\n#### Input CSS\n\n```css\n.astronomical {\n  margin: 0.00000000000000000268478ly; /* light-years */\n  padding: 2au 5parsecs;                /* astronomical units & parsecs */\n}\n\n.imperial {\n  width: 5ft;                           /* feet */\n  height: 100miles;                     /* miles */\n  border-width: 50furlongs;             /* furlongs */\n}\n\n.time {\n  animation-delay: 10jiffy;             /* jiffies (1/60 second) */\n  transition-duration: 2fortnight;      /* fortnights */\n}\n\n.calc-expressions {\n  width: calc(5ft + 10yards - 2inches);\n  animation: slide 3hours ease-in-out;\n}\n```\n\n#### Output CSS (default options)\n\n```css\n.astronomical {\n  margin: 105.77in;                     /* converted from light-years */\n  padding: 5.8906e+12in 1.215e+18in;    /* AU & parsecs to inches */\n}\n\n.imperial {\n  width: 60in;                          /* feet to inches */\n  height: 6336000in;                    /* miles to inches */\n  border-width: 792000in;               /* furlongs to inches */\n}\n\n.time {\n  animation-delay: 0.166667s;           /* jiffies to seconds */\n  transition-duration: 1209600s;        /* fortnights to seconds */\n}\n\n.calc-expressions {\n  width: calc(60in + 360in - 2in);      /* all converted to inches */\n  animation: slide 10800s ease-in-out;  /* hours to seconds */\n}\n```\n\n## Supported Units\n\n### Length Units (→ inches by default)\n\n**Metric:**\n- meter (m, meter, metre)\n- centimeter (cm)\n- millimeter (mm)\n- kilometer (km)\n- micrometer (µm, um, micron)\n- nanometer (nm)\n- picometer (pm)\n\n**Imperial/US:**\n- foot (ft, feet)\n- yard (yd)\n- mile (mi, miles)\n- inch (in)\n- mil (thou)\n\n**Astronomical:**\n- light-year (ly, lightyear)\n- astronomical unit (au)\n- parsec (pc)\n\n**Nautical:**\n- nautical mile (nmi)\n- fathom\n\n**Small Scale:**\n- angstrom (Å)\n- fermi\n- Planck length\n\n**Historical/Obscure:**\n- furlong, chain, rod, league, hand, cubit, barleycorn, link, span, ell\n\n### Time Units (→ seconds by default)\n\n**Common:**\n- minute (min)\n- hour (h, hr)\n- day (d)\n- week (w, wk)\n- fortnight\n- year (y, yr)\n\n**Large Scale:**\n- month (mo)\n- decade\n- century\n- millennium\n- eon\n\n**Scientific:**\n- millisecond (ms)\n- microsecond (µs, us)\n- nanosecond (ns)\n- picosecond (ps)\n- jiffy\n- shake\n- Planck time\n\n## Options\n\n### `targetLengthUnit`\n\nType: `string`\nDefault: `'in'`\n\nThe CSS unit to convert all length values to. Can be any valid CSS length unit or any unit supported by this plugin.\n\n### `targetTimeUnit`\n\nType: `string`\nDefault: `'s'`\n\nThe CSS unit to convert all time values to. Can be any valid CSS time unit or any unit supported by this plugin.\n\n### `precision`\n\nType: `number`\nDefault: `0`\n\nNumber of decimal places to round to. Set to `0` to disable rounding (preserves full precision).\n\n## License\n\nMIT\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-6c1fc770854f5d8cb98a5a7439933662",
+	"_downloads": 0
+}
