@@ -1,0 +1,155 @@
+{
+	"name": "@csstools/postcss-sass",
+	"version": "5.1.1",
+	"description": "Use Sass as a PostCSS plugin",
+	"author": {
+		"name": "Jonathan Neal",
+		"email": "jonathantneal@hotmail.com"
+	},
+	"license": "CC0-1.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonathantneal/postcss-sass.git"
+	},
+	"homepage": "https://github.com/csstools/postcss-sass#readme",
+	"bugs": {
+		"url": "https://github.com/csstools/postcss-sass/issues"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"scripts": {
+		"prepublishOnly": "npm test",
+		"pretest": "rollup -c rollup.mjs --silent --exports 'auto'",
+		"test": "npm run test:js && npm run test:tape",
+		"test:js": "eslint *.mjs src/*.mjs test/*.mjs --cache --ignore-path .gitignore --quiet",
+		"test:tape": "node --test",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node --test"
+	},
+	"engines": {
+		"node": "^12 || ^14 || >=16"
+	},
+	"dependencies": {
+		"@csstools/sass-import-resolve": "^1.0.0",
+		"sass": "^1.69.5",
+		"source-map": "~0.7.4"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4.6"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.23.6",
+		"@babel/preset-env": "^7.23.6",
+		"@rollup/plugin-babel": "^6.0.4",
+		"@babel/eslint-parser": "^7.23.3",
+		"eslint": "^8.56.0",
+		"eslint-config-dev": "^3.3.1",
+		"postcss": "^8.4.32",
+		"postcss-import": "^15.1.0",
+		"@csstools/postcss-tape": "^4.1.1",
+		"rollup": "^4.9.1"
+	},
+	"eslintConfig": {
+		"env": {
+			"es6": true,
+			"node": true
+		},
+		"extends": "eslint:recommended",
+		"rules": {
+			"quotes": [
+				"error",
+				"single"
+			],
+			"comma-dangle": [
+				"error",
+				"always-multiline"
+			],
+			"semi": [
+				"error",
+				"always"
+			],
+			"curly": "error",
+			"brace-style": "error",
+			"indent": [
+				"error",
+				"tab",
+				{
+					"SwitchCase": 1
+				}
+			],
+			"radix": "error"
+		},
+		"parserOptions": {
+			"ecmaVersion": 2020,
+			"sourceType": "module"
+		},
+		"root": true
+	},
+	"postcssConfig": {
+		"config": ".tape.js",
+		"plugin": "./dist/index.cjs"
+	},
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"sass",
+		"node",
+		"lib",
+		"libsass",
+		"node-sass",
+		"preprocessor",
+		"scss",
+		"css",
+		"style",
+		"extension"
+	],
+	"_id": "@csstools/postcss-sass@5.1.1",
+	"gitHead": "fbb0cf3cc301a61fb245a18e9bbe7c1ba1e171ea",
+	"_nodeVersion": "18.18.2",
+	"_npmVersion": "9.8.1",
+	"dist": {
+		"integrity": "sha512-La7bgTcM6YwPBLqlaXg7lMLry82iLv1a+S1RmgvHq2mH2Zd57L2anjZvJC8ACUHWc4M9fXws93dq6gaK0kZyAw==",
+		"shasum": "135921df13bc56bee50c7470a66e4e9f3d5c89ae",
+		"tarball": "https://registry.npmjs.org/@csstools/postcss-sass/-/postcss-sass-5.1.1.tgz",
+		"fileCount": 6,
+		"unpackedSize": 28025,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEQCICrC56m6aEUFKp5dLtfeRYAPpsqHmSG/wa9HaF9cWhxpAiBY+6qduBJYSAqU5jC0Q+G6WGDv7UfKB9TbKkyV3rYTPg=="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "romainmenke",
+		"email": "romainmenke@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "romainmenke",
+			"email": "romainmenke@gmail.com"
+		},
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		},
+		{
+			"name": "jonathantneal",
+			"email": "jonathantneal@hotmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-sass_5.1.1_1703780252260_0.27666808029586476"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-12-28T16:17:32.414Z"
+}
