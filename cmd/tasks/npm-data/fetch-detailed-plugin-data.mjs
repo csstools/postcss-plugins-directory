@@ -19,12 +19,14 @@ async function fetchDetailedDataForOnePlugin(plugin, forced, index, total) {
 	const detailedData = await fetchPlugin(plugin.package.name);
 	const downloadsData = await fetchDownloadCount(plugin.package.name);
 
-	if (existingData._downloads && existingData._downloads > 50 && downloadsData.downloads < 50) {
-		// Some plugins might oscillate around 50.
-		// If a plugin drops from above 50 to under 50 we set it to exactly 50.
-		detailedData._downloads = 50;
+	if (existingData._downloads) {
+		if (Array.isArray(existingData._downloads)) {
+			detailedData._downloads = [...existingData._downloads, downloadsData.downloads].slice(-20);
+		} else {
+			detailedData._downloads = [existingData._downloads, downloadsData.downloads];
+		}
 	} else {
-		detailedData._downloads = downloadsData.downloads;
+		detailedData._downloads = [downloadsData.downloads];
 	}
 
 	await fs.mkdir(path.dirname(pluginFilePath), { recursive: true });

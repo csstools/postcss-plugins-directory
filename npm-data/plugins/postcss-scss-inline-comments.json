@@ -531,5 +531,5 @@
 	"license": "MIT",
 	"readme": "# postcss-scss-inline-comments\n\n> [PostCSS](https://github.com/postcss/postcss) plugin to convert css multiline comments to sass inline comments.\n\n## Installation\n\nWith `yarn`\n\n```\n$ yarn add postcss-scss-inline-comments\n```\n\nOr `npm`:\n\n```\n$ npm install --save postcss-scss-inline-comments\n```\n\n## Usage\n\n```js\nconst fs = require('fs'),\n\tpostcss = require('postcss'),\n\tsyntax = require('postcss-scss'),\n\tinlineComments = require('postcss-scss-inline-comments')\n\t\nconst scss = fs.readFileSync('scss/input.scss', 'utf-8')\n\t\npostcss([inlineComments()]).process(scss, {\n  syntax: syntax,\n  from: 'scss/input.scss',\n})\n```\n\n`scss/input.scss`:\n\n```css\n/**\n * A mixin for important things.\n */\n@mixin a-mixin {\n  color: red;\n}\n```\n\nWill give you:\n\n```css\n//\n// A mixin for important things.\n//\n@mixin a-mixin {\n  color: red;\n}\n```\n\nFor more information see [the scss-extractor documentation](https://github.com/christophersmith262/scss-extractor).\n",
 	"readmeFilename": "README.md",
-	"_downloads": 0
+	"_downloads": 5
 }

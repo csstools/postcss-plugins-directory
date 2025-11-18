@@ -63,10 +63,18 @@ export async function listMaintainedPlugins() {
 
 		const pluginFilePath = path.join('npm-data', 'plugins', plugin.package.name) + '.json';
 		const pluginData = await readJSONFromFileOrEmptyObject(pluginFilePath);
-		if ('_downloads' in pluginData && pluginData._downloads < 50) {
+		
+		if ('_downloads' in pluginData) {
 			// Plugin must at least be downloaded a 50 times a month.
 			// Anything less than that could be a single user or bot traffic.
-			continue;
+
+			if (Array.isArray(pluginData._downloads) && Math.max.apply(null, pluginData._downloads) < 50) {
+				continue;
+			}
+
+			if (!Array.isArray(pluginData._downloads) && pluginData._downloads < 50) {
+				continue;
+			}
 		}
 
 		const versions = Object.keys(Object(pluginData.versions)).filter(filterVersions(pluginData));

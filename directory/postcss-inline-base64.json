@@ -1,0 +1,109 @@
+{
+	"name": "postcss-inline-base64",
+	"version": "7.3.1",
+	"description": "PostCSS plugin for encode the file to base64",
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"base64",
+		"file",
+		"inline",
+		"postcss-inline-base64"
+	],
+	"author": {
+		"name": "Thiago Lagden",
+		"email": "lagden@gmail.com"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/lagden/postcss-inline-base64",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lagden/postcss-inline-base64.git"
+	},
+	"bugs": {
+		"url": "https://github.com/lagden/postcss-inline-base64/issues"
+	},
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./src/plugin.js",
+			"require": "./dist/plugin-wrapper.cjs"
+		},
+		"./package.json": "./package.json"
+	},
+	"main": "./src/plugin.js",
+	"engines": {
+		"node": ">=14.17"
+	},
+	"scripts": {
+		"rm": "rm -rf dist",
+		"eslint": "eslint --config .eslintrc.yml --ext .js --ignore-path .gitignore .",
+		"pretest": "npm run eslint",
+		"test": "c8 --reporter=text --reporter=text-summary --reporter=lcov ava",
+		"prepublishOnly": "npm run build",
+		"prebuild": "npm test && npm run rm",
+		"esbuild": "node ./esbuild.config.js",
+		"postbuild": "npm run dist:pkg && npm run dist:wrapper",
+		"dist:pkg": "echo '{\"type\": \"commonjs\"}'> dist/package.json",
+		"dist:wrapper": "echo \"module.exports = require('./plugin.cjs').default\"> dist/plugin-wrapper.cjs",
+		"build": "npm run esbuild",
+		"snyk-protect": "snyk-protect",
+		"prepare": "npm run snyk-protect"
+	},
+	"dependencies": {
+		"debug": "4.3.4",
+		"file-type": "18.2.1",
+		"got": "12.6.0",
+		"is-svg": "5.0.0"
+	},
+	"devDependencies": {
+		"@snyk/protect": "1.1140.0",
+		"ava": "5.2.0",
+		"c8": "7.13.0",
+		"esbuild": "0.17.15",
+		"eslint": "8.37.0",
+		"eslint-config-xo": "0.43.1",
+		"eslint-plugin-unicorn": "46.0.0",
+		"postcss": "8.4.21"
+	},
+	"peerDependencies": {
+		"postcss": ">=8.0.0"
+	},
+	"snyk": true,
+	"gitHead": "9e38c6d461d3ea21a8b21fcd68156e6b5b25f49f",
+	"_id": "postcss-inline-base64@7.3.1",
+	"_nodeVersion": "18.12.1",
+	"_npmVersion": "9.6.4",
+	"dist": {
+		"integrity": "sha512-S/e7EUzhYH75cn+buz7JCFGCkvAsb71WKya/mPcKQ+473AwPsU/S1mR4koqO2BKMld6nsA0y7WQTqcIf49fSDg==",
+		"shasum": "1bbc89977185b45b9032a32bcdb0e22b5247fda6",
+		"tarball": "https://registry.npmjs.org/postcss-inline-base64/-/postcss-inline-base64-7.3.1.tgz",
+		"fileCount": 11,
+		"unpackedSize": 436702,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQCwsRhf7feS0BV/HRrHmGiN3/6k3MxrHYvmSYBM5T//SwIgAmD+479kbLV2++dtkLkTJM7LdoLm/3kBeOI16OSKL8c="
+			}
+		],
+		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkLlDeACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoMAw/9E27bLvPMXZ/To+/sTabR7tkJSNKOcNsTuwPScYi/06Grk9wQ\r\nNQMlcOsbztX5Sdwr2yRs0IO2FFCd+hgz58NCSX1VohgKRlXCbLWcp8f8NL5B\r\nUkK6YMX27LJQwMrcFBFv0rSVhVKSey2nORD1koG0auUlqDVRVgCb8xfvtTWh\r\n007pDQC9pEgDAwv3IbN2J8A7c9LHkNVkC45vZxprNlGufue14hE6lhgd+huS\r\ngSTdCFIPRLF+XgmdJ4JbzhhN12XPV34InlK5YvDfAg/d/eCJiHG+ot7ptifI\r\nxAm4EaH2oXs+nFl+fqBroI57SQveK0sSdKj2JMo3YWw09SPUgkuMl5b4FUIS\r\nnigxB2bbcqQgI0rVMMSWieEsC0ZQOO1riouS3oEK5oB2fa9kegXyAceET4T0\r\nZoK2P0XwHMQaQxZnBvJ9jYb86XT6u8xOnHFi0XygM1ESwXhD+0ON/YRClBcO\r\nMd6MKGxEYTAqmLMJ4XSnNYZ+R1QIuYxDGQNMDyYyOhcjj3vjddUfpeAVNtIj\r\nIONYO8ILNFJaoNeo5AbKoIdGvre9ERVzfQF0Dg8nuO7KiCl6Apg/bAg+nyX6\r\nLTFOGVEl4GV6HGVPLPRQ1fyVHN0Jr4sgCSVAT1gS/Y2MndW5Su8qoFlIEL4g\r\naTO0F09s3ZNMsXH17pgbiZVTWyLOGU/4cWo=\r\n=dGBK\r\n-----END PGP SIGNATURE-----\r\n"
+	},
+	"_npmUser": {
+		"name": "lagden",
+		"email": "lagden@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "lagden",
+			"email": "lagden@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-inline-base64_7.3.1_1680756957876_0.3006047341298872"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-04-06T04:55:58.079Z"
+}

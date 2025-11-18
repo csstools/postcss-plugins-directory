@@ -1,0 +1,98 @@
+{
+	"name": "postcss-editor-styles-wrapper",
+	"version": "1.0.1",
+	"description": "Remove your editor-styles from the global scope ",
+	"author": {
+		"name": "Antonio Laguna",
+		"email": "antonio@laguna.es"
+	},
+	"license": "MIT-0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Antonio-Laguna/postcss-editor-styles.git"
+	},
+	"homepage": "https://github.com/Antonio-Laguna/postcss-editor-styles#readme",
+	"bugs": {
+		"url": "https://github.com/Antonio-Laguna/postcss-editor-styles/issues"
+	},
+	"scripts": {
+		"build": "rollup -c ./rollup/default.mjs",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "node .tape.mjs && node ./test/_import.mjs && node ./test/_require.cjs",
+		"test:rewrite-expects": "REWRITE_EXPECTS=true node .tape.mjs"
+	},
+	"engines": {
+		"node": "^18 || >= 20"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.22.20",
+		"@babel/preset-env": "^7.22.20",
+		"@csstools/postcss-tape": "^3.0.1",
+		"@rollup/plugin-babel": "^6.0.3",
+		"@rollup/plugin-commonjs": "^25.0.4",
+		"@rollup/plugin-node-resolve": "^15.2.1",
+		"@rollup/plugin-terser": "^0.4.3",
+		"@rollup/plugin-typescript": "^11.1.3",
+		"@stryker-mutator/core": "^7.1.1",
+		"@typescript-eslint/eslint-plugin": "^6.7.0",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^8.49.0",
+		"rollup": "^3.29.2",
+		"tslib": "^2.6.2",
+		"typescript": "^5.2.2"
+	},
+	"keywords": [
+		"postcss",
+		"css",
+		"postcss-plugin",
+		"wordpress",
+		"gutenberg"
+	],
+	"gitHead": "dced62a359c48dab0dafc26da35c29b8e146deb5",
+	"_id": "postcss-editor-styles-wrapper@1.0.1",
+	"_nodeVersion": "18.17.1",
+	"_npmVersion": "9.6.7",
+	"dist": {
+		"integrity": "sha512-syeRRPBHx6R9UTszm3L4U9O2iQTJwyLE5Hk3/o+Jpov5xRSuTv96t/7ghkXq6lb6LFh6gXMxsiqepoFMZwrQ9g==",
+		"shasum": "138269662b15c6d9b816cd713870670647399667",
+		"tarball": "https://registry.npmjs.org/postcss-editor-styles-wrapper/-/postcss-editor-styles-wrapper-1.0.1.tgz",
+		"fileCount": 6,
+		"unpackedSize": 8440,
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEUCIQDZgLb/kvDqwrzr29sB1S+mq2GYIOy01LMJ2UJMbKjBBwIgbIiJEY7TPR2Cn8KlxtTUa9+/fZ6UKVNG3kpGaT+faw0="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "alaguna",
+		"email": "sombragriselros@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "alaguna",
+			"email": "sombragriselros@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-editor-styles-wrapper_1.0.1_1695132598528_0.2570515111333844"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2023-09-19T14:09:58.722Z"
+}
