@@ -6,7 +6,7 @@ import { invalidForks } from "../../config/invalid-forks.mjs";
 import { packageNameAndScope } from "../util/package-name-and-scope.mjs";
 
 async function fetchPlugins(query, offset) {
-	await new Promise((resolve) => setTimeout(resolve, 100));
+	await new Promise((resolve) => setTimeout(resolve, 500));
 	const response = await fetch(`${query}&from=${offset}&size=250`);
 	if (response.status !== 200) {
 		throw new Error(`Fetching plugins : ${response.statusText}`);

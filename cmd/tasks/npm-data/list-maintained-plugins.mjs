@@ -68,7 +68,7 @@ export async function listMaintainedPlugins() {
 			// Plugin must at least be downloaded a 50 times a month.
 			// Anything less than that could be a single user or bot traffic.
 
-			if (Array.isArray(pluginData._downloads) && Math.max.apply(null, pluginData._downloads) < 50) {
+			if (Array.isArray(pluginData._downloads) && (pluginData._downloads.reduce((a, b) => a + b) / pluginData._downloads.length) < 50) {
 				continue;
 			}
 
