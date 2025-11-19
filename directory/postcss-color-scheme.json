@@ -1,0 +1,141 @@
+{
+	"name": "postcss-color-scheme",
+	"version": "2.1.0",
+	"description": "postcss plugin for handling prefers-color-scheme more gracefully",
+	"type": "module",
+	"main": "lib/postcss.js",
+	"types": "types/postcss.d.ts",
+	"exports": {
+		".": {
+			"types": "./types/postcss.d.ts",
+			"import": "./lib/postcss.js",
+			"default": "./lib/postcss.js"
+		},
+		"./tailwind.css": "./lib/tailwind.css"
+	},
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	},
+	"license": "MIT",
+	"keywords": [
+		"postcss-plugin",
+		"postcss",
+		"plugin",
+		"theme",
+		"dark",
+		"color",
+		"scheme",
+		"mode"
+	],
+	"author": {
+		"name": "Quang Phan",
+		"email": "vnphanquang@gmail.com",
+		"url": "https://github.com/vnphanquang"
+	},
+	"homepage": "https://github.com/vnphanquang/postcss-color-scheme",
+	"bugs": {
+		"url": "https://github.com/vnphanquang/postcss-color-scheme/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/postcss-color-scheme.git",
+		"directory": "package"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"devDependencies": {
+		"@changesets/changelog-github": "^0.5.0",
+		"@changesets/cli": "^2.27.10",
+		"@types/node": "^22.10.0",
+		"@vitest/coverage-istanbul": "^2.1.6",
+		"@vitest/ui": "^2.1.6",
+		"@vnphanquang/eslint-config": "^3.0.1",
+		"dedent": "^1.5.3",
+		"dts-buddy": "^0.5.3",
+		"eslint": "^9.15.0",
+		"postcss": "^8.4.49",
+		"prettier": "^3.4.1",
+		"prettier-plugin-embed": "^0.4.15",
+		"publint": "^0.2.12",
+		"typescript": "^5.7.2",
+		"vitest": "^2.1.6"
+	},
+	"devEngines": {
+		"runtime": [
+			{
+				"name": "node",
+				"version": ">= 22.0.0",
+				"onFail": "error"
+			}
+		],
+		"packageManager": [
+			{
+				"name": "npm",
+				"version": ">=10.9.0",
+				"onFail": "ignore"
+			},
+			{
+				"name": "pnpm",
+				"version": ">=9.0.0",
+				"onFail": "error"
+			}
+		]
+	},
+	"volta": {
+		"node": "22.11.0"
+	},
+	"scripts": {
+		"dts": "dts-buddy --write && publint",
+		"format": "prettier --write .",
+		"lint": "eslint lib/**/*",
+		"test": "vitest --coverage",
+		"ci:test:units": "vitest run tests/units --coverage --reporter=junit --outputFile=./coverage/junit.xml",
+		"ci:test:integrations": "vitest run tests/vite tests/tailwind",
+		"ci:version": "changeset version && pnpm install --no-frozen-lockfile",
+		"ci:publish": "changeset publish && pnpm install"
+	},
+	"_id": "postcss-color-scheme@2.1.0",
+	"_integrity": "sha512-hU/ln4Sn4v/X6aR3mQ56T5tST/0wuDEWvvuGEg8lEpygyE/uomzyrEvWMUVh7Z4dHaXIiCRvkr0kBh9k/M8lLA==",
+	"_resolved": "/tmp/8e0686b0b9f285e7518b1b1ec0221985/postcss-color-scheme-2.1.0.tgz",
+	"_from": "file:postcss-color-scheme-2.1.0.tgz",
+	"_nodeVersion": "22.11.0",
+	"_npmVersion": "10.9.0",
+	"dist": {
+		"integrity": "sha512-hU/ln4Sn4v/X6aR3mQ56T5tST/0wuDEWvvuGEg8lEpygyE/uomzyrEvWMUVh7Z4dHaXIiCRvkr0kBh9k/M8lLA==",
+		"shasum": "34aa959cfd9efed5747090fb813dc2913e58c186",
+		"tarball": "https://registry.npmjs.org/postcss-color-scheme/-/postcss-color-scheme-2.1.0.tgz",
+		"fileCount": 8,
+		"unpackedSize": 14967,
+		"attestations": {
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-color-scheme@2.1.0",
+			"provenance": {
+				"predicateType": "https://slsa.dev/provenance/v1"
+			}
+		},
+		"signatures": [
+			{
+				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+				"sig": "MEYCIQDcpn7xZ7vSbMPuB7r2AcrE0noB6hKgO7m+MQNjrc0u5QIhAJmNSur3BLzUDbOcFXnznBQlC4cWBYZhTbima3+aioJW"
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "vnphanquang",
+		"email": "vnphanquang@gmail.com"
+	},
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "vnphanquang",
+			"email": "vnphanquang@gmail.com"
+		}
+	],
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages",
+		"tmp": "tmp/postcss-color-scheme_2.1.0_1732769779111_0.7312843504557085"
+	},
+	"_hasShrinkwrap": false,
+	"_time": "2024-11-28T04:56:19.320Z"
+}
