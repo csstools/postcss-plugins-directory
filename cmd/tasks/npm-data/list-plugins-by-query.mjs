@@ -12,7 +12,7 @@ async function fetchPlugins(query, offset) {
 		throw new Error(`Fetching plugins : ${response.statusText}`);
 	}
 
-	return await response.json();
+	return response.json();
 }
 
 const ignoredScopedSet = new Set();

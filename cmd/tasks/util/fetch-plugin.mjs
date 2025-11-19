@@ -5,5 +5,5 @@ export async function fetchPlugin(name) {
 		throw new Error(`Fetching detailed plugin data : ${response.statusText}`);
 	}
 
-	return await response.json();
+	return response.json();
 }
