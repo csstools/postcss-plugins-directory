@@ -309,5 +309,8 @@
 	"license": "MIT",
 	"readme": "# PostCSS Logical Properties Polyfill\n\nUltimate [PostCSS](https://github.com/postcss/postcss) plugin that polyfill [Bi-directional CSS proposal from W3C](https://drafts.csswg.org/css-logical/) to support direction-sensitive rules, a.k.a Left-To-Right (LTR) and Right-To-Left (RTL), as well as for vertical writing in all possible variations in all browsers.\n\nIt also knows how to polyfill a `transition` property if the specified props contains logical properties. See the [transformers.ts](src/transformers.ts) for the full list of supported properties.\n\n## Install\n\nNpm:\n\n```\nnpm install -D postcss-logical-properties-polyfill\n```\n\nYarn:\n\n```\nyarn add -D postcss-logical-properties-polyfill\n```\n\n## Usage\n\nSee [PostCSS docs](https://github.com/postcss/postcss-load-config#usage) for examples how to enable the plugin for your environment. Use `postcss-logical-properties-polyfill` instead of `postcss-plugin` in the examples.\n\nThe plugin supports several options. A complete list of options is listed below.\n\n```js\nconst pluginOptions = {\n    modes: ['rtl', 'ltr'],\n    // or\n    modes: [\n        ['horizontal-tb', 'rtl'],\n        ['horizontal-tb', 'ltr'],\n        ['vertical-rl', 'rtl'],\n        ['vertical-rl', 'ltr'],\n        ['vertical-lr', 'rtl'],\n        ['vertical-lr', 'ltr'],\n        ['sideways-rl', 'rtl'],\n        ['sideways-rl', 'ltr'],\n        ['sideways-lr', 'rtl'],\n        ['sideways-lr', 'ltr'],\n    ],\n    preserve: true, // If set to false, polyfilled properties will be removed\n    buildSelector(selector, writingMode, direction) {\n        let prefix = `html[dir=\"${direction}\"]`;\n        if (writingMode !== 'horizontal-tb') {\n            prefix += ` .writing-mode-${writingMode}`;\n        }\n\n        return `${prefix} ${selector}`;\n    },\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 5302
+	"_downloads": [
+		5302,
+		8322
+	]
 }

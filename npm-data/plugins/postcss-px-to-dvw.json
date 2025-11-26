@@ -1,0 +1,133 @@
+{
+	"_id": "postcss-px-to-dvw",
+	"name": "postcss-px-to-dvw",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-px-to-dvw",
+			"description": "A CSS post-processor that converts px to dynamic viewport units (vw, vh, vmin, vmax).",
+			"version": "0.0.1",
+			"author": {
+				"name": "SeinHo",
+				"email": "javascript.sh@gmail.com"
+			},
+			"license": "MIT",
+			"type": "module",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hosein-code/postcss-px-to-dvw.git"
+			},
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"keywords": [
+				"css",
+				"units",
+				"pixel",
+				"px",
+				"viewport",
+				"vw",
+				"vh",
+				"vmin",
+				"vmax",
+				"postcss",
+				"postcss-plugin"
+			],
+			"scripts": {
+				"dev": "node example/dev.mjs",
+				"build": "tsc",
+				"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js spec/*.spec.js"
+			},
+			"devDependencies": {
+				"typescript": "^5.7.0",
+				"jest": "^29.7.0",
+				"postcss": "^8.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"_id": "postcss-px-to-dvw@0.0.1",
+			"gitHead": "4b5a746d1559c9e56018e168e3582b111b789d2a",
+			"bugs": {
+				"url": "https://github.com/hosein-code/postcss-px-to-dvw/issues"
+			},
+			"homepage": "https://github.com/hosein-code/postcss-px-to-dvw#readme",
+			"_nodeVersion": "22.19.0",
+			"_npmVersion": "10.9.3",
+			"dist": {
+				"integrity": "sha512-GMc4DLnShRD3+ubf3dVQFuZv5RdKuHmeaNFju7DPy+R7tm+KTkQh8MsTl4ReNxiG3HCBiFfRMjg8G7RFev9c6Q==",
+				"shasum": "fb29971e140659212f878248237fa1be0ce47be2",
+				"tarball": "https://registry.npmjs.org/postcss-px-to-dvw/-/postcss-px-to-dvw-0.0.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 26135,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIAK8zoFKplwKSzazDegyJMuFi6oONA0Gs2NGvDGm4hnHAiAzBY90XmVIvTN3Urhk3NhWXqSxiY3mLcxWyLNoM2n1rw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "seinho",
+				"email": "javascript.sh@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "seinho",
+					"email": "javascript.sh@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-px-to-dvw_0.0.1_1764057370314_0.5534319355099073"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-11-25T07:56:10.313Z",
+		"0.0.1": "2025-11-25T07:56:10.503Z",
+		"modified": "2025-11-25T07:56:10.795Z"
+	},
+	"maintainers": [
+		{
+			"name": "seinho",
+			"email": "javascript.sh@gmail.com"
+		}
+	],
+	"description": "A CSS post-processor that converts px to dynamic viewport units (vw, vh, vmin, vmax).",
+	"homepage": "https://github.com/hosein-code/postcss-px-to-dvw#readme",
+	"keywords": [
+		"css",
+		"units",
+		"pixel",
+		"px",
+		"viewport",
+		"vw",
+		"vh",
+		"vmin",
+		"vmax",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hosein-code/postcss-px-to-dvw.git"
+	},
+	"author": {
+		"name": "SeinHo",
+		"email": "javascript.sh@gmail.com"
+	},
+	"bugs": {
+		"url": "https://github.com/hosein-code/postcss-px-to-dvw/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-px-to-dvw\n\n> Forked from [postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport),  refactored using TypeScript, and enhanced with new features.\n\nEnglish | [中文](README_CN.md) \n\nA plugin for [PostCSS](https://github.com/postcss/postcss) that generates viewport units (vw, vh, vmin, vmax) from pixel units, with support for landscape-width & viewport-width comments.\n\n## Demo\n\nIf your project involves a fixed width, this script will help to convert pixels into viewport units.\n\n### Input\n\n```css\n.class {\n  margin: -10px .5vh;\n  padding: 5vmin 9.5px 1px;\n  border: 3px solid black;\n  border-bottom-width: 1px;\n  font-size: 14px;\n  line-height: 20px;\n}\n\n.class2 {\n  padding-top: 10px; /* px-to-viewport-ignore */\n  /* px-to-viewport-ignore-next */\n  padding-bottom: 10px;\n  /* Any other comment */\n  border: 1px solid black;\n  margin-bottom: 1px;\n  font-size: 20px;\n  line-height: 30px;\n}\n\n@media (min-width: 750px) {\n  .class3 {\n    font-size: 16px;\n    line-height: 22px;\n  }\n}\n\n/* viewport-width: 375px; */\n.class4 {\n  font-size: 12px;\n  line-height: 22px;\n}\n```\n\n### Output\n```css\n.class {\n  margin: -3.125vw .5vh;\n  padding: 5vmin 2.96875vw 1px;\n  border: 0.9375vw solid black;\n  border-bottom-width: 1px;\n  font-size: 4.375vw;\n  line-height: 6.25vw;\n}\n\n.class2 {\n  padding-top: 10px;\n  padding-bottom: 10px;\n  /* Any other comment */\n  border: 1px solid black;\n  margin-bottom: 1px;\n  font-size: 6.25vw;\n  line-height: 9.375vw;\n}\n\n@media (min-width: 750px) {\n  .class3 {\n    font-size: 16px;\n    line-height: 22px;\n  }\n}\n\n.class4 {\n  font-size: 3.2vw;\n  line-height: 5.86667vw;\n}\n```\n\n## Getting Started\n\n### Installation\nAdd via npm\n```\n$ npm install postcss-px-to-viewport --save-dev\n```\nor yarn\n```\n$ yarn add -D postcss-px-to-viewport\n```\n\n### Usage\n\nDefault Options:\n```js\n{\n  unitToConvert: 'px',\n  viewportWidth: 320,\n  unitPrecision: 5,\n  propList: ['*'],\n  viewportUnit: 'vw',\n  fontViewportUnit: 'vw',\n  selectorBlackList: [],\n  minPixelValue: 1,\n  mediaQuery: false,\n  replace: true,\n  exclude: undefined,\n  include: undefined,\n  landscape: false,\n  landscapeUnit: 'vw',\n  landscapeWidth: 568\n}\n```\n- `unitToConvert` (String) unit to convert, by default, it is px.\n- `viewportWidth` (Number) The width of the viewport.\n- `unitPrecision` (Number) The decimal numbers to allow the vw units to grow to.\n- `propList` (Array) The properties that can change from px to vw.\n  - Values need to be exact matches.\n  - Use wildcard * to enable all properties. Example: ['*']\n  - Use * at the start or end of a word. (['*position*'] will match background-position-y)\n  - Use ! to not match a property. Example: ['*', '!letter-spacing']\n  - Combine the \"not\" prefix with the other prefixes. Example: ['*', '!font*']\n- `viewportUnit` (String) Expected units.\n- `fontViewportUnit` (String) Expected units for font.\n- `selectorBlackList` (Array) The selectors to ignore and leave as px.\n    - If value is string, it checks to see if selector contains the string.\n        - `['body']` will match `.body-class`\n    - If value is regexp, it checks to see if the selector matches the regexp.\n        - `[/^body$/]` will match `body` but not `.body`\n- `minPixelValue` (Number) Set the minimum pixel value to replace.\n- `mediaQuery` (Boolean) Allow px to be converted in media queries.\n- `replace` (Boolean) replaces rules containing vw instead of adding fallbacks.\n- `exclude` (Regexp or Array of Regexp) Ignore some files like 'node_modules'\n    - If value is regexp, will ignore the matches files.\n    - If value is array, the elements of the array are regexp.\n- `include` (Regexp or Array of Regexp) If `include` is set, only matching files will be converted,\n    for example, only files under `src/mobile/` (`include: /\\/src\\/mobile\\//`)\n    - If the value is regexp, the matching file will be included, otherwise it will be excluded.\n    - If value is array, the elements of the array are regexp.\n- `landscape` (Boolean) Adds `@media (orientation: landscape)` with values converted via `landscapeWidth`.\n- `landscapeUnit` (String) Expected unit for `landscape` option\n- `landscapeWidth` (Number) Viewport width for landscape orientation.\n\n> `exclude` and `include` can be set together, and the intersection of the two rules will be taken.\n\n#### Ignoring\n\nYou can use special comments for ignore conversion of single lines:\n- `/* px-to-viewport-ignore-next */` — on a separate line, prevents conversion on the next line.\n- `/* px-to-viewport-ignore */` — after the property on the right, prevents conversion on the same line.\n\nExample:\n```css\n/* example input: */\n.class {\n  /* px-to-viewport-ignore-next */\n  width: 10px;\n  padding: 10px;\n  height: 10px; /* px-to-viewport-ignore */\n  border: solid 2px #000; /* px-to-viewport-ignore */\n}\n\n/* example output: */\n.class {\n  width: 10px;\n  padding: 3.125vw;\n  height: 10px;\n  border: solid 2px #000;\n}\n```\n\nThere are several more reasons why your pixels may not convert, the following options may affect this:\n`propList`, `selectorBlackList`, `minPixelValue`, `mediaQuery`, `exclude`, `include`.\n\n#### viewport-width & landscape-width\nYou can use special comments for dynamic set viewport width and lanscape width:\n- `/* viewport-width: number */` — on a separate line before the rule, dynamic set viewprot width by your comment.\n- `/* landscape-width: number */` — on a separate line before the rule,, dynamic set landscape width by your comment.\nExample:\n```css\n/* example input: */\n/* viewport-width: 375 */\n.class {\n  width: 10px;\n  padding: 10px;\n  height: 10px;\n  border: solid 2px #000;\n}\n\n/* example output: */\n/* viewport-width: 375 */\n.class {\n  width: 2.66667vw;\n  padding: 2.66667vw;\n  height: 2.66667vw;\n  border: solid 0.53333vw #000;\n}\n```\n\n#### Use with PostCss configuration file\n\nadd to your `postcss.config.js`\n```js\nmodule.exports = {\n  plugins: {\n    // ...\n    'postcss-px-to-viewport': {\n      // options\n    }\n  }\n}\n```\n\n## Running the tests\n\nIn order to run tests, you need to install dev-packages:\n```\n$ npm install\n```\nThen run the tests via npm script:\n```\n$ npm run test\n```\n\n## Versioning\n\nWe use [SemVer](http://semver.org/) for versioning. \n\n\n## License\n\nThis project is licensed under the [MIT License](LICENSE).\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-e388927798bfe0b279de246cf1926f46",
+	"_downloads": [
+		84
+	]
+}
