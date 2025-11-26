@@ -5,8 +5,14 @@ export async function fetchDownloadCount(name) {
 		await new Promise((resolve) => setTimeout(resolve, 10000));
 		return fetchDownloadCount(name);
 	}
+
+	if (response.status === 404) {
+		return {
+			downloads: 0
+		}
+	}
 	
-	if (response.status !== 200) {
+	if (!response.ok) {
 		throw new Error(`Fetching downloads count : ${response.statusText}`);
 	}
 
