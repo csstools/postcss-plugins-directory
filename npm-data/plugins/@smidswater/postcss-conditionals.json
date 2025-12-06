@@ -135,5 +135,8 @@
 	"license": "MIT",
 	"readme": "# postcss-conditionals [![Build Status][ci-img]][ci]\n\n[PostCSS] plugin that enables ```@if``` statements in your CSS.\n\n[PostCSS]: https://github.com/postcss/postcss\n\n## Installation\n\n```js\nnpm install @smidswater/postcss-conditionals\n```\n\n## Usage\n\n```js\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar conditionals = require('@smidswater/postcss-conditionals');\n\nvar css = fs.readFileSync('input.css', 'utf8');\n\nvar output = postcss()\n  .use(conditionals)\n  .process(css)\n  .css;\n```\n\nUsing this ```input.css```:\n\n```css\n.foo {\n  @if 3 < 5 {\n    background: green;\n  }\n  @else {\n    background: blue;\n  }\n}\n```\n\nyou will get:\n\n```css\n.foo {\n  background: green;\n}\n```\n\nAlso works well with [postcss-simple-vars]:\n\n```css\n$type: monster;\np {\n  @if $type == ocean {\n    color: blue;\n  } @else if $type == matador {\n    color: red;\n  } @else if $type == monster {\n    color: green;\n  } @else {\n    color: black;\n  }\n}\n```\n[postcss-simple-vars]: https://github.com/postcss/postcss-simple-vars\n\nand with [postcss-for]:\n\n```css\n@for $i from 1 to 3 {\n  .b-$i {\n    width: $i px;\n    @if $i == 2 {\n      color: green;\n    }\n  }\n}\n```\n\n[postcss-for]: https://github.com/antyakushev/postcss-for\n\n## Development\n1. Clone repository\n2. Install dependencies `npm install`\n3. If `parser.jison` file has been changed, regenerate `parser.js` by running `npm run gen-parser`\n",
 	"readmeFilename": "README.md",
-	"_downloads": 14
+	"_downloads": [
+		14,
+		4
+	]
 }
