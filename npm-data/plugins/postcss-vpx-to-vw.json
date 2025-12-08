@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-vpx-to-vw",
-	"_rev": "16-a3888624057261f6a7bb8bd75000985f",
+	"_rev": "17-37edaeb2dd22af52e6bb120f5d8b8e02",
 	"name": "postcss-vpx-to-vw",
 	"dist-tags": {
-		"latest": "1.6.4"
+		"latest": "1.7.0"
 	},
 	"versions": {
 		"1.0.1": {
@@ -1350,12 +1350,107 @@
 		"1.6.4": {
 			"name": "postcss-vpx-to-vw",
 			"version": "1.6.4",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"vpx-to-viewport",
+				"viewport",
+				"vpx",
+				"vw",
+				"responsive",
+				"mobile-first"
+			],
+			"author": {
+				"name": "Felix Zhu"
+			},
+			"license": "MIT",
+			"_id": "postcss-vpx-to-vw@1.6.4",
+			"maintainers": [
+				{
+					"name": "felix.zhu",
+					"email": "horiz0n_z@outlook.com"
+				}
+			],
+			"homepage": "https://github.com/EquinoxHZ/vpx-to-viewport#readme",
+			"bugs": {
+				"url": "https://github.com/EquinoxHZ/vpx-to-viewport/issues"
+			},
+			"dist": {
+				"shasum": "93a1ab4c194bace9f57bc76648fd4ef10a44e2d3",
+				"tarball": "https://registry.npmjs.org/postcss-vpx-to-vw/-/postcss-vpx-to-vw-1.6.4.tgz",
+				"fileCount": 7,
+				"integrity": "sha512-/VAj5sbdvc4/A05uwOl0B9ZMuYyKJin+9NETL2EueI4aykmBoL5VKY3saAagzP4+VFornUk9qnYYeGVD1ieKXw==",
+				"signatures": [
+					{
+						"sig": "MEUCIHJQuhtNqoJxhv1VHzfBWFV9CsxAB+rQhwCx9G245fCEAiEAiGneCgcwn7l3Iwva83S65SYzHCmLdmDrZY0I3NH+L4g=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 66454
+			},
+			"main": "index.js",
+			"types": "index.d.ts",
+			"engines": {
+				"node": ">=14.0.0"
+			},
+			"gitHead": "3bcf5a7efd7a35f93fa23b5bda2f6baaa2db5855",
+			"scripts": {
+				"lint": "eslint index.js",
+				"test": "jest",
+				"demo:log": "node demo/log-demo.js",
+				"lint:fix": "eslint index.js --fix",
+				"demo:cvpx": "node demo/cvpx-demo.js",
+				"demo:basic": "node demo/basic-test.js",
+				"demo:ratio": "node demo/ratio-test.js",
+				"test:watch": "jest --watch",
+				"demo:pseudo": "node demo/pseudo-elements-test.js",
+				"demo:examples": "node demo/examples.js",
+				"demo:validate": "node demo/validate.js",
+				"demo:benchmark": "node demo/benchmark.js",
+				"prepublishOnly": "npm run demo:validate && npm run lint && npm test",
+				"demo:media-query": "node demo/media-query-demo.js"
+			},
+			"_npmUser": {
+				"name": "felix.zhu",
+				"email": "horiz0n_z@outlook.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/EquinoxHZ/vpx-to-viewport.git",
+				"type": "git"
+			},
+			"_npmVersion": "10.9.2",
+			"description": "PostCSS plugin to convert vpx units to vw, maxvpx to max(vw, Npx) for minimum bounds, minvpx to min(vw, Npx) for maximum bounds, cvpx to clamp(minPx, vw, maxPx) for responsive range bounds, and linear-vpx() to linear interpolation expressions for fluid re",
+			"directories": {},
+			"_nodeVersion": "22.14.0",
+			"dependencies": {
+				"postcss": "^8.4.31"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"jest": "^29.0.0",
+				"eslint": "^8.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.0"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-vpx-to-vw_1.6.4_1764928106949_0.7754205933070564",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"1.7.0": {
+			"name": "postcss-vpx-to-vw",
+			"version": "1.7.0",
 			"description": "PostCSS plugin to convert vpx units to vw, maxvpx to max(vw, Npx) for minimum bounds, minvpx to min(vw, Npx) for maximum bounds, cvpx to clamp(minPx, vw, maxPx) for responsive range bounds, and linear-vpx() to linear interpolation expressions for fluid re",
 			"main": "index.js",
 			"types": "index.d.ts",
 			"scripts": {
 				"test": "jest",
 				"test:watch": "jest --watch",
+				"test:cross": "jest cross-platform.test.js",
+				"test:postcss": "jest index.test.js",
+				"test:vite": "jest vite-plugin-vpx.test.js",
 				"lint": "eslint index.js",
 				"lint:fix": "eslint index.js --fix",
 				"demo:basic": "node demo/basic-test.js",
@@ -1367,6 +1462,11 @@
 				"demo:log": "node demo/log-demo.js",
 				"demo:cvpx": "node demo/cvpx-demo.js",
 				"demo:media-query": "node demo/media-query-demo.js",
+				"demo:page": "cd docs && python -m http.server 8000",
+				"demo:vite-plugin": "node vite-plugin-vpx.test.js",
+				"benchmark": "node vite-plugin-benchmark.js",
+				"benchmark:memory": "node --expose-gc vite-plugin-benchmark.js",
+				"example:vite": "cd examples/vite-plugin-example && npm install && npm run dev",
 				"prepublishOnly": "npm run demo:validate && npm run lint && npm test"
 			},
 			"keywords": [
@@ -1378,7 +1478,9 @@
 				"vpx",
 				"vw",
 				"responsive",
-				"mobile-first"
+				"mobile-first",
+				"vite",
+				"vite-plugin"
 			],
 			"author": {
 				"name": "Felix Zhu"
@@ -1405,20 +1507,20 @@
 				"jest": "^29.0.0",
 				"eslint": "^8.0.0"
 			},
-			"_id": "postcss-vpx-to-vw@1.6.4",
-			"gitHead": "3bcf5a7efd7a35f93fa23b5bda2f6baaa2db5855",
-			"_nodeVersion": "22.14.0",
-			"_npmVersion": "10.9.2",
+			"_id": "postcss-vpx-to-vw@1.7.0",
+			"gitHead": "391728a2dd28276273bc5bc2ba1458b63dafa0e9",
+			"_nodeVersion": "20.18.1",
+			"_npmVersion": "10.8.2",
 			"dist": {
-				"integrity": "sha512-/VAj5sbdvc4/A05uwOl0B9ZMuYyKJin+9NETL2EueI4aykmBoL5VKY3saAagzP4+VFornUk9qnYYeGVD1ieKXw==",
-				"shasum": "93a1ab4c194bace9f57bc76648fd4ef10a44e2d3",
-				"tarball": "https://registry.npmjs.org/postcss-vpx-to-vw/-/postcss-vpx-to-vw-1.6.4.tgz",
-				"fileCount": 7,
-				"unpackedSize": 66454,
+				"integrity": "sha512-VsnLd0mRgkkQtelGG6mpzH9Sm7/U4MJvlXp8UDmyy/cLFkwXeLQGcd/7NN6F1DRHHwQGsBiq/Wtod9Fte9qLeg==",
+				"shasum": "514a53fcf28d8043d85c9c1ee18053120fd01e36",
+				"tarball": "https://registry.npmjs.org/postcss-vpx-to-vw/-/postcss-vpx-to-vw-1.7.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 109416,
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEUCIHJQuhtNqoJxhv1VHzfBWFV9CsxAB+rQhwCx9G245fCEAiEAiGneCgcwn7l3Iwva83S65SYzHCmLdmDrZY0I3NH+L4g="
+						"sig": "MEUCIGN7oHHJnq6CQsfgYkcXSx4/v+9xMGsC4ab+fEYhHkcXAiEA9ooYsh6TaZRf9ANiQ1XU0ZUO4yiHTXQjKwW1HQ7odtk="
 					}
 				]
 			},
@@ -1435,14 +1537,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-vpx-to-vw_1.6.4_1764928106949_0.7754205933070564"
+				"tmp": "tmp/postcss-vpx-to-vw_1.7.0_1765127261833_0.6534448966489192"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2025-07-15T03:22:02.457Z",
-		"modified": "2025-12-05T09:48:27.291Z",
+		"modified": "2025-12-07T17:07:42.192Z",
 		"1.0.1": "2025-07-15T03:22:02.664Z",
 		"1.1.0": "2025-07-15T03:52:08.323Z",
 		"1.1.1": "2025-07-16T09:23:57.682Z",
@@ -1458,7 +1560,8 @@
 		"1.6.1": "2025-12-05T07:50:27.883Z",
 		"1.6.2": "2025-12-05T08:08:39.766Z",
 		"1.6.3": "2025-12-05T08:15:19.680Z",
-		"1.6.4": "2025-12-05T09:48:27.100Z"
+		"1.6.4": "2025-12-05T09:48:27.100Z",
+		"1.7.0": "2025-12-07T17:07:41.986Z"
 	},
 	"bugs": {
 		"url": "https://github.com/EquinoxHZ/vpx-to-viewport/issues"
@@ -1477,7 +1580,9 @@
 		"vpx",
 		"vw",
 		"responsive",
-		"mobile-first"
+		"mobile-first",
+		"vite",
+		"vite-plugin"
 	],
 	"repository": {
 		"type": "git",
@@ -1490,11 +1595,12 @@
 			"email": "horiz0n_z@outlook.com"
 		}
 	],
-	"readme": "# PostCSS VPX to VW 插件\n\n中文版 | [English](README.en.md)\n\n这是一个自定义的 PostCSS 插件，用于将 `vpx`、`maxvpx`、`minvpx` 和 `cvpx` 单位自动转换为对应的 `vw` 单位和 CSS 函数。\n\n## 功能特性\n\n- 🔄 将 `vpx` 单位转换为 `vw` 单位\n- 📏 将 `maxvpx` 单位转换为 `max(vw, Npx)` 函数（设置最小值边界）\n- 📐 将 `minvpx` 单位转换为 `min(vw, Npx)` 函数（设置最大值边界）\n- 🔒 将 `cvpx` 单位转换为 `clamp(minPx, vw, maxPx)` 函数（设置响应式范围边界）\n- 📈 **新增**：将 `linear-vpx()` 函数转换为线性插值表达式（响应式线性缩放）\n- 🎯 支持选择器和 CSS 变量黑名单\n- ⚙️ 可配置的视口宽度和精度\n- 🔧 支持最小转换值设置\n- 📊 转换日志记录，支持多种级别（静默、信息、详细）\n- 📱 支持媒体查询独立配置，实现多端适配\n\n## 安装\n\n```bash\nnpm install postcss-vpx-to-vw --save-dev\n```\n\n或者使用 yarn:\n\n```bash\nyarn add postcss-vpx-to-vw --dev\n```\n\n## 使用方法\n\n### 在 PostCSS 配置中使用\n\n```javascript\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require(\"postcss-vpx-to-vw\")({\n      viewportWidth: 375,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      maxRatio: 1,\n      minRatio: 1,\n      // clampMinRatio 和 clampMaxRatio 会自动使用 minRatio 和 maxRatio 的值\n      selectorBlackList: [\".ignore\"],\n      variableBlackList: [\"--ignore-var\"],\n    }),\n  ],\n};\n```\n\n### 在 Vite 中使用\n\n```javascript\n// vite.config.js\nimport { defineConfig } from 'vite';\n\nexport default defineConfig({\n  css: {\n    postcss: {\n      plugins: [\n        require('postcss-vpx-to-vw')({\n          viewportWidth: 375,\n          unitPrecision: 5,\n          minPixelValue: 1,\n          maxRatio: 1,\n          minRatio: 1,\n          // clampMinRatio 和 clampMaxRatio 会自动使用 minRatio 和 maxRatio 的值\n          selectorBlackList: ['.ignore'],\n          variableBlackList: ['--ignore-var']\n        })\n      ]\n    }\n  }\n});\n```\n\n## CSS 智能提示（VS Code 扩展）\n\n仓库内提供了独立的 VS Code 扩展 **VPX CSS Helper**，用于为 `vpx` 系列单位和 `linear-vpx()` 函数补充智能提示与悬停文档。\n\n### 安装步骤\n\n1. 进入扩展目录并安装依赖：\n   ```bash\n   cd packages/vpx-vscode-extension && npm install\n   ```\n2. 在 VS Code 中按 `F5` 启动 Extension Development Host 即可验证效果。\n3. 如需打包本地安装，执行 `npm run compile` 后使用 [`vsce`](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) 生成 `.vsix`。\n\n### 功能\n\n- ✅ 在 CSS/SCSS/LESS 中输入 `vpx`、`maxvpx`、`minvpx`、`cvpx` 提供快速补全\n- ✅ `linear-vpx()` 同时提供简写与完整参数模板\n- ✅ 鼠标悬停可看到每个单位与函数的说明\n- ✅ 可通过设置面板开启/关闭补全或悬停\n\n详细指南见 [`CSS_INTELLISENSE.md`](CSS_INTELLISENSE.md)。\n\n## 多端适配支持\n\n插件提供了两种多端适配方案，您可以根据项目需求选择合适的方案：\n\n### 方案一：多插件实例（适用于组件级适配）\n\n通过注册多个插件实例，您可以同时支持不同设备的视口转换。这种方案适合需要为不同设备创建专用组件或样式的场景：\n\n```javascript\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    // 移动端插件 - 只转换 .m- 开头的选择器\n    require(\"postcss-vpx-to-vw\")({\n      viewportWidth: 375,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      selectorBlackList: [/^(?!.*\\.m-)/], // 只转换包含.m-的选择器\n      pluginId: \"mobile\",\n    }),\n    // 桌面端插件 - 只转换 .d- 开头的选择器\n    require(\"postcss-vpx-to-vw\")({\n      viewportWidth: 1920,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      selectorBlackList: [/^(?!.*\\.d-)/], // 只转换包含.d-的选择器\n      pluginId: \"desktop\",\n    }),\n    // 平板端插件 - 只转换 .t- 开头的选择器\n    require(\"postcss-vpx-to-vw\")({\n      viewportWidth: 768,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      selectorBlackList: [/^(?!.*\\.t-)/], // 只转换包含.t-的选择器\n      pluginId: \"tablet\",\n    }),\n  ],\n};\n```\n\n**使用示例：**\n```css\n/* 为不同设备创建专用样式 */\n.m-header {\n  height: 120vpx; /* 移动端：32vw */\n}\n\n.t-header {\n  height: 120vpx; /* 平板端：15.625vw */\n}\n\n.d-header {\n  height: 120vpx; /* 桌面端：6.25vw */\n}\n```\n\n### 方案二：媒体查询配置（适用于响应式设计）\n\n通过为不同媒体查询配置不同的转换参数，让一套样式代码适配多种设备。这种方案更适合响应式设计：\n\n```javascript\nrequire('postcss-vpx-to-vw')({\n  // 默认配置（移动端）\n  viewportWidth: 375,\n  unitPrecision: 5,\n  maxRatio: 1,\n  minRatio: 1,\n  \n  // 媒体查询特定配置\n  mediaQueries: {\n    // 平板配置\n    '@media (min-width: 768px)': {\n      viewportWidth: 768,\n      unitPrecision: 2,\n      maxRatio: 1.5,\n      minRatio: 0.9\n    },\n    \n    // 桌面配置\n    '@media (min-width: 1024px)': {\n      viewportWidth: 1024,\n      maxRatio: 2.0,\n      minRatio: 1.0\n    },\n    \n    // 小屏配置\n    '@media (max-width: 480px)': {\n      viewportWidth: 320,\n      unitPrecision: 4,\n      minPixelValue: 0.5\n    }\n  }\n})\n```\n\n**使用示例：**\n```css\n/* 输入：一套代码适配多端 */\n.container {\n  width: 300vpx;\n  height: 200maxvpx;\n}\n\n@media (min-width: 768px) {\n  .container {\n    width: 300vpx;\n    height: 200maxvpx;\n  }\n}\n\n/* 输出：自动适配不同设备 */\n.container {\n  width: 80vw;                    /* 移动端：300/375*100 = 80vw */\n  height: max(53.33333vw, 200px); /* 移动端默认配置 */\n}\n\n@media (min-width: 768px) {\n  .container {\n    width: 39.06vw;               /* 平板端：300/768*100 = 39.06vw */\n    height: max(26.04vw, 300px);  /* 平板端：maxRatio=1.5 */\n  }\n}\n```\n\n#### 两种方案的对比\n\n| 特性 | 多插件实例 | 媒体查询配置 |\n|------|------------|--------------|\n| **适用场景** | 组件级差异化设计 | 响应式统一设计 |\n| **CSS结构** | 为不同设备写不同选择器 | 一套选择器配合媒体查询 |\n| **维护成本** | 较高（需维护多套样式） | 较低（一套代码自动适配） |\n| **灵活性** | 高（可完全自定义） | 中（基于媒体查询约束） |\n| **包体积** | 较大 | 较小 |\n| **推荐使用** | 移动端/桌面端差异很大的项目 | 主要做响应式适配的项目 |\n\n#### 媒体查询配置特性\n\n- **配置继承**: 媒体查询配置会继承默认配置，只需指定需要覆盖的选项\n- **灵活匹配**: 支持精确匹配（如 `@media (min-width: 768px)`）和模糊匹配（如 `min-width: 768px`）\n- **增强日志**: 日志会显示每个转换使用的媒体查询和视口宽度\n\n### 在 CSS 中使用\n\n在 CSS 中，您可以使用 `vpx`、`maxvpx`、 `minvpx` 和 `cvpx` 单位，构建系统会自动将其转换为相应的值。\n\n### 示例\n\n#### 基本转换\n\n```css\n/* 输入 */\n.element {\n  font-size: 36vpx;\n  width: 200vpx;\n  margin: 20vpx;\n}\n\n/* 输出（基于 375px 视口宽度）*/\n.element {\n  font-size: 9.6vw;\n  width: 53.33333vw;\n  margin: 5.33333vw;\n}\n```\n\n#### 最小值边界 (maxvpx)\n\n`maxvpx` 单位会转换为 `max(vw, Npx)` 函数，确保在小屏幕上不会小于指定的像素值。可以通过 `maxRatio` 参数调整像素值的倍数。\n\n```css\n/* 输入 */\n.element {\n  font-size: 36maxvpx;\n  padding: 20maxvpx;\n}\n\n/* 输出（基于 375px 视口宽度，maxRatio: 1）*/\n.element {\n  font-size: max(9.6vw, 36px);\n  padding: max(5.33333vw, 20px);\n}\n\n/* 输出（基于 375px 视口宽度，maxRatio: 1.5）*/\n.element {\n  font-size: max(9.6vw, 54px);\n  padding: max(5.33333vw, 30px);\n}\n```\n\n#### 最大值边界 (minvpx)\n\n`minvpx` 单位会转换为 `min(vw, Npx)` 函数，确保在大屏幕上不会大于指定的像素值。可以通过 `minRatio` 参数调整像素值的倍数。\n\n```css\n/* 输入 */\n.element {\n  font-size: 36minvpx;\n  padding: 20minvpx;\n}\n\n/* 输出（基于 375px 视口宽度，minRatio: 1）*/\n.element {\n  font-size: min(9.6vw, 36px);\n  padding: min(5.33333vw, 20px);\n}\n\n/* 输出（基于 375px 视口宽度，minRatio: 0.8）*/\n.element {\n  font-size: min(9.6vw, 28.8px);\n  padding: min(5.33333vw, 16px);\n}\n```\n\n#### 响应式范围边界 (cvpx)\n\n`cvpx` 单位会转换为 `clamp(minPx, vw, maxPx)` 函数，同时设置最小值和最大值边界，提供更好的响应式控制。可以通过 `clampMinRatio` 和 `clampMaxRatio` 参数调整像素值的倍数。\n\n```css\n/* 输入 */\n.element {\n  font-size: 36cvpx;\n  padding: 20cvpx;\n}\n\n/* 输出（基于 375px 视口宽度，clampMinRatio: 0.5, clampMaxRatio: 2）*/\n.element {\n  font-size: clamp(18px, 9.6vw, 72px);\n  padding: clamp(10px, 5.33333vw, 40px);\n}\n\n/* 输出（基于 375px 视口宽度，clampMinRatio: 0.3, clampMaxRatio: 3）*/\n.element {\n  font-size: clamp(10.8px, 9.6vw, 108px);\n  padding: clamp(6px, 5.33333vw, 60px);\n}\n```\n\n#### 混合使用\n\n```css\n/* 输入 */\n.element {\n  margin: 10vpx 20maxvpx 15minvpx 25cvpx;\n}\n\n/* 输出（基于 375px 视口宽度）*/\n.element {\n  margin: 2.66667vw max(5.33333vw, 20px) min(4vw, 15px) clamp(25px, 6.66667vw, 25px);\n}\n```\n\n#### 负数值处理\n\n插件智能处理负数值，确保语义的一致性：\n\n**cvpx 负数处理：**\n```css\n/* 输入 */\n.element {\n  margin-left: -20cvpx;\n  text-indent: -15cvpx;\n}\n\n/* 输出（基于 375px 视口宽度）*/\n.element {\n  margin-left: clamp(-20px, -5.33333vw, -20px);\n  text-indent: clamp(-15px, -4vw, -15px);\n}\n```\n\n**maxvpx/minvpx 负数语义自动交换：**\n```css\n/* 输入 */\n.element {\n  margin-left: -20maxvpx;  /* 用户期望：设置负值的最小边界 */\n  margin-right: -15minvpx; /* 用户期望：设置负值的最大边界 */\n}\n\n/* 输出（智能语义交换）*/\n.element {\n  margin-left: min(-5.33333vw, -20px);  /* 自动转为 min，保持最小边界语义 */\n  margin-right: max(-4vw, -15px);       /* 自动转为 max，保持最大边界语义 */\n}\n```\n\n这种智能处理避免了用户在使用负数时需要手动调整 `maxvpx` 和 `minvpx` 的问题。\n\n#### 线性缩放 (linear-vpx) 🆕\n\n`linear-vpx()` 函数用于实现属性值在指定视口宽度区间内的线性插值缩放，自动生成响应式的 `calc()` 表达式。\n\n**语法：**\n```css\n/* 完整形式：指定所有参数 */\nproperty: linear-vpx(最小值, 最大值, 最小视口宽度, 最大视口宽度);\n\n/* 简化形式：使用配置中的默认视口范围 */\nproperty: linear-vpx(最小值, 最大值);\n```\n\n**基础示例：**\n```css\n/* 输入 */\n.hero {\n  width: linear-vpx(840, 1000, 1200, 1920);\n  font-size: linear-vpx(16, 24, 375, 1920);\n}\n\n/* 输出（autoClampLinear: true，默认）*/\n.hero {\n  width: clamp(840px, calc(840px + 160 * (100vw - 1200px) / 720), 1000px);\n  font-size: clamp(16px, calc(16px + 8 * (100vw - 375px) / 1545), 24px);\n}\n```\n\n**说明：**\n- 当视口宽度为 1200px 时，width 为 840px\n- 当视口宽度为 1920px 时，width 为 1000px\n- 在 1200px 到 1920px 之间，width 随视口宽度线性变化\n- 使用 `clamp()` 确保值不会超出设定范围\n\n**配置选项：**\n```javascript\nrequire('postcss-vpx-to-vw')({\n  linearMinWidth: 1200,      // 默认最小视口宽度\n  linearMaxWidth: 1920,      // 默认最大视口宽度\n  autoClampLinear: true,     // 是否自动添加 clamp 包裹\n})\n```\n\n**使用默认视口范围：**\n```css\n/* 输入 */\n.text {\n  font-size: linear-vpx(16, 24);\n  padding: linear-vpx(20, 40);\n}\n\n/* 配置：linearMinWidth: 375, linearMaxWidth: 1920 */\n/* 输出 */\n.text {\n  font-size: clamp(16px, calc(16px + 8 * (100vw - 375px) / 1545), 24px);\n  padding: clamp(20px, calc(20px + 20 * (100vw - 375px) / 1545), 40px);\n}\n```\n\n**禁用 clamp 包裹：**\n```css\n/* 配置：autoClampLinear: false */\n/* 输入 */\n.container {\n  padding: linear-vpx(20, 40, 768, 1440);\n}\n\n/* 输出（允许在区间外继续线性外推）*/\n.container {\n  padding: calc(20px + 20 * (100vw - 768px) / 672);\n}\n```\n\n**支持负数：**\n```css\n/* 输入 */\n.element {\n  margin-left: linear-vpx(-100, -50, 1200, 1920);\n}\n\n/* 输出 */\n.element {\n  margin-left: clamp(-100px, calc(-100px + 50 * (100vw - 1200px) / 720), -50px);\n}\n```\n\n**媒体查询独立配置：**\n```javascript\nrequire('postcss-vpx-to-vw')({\n  linearMinWidth: 375,\n  linearMaxWidth: 1920,\n  mediaQueries: {\n    '@media (min-width: 768px)': {\n      linearMinWidth: 768,\n      linearMaxWidth: 1440,\n      autoClampLinear: false, // 可在特定媒体查询中禁用 clamp\n    }\n  }\n})\n```\n\n```css\n/* 输入 */\n.responsive {\n  width: linear-vpx(300, 400);\n}\n\n@media (min-width: 768px) {\n  .responsive {\n    width: linear-vpx(600, 900);\n  }\n}\n\n/* 输出 */\n.responsive {\n  width: clamp(300px, calc(300px + 100 * (100vw - 375px) / 1545), 400px);\n}\n\n@media (min-width: 768px) {\n  .responsive {\n    width: calc(600px + 300 * (100vw - 768px) / 672); /* 无 clamp */\n  }\n}\n```\n\n**优势：**\n- ✅ 无需媒体查询断点，属性值自动随视口平滑过渡\n- ✅ 语法简洁，比手写 calc 表达式更清晰\n- ✅ 精确控制数值范围和视口范围\n- ✅ 支持与其他 vpx 单位混合使用\n- ✅ 自动处理浮点数精度问题\n\n**实际应用场景：**\n```css\n/* 响应式布局 */\n.card-grid {\n  gap: linear-vpx(16, 32, 375, 1920);           /* 网格间距 */\n  padding: linear-vpx(20, 60, 375, 1920);       /* 内边距 */\n}\n\n.card {\n  border-radius: linear-vpx(8, 16, 375, 1920);  /* 圆角 */\n  font-size: linear-vpx(14, 18, 375, 1920);     /* 字体大小 */\n}\n\n/* 可与其他单位混合使用 */\n.header {\n  height: linear-vpx(60, 100, 375, 1920);       /* 线性缩放高度 */\n  padding: 20vpx;                                /* 普通 vpx */\n  margin: 10maxvpx;                              /* 带最小值限制 */\n}\n```\n\n> 💡 **提示**：查看 `demo/linear-vpx-demo.js` 和 `demo/LINEAR_VPX_GUIDE.md` 了解更多示例和详细说明。\n\n## 配置选项\n\n插件支持以下配置选项：\n\n- `viewportWidth`: 视口宽度，默认 375px\n- `unitPrecision`: 小数精度，默认 5\n- `minPixelValue`: 最小转换值，默认 1px，小于此值的 vpx 会转换为 px\n- `maxRatio`: maxvpx 的像素值倍数，默认 1\n- `minRatio`: minvpx 的像素值倍数，默认 1\n- `clampMinRatio`: cvpx 的最小值倍数，默认使用 minRatio\n- `clampMaxRatio`: cvpx 的最大值倍数，默认使用 maxRatio\n- `linearMinWidth`: linear-vpx 的默认最小视口宽度，默认 1200\n- `linearMaxWidth`: linear-vpx 的默认最大视口宽度，默认 1920\n- `autoClampLinear`: 是否为 linear-vpx 自动添加 clamp 限制，默认 true\n- `selectorBlackList`: 选择器黑名单，可以是字符串或正则表达式数组\n- `variableBlackList`: CSS 变量黑名单，可以是字符串或正则表达式数组\n- `pluginId`: 插件标识符，用于区分多个实例，默认 'default'\n- `logConversions`: 是否记录转换日志，默认 false\n- `logLevel`: 日志级别，可选 'silent', 'info', 'verbose'，默认 'info'\n- `mediaQueries`: 媒体查询特定配置，为不同媒体查询设置不同的转换参数\n\n**配置简化说明：** `clampMinRatio` 和 `clampMaxRatio` 如果不显式设置，会自动使用 `minRatio` 和 `maxRatio` 的值。这样您只需要配置 `minRatio` 和 `maxRatio`，就能让 `maxvpx`、`minvpx` 和 `cvpx` 保持一致的比例设置。\n\n### 日志功能\n\n插件提供了日志功能，帮助您了解转换过程和结果：\n\n```javascript\nrequire('postcss-vpx-to-vw')({\n  logConversions: true,\n  logLevel: 'verbose'  // 'silent', 'info', 'verbose'\n})\n```\n\n#### 日志级别说明\n\n- `silent`: 不输出任何日志\n- `info`: 输出基本统计信息，按文件显示转换数量\n- `verbose`: 输出详细的转换信息，包括每个转换的具体位置和内容\n\n#### 示例输出\n\n**info 级别**：\n```\n[postcss-vpx-to-vw] 转换了 15 个 vpx 单位:\n  src/components/Header.vue: 5 个转换\n  src/pages/Home.vue: 10 个转换\n```\n\n**verbose 级别**：\n```\n[postcss-vpx-to-vw] 转换了 15 个 vpx 单位:\n  src/components/Header.vue:25:10 .header { width: 100vpx -> 26.66667vw }\n  src/components/Header.vue:26:12 .header { height: 50vpx -> 13.33333vw }\n  src/pages/Home.vue:15:8 .container { margin: 20vpx -> 5.33333vw }\n  ...\n```\n\n### 比例参数说明\n\n- `maxRatio`: 控制 `maxvpx` 转换后 `max()` 函数中像素值的倍数\n\n  - 例如：`maxRatio: 1.5` 会让 `20maxvpx` 转换为 `max(5.33vw, 30px)`\n  - 适用场景：在大屏幕上需要更大的最小值时使用\n  - 推荐 1 - 1.5 (适度增加最小值)\n\n- `minRatio`: 控制 `minvpx` 转换后 `min()` 函数中像素值的倍数\n  - 例如：`minRatio: 0.8` 会让 `20minvpx` 转换为 `min(5.33vw, 16px)`\n  - 适用场景：在小屏幕上需要更紧凑的最大值时使用\n  - 推荐 0.8 - 1 (适度减少最大值)\n\n## 优势\n\n1. **语义清晰**: `vpx` 明确表示这个值会被转换为视口单位\n2. **灵活配置**: 可以针对不同项目设置不同的视口宽度\n3. **选择器控制**: 支持黑名单机制，某些选择器可以不进行转换\n4. **CSS 变量支持**: 支持对 CSS 变量进行独立的黑名单控制\n\n## 注意事项\n\n1. 插件会在 PostCSS 处理过程中自动转换，无需手动操作\n2. 转换后的值会保留指定的小数精度\n3. 小于 `minPixelValue` 的值会转换为 `px` 单位\n4. 支持在一个声明中混合使用 `vpx` 和其他单位\n\n## 许可证\n\nMIT\n\n## 贡献\n\n欢迎提交 issue 和 pull request。\n",
+	"readme": "# PostCSS VPX to VW 插件\n\n中文版 | [English](README.en.md) | [📊 在线演示](https://equinoxhz.github.io/vpx-to-viewport/)\n\n这是一个自定义的 PostCSS 插件，用于将 `vpx`、`maxvpx`、`minvpx` 和 `cvpx` 单位自动转换为对应的 `vw` 单位和 CSS 函数。\n\n> 💡 **想直观了解各个单位的效果差异？** 访问我们的[交互式演示页面](https://equinoxhz.github.io/vpx-to-viewport/)，实时调整参数查看效果！\n\n## 功能特性\n\n- 🔄 将 `vpx` 单位转换为 `vw` 单位\n- 📏 将 `maxvpx` 单位转换为 `max(vw, Npx)` 函数（设置最小值边界）\n- 📐 将 `minvpx` 单位转换为 `min(vw, Npx)` 函数（设置最大值边界）\n- 🔒 将 `cvpx` 单位转换为 `clamp(minPx, vw, maxPx)` 函数（设置响应式范围边界）\n- 📈 **新增**：将 `linear-vpx()` 函数转换为线性插值表达式（响应式线性缩放）\n- 🎯 支持选择器和 CSS 变量黑名单\n- ⚙️ 可配置的视口宽度和精度\n- 🔧 支持最小转换值设置\n- 📊 转换日志记录，支持多种级别（静默、信息、详细）\n- 📱 支持媒体查询独立配置，实现多端适配\n\n## 安装\n\n```bash\nnpm install postcss-vpx-to-vw --save-dev\n```\n\n或者使用 yarn:\n\n```bash\nyarn add postcss-vpx-to-vw --dev\n```\n\n## 使用方法\n\n### 在 PostCSS 配置中使用\n\n```javascript\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require(\"postcss-vpx-to-vw\")({\n      viewportWidth: 375,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      maxRatio: 1,\n      minRatio: 1,\n      // clampMinRatio 和 clampMaxRatio 会自动使用 minRatio 和 maxRatio 的值\n      selectorBlackList: [\".ignore\"],\n      variableBlackList: [\"--ignore-var\"],\n    }),\n  ],\n};\n```\n\n### 在 Vite 中使用（PostCSS 方式）\n\n```javascript\n// vite.config.js\nimport { defineConfig } from 'vite';\n\nexport default defineConfig({\n  css: {\n    postcss: {\n      plugins: [\n        require('postcss-vpx-to-vw')({\n          viewportWidth: 375,\n          unitPrecision: 5,\n          minPixelValue: 1,\n          maxRatio: 1,\n          minRatio: 1,\n          // clampMinRatio 和 clampMaxRatio 会自动使用 minRatio 和 maxRatio 的值\n          selectorBlackList: ['.ignore'],\n          variableBlackList: ['--ignore-var']\n        })\n      ]\n    }\n  }\n});\n```\n\n### 在 Vite 中使用（独立插件方式 ⚡ 推荐）\n\n**性能提升 70%，无需 PostCSS 依赖！**\n\n```javascript\n// vite.config.js\nimport { defineConfig } from 'vite';\nimport vitePluginVpx from 'postcss-vpx-to-vw/vite-plugin-vpx';\n\nexport default defineConfig({\n  plugins: [\n    vitePluginVpx({\n      viewportWidth: 375,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      selectorBlackList: ['.ignore'],\n      variableBlackList: ['--ignore-var']\n    })\n  ]\n});\n```\n\n> 📖 **详细文档**: 查看 [Vite Plugin 使用指南](VITE_PLUGIN_GUIDE.md) 了解独立插件的完整功能和配置。\n\n## CSS 智能提示（VS Code 扩展）\n\n仓库内提供了独立的 VS Code 扩展 **VPX CSS Helper**，用于为 `vpx` 系列单位和 `linear-vpx()` 函数补充智能提示与悬停文档。\n\n### 安装步骤\n\n1. 进入扩展目录并安装依赖：\n   ```bash\n   cd packages/vpx-vscode-extension && npm install\n   ```\n2. 在 VS Code 中按 `F5` 启动 Extension Development Host 即可验证效果。\n3. 如需打包本地安装，执行 `npm run compile` 后使用 [`vsce`](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) 生成 `.vsix`。\n\n### 功能\n\n- ✅ 在 CSS/SCSS/LESS 中输入 `vpx`、`maxvpx`、`minvpx`、`cvpx` 提供快速补全\n- ✅ `linear-vpx()` 同时提供简写与完整参数模板\n- ✅ 鼠标悬停可看到每个单位与函数的说明\n- ✅ 可通过设置面板开启/关闭补全或悬停\n\n详细指南见 [`CSS_INTELLISENSE.md`](CSS_INTELLISENSE.md)。\n\n## 多端适配支持\n\n插件提供了两种多端适配方案，您可以根据项目需求选择合适的方案：\n\n### 方案一：多插件实例（适用于组件级适配）\n\n通过注册多个插件实例，您可以同时支持不同设备的视口转换。这种方案适合需要为不同设备创建专用组件或样式的场景：\n\n```javascript\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    // 移动端插件 - 只转换 .m- 开头的选择器\n    require(\"postcss-vpx-to-vw\")({\n      viewportWidth: 375,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      selectorBlackList: [/^(?!.*\\.m-)/], // 只转换包含.m-的选择器\n      pluginId: \"mobile\",\n    }),\n    // 桌面端插件 - 只转换 .d- 开头的选择器\n    require(\"postcss-vpx-to-vw\")({\n      viewportWidth: 1920,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      selectorBlackList: [/^(?!.*\\.d-)/], // 只转换包含.d-的选择器\n      pluginId: \"desktop\",\n    }),\n    // 平板端插件 - 只转换 .t- 开头的选择器\n    require(\"postcss-vpx-to-vw\")({\n      viewportWidth: 768,\n      unitPrecision: 5,\n      minPixelValue: 1,\n      selectorBlackList: [/^(?!.*\\.t-)/], // 只转换包含.t-的选择器\n      pluginId: \"tablet\",\n    }),\n  ],\n};\n```\n\n**使用示例：**\n```css\n/* 为不同设备创建专用样式 */\n.m-header {\n  height: 120vpx; /* 移动端：32vw */\n}\n\n.t-header {\n  height: 120vpx; /* 平板端：15.625vw */\n}\n\n.d-header {\n  height: 120vpx; /* 桌面端：6.25vw */\n}\n```\n\n### 方案二：媒体查询配置（适用于响应式设计）\n\n通过为不同媒体查询配置不同的转换参数，让一套样式代码适配多种设备。这种方案更适合响应式设计：\n\n```javascript\nrequire('postcss-vpx-to-vw')({\n  // 默认配置（移动端）\n  viewportWidth: 375,\n  unitPrecision: 5,\n  maxRatio: 1,\n  minRatio: 1,\n  \n  // 媒体查询特定配置\n  mediaQueries: {\n    // 平板配置\n    '@media (min-width: 768px)': {\n      viewportWidth: 768,\n      unitPrecision: 2,\n      maxRatio: 1.5,\n      minRatio: 0.9\n    },\n    \n    // 桌面配置\n    '@media (min-width: 1024px)': {\n      viewportWidth: 1024,\n      maxRatio: 2.0,\n      minRatio: 1.0\n    },\n    \n    // 小屏配置\n    '@media (max-width: 480px)': {\n      viewportWidth: 320,\n      unitPrecision: 4,\n      minPixelValue: 0.5\n    }\n  }\n})\n```\n\n**使用示例：**\n```css\n/* 输入：一套代码适配多端 */\n.container {\n  width: 300vpx;\n  height: 200maxvpx;\n}\n\n@media (min-width: 768px) {\n  .container {\n    width: 300vpx;\n    height: 200maxvpx;\n  }\n}\n\n/* 输出：自动适配不同设备 */\n.container {\n  width: 80vw;                    /* 移动端：300/375*100 = 80vw */\n  height: max(53.33333vw, 200px); /* 移动端默认配置 */\n}\n\n@media (min-width: 768px) {\n  .container {\n    width: 39.06vw;               /* 平板端：300/768*100 = 39.06vw */\n    height: max(26.04vw, 300px);  /* 平板端：maxRatio=1.5 */\n  }\n}\n```\n\n#### 两种方案的对比\n\n| 特性 | 多插件实例 | 媒体查询配置 |\n|------|------------|--------------|\n| **适用场景** | 组件级差异化设计 | 响应式统一设计 |\n| **CSS结构** | 为不同设备写不同选择器 | 一套选择器配合媒体查询 |\n| **维护成本** | 较高（需维护多套样式） | 较低（一套代码自动适配） |\n| **灵活性** | 高（可完全自定义） | 中（基于媒体查询约束） |\n| **包体积** | 较大 | 较小 |\n| **推荐使用** | 移动端/桌面端差异很大的项目 | 主要做响应式适配的项目 |\n\n#### 媒体查询配置特性\n\n- **配置继承**: 媒体查询配置会继承默认配置，只需指定需要覆盖的选项\n- **灵活匹配**: 支持精确匹配（如 `@media (min-width: 768px)`）和模糊匹配（如 `min-width: 768px`）\n- **增强日志**: 日志会显示每个转换使用的媒体查询和视口宽度\n\n### 在 CSS 中使用\n\n在 CSS 中，您可以使用 `vpx`、`maxvpx`、 `minvpx` 和 `cvpx` 单位，构建系统会自动将其转换为相应的值。\n\n### 示例\n\n#### 基本转换\n\n```css\n/* 输入 */\n.element {\n  font-size: 36vpx;\n  width: 200vpx;\n  margin: 20vpx;\n}\n\n/* 输出（基于 375px 视口宽度）*/\n.element {\n  font-size: 9.6vw;\n  width: 53.33333vw;\n  margin: 5.33333vw;\n}\n```\n\n#### 最小值边界 (maxvpx)\n\n`maxvpx` 单位会转换为 `max(vw, Npx)` 函数，确保在小屏幕上不会小于指定的像素值。可以通过 `maxRatio` 参数调整像素值的倍数。\n\n```css\n/* 输入 */\n.element {\n  font-size: 36maxvpx;\n  padding: 20maxvpx;\n}\n\n/* 输出（基于 375px 视口宽度，maxRatio: 1）*/\n.element {\n  font-size: max(9.6vw, 36px);\n  padding: max(5.33333vw, 20px);\n}\n\n/* 输出（基于 375px 视口宽度，maxRatio: 1.5）*/\n.element {\n  font-size: max(9.6vw, 54px);\n  padding: max(5.33333vw, 30px);\n}\n```\n\n#### 最大值边界 (minvpx)\n\n`minvpx` 单位会转换为 `min(vw, Npx)` 函数，确保在大屏幕上不会大于指定的像素值。可以通过 `minRatio` 参数调整像素值的倍数。\n\n```css\n/* 输入 */\n.element {\n  font-size: 36minvpx;\n  padding: 20minvpx;\n}\n\n/* 输出（基于 375px 视口宽度，minRatio: 1）*/\n.element {\n  font-size: min(9.6vw, 36px);\n  padding: min(5.33333vw, 20px);\n}\n\n/* 输出（基于 375px 视口宽度，minRatio: 0.8）*/\n.element {\n  font-size: min(9.6vw, 28.8px);\n  padding: min(5.33333vw, 16px);\n}\n```\n\n#### 响应式范围边界 (cvpx)\n\n`cvpx` 单位会转换为 `clamp(minPx, vw, maxPx)` 函数，同时设置最小值和最大值边界，提供更好的响应式控制。可以通过 `clampMinRatio` 和 `clampMaxRatio` 参数调整像素值的倍数。\n\n```css\n/* 输入 */\n.element {\n  font-size: 36cvpx;\n  padding: 20cvpx;\n}\n\n/* 输出（基于 375px 视口宽度，clampMinRatio: 0.5, clampMaxRatio: 2）*/\n.element {\n  font-size: clamp(18px, 9.6vw, 72px);\n  padding: clamp(10px, 5.33333vw, 40px);\n}\n\n/* 输出（基于 375px 视口宽度，clampMinRatio: 0.3, clampMaxRatio: 3）*/\n.element {\n  font-size: clamp(10.8px, 9.6vw, 108px);\n  padding: clamp(6px, 5.33333vw, 60px);\n}\n```\n\n#### 混合使用\n\n```css\n/* 输入 */\n.element {\n  margin: 10vpx 20maxvpx 15minvpx 25cvpx;\n}\n\n/* 输出（基于 375px 视口宽度）*/\n.element {\n  margin: 2.66667vw max(5.33333vw, 20px) min(4vw, 15px) clamp(25px, 6.66667vw, 25px);\n}\n```\n\n#### 负数值处理\n\n插件智能处理负数值，确保语义的一致性：\n\n**cvpx 负数处理：**\n```css\n/* 输入 */\n.element {\n  margin-left: -20cvpx;\n  text-indent: -15cvpx;\n}\n\n/* 输出（基于 375px 视口宽度）*/\n.element {\n  margin-left: clamp(-20px, -5.33333vw, -20px);\n  text-indent: clamp(-15px, -4vw, -15px);\n}\n```\n\n**maxvpx/minvpx 负数语义自动交换：**\n```css\n/* 输入 */\n.element {\n  margin-left: -20maxvpx;  /* 用户期望：设置负值的最小边界 */\n  margin-right: -15minvpx; /* 用户期望：设置负值的最大边界 */\n}\n\n/* 输出（智能语义交换）*/\n.element {\n  margin-left: min(-5.33333vw, -20px);  /* 自动转为 min，保持最小边界语义 */\n  margin-right: max(-4vw, -15px);       /* 自动转为 max，保持最大边界语义 */\n}\n```\n\n这种智能处理避免了用户在使用负数时需要手动调整 `maxvpx` 和 `minvpx` 的问题。\n\n#### 线性缩放 (linear-vpx) 🆕\n\n`linear-vpx()` 函数用于实现属性值在指定视口宽度区间内的线性插值缩放，自动生成响应式的 `calc()` 表达式。\n\n**语法：**\n```css\n/* 完整形式：指定所有参数 */\nproperty: linear-vpx(最小值, 最大值, 最小视口宽度, 最大视口宽度);\n\n/* 简化形式：使用配置中的默认视口范围 */\nproperty: linear-vpx(最小值, 最大值);\n```\n\n**基础示例：**\n```css\n/* 输入 */\n.hero {\n  width: linear-vpx(840, 1000, 1200, 1920);\n  font-size: linear-vpx(16, 24, 375, 1920);\n}\n\n/* 输出（autoClampLinear: true，默认）*/\n.hero {\n  width: clamp(840px, calc(840px + 160 * (100vw - 1200px) / 720), 1000px);\n  font-size: clamp(16px, calc(16px + 8 * (100vw - 375px) / 1545), 24px);\n}\n```\n\n**说明：**\n- 当视口宽度为 1200px 时，width 为 840px\n- 当视口宽度为 1920px 时，width 为 1000px\n- 在 1200px 到 1920px 之间，width 随视口宽度线性变化\n- 使用 `clamp()` 确保值不会超出设定范围\n\n**配置选项：**\n```javascript\nrequire('postcss-vpx-to-vw')({\n  linearMinWidth: 1200,      // 默认最小视口宽度\n  linearMaxWidth: 1920,      // 默认最大视口宽度\n  autoClampLinear: true,     // 是否自动添加 clamp 包裹\n})\n```\n\n**使用默认视口范围：**\n```css\n/* 输入 */\n.text {\n  font-size: linear-vpx(16, 24);\n  padding: linear-vpx(20, 40);\n}\n\n/* 配置：linearMinWidth: 375, linearMaxWidth: 1920 */\n/* 输出 */\n.text {\n  font-size: clamp(16px, calc(16px + 8 * (100vw - 375px) / 1545), 24px);\n  padding: clamp(20px, calc(20px + 20 * (100vw - 375px) / 1545), 40px);\n}\n```\n\n**禁用 clamp 包裹：**\n```css\n/* 配置：autoClampLinear: false */\n/* 输入 */\n.container {\n  padding: linear-vpx(20, 40, 768, 1440);\n}\n\n/* 输出（允许在区间外继续线性外推）*/\n.container {\n  padding: calc(20px + 20 * (100vw - 768px) / 672);\n}\n```\n\n**支持负数：**\n```css\n/* 输入 */\n.element {\n  margin-left: linear-vpx(-100, -50, 1200, 1920);\n}\n\n/* 输出 */\n.element {\n  margin-left: clamp(-100px, calc(-100px + 50 * (100vw - 1200px) / 720), -50px);\n}\n```\n\n**媒体查询独立配置：**\n```javascript\nrequire('postcss-vpx-to-vw')({\n  linearMinWidth: 375,\n  linearMaxWidth: 1920,\n  mediaQueries: {\n    '@media (min-width: 768px)': {\n      linearMinWidth: 768,\n      linearMaxWidth: 1440,\n      autoClampLinear: false, // 可在特定媒体查询中禁用 clamp\n    }\n  }\n})\n```\n\n```css\n/* 输入 */\n.responsive {\n  width: linear-vpx(300, 400);\n}\n\n@media (min-width: 768px) {\n  .responsive {\n    width: linear-vpx(600, 900);\n  }\n}\n\n/* 输出 */\n.responsive {\n  width: clamp(300px, calc(300px + 100 * (100vw - 375px) / 1545), 400px);\n}\n\n@media (min-width: 768px) {\n  .responsive {\n    width: calc(600px + 300 * (100vw - 768px) / 672); /* 无 clamp */\n  }\n}\n```\n\n**优势：**\n- ✅ 无需媒体查询断点，属性值自动随视口平滑过渡\n- ✅ 语法简洁，比手写 calc 表达式更清晰\n- ✅ 精确控制数值范围和视口范围\n- ✅ 支持与其他 vpx 单位混合使用\n- ✅ 自动处理浮点数精度问题\n\n**实际应用场景：**\n```css\n/* 响应式布局 */\n.card-grid {\n  gap: linear-vpx(16, 32, 375, 1920);           /* 网格间距 */\n  padding: linear-vpx(20, 60, 375, 1920);       /* 内边距 */\n}\n\n.card {\n  border-radius: linear-vpx(8, 16, 375, 1920);  /* 圆角 */\n  font-size: linear-vpx(14, 18, 375, 1920);     /* 字体大小 */\n}\n\n/* 可与其他单位混合使用 */\n.header {\n  height: linear-vpx(60, 100, 375, 1920);       /* 线性缩放高度 */\n  padding: 20vpx;                                /* 普通 vpx */\n  margin: 10maxvpx;                              /* 带最小值限制 */\n}\n```\n\n> 💡 **提示**：查看 `demo/linear-vpx-demo.js` 和 `demo/LINEAR_VPX_GUIDE.md` 了解更多示例和详细说明。\n\n## 配置选项\n\n插件支持以下配置选项：\n\n- `viewportWidth`: 视口宽度，默认 375px\n- `unitPrecision`: 小数精度，默认 5\n- `minPixelValue`: 最小转换值，默认 1px，小于此值的 vpx 会转换为 px\n- `maxRatio`: maxvpx 的像素值倍数，默认 1\n- `minRatio`: minvpx 的像素值倍数，默认 1\n- `clampMinRatio`: cvpx 的最小值倍数，默认使用 minRatio\n- `clampMaxRatio`: cvpx 的最大值倍数，默认使用 maxRatio\n- `linearMinWidth`: linear-vpx 的默认最小视口宽度，默认 1200\n- `linearMaxWidth`: linear-vpx 的默认最大视口宽度，默认 1920\n- `autoClampLinear`: 是否为 linear-vpx 自动添加 clamp 限制，默认 true\n- `selectorBlackList`: 选择器黑名单，可以是字符串或正则表达式数组\n- `variableBlackList`: CSS 变量黑名单，可以是字符串或正则表达式数组\n- `pluginId`: 插件标识符，用于区分多个实例，默认 'default'\n- `logConversions`: 是否记录转换日志，默认 false\n- `logLevel`: 日志级别，可选 'silent', 'info', 'verbose'，默认 'info'\n- `mediaQueries`: 媒体查询特定配置，为不同媒体查询设置不同的转换参数\n\n**配置简化说明：** `clampMinRatio` 和 `clampMaxRatio` 如果不显式设置，会自动使用 `minRatio` 和 `maxRatio` 的值。这样您只需要配置 `minRatio` 和 `maxRatio`，就能让 `maxvpx`、`minvpx` 和 `cvpx` 保持一致的比例设置。\n\n### 日志功能\n\n插件提供了日志功能，帮助您了解转换过程和结果：\n\n```javascript\nrequire('postcss-vpx-to-vw')({\n  logConversions: true,\n  logLevel: 'verbose'  // 'silent', 'info', 'verbose'\n})\n```\n\n#### 日志级别说明\n\n- `silent`: 不输出任何日志\n- `info`: 输出基本统计信息，按文件显示转换数量\n- `verbose`: 输出详细的转换信息，包括每个转换的具体位置和内容\n\n#### 示例输出\n\n**info 级别**：\n```\n[postcss-vpx-to-vw] 转换了 15 个 vpx 单位:\n  src/components/Header.vue: 5 个转换\n  src/pages/Home.vue: 10 个转换\n```\n\n**verbose 级别**：\n```\n[postcss-vpx-to-vw] 转换了 15 个 vpx 单位:\n  src/components/Header.vue:25:10 .header { width: 100vpx -> 26.66667vw }\n  src/components/Header.vue:26:12 .header { height: 50vpx -> 13.33333vw }\n  src/pages/Home.vue:15:8 .container { margin: 20vpx -> 5.33333vw }\n  ...\n```\n\n### 比例参数说明\n\n- `maxRatio`: 控制 `maxvpx` 转换后 `max()` 函数中像素值的倍数\n\n  - 例如：`maxRatio: 1.5` 会让 `20maxvpx` 转换为 `max(5.33vw, 30px)`\n  - 适用场景：在大屏幕上需要更大的最小值时使用\n  - 推荐 1 - 1.5 (适度增加最小值)\n\n- `minRatio`: 控制 `minvpx` 转换后 `min()` 函数中像素值的倍数\n  - 例如：`minRatio: 0.8` 会让 `20minvpx` 转换为 `min(5.33vw, 16px)`\n  - 适用场景：在小屏幕上需要更紧凑的最大值时使用\n  - 推荐 0.8 - 1 (适度减少最大值)\n\n## 优势\n\n1. **语义清晰**: `vpx` 明确表示这个值会被转换为视口单位\n2. **灵活配置**: 可以针对不同项目设置不同的视口宽度\n3. **选择器控制**: 支持黑名单机制，某些选择器可以不进行转换\n4. **CSS 变量支持**: 支持对 CSS 变量进行独立的黑名单控制\n\n## 注意事项\n\n1. 插件会在 PostCSS 处理过程中自动转换，无需手动操作\n2. 转换后的值会保留指定的小数精度\n3. 小于 `minPixelValue` 的值会转换为 `px` 单位\n4. 支持在一个声明中混合使用 `vpx` 和其他单位\n\n## 许可证\n\nMIT\n\n## 贡献\n\n欢迎提交 issue 和 pull request。\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
 		119,
 		45,
-		21
+		21,
+		480
 	]
 }
