@@ -253,5 +253,8 @@
 	"license": "MIT",
 	"readme": "# [postcss-fluid](https://www.npmjs.com/package/postcss-fluid)\n\nFluid css value\n\n## Usage:\n\n```javascript\n// Add plugin to postcss config\npostcss([\n  // (plugins) Sass, Nesting, Imports ...\n\n  require('postcss-fluid')({\n    // Defaults:\n    min: '320px', // Min media size\n    max: '1200px', // Max media size\n    functionName: 'fluid', // function name, may be anything\n  }),\n\n  // (optimization) autoprefixer, postcss-clean, css-mqpacker ...\n]);\n```\n\n```css\n/* usage in css */\n[selector] {\n  ...\n  [property]: *values* fluid([min], [max]) *values*;\n  ...\n}\n```\n\n### Examples\n\n### Input\n```css\nbody {\n  padding: 1rem fluid(10px, 20px) 2rem;\n  font-size: fluid(16px, 30px);\n}\n```\n\n### Output\n\n```css\nbody {\n  padding: 1rem calc(10px, 10px + 10 * (100vw - 320px) / 880, 20px) 2rem;\n  font-size: clamp(16px, 16px + 14 * (100vw - 320px) / 880, 30px);\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 22
+	"_downloads": [
+		22,
+		5
+	]
 }
