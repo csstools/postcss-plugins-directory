@@ -216,5 +216,8 @@
 	"license": "MIT",
 	"readme": "# postcss-theme-properties\nMoves CSS custom properties defined within a theme class to :root. This lets postcss-custom-properties process the file with themed properties.\n\nUseful if you use a class on body to set the CSS custom properties for the current theme and need to create fallback CSS for browsers that don't support CSS custom properties\n\nModern browsers can load a single CSS file and you can conditionally load the additional fallback CSS for old browsers.\n\nDeclarations not using custom properties are stripped to keep the additional CSS small.\n\n## Install\n```npm install -D @dstaver/postcss-theme-properties```\n\n## Usage\n```js\n// postcss.config.js\n\nmodule.exports = {\n  plugins: [\n    require('@dstaver/postcss-theme-properties')({\n      themeSelector: '.theme-blue' // The theme you want to generate CSS for\n      themeSelectors: ['.theme-blue','.theme-green'] // All themes present in the file. Used to strip unused theme CSS \n    }),\n    require('postcss-custom-properties')({\n      preserve: false\n    })\n  ]\n}\n```\n\n### Input CSS\n```css\n:root {\n  --color-primary: red;\n  --color-secondary: orange;\n}\n\n.theme-blue {\n  --color-primary: deepskyblue;\n  --color-secondary: lightskyblue;\n}\n\n.theme-green {\n  --color-primary: limegreen;\n  --color-secondary: greenyellow;\n}\n\n.primary {\n  font-weight: bold;\n  color: var(--color-primary);\n}\n\n.secondary {\n  font-weight: bold;\n  color: var(--color-secondary);\n}\n```\n\n## Output CSS\n```css\n.primary {\n  color: deepskyblue;\n}\n\n.secondary {\n  color: lightskyblue;\n}\n```\n",
 	"readmeFilename": "README.md",
-	"_downloads": 1
+	"_downloads": [
+		1,
+		14
+	]
 }
