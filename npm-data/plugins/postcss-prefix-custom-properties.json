@@ -1,0 +1,109 @@
+{
+	"_id": "postcss-prefix-custom-properties",
+	"name": "postcss-prefix-custom-properties",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-prefix-custom-properties",
+			"version": "0.1.0",
+			"description": "Prefix CSS custom properties (CSS variables) with PostCSS.",
+			"main": "src/index.js",
+			"type": "commonjs",
+			"exports": {
+				".": "./src/index.js"
+			},
+			"scripts": {
+				"lint": "eslint .",
+				"example": "postcss example/input.css --config example/postcss.config.cjs --output example/dist/output.css",
+				"test": "npm run lint && npm run example && diff -u example/dist/output.css example/dist/output.expected.css"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"prefix",
+				"custom-properties",
+				"css-variables"
+			],
+			"author": {
+				"name": "Mark Otto"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.0"
+			},
+			"devDependencies": {
+				"eslint": "^9.39.1",
+				"postcss-cli": "^11.0.0"
+			},
+			"_id": "postcss-prefix-custom-properties@0.1.0",
+			"gitHead": "3ef3b4f8c3e29e76a26eed244708cc96f67d3f65",
+			"_nodeVersion": "22.21.1",
+			"_npmVersion": "10.9.4",
+			"dist": {
+				"integrity": "sha512-sAKQSRw+KTl9G549Q9awV/ra06fOZNEIVIIRTwiSTbvkV1t8z7WPqNQ5XBbxF1fV2mp0yQFObavc5J/GxP0a6g==",
+				"shasum": "41e7b241f7c2228a2c5c4d145e7b81df7c7ae8d9",
+				"tarball": "https://registry.npmjs.org/postcss-prefix-custom-properties/-/postcss-prefix-custom-properties-0.1.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 6662,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIQDD8rLj9DscXAeiUZ8bK8624Ud1maVmuWOxws8eoZ/sHQIgY7tfM3ilYw2w4hfmWmCGL6PWoPxR65SpNsb8vAUuQqQ="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "mdo",
+				"email": "markdotto@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "mdo",
+					"email": "markdotto@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-prefix-custom-properties_0.1.0_1766092886235_0.5339676795204116"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-12-18T21:21:26.234Z",
+		"0.1.0": "2025-12-18T21:21:26.382Z",
+		"modified": "2025-12-18T21:21:26.698Z"
+	},
+	"maintainers": [
+		{
+			"name": "mdo",
+			"email": "markdotto@gmail.com"
+		}
+	],
+	"description": "Prefix CSS custom properties (CSS variables) with PostCSS.",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"prefix",
+		"custom-properties",
+		"css-variables"
+	],
+	"author": {
+		"name": "Mark Otto"
+	},
+	"license": "MIT",
+	"readme": "# postcss-prefix-custom-properties\n\n> Prefix CSS custom properties (CSS variables) with PostCSS.\n\n## Installation\n\n```bash\nnpm i --d postcss-prefix-custom-properties\n```\n\n## Example\n\n```css\n/* Input (ignoring `--ignored` and `squircle`) */\n:root {\n  --brand-color: #ff4757;\n  --fg: #333;\n  --bg: #ccc;\n  --ignored: 42px;\n\n  color: light-dark(var(--fg), var(--bg));\n}\n\n.button {\n  color: var(--brand-color);\n  border-radius: var(--squircle-radius, 8px);\n  padding: var(--ignored);\n}\n```\n\n```css\n/* Output */\n:root {\n  --bs-brand-color: #ff4757;\n  --bs-fg: #333;\n  --bs-bg: #ccc;\n  --ignored: 42px;\n\n  color: light-dark(var(--bs-fg), var(--bs-bg));\n}\n\n.button {\n  color: var(--bs-brand-color);\n  border-radius: var(--squircle-radius, 8px);\n  padding: var(--ignored);\n}\n```\n\n## Usage\n\nAdd the plugin to your PostCSS configuration:\n\n```js\n// postcss.config.cjs\nconst prefixCustomProperties = require('postcss-prefix-custom-properties');\n\nmodule.exports = {\n  plugins: [\n    prefixCustomProperties({\n      prefix: 'bs-',\n      ignore: ['--no-prefix', /^legacy-/]\n    })\n  ]\n};\n```\n\n### Options\n\n- `prefix` (string, default `''`): The prefix to prepend to every custom property name.\n- `ignore` (array, default `[]`): List of custom properties to leave untouched. Items can be\n  literal strings (with or without the leading `--`) or regular expressions. Regular expressions\n  are tested against both the full custom property name (e.g. `--brand-color`) and the name\n  without the leading dashes (e.g. `brand-color`).\n\nBoth declarations and usages (inside `var()` functions) are updated, as well as `@property` rules.\n\n## Local development\n\nA small playground is available in `example/`. Run the script below to generate prefixed CSS into\n`example/dist/output.css` (the directory is gitignored).\n\n```bash\nnpm install\nnpm run example\n```\n\nThe generated CSS demonstrates the plugin's behavior when applying a `bs-` prefix and ignoring\nvariables that match either the string `--ignored` or the regex `/squircle/`.\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-6109d250808a93f913baed92935ded50",
+	"_downloads": [
+		0
+	]
+}

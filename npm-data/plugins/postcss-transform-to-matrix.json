@@ -1,0 +1,103 @@
+{
+	"_id": "postcss-transform-to-matrix",
+	"name": "postcss-transform-to-matrix",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-transform-to-matrix",
+			"version": "1.0.0",
+			"description": "A PostCSS plugin that converts CSS transform properties to matrix3d format",
+			"main": "index.js",
+			"scripts": {
+				"test": "node example/test.js",
+				"example": "node example/test.js"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"transform",
+				"matrix",
+				"matrix3d",
+				"css-transform",
+				"transform-matrix"
+			],
+			"author": "",
+			"license": "ISC",
+			"dependencies": {
+				"postcss": "^8.5.6",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"_id": "postcss-transform-to-matrix@1.0.0",
+			"gitHead": "674e7c006dd8af1ebe5fecc2cbddf5fcae81ff7d",
+			"_nodeVersion": "22.10.0",
+			"_npmVersion": "10.9.0",
+			"dist": {
+				"integrity": "sha512-Ry+MSNMAh1STfF4SPhh4CjBhs7b/ghpc9UlTZKnRP8uU9QVOCOrmiUe3L5G7R07ijh3tAW13oRGrM7hVpqSICg==",
+				"shasum": "cb76f3a1eadbbcae5f1b19dbc64b6fdb531ee8fe",
+				"tarball": "https://registry.npmjs.org/postcss-transform-to-matrix/-/postcss-transform-to-matrix-1.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 13983,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIA5Wr7dwg+Odgx3MeYG6VGI5ZsEEY+/50JL1Cy54zCzmAiEA8Q+K7gqlJ6/mpSz0AOkQ3biIWzE03EjUqIt5TTt8R7w="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "autonomic",
+				"email": "autonomic633@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "autonomic",
+					"email": "autonomic633@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-transform-to-matrix_1.0.0_1766036317059_0.6181522541345232"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2025-12-18T05:38:37.058Z",
+		"1.0.0": "2025-12-18T05:38:37.213Z",
+		"modified": "2025-12-18T05:38:37.494Z"
+	},
+	"maintainers": [
+		{
+			"name": "autonomic",
+			"email": "autonomic633@gmail.com"
+		}
+	],
+	"description": "A PostCSS plugin that converts CSS transform properties to matrix3d format",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"transform",
+		"matrix",
+		"matrix3d",
+		"css-transform",
+		"transform-matrix"
+	],
+	"license": "ISC",
+	"readme": "# PostCSS Transform to Matrix3D Plugin\n\n一个 PostCSS 插件，将 CSS `transform` 属性自动转换为 `matrix3d` 格式。\n\n## 功能特点\n\n- ✅ 支持所有常见的 2D 和 3D transform 函数\n- ✅ 支持 transform 函数组合\n- ✅ 可选保留原始 transform 值\n- ✅ 支持选择器过滤（only/exclude）\n- ✅ 零依赖核心算法\n\n## 支持的 Transform 函数\n\n### 2D Transforms\n- `translate(x, y)`\n- `translateX(x)` / `translateY(y)`\n- `rotate(angle)`\n- `scale(x, y)`\n- `scaleX(x)` / `scaleY(y)`\n- `skew(x, y)`\n- `skewX(angle)` / `skewY(angle)`\n- `matrix(a, b, c, d, e, f)`\n\n### 3D Transforms\n- `translate3d(x, y, z)`\n- `translateZ(z)`\n- `rotate3d(x, y, z, angle)`\n- `rotateX(angle)` / `rotateY(angle)` / `rotateZ(angle)`\n- `scale3d(x, y, z)`\n- `scaleZ(z)`\n- `perspective(distance)`\n- `matrix3d(...)`\n\n## 安装\n\n```bash\nnpm install postcss postcss-value-parser\n```\n\n## 使用方法\n\n### 基础用法\n\n```javascript\nconst postcss = require('postcss');\nconst transformToMatrix = require('postcss-transform-to-matrix');\n\npostcss([\n  transformToMatrix()\n])\n  .process(css)\n  .then(result => {\n    console.log(result.css);\n  });\n```\n\n### 在 Webpack 中使用\n\n```javascript\n// webpack.config.js\nmodule.exports = {\n  module: {\n    rules: [\n      {\n        test: /\\.css$/,\n        use: [\n          'style-loader',\n          'css-loader',\n          {\n            loader: 'postcss-loader',\n            options: {\n              postcssOptions: {\n                plugins: [\n                  require('postcss-transform-to-matrix')()\n                ]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n};\n```\n\n### 在 Vite 中使用\n\n```javascript\n// vite.config.js\nimport { defineConfig } from 'vite';\nimport transformToMatrix from 'postcss-transform-to-matrix';\n\nexport default defineConfig({\n  css: {\n    postcss: {\n      plugins: [\n        transformToMatrix()\n      ]\n    }\n  }\n});\n```\n\n### PostCSS 配置文件\n\n```javascript\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require('postcss-transform-to-matrix')()\n  ]\n};\n```\n\n## 配置选项\n\n```javascript\ntransformToMatrix({\n  // 是否保留原始 transform 属性（默认: false）\n  preserveOriginal: true,\n\n  // 只转换匹配的选择器\n  only: '.my-class',  // 字符串、正则或数组\n\n  // 排除特定选择器\n  exclude: /\\.no-convert/\n})\n```\n\n### 配置示例\n\n#### 保留原始值\n\n```javascript\ntransformToMatrix({ preserveOriginal: true })\n```\n\n输入:\n```css\n.element {\n  transform: translate(100px, 50px) rotate(45deg);\n}\n```\n\n输出:\n```css\n.element {\n  transform: translate(100px, 50px) rotate(45deg);\n  transform: matrix3d(0.707107, 0.707107, 0, 0, -0.707107, 0.707107, 0, 0, 0, 0, 1, 0, 100, 50, 0, 1);\n}\n```\n\n#### 选择器过滤\n\n```javascript\ntransformToMatrix({ only: ['.convert-me', /\\.transform-/] })\n```\n\n只会转换 `.convert-me` 和以 `.transform-` 开头的选择器。\n\n## 转换示例\n\n### 示例 1: 基础 translate + rotate\n\n输入:\n```css\n.box {\n  transform: translate(100px, 50px) rotate(45deg);\n}\n```\n\n输出:\n```css\n.box {\n  transform: matrix3d(0.707107, 0.707107, 0, 0, -0.707107, 0.707107, 0, 0, 0, 0, 1, 0, 100, 50, 0, 1);\n}\n```\n\n### 示例 2: 3D transforms\n\n输入:\n```css\n.card {\n  transform: perspective(500px) rotateY(45deg) translateZ(100px);\n}\n```\n\n输出:\n```css\n.card {\n  transform: matrix3d(0.707107, 0, -0.707107, -0.001414, 0, 1, 0, 0, 0.707107, 0, 0.707107, 0, 0, 0, 100, 1);\n}\n```\n\n### 示例 3: 复杂组合\n\n输入:\n```css\n.complex {\n  transform: translate3d(10px, 20px, 30px) rotateX(30deg) scale(1.5);\n}\n```\n\n输出:\n```css\n.complex {\n  transform: matrix3d(1.5, 0, 0, 0, 0, 1.299038, 0.75, 0, 0, -0.75, 1.299038, 0, 10, 20, 30, 1);\n}\n```\n\n## 运行示例\n\n```bash\ncd example\nnode test.js\n```\n\n这将生成三个输出文件：\n- `output.css` - 基础转换\n- `output-preserved.css` - 保留原始值\n- `output-filtered.css` - 选择器过滤\n\n## 为什么使用 matrix3d？\n\n1. **性能优化**: 浏览器在处理 `matrix3d` 时可以跳过解析和计算步骤\n2. **跨浏览器一致性**: 避免不同浏览器对 transform 函数的实现差异\n3. **动画优化**: 在某些情况下，matrix3d 的动画性能更好\n4. **调试工具**: 可以更直观地看到最终的变换矩阵\n\n## 注意事项\n\n- 已经是 `matrix3d` 格式的属性不会被重复转换\n- 转换失败时会保留原始值并在控制台输出警告\n- 单位值（px, em, % 等）会被保留在计算中\n\n## 开发\n\n```bash\n# 安装依赖\nnpm install\n\n# 运行测试\nnpm test\n\n# 运行示例\nnode example/test.js\n```\n\n## License\n\nISC\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-bb490d69ef52c016084b1bc3aa4a4a34",
+	"_downloads": [
+		0
+	]
+}
