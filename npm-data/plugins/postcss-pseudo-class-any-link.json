@@ -2941,7 +2941,6 @@
 	"readme": "# PostCSS Pseudo Class Any Link [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n`npm install postcss-pseudo-class-any-link --save-dev`\n\n[PostCSS Pseudo Class Any Link] lets you `:any-link` pseudo-class in CSS,\nfollowing the [Selectors] specification.\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span {\n\tbackground-color: yellow;\n}\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n```\n\n## Usage\n\nAdd [PostCSS Pseudo Class Any Link] to your project:\n\n```bash\nnpm install postcss postcss-pseudo-class-any-link --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssPseudoClassAnyLink = require('postcss-pseudo-class-any-link');\n\npostcss([\n\tpostcssPseudoClassAnyLink(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is preserved.\n\n```js\npostcssPseudoClassAnyLink({ preserve: false })\n```\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span {\n\tbackground-color: yellow;\n}\n```\n\n### subFeatures\n\n#### areaHrefNeedsFixing\n\nThe `subFeatures.areaHrefNeedsFixing` option determines if `<area href>` elements should match `:any-link` pseudo-class.<br>\nIn IE and Edge these do not match `:link` or `:visited`.\n\n_This increased CSS bundle size and is disabled by default._\n\n```js\npostcssPseudoClassAnyLink({\n\tsubFeatures: {\n\t\tareaHrefNeedsFixing: true\n\t}\n})\n```\n\n```pcss\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n\n/* becomes */\n\nnav :link > span, nav :visited > span, nav area[href] > span {\n\tbackground-color: yellow;\n}\nnav :any-link > span {\n\tbackground-color: yellow;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#any-link-pseudo-class\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-pseudo-class-any-link\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Pseudo Class Any Link]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-pseudo-class-any-link\n[Selectors]: https://www.w3.org/TR/selectors-4/#the-any-link-pseudo\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		25638901,
 		26831090,
 		27886866,
 		26023939,
@@ -2960,6 +2959,7 @@
 		28077253,
 		24755331,
 		23929082,
-		23250596
+		23250596,
+		23337364
 	]
 }
