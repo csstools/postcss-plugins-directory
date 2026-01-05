@@ -954,7 +954,6 @@
 	"readme": "# PostCSS Browser Comments [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n`npm install postcss-browser-comments --save-dev`\n\n[PostCSS Browser Comments] lets you keep only the CSS you need based on\ncomments and your [browserslist](https://github.com/browserslist/browserslist).\n\n\n```css\n/**\n * Prevent adjustments of font size after orientation changes in IE and iOS.\n */\n\nhtml {\n  -ms-text-size-adjust: 100%;\n  -webkit-text-size-adjust: 100%;\n}\n\n/* becomes */\n\n\n```\n\nThe comment and rule above would be removed with the following browserslist:\n\n```yml\nlast 2 chrome versions\n```\n\nThe rule below would be more carefully altered:\n\n```css\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\n\nhr {\n  box-sizing: content-box; /* 1 */\n  height: 0; /* 1 */\n  overflow: visible; /* 2 */\n}\n\n/* with a `last 2 firefox versions` browserslist becomes */\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\n\nhr {\n  box-sizing: content-box; /* 1 */\n  height: 0; /* 1 */\n}\n```\n\n## Usage\n\nAdd [PostCSS Browser Comments] to your project:\n\n```bash\nnpm install postcss postcss-browser-comments --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssBrowserComments = require('postcss-browser-comments');\n\npostcss([\n\tpostcssBrowserComments(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n\n\n## Options\n\n### browsers\n\nThe `browsers` option overrides of the project’s browserslist.\n\n```js\npostcssBrowserComments({ browsers: 'last 2 versions' })\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/postcss-browser-comments\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Browser Comments]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-browser-comments\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		13901985,
 		13999522,
 		14008964,
 		13956501,
@@ -973,6 +972,7 @@
 		13012414,
 		11947741,
 		11180163,
-		10900781
+		10900781,
+		10501311
 	]
 }
