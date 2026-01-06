@@ -1606,7 +1606,6 @@
 	"readme": "[![npm version](https://badge.fury.io/js/@lesjoursfr%2Fpostcss-extract-css-variables.svg)](https://badge.fury.io/js/@lesjoursfr%2Fpostcss-extract-css-variables)\n[![QC Checks](https://github.com/lesjoursfr/postcss-extract-css-variables/actions/workflows/quality-control.yml/badge.svg)](https://github.com/lesjoursfr/postcss-extract-css-variables/actions/workflows/quality-control.yml)\n\n# postcss-extract-css-variables\n\n[PostCSS] plugin to extract rules with CSS variables.\n\n[postcss]: https://github.com/postcss/postcss\n\n```css\n/* Input example */\n.lj-color-35 {\n\t--lj-color-main: #fda92a;\n\t--lj-color-alpha: rgba(253, 169, 42, 0.75);\n\t--lj-color-light: #fdde2a;\n\t--lj-color-mixed: #fdc42a;\n}\n\n.selector-1 {\n\tbackground-color: var(--lj-color-main);\n\tcontent: \"\";\n\tdisplay: inline-block;\n\theight: 5px;\n\tmargin-right: 10px;\n\twidth: 18px;\n}\n```\n\n```css\n/* Output example */\n.lj-color-35 .selector-1 {\n\tbackground-color: #fda92a;\n}\n```\n\n## Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-extract-css-variables\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin add the end of the plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n    require('autoprefixer'),\n+   require('postcss-extract-css-variables')({ output: './output.css' })\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		208,
 		193,
 		191,
 		192,
@@ -1625,6 +1624,7 @@
 		122,
 		123,
 		123,
+		22,
 		22
 	]
 }

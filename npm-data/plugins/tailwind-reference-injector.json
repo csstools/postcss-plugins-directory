@@ -1,0 +1,123 @@
+{
+	"_id": "tailwind-reference-injector",
+	"name": "tailwind-reference-injector",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "tailwind-reference-injector",
+			"version": "1.0.0",
+			"description": "PostCSS plugin to automatically inject @reference directive in CSS modules for Tailwind CSS v4",
+			"main": "index.mjs",
+			"type": "module",
+			"exports": {
+				".": {
+					"import": "./index.mjs",
+					"require": "./index.cjs"
+				}
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"tailwindcss",
+				"tailwind",
+				"css-modules",
+				"reference",
+				"inject",
+				"automatic"
+			],
+			"author": {
+				"name": "Cecotec"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://gitlab.com/ribonuclecode/tailwind-reference-injector.git"
+			},
+			"homepage": "https://gitlab.com/ribonuclecode/tailwind-reference-injector#readme",
+			"bugs": {
+				"url": "https://gitlab.com/ribonuclecode/tailwind-reference-injector/issues"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"_id": "tailwind-reference-injector@1.0.0",
+			"gitHead": "d76d20247faba71c92bcaa104bda868e0ab0b8ea",
+			"_nodeVersion": "20.19.0",
+			"_npmVersion": "10.8.2",
+			"dist": {
+				"integrity": "sha512-ZYsibJdmUsS8XAkv2qBUrILm4h4pZgZVO3V73cb3hBqSrUmPCwayuI9Z2apOwrlmZyqrqNpLBtaqceTBnWSe8w==",
+				"shasum": "dec4f8d4221745d9b8037c427a91b6ab29f4499d",
+				"tarball": "https://registry.npmjs.org/tailwind-reference-injector/-/tailwind-reference-injector-1.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 9538,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIGZonq+zeqMTyR5xehgEi0D5aLoBgjapKUbKbi8O/EyiAiEA/8exQnHNp6uiTY8QhYGJRdur36Za/+2+JH7S1FQxHho="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "ribonucleocode",
+				"email": "juan.neos20@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "ribonucleocode",
+					"email": "juan.neos20@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/tailwind-reference-injector_1.0.0_1767591324758_0.7866331429897275"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-01-05T05:35:24.675Z",
+		"1.0.0": "2026-01-05T05:35:24.896Z",
+		"modified": "2026-01-05T05:35:25.170Z"
+	},
+	"maintainers": [
+		{
+			"name": "ribonucleocode",
+			"email": "juan.neos20@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin to automatically inject @reference directive in CSS modules for Tailwind CSS v4",
+	"homepage": "https://gitlab.com/ribonuclecode/tailwind-reference-injector#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"tailwindcss",
+		"tailwind",
+		"css-modules",
+		"reference",
+		"inject",
+		"automatic"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://gitlab.com/ribonuclecode/tailwind-reference-injector.git"
+	},
+	"author": {
+		"name": "Cecotec"
+	},
+	"bugs": {
+		"url": "https://gitlab.com/ribonuclecode/tailwind-reference-injector/issues"
+	},
+	"license": "MIT",
+	"readme": "# tailwind-reference-injector\n\nA PostCSS plugin that automatically injects `@reference` directives in CSS modules for **Tailwind CSS v4**.\n\n## Why?\n\nIn Tailwind CSS v4, when using `@apply`, `@variant`, `@custom-variant`, `@plugin`, or `@config` inside CSS modules or Vue/Svelte `<style>` blocks, you need to add `@reference` to make theme variables, custom utilities, and custom variants available.\n\nThis plugin automates that process by detecting files that need it and injecting `@reference` automatically.\n\n## Installation\n\n```bash\nnpm install tailwind-reference-injector --save-dev\n# or\nyarn add tailwind-reference-injector -D\n# or\npnpm add tailwind-reference-injector -D\n```\n\n## Usage\n\n### With PostCSS config\n\n```js\n// postcss.config.cjs\nmodule.exports = {\n  plugins: {\n    'tailwind-reference-injector': {},\n    '@tailwindcss/postcss': {},\n  },\n}\n```\n\n### With subpath imports (recommended)\n\nFirst, set up a subpath import in your `package.json`:\n\n```json\n{\n  \"imports\": {\n    \"#global-styles\": \"./src/styles/globals.css\"\n  }\n}\n```\n\nThen configure the plugin:\n\n```js\n// postcss.config.cjs\nmodule.exports = {\n  plugins: {\n    'tailwind-reference-injector': {\n      reference: '\"#global-styles\"',\n    },\n    '@tailwindcss/postcss': {},\n  },\n}\n```\n\n### With relative path to globals.css\n\n```js\n// postcss.config.cjs\nconst path = require('path')\n\nmodule.exports = {\n  plugins: {\n    'tailwind-reference-injector': {\n      globalsCssPath: path.join(__dirname, 'src/styles/globals.css'),\n    },\n    '@tailwindcss/postcss': {},\n  },\n}\n```\n\n### Using default Tailwind (no customizations)\n\nIf you're only using the default Tailwind theme with no customizations:\n\n```js\n// postcss.config.cjs\nmodule.exports = {\n  plugins: {\n    'tailwind-reference-injector': {\n      reference: '\"tailwindcss\"',\n    },\n    '@tailwindcss/postcss': {},\n  },\n}\n```\n\n## Options\n\n| Option           | Type     | Default              | Description                                                                                                                             |\n| ---------------- | -------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |\n| `reference`      | `string` | `'\"#global-styles\"'` | The reference import path. Use subpath imports like `\"#global-styles\"` or `\"tailwindcss\"` for default theme.                            |\n| `globalsCssPath` | `string` | `null`               | Absolute path to your globals.css file. The plugin will calculate relative paths for each CSS module. Used when `reference` is not set. |\n\n## How it works\n\n1. Detects `.module.css` files during PostCSS processing\n2. Checks if the file uses Tailwind directives that require context:\n   - `@apply`\n   - `@variant`\n   - `@custom-variant`\n   - `@plugin`\n   - `@config`\n3. If needed and not already present, injects `@reference` at the top of the file\n4. Respects `@charset` declarations (keeps them first if present)\n\n## Example\n\n**Input** (`Button.module.css`):\n\n```css\n.button {\n  @apply bg-blue-500 text-white px-4 py-2 rounded;\n}\n```\n\n**Output** (after processing):\n\n```css\n@reference \"#global-styles\";\n\n.button {\n  @apply bg-blue-500 text-white px-4 py-2 rounded;\n}\n```\n\n## Requirements\n\n- Node.js >= 18.0.0\n- PostCSS >= 8.0.0\n- Tailwind CSS v4\n\n## License\n\nMIT\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-9d8b8be91fec6d2c83198687136d0b23",
+	"_downloads": [
+		0
+	]
+}
