@@ -817,7 +817,6 @@
 	"readme": "# PostCSS Random Function [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n`npm install @csstools/postcss-random-function --save-dev`\n\n[PostCSS Random Function] lets you use the `random` function, following the [CSS Values 5] specification.\n\n```css\ndiv {\n\tcolor: oklch(0.7 0.2 random(120deg, 240deg));\n}\n\ndiv {\n\tcolor: oklch(0.7 0.2 random(120deg, 240deg, 7deg));\n}\n\ndiv {\n\tmargin: random(10px, 100px) random(10px, 100px);\n\tpadding: random(--padding, 10px, 100px) random(--padding, 10px, 100px);\n}\n\n/* becomes */\n\ndiv {\n\tcolor: oklch(0.7 0.2 177.17235deg);\n}\n\ndiv {\n\tcolor: oklch(0.7 0.2 176deg);\n}\n\ndiv {\n\tmargin: 41.7525px 70.01679px;\n\tpadding: 44.03856px 44.03856px;\n}\n```\n\n> [!NOTE]\n> Generated values are deterministic pseudo random numbers.\n> Generating values twice with the same input will give the same result.\n> The input length of the CSS source file is used as a random seed.\n\n## Usage\n\nAdd [PostCSS Random Function] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-random-function --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssRandomFunction = require('@csstools/postcss-random-function');\n\npostcss([\n\tpostcssRandomFunction(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n\n\n## ⚠️ About custom properties\n\nGiven the dynamic nature of custom properties it's impossible to know what the variable value is, which means the plugin can't compute a final value for the stylesheet. \n\nBecause of that, any usage that contains a `var` is skipped.\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssRandomFunction({ preserve: true })\n```\n\n```css\ndiv {\n\tcolor: oklch(0.7 0.2 random(120deg, 240deg));\n}\n\ndiv {\n\tcolor: oklch(0.7 0.2 random(120deg, 240deg, 7deg));\n}\n\ndiv {\n\tmargin: random(10px, 100px) random(10px, 100px);\n\tpadding: random(--padding, 10px, 100px) random(--padding, 10px, 100px);\n}\n\n/* becomes */\n\ndiv {\n\tcolor: oklch(0.7 0.2 177.17235deg);\n\tcolor: oklch(0.7 0.2 random(120deg, 240deg));\n}\n\ndiv {\n\tcolor: oklch(0.7 0.2 176deg);\n\tcolor: oklch(0.7 0.2 random(120deg, 240deg, 7deg));\n}\n\ndiv {\n\tmargin: 41.7525px 70.01679px;\n\tmargin: random(10px, 100px) random(10px, 100px);\n\tpadding: 44.03856px 44.03856px;\n\tpadding: random(--padding, 10px, 100px) random(--padding, 10px, 100px);\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#random-function\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-random-function\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Random Function]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-random-function\n[CSS Values 5]: https://drafts.csswg.org/css-values-5/#random\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		4456703,
 		4153713,
 		4248452,
 		3791150,
@@ -836,6 +835,7 @@
 		3482997,
 		3658021,
 		3742917,
-		3847340
+		3847340,
+		3974141
 	]
 }
