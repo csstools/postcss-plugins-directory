@@ -471,7 +471,6 @@
 	"readme": "# PostCSS Flexbox Reset\n\n[postcss]: https://github.com/postcss/postcss\n[ci-img]: https://travis-ci.org/AndrejGajdos/postcss-flexbox-reset.svg?branch=main\n[ci]: https://travis-ci.org/AndrejGajdos/postcss-flexbox-reset\n[mit]: https://github.com/AndrejGajdos/postcss-flexbox-reset/blob/master/LICENSE\n[releases history]: https://github.com/AndrejGajdos/postcss-flexbox-reset/blob/master/CHANGELOG.md\n\n[![npm](https://img.shields.io/npm/v/postcss-flexbox-reset.svg)](https://www.npmjs.com/package/postcss-flexbox-reset) [![Build Status][ci-img]][ci]\n[![npm](https://img.shields.io/npm/dt/postcss-flexbox-reset.svg)](https://www.npmjs.com/package/postcss-flexbox-reset)\n\n[PostCSS] plugin for resetting flexbox. This plugin adds rule `min-width:0` to all direct descendants of element `display: flex`.\n\nLet’s say you want to truncate labels in flexbox layout. Without resetting flex items, it [doesn't work](https://codepen.io/andrej_gajdos/pen/YzWozKw). When you apply `min-width:0` to flex items, [layout works](https://codepen.io/andrej_gajdos/pen/wvWLvwq) as expected.\n\nThis was just one example, but you will come across similar funky issues in your flexbox layouts in different browsers. You can read my whole story [here](https://andrejgajdos.com/css-reset-flexbox-grid-responsive-layout/).\n\n[postcss]: https://github.com/postcss/postcss\n\n```css\n/* Input example */\n.foo {\n  display: flex;\n}\n```\n\n```css\n/* Output example */\n.foo {\n  display: flex;\n}\n\n.foo > * {\n  min-width: 0;\n}\n```\n\n## 🔗 Links:\n\n- [Minimum content sizing of flex items](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)\n- [Flexbox Implied Minimum Size](http://fantasai.inkedblade.net/style/discuss/flexbox-min-size/)\n- [CSS: Flex and \"min-width\"](https://makandracards.com/makandra/66994-css-flex-and-min-width)\n\n## 🍳 Usage\n\n**Step 1:** Install plugin:\n\n```sh\nnpm install --save-dev postcss postcss-flexbox-reset\n```\n\n**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n**Step 3:** Add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-flexbox-reset'),\n    require('autoprefixer')\n  ]\n}\n```\n\n[official docs]: https://github.com/postcss/postcss#usage\n\n## Changelog\n\nSee [Releases history]\n\n## License\n\n[MIT]\n\n---\n\nBuilt by [Andrej Gajdos](https://andrejgajdos.com) | [Note API Connector](https://noteapiconnector.com/) | [Note Fx Sheets](https://notefxsheets.com/)\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		2065,
 		1950,
 		1767,
 		1978,
@@ -490,6 +489,7 @@
 		2417,
 		2666,
 		2620,
-		3040
+		3040,
+		3050
 	]
 }
