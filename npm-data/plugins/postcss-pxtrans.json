@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-pxtrans",
-	"_rev": "2-226aec7cc187ab231557a4852d63bbf5",
+	"_rev": "3-add5526ed63e8ddfe7d699b92b8d8426",
 	"name": "postcss-pxtrans",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "1.0.1"
 	},
 	"versions": {
 		"0.0.0": {
@@ -99,6 +99,106 @@
 		"1.0.0": {
 			"name": "postcss-pxtrans",
 			"version": "1.0.0",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"px",
+				"rpx",
+				"rem",
+				"vw",
+				"pxtransform"
+			],
+			"author": {
+				"name": "ice breaker",
+				"email": "1324318532@qq.com"
+			},
+			"license": "MIT",
+			"_id": "postcss-pxtrans@1.0.0",
+			"maintainers": [
+				{
+					"name": "icebreaker",
+					"email": "1324318532@qq.com"
+				}
+			],
+			"homepage": "https://github.com/sonofmagic/postcss-plugins#readme",
+			"bugs": {
+				"url": "https://github.com/sonofmagic/postcss-plugins/issues"
+			},
+			"dist": {
+				"shasum": "7df6ba96d1e31ea4fc5977b118877de3fe917f55",
+				"tarball": "https://registry.npmjs.org/postcss-pxtrans/-/postcss-pxtrans-1.0.0.tgz",
+				"fileCount": 8,
+				"integrity": "sha512-1AKXs+w/hor0EAmxCAa2ATfYKgzqey/rHTgJ6LvvpNsRyeV9hyVNczF3N1hSXcB5ruM4E3ezg8cf3W+W/GY4GA==",
+				"signatures": [
+					{
+						"sig": "MEQCIGs/hFRUuKLxSK7NYat7babeBFKFo6FqyUKnnzEHV/v9AiAylq+LBs4IhdwYGa8pO5qBXreUeonCR9P6AO+cDZWVSA==",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-pxtrans@1.0.0",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 41859
+			},
+			"main": "./dist/index.cjs",
+			"_from": "file:postcss-pxtrans-1.0.0.tgz",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.mjs",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.cjs"
+				}
+			},
+			"scripts": {
+				"dev": "tsup --watch --sourcemap",
+				"lint": "eslint .",
+				"test": "vitest run",
+				"bench": "vitest bench",
+				"build": "tsup",
+				"release": "pnpm publish",
+				"lint:fix": "eslint . --fix",
+				"test:dev": "vitest"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:c2e14f60-c13d-489f-bbad-644b0f59175a"
+				}
+			},
+			"_resolved": "/tmp/2fc82afaa4312c86bf0cd446d36f768a/postcss-pxtrans-1.0.0.tgz",
+			"_integrity": "sha512-1AKXs+w/hor0EAmxCAa2ATfYKgzqey/rHTgJ6LvvpNsRyeV9hyVNczF3N1hSXcB5ruM4E3ezg8cf3W+W/GY4GA==",
+			"repository": {
+				"url": "git+https://github.com/sonofmagic/postcss-plugins.git",
+				"type": "git",
+				"directory": "packages/postcss-pxtrans"
+			},
+			"_npmVersion": "11.6.2",
+			"description": "PostCSS plugin that converts px units to rpx/rem/vw/px for multiple platforms.",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "24.12.0",
+			"dependencies": {
+				"postcss-plugin-shared": "^1.0.0"
+			},
+			"_hasShrinkwrap": false,
+			"peerDependencies": {
+				"postcss": "^8"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-pxtrans_1.0.0_1766047843550_0.45521876663483174",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"1.0.1": {
+			"name": "postcss-pxtrans",
+			"version": "1.0.1",
 			"description": "PostCSS plugin that converts px units to rpx/rem/vw/px for multiple platforms.",
 			"author": {
 				"name": "ice breaker",
@@ -125,16 +225,27 @@
 			"sideEffects": false,
 			"exports": {
 				".": {
-					"types": "./dist/index.d.ts",
+					"types": {
+						"import": "./dist/index.d.mts",
+						"require": "./dist/index.d.ts"
+					},
 					"import": "./dist/index.mjs",
 					"require": "./dist/index.cjs"
+				}
+			},
+			"typesVersions": {
+				"<4.7": {
+					"*": [
+						"./dist/*",
+						"./dist/index.d.ts"
+					]
 				}
 			},
 			"peerDependencies": {
 				"postcss": "^8"
 			},
 			"dependencies": {
-				"postcss-plugin-shared": "^1.0.0"
+				"postcss-plugin-shared": "^1.1.0"
 			},
 			"scripts": {
 				"dev": "tsup --watch --sourcemap",
@@ -149,21 +260,21 @@
 			"main": "./dist/index.cjs",
 			"module": "./dist/index.mjs",
 			"types": "./dist/index.d.ts",
-			"_id": "postcss-pxtrans@1.0.0",
+			"_id": "postcss-pxtrans@1.0.1",
 			"homepage": "https://github.com/sonofmagic/postcss-plugins#readme",
-			"_integrity": "sha512-1AKXs+w/hor0EAmxCAa2ATfYKgzqey/rHTgJ6LvvpNsRyeV9hyVNczF3N1hSXcB5ruM4E3ezg8cf3W+W/GY4GA==",
-			"_resolved": "/tmp/2fc82afaa4312c86bf0cd446d36f768a/postcss-pxtrans-1.0.0.tgz",
-			"_from": "file:postcss-pxtrans-1.0.0.tgz",
-			"_nodeVersion": "24.12.0",
+			"_integrity": "sha512-oNxhcSbbhkfhgJP/E0JJHIuQs8asqAuD1FqFT4VFF7xhkBmKKTIM08T7WIRHo9rjod8E4PR/CuOxtcWjftufcg==",
+			"_resolved": "/tmp/8c83bc1dc4a38aef81369ce30afd754b/postcss-pxtrans-1.0.1.tgz",
+			"_from": "file:postcss-pxtrans-1.0.1.tgz",
+			"_nodeVersion": "24.13.0",
 			"_npmVersion": "11.6.2",
 			"dist": {
-				"integrity": "sha512-1AKXs+w/hor0EAmxCAa2ATfYKgzqey/rHTgJ6LvvpNsRyeV9hyVNczF3N1hSXcB5ruM4E3ezg8cf3W+W/GY4GA==",
-				"shasum": "7df6ba96d1e31ea4fc5977b118877de3fe917f55",
-				"tarball": "https://registry.npmjs.org/postcss-pxtrans/-/postcss-pxtrans-1.0.0.tgz",
+				"integrity": "sha512-oNxhcSbbhkfhgJP/E0JJHIuQs8asqAuD1FqFT4VFF7xhkBmKKTIM08T7WIRHo9rjod8E4PR/CuOxtcWjftufcg==",
+				"shasum": "3f03faefe6bc5470283856bbc09553cd50dd506e",
+				"tarball": "https://registry.npmjs.org/postcss-pxtrans/-/postcss-pxtrans-1.0.1.tgz",
 				"fileCount": 8,
-				"unpackedSize": 41859,
+				"unpackedSize": 49718,
 				"attestations": {
-					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-pxtrans@1.0.0",
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-pxtrans@1.0.1",
 					"provenance": {
 						"predicateType": "https://slsa.dev/provenance/v1"
 					}
@@ -171,7 +282,7 @@
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEQCIGs/hFRUuKLxSK7NYat7babeBFKFo6FqyUKnnzEHV/v9AiAylq+LBs4IhdwYGa8pO5qBXreUeonCR9P6AO+cDZWVSA=="
+						"sig": "MEUCIG6YVYYDeXKBPyN63z31HuPV19NcpgU3ejl+VEP7HxlJAiEArp7Du3rRVngiWNV3xxU2O8g9oqUMuAKEhap6sDdH7V4="
 					}
 				]
 			},
@@ -192,16 +303,17 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-pxtrans_1.0.0_1766047843550_0.45521876663483174"
+				"tmp": "tmp/postcss-pxtrans_1.0.1_1770033306696_0.7610909369991994"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2025-12-18T06:15:01.885Z",
-		"modified": "2025-12-18T08:50:44.051Z",
+		"modified": "2026-02-02T11:55:07.172Z",
 		"0.0.0": "2025-12-18T06:15:02.020Z",
-		"1.0.0": "2025-12-18T08:50:43.688Z"
+		"1.0.0": "2025-12-18T08:50:43.688Z",
+		"1.0.1": "2026-02-02T11:55:06.840Z"
 	},
 	"bugs": {
 		"url": "https://github.com/sonofmagic/postcss-plugins/issues"
@@ -248,6 +360,7 @@
 		2784,
 		2788,
 		2698,
-		2680
+		2680,
+		2658
 	]
 }
