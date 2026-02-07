@@ -380,7 +380,6 @@
 	"readme": "# PostCSS Normalize Stylus Compatible Container Query Syntax Plugin\r\n\r\nReplaces the following patterns including the fictive `container` media type to regular container queries.\r\n\r\n<dl>\r\n\r\n  <dt>Singular condition</dt>\r\n  <dd><code>@media container and (/* ... */)</code></dd>\r\n\r\n  <dt>OR condition</dt>\r\n  <dd><code>@media container and (/* ... */), container and (/* ... */)</code></dd>\r\n\r\n</dl>\r\n\r\nThere is no `container` media type, but it is the workaround for Stylus pre-processor which\r\n  currently [does not support the container queries](https://github.com/stylus/stylus/discussions/2727).\r\n\r\n\r\n## Installation\r\n\r\n```bash\r\nnpm install postcss postcss-normalize-stylus-compatible-container-query-syntax\r\n```\r\n\r\n## Examples\r\n### Simple Case\r\n\r\n```css\r\n/* Stylus-compatible workaround */\r\n@media container and (min-width: 600px) {\r\n  .a { display: grid; }\r\n}\r\n\r\n.card { padding: 1rem; }\r\n\r\n@media container and (min-width: 30rem) {\r\n  .b { color: rebeccapurple; }\r\n}\r\n```\r\n\r\nWill be transformed to:\r\n\r\n```css\r\n@container (min-width: 600px) {\r\n  .a { display: grid; }\r\n}\r\n\r\n.card { padding: 1rem; }\r\n\r\n@container (min-width: 30rem) {\r\n  .b { color: rebeccapurple; }\r\n}\r\n```\r\n\r\n### OR Condition\r\n\r\nSometimes you may need to express an OR relationship between container conditions while staying Stylus-compatible. If you write a comma-separated media query that repeats the `container` \"type\" and uses `and` for the second part, the plugin will convert it into a single `@container` rule joined with `or`.\r\n\r\n```css\r\n/* Stylus-compatible workaround producing an OR between two container queries */\r\n@media container and (max-width: 99.98px), container and (max-height: 99.98px) {\r\n  .box { color: green; }\r\n}\r\n```\r\n\r\nWill be transformed to:\r\n\r\n```css\r\n@container (max-width: 99.98px) or (max-height: 99.98px) {\r\n  .box { color: green; }\r\n}\r\n```\r\n\r\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		4,
 		7,
 		10,
 		14,
@@ -399,6 +398,7 @@
 		211,
 		211,
 		45,
-		36
+		36,
+		29
 	]
 }
