@@ -1807,7 +1807,6 @@
 	"readme": "# postcss-rem-to-responsive-pixel\n\n[English](./README.md) | 简体中文\n\n一个用于 [PostCSS](https://github.com/ai/postcss) 的插件：把 `rem` 转换为 `px` 或 `rpx`，用于响应式与多端适配。\n\n- 使用 `TypeScript` 重写并覆盖测试\n- `transformUnit` 支持 `px` 和 `rpx`\n- 插件内部复用了 `postcss-plugin-shared` 的通用能力。\n\n> 如果你仍在使用 `postcss@7.x`，请使用 `postcss-rem-to-responsive-pixel@5.x`（参见 `v6` 的 breaking changes：`./v6.md`）。\n\n## 安装\n\n```shell\nnpm i -D postcss-rem-to-responsive-pixel\nyarn add -D postcss-rem-to-responsive-pixel\npnpm i -D postcss-rem-to-responsive-pixel\n```\n\n## 使用\n\n### 在 postcss.config.js 中使用\n\n```js\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require('postcss-rem-to-responsive-pixel')({\n      rootValue: 32,\n      propList: ['*'],\n      transformUnit: 'rpx',\n    }),\n  ],\n}\n```\n\n当你使用 `tailwindcss` 编写 H5 或小程序样式时，默认单位通常是 `rem`，此时可以用该插件把 `rem` 统一转换为 `px` 或 `rpx`：\n\n```js\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require('tailwindcss'),\n    require('postcss-rem-to-responsive-pixel')({\n      rootValue: 32,\n      propList: ['*'],\n      transformUnit: 'rpx',\n    }),\n  ],\n}\n```\n\n## 输入 / 输出示例\n\n_默认配置下仅会处理字体相关属性。_\n\n```scss\n// input\nh1 {\n  margin: 0 0 20px;\n  font-size: 2rem;\n  line-height: 1.2;\n  letter-spacing: 0.0625rem;\n}\n\n// output\nh1 {\n  margin: 0 0 20px;\n  font-size: 64rpx;\n  line-height: 1.2;\n  letter-spacing: 2rpx;\n}\n```\n\n## Options\n\n类型：`Object | Null`\n\n默认值：\n\n```js\nconst defaultOptions = {\n  rootValue: 16, // number | (input) => number\n  unitPrecision: 5,\n  selectorBlackList: [],\n  propList: ['font', 'font-size', 'line-height', 'letter-spacing'],\n  replace: true,\n  mediaQuery: false,\n  minRemValue: 0,\n  exclude: [/node_modules/i],\n  transformUnit: 'px',\n  disabled: false,\n  processorStage: 'Once',\n}\n```\n\n### `rootValue`\n\n类型：`number | (input) => number`\n\n根元素字体大小（换算基数）。\n\n## unitPrecision\n\n类型：`number`\n\n转换结果允许的小数精度（四舍五入策略见实现）。\n\n## propList\n\n类型：`(string | RegExp)[]`\n\n需要从 rem 转换的属性列表。\n\n## selectorBlackList\n\n类型：`(string | RegExp)[]`\n\n命中这些选择器时保持 rem 不变。\n\n## processorStage\n\n类型：`'Once' | 'OnceExit'`\n默认值：`'Once'`\n\n控制插件运行的 PostCSS 阶段。如果需要在其他插件处理完成后再执行，可以设置为 `OnceExit`。\n\n## replace\n\n类型：`boolean`\n\n是否直接替换；为 `false` 时会追加一条新声明作为 fallback。\n\n## mediaQuery\n\n类型：`boolean`\n\n是否转换 `@media` 中的 rem。\n\n## minRemValue\n\n类型：`number`\n\n小于该值的 rem 不会被转换。\n\n## exclude\n\n类型：`(string | RegExp)[] | ((filePath: string) => boolean)`\n\n匹配的文件路径将被跳过。\n\n## transformUnit\n\n类型：`'px' | 'rpx'`\n\n输出单位。\n\n## disabled\n\n类型：`boolean`\n\n是否禁用插件。\n\n### 关于“忽略 rem”的说明\n\n目前最简单的方式是使用大写单位来标记不转换（浏览器仍可识别）：\n\n```text\n// `rem` 会被转换\n.convert {\n  font-size: 1rem; // => 16px\n}\n\n// `Rem` 或 `REM` 会被忽略\n.ignore {\n  border: 1Rem solid; // ignored\n  border-width: 2REM; // ignored\n}\n```\n",
 	"readmeFilename": "README.zh-CN.md",
 	"_downloads": [
-		16939,
 		17018,
 		15746,
 		15094,
@@ -1826,6 +1825,7 @@
 		13000,
 		12978,
 		13662,
-		13307
+		13307,
+		14386
 	]
 }
