@@ -143,7 +143,6 @@
 	"readme": "# postcss-conditionals-renewed [![Build Status][ci-img]][ci]\r\n\r\n[PostCSS] plugin that enables ```@if``` statements in your CSS.\r\n\r\n## Installation\r\n\r\n```js\r\nnpm install postcss postcss-conditionals-renewed\r\n```\r\n\r\n## Usage\r\n\r\n```js\r\nvar fs = require('fs');\r\nvar postcss = require('postcss');\r\nvar conditionals = require('postcss-conditionals-renewed');\r\n\r\nvar css = fs.readFileSync('input.css', 'utf8');\r\n\r\nvar output = postcss()\r\n  .use(conditionals)\r\n  .process(css)\r\n  .css;\r\n```\r\n\r\nUsing this ```input.css```:\r\n\r\n```css\r\n.foo {\r\n  @if 3 < 5 {\r\n    background: green;\r\n  }\r\n  @else {\r\n    background: blue;\r\n  }\r\n}\r\n```\r\n\r\nyou will get:\r\n\r\n```css\r\n.foo {\r\n  background: green;\r\n}\r\n```\r\n\r\nAlso works well with [postcss-simple-vars]:\r\n\r\n```css\r\n$type: monster;\r\np {\r\n  @if $type == ocean {\r\n    color: blue;\r\n  } @else if $type == matador {\r\n    color: red;\r\n  } @else if $type == monster {\r\n    color: green;\r\n  } @else {\r\n    color: black;\r\n  }\r\n}\r\n```\r\n[postcss-simple-vars]: https://github.com/postcss/postcss-simple-vars\r\n\r\nand with [postcss-for]:\r\n\r\n```css\r\n@for $i from 1 to 3 {\r\n  .b-$i {\r\n    width: $i px;\r\n    @if $i == 2 {\r\n      color: green;\r\n    }\r\n  }\r\n}\r\n```\r\n\r\n[postcss-for]: https://github.com/antyakushev/postcss-for\r\n\r\n## Development\r\n1. Clone repository\r\n2. Install dependencies `npm install`\r\n3. If `parser.jison` file has been changed, regenerate `parser.js` by running `npm run gen-parser`\r\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		2356,
 		2537,
 		2409,
 		2330,
@@ -162,6 +161,7 @@
 		2582,
 		2778,
 		2726,
-		2822
+		2822,
+		2775
 	]
 }
