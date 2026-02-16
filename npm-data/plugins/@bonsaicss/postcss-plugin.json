@@ -1,0 +1,111 @@
+{
+	"_id": "@bonsaicss/postcss-plugin",
+	"name": "@bonsaicss/postcss-plugin",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "@bonsaicss/postcss-plugin",
+			"version": "0.1.0",
+			"description": "BonsaiCSS PostCSS plugin — prune unused CSS during PostCSS processing 🌳",
+			"publishConfig": {
+				"access": "public"
+			},
+			"license": "MIT",
+			"type": "module",
+			"main": "./dist/index.cjs",
+			"module": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js",
+					"require": "./dist/index.cjs"
+				}
+			},
+			"dependencies": {
+				"@bonsaicss/core": "0.1.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.0"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"pruner",
+				"bonsaicss"
+			],
+			"scripts": {
+				"build": "tsup",
+				"dev": "tsup --watch",
+				"typecheck": "tsc --noEmit"
+			},
+			"_id": "@bonsaicss/postcss-plugin@0.1.0",
+			"_integrity": "sha512-QzsHwoFBXSNk4qCSfdqYXhbRZ8AlTDGjHI8yX7QhLpI/wiEoqrANU2loV0EwXgq7k8pVASndyQXOK0NVzxzL1w==",
+			"_resolved": "/private/var/folders/qb/vlwc873j797133xp2sb8d7tr0000gn/T/f9f757a7f739448a8f2b8ee14d9221c0/bonsaicss-postcss-plugin-0.1.0.tgz",
+			"_from": "file:bonsaicss-postcss-plugin-0.1.0.tgz",
+			"_nodeVersion": "24.8.0",
+			"_npmVersion": "11.10.0",
+			"dist": {
+				"integrity": "sha512-QzsHwoFBXSNk4qCSfdqYXhbRZ8AlTDGjHI8yX7QhLpI/wiEoqrANU2loV0EwXgq7k8pVASndyQXOK0NVzxzL1w==",
+				"shasum": "b72630297e0f198366485fce846509c63912257b",
+				"tarball": "https://registry.npmjs.org/@bonsaicss/postcss-plugin/-/postcss-plugin-0.1.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 15916,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCICIIVQJzFHaDi8W1EEBvpLTjtGrdUQh/17gCYdcUFPY2AiEA4UXSI/19/3zQAQjfzNtSiDvmwSvzHbXfYxuQeRmHpoM="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "menesesevandro",
+				"email": "evandro.m.carneiro@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "menesesevandro",
+					"email": "evandro.m.carneiro@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-plugin_0.1.0_1771197848465_0.87204238525096"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-02-15T23:24:08.403Z",
+		"0.1.0": "2026-02-15T23:24:08.619Z",
+		"modified": "2026-02-15T23:24:08.790Z"
+	},
+	"maintainers": [
+		{
+			"name": "menesesevandro",
+			"email": "evandro.m.carneiro@gmail.com"
+		}
+	],
+	"description": "BonsaiCSS PostCSS plugin — prune unused CSS during PostCSS processing 🌳",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"pruner",
+		"bonsaicss"
+	],
+	"license": "MIT",
+	"readme": "# @bonsaicss/postcss-plugin\n\n> PostCSS plugin for BonsaiCSS 🌳 — prune unused CSS during PostCSS processing.\n\n## Installation\n\n```bash\nnpm install @bonsaicss/postcss-plugin postcss\n```\n\n## Setup\n\n### postcss.config.js\n\n```js\nimport bonsaiPostcss from '@bonsaicss/postcss-plugin';\n\nexport default {\n  plugins: [\n    bonsaiPostcss({\n      content: ['./src/**/*.{html,tsx,jsx,vue,svelte}'],\n    }),\n  ],\n};\n```\n\n### With Vite\n\n```js\n// vite.config.ts\nimport { defineConfig } from 'vite';\n\nexport default defineConfig({\n  css: {\n    postcss: {\n      plugins: [\n        (await import('@bonsaicss/postcss-plugin')).default({\n          content: ['./src/**/*.{html,tsx,jsx,vue,svelte}'],\n        }),\n      ],\n    },\n  },\n});\n```\n\n### With Next.js\n\n```js\n// postcss.config.mjs\nimport bonsaiPostcss from '@bonsaicss/postcss-plugin';\n\nexport default {\n  plugins: [\n    bonsaiPostcss({\n      content: [\n        './app/**/*.{tsx,jsx}',\n        './components/**/*.{tsx,jsx}',\n      ],\n    }),\n  ],\n};\n```\n\n## Options\n\n| Option | Type | Default | Description |\n|---|---|---|---|\n| `content` | `string[]` | — | **Required.** Glob patterns for content files to scan. |\n| `verbose` | `boolean` | `false` | Log pruning statistics to stderr. |\n| `safelist` | `string[]` | `[]` | Class names to always keep. |\n| `safelistPatterns` | `(string \\| RegExp)[]` | `[]` | Regex patterns for classes to preserve. |\n| `keepDynamicPatterns` | `boolean \\| (string \\| RegExp)[]` | `false` | Infer or provide dynamic class patterns. |\n\n## Verbose Output\n\nEnable verbose mode to see pruning statistics:\n\n```js\nbonsaiPostcss({\n  content: ['./src/**/*.tsx'],\n  verbose: true,\n});\n```\n\nOutput:\n\n```\n[bonsaicss] src/styles.css: 42/128 rules removed (31.2% reduction)\n```\n\n## How It Works\n\nThe plugin hooks into PostCSS's `Once` event, which runs after all other plugins have processed the CSS. This means it works well with preprocessors like Sass, Less, or Tailwind CSS — BonsaiCSS prunes the **final** CSS output.\n\n## License\n\nMIT\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-ee6557a34ca7066885bf018192dcfbb3",
+	"_downloads": [
+		0
+	]
+}
