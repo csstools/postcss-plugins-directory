@@ -1,0 +1,140 @@
+{
+	"_id": "postcss-media-to-container",
+	"name": "postcss-media-to-container",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-media-to-container",
+			"version": "0.0.1",
+			"description": "Replace @media queries with supported @container queries",
+			"type": "module",
+			"main": "./dist/index.cjs",
+			"module": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				"require": {
+					"types": "./dist/index.d.cts",
+					"default": "./dist/index.cjs"
+				},
+				"import": {
+					"types": "./dist/index.d.ts",
+					"default": "./dist/index.js"
+				}
+			},
+			"scripts": {
+				"test:dev": "vitest",
+				"test": "vitest run",
+				"build": "tsup",
+				"prepack": "npm run test && npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/crutch12/postcss-media-to-container.git"
+			},
+			"keywords": [
+				"atrules",
+				"postcss",
+				"postcss-plugin",
+				"rules",
+				"media",
+				"container",
+				"query",
+				"css",
+				"replace"
+			],
+			"author": {
+				"name": "Konstantin Barabanov",
+				"email": "criitch@yandex.ru"
+			},
+			"license": "MIT-0",
+			"bugs": {
+				"url": "https://github.com/crutch12/postcss-media-to-container/issues"
+			},
+			"homepage": "https://github.com/crutch12/postcss-media-to-container#readme",
+			"devDependencies": {
+				"@types/node": "^25.3.0",
+				"postcss": "^8.5.6",
+				"tsup": "^8.5.1",
+				"typescript": "^5.9.3",
+				"vitest": "^4.0.18"
+			},
+			"_id": "postcss-media-to-container@0.0.1",
+			"gitHead": "da495f522ebe68786d9bc67836049575c1369413",
+			"_nodeVersion": "22.18.0",
+			"_npmVersion": "10.9.3",
+			"dist": {
+				"integrity": "sha512-RnvQz9Wq6BoWT+3a4heb/8XpKSs1D1gdTFxeMZO9Ri53+JK6o/fBagGExw+aDmw8zKKK5dXVHnxMNmLT6MxvZQ==",
+				"shasum": "9bc4a17129a5ec8b368b67ac9a0d877d68b83ca9",
+				"tarball": "https://registry.npmjs.org/postcss-media-to-container/-/postcss-media-to-container-0.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 10274,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIFw7yLOmKvi5j1tRtwzRQMR9OxyKMo6AK9m0I4yYDHlSAiBBqaXuhMBKCiiJ4iLk1yDFcEjAFVd00BFK9slJtN8Lng=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "crutch12",
+				"email": "criitch@yandex.ru"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "crutch12",
+					"email": "criitch@yandex.ru"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-media-to-container_0.0.1_1771580919175_0.6511932749163754"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-02-20T09:48:39.174Z",
+		"0.0.1": "2026-02-20T09:48:39.316Z",
+		"modified": "2026-02-20T09:48:39.507Z"
+	},
+	"maintainers": [
+		{
+			"name": "crutch12",
+			"email": "criitch@yandex.ru"
+		}
+	],
+	"description": "Replace @media queries with supported @container queries",
+	"homepage": "https://github.com/crutch12/postcss-media-to-container#readme",
+	"keywords": [
+		"atrules",
+		"postcss",
+		"postcss-plugin",
+		"rules",
+		"media",
+		"container",
+		"query",
+		"css",
+		"replace"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/crutch12/postcss-media-to-container.git"
+	},
+	"author": {
+		"name": "Konstantin Barabanov",
+		"email": "criitch@yandex.ru"
+	},
+	"bugs": {
+		"url": "https://github.com/crutch12/postcss-media-to-container/issues"
+	},
+	"license": "MIT-0",
+	"readme": "# postcss-media-to-container\r\n\r\n```bash\r\nnpm install postcss-media-to-container --save-dev\r\n```\r\n\r\n[postcss-media-to-container] plugin replaces all found [@media](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media) queries with supported [@container](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@container) queries.\r\n\r\n```css\r\n/* this @media query */\r\n@media (min-width: 600px) {\r\n}\r\n\r\n/* will be replaced with this @container query */\r\n@container (min-width: 600px) {\r\n}\r\n```\r\n\r\n## Usage\r\n\r\nAdd [postcss-media-to-container] plugin to your project:\r\n\r\n```bash\r\nnpm install postcss postcss-media-to-container --save-dev\r\n```\r\n\r\nUse it as a [postcss-media-to-container] plugin:\r\n\r\n```js\r\nconst postcss = require(\"postcss\");\r\nconst postcssMediaToContainer = require(\"postcss-media-to-container\");\r\n\r\npostcss([postcssMediaToContainer(/* pluginOptions */)]).process(\r\n  YOUR_CSS /*, processOptions */,\r\n);\r\n```\r\n\r\n## Options\r\n\r\n```ts\r\ninterface PostcssMediaToContainerOptions {\r\n  /**\r\n   * Adds provided containerName to container query:\r\n   * \"@container app (min-width: 600px) {}\"\r\n   * @example \"app\"\r\n   */\r\n  containerName?: string;\r\n  /**\r\n   * Log results\r\n   */\r\n  verbose?: boolean;\r\n  /**\r\n   * Processes css file only if it's path matches provided filter\r\n   * @example (path) => Boolean(path.match(/styles[\\\\/]index\\.css/))\r\n   * @param path - found css file full path\r\n   */\r\n  filter?: (path: string) => boolean;\r\n  /**\r\n   * Replaces only provided rules\r\n   */\r\n  rules?: Array<(typeof SUPPORTED_RULES)[number]>;\r\n}\r\n```\r\n\r\n## References\r\n\r\n- https://github.com/csstools/postcss-plugins/issues/1035\r\n- https://github.com/csstools/postcss-plugins/issues/1367\r\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-ef9e2fea59aaffb972e11f4d50e27361",
+	"_downloads": [
+		0
+	]
+}
