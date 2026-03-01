@@ -21,7 +21,7 @@ export function cleanupLink(x) {
 		link = 'https://github.com/' + link.slice(15);
 	}
 
-	if (link.startsWith('github.com')) {
+	if (link.startsWith('github.com/')) {
 		link = 'https://' + link;
 	}
 
