@@ -485,7 +485,6 @@
 	"readme": "# postcss-px-morph\r\n\r\n<div align=\"center\">\r\n\r\n![postcss-px-morph](https://img.shields.io/npm/v/postcss-px-morph.svg?style=flat-square)\r\n![license](https://img.shields.io/npm/l/postcss-px-morph.svg?style=flat-square)\r\n![downloads](https://img.shields.io/npm/dt/postcss-px-morph.svg?style=flat-square)\r\n![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6?style=flat-square)\r\n\r\n**一个强大且灵活的 PostCSS 插件，支持将 `px` 转换为 `rem`、`vw` 或智能的 `hybrid` 混合模式。**\r\n\r\n[English](./README.en-US.md) | [简体中文](./README.md)\r\n\r\n</div>\r\n\r\n---\r\n\r\n## 🚀 为什么选择 postcss-px-morph?\r\n\r\n在现代响应式 Web 开发中，我们经常纠结于单位的选择。`rem` 适合排版（字体），而 `vw` 适合布局缩放。**postcss-px-morph** 通过其独特的 **Hybrid Mode (混合模式)** 让你兼得两者之长。\r\n\r\n- **🧩 混合模式 (Hybrid Mode)**: 自动将特定属性转换为 `vw` (如布局相关)，将其他属性转换为 `rem` (如字体相关)。\r\n- **🛡️ 类型安全**: 全量 TypeScript 编写，提供完整的类型定义。\r\n- **⚡️ 高性能**: 优化的正则和 AST 遍历。\r\n- **🎛️ 精细控制**: 支持块级忽略、选择器黑名单和媒体查询控制。\r\n\r\n## 📦 安装\r\n\r\n```bash\r\nnpm install -D postcss postcss-px-morph\r\n# or\r\nyarn add -D postcss postcss-px-morph\r\n# or\r\npnpm add -D postcss postcss-px-morph\r\n```\r\n\r\n## 🛠️ 使用方法\r\n\r\n将其添加到你的 `postcss.config.js`:\r\n\r\n```javascript\r\nmodule.exports = {\r\n  plugins: [\r\n    require('postcss-px-morph')({\r\n      mode: 'hybrid', // 'rem' | 'vw' | 'hybrid'\r\n      rootValue: 16,\r\n      viewportWidth: 375,\r\n      hybridOptions: {\r\n        defaultMode: 'rem',\r\n        vwProperties: ['width', 'height', 'margin*', 'padding*'],\r\n        remProperties: ['font*']\r\n      }\r\n    })\r\n  ]\r\n}\r\n```\r\n\r\n## ⚙️ 配置项\r\n\r\n| 选项 | 类型 | 默认值 | 说明 |\r\n| --- | --- | --- | --- |\r\n| `mode` | `'rem' \\| 'vw' \\| 'hybrid'` | `'rem'` | 转换模式。 |\r\n| `rootValue` | `number` | `16` | `rem` 转换的根字体大小基准值。 |\r\n| `viewportWidth` | `number` | `375` | `vw` 转换的视口宽度基准值。 |\r\n| `unitPrecision` | `number` | `5` | 转换后保留的小数位数。 |\r\n| `minPixelValue` | `number` | `1` | 小于该值的 `px` 不进行转换。 |\r\n| `selectorBlackList` | `(string \\| RegExp)[]` | `[]` | 要忽略的选择器列表（支持字符串或正则）。 |\r\n| `mediaQuery` | `boolean` | `false` | 是否允许在媒体查询中进行转换。 |\r\n| `hybridOptions` | `object` | `{}` | 混合模式的配置项。 |\r\n| `include` | `string[]` | `['**/*.css', ...]` | 需要包含的文件（支持 glob 模式）。 |\r\n| `exclude` | `string[]` | `['**/*.min.css', ...]` | 需要排除的文件（支持 glob 模式）。 |\r\n\r\n### 混合模式配置 (Hybrid Options)\r\n\r\n| 选项 | 类型 | 默认值 | 说明 |\r\n| --- | --- | --- | --- |\r\n| `defaultMode` | `'rem' \\| 'vw'` | `'rem'` | 未匹配到列表时的默认转换模式。 |\r\n| `vwProperties` | `string[]` | `[]` | 转换为 `vw` 的属性列表 (支持 `*` 通配符)。 |\r\n| `remProperties` | `string[]` | `[]` | 转换为 `rem` 的属性列表 (支持 `*` 通配符)。 |\r\n\r\n## 📝 忽略与控制\r\n\r\n### 行级忽略\r\n在行尾添加 `/* px-ignore */` 即可跳过该行的转换。\r\n\r\n```css\r\n.box {\r\n  width: 100px; /* px-ignore */\r\n  height: 100px; /* 将会被转换 */\r\n}\r\n```\r\n\r\n### 块级忽略\r\n使用 `/* px-morph-disable */` 和 `/* px-morph-enable */` 注释来忽略整个代码块。\r\n\r\n```css\r\n/* px-morph-disable */\r\n.ignored-block {\r\n  width: 200px;\r\n  font-size: 14px;\r\n}\r\n/* px-morph-enable */\r\n```\r\n\r\n## 🤝 贡献\r\n\r\n欢迎提交 Pull Requests! 详情请参阅 [CONTRIBUTING.md](./CONTRIBUTING.md)。\r\n\r\n## 📄 许可证\r\n\r\nMIT\r\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		24,
 		19,
 		13,
 		15,
@@ -504,6 +503,7 @@
 		60,
 		60,
 		58,
-		31
+		31,
+		32
 	]
 }
