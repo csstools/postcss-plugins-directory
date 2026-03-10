@@ -1,0 +1,128 @@
+{
+	"_id": "postcss-helmlab",
+	"name": "postcss-helmlab",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-helmlab",
+			"version": "0.1.0",
+			"description": "PostCSS plugin to use Helmlab color spaces in CSS — helmlab(), helmlch(), helmgen(), helmgenlch() with fallback to rgb()",
+			"type": "module",
+			"main": "./index.js",
+			"exports": {
+				".": "./index.js"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"color",
+				"helmlab",
+				"color-space",
+				"perceptual"
+			],
+			"author": {
+				"name": "Görkem Yıldız",
+				"url": "https://github.com/Grkmyldz148"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Grkmyldz148/helmlab.git",
+				"directory": "packages/postcss-helmlab"
+			},
+			"license": "MIT",
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"dependencies": {
+				"helmlab": "^0.6.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.4.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"_id": "postcss-helmlab@0.1.0",
+			"gitHead": "65c6b05ff0dd540ab7a620000c44e6e918db857a",
+			"bugs": {
+				"url": "https://github.com/Grkmyldz148/helmlab/issues"
+			},
+			"homepage": "https://github.com/Grkmyldz148/helmlab#readme",
+			"_nodeVersion": "22.19.0",
+			"_npmVersion": "10.9.3",
+			"dist": {
+				"integrity": "sha512-wn9hDLImmm32hKN33zTKfyiTnxt3surTUKH0Zu8CXKd9BsS+fW3HagnpMVqaTAeq4Cdi7et/5A+CobGXnRubkw==",
+				"shasum": "8927b6f0c41aa56df8f9d39e0b8222b1ce077fa7",
+				"tarball": "https://registry.npmjs.org/postcss-helmlab/-/postcss-helmlab-0.1.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 16680,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIHm+bBUuPA8CjrpHqR8nDB3a7GCnJYM2M2x0u8Z4BcwgAiBW8CXZ2bm178fV9b0XUU3dB/wCVfTTQdJ5j2W8RlaSEg=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "gorkemyildiz",
+				"email": "grkmyldz58@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "gorkemyildiz",
+					"email": "grkmyldz58@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-helmlab_0.1.0_1773071497878_0.7627081839121623"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-03-09T15:51:37.877Z",
+		"0.1.0": "2026-03-09T15:51:38.095Z",
+		"modified": "2026-03-09T15:51:38.319Z"
+	},
+	"maintainers": [
+		{
+			"name": "gorkemyildiz",
+			"email": "grkmyldz58@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin to use Helmlab color spaces in CSS — helmlab(), helmlch(), helmgen(), helmgenlch() with fallback to rgb()",
+	"homepage": "https://github.com/Grkmyldz148/helmlab#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"color",
+		"helmlab",
+		"color-space",
+		"perceptual"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Grkmyldz148/helmlab.git",
+		"directory": "packages/postcss-helmlab"
+	},
+	"author": {
+		"name": "Görkem Yıldız",
+		"url": "https://github.com/Grkmyldz148"
+	},
+	"bugs": {
+		"url": "https://github.com/Grkmyldz148/helmlab/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-helmlab\n\n[PostCSS] plugin for [Helmlab] color spaces. Transforms `helmlab()`, `helmlch()`, `helmgen()`, `helmgenlch()` CSS functions into `rgb()`/`rgba()` fallbacks at build time.\n\n[PostCSS]: https://postcss.org/\n[Helmlab]: https://github.com/Grkmyldz148/helmlab\n\n## Why?\n\nHelmlab is a data-driven color space family trained on 64,000+ human color perception observations. It provides two spaces:\n\n- **MetricSpace** — 20% lower STRESS than CIEDE2000 on perceptual distance measurement\n- **GenSpace** — 6× better hue accuracy than Oklab for color generation\n\nThis plugin lets you use Helmlab color spaces in CSS today, without waiting for browser support.\n\n## Installation\n\n```bash\nnpm install postcss-helmlab\n```\n\n## Usage\n\nAdd `postcss-helmlab` to your PostCSS config:\n\n```js\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require('postcss-helmlab'),\n  ],\n};\n```\n\nOr with PostCSS API:\n\n```js\nconst postcss = require('postcss');\nconst helmlab = require('postcss-helmlab');\n\nconst result = await postcss([helmlab]).process(css);\n```\n\n## Syntax\n\n### Color functions\n\n```css\n/* Input */\n.card {\n  color: helmlab(0.78 0.52 -0.20);\n  background: helmgen(0.60 0.22 0.03);\n  border-color: helmlch(0.78 0.56 338.7deg);\n  outline-color: helmgenlch(0.60 0.15 30deg);\n}\n\n/* Output */\n.card {\n  color: rgb(255, 76, 119);\n  background: rgb(196, 107, 68);\n  border-color: rgb(255, 67, 131);\n  outline-color: rgb(175, 120, 91);\n}\n```\n\n### Alpha\n\n```css\n/* Input */\n.overlay { background: helmlab(0.78 0.52 -0.20 / 0.5); }\n\n/* Output */\n.overlay { background: rgba(255, 76, 119, 0.5); }\n```\n\n### Gradients\n\nInterpolate gradients through Helmlab spaces with perceptually uniform steps:\n\n```css\n/* Input */\n.gradient {\n  background: linear-gradient(in helmgen, #e63946, #457b9d);\n}\n\n/* Output — 10 perceptually spaced stops */\n.gradient {\n  background: linear-gradient(#e63946 0.0%, #c7555e 11.1%, ..., #457b9d 100.0%);\n}\n```\n\n### Color mixing\n\n```css\n/* Input */\n.mix { color: color-mix(in helmgen, #e63946 50%, #457b9d); }\n\n/* Output */\n.mix { color: rgb(147, 93, 111); }\n```\n\n## Supported spaces\n\n| Function | Space | Best for |\n|----------|-------|----------|\n| `helmlab(L a b)` | MetricSpace | Perceptual distance, accessibility |\n| `helmlch(L C h)` | MetricSpace (cylindrical) | Hue-based selection |\n| `helmgen(L a b)` | GenSpace | Gradients, palettes |\n| `helmgenlch(L C h)` | GenSpace (cylindrical) | Hue-based generation |\n\n## Links\n\n- [Helmlab documentation](https://grkmyldz148.github.io/helmlab/)\n- [GitHub](https://github.com/Grkmyldz148/helmlab)\n- [arXiv paper](https://arxiv.org/abs/2602.23010)\n- [npm: helmlab](https://www.npmjs.com/package/helmlab)\n\n## License\n\nMIT\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-49b397a0866b075691cfb9137904b94f",
+	"_downloads": [
+		0
+	]
+}
