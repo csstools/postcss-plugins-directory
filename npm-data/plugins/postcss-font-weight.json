@@ -1,0 +1,86 @@
+{
+	"_id": "postcss-font-weight",
+	"name": "postcss-font-weight",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-font-weight",
+			"version": "1.0.0",
+			"description": "PostCSS plugin to convert font-weight numbers > 500 to bold",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"font-weight",
+				"bold"
+			],
+			"author": "",
+			"license": "ISC",
+			"dependencies": {
+				"postcss": "^8.4.38"
+			},
+			"_id": "postcss-font-weight@1.0.0",
+			"_nodeVersion": "18.12.1",
+			"_npmVersion": "8.19.2",
+			"dist": {
+				"integrity": "sha512-nxDR8Gy9yj6rq2TM4GyiOxTWZxN1o4dZUk/m8rTG30KNDe3zCbP/dtDJb7LgaVztlwisVCVq8EPAV3OvGw0AVg==",
+				"shasum": "0142ee9c9dd49cd61accdf597f9db1c62a62cde2",
+				"tarball": "https://registry.npmjs.org/postcss-font-weight/-/postcss-font-weight-1.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 2596,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIBA7jtzqkKpAE/dm8YOJfjs9OsXs59w34rlD1UtxBvacAiBhB3AROptXIlsc4/xSQXfYeq9x4VjRAr+7jMXHnJTzXQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "callmebowl",
+				"email": "1004333142@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "callmebowl",
+					"email": "1004333142@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-font-weight_1.0.0_1773138669085_0.7960814224644199"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-03-10T10:31:09.083Z",
+		"1.0.0": "2026-03-10T10:31:09.222Z",
+		"modified": "2026-03-10T10:31:09.521Z"
+	},
+	"maintainers": [
+		{
+			"name": "callmebowl",
+			"email": "1004333142@qq.com"
+		}
+	],
+	"description": "PostCSS plugin to convert font-weight numbers > 500 to bold",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"font-weight",
+		"bold"
+	],
+	"license": "ISC",
+	"readme": "# postcss-font-weight\n\nPostCSS插件，用于处理字重问题，将数字超过500的font-weight值直接改为bold，以减少兼容性问题。\n\n## 功能\n\n- 将font-weight值大于等于500的数字转换为bold\n- 保持其他值不变（包括400和已经是bold的值）\n- 提高CSS的兼容性\n\n## 安装\n\n```bash\nnpm install postcss-font-weight --save-dev\n```\n\n## 使用\n\n### 基本使用\n\n```javascript\nconst postcss = require(\"postcss\");\nconst fontWeightPlugin = require(\"postcss-font-weight\");\n\npostcss([fontWeightPlugin()])\n  .process(css)\n  .then((result) => {\n    console.log(result.css);\n  });\n```\n\n### 在PostCSS配置中使用\n\n**postcss.config.js**\n\n```javascript\nmodule.exports = {\n  plugins: [require(\"postcss-font-weight\")],\n};\n```\n\n## 输入/输出示例\n\n### 输入\n\n```css\n.test1 {\n  font-weight: 400;\n}\n.test2 {\n  font-weight: 500;\n}\n.test3 {\n  font-weight: 600;\n}\n.test4 {\n  font-weight: 700;\n}\n.test5 {\n  font-weight: bold;\n}\n```\n\n### 输出\n\n```css\n.test1 {\n  font-weight: 400;\n}\n.test2 {\n  font-weight: 500;\n}\n.test3 {\n  font-weight: bold;\n}\n.test4 {\n  font-weight: bold;\n}\n.test5 {\n  font-weight: bold;\n}\n```\n\n## 兼容性\n\n该插件适用于所有支持PostCSS的环境，包括：\n\n- Node.js\n- 浏览器\n- 构建工具（如Webpack、Gulp等）\n\n## 许可证\n\nISC\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-f7ba40e9818d3c0cd1df26461c3320bf",
+	"_downloads": [
+		0
+	]
+}
