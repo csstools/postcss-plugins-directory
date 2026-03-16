@@ -1,13 +1,114 @@
 {
 	"_id": "postcss-transform-mixins",
+	"_rev": "2-20ff228369522fd719d4022b297b106d",
 	"name": "postcss-transform-mixins",
 	"dist-tags": {
-		"latest": "0.0.0"
+		"latest": "0.0.1"
 	},
 	"versions": {
 		"0.0.0": {
 			"name": "postcss-transform-mixins",
 			"version": "0.0.0",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"if",
+				"media-query",
+				"supports",
+				"transform"
+			],
+			"author": {
+				"name": "Maximilian Franzke"
+			},
+			"license": "MIT",
+			"_id": "postcss-transform-mixins@0.0.0",
+			"maintainers": [
+				{
+					"name": "mfranzke",
+					"email": "npmjs.com-20200319-mfr@nzke.net"
+				}
+			],
+			"homepage": "https://github.com/mfranzke/css-mixin-polyfill#readme",
+			"bugs": {
+				"url": "https://github.com/mfranzke/css-mixin-polyfill/issues"
+			},
+			"dist": {
+				"shasum": "52056fa0fd8586dcea93baf5f478396c14a8f1f0",
+				"tarball": "https://registry.npmjs.org/postcss-transform-mixins/-/postcss-transform-mixins-0.0.0.tgz",
+				"fileCount": 3,
+				"integrity": "sha512-K1gKlXWE571B48ItLVzK3fYoj0skH5AiI5xHv09qI2Q6Se4O5PhJYM47+PNR5PP5sK02tP5MiuGsEJ93Qi9G2A==",
+				"signatures": [
+					{
+						"sig": "MEUCIQCjx9IguLm02IWNk9nKNfH5FjhvFAYuOCLEM0dn5nU64gIgW5EGbNVf9mx/yka7w0IFdpMnu2WttVbLH14JlqdGe0A=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 12158
+			},
+			"main": "dist/index.cjs",
+			"type": "module",
+			"_from": "file:postcss-transform-mixins-0.0.0.tgz",
+			"types": "dist/index.d.ts",
+			"module": "dist/index.modern.js",
+			"source": "src/index.js",
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.modern.js"
+					},
+					"require": {
+						"types": "./dist/index.d.cts",
+						"default": "./dist/index.cjs"
+					}
+				}
+			},
+			"scripts": {
+				"dev": "microbundle watch",
+				"test": "pnpm run '/^test:[^:]*$/'",
+				"build": "microbundle",
+				"postbuild": "cp dist/index.d.ts dist/index.d.cts",
+				"test:vitest": "vitest run",
+				"pretest:vitest": "pnpm run build",
+				"test:vitest:watch": "vitest"
+			},
+			"_npmUser": {
+				"name": "mfranzke",
+				"email": "npmjs.com-20200319-mfr@nzke.net"
+			},
+			"umd:main": "dist/index.umd.js",
+			"_resolved": "/private/var/folders/v0/y6pk5m_n2575531wkc74t75c0000gn/T/73bac610d217b1ba946becd4de2c6be7/postcss-transform-mixins-0.0.0.tgz",
+			"_integrity": "sha512-K1gKlXWE571B48ItLVzK3fYoj0skH5AiI5xHv09qI2Q6Se4O5PhJYM47+PNR5PP5sK02tP5MiuGsEJ93Qi9G2A==",
+			"repository": {
+				"url": "git+https://github.com/mfranzke/css-mixin-polyfill.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.10.0",
+			"description": "PostCSS plugin for transforming CSS mixins to native CSS",
+			"directories": {},
+			"_nodeVersion": "24.7.0",
+			"dependencies": {
+				"css-mixin-polyfill": "0.1.5"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"xo": "1.2.3",
+				"vitest": "4.0.18",
+				"postcss": "8.5.6",
+				"microbundle": "0.15.1"
+			},
+			"peerDependencies": {
+				"postcss": ">=8 <9"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-transform-mixins_0.0.0_1771255200867_0.0819731264521586",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.0.1": {
+			"name": "postcss-transform-mixins",
+			"version": "0.0.1",
 			"type": "module",
 			"description": "PostCSS plugin for transforming CSS mixins to native CSS",
 			"repository": {
@@ -40,20 +141,21 @@
 				"postcss",
 				"postcss-plugin",
 				"css",
-				"if",
-				"media-query",
-				"supports",
+				"mixin",
+				"macro",
+				"apply",
+				"css",
 				"transform"
 			],
 			"peerDependencies": {
 				"postcss": ">=8 <9"
 			},
 			"dependencies": {
-				"css-mixin-polyfill": "0.1.5"
+				"css-mixin-polyfill": "0.1.6"
 			},
 			"devDependencies": {
 				"microbundle": "0.15.1",
-				"postcss": "8.5.6",
+				"postcss": "8.5.8",
 				"vitest": "4.0.18",
 				"xo": "1.2.3"
 			},
@@ -68,29 +170,39 @@
 				"test:vitest": "vitest run",
 				"test:vitest:watch": "vitest"
 			},
-			"_id": "postcss-transform-mixins@0.0.0",
+			"_id": "postcss-transform-mixins@0.0.1",
 			"homepage": "https://github.com/mfranzke/css-mixin-polyfill#readme",
-			"_integrity": "sha512-K1gKlXWE571B48ItLVzK3fYoj0skH5AiI5xHv09qI2Q6Se4O5PhJYM47+PNR5PP5sK02tP5MiuGsEJ93Qi9G2A==",
-			"_resolved": "/private/var/folders/v0/y6pk5m_n2575531wkc74t75c0000gn/T/73bac610d217b1ba946becd4de2c6be7/postcss-transform-mixins-0.0.0.tgz",
-			"_from": "file:postcss-transform-mixins-0.0.0.tgz",
-			"_nodeVersion": "24.7.0",
-			"_npmVersion": "11.10.0",
+			"_integrity": "sha512-qBdTOybwo+0Dx3VD4tVkTnPiFrPgd4YBckhM7z+2GJnOQsBymnDzuDZ89gOTqrR3ZRGlmSXVyUYVvi1axZNfiw==",
+			"_resolved": "/tmp/a3ad6322c29fc8433ce2f268ea0a5b5a/postcss-transform-mixins-0.0.1.tgz",
+			"_from": "file:postcss-transform-mixins-0.0.1.tgz",
+			"_nodeVersion": "24.14.0",
+			"_npmVersion": "11.9.0",
 			"dist": {
-				"integrity": "sha512-K1gKlXWE571B48ItLVzK3fYoj0skH5AiI5xHv09qI2Q6Se4O5PhJYM47+PNR5PP5sK02tP5MiuGsEJ93Qi9G2A==",
-				"shasum": "52056fa0fd8586dcea93baf5f478396c14a8f1f0",
-				"tarball": "https://registry.npmjs.org/postcss-transform-mixins/-/postcss-transform-mixins-0.0.0.tgz",
-				"fileCount": 3,
-				"unpackedSize": 12158,
+				"integrity": "sha512-qBdTOybwo+0Dx3VD4tVkTnPiFrPgd4YBckhM7z+2GJnOQsBymnDzuDZ89gOTqrR3ZRGlmSXVyUYVvi1axZNfiw==",
+				"shasum": "529bc4ecabe8e65aeed5738f3444e9a1d1e92a4c",
+				"tarball": "https://registry.npmjs.org/postcss-transform-mixins/-/postcss-transform-mixins-0.0.1.tgz",
+				"fileCount": 11,
+				"unpackedSize": 32417,
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-transform-mixins@0.0.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEUCIQCjx9IguLm02IWNk9nKNfH5FjhvFAYuOCLEM0dn5nU64gIgW5EGbNVf9mx/yka7w0IFdpMnu2WttVbLH14JlqdGe0A="
+						"sig": "MEUCIA2jG/qpQz1fCGlLzj3yfcedo1ebTnMZjvYDovz7CIqaAiEAxL0jOuDT2Cprzs1BonfvHWYoqhOR3X+Z6B4oeizv7M4="
 					}
 				]
 			},
 			"_npmUser": {
-				"name": "mfranzke",
-				"email": "npmjs.com-20200319-mfr@nzke.net"
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:cf708f03-4135-4855-8085-53d85e29d502"
+				}
 			},
 			"directories": {},
 			"maintainers": [
@@ -101,50 +213,52 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-transform-mixins_0.0.0_1771255200867_0.0819731264521586"
+				"tmp": "tmp/postcss-transform-mixins_0.0.1_1773561340360_0.7687413696656631"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2026-02-16T15:20:00.866Z",
+		"modified": "2026-03-15T07:55:40.844Z",
 		"0.0.0": "2026-02-16T15:20:01.005Z",
-		"modified": "2026-02-16T15:20:01.201Z"
+		"0.0.1": "2026-03-15T07:55:40.541Z"
 	},
-	"maintainers": [
-		{
-			"name": "mfranzke",
-			"email": "npmjs.com-20200319-mfr@nzke.net"
-		}
-	],
-	"description": "PostCSS plugin for transforming CSS mixins to native CSS",
+	"bugs": {
+		"url": "https://github.com/mfranzke/css-mixin-polyfill/issues"
+	},
+	"author": {
+		"name": "Maximilian Franzke"
+	},
+	"license": "MIT",
 	"homepage": "https://github.com/mfranzke/css-mixin-polyfill#readme",
 	"keywords": [
 		"postcss",
 		"postcss-plugin",
 		"css",
-		"if",
-		"media-query",
-		"supports",
+		"mixin",
+		"macro",
+		"apply",
+		"css",
 		"transform"
 	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/mfranzke/css-mixin-polyfill.git"
 	},
-	"author": {
-		"name": "Maximilian Franzke"
-	},
-	"bugs": {
-		"url": "https://github.com/mfranzke/css-mixin-polyfill/issues"
-	},
-	"license": "MIT",
-	"readme": "# postcss-mixin\n\n[![Default CI/CD Pipeline](https://github.com/mfranzke/css-mixin-polyfill/actions/workflows/default.yml/badge.svg)](https://github.com/mfranzke/css-mixin-polyfill/actions/workflows/default.yml)\n[![npm version](https://badge.fury.io/js/postcss-mixin.svg)](https://badge.fury.io/js/postcss-mixin)\n[![Build Status](https://github.com/mfranzke/css-mixin-polyfill/workflows/CI/badge.svg)](https://github.com/mfranzke/css-mixin-polyfill/actions)\n\nA [PostCSS](https://postcss.org/) plugin for transforming [CSS `if()` functions](https://developer.mozilla.org/en-US/docs/Web/CSS/if) into native CSS `@media` and `@supports` rules at build time.\n\nThis plugin is part of the [css-mixin-polyfill](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/css-mixin-polyfill/) project and provides build-time transformation of conditional CSS, eliminating the need for runtime JavaScript processing when using only `media()` and `supports()` functions.\n\n<!-- FIXTURE: basic-media -->\n\n<!-- Note: This content is automatically generated from test fixtures. Do not edit the code blocks directly - they will be overwritten during the build process. To modify test cases, edit the corresponding .input.css and .expected.css files in the test/fixtures/ directory -->\n\n**Input CSS:**\n\n```css\n.responsive {\n\twidth: if(media(width <= 768px): 100%; else: 50%);\n}\n```\n\n**Expected Output:**\n\n```css\n.responsive {\n\twidth: 50%;\n}\n@media (width <= 768px) {\n\t.responsive {\n\t\twidth: 100%;\n\t}\n}\n```\n\n<!-- /FIXTURE -->\n\n## Installation\n\n```bash\nnpm install postcss-mixin postcss\n```\n\n## Usage\n\n### PostCSS CLI\n\n```bash\n# Transform CSS using PostCSS CLI\nnpx postcss input.css --output output.css --use postcss-mixin\n\n# With custom PostCSS config file\nnpx postcss input.css --output output.css --config postcss.config.js\n```\n\n### Basic Programmatic Usage\n\n```js\n// Named export (recommended)\nimport postcss from \"postcss\";\nimport { postcssIfFunction } from \"postcss-mixin\";\n\n// Or default export (for compatibility)\nimport postcss from \"postcss\";\nimport postcssIfFunction from \"postcss-mixin\";\n\nconst css = `\n.example {\n  color: if(media(max-width: 768px): blue; else: red);\n  font-size: if(supports(display: grid): 1.2rem; else: 1rem);\n}\n`;\n\nconst result = await postcss([postcssIfFunction()]).process(css, {\n\tfrom: undefined\n});\n\nconsole.log(result.css);\n```\n\n**Output:**\n\n```css\n.example {\n\tcolor: red;\n}\n@media (max-width: 768px) {\n\t.example {\n\t\tcolor: blue;\n\t}\n}\n.example {\n\tfont-size: 1rem;\n}\n@supports (display: grid) {\n\t.example {\n\t\tfont-size: 1.2rem;\n\t}\n}\n```\n\n### With Options\n\n```js\nconst result = await postcss([\n\tpostcssIfFunction({\n\t\tlogTransformations: true,\n\t\tpreserveOriginal: false,\n\t\tskipSelectors: [\".no-transform\"]\n\t})\n]).process(css, { from: undefined });\n```\n\n### With PostCSS Config File\n\n```js\n// postcss.config.js\nimport { postcssIfFunction } from \"postcss-mixin\";\n\nexport default {\n\tplugins: [\n\t\tpostcssIfFunction({\n\t\t\tlogTransformations: process.env.NODE_ENV === \"development\"\n\t\t})\n\t]\n};\n```\n\n### With Popular PostCSS Tools\n\n#### Vite\n\n```js\n// vite.config.js\nimport { defineConfig } from \"vite\";\nimport { postcssIfFunction } from \"postcss-mixin\";\n\nexport default defineConfig({\n\tcss: {\n\t\tpostcss: {\n\t\t\tplugins: [\n\t\t\t\tpostcssIfFunction({\n\t\t\t\t\tlogTransformations: process.env.NODE_ENV === \"development\"\n\t\t\t\t})\n\t\t\t]\n\t\t}\n\t}\n});\n```\n\n#### Webpack\n\n```js\n// webpack.config.js\nmodule.exports = {\n\tmodule: {\n\t\trules: [\n\t\t\t{\n\t\t\t\ttest: /\\.css$/,\n\t\t\t\tuse: [\n\t\t\t\t\t\"style-loader\",\n\t\t\t\t\t\"css-loader\",\n\t\t\t\t\t{\n\t\t\t\t\t\tloader: \"postcss-loader\",\n\t\t\t\t\t\toptions: {\n\t\t\t\t\t\t\tpostcssOptions: {\n\t\t\t\t\t\t\t\tplugins: [\n\t\t\t\t\t\t\t\t\t[\n\t\t\t\t\t\t\t\t\t\t\"postcss-mixin\",\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\tlogTransformations: true\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n\t\t]\n\t}\n};\n```\n\n#### Next.js\n\n```js\n// next.config.js\nmodule.exports = {\n\texperimental: {\n\t\tpostcss: {\n\t\t\tplugins: {\n\t\t\t\t\"postcss-mixin\": {\n\t\t\t\t\tlogTransformations: process.env.NODE_ENV === \"development\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n};\n```\n\n## Options\n\n| Option               | Type       | Default | Description                                                                |\n| -------------------- | ---------- | ------- | -------------------------------------------------------------------------- |\n| `preserveOriginal`   | `boolean`  | `false` | Whether to preserve original CSS alongside transformations (for debugging) |\n| `logTransformations` | `boolean`  | `false` | Whether to log transformation statistics to console                        |\n| `skipSelectors`      | `string[]` | `[]`    | Array of selectors to skip transformation for                              |\n\n## Supported Transformations\n\n### Media Queries\n\n<!-- FIXTURE: basic-media -->\n\n<!-- Note: This content is automatically generated from test fixtures. Do not edit the code blocks directly - they will be overwritten during the build process. To modify test cases, edit the corresponding .input.css and .expected.css files in the test/fixtures/ directory -->\n\n**Input CSS:**\n\n```css\n.responsive {\n\twidth: if(media(width <= 768px): 100%; else: 50%);\n}\n```\n\n**Expected Output:**\n\n```css\n.responsive {\n\twidth: 50%;\n}\n@media (width <= 768px) {\n\t.responsive {\n\t\twidth: 100%;\n\t}\n}\n```\n\n<!-- /FIXTURE -->\n\n### Feature Support Queries\n\n<!-- FIXTURE: basic-supports -->\n\n<!-- Note: This content is automatically generated from test fixtures. Do not edit the code blocks directly - they will be overwritten during the build process. To modify test cases, edit the corresponding .input.css and .expected.css files in the test/fixtures/ directory -->\n\n**Input CSS:**\n\n```css\n.grid {\n\tdisplay: if(supports(display: grid): grid; else: block);\n}\n```\n\n**Expected Output:**\n\n```css\n.grid {\n\tdisplay: block;\n}\n@supports (display: grid) {\n\t.grid {\n\t\tdisplay: grid;\n\t}\n}\n```\n\n<!-- /FIXTURE -->\n\n### Multiple Conditions\n\n<!-- FIXTURE: multiple-concatenated-conditions -->\n\n<!-- Note: This content is automatically generated from test fixtures. Do not edit the code blocks directly - they will be overwritten during the build process. To modify test cases, edit the corresponding .input.css and .expected.css files in the test/fixtures/ directory -->\n\n**Input CSS:**\n\n```css\n.responsive {\n\tpadding: if(\n\t\tmedia(width >= 1200px): 40px; media(width >= 768px): 30px;\n\t\t\tmedia(width >= 480px): 20px; else: 15px\n\t);\n}\n```\n\n**Expected Output:**\n\n```css\n.responsive {\n\tpadding: 15px;\n}\n@media (width >= 480px) {\n\t.responsive {\n\t\tpadding: 20px;\n\t}\n}\n@media (width >= 768px) {\n\t.responsive {\n\t\tpadding: 30px;\n\t}\n}\n@media (width >= 1200px) {\n\t.responsive {\n\t\tpadding: 40px;\n\t}\n}\n```\n\n<!-- /FIXTURE -->\n\n## Limitations\n\n- **Style Functions Not Supported**: This plugin only transforms `media()` and `supports()` functions. For `style()` functions (which depend on runtime DOM state), use the [css-mixin-polyfill](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/css-mixin-polyfill/) runtime (browser) library\n- **Static Analysis Only**: The plugin performs static analysis and cannot handle dynamically generated CSS\n- **PostCSS Compatibility**: Requires PostCSS 8.0.0 or higher\n\n## Integration with Runtime Polyfill\n\nFor complete CSS `if()` support including `style()` functions, combine this plugin with the runtime polyfill:\n\n1. Use this PostCSS plugin for build-time transformation of `media()` and `supports()`\n2. Use [css-mixin-polyfill](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/css-mixin-polyfill/) runtime for `style()` functions\n\n```html\n<!-- For style() functions only -->\n<script src=\"https://cdn.jsdelivr.net/npm/css-mixin-polyfill/dist/index.modern.js\"></script>\n```\n\n## Performance Considerations\n\nThis plugin is designed for optimal build-time performance, transforming CSS mixins to native CSS without runtime overhead. However, there are some architectural considerations:\n\n### Current Implementation\n\n- **Double Parsing**: The plugin currently parses CSS twice - once by PostCSS and once by the transformation engine\n- **String-based Transformation**: The transformation engine outputs CSS strings that are re-parsed into PostCSS AST nodes\n\n### Future Optimization Opportunities\n\n- **Reduced CSS Code**: We'll make use of CSS Nesting capabilities as soon as any of the browsers are EOL ([#35](https://github.com/mfranzke/css-mixin-polyfill/issues/35)).\n- **Direct AST Transformation**: The transformation engine could be modified to output PostCSS AST nodes directly, eliminating the double parsing overhead\n- **Streaming Processing**: For very large CSS files, streaming transformation could reduce memory usage\n\nFor most typical usage scenarios, the current performance is excellent and the double parsing overhead is negligible compared to the benefits of build-time transformation.\n\n## Contributing\n\nSee the main [Contributing Guide](https://github.com/mfranzke/css-mixin-polyfill/blob/main/CONTRIBUTING.md) for details on how to contribute to this project.\n\n## License\n\nMIT © [Maximilian Franzke](https://github.com/mfranzke)\n\n## Related\n\n- [PostCSS](https://postcss.org/) - Tool for transforming CSS with JavaScript\n- [CSS Conditional Rules](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_conditional_rules) - MDN documentation for @media and @supports\n\n## Further solutions\n\n- [css-mixin-polyfill](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/css-mixin-polyfill/) - Runtime polyfill for CSS mixins\n- [stylelint-config-mixin](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/stylelint-config-mixin) - Stylelint configuration for linting CSS mixinusage\n",
+	"description": "PostCSS plugin for transforming CSS mixins to native CSS",
+	"maintainers": [
+		{
+			"name": "mfranzke",
+			"email": "npmjs.com-20200319-mfr@nzke.net"
+		}
+	],
+	"readme": "# postcss-transform-mixins\n\n[![Default CI/CD Pipeline](https://github.com/mfranzke/css-mixin-polyfill/actions/workflows/default.yml/badge.svg)](https://github.com/mfranzke/css-mixin-polyfill/actions/workflows/default.yml)\n[![npm version](https://badge.fury.io/js/postcss-transform-mixins.svg)](https://badge.fury.io/js/postcss-transform-mixins)\n[![Build Status](https://github.com/mfranzke/css-mixin-polyfill/workflows/CI/badge.svg)](https://github.com/mfranzke/css-mixin-polyfill/actions)\n\nA [PostCSS](https://postcss.org/) plugin for transforming [CSS `@mixin`, `@macro`, and `@apply` rules](https://drafts.csswg.org/css-mixins/) at build time.\n\nThis plugin is part of the [css-mixin-polyfill](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/css-mixin-polyfill/) project and provides build-time processing of CSS mixin and macro definitions, substituting `@apply` rules with the corresponding resolved styles — eliminating the need for runtime JavaScript processing.\n\n<!-- FIXTURE: macro.basic -->\n\n<!-- Note: This content is automatically generated from test fixtures. Do not edit the code blocks directly - they will be overwritten during the build process. To modify test cases, edit the corresponding .input.css and .expected.css files in the test/fixtures/ directory -->\n\n**Input CSS:**\n\n```css\n@macro --reset-list {\n\tmargin: 0;\n\tpadding: 0;\n\tlist-style: none;\n}\n\n.nav {\n\t@apply --reset-list;\n}\n```\n\n**Expected Output:**\n\n```css\n.nav {\n\tmargin: 0;\n\tpadding: 0;\n\tlist-style: none;\n}\n```\n\n<!-- /FIXTURE -->\n\n## Installation\n\n```bash\nnpm install postcss-transform-mixins postcss\n```\n\n## Usage\n\n### PostCSS CLI\n\n```bash\n# Transform CSS using PostCSS CLI\nnpx postcss input.css --output output.css --use postcss-transform-mixins\n\n# With custom PostCSS config file\nnpx postcss input.css --output output.css --config postcss.config.js\n```\n\n### Basic Programmatic Usage\n\n```js\n// Named export (recommended)\nimport postcss from \"postcss\";\nimport { postcssMixinMacro } from \"postcss-transform-mixins\";\n\n// Or default export (for compatibility)\nimport postcss from \"postcss\";\nimport postcssMixinMacro from \"postcss-transform-mixins\";\n\nconst css = `\n@mixin --gradient-text(--from <color>: mediumvioletred, --to <color>: teal) {\n  @result {\n    color: var(--from);\n  }\n}\n\nh1 {\n  @apply --gradient-text(pink, powderblue);\n}\n`;\n\nconst result = await postcss([postcssMixinMacro()]).process(css, {\n\tfrom: undefined\n});\n\nconsole.log(result.css);\n```\n\n**Output:**\n\n```css\nh1 {\n\tcolor: pink;\n}\n```\n\n### With Options\n\n```js\nconst result = await postcss([\n\tpostcssMixinMacro({\n\t\tlogTransformations: true\n\t})\n]).process(css, { from: undefined });\n```\n\n### With PostCSS Config File\n\n```js\n// postcss.config.js\nimport { postcssMixinMacro } from \"postcss-transform-mixins\";\n\nexport default {\n\tplugins: [\n\t\tpostcssMixinMacro({\n\t\t\tlogTransformations: process.env.NODE_ENV === \"development\"\n\t\t})\n\t]\n};\n```\n\n### With Popular PostCSS Tools\n\n#### Vite\n\n```js\n// vite.config.js\nimport { defineConfig } from \"vite\";\nimport { postcssMixinMacro } from \"postcss-transform-mixins\";\n\nexport default defineConfig({\n\tcss: {\n\t\tpostcss: {\n\t\t\tplugins: [\n\t\t\t\tpostcssMixinMacro({\n\t\t\t\t\tlogTransformations: process.env.NODE_ENV === \"development\"\n\t\t\t\t})\n\t\t\t]\n\t\t}\n\t}\n});\n```\n\n#### Webpack\n\n```js\n// webpack.config.js\nmodule.exports = {\n\tmodule: {\n\t\trules: [\n\t\t\t{\n\t\t\t\ttest: /\\.css$/,\n\t\t\t\tuse: [\n\t\t\t\t\t\"style-loader\",\n\t\t\t\t\t\"css-loader\",\n\t\t\t\t\t{\n\t\t\t\t\t\tloader: \"postcss-loader\",\n\t\t\t\t\t\toptions: {\n\t\t\t\t\t\t\tpostcssOptions: {\n\t\t\t\t\t\t\t\tplugins: [\n\t\t\t\t\t\t\t\t\t[\n\t\t\t\t\t\t\t\t\t\t\"postcss-transform-mixins\",\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\tlogTransformations: true\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n\t\t]\n\t}\n};\n```\n\n#### Next.js\n\n```js\n// next.config.js\nmodule.exports = {\n\texperimental: {\n\t\tpostcss: {\n\t\t\tplugins: {\n\t\t\t\t\"postcss-transform-mixins\": {\n\t\t\t\t\tlogTransformations: process.env.NODE_ENV === \"development\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n};\n```\n\n## Options\n\n| Option               | Type      | Default | Description                                         |\n| -------------------- | --------- | ------- | --------------------------------------------------- |\n| `logTransformations` | `boolean` | `false` | Whether to log transformation statistics to console |\n\n## Supported Transformations\n\n### Macros\n\nMacros provide simple, literal substitution of a block of styles at each `@apply` site.\n\n<!-- FIXTURE: macro.basic -->\n\n<!-- Note: This content is automatically generated from test fixtures. Do not edit the code blocks directly - they will be overwritten during the build process. To modify test cases, edit the corresponding .input.css and .expected.css files in the test/fixtures/ directory -->\n\n**Input CSS:**\n\n```css\n@macro --reset-list {\n\tmargin: 0;\n\tpadding: 0;\n\tlist-style: none;\n}\n\n.nav {\n\t@apply --reset-list;\n}\n```\n\n**Expected Output:**\n\n```css\n.nav {\n\tmargin: 0;\n\tpadding: 0;\n\tlist-style: none;\n}\n```\n\n<!-- /FIXTURE -->\n\n### Mixins\n\nMixins extend macros with support for parameters, default values, local variables, and `@result` blocks.\n\n**Input CSS:**\n\n```css\n@mixin --gradient-text(\n\t--from <color>: mediumvioletred,\n\t--to <color>: teal,\n\t--angle: to bottom right\n) {\n\t@result {\n\t\tcolor: var(--from, var(--to));\n\n\t\t@supports (background-clip: text) or (-webkit-background-clip: text) {\n\t\t\tbackground: linear-gradient(var(--angle), var(--from), var(--to));\n\t\t\tcolor: transparent;\n\t\t\t-webkit-background-clip: text;\n\t\t\tbackground-clip: text;\n\t\t}\n\t}\n}\n\nh1 {\n\t@apply --gradient-text(pink, powderblue);\n}\n```\n\n**Expected Output:**\n\n```css\nh1 {\n\tcolor: var(--from, var(--to));\n\n\t@supports (background-clip: text) or (-webkit-background-clip: text) {\n\t\tbackground: linear-gradient(var(--angle), var(--from), var(--to));\n\t\tcolor: transparent;\n\t\t-webkit-background-clip: text;\n\t\tbackground-clip: text;\n\t}\n}\n```\n\n### Macros with `@contents`\n\nMacros (and mixins) can accept a contents block via `@contents`, allowing callers to inject styles into a predefined structure.\n\n<!-- FIXTURE: macro.contents -->\n\n<!-- Note: This content is automatically generated from test fixtures. Do not edit the code blocks directly - they will be overwritten during the build process. To modify test cases, edit the corresponding .input.css and .expected.css files in the test/fixtures/ directory -->\n\n**Input CSS:**\n\n```css\n@macro --one-column {\n\t@media (width <= 800px) {\n\t\t@contents;\n\t}\n}\n\nbody {\n\t@apply --one-column {\n\t\tdisplay: flex;\n\t\tflex-flow: column;\n\t}\n}\n```\n\n**Expected Output:**\n\n```css\nbody {\n\t@media (width <= 800px) {\n\t\tdisplay: flex;\n\t\tflex-flow: column;\n\t}\n}\n```\n\n<!-- /FIXTURE -->\n\n## Limitations\n\n- **Static Analysis Only**: The plugin performs static analysis at build time and cannot handle dynamically generated CSS or runtime-dependent values\n- **PostCSS Compatibility**: Requires PostCSS 8.0.0 or higher\n\n## Integration with Runtime Polyfill\n\nFor complete CSS `@mixin`/`@macro`/`@apply` support — including runtime evaluation, hygienic variable renaming, and dynamic argument resolution — combine this plugin with the runtime polyfill:\n\n1. Use this PostCSS plugin for build-time transformation of `@mixin`, `@macro`, and `@apply` rules\n2. Use [css-mixin-polyfill](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/css-mixin-polyfill/) runtime for full browser-side support\n\n```html\n<!-- For full runtime mixin/macro support -->\n<script src=\"https://cdn.jsdelivr.net/npm/css-mixin-polyfill/dist/index.modern.js\"></script>\n```\n\n## Performance Considerations\n\nThis plugin is designed for optimal build-time performance, transforming CSS `@mixin` and `@macro` definitions and resolving `@apply` rules into native CSS without runtime overhead.\n\nFor most typical usage scenarios, the performance is excellent and the overhead is negligible compared to the benefits of build-time transformation.\n\n## Contributing\n\nSee the main [Contributing Guide](https://github.com/mfranzke/css-mixin-polyfill/blob/main/CONTRIBUTING.md) for details on how to contribute to this project.\n\n## License\n\nMIT © [Maximilian Franzke](https://github.com/mfranzke)\n\n## Related\n\n- [PostCSS](https://postcss.org/) - Tool for transforming CSS with JavaScript\n- [CSS Mixins & Functions](https://drafts.csswg.org/css-mixins/) - CSS specification for `@mixin`, `@macro`, and `@apply`\n\n## Further solutions\n\n- [css-mixin-polyfill](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/css-mixin-polyfill/) - Runtime polyfill for CSS mixins\n- [stylelint-config-mixin](https://github.com/mfranzke/css-mixin-polyfill/tree/main/packages/stylelint-config-mixin) - Stylelint configuration for linting CSS mixin usage\n",
 	"readmeFilename": "README.md",
-	"_rev": "1-b67a6116ac21c2b63f07e033de40d44e",
 	"_downloads": [
 		0,
 		104,
-		104
+		104,
+		105
 	]
 }
