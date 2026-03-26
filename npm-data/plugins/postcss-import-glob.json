@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-import-glob",
-	"_rev": "4-076d08decddbb44a07c99f7903858271",
+	"_rev": "7-ce6bf88261aecbf5748bcfca789f137c",
 	"name": "postcss-import-glob",
 	"dist-tags": {
-		"latest": "0.2.0"
+		"latest": "0.2.3"
 	},
 	"versions": {
 		"0.1.0": {
@@ -348,7 +348,352 @@
 			}
 		},
 		"0.2.0": {
+			"name": "postcss-import-glob",
 			"version": "0.2.0",
+			"keywords": [
+				"plugin",
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"import",
+				"@import",
+				"glob",
+				"glob-pattern",
+				"styles",
+				"stylesheets"
+			],
+			"author": {
+				"url": "danielbayley.dev",
+				"name": "Daniel Bayley",
+				"email": "daniel.bayley@me.com"
+			},
+			"license": "MIT",
+			"_id": "postcss-import-glob@0.2.0",
+			"maintainers": [
+				{
+					"name": "danielbayley",
+					"email": "daniel.bayley@me.com"
+				}
+			],
+			"homepage": "https://npm.im/postcss-import-glob",
+			"bugs": {
+				"url": "https://github.com/danielbayley/postcss-import-glob/issues"
+			},
+			"dist": {
+				"shasum": "333fd7fc79b8bef46363dc85d208c65b59af638e",
+				"tarball": "https://registry.npmjs.org/postcss-import-glob/-/postcss-import-glob-0.2.0.tgz",
+				"fileCount": 5,
+				"integrity": "sha512-AsdGbnHtlnbCuTAClwLVa1ey7ysEjQjArt8E9auF52nIosZyIx4a2ZGTqmAhsEa5LVKQYi0gdHK4GFg5oJ2xHg==",
+				"signatures": [
+					{
+						"sig": "MEYCIQCZd59BpLnMyBwDn3XBPGgysWw1N2J4XyB1yWYdVF05WAIhAMbEyiVZ27iVMiVwQ4JvulDpaQvlQsfESGYrZk2xW7vi",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 7665
+			},
+			"type": "module",
+			"_from": "file:postcss-import-glob-0.2.0.tgz",
+			"engines": {
+				"node": ">=22",
+				"pnpm": ">=10"
+			},
+			"exports": "./index.js",
+			"funding": "https://github.com/danielbayley/postcss-import-glob?sponsor=1",
+			"imports": {
+				"#test": "./lib/test.js",
+				"#utils": "./lib/utils.js"
+			},
+			"scripts": {
+				"zap": "pnpm clean && rm -rf node_modules || true",
+				"test": "node --test --experimental-test-coverage test/*.js",
+				"clean": "git clean -X --force",
+				"watch": "pnpm test --watch",
+				"release": "pnpm version --force --no-git-tag-version",
+				"version": "sed -i \"\" -E \"s/^(version: *)$npm_old_version\\$/\\\\1$npm_new_version/\" package.yaml && git commit --message  $npm_new_version package.yaml && git tag    --annotate $npm_new_version --message v$npm_new_version && git push   --follow-tags",
+				"reinstall": "pnpm zap && pnpm install",
+				"prerelease": "git stash --include-untracked --keep-index && pnpm prepare",
+				"postrelease": "pnpm publish"
+			},
+			"_npmUser": {
+				"name": "danielbayley",
+				"email": "daniel.bayley@me.com"
+			},
+			"_resolved": "/private/var/folders/9r/g_4_795d0jlf2r4d7w5_cy440000gp/T/faa2232a8901d3f746290923f0a6c83b/postcss-import-glob-0.2.0.tgz",
+			"_integrity": "sha512-AsdGbnHtlnbCuTAClwLVa1ey7ysEjQjArt8E9auF52nIosZyIx4a2ZGTqmAhsEa5LVKQYi0gdHK4GFg5oJ2xHg==",
+			"devEngines": {
+				"runtime": {
+					"name": "node",
+					"version": ">=22"
+				},
+				"packageManager": [
+					{
+						"name": "pnpm",
+						"version": ">=10"
+					},
+					{
+						"name": "npm"
+					}
+				]
+			},
+			"repository": {
+				"url": "git+https://github.com/danielbayley/postcss-import-glob.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.11.0",
+			"description": "PostCSS plugin to inline CSS @imports, with support for glob patterns.",
+			"directories": {},
+			"_nodeVersion": "25.8.1",
+			"publishConfig": {
+				"access": "public"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"knip": "^5.86.0",
+				"yaml": "^2.8.2",
+				"postcss": "^8.5.8",
+				"publint": "^0.3.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.5.8"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-import-glob_0.2.0_1774371137491_0.8847772357968251",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.2.1": {
+			"name": "postcss-import-glob",
+			"version": "0.2.1",
+			"keywords": [
+				"plugin",
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"import",
+				"@import",
+				"glob",
+				"glob-pattern",
+				"styles",
+				"stylesheets"
+			],
+			"author": {
+				"url": "danielbayley.dev",
+				"name": "Daniel Bayley",
+				"email": "daniel.bayley@me.com"
+			},
+			"license": "MIT",
+			"_id": "postcss-import-glob@0.2.1",
+			"maintainers": [
+				{
+					"name": "danielbayley",
+					"email": "daniel.bayley@me.com"
+				}
+			],
+			"homepage": "https://npm.im/postcss-import-glob",
+			"bugs": {
+				"url": "https://github.com/danielbayley/postcss-import-glob/issues"
+			},
+			"dist": {
+				"shasum": "1b668697399f6c622efdf0e5c679fcd0f73163a8",
+				"tarball": "https://registry.npmjs.org/postcss-import-glob/-/postcss-import-glob-0.2.1.tgz",
+				"fileCount": 5,
+				"integrity": "sha512-ra75olmCs8nfFft5rO+gGqsGt0ni38a4xpMie9iPAfzunKJf8J9ODnKfqKReYOCnA+RtrOvdBZWRglMz4VdxCw==",
+				"signatures": [
+					{
+						"sig": "MEUCIHdZ1p4MXZTFHOcwfwfYHpwxRql7flfQOIcRCApTMBNuAiEA1OSwu+bdB/z9FLkxmoxZCHIPWsbnRWH6rOuVkDj5OqI=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 7636
+			},
+			"type": "module",
+			"_from": "file:postcss-import-glob-0.2.1.tgz",
+			"engines": {
+				"node": ">=22",
+				"pnpm": ">=10"
+			},
+			"exports": "./index.js",
+			"funding": "https://github.com/danielbayley/postcss-import-glob?sponsor=1",
+			"imports": {
+				"#test": "./lib/test.js",
+				"#utils": "./lib/utils.js"
+			},
+			"scripts": {
+				"zap": "pnpm clean && rm -rf node_modules || true",
+				"test": "node --test --experimental-test-coverage test/*.js",
+				"clean": "git clean -X --force",
+				"watch": "pnpm test --watch",
+				"release": "pnpm version --force --no-git-tag-version",
+				"version": "sed -i \"\" -E \"s/^(version: *)$npm_old_version\\$/\\\\1$npm_new_version/\" package.yaml && git commit --message  $npm_new_version package.yaml && git tag    --annotate $npm_new_version --message v$npm_new_version && git push   --follow-tags",
+				"reinstall": "pnpm zap && pnpm install",
+				"prerelease": "git stash --include-untracked --keep-index && pnpm prepare",
+				"postrelease": "pnpm publish"
+			},
+			"_npmUser": {
+				"name": "danielbayley",
+				"email": "daniel.bayley@me.com"
+			},
+			"_resolved": "/private/var/folders/9r/g_4_795d0jlf2r4d7w5_cy440000gp/T/9eda445210ef405a0a39dfffbf51955c/postcss-import-glob-0.2.1.tgz",
+			"_integrity": "sha512-ra75olmCs8nfFft5rO+gGqsGt0ni38a4xpMie9iPAfzunKJf8J9ODnKfqKReYOCnA+RtrOvdBZWRglMz4VdxCw==",
+			"devEngines": {
+				"runtime": {
+					"name": "node",
+					"version": ">=22"
+				},
+				"packageManager": [
+					{
+						"name": "pnpm",
+						"version": ">=10"
+					},
+					{
+						"name": "npm"
+					}
+				]
+			},
+			"repository": {
+				"url": "git+https://github.com/danielbayley/postcss-import-glob.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.11.0",
+			"description": "PostCSS plugin to inline CSS @imports, with support for glob patterns.",
+			"directories": {},
+			"_nodeVersion": "25.8.1",
+			"publishConfig": {
+				"access": "public"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"knip": "^5.86.0",
+				"yaml": "^2.8.2",
+				"postcss": "^8.5.8",
+				"publint": "^0.3.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.5.8"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-import-glob_0.2.1_1774437145547_0.3594509939378525",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.2.2": {
+			"name": "postcss-import-glob",
+			"version": "0.2.2",
+			"keywords": [
+				"plugin",
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"import",
+				"@import",
+				"glob",
+				"glob-pattern",
+				"styles",
+				"stylesheets"
+			],
+			"author": {
+				"url": "danielbayley.dev",
+				"name": "Daniel Bayley",
+				"email": "daniel.bayley@me.com"
+			},
+			"license": "MIT",
+			"_id": "postcss-import-glob@0.2.2",
+			"maintainers": [
+				{
+					"name": "danielbayley",
+					"email": "daniel.bayley@me.com"
+				}
+			],
+			"homepage": "https://npm.im/postcss-import-glob",
+			"bugs": {
+				"url": "https://github.com/danielbayley/postcss-import-glob/issues"
+			},
+			"dist": {
+				"shasum": "5501bff7c4aaf43bd72b6819f6d72e8b813be8f3",
+				"tarball": "https://registry.npmjs.org/postcss-import-glob/-/postcss-import-glob-0.2.2.tgz",
+				"fileCount": 5,
+				"integrity": "sha512-DtPBJ9T9vQjpcxQ2kPmvxJxeB0nCPAcL6s6vNpTFLTf43cM8Fzl+2KhzCO+HxyhB/AH99Uh5MMY4wWwRtRJJ9g==",
+				"signatures": [
+					{
+						"sig": "MEYCIQDo22rkRlfRcs0aL7Cw78Cr78avaGSLlMp//voM7qkxbgIhANFkJ301zOWNypzjKKI2szqzcVqh6Ftg0FCxNpomlHOF",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 7672
+			},
+			"type": "module",
+			"_from": "file:postcss-import-glob-0.2.2.tgz",
+			"engines": {
+				"node": ">=22",
+				"pnpm": ">=10"
+			},
+			"exports": "./index.js",
+			"funding": "https://github.com/danielbayley/postcss-import-glob?sponsor=1",
+			"imports": {
+				"#test": "./lib/test.js",
+				"#utils": "./lib/utils.js"
+			},
+			"scripts": {
+				"zap": "pnpm clean && rm -rf node_modules || true",
+				"test": "node --test --experimental-test-coverage test/*.js",
+				"clean": "git clean -X --force",
+				"watch": "pnpm test --watch",
+				"release": "pnpm version --force --no-git-tag-version",
+				"version": "sed -i \"\" -E \"s/^(version: *)$npm_old_version\\$/\\\\1$npm_new_version/\" package.yaml && git commit --message  $npm_new_version package.yaml && git tag    --annotate $npm_new_version --message v$npm_new_version && git push   --follow-tags",
+				"reinstall": "pnpm zap && pnpm install",
+				"prerelease": "git stash --include-untracked --keep-index && pnpm prepare",
+				"postrelease": "pnpm publish"
+			},
+			"_npmUser": {
+				"name": "danielbayley",
+				"email": "daniel.bayley@me.com"
+			},
+			"_resolved": "/private/var/folders/9r/g_4_795d0jlf2r4d7w5_cy440000gp/T/df2e2dbc52df1088688cf8add4a071e5/postcss-import-glob-0.2.2.tgz",
+			"_integrity": "sha512-DtPBJ9T9vQjpcxQ2kPmvxJxeB0nCPAcL6s6vNpTFLTf43cM8Fzl+2KhzCO+HxyhB/AH99Uh5MMY4wWwRtRJJ9g==",
+			"devEngines": {
+				"runtime": {
+					"name": "node",
+					"version": ">=22"
+				},
+				"packageManager": [
+					{
+						"name": "pnpm",
+						"version": ">=10"
+					},
+					{
+						"name": "npm"
+					}
+				]
+			},
+			"repository": {
+				"url": "git+https://github.com/danielbayley/postcss-import-glob.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.11.0",
+			"description": "PostCSS plugin to inline CSS @imports, with support for glob patterns.",
+			"directories": {},
+			"_nodeVersion": "25.8.1",
+			"publishConfig": {
+				"access": "public"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"knip": "^5.86.0",
+				"yaml": "^2.8.2",
+				"postcss": "^8.5.8",
+				"publint": "^0.3.18"
+			},
+			"peerDependencies": {
+				"postcss": "^8.5.8"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-import-glob_0.2.2_1774437852699_0.4480032019849398",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.2.3": {
+			"version": "0.2.3",
 			"name": "postcss-import-glob",
 			"description": "PostCSS plugin to inline CSS @imports, with support for glob patterns.",
 			"keywords": [
@@ -426,22 +771,22 @@
 				"zap": "pnpm clean && rm -rf node_modules || true",
 				"reinstall": "pnpm zap && pnpm install"
 			},
-			"_id": "postcss-import-glob@0.2.0",
-			"_integrity": "sha512-AsdGbnHtlnbCuTAClwLVa1ey7ysEjQjArt8E9auF52nIosZyIx4a2ZGTqmAhsEa5LVKQYi0gdHK4GFg5oJ2xHg==",
-			"_resolved": "/private/var/folders/9r/g_4_795d0jlf2r4d7w5_cy440000gp/T/faa2232a8901d3f746290923f0a6c83b/postcss-import-glob-0.2.0.tgz",
-			"_from": "file:postcss-import-glob-0.2.0.tgz",
+			"_id": "postcss-import-glob@0.2.3",
+			"_integrity": "sha512-riBWDCueG9QwKcM7CjLzKocvcfJIS0poVCp72y27djJbA9gDYopQAvNwhE9uaawmieM8TVXmkFqXsx4ks5/sGw==",
+			"_resolved": "/private/var/folders/9r/g_4_795d0jlf2r4d7w5_cy440000gp/T/f2c7e1c760ab134dc38b1274f8012bf1/postcss-import-glob-0.2.3.tgz",
+			"_from": "file:postcss-import-glob-0.2.3.tgz",
 			"_nodeVersion": "25.8.1",
 			"_npmVersion": "11.11.0",
 			"dist": {
-				"integrity": "sha512-AsdGbnHtlnbCuTAClwLVa1ey7ysEjQjArt8E9auF52nIosZyIx4a2ZGTqmAhsEa5LVKQYi0gdHK4GFg5oJ2xHg==",
-				"shasum": "333fd7fc79b8bef46363dc85d208c65b59af638e",
-				"tarball": "https://registry.npmjs.org/postcss-import-glob/-/postcss-import-glob-0.2.0.tgz",
+				"integrity": "sha512-riBWDCueG9QwKcM7CjLzKocvcfJIS0poVCp72y27djJbA9gDYopQAvNwhE9uaawmieM8TVXmkFqXsx4ks5/sGw==",
+				"shasum": "727adbc7cdf7ee8c9d37107da2f9a64fc33ad7c5",
+				"tarball": "https://registry.npmjs.org/postcss-import-glob/-/postcss-import-glob-0.2.3.tgz",
 				"fileCount": 5,
-				"unpackedSize": 7665,
+				"unpackedSize": 7729,
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEYCIQCZd59BpLnMyBwDn3XBPGgysWw1N2J4XyB1yWYdVF05WAIhAMbEyiVZ27iVMiVwQ4JvulDpaQvlQsfESGYrZk2xW7vi"
+						"sig": "MEUCIBGwWrxtuu+oic8qiBspFC2q2RodDePOSnU9ivaadz0GAiEA2SmneAUHUUZfEUGgeG7NZzN9B/kjbJjSpiraOFqo250="
 					}
 				]
 			},
@@ -458,18 +803,21 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-import-glob_0.2.0_1774371137491_0.8847772357968251"
+				"tmp": "tmp/postcss-import-glob_0.2.3_1774439259650_0.10444137796318032"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2026-03-24T14:03:12.794Z",
-		"modified": "2026-03-24T16:52:17.781Z",
+		"modified": "2026-03-25T11:47:39.932Z",
 		"0.1.0": "2026-03-24T14:03:13.052Z",
 		"0.1.1": "2026-03-24T14:59:16.241Z",
 		"0.1.2": "2026-03-24T15:57:32.795Z",
-		"0.2.0": "2026-03-24T16:52:17.659Z"
+		"0.2.0": "2026-03-24T16:52:17.659Z",
+		"0.2.1": "2026-03-25T11:12:25.685Z",
+		"0.2.2": "2026-03-25T11:24:12.853Z",
+		"0.2.3": "2026-03-25T11:47:39.796Z"
 	},
 	"bugs": {
 		"url": "https://github.com/danielbayley/postcss-import-glob/issues"
@@ -507,6 +855,7 @@
 	"readme": "[PostCSS] `@import` [glob]\n==========================\nPostCSS [plugin] to inline CSS [`@import`]s, with support for [glob] patterns.\n\nUsage\n-----\n`a.css`:\n~~~ css\n* { content: \"a\" }\n~~~\n`b.css`:\n~~~ css\n* { content: \"b\" }\n~~~\n~~~ js\nimport postcss from \"postcss\"\nimport imports from \"postcss-import-glob\"\n\nconst css = '@import \"*.css\";'\nconst post = await postcss([imports]).process(css, { from: undefined, to: \"post.css\" })\nconsole.log(post.css)\n~~~\n`post.css`:\n~~~ css\n* { content: \"a\" }\n* { content: \"b\" }\n~~~\n\n## Examples\n~~~ css\n@import \"style.css\";\n@import 'style.css';\n@import url(style.css);\n@import url(\"style.css\");\n@import url('style.css');\n\n@import \"*.css\";\n@import '*.css';\n@import \"**/*.css\";\n@import url(**/*.css);\n@import url(*.css);\n@import url(\"*.css\");\n@import url('*.css')\n~~~\n\n## Install\n~~~ sh\npnpm add postcss postcss-import-glob\n~~~\n> [!IMPORTANT]\n> This package is _[ESM]_ [only], so must be [`import`]ed instead of [`require`]d,\n> and [depends] on [_Node_.js] [`>=`][][`20`].\n\nSpecify this requirement with [`engines`] and/or [`devEngines`]:\n~~~ jsonc\n// package.json\n\"type\": \"module\",\n\"engines\": {\n  \"node\": \">=20\"\n},\n\"devEngines\": {\n  \"runtime\": {\n    \"name\": \"node\",\n    \"version\": \">=20\"\n  }\n},\n~~~\n\nLicense\n-------\n[MIT] © [Daniel Bayley]\n\n[MIT]:                    LICENSE.md\n[Daniel Bayley]:          https://github.com/danielbayley\n\n[_Node_.js]:              https://nodejs.org\n[ESM]:                    https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules\n[only]:                   https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c\n[`import`]:               https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import\n[`require`]:              https://nodejs.org/api/modules.html#requireid\n[depends]:                https://docs.npmjs.com/cli/v11/configuring-npm/package-json#engines\n[`>=`]:                   https://docs.npmjs.com/cli/v6/using-npm/semver#ranges\n[`20`]:                   https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V20.md\n[`engines`]:              https://docs.npmjs.com/cli/v11/configuring-npm/package-json#engines\n[`devEngines`]:           https://docs.npmjs.com/cli/v11/configuring-npm/package-json#devengines\n\n[PostCSS]:                https://postcss.org\n[plugin]:                 https://postcss.org/docs/postcss-plugins\n[`@import`]:              https://developer.mozilla.org/docs/Web/CSS/Reference/At-rules/@import\n[glob]:                   https://globster.xyz\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		0
+		0,
+		344
 	]
 }

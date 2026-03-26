@@ -1,0 +1,148 @@
+{
+	"_id": "@adoratorio/postcss-prune-vars",
+	"name": "@adoratorio/postcss-prune-vars",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "@adoratorio/postcss-prune-vars",
+			"version": "0.1.0",
+			"description": "PostCSS plugin to remove unused CSS custom properties, with content file scanning support",
+			"type": "module",
+			"main": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js"
+				}
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Adoratorio/postcss-prune-vars.git"
+			},
+			"scripts": {
+				"build": "tsc",
+				"dev": "tsc --watch"
+			},
+			"peerDependencies": {
+				"postcss": ">=8.0.0"
+			},
+			"devDependencies": {
+				"@types/node": "^25.5.0",
+				"postcss": "^8.5.8",
+				"typescript": "^6.0.2"
+			},
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"css-custom-properties",
+				"css-variables",
+				"prune",
+				"unused",
+				"vars"
+			],
+			"license": "MIT",
+			"_id": "@adoratorio/postcss-prune-vars@0.1.0",
+			"gitHead": "ca95f70c46bb3dbd982b4095589b097248507887",
+			"bugs": {
+				"url": "https://github.com/Adoratorio/postcss-prune-vars/issues"
+			},
+			"homepage": "https://github.com/Adoratorio/postcss-prune-vars#readme",
+			"_nodeVersion": "24.2.0",
+			"_npmVersion": "11.3.0",
+			"dist": {
+				"integrity": "sha512-TeiTK3C1rNrDYk3zhc2+AG2CFkNvSGri0RTX0u2h+da0vPwOcHRIAXdffnYlZVpkHC3yDYyJy7KPnEBOCUJ6Fw==",
+				"shasum": "665340d4118a47afd4bee329e59389f0688b6310",
+				"tarball": "https://registry.npmjs.org/@adoratorio/postcss-prune-vars/-/postcss-prune-vars-0.1.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 15713,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEYCIQC3SlZF1q+aRkea6y/6SXNpcWx4YM/LKa9SEN0k/JGyvQIhAIJbeff87Ts/dLNtjRVraqPIaaPl17xvJFA51Q8ei7a0"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "andrea_",
+				"email": "andrea.gottardi@live.it"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "adoratorio.studio",
+					"email": "contact@adoratorio.com"
+				},
+				{
+					"name": "danieleborra",
+					"email": "daniele.borra.93@gmail.com"
+				},
+				{
+					"name": "ne-u",
+					"email": "tommaso@adoratorio.com"
+				},
+				{
+					"name": "andrea_",
+					"email": "andrea.gottardi@live.it"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-prune-vars_0.1.0_1774450071889_0.9495168665681426"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-03-25T14:47:51.811Z",
+		"0.1.0": "2026-03-25T14:47:52.031Z",
+		"modified": "2026-03-25T14:47:52.254Z"
+	},
+	"maintainers": [
+		{
+			"name": "adoratorio.studio",
+			"email": "contact@adoratorio.com"
+		},
+		{
+			"name": "danieleborra",
+			"email": "daniele.borra.93@gmail.com"
+		},
+		{
+			"name": "ne-u",
+			"email": "tommaso@adoratorio.com"
+		},
+		{
+			"name": "andrea_",
+			"email": "andrea.gottardi@live.it"
+		}
+	],
+	"description": "PostCSS plugin to remove unused CSS custom properties, with content file scanning support",
+	"homepage": "https://github.com/Adoratorio/postcss-prune-vars#readme",
+	"keywords": [
+		"css",
+		"postcss",
+		"postcss-plugin",
+		"css-custom-properties",
+		"css-variables",
+		"prune",
+		"unused",
+		"vars"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Adoratorio/postcss-prune-vars.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Adoratorio/postcss-prune-vars/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-prune-vars\nA PostCSS plugin that removes unused CSS custom properties, with content file scanning support for Vue, React, and plain HTML projects.\n\n## Installation\n```sh\nnpm install @adoratorio/postcss-prune-vars\n```\n\n## Usage\n```typescript\nimport pruneVars from '@adoratorio/postcss-prune-vars';\n\n// In your PostCSS config\nconst plugins = [\n  pruneVars({ dirs: ['./src'] }),\n];\n```\n\n## Why\nTools like PurgeCSS and `postcss-prune-var` only analyze CSS to determine which custom properties are used. Variables referenced in template inline styles (`style=\"color: var(--color-primary)\"`) are invisible to them and get incorrectly removed.\n\nThis plugin scans both CSS declarations **and** content files (Vue templates, JSX, HTML) to build a complete picture of variable usage before pruning.\n\n## Configuration\n\n### PluginOptions\n| Parameter | Type | Default | Description |\n| :-------: | :--: | :-----: | :---------- |\n| dirs | `string[]` | `['./src']` | Directories to scan for content files |\n| extensions | `string[]` | `['.vue', '.js', '.ts', '.jsx', '.tsx', '.html']` | File extensions to scan |\n\n## How It Works\n\n1. **Scans content files** in the configured directories for `var(--name)` references\n2. **Scans CSS declarations** for `var(--name)` in non-custom-property rules (e.g. `color: var(--text)`)\n3. **Resolves dependency chains** — if `--color-primary: var(--color-dark)` is used, both variables are preserved\n4. **Removes unused declarations** — any `--variable` not referenced directly or through a chain is removed\n5. **Cleans up empty nodes** — empty `:root`, `@layer`, and `@media` blocks are removed\n\n## Integration\n\n### Vite + Vue\n```typescript\nimport { defineConfig } from 'vite';\nimport purgecss from '@fullhuman/postcss-purgecss';\nimport pruneVars from '@adoratorio/postcss-prune-vars';\n\nexport default defineConfig({\n  css: {\n    postcss: {\n      plugins: [\n        ...(process.env.NODE_ENV === 'production'\n          ? [\n              purgecss({ /* ... */ }),\n              pruneVars({ dirs: ['./src'] }),\n            ]\n          : []),\n      ],\n    },\n  },\n});\n```\n\n### Nuxt\n```typescript\nexport default defineNuxtConfig({\n  postcss: {\n    plugins: {\n      '@adoratorio/postcss-prune-vars': process.env.NODE_ENV === 'production'\n        ? { dirs: ['./components', './layouts', './pages'] }\n        : false,\n    },\n  },\n});\n```\n\n## TypeScript Support\nThe plugin is written in TypeScript and includes full type definitions:\n\n```typescript\nimport type { PluginOptions } from '@adoratorio/postcss-prune-vars';\n```\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-001c79d7c3603cf43c4806951f192ad1",
+	"_downloads": [
+		0
+	]
+}
