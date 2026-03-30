@@ -1,6 +1,6 @@
 {
 	"name": "postcss-rtlcss",
-	"version": "5.7.1",
+	"version": "6.0.0",
 	"description": "PostCSS plugin to build Cascading Style Sheets (CSS) with Left-To-Right (LTR) and Right-To-Left (RTL) rules",
 	"keywords": [
 		"postcss",
@@ -40,7 +40,8 @@
 	},
 	"scripts": {
 		"test": "jest --clearCache && jest --verbose",
-		"lint": "eslint \"src/**/*.ts\" \"playground/src/**/*.tsx\" \"tests/**/*.ts\"",
+		"lint:playground": "cd playground && pnpm lint && cd ..",
+		"lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\" && pnpm lint:playground",
 		"clean": "./scripts/clean.sh",
 		"copy": "./scripts/copy.sh",
 		"modify-dts": "replace-in-file --configFile=config.replace.json",
@@ -62,28 +63,31 @@
 		"rtlcss": "4.3.0"
 	},
 	"devDependencies": {
+		"@eslint/js": "^10.0.1",
 		"@rollup/plugin-json": "^6.1.0",
-		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-terser": "^1.0.0",
+		"@rollup/plugin-typescript": "^12.3.0",
 		"@types/eslint": "^9.6.1",
-		"@types/jest": "^29.5.14",
-		"@types/jest-specific-snapshot": "^0.5.9",
-		"@types/node": "^22.15.18",
+		"@types/jest": "^30.0.0",
+		"@types/jest-specific-snapshot": "^0.5.10",
+		"@types/node": "^25.5.0",
 		"@types/rtlcss": "^3.5.4",
-		"eslint": "^9.27.0",
-		"eslint-plugin-jest": "^28.11.0",
-		"globals": "^16.1.0",
-		"jest": "^29.7.0",
+		"eslint": "^10.1.0",
+		"eslint-plugin-jest": "^29.15.1",
+		"globals": "^17.4.0",
+		"jest": "^30.3.0",
 		"jest-specific-snapshot": "^8.0.0",
 		"postcss": "^8.4.38",
-		"postcss-preset-env": "^10.1.6",
-		"replace-in-file": "^8.3.0",
-		"rimraf": "^6.0.1",
-		"rollup": "^4.41.0",
-		"rollup-plugin-ts": "^3.4.5",
-		"ts-jest": "^29.3.4",
+		"postcss-preset-env": "10.6.1",
+		"replace-in-file": "^8.4.0",
+		"rimraf": "^6.1.3",
+		"rollup": "^4.60.0",
+		"rollup-plugin-dts": "^6.4.1",
+		"rollup-plugin-tsconfig-paths": "^1.5.2",
+		"ts-jest": "^29.4.6",
 		"tslib": "^2.8.1",
-		"typescript": "^5.8.3",
-		"typescript-eslint": "^8.32.1"
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.57.2"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4.21"
@@ -91,22 +95,27 @@
 	"engines": {
 		"node": ">=18.0.0"
 	},
-	"_id": "postcss-rtlcss@5.7.1",
-	"gitHead": "032555fa497431bc64d761747279039e4c0dc79d",
+	"pnpm": {
+		"overrides": {
+			"@isaacs/brace-expansion@<=5.0.0": ">=5.0.1"
+		}
+	},
+	"gitHead": "0f9cf1ea720b3d889b159091049db683b00c0f51",
+	"_id": "postcss-rtlcss@6.0.0",
 	"bugs": {
 		"url": "https://github.com/elchininet/postcss-rtlcss/issues"
 	},
 	"homepage": "https://github.com/elchininet/postcss-rtlcss#readme",
-	"_nodeVersion": "20.19.1",
-	"_npmVersion": "10.8.2",
+	"_nodeVersion": "24.14.0",
+	"_npmVersion": "11.12.1",
 	"dist": {
-		"integrity": "sha512-zE68CuARv5StOG/UQLa0W1Y/raUTzgJlfjtas43yh3/G1BFmoPEaHxPRHgeowXRFFhW33FehrNgsljxRLmPVWw==",
-		"shasum": "fb40cc13d1d8517dd9915cafa6416decc83d206c",
-		"tarball": "https://registry.npmjs.org/postcss-rtlcss/-/postcss-rtlcss-5.7.1.tgz",
+		"integrity": "sha512-iJMOT4vM6EOnvNUm+uZycpqqTeHCTMGPsyxIHloVUioECgKIrvtWtPIczc5NMc14x5ZJGadwUs0L1o6iZDCldg==",
+		"shasum": "12ff93dcc0252f0f749bbd7c7138b6c3295557b2",
+		"tarball": "https://registry.npmjs.org/postcss-rtlcss/-/postcss-rtlcss-6.0.0.tgz",
 		"fileCount": 12,
-		"unpackedSize": 115869,
+		"unpackedSize": 108908,
 		"attestations": {
-			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-rtlcss@5.7.1",
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-rtlcss@6.0.0",
 			"provenance": {
 				"predicateType": "https://slsa.dev/provenance/v1"
 			}
@@ -114,13 +123,17 @@
 		"signatures": [
 			{
 				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEYCIQDCKDJS54EgxKQx51z6J8cprbdviwuXA6iKiDyv+KkgNAIhAOFGhBHjEIDHsitOytwtqK5T2KlaS+Jd4JhQreVZBpgh"
+				"sig": "MEUCIQCdkJ+/4yAwbsvQrTZ8KKH9vN0WWhZgnTPjhf2e7A37DwIgBTL6i2DY18TSU6pkvfh5YqCvIpYRnJdELlf50Wvp8K8="
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "elchininet",
-		"email": "elchininet@gmail.com"
+		"name": "GitHub Actions",
+		"email": "npm-oidc-no-reply@github.com",
+		"trustedPublisher": {
+			"id": "github",
+			"oidcConfigId": "oidc:9a80f304-aea1-43d6-8202-819809de3dec"
+		}
 	},
 	"directories": {},
 	"maintainers": [
@@ -131,8 +144,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-rtlcss_5.7.1_1747596243741_0.553674155649309"
+		"tmp": "tmp/postcss-rtlcss_6.0.0_1774795318126_0.13198051800534083"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2025-05-18T19:24:03.944Z"
+	"_time": "2026-03-29T14:41:58.329Z"
 }
