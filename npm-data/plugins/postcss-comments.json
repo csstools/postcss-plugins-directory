@@ -1,13 +1,120 @@
 {
 	"_id": "postcss-comments",
+	"_rev": "2-d51502875c2484239eb2997e7a66a8c7",
 	"name": "postcss-comments",
 	"dist-tags": {
-		"latest": "1.0.0"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
 			"name": "postcss-comments",
 			"version": "1.0.0",
+			"keywords": [
+				"postcss",
+				"css",
+				"postcss-plugin",
+				"comments"
+			],
+			"author": {
+				"name": "ElChiniNet"
+			},
+			"license": "Apache-2.0",
+			"_id": "postcss-comments@1.0.0",
+			"maintainers": [
+				{
+					"name": "elchininet",
+					"email": "elchininet@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/elchininet/postcss-comments#readme",
+			"bugs": {
+				"url": "https://github.com/elchininet/postcss-comments/issues"
+			},
+			"dist": {
+				"shasum": "cfc197bce85625b84e60db83db961b068707996a",
+				"tarball": "https://registry.npmjs.org/postcss-comments/-/postcss-comments-1.0.0.tgz",
+				"fileCount": 8,
+				"integrity": "sha512-sagLfj1hLLb9no6C0eE96o5crmMPTns95lmAFBExLekLhqNa/3g+ItF/r5hZ/H2/Q8zIw6N/5KcCbFWuMV6tSg==",
+				"signatures": [
+					{
+						"sig": "MEQCIE1PY64NpRXucFLXGrjKUaPYKWqsGeCA+FdWXP158UepAiAfNV0I+xm/K60DYlF2shsZ5z665EriMb0ogPAWh1A0SA==",
+						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+					}
+				],
+				"unpackedSize": 21590
+			},
+			"main": "index.js",
+			"types": "index.d.ts",
+			"module": "esm/index.js",
+			"engines": {
+				"node": ">=12.0.0"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./esm/index.d.ts",
+						"default": "./esm/index.js"
+					},
+					"require": {
+						"types": "./index.d.ts",
+						"default": "./index.js"
+					}
+				}
+			},
+			"gitHead": "12fd07ca34bf69c36f2a892c2c4b739388fbcd4a",
+			"scripts": {
+				"copy": "./scripts/copy.sh",
+				"lint": "eslint src/**/*.ts",
+				"test": "jest --clearCache && jest --verbose",
+				"build": "yarn clean && rollup --config rollup.config.js --bundleConfigAsCjs && yarn copy && yarn modify-dts",
+				"clean": "./scripts/clean.sh",
+				"prepare": "yarn build",
+				"version": "git add .",
+				"modify-dts": "replace-in-file --configFile=config.replace.js",
+				"postversion": "git push && git push --tags",
+				"prepublishOnly": "npm run lint && npm run test"
+			},
+			"_npmUser": {
+				"name": "elchininet",
+				"email": "elchininet@gmail.com"
+			},
+			"repository": {
+				"url": "git+ssh://git@github.com/elchininet/postcss-comments.git",
+				"type": "git"
+			},
+			"_npmVersion": "8.19.4",
+			"description": "Postcss plugin to prepend or append comments to CSS rules",
+			"directories": {},
+			"_nodeVersion": "16.20.2",
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"jest": "^29.6.2",
+				"eslint": "^8.47.0",
+				"rollup": "^3.28.0",
+				"postcss": "^8.4.28",
+				"ts-jest": "^29.1.1",
+				"typescript": "^5.1.6",
+				"@types/jest": "^29.5.3",
+				"@types/node": "^20.5.0",
+				"@types/eslint": "^8.44.2",
+				"replace-in-file": "^7.0.1",
+				"rollup-plugin-ts": "^3.4.4",
+				"eslint-plugin-jest": "^27.2.3",
+				"rollup-plugin-terser": "^7.0.2",
+				"@typescript-eslint/parser": "^6.4.0",
+				"@typescript-eslint/eslint-plugin": "^6.4.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-comments_1.0.0_1692313553310_0.5178068413559185",
+				"host": "s3://npm-registry-packages"
+			}
+		},
+		"2.0.0": {
+			"name": "postcss-comments",
+			"version": "2.0.0",
 			"description": "Postcss plugin to prepend or append comments to CSS rules",
 			"repository": {
 				"type": "git",
@@ -42,61 +149,80 @@
 				"test": "jest --clearCache && jest --verbose",
 				"lint": "eslint src/**/*.ts",
 				"clean": "./scripts/clean.sh",
-				"copy": "./scripts/copy.sh",
-				"modify-dts": "replace-in-file --configFile=config.replace.js",
-				"build": "yarn clean && rollup --config rollup.config.js --bundleConfigAsCjs && yarn copy && yarn modify-dts",
-				"prepare": "yarn build",
-				"prepublishOnly": "npm run lint && npm run test",
+				"set-module": "./scripts/set-module.sh",
+				"modify-dts": "replace-in-file --configFile=config.replace.json",
+				"build": "pnpm clean && pnpm set-module && rollup --config rollup.config.js --bundleConfigAsCjs && pnpm modify-dts",
+				"prepare": "pnpm build",
+				"prepublishOnly": "pnpm lint && pnpm test",
 				"version": "git add .",
 				"postversion": "git push && git push --tags"
 			},
 			"devDependencies": {
-				"@types/eslint": "^8.44.2",
-				"@types/jest": "^29.5.3",
-				"@types/node": "^20.5.0",
-				"@typescript-eslint/eslint-plugin": "^6.4.0",
-				"@typescript-eslint/parser": "^6.4.0",
-				"eslint": "^8.47.0",
-				"eslint-plugin-jest": "^27.2.3",
-				"jest": "^29.6.2",
-				"postcss": "^8.4.28",
-				"replace-in-file": "^7.0.1",
-				"rollup": "^3.28.0",
-				"rollup-plugin-terser": "^7.0.2",
-				"rollup-plugin-ts": "^3.4.4",
-				"ts-jest": "^29.1.1",
-				"typescript": "^5.1.6"
+				"@eslint/js": "^10.0.1",
+				"@rollup/plugin-terser": "^1.0.0",
+				"@rollup/plugin-typescript": "^12.3.0",
+				"@types/eslint": "^9.6.1",
+				"@types/jest": "^30.0.0",
+				"@types/node": "^25.5.0",
+				"eslint": "^10.1.0",
+				"eslint-plugin-jest": "^29.15.1",
+				"globals": "^17.4.0",
+				"jest": "^30.3.0",
+				"postcss": "^8.5.8",
+				"replace-in-file": "^8.4.0",
+				"rimraf": "^6.1.3",
+				"rollup": "^4.60.0",
+				"rollup-plugin-dts": "^6.4.1",
+				"rollup-plugin-tsconfig-paths": "^1.5.2",
+				"ts-jest": "^29.4.6",
+				"typescript": "^6.0.2",
+				"typescript-eslint": "^8.57.2"
 			},
 			"peerDependencies": {
 				"postcss": "^8.0.0"
 			},
 			"engines": {
-				"node": ">=12.0.0"
+				"node": ">=18.0.0"
 			},
-			"gitHead": "12fd07ca34bf69c36f2a892c2c4b739388fbcd4a",
+			"pnpm": {
+				"overrides": {
+					"@isaacs/brace-expansion@<=5.0.0": ">=5.0.1"
+				}
+			},
+			"gitHead": "3188789793107bf1289a7bcd2eecfa45d3d7922f",
+			"_id": "postcss-comments@2.0.0",
 			"bugs": {
 				"url": "https://github.com/elchininet/postcss-comments/issues"
 			},
 			"homepage": "https://github.com/elchininet/postcss-comments#readme",
-			"_id": "postcss-comments@1.0.0",
-			"_nodeVersion": "16.20.2",
-			"_npmVersion": "8.19.4",
+			"_nodeVersion": "24.14.0",
+			"_npmVersion": "11.12.1",
 			"dist": {
-				"integrity": "sha512-sagLfj1hLLb9no6C0eE96o5crmMPTns95lmAFBExLekLhqNa/3g+ItF/r5hZ/H2/Q8zIw6N/5KcCbFWuMV6tSg==",
-				"shasum": "cfc197bce85625b84e60db83db961b068707996a",
-				"tarball": "https://registry.npmjs.org/postcss-comments/-/postcss-comments-1.0.0.tgz",
+				"integrity": "sha512-CSDasCJMZ27zQI4zUj/X3I2FPgl0QvNjWJDidkqZe7F9PcLvitimBLi5/T5Ig3OTvGoAGNd23tOYAL/SluLapQ==",
+				"shasum": "9769ea4c7ef4ace55b2cb2f93ba61b702545ce4d",
+				"tarball": "https://registry.npmjs.org/postcss-comments/-/postcss-comments-2.0.0.tgz",
 				"fileCount": 8,
-				"unpackedSize": 21590,
+				"unpackedSize": 21768,
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-comments@2.0.0",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
 				"signatures": [
 					{
-						"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-						"sig": "MEQCIE1PY64NpRXucFLXGrjKUaPYKWqsGeCA+FdWXP158UepAiAfNV0I+xm/K60DYlF2shsZ5z665EriMb0ogPAWh1A0SA=="
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCICSYUOQSkWWcEFQCfyO2SaxmCY76I0mvxew60MaC6GgRAiEAj66Zq80mw3xvm3WdxnKi2Z5ok/sPGp7EWh33NyO9EeY="
 					}
 				]
 			},
 			"_npmUser": {
-				"name": "elchininet",
-				"email": "elchininet@gmail.com"
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:54c5c7de-9028-4547-bf69-1152df5cf305"
+				}
 			},
 			"directories": {},
 			"maintainers": [
@@ -106,24 +232,25 @@
 				}
 			],
 			"_npmOperationalInternal": {
-				"host": "s3://npm-registry-packages",
-				"tmp": "tmp/postcss-comments_1.0.0_1692313553310_0.5178068413559185"
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-comments_2.0.0_1774855108743_0.34321992784288335"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2023-08-17T23:05:53.309Z",
+		"modified": "2026-03-30T07:18:29.181Z",
 		"1.0.0": "2023-08-17T23:05:53.544Z",
-		"modified": "2023-08-17T23:05:53.847Z"
+		"2.0.0": "2026-03-30T07:18:28.894Z"
 	},
-	"maintainers": [
-		{
-			"name": "elchininet",
-			"email": "elchininet@gmail.com"
-		}
-	],
-	"description": "Postcss plugin to prepend or append comments to CSS rules",
+	"bugs": {
+		"url": "https://github.com/elchininet/postcss-comments/issues"
+	},
+	"author": {
+		"name": "ElChiniNet"
+	},
+	"license": "Apache-2.0",
 	"homepage": "https://github.com/elchininet/postcss-comments#readme",
 	"keywords": [
 		"postcss",
@@ -135,20 +262,21 @@
 		"type": "git",
 		"url": "git+ssh://git@github.com/elchininet/postcss-comments.git"
 	},
-	"author": {
-		"name": "ElChiniNet"
-	},
-	"bugs": {
-		"url": "https://github.com/elchininet/postcss-comments/issues"
-	},
-	"license": "Apache-2.0",
-	"readme": "# PostCSS Comments\n[PostCSS] plugin to prepend and append comments to CSS rules.\n\n[![Deployment Status](https://github.com/elchininet/postcss-comments/actions/workflows/deploy.yaml/badge.svg)](https://github.com/elchininet/postcss-comments/actions/workflows/deploy.yaml) &nbsp; [![Coverage Status](https://coveralls.io/repos/github/elchininet/postcss-comments/badge.svg?branch=master)](https://coveralls.io/github/elchininet/postcss-comments?branch=master) &nbsp; [![npm version](https://badge.fury.io/js/postcss-comments.svg)](https://badge.fury.io/js/postcss-comments)\n\nDescription\n---\n\nSome [PostCSS] plugins require to add comments to the CSS code to be able to perform their work (e.g. [RTLCSS] or [PostCSS RTLCSS]). But if the CSS code is coming from a third-party library or a CSS-in-JS framework it is impossible to modify the CSS source to add comments. In these cases, `postcss-comments` could be helpful to prepend or append comments to CSS rules selecting them using strings or regular expressions.\n\nInstall\n---\n\n#### npm\n\n```bash\nnpm install postcss-comments --save-dev\n```\n\n#### yarn\n\n```bash\nyarn add postcss-comments -D\n```\n\n#### Usage with commonJS\n\n```javascript\nconst postcss = require('postcss');\nconst postcssComments = require('postcss-comments');\n\nconst result = postcss([\n    postcssComments({\n        rulesMatchers: [\n            /* rulesMatchers */\n        ]\n    })\n]).process(cssInput);\n\nconst commentedCSS = result.css;\n```\n\n#### Usage with ES6 modules\n\n```javascript\nimport postcss from 'postcss';\nimport postcssComments from 'postcss-comments';\n\nconst result = postcss([\n    postcssComments({\n        rulesMatchers: [\n            /* rulesMatchers */\n        ]\n    })\n]).process(cssInput);\n\nconst commentedCSS = result.css;\n```\n\n#### Usage in Webpack with postcss-loader\n\n```javascript\nrules: [\n    {\n        test: /\\.css$/,\n        use: [\n            { loader: 'style-loader' },\n            { loader: 'css-loader' },\n            {\n                loader: 'postcss-loader',\n                options: {\n                    postcssOptions: {\n                        plugins: [\n                            postcssComments({\n                                rulesMatchers: [\n                                    /* rulesMatchers */\n                                ]\n                            })\n                        ]\n                    }\n                }\n            }\n        ]\n    }\n]\n```\n\nRules Matchers\n---\n\n`rulesMatchers` consist on an array of objects, each one describing one matcher.\n\n```javascript\n{\n    matcher: string | RegExp | (string | RegExp)[];\n    prepend?: string;\n    append?: string;\n}\n```\nExamples\n---\n\n#### Input\n\n```css\n.test1, .test2 {\n    color: #666;\n    padding-right: 20px;\n    width: 100%;\n}\n\n.link {\n    color: red;\n}\n\n.link:hover {\n    color: red;\n}\n\n.link:visited {\n    color: red;\n}\n\n.test-class {\n    text-align: left;\n    height: 100px;\n}\n```\n\n### Using string rule matchers\n\nString matchers will match a rule if the entire selector of the rule matches exactly with the string.\n\n```javascript\npostcssComments({\n    rulesMatchers: [\n       {\n            matcher: ['.link', '.test-class'],\n            prepend: 'Using an array of string matchers'\n       },\n       {\n            matcher: '.link:visited',\n            append: 'Using a unique string matcher'\n       }\n    ]\n})\n```\n\n#### Output\n\n```css\n.test1, .test2 {\n    color: #666;\n    padding-right: 20px;\n    width: 100%;\n}\n\n/* Using an array of string matchers */\n.link {\n    color: red;\n}\n\n.link:hover {\n    color: red;\n}\n\n.link:visited {\n    color: red;\n}\n/* Using a unique string matcher */\n\n/* Using an array of string matchers */\n.test-class {\n    text-align: left;\n    height: 100px;\n}\n```\n\n### Using RegExp rule matchers\n\nRegular Expressions matchers are more flexible. They allow one to match rules without specifing exactly the string of their selectors using a Regular Expression pattern instead.\n\n```javascript\npostcssComments({\n    rulesMatchers: [\n       {\n            matcher: [/^\\.test\\d+/, /^\\.link:\\w+$/],\n            prepend: 'Using an array of RegExp matchers'\n       },\n       {\n            matcher: /\\.test-\\w+$/,\n            append: 'Using a single regular expression'\n       }\n    ]\n})\n```\n\n#### Output\n\n```css\n/* Using an array of RegExp matchers */\n.test1, .test2 {\n    color: #666;\n    padding-right: 20px;\n    width: 100%;\n}\n\n.link {\n    color: red;\n}\n\n/* Using an array of RegExp matchers */\n.link:hover {\n    color: red;\n}\n\n/* Using an array of RegExp matchers */\n.link:visited {\n    color: red;\n}\n\n.test-class {\n    text-align: left;\n    height: 100px;\n}\n/* Using a single regular expression */\n```\n\nNotes\n---\n\n1. String matchers and Regular Expression matchers can be mixed in the same macther array.\n1. Only the first matcher is used. If a rule matches a matcher, the `append` or `prepend` comments are inserted and it doesn‘t continue checking the next matchers on the array.\n2. Regular Expressions matchers cannot have [flags], if you set flags, they will be ignored.\n3. If you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n[PostCSS]: https://github.com/postcss/postcss\n[RTLCSS]: https://rtlcss.com/learn/usage-guide/control-directives/\n[PostCSS RTLCSS]: https://github.com/elchininet/postcss-rtlcss#control-directives\n[flags]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags\n[official docs]: https://github.com/postcss/postcss#usage\n",
+	"description": "Postcss plugin to prepend or append comments to CSS rules",
+	"maintainers": [
+		{
+			"name": "elchininet",
+			"email": "elchininet@gmail.com"
+		}
+	],
+	"readme": "# PostCSS Comments\n[PostCSS] plugin to prepend and append comments to CSS rules.\n\n[![Deployment Status](https://github.com/elchininet/postcss-comments/actions/workflows/deploy.yaml/badge.svg)](https://github.com/elchininet/postcss-comments/actions/workflows/deploy.yaml)\n[![Tests](https://github.com/elchininet/postcss-comments/actions/workflows/test.yaml/badge.svg)](https://github.com/elchininet/postcss-comments/actions/workflows/test.yaml)\n[![Coverage Status](https://coveralls.io/repos/github/elchininet/postcss-comments/badge.svg?branch=master)](https://coveralls.io/github/elchininet/postcss-comments?branch=master)\n[![npm version](https://badge.fury.io/js/postcss-comments.svg)](https://badge.fury.io/js/postcss-comments)\n\nDescription\n---\n\nSome [PostCSS] plugins require to add comments to the CSS code to be able to perform their work (e.g. [RTLCSS] or [PostCSS RTLCSS]). But if the CSS code is coming from a third-party library or a CSS-in-JS framework it is impossible to modify the CSS source to add comments. In these cases, `postcss-comments` could be helpful to prepend or append comments to CSS rules selecting them using strings or regular expressions.\n\nInstall\n---\n\n#### npm\n\n```bash\nnpm install postcss-comments --save-dev\n```\n\n#### yarn\n\n```bash\nyarn add postcss-comments -D\n```\n\n#### Usage with commonJS\n\n```javascript\nconst postcss = require('postcss');\nconst postcssComments = require('postcss-comments');\n\nconst result = postcss([\n    postcssComments({\n        rulesMatchers: [\n            /* rulesMatchers */\n        ]\n    })\n]).process(cssInput);\n\nconst commentedCSS = result.css;\n```\n\n#### Usage with ES6 modules\n\n```javascript\nimport postcss from 'postcss';\nimport postcssComments from 'postcss-comments';\n\nconst result = postcss([\n    postcssComments({\n        rulesMatchers: [\n            /* rulesMatchers */\n        ]\n    })\n]).process(cssInput);\n\nconst commentedCSS = result.css;\n```\n\n#### Usage in Webpack with postcss-loader\n\n```javascript\nrules: [\n    {\n        test: /\\.css$/,\n        use: [\n            { loader: 'style-loader' },\n            { loader: 'css-loader' },\n            {\n                loader: 'postcss-loader',\n                options: {\n                    postcssOptions: {\n                        plugins: [\n                            postcssComments({\n                                rulesMatchers: [\n                                    /* rulesMatchers */\n                                ]\n                            })\n                        ]\n                    }\n                }\n            }\n        ]\n    }\n]\n```\n\nRules Matchers\n---\n\n`rulesMatchers` consist on an array of objects, each one describing one matcher.\n\n```javascript\n{\n    matcher: string | RegExp | (string | RegExp)[];\n    prepend?: string;\n    append?: string;\n}\n```\nExamples\n---\n\n#### Input\n\n```css\n.test1, .test2 {\n    color: #666;\n    padding-right: 20px;\n    width: 100%;\n}\n\n.link {\n    color: red;\n}\n\n.link:hover {\n    color: red;\n}\n\n.link:visited {\n    color: red;\n}\n\n.test-class {\n    text-align: left;\n    height: 100px;\n}\n```\n\n### Using string rule matchers\n\nString matchers will match a rule if the entire selector of the rule matches exactly with the string.\n\n```javascript\npostcssComments({\n    rulesMatchers: [\n       {\n            matcher: ['.link', '.test-class'],\n            prepend: 'Using an array of string matchers'\n       },\n       {\n            matcher: '.link:visited',\n            append: 'Using a unique string matcher'\n       }\n    ]\n})\n```\n\n#### Output\n\n```css\n.test1, .test2 {\n    color: #666;\n    padding-right: 20px;\n    width: 100%;\n}\n\n/* Using an array of string matchers */\n.link {\n    color: red;\n}\n\n.link:hover {\n    color: red;\n}\n\n.link:visited {\n    color: red;\n}\n/* Using a unique string matcher */\n\n/* Using an array of string matchers */\n.test-class {\n    text-align: left;\n    height: 100px;\n}\n```\n\n### Using RegExp rule matchers\n\nRegular Expressions matchers are more flexible. They allow one to match rules without specifying exactly the string of their selectors using a Regular Expression pattern instead.\n\n```javascript\npostcssComments({\n    rulesMatchers: [\n       {\n            matcher: [/^\\.test\\d+/, /^\\.link:\\w+$/],\n            prepend: 'Using an array of RegExp matchers'\n       },\n       {\n            matcher: /\\.test-\\w+$/,\n            append: 'Using a single regular expression'\n       }\n    ]\n})\n```\n\n#### Output\n\n```css\n/* Using an array of RegExp matchers */\n.test1, .test2 {\n    color: #666;\n    padding-right: 20px;\n    width: 100%;\n}\n\n.link {\n    color: red;\n}\n\n/* Using an array of RegExp matchers */\n.link:hover {\n    color: red;\n}\n\n/* Using an array of RegExp matchers */\n.link:visited {\n    color: red;\n}\n\n.test-class {\n    text-align: left;\n    height: 100px;\n}\n/* Using a single regular expression */\n```\n\nNotes\n---\n\n1. String matchers and Regular Expression matchers can be mixed in the same macther array.\n1. Only the first matcher is used. If a rule matches a matcher, the `append` or `prepend` comments are inserted and it doesn‘t continue checking the next matchers on the array.\n2. Regular Expressions matchers cannot have [flags], if you set flags, they will be ignored.\n3. If you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n[PostCSS]: https://github.com/postcss/postcss\n[RTLCSS]: https://rtlcss.com/learn/usage-guide/control-directives/\n[PostCSS RTLCSS]: https://github.com/elchininet/postcss-rtlcss#control-directives\n[flags]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags\n[official docs]: https://github.com/postcss/postcss#usage\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
 		2,
 		7,
 		3,
 		6,
-		6
+		6,
+		5
 	]
 }
