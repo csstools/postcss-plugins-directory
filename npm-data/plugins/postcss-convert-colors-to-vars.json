@@ -1,0 +1,152 @@
+{
+	"_id": "postcss-convert-colors-to-vars",
+	"name": "postcss-convert-colors-to-vars",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "postcss-convert-colors-to-vars",
+			"version": "0.1.0",
+			"description": "PostCSS plugin to replace hardcoded CSS colors with design token CSS variables.",
+			"author": {
+				"name": "skobets"
+			},
+			"keywords": [
+				"postcss-plugin",
+				"postcss",
+				"css",
+				"design-tokens",
+				"css-variables",
+				"custom-properties",
+				"color-tokens",
+				"design-system",
+				"style-tokens",
+				"token-transform",
+				"css-transform",
+				"css-migration",
+				"theming",
+				"dark-mode",
+				"light-theme",
+				"postcss-color"
+			],
+			"license": "MIT",
+			"type": "module",
+			"main": "./dist/cjs/index.js",
+			"module": "./dist/esm/index.js",
+			"types": "./dist/esm/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/esm/index.d.ts",
+					"import": "./dist/esm/index.js",
+					"require": "./dist/cjs/index.js"
+				}
+			},
+			"sideEffects": false,
+			"peerDependencies": {
+				"postcss": "^8.4.0"
+			},
+			"devDependencies": {
+				"@types/jest": "^29.5.11",
+				"jest": "^29.0.3",
+				"postcss": "^8.4.49",
+				"ts-jest": "^29.1.1",
+				"typescript": "^5.3.3"
+			},
+			"scripts": {
+				"build": "node scripts/prepare-dist.mjs && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node scripts/write-cjs-package-json.mjs",
+				"test": "npm run build && jest --config jest.config.cjs --runInBand",
+				"prepublishOnly": "npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/s-kobets/postcss-convert-colors-to-vars.git"
+			},
+			"homepage": "https://github.com/s-kobets/postcss-convert-colors-to-vars#readme",
+			"bugs": {
+				"url": "https://github.com/s-kobets/postcss-convert-colors-to-vars/issues"
+			},
+			"gitHead": "ff3636240990a2d56e8e5d16e9e585ef9bed0541",
+			"_id": "postcss-convert-colors-to-vars@0.1.0",
+			"_nodeVersion": "24.14.0",
+			"_npmVersion": "11.9.0",
+			"dist": {
+				"integrity": "sha512-AxDAX8GrEOPoLpzPxn9o7gJbjBalDwh2DzHefg1e8k+elZh7qZNG20dURuPjBJvbkI+7b9aufUp27qlwRt6TFw==",
+				"shasum": "b663c6b5ec59bb9fba2c4a724ae99fb10281fb1e",
+				"tarball": "https://registry.npmjs.org/postcss-convert-colors-to-vars/-/postcss-convert-colors-to-vars-0.1.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 10489,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIFYTZI0d4VktPNx5AVAcvZkIbyjBFoSbL01yrs3OIxxAAiAnUnhRFYzjcJUMzN1QmVpOkeoP0IAfTETFpkEIPYKV4w=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "skobets617",
+				"email": "skobets617yandex@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "skobets617",
+					"email": "skobets617yandex@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-convert-colors-to-vars_0.1.0_1775044494180_0.592128697206737"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-04-01T11:54:54.080Z",
+		"0.1.0": "2026-04-01T11:54:54.340Z",
+		"modified": "2026-04-01T11:54:54.645Z"
+	},
+	"maintainers": [
+		{
+			"name": "skobets617",
+			"email": "skobets617yandex@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin to replace hardcoded CSS colors with design token CSS variables.",
+	"homepage": "https://github.com/s-kobets/postcss-convert-colors-to-vars#readme",
+	"keywords": [
+		"postcss-plugin",
+		"postcss",
+		"css",
+		"design-tokens",
+		"css-variables",
+		"custom-properties",
+		"color-tokens",
+		"design-system",
+		"style-tokens",
+		"token-transform",
+		"css-transform",
+		"css-migration",
+		"theming",
+		"dark-mode",
+		"light-theme",
+		"postcss-color"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/s-kobets/postcss-convert-colors-to-vars.git"
+	},
+	"author": {
+		"name": "skobets"
+	},
+	"bugs": {
+		"url": "https://github.com/s-kobets/postcss-convert-colors-to-vars/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-convert-colors-to-vars\n\nPostCSS plugin to replace hardcoded CSS colors with design token CSS variables.\n\n## Why\n\nThis plugin is useful when you want to migrate existing CSS to design tokens without rewriting every stylesheet by hand.\n\nIt is especially useful for theming. Your component CSS stays the same, while light and dark themes only change token values:\n\n```css\n.badge {\n  color: var(--color-text-primary);\n  background: var(--color-surface-accent);\n}\n```\n\nThen your themes can redefine only the tokens:\n\n```css\n:root {\n  --color-text-primary: #111111;\n  --color-surface-accent: #aabbcc;\n}\n\n[data-theme=\"dark\"] {\n  --color-text-primary: #f5f5f5;\n  --color-surface-accent: #335577;\n}\n```\n\nThis package helps you get there from existing literal colors.\n\n## Use Case\n\nIf your token source already looks like this:\n\n```ts\nconst colors = {\n  \"yellow-90\": \"#aabbcc\",\n  \"green-500\": \"#00594c\",\n}\n```\n\nyou can keep existing CSS during migration and compile matching literals to CSS custom properties:\n\n```css\n.badge {\n  color: #00594c;\n  background: #aabbcc;\n}\n```\n\nbecomes:\n\n```css\n.badge {\n  color: var(--sk-color-green-500);\n  background: var(--sk-color-yellow-90);\n}\n```\n\nThat means:\n\n- designers and token pipelines control theme values in one place\n- component CSS no longer needs to change when light or dark theme values change\n- teams can migrate incrementally instead of rewriting all styles at once\n\n## Install\n\n```bash\nnpm install postcss postcss-convert-colors-to-vars\n```\n\n## Usage\n\n```ts\nimport postcss from \"postcss\"\nimport convertColorsToVars from \"postcss-convert-colors-to-vars\"\n\nconst result = await postcss([\n  convertColorsToVars({\n    colors: {\n      \"yellow-90\": \"#aabbcc\",\n      \"green-500\": \"#00594c\",\n    },\n    variablePrefix: \"--sk-color-\",\n    exclude: [\"white\", \"black\"],\n    skipFiles: [\"global.css\", /\\.tokens\\.css$/],\n  }),\n]).process(inputCss, { from: \"button.module.css\" })\n```\n\n## Works Well For\n\n- migrating hardcoded colors to design tokens\n- moving a codebase to CSS custom properties\n- keeping component CSS stable across light and dark themes\n- design systems where token values come from a separate source of truth\n\n## Options\n\n`colors`\n\nMap of token name to color value.\n\n`variablePrefix`\n\nPrefix used to build CSS variable names. Default: `\"--\"`.\n\n`exclude`\n\nToken names that should not be converted.\n\n`skipFiles`\n\nList of string or `RegExp` patterns used to skip files.\n\n`getVariableName`\n\nAdvanced override for custom variable naming.\n\n`shouldSkipFile`\n\nAdvanced override for custom skip logic. If provided, it takes precedence over `skipFiles`.\n\n## Notes\n\n- Matching is case-insensitive.\n- The plugin only replaces colors that exactly match provided token values.\n- If two tokens share the same color value, the first one wins.\n- Works with PostCSS 8.\n- Package exports support both ESM and CommonJS consumers.\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-e6f56e4213ad9ec112b94652eae1ab07",
+	"_downloads": [
+		0
+	]
+}
