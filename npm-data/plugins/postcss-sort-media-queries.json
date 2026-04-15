@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-sort-media-queries",
-	"_rev": "63-e748b850ad0afcf861b5577cd68a2de4",
+	"_rev": "64-9e3fdf7dcd967407d560ea0499447ba6",
 	"name": "postcss-sort-media-queries",
 	"dist-tags": {
-		"latest": "6.4.4"
+		"latest": "6.5.0"
 	},
 	"versions": {
 		"1.0.1": {
@@ -6694,8 +6694,117 @@
 		},
 		"6.4.4": {
 			"name": "postcss-sort-media-queries",
-			"description": "PostCSS plugin for sorting and combining CSS media queries with mobile first / **desktop first methodologies",
 			"version": "6.4.4",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"css-optimizations",
+				"sort",
+				"mobile-first",
+				"desktop-first",
+				"mediaquery",
+				"media-queries",
+				"mq",
+				"responsive-css",
+				"combine-media-query",
+				"sort-media-query",
+				"css-mqpacker",
+				"node-css-mqpacker"
+			],
+			"author": {
+				"name": "Yunus Gaziyev",
+				"email": "yunusga@yandex.ru"
+			},
+			"license": "MIT",
+			"_id": "postcss-sort-media-queries@6.4.4",
+			"maintainers": [
+				{
+					"name": "yunusga",
+					"email": "yunusga@yandex.ru"
+				}
+			],
+			"homepage": "https://yunusga.uz/postcss-sort-media-queries",
+			"bugs": {
+				"url": "https://github.com/yunusga/postcss-sort-media-queries/issues"
+			},
+			"dist": {
+				"shasum": "d8f7581fe184ccacee3abc9dc2edffa78f307f9d",
+				"tarball": "https://registry.npmjs.org/postcss-sort-media-queries/-/postcss-sort-media-queries-6.4.4.tgz",
+				"fileCount": 6,
+				"integrity": "sha512-Bt1ITSNrSfZzh7Gw0AJse0aoJEGzwKVEDU850bexExP8vX9Ehm5XE66xech8Q/c3j8kLGr1oP5Suw5tAb2O5Nw==",
+				"signatures": [
+					{
+						"sig": "MEYCIQCOZOjST0Y3iCOfqM+PjXfNGoeby4aurKjJxsRYvlf0yAIhALya8UVPsyeEshi6E/PT/plGx5E0gwCMRndoTeoKuzRR",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"unpackedSize": 24255
+			},
+			"main": "src/index.js",
+			"type": "module",
+			"types": "./src/index.d.ts",
+			"module": "src/index.js",
+			"engines": {
+				"node": ">=20.0.0"
+			},
+			"exports": {
+				".": {
+					"types": "./src/index.d.ts",
+					"import": "./src/index.js",
+					"default": "./src/index.js",
+					"require": "./build/wrapper.cjs"
+				}
+			},
+			"gitHead": "7e1fca5badd9d5e0f0d85d4a0aee4e1cbc962a21",
+			"scripts": {
+				"lint": "eslint",
+				"test": "npm run build && vitest run",
+				"build": "npm run build:cjs",
+				"prepare": "husky",
+				"coverage": "vitest --coverage",
+				"build:cjs": "esbuild src/index.js --outfile=build/index.cjs --format=cjs --bundle --platform=node --external:postcss",
+				"test:watch": "vitest --watch"
+			},
+			"_npmUser": {
+				"name": "yunusga",
+				"email": "yunusga@yandex.ru"
+			},
+			"repository": {
+				"url": "git+https://github.com/yunusga/postcss-sort-media-queries.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.11.0",
+			"description": "PostCSS plugin for sorting and combining CSS media queries with mobile first / **desktop first methodologies",
+			"directories": {},
+			"_nodeVersion": "24.13.1",
+			"dependencies": {
+				"sort-css-media-queries": "^3.0.3"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"husky": "^9.1.7",
+				"eslint": "^10.2.0",
+				"vitest": "^4.1.2",
+				"esbuild": "^0.28.0",
+				"globals": "^17.4.0",
+				"prettier": "3.8.1",
+				"@eslint/js": "^10.0.1",
+				"@vitest/coverage-v8": "^4.1.2"
+			},
+			"peerDependencies": {
+				"nanoid": "^5.1.6",
+				"postcss": "^8.5.6"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-sort-media-queries_6.4.4_1775648078563_0.864004068055618",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"6.5.0": {
+			"name": "postcss-sort-media-queries",
+			"description": "PostCSS plugin for sorting and combining CSS media queries with mobile first / **desktop first methodologies",
+			"version": "6.5.0",
 			"engines": {
 				"node": ">=20.0.0"
 			},
@@ -6734,10 +6843,10 @@
 			"module": "src/index.js",
 			"exports": {
 				".": {
-					"types": "./src/index.d.ts",
-					"require": "./build/wrapper.cjs",
-					"import": "./src/index.js",
-					"default": "./src/index.js"
+					"types": "./dist/index.d.ts",
+					"require": "./dist/wrapper.cjs",
+					"import": "./dist/index.js",
+					"default": "./dist/index.js"
 				}
 			},
 			"scripts": {
@@ -6745,13 +6854,15 @@
 				"test:watch": "vitest --watch",
 				"coverage": "vitest --coverage",
 				"lint": "eslint",
+				"format": "prettier --write .",
 				"prepare": "husky",
-				"build": "npm run build:cjs",
-				"build:cjs": "esbuild src/index.js --outfile=build/index.cjs --format=cjs --bundle --platform=node --external:postcss"
+				"build": "npm run build:cjs && cpy \"src/**/*\" dist",
+				"build:cjs": "esbuild src/index.js --outfile=dist/index.cjs --format=cjs --bundle --platform=node --external:postcss"
 			},
 			"devDependencies": {
 				"@eslint/js": "^10.0.1",
 				"@vitest/coverage-v8": "^4.1.2",
+				"cpy-cli": "^7.0.0",
 				"esbuild": "^0.28.0",
 				"eslint": "^10.2.0",
 				"globals": "^17.4.0",
@@ -6764,23 +6875,23 @@
 				"postcss": "^8.5.6"
 			},
 			"dependencies": {
-				"sort-css-media-queries": "^3.0.3"
+				"sort-css-media-queries": "^3.0.5"
 			},
-			"gitHead": "7e1fca5badd9d5e0f0d85d4a0aee4e1cbc962a21",
+			"gitHead": "77f27dbc4be1c05ce217df6bf2f9b38acaee86d9",
 			"types": "./src/index.d.ts",
-			"_id": "postcss-sort-media-queries@6.4.4",
+			"_id": "postcss-sort-media-queries@6.5.0",
 			"_nodeVersion": "24.13.1",
 			"_npmVersion": "11.11.0",
 			"dist": {
-				"integrity": "sha512-Bt1ITSNrSfZzh7Gw0AJse0aoJEGzwKVEDU850bexExP8vX9Ehm5XE66xech8Q/c3j8kLGr1oP5Suw5tAb2O5Nw==",
-				"shasum": "d8f7581fe184ccacee3abc9dc2edffa78f307f9d",
-				"tarball": "https://registry.npmjs.org/postcss-sort-media-queries/-/postcss-sort-media-queries-6.4.4.tgz",
-				"fileCount": 6,
-				"unpackedSize": 24255,
+				"integrity": "sha512-iKKsWQIhCNWx/5xY83erLyZCN1NMdeJ8TOe2Zi2i40uPgQqn5iUt1O3OyEJqs7rzAj/dUExXO5XH0P3b94jTnw==",
+				"shasum": "39d0cbb26de9ccb89dacf4d6f636a50bdaae9b74",
+				"tarball": "https://registry.npmjs.org/postcss-sort-media-queries/-/postcss-sort-media-queries-6.5.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 28650,
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEYCIQCOZOjST0Y3iCOfqM+PjXfNGoeby4aurKjJxsRYvlf0yAIhALya8UVPsyeEshi6E/PT/plGx5E0gwCMRndoTeoKuzRR"
+						"sig": "MEUCIE1lwqAnQcbHVRDOAWOuG7uZ81rEvlN1GjuXkeE6Ad4MAiEAzrd2QqlyB2uBDwKJOsOunDmgxE7LzjrwlJBBqIjqtKM="
 					}
 				]
 			},
@@ -6797,14 +6908,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-sort-media-queries_6.4.4_1775648078563_0.864004068055618"
+				"tmp": "tmp/postcss-sort-media-queries_6.5.0_1776146939745_0.6235358774032276"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2019-11-23T18:16:57.901Z",
-		"modified": "2026-04-08T11:34:38.864Z",
+		"modified": "2026-04-14T06:09:00.026Z",
 		"1.0.1": "2019-11-23T18:16:58.014Z",
 		"1.0.2": "2019-11-23T18:23:50.441Z",
 		"1.0.4": "2019-11-23T19:25:34.055Z",
@@ -6866,7 +6977,8 @@
 		"6.2.2": "2026-03-13T14:17:42.572Z",
 		"6.3.2": "2026-03-13T18:05:41.151Z",
 		"6.3.3": "2026-03-21T20:46:37.353Z",
-		"6.4.4": "2026-04-08T11:34:38.727Z"
+		"6.4.4": "2026-04-08T11:34:38.727Z",
+		"6.5.0": "2026-04-14T06:08:59.903Z"
 	},
 	"bugs": {
 		"url": "https://github.com/yunusga/postcss-sort-media-queries/issues"
@@ -6905,10 +7017,9 @@
 			"email": "yunusga@yandex.ru"
 		}
 	],
-	"readme": "# PostCSS Sort Media Queries\n\n[PostCSS]:          https://github.com/postcss/postcss\n[official docs]:    https://github.com/postcss/postcss#usage\n[Online Demo]:      https://yunusga.uz/postcss-sort-media-queries/\n[MIT]:              https://github.com/yunusga/postcss-sort-media-queries/blob/master/LICENSE\n[Releases history]: https://github.com/yunusga/postcss-sort-media-queries/blob/master/CHANGELOG.md\n\n[![npm](https://img.shields.io/npm/v/postcss-sort-media-queries.svg)](https://www.npmjs.com/package/postcss-sort-media-queries) [![Node.js CI](https://github.com/yunusga/postcss-sort-media-queries/actions/workflows/test.yml/badge.svg?branch=main&event=status)](https://github.com/yunusga/postcss-sort-media-queries/actions/workflows/test.yml)\n![license](https://img.shields.io/badge/License-MIT-orange.svg)\n[![npm](https://img.shields.io/npm/dt/postcss-sort-media-queries.svg)](https://www.npmjs.com/package/postcss-sort-media-queries)\n\n<img src=\"logo.svg?sanitize=true\" align=\"right\" title=\"PostCSS sort media queries logotype\" width=\"100\" height=\"100\">\n\n🌏 **English** ▫ [**O'zbek**](README-UZ.md)\n\n**PostcSS Sort Qedia Queries** is a powerful and flexible [PostCSS] plugin for sorting and combining CSS media queries using **mobile-first** or **desktop-first** methodologies. It helps maintain a clean, predictable stylesheet structure, improves readability, and prevents unexpected style overrides.\n\nA key advantage of this plugin is its **full support for nested media queries**, ensuring correct processing and ordering even in complex, deeply structured stylesheets. This makes it perfectly suited for modern CSS workflows that rely on nesting via PostCSS or preprocessor-like patterns.\n\nIn addition, the plugin fully supports **CSS Media Queries Level 4**, including modern **range syntax**.\n\nSorting works based on [OlehDutchenko/sort-css-media-queries](https://github.com/OlehDutchenko/sort-css-media-queries).\n\n## Table of Contents\n\n - [Install](#install)\n - [Usage](#usage)\n - [Options](#options)\n   - [sort](#sort)\n   - [Custom sort function](#custom-sort-function)\n   - [Sort configuration](#sort-configuration)\n - [Online demo](#online-demo)\n - [Examples (with nested media queries)](#examples)\n   - [Sorting options](#mobile-first-sorting)\n   - [Desktop first sorting](#desktop-first-sorting)\n - [Changelog](#changelog)\n - [License](#license)\n - [Other PostCSS plugins](#other-postcss-plugins)\n - [Thanks 💪](#thanks)\n\n## Install\n\n\n```\nnpm install postcss postcss-sort-media-queries --save-dev\n```\n\n## Usage\n\nCheck you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\n\n```js\n// CJS\nlet sortCssMq = require('postcss-sort-media-queries');\n\n// ESM\nimport sortCssMq from 'postcss-sort-media-queries';\n```\n\nIf you already use PostCSS, add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-sort-media-queries')({\n+     sort: 'mobile-first' | 'desktop-first' | function // default ('mobile-first')\n+   }),\n  ]\n}\n```\n\nor with custom sort function\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-sort-media-queries')({\n+     sort: function(a, b) {\n+        // custom sorting function\n+     }\n+   }),\n  ]\n}\n```\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n## Options\n\n> Sorting works based on [OlehDutchenko/sort-css-media-queries](https://github.com/OlehDutchenko/sort-css-media-queries)\n\n### Sort\n\nThis option support **string** or **function** values.\n\n- `{string}` `'mobile-first'` - (default) mobile first sorting\n- `{string}` `'desktop-first'` - desktop first sorting\n- `{function}` your own sorting function\n\n#### `'mobile-first'` or `'desktop-first'`\n\n```js\npostcss([\n  sortMediaQueries({\n    sort: 'mobile-first' | 'desktop-first' // default (mobile-first)\n  })\n]).process(css);\n```\n### Custom sort function\n```js\npostcss([\n  sortMediaQueries({\n    function(a, b) {\n      return a.localeCompare(b);\n    }\n  })\n]).process(css);\n```\n\nIn this example, all your media queries will sort by A-Z order.\n\nThis sorting function is directly passed to Array#sort() method of an array of all your media queries.\n\n### Sort configuration\n\nBy this configuration you can control sorting behaviour.\n\n```js\npostcss([\n  sortMediaQueries({\n    configuration: {\n      unitlessMqAlwaysFirst: true, // or false\n    }\n  })\n]).process(css);\n```\n\nOr alternatively create a `sort-css-mq.config.json` file in the root of your project. Or add property `sortCssMQ: {}` in your `package.json`.\n\n## Online demo\n\nAnd here is the [Online Demo]\n\n## Examples\n\n### Mobile first sorting (with nested media queries)\n\n#### Before\n\n```bash\nroot\n│\n├── (min-width: 1400px)\n├── (min-width: 1200px)\n│\n└── @layer reset\n   │\n   ├── (min-width: 1200px)\n   │   ├── (min-width: 992px)\n   │   └── (min-width: 768px)\n   │\n   └── (min-width: 768px)\n       ├── (min-width: 640px)\n       └── (min-width: 320px)\n```\n\n#### After\n\n```bash\nroot\n│\n├── @layer reset\n│  │\n│  ├── (min-width: 768px)\n│  │   ├── (min-width: 320px)\n│  │   └── (min-width: 640px)\n│  │\n│  └── (min-width: 1200px)\n│      ├── (min-width: 768px)\n│      └── (min-width: 992px)\n│\n├── (min-width: 1200px)\n└── (min-width: 1400px)\n```\n\n### Desktop first sorting\n\n**Before**\n```css\nroot\n│\n├── (width < 640px)\n├── (min-width: 760px)\n├── (width < 640px)\n├── (min-width: 1280px)\n├── (max-width: 760px)\n└── (max-width: 640px)\n```\n\n**After**\n\n```bash\nroot\n│\n├── (min-width: 760px)\n├── (max-width: 640px)\n├── (width < 640px)\n├── (max-width: 760px)\n└── (min-width: 1280px)\n```\n\n---\n\n## Changelog\n\nSee [Releases history]\n\n## License\n\n[MIT]\n\n## Other PostCSS plugins\n\n- [`postcss-momentum-scrolling`](https://github.com/solversgroup/postcss-momentum-scrolling) - plugin for adding **momentum** style scrolling behavior (`-webkit-overflow-scrolling:touch`) for elements with overflow (scroll, auto) on iOS (**deprecated for modern Safari**)\n\n## Thanks\n\n- Andrey Sitnik [@ai](https://github.com/ai)\n- Oleh Dutchenko [@OlehDutchenko](https://github.com/OlehDutchenko)\n- Jakub Caban [@Lustmored](https://github.com/Lustmored)\n- Dmytro Symonov [@Kassaila](https://github.com/Kassaila)\n- Kai Falkowski [@SassNinja](https://github.com/SassNinja)\n- Khayot Razzakov [@Khayotbek1](https://github.com/Khayotbek1)\n- ReindDooyeweerd [@ReindDooyeweerd](https://github.com/ReindDooyeweerd)\n- msev [@msev](https://github.com/msev)\n",
+	"readme": "# PostCSS Sort Media Queries\n\n[PostCSS]: https://github.com/postcss/postcss\n[official docs]: https://github.com/postcss/postcss#usage\n[Online Demo]: https://yunusga.uz/postcss-sort-media-queries/\n[MIT]: https://github.com/yunusga/postcss-sort-media-queries/blob/master/LICENSE\n[Releases history]: https://github.com/yunusga/postcss-sort-media-queries/blob/master/CHANGELOG.md\n\n[![npm](https://img.shields.io/npm/v/postcss-sort-media-queries.svg)](https://www.npmjs.com/package/postcss-sort-media-queries) [![Node.js CI](https://github.com/yunusga/postcss-sort-media-queries/actions/workflows/test.yml/badge.svg?branch=main&event=status)](https://github.com/yunusga/postcss-sort-media-queries/actions/workflows/test.yml)\n![license](https://img.shields.io/badge/License-MIT-orange.svg)\n[![npm](https://img.shields.io/npm/dt/postcss-sort-media-queries.svg)](https://www.npmjs.com/package/postcss-sort-media-queries)\n\n<img src=\"logo.svg?sanitize=true\" align=\"right\" title=\"PostCSS sort media queries logotype\" width=\"100\" height=\"100\">\n\n🌏 **English** ▫ [**O'zbek**](README-UZ.md) ▫ [**简体中文**](README-ZH.md)\n\n**PostcSS Sort Qedia Queries** is a powerful and flexible [PostCSS] plugin for sorting and combining CSS media queries using **mobile-first** or **desktop-first** methodologies. It helps maintain a clean, predictable stylesheet structure, improves readability, and prevents unexpected style overrides.\n\nA key advantage of this plugin is its **full support for nested media queries**, ensuring correct processing and ordering even in complex, deeply structured stylesheets. This makes it perfectly suited for modern CSS workflows that rely on nesting via PostCSS or preprocessor-like patterns.\n\nIn addition, the plugin fully supports **CSS Media Queries Level 4**, including modern **range syntax**.\n\nSorting works based on [OlehDutchenko/sort-css-media-queries](https://github.com/OlehDutchenko/sort-css-media-queries).\n\n## Table of Contents\n\n- [Install](#install)\n- [Usage](#usage)\n- [Options](#options)\n  - [sort](#sort)\n  - [Custom sort function](#custom-sort-function)\n  - [Sort configuration](#sort-configuration)\n- [Online demo](#online-demo)\n- [Examples (with nested media queries)](#examples)\n  - [Sorting options](#mobile-first-sorting)\n  - [Desktop first sorting](#desktop-first-sorting)\n- [Changelog](#changelog)\n- [License](#license)\n- [Other PostCSS plugins](#other-postcss-plugins)\n- [Thanks 💪](#thanks)\n\n## Install\n\n```\nnpm install postcss postcss-sort-media-queries --save-dev\n```\n\n## Usage\n\nCheck you project for existed PostCSS config: `postcss.config.js`\nin the project root, `\"postcss\"` section in `package.json`\nor `postcss` in bundle config.\n\n```js\n// CJS\nlet sortCssMq = require(\"postcss-sort-media-queries\");\n\n// ESM\nimport sortCssMq from \"postcss-sort-media-queries\";\n```\n\nIf you already use PostCSS, add the plugin to plugins list:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-sort-media-queries')({\n+     sort: 'mobile-first' | 'desktop-first' | function // default ('mobile-first')\n+   }),\n  ]\n}\n```\n\nor with custom sort function\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-sort-media-queries')({\n+     sort: function(a, b) {\n+        // custom sorting function\n+     }\n+   }),\n  ]\n}\n```\n\nIf you do not use PostCSS, add it according to [official docs]\nand set this plugin in settings.\n\n## Options\n\n> Sorting works based on [OlehDutchenko/sort-css-media-queries](https://github.com/OlehDutchenko/sort-css-media-queries)\n\n### Sort\n\nThis option support **string** or **function** values.\n\n- `{string}` `'mobile-first'` - (default) mobile first sorting\n- `{string}` `'desktop-first'` - desktop first sorting\n- `{function}` your own sorting function\n\n#### `'mobile-first'` or `'desktop-first'`\n\n```js\npostcss([\n  sortMediaQueries({\n    sort: \"mobile-first\" | \"desktop-first\", // default (mobile-first)\n  }),\n]).process(css);\n```\n\n### Custom sort function\n\n```js\npostcss([\n  sortMediaQueries({\n    function(a, b) {\n      return a.localeCompare(b);\n    },\n  }),\n]).process(css);\n```\n\nIn this example, all your media queries will sort by A-Z order.\n\nThis sorting function is directly passed to Array#sort() method of an array of all your media queries.\n\n### Sort configuration\n\nBy this configuration you can control sorting behaviour.\n\n```js\npostcss([\n  sortMediaQueries({\n    configuration: {\n      unitlessMqAlwaysFirst: true, // or false\n    },\n  }),\n]).process(css);\n```\n\nOr alternatively create a `sort-css-mq.config.json` file in the root of your project. Or add property `sortCssMQ: {}` in your `package.json`.\n\n## Online demo\n\nAnd here is the [Online Demo]\n\n## Examples\n\n### Mobile first sorting (with nested media queries)\n\n#### Before\n\n```bash\nroot\n│\n├── (min-width: 1400px)\n├── (min-width: 1200px)\n│\n└── @layer reset\n   │\n   ├── (min-width: 1200px)\n   │   ├── (min-width: 992px)\n   │   └── (min-width: 768px)\n   │\n   └── (min-width: 768px)\n       ├── (min-width: 640px)\n       └── (min-width: 320px)\n```\n\n#### After\n\n```bash\nroot\n│\n├── @layer reset\n│  │\n│  ├── (min-width: 768px)\n│  │   ├── (min-width: 320px)\n│  │   └── (min-width: 640px)\n│  │\n│  └── (min-width: 1200px)\n│      ├── (min-width: 768px)\n│      └── (min-width: 992px)\n│\n├── (min-width: 1200px)\n└── (min-width: 1400px)\n```\n\n### Desktop first sorting\n\n**Before**\n\n```css\nroot\n│\n├── (width < 640px)\n├── (min-width: 760px)\n├── (width < 640px)\n├── (min-width: 1280px)\n├── (max-width: 760px)\n└── (max-width: 640px)\n```\n\n**After**\n\n```bash\nroot\n│\n├── (min-width: 760px)\n├── (max-width: 640px)\n├── (width < 640px)\n├── (max-width: 760px)\n└── (min-width: 1280px)\n```\n\n---\n\n## Changelog\n\nSee [Releases history]\n\n## License\n\n[MIT]\n\n## Other PostCSS plugins\n\n- [`postcss-momentum-scrolling`](https://github.com/solversgroup/postcss-momentum-scrolling) - plugin for adding **momentum** style scrolling behavior (`-webkit-overflow-scrolling:touch`) for elements with overflow (scroll, auto) on iOS (**deprecated for modern Safari**)\n\n## Thanks\n\n- Andrey Sitnik [@ai](https://github.com/ai)\n- Oleh Dutchenko [@OlehDutchenko](https://github.com/OlehDutchenko)\n- Jakub Caban [@Lustmored](https://github.com/Lustmored)\n- Dmytro Symonov [@Kassaila](https://github.com/Kassaila)\n- Kai Falkowski [@SassNinja](https://github.com/SassNinja)\n- Khayot Razzakov [@Khayotbek1](https://github.com/Khayotbek1)\n- ReindDooyeweerd [@ReindDooyeweerd](https://github.com/ReindDooyeweerd)\n- msev [@msev](https://github.com/msev)\n- ajiho [@ajiho](https://github.com/ajiho)\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		3225111,
 		3290617,
 		3285980,
 		3237995,
@@ -6927,6 +7038,7 @@
 		3613767,
 		3724870,
 		3706201,
-		3614027
+		3614027,
+		3617237
 	]
 }
