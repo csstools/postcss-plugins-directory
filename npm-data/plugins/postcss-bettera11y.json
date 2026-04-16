@@ -1,0 +1,125 @@
+{
+	"_id": "postcss-bettera11y",
+	"name": "postcss-bettera11y",
+	"dist-tags": {
+		"latest": "0.1.1"
+	},
+	"versions": {
+		"0.1.1": {
+			"name": "postcss-bettera11y",
+			"version": "0.1.1",
+			"description": "PostCSS plugin that runs BetterA11y accessibility audits on your CSS.",
+			"license": "MIT",
+			"type": "module",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"bettera11y",
+				"a11y",
+				"accessibility",
+				"css"
+			],
+			"main": "./dist/index.cjs",
+			"module": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js",
+					"require": "./dist/index.cjs"
+				}
+			},
+			"scripts": {
+				"build": "tsup",
+				"dev": "tsup --watch",
+				"typecheck": "tsc --noEmit",
+				"lint": "tsc --noEmit",
+				"format": "prettier --write .",
+				"format:check": "prettier --check .",
+				"commitlint": "commitlint --from=HEAD~1 --to=HEAD",
+				"test": "vitest run",
+				"test:smoke:esm": "node --input-type=module -e \"import('./dist/index.js').then((m)=>{ if (!m.default || !m.bettera11yPostcss) throw new Error('Missing exports'); })\"",
+				"test:smoke:cjs": "node -e \"const m=require('./dist/index.cjs'); if (!m.default || !m.bettera11yPostcss) throw new Error('Missing exports');\"",
+				"validate:release": "npm run format:check && npm run typecheck && npm run test && npm run build && npm run test:smoke:esm && npm run test:smoke:cjs",
+				"example:build": "npm run build && npm install --prefix examples/postcss-demo && npm run build --prefix examples/postcss-demo",
+				"prepare": "husky"
+			},
+			"peerDependencies": {
+				"bettera11y": "^0.4.0",
+				"postcss": "^8.4.0"
+			},
+			"devDependencies": {
+				"@commitlint/cli": "^19.8.0",
+				"@commitlint/config-conventional": "^19.8.0",
+				"@types/node": "^22.15.3",
+				"bettera11y": "^0.4.2",
+				"husky": "^9.1.7",
+				"postcss": "^8.5.6",
+				"prettier": "^3.5.3",
+				"tsup": "^8.4.0",
+				"typescript": "^5.8.3",
+				"vitest": "^2.1.8"
+			},
+			"_id": "postcss-bettera11y@0.1.1",
+			"gitHead": "ac61886ca830141e2f9a681ecb9dfaf423c94239",
+			"_nodeVersion": "22.22.2",
+			"_npmVersion": "10.9.7",
+			"dist": {
+				"integrity": "sha512-gbly3YOhfmx21cboHDno2++TdUyw/n8wq+TtQzjJ89rBbR8OpxMTgk8opwcUCJQe8WO7svAozJEDXwhjAeLdKg==",
+				"shasum": "4061fb10d029936239e250645f6be5028fe4f04b",
+				"tarball": "https://registry.npmjs.org/postcss-bettera11y/-/postcss-bettera11y-0.1.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 39019,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIQCCiHcNdFdjC9sNYkG3F9JdtdYNbOfNn7z11m5upuYPXQIgaMQ2eYwOh93+Swem0bn/puNB6d4JbemwG0aQgtUsiQo="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "sebastiancodes",
+				"email": "hello@sebastiancodes.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "sebastiancodes",
+					"email": "hello@sebastiancodes.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-bettera11y_0.1.1_1776226677809_0.008920431841739296"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-04-15T04:17:57.704Z",
+		"0.1.1": "2026-04-15T04:17:57.944Z",
+		"modified": "2026-04-15T04:17:58.166Z"
+	},
+	"maintainers": [
+		{
+			"name": "sebastiancodes",
+			"email": "hello@sebastiancodes.com"
+		}
+	],
+	"description": "PostCSS plugin that runs BetterA11y accessibility audits on your CSS.",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"bettera11y",
+		"a11y",
+		"accessibility",
+		"css"
+	],
+	"license": "MIT",
+	"readme": "# postcss-bettera11y\n\nPostCSS plugin that runs [BetterA11y](https://github.com/bettera11y/bettera11y) on your CSS so you can catch accessibility issues (for example low contrast) in the stylesheet that your build actually emits.\n\n## Install\n\n```bash\nnpm install postcss-bettera11y bettera11y postcss\n```\n\nPeer dependencies: `bettera11y` and `postcss`.\n\n## Usage\n\nRegister **`bettera11yPostcss`** in your PostCSS config. Place it **after** any plugins that expand or transform CSS (framework pipelines, `@import` resolution, etc.) so the audit sees the final declarations.\n\n**`postcss.config.mjs`**\n\n```javascript\nimport bettera11y from \"postcss-bettera11y\";\n\nexport default {\n    plugins: [bettera11y()]\n};\n```\n\nWith options:\n\n```javascript\nimport bettera11y from \"postcss-bettera11y\";\n\nexport default {\n    plugins: [\n        bettera11y({\n            failOnError: false,\n            logLevel: \"warn\"\n        })\n    ]\n};\n```\n\n### Using with Tailwind CSS\n\nIf you use Tailwind’s PostCSS plugin, list **`postcss-bettera11y` after** it so utilities are expanded before the audit:\n\n```javascript\nimport tailwindcss from \"@tailwindcss/postcss\";\nimport bettera11y from \"postcss-bettera11y\";\n\nexport default {\n    plugins: [tailwindcss(), bettera11y()]\n};\n```\n\nTailwind remains your dependency; this package does not ship or require it.\n\n## Options\n\nThe plugin is a standard PostCSS plugin factory: `bettera11yPostcss(options?)`.\n\n| Option        | Type                          | Default            | Description                                                                                                                           |\n| ------------- | ----------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |\n| `failOnError` | `boolean`                     | `false`            | When `true`, throws if any diagnostic uses BetterA11y severity `\"error\"`. (Built-in contrast rule is `\"warn\"`.)                       |\n| `logLevel`    | `\"error\" \\| \"warn\" \\| \"info\"` | `\"warn\"`           | Filters which severities are forwarded to PostCSS warnings. `\"info\"` surfaces all diagnostics and a “no issues” line when applicable. |\n| `cache`       | `boolean`                     | `true`             | Skip re-auditing when the CSS string for a given `from` path is unchanged.                                                            |\n| `rules`       | `RuleDefinition[]`            | `[color-contrast]` | Override BetterA11y rules (defaults to the `color-contrast` rule from `defaultRules`).                                                |\n| `ruleOptions` | object                        | —                  | Per-rule options passed to `audit()`.                                                                                                 |\n| `normalizers` | object                        | —                  | Custom normalizers passed to `audit()`.                                                                                               |\n\nPresets from BetterA11y are re-exported: `recommendedPreset`, `strictPreset`, `wcagAaBaselinePreset`.\n\n## Scope and limitations\n\nBetterA11y’s **CSS** contrast check only considers declaration blocks where **both** `color` and `background` / `background-color` appear **in the same rule**. That matches plain CSS and many layered or composed styles, but **not** the typical atomic-utility pattern where foreground and background utilities compile to **different** selectors on the same element.\n\nFor markup and component-level checks, use **[vite-plugin-bettera11y](https://www.npmjs.com/package/vite-plugin-bettera11y)** (or run `audit()` on your HTML/TSX sources) alongside this plugin.\n\nOutput from utility frameworks often uses nested at-rules; BetterA11y’s flat CSS parser does not walk every nested block. Treat results as a **best-effort signal**, not a full substitute for manual review or browser contrast tooling.\n\n## API\n\n```typescript\nimport bettera11yPostcss, { hashContent, normalizePostcssOptions, runCssAudit } from \"postcss-bettera11y\";\n```\n\n- **Default export** — same as `bettera11yPostcss` (PostCSS `PluginCreator`).\n- **`runCssAudit`** — runs the same CSS audit the plugin uses (returns BetterA11y `AuditResult` plus error/warning counts).\n- **`normalizePostcssOptions`** — merges partial plugin options with the same defaults as the PostCSS plugin (including default **`color-contrast`** rules).\n- **`hashContent`** — stable SHA-256 hash of a CSS string (used by the plugin’s cache; useful for custom tooling).\n\nTypes: **`BetterA11yPostcssOptions`**, **`BetterA11yPostcssNormalizedOptions`**, **`BetterA11yPostcssLogLevel`**.\n\n### Stricter contrast thresholds (`ruleOptions`)\n\nPer-rule options are passed through to BetterA11y’s `audit()` call. The built-in CSS contrast rule accepts thresholds such as `minContrastNormal` and `minContrastLarge` (see that rule’s `optionsSchema` in the core package).\n\n```javascript\nimport bettera11y from \"postcss-bettera11y\";\n\nexport default {\n    plugins: [\n        bettera11y({\n            ruleOptions: {\n                \"color-contrast\": {\n                    minContrastNormal: 7,\n                    minContrastLarge: 4.5\n                }\n            }\n        })\n    ]\n};\n```\n\n### Custom rules (`rules`)\n\nBy default the plugin audits with BetterA11y’s **`color-contrast`** rule only (the same subset `runCssAudit` uses). Override **`rules`** with any **`RuleDefinition[]`** from **`bettera11y`** or your own definitions.\n\nFor **raw CSS** (`format: \"css\"` inside the engine), rules that rely on a DOM document typically emit nothing; contrast (and your own CSS-aware rules) are the natural fit. For authoring rules in general, see the BetterA11y [**rule authoring guide**](https://github.com/bettera11y/bettera11y/blob/main/docs/rule-authoring.md).\n\n**Example:** combine the stock contrast rule with a small custom rule that inspects the stylesheet text:\n\n```javascript\nimport bettera11y from \"postcss-bettera11y\";\nimport { defaultRules } from \"bettera11y\";\n\nconst colorContrast = defaultRules.filter((rule) => rule.meta.id === \"color-contrast\");\n\n/** @type {import(\"bettera11y\").RuleDefinition} */\nconst warnOnOutlineNone = {\n    meta: {\n        id: \"demo-outline-none\",\n        description: \"Example: warn when outline is removed in plain CSS.\",\n        category: \"style\",\n        defaultSeverity: \"warn\",\n        tags: [\"custom\"],\n        wcagAlignment: \"heuristic\",\n        wcagNotes: \"Illustrative static check; a real rule would verify compensating :focus-visible styles.\"\n    },\n    check({ input }) {\n        if (input.format !== \"css\") {\n            return [];\n        }\n        if (!/outline\\s*:\\s*none/i.test(input.content)) {\n            return [];\n        }\n        return [\n            {\n                ruleId: \"demo-outline-none\",\n                severity: \"warn\",\n                category: \"style\",\n                message: \"Stylesheet contains outline: none; confirm focus is still visible for keyboard users.\",\n                remediation: \"Pair removals with a visible :focus-visible ring or equivalent.\"\n            }\n        ];\n    }\n};\n\nexport default {\n    plugins: [\n        bettera11y({\n            rules: [...colorContrast, warnOnOutlineNone]\n        })\n    ]\n};\n```\n\n### Presets (`recommendedPreset`, `strictPreset`, `wcagAaBaselinePreset`)\n\nThese are re-exported from **`bettera11y`** for convenience. You can pass them as **`rules`**, but on **CSS-only** input most preset rules are markup-oriented and return **no diagnostics** while still being evaluated. For PostCSS pipelines, the default contrast-only set—or **`[...colorContrast, …custom]`** as above—is usually clearer than dropping in a full preset unchanged.\n\n```javascript\nimport bettera11y, { recommendedPreset } from \"postcss-bettera11y\";\n\nexport default {\n    plugins: [bettera11y({ rules: recommendedPreset })]\n};\n```\n\n### Programmatic audit without PostCSS\n\nUse **`runCssAudit`** when you already have a CSS string (for example from a design-token pipeline) and want the same logic as the plugin:\n\n```javascript\nimport { normalizePostcssOptions, runCssAudit } from \"postcss-bettera11y\";\n\nconst css = `.bad { color: #777777; background-color: #888888; }`;\n\nconst { result, summary } = await runCssAudit(\n    css,\n    \"virtual/tokens.css\",\n    normalizePostcssOptions({\n        ruleOptions: {\n            \"color-contrast\": { minContrastNormal: 4.5 }\n        }\n    })\n);\n\nconsole.log(summary, result.diagnostics);\n```\n\n### Content fingerprint (`hashContent`)\n\n```javascript\nimport { hashContent } from \"postcss-bettera11y\";\n\nconst a = hashContent(cssString);\n```\n\nThe PostCSS plugin uses this (with the input path) when **`cache: true`** to skip re-auditing unchanged CSS.\n\n## Examples\n\nSee [examples/README.md](examples/README.md). From the repo root, run **`npm run example:build`** to build the plugin and exercise the **postcss-cli** demo (contrast warnings in the terminal).\n\n## License\n\nMIT\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-6ace1219cb28425b235bb60a8fc62ca4",
+	"_downloads": [
+		0
+	]
+}

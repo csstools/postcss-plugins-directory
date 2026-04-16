@@ -1,0 +1,110 @@
+{
+	"_id": "postcss-layer-by-path",
+	"name": "postcss-layer-by-path",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-layer-by-path",
+			"version": "1.0.0",
+			"description": "PostCSS plugin that wraps file contents in @layer based on glob patterns",
+			"type": "module",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js",
+					"require": "./dist/index.cjs"
+				}
+			},
+			"scripts": {
+				"build": "tsup",
+				"dev": "tsup --watch",
+				"test": "vitest run",
+				"typecheck": "tsc --noEmit",
+				"prepublishOnly": "npm run build"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"layer",
+				"cascade-layers"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"micromatch": "^4.0.8"
+			},
+			"devDependencies": {
+				"@types/micromatch": "^4.0.9",
+				"@types/node": "^22.19.17",
+				"postcss": "^8.5.0",
+				"tsup": "^8.0.0",
+				"typescript": "^5.0.0",
+				"vitest": "^3.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"_id": "postcss-layer-by-path@1.0.0",
+			"gitHead": "26bca861d36f5fc18c25558f2f88c6909c22a66b",
+			"_nodeVersion": "22.13.0",
+			"_npmVersion": "10.9.2",
+			"dist": {
+				"integrity": "sha512-HAhCsk4lzBxJ2tJNYPd5LMq9e4stQFpJ+e8GY1NSPEIjAofC51oOEVDnHuk4TrJ5pzbx0BJ5Cw7zUdu9X4VKhw==",
+				"shasum": "3edd0a3db09c7c0fde01caefe58cdd2ba877029b",
+				"tarball": "https://registry.npmjs.org/postcss-layer-by-path/-/postcss-layer-by-path-1.0.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 16370,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIBwp1K3P3nraFsHXhJiqEZLg9ax+0TVgU+t/CYLQgAM8AiBU/DFynn/kMdZqGRSIwi0WtINtwGSZVnnSimezskzwUw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "rjanjic",
+				"email": "hi@rjanjic.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "rjanjic",
+					"email": "hi@rjanjic.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-layer-by-path_1.0.0_1776287950128_0.008452699958015009"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-04-15T21:19:10.127Z",
+		"1.0.0": "2026-04-15T21:19:10.315Z",
+		"modified": "2026-04-15T21:19:10.528Z"
+	},
+	"maintainers": [
+		{
+			"name": "rjanjic",
+			"email": "hi@rjanjic.com"
+		}
+	],
+	"description": "PostCSS plugin that wraps file contents in @layer based on glob patterns",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"layer",
+		"cascade-layers"
+	],
+	"license": "MIT",
+	"readme": "# postcss-layer-by-path\n\nA [PostCSS](https://postcss.org/) plugin that automatically wraps CSS files in [`@layer`](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) blocks based on the file's path matching glob patterns.\n\n## Installation\n\n```sh\nnpm install postcss-layer-by-path\n```\n\n## Usage\n\n```js\n// postcss.config.js\nimport layerByPath from 'postcss-layer-by-path'\n\nexport default {\n  plugins: [\n    layerByPath({\n      'src/components/**/*.css': 'components',\n      'src/pages/**/*.css': 'pages',\n      'src/styles/utilities/**/*.css': 'utilities',\n    }),\n  ],\n}\n```\n\nInput (`src/components/Button.css`):\n\n```css\n.button { color: red; }\n.button:hover { color: darkred; }\n```\n\nOutput:\n\n```css\n@layer components {\n  .button { color: red; }\n  .button:hover { color: darkred; }\n}\n```\n\n## Options\n\nThe plugin accepts a single argument: a plain object mapping glob patterns to layer names.\n\n```ts\nlayerByPath({\n  [glob: string]: string\n})\n```\n\n- **Keys** — glob patterns matched against the file path (relative to `process.cwd()`). Uses [micromatch](https://github.com/micromatch/micromatch) syntax.\n- **Values** — the layer name to use in `@layer <name> { ... }`. Sub-layers with dots are supported (e.g. `'base.reset'`).\n\n**First match wins.** Patterns are evaluated in insertion order; the first matching pattern's layer name is used.\n\n## Behavior\n\n| Scenario | Result |\n|---|---|\n| File path matches a pattern | Wrapped in `@layer <name> { }` |\n| No pattern matches | File left unchanged |\n| File already has a top-level `@layer` | File left unchanged |\n| Empty file | File left unchanged |\n| No file path available (in-memory processing) | File left unchanged |\n\n## Examples\n\n### Vite\n\n```js\n// vite.config.js\nimport { defineConfig } from 'vite'\nimport layerByPath from 'postcss-layer-by-path'\n\nexport default defineConfig({\n  css: {\n    postcss: {\n      plugins: [\n        layerByPath({\n          'src/components/**/*.css': 'components',\n          'src/pages/**/*.css': 'pages',\n        }),\n      ],\n    },\n  },\n})\n```\n\n### webpack / css-loader\n\n```js\n// webpack.config.js\nconst layerByPath = require('postcss-layer-by-path')\n\nmodule.exports = {\n  module: {\n    rules: [\n      {\n        test: /\\.css$/,\n        use: [\n          'style-loader',\n          'css-loader',\n          {\n            loader: 'postcss-loader',\n            options: {\n              postcssOptions: {\n                plugins: [\n                  layerByPath({\n                    'src/components/**/*.css': 'components',\n                    'src/pages/**/*.css': 'pages',\n                  }),\n                ],\n              },\n            },\n          },\n        ],\n      },\n    ],\n  },\n}\n```\n\n## License\n\nMIT\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-6f30f959fb0638ac4bece7d78faf6731",
+	"_downloads": [
+		0
+	]
+}
