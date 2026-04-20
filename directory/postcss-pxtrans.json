@@ -1,6 +1,6 @@
 {
 	"name": "postcss-pxtrans",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "PostCSS plugin that converts px units to rpx/rem/vw/px for multiple platforms.",
 	"author": {
 		"name": "ice breaker",
@@ -29,29 +29,22 @@
 		".": {
 			"types": {
 				"import": "./dist/index.d.mts",
-				"require": "./dist/index.d.ts"
+				"require": "./dist/index.require.d.cts"
 			},
 			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
-		}
-	},
-	"typesVersions": {
-		"<4.7": {
-			"*": [
-				"./dist/*",
-				"./dist/index.d.ts"
-			]
+			"require": "./dist/index.require.cjs"
 		}
 	},
 	"peerDependencies": {
 		"postcss": "^8"
 	},
 	"dependencies": {
-		"postcss-plugin-shared": "^1.1.0"
+		"postcss-plugin-shared": "^1.1.3"
 	},
 	"scripts": {
-		"dev": "tsup --watch --sourcemap",
-		"build": "tsup",
+		"dev": "tsdown -w",
+		"build": "tsdown",
+		"typecheck": "tsc --noEmit",
 		"test": "vitest run",
 		"test:dev": "vitest",
 		"bench": "vitest bench",
@@ -59,24 +52,24 @@
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix"
 	},
-	"main": "./dist/index.cjs",
+	"main": "./dist/index.require.cjs",
 	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"_id": "postcss-pxtrans@1.0.1",
+	"types": "./dist/index.d.mts",
+	"_id": "postcss-pxtrans@1.0.3",
 	"homepage": "https://github.com/sonofmagic/postcss-plugins#readme",
-	"_integrity": "sha512-oNxhcSbbhkfhgJP/E0JJHIuQs8asqAuD1FqFT4VFF7xhkBmKKTIM08T7WIRHo9rjod8E4PR/CuOxtcWjftufcg==",
-	"_resolved": "/tmp/8c83bc1dc4a38aef81369ce30afd754b/postcss-pxtrans-1.0.1.tgz",
-	"_from": "file:postcss-pxtrans-1.0.1.tgz",
-	"_nodeVersion": "24.13.0",
-	"_npmVersion": "11.6.2",
+	"_integrity": "sha512-+TKvLaqlZKpKm99xb9LZer+vY73mKmORUAnUxnz1qYa31Gelz2sCMGslmNGNTfWDQz+BbYp+i4ejuZi2rh2sLA==",
+	"_resolved": "/tmp/c49b2e1b575cb4fc94456369d6f56660/postcss-pxtrans-1.0.3.tgz",
+	"_from": "file:postcss-pxtrans-1.0.3.tgz",
+	"_nodeVersion": "24.14.1",
+	"_npmVersion": "11.11.0",
 	"dist": {
-		"integrity": "sha512-oNxhcSbbhkfhgJP/E0JJHIuQs8asqAuD1FqFT4VFF7xhkBmKKTIM08T7WIRHo9rjod8E4PR/CuOxtcWjftufcg==",
-		"shasum": "3f03faefe6bc5470283856bbc09553cd50dd506e",
-		"tarball": "https://registry.npmjs.org/postcss-pxtrans/-/postcss-pxtrans-1.0.1.tgz",
+		"integrity": "sha512-+TKvLaqlZKpKm99xb9LZer+vY73mKmORUAnUxnz1qYa31Gelz2sCMGslmNGNTfWDQz+BbYp+i4ejuZi2rh2sLA==",
+		"shasum": "98ed098b1c9da9d5f8a7914053a5a544f6e0b44f",
+		"tarball": "https://registry.npmjs.org/postcss-pxtrans/-/postcss-pxtrans-1.0.3.tgz",
 		"fileCount": 8,
-		"unpackedSize": 49718,
+		"unpackedSize": 58736,
 		"attestations": {
-			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-pxtrans@1.0.1",
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-pxtrans@1.0.3",
 			"provenance": {
 				"predicateType": "https://slsa.dev/provenance/v1"
 			}
@@ -84,7 +77,7 @@
 		"signatures": [
 			{
 				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEUCIG6YVYYDeXKBPyN63z31HuPV19NcpgU3ejl+VEP7HxlJAiEArp7Du3rRVngiWNV3xxU2O8g9oqUMuAKEhap6sDdH7V4="
+				"sig": "MEUCIG2ccBq/k5h6SacaU3zCPEgaeSTbqh9JUSlnQDin8q03AiEA0Cw3JxRMMudApRloiNA+DX1xkrugRHWgG5OCJzGlCu0="
 			}
 		]
 	},
@@ -105,8 +98,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-pxtrans_1.0.1_1770033306696_0.7610909369991994"
+		"tmp": "tmp/postcss-pxtrans_1.0.3_1776516423343_0.5376493615567755"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2026-02-02T11:55:06.840Z"
+	"_time": "2026-04-18T12:47:03.488Z"
 }
