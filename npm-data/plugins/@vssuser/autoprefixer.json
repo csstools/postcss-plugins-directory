@@ -1,0 +1,141 @@
+{
+	"_id": "@vssuser/autoprefixer",
+	"name": "@vssuser/autoprefixer",
+	"dist-tags": {
+		"vss": "10.4.27-vss.0",
+		"latest": "10.4.27-vss.0"
+	},
+	"versions": {
+		"10.4.27-vss.0": {
+			"name": "@vssuser/autoprefixer",
+			"version": "10.4.27-vss.0",
+			"description": "Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website",
+			"engines": {
+				"node": "^10 || ^12 || >=14"
+			},
+			"keywords": [
+				"autoprefixer",
+				"css",
+				"prefix",
+				"postcss",
+				"postcss-plugin"
+			],
+			"main": "lib/autoprefixer.js",
+			"bin": {
+				"autoprefixer": "bin/autoprefixer"
+			},
+			"types": "lib/autoprefixer.d.ts",
+			"funding": [
+				{
+					"type": "opencollective",
+					"url": "https://opencollective.com/postcss/"
+				},
+				{
+					"type": "tidelift",
+					"url": "https://tidelift.com/funding/github/npm/autoprefixer"
+				},
+				{
+					"type": "github",
+					"url": "https://github.com/sponsors/ai"
+				}
+			],
+			"author": {
+				"name": "Andrey Sitnik",
+				"email": "andrey@sitnik.ru"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/postcss/autoprefixer.git"
+			},
+			"bugs": {
+				"url": "https://github.com/postcss/autoprefixer/issues"
+			},
+			"peerDependencies": {
+				"postcss": "^8.1.0"
+			},
+			"dependencies": {
+				"browserslist": "^4.28.1",
+				"caniuse-lite": "^1.0.30001774",
+				"fraction.js": "^5.3.4",
+				"picocolors": "^1.1.1",
+				"postcss-value-parser": "^4.2.0"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_id": "@vssuser/autoprefixer@10.4.27-vss.0",
+			"homepage": "https://github.com/postcss/autoprefixer#readme",
+			"_nodeVersion": "24.15.0",
+			"_npmVersion": "11.12.1",
+			"dist": {
+				"integrity": "sha512-iV3HF3eSkEBJAJzpgY1+1CHhAtnEp2th0fiP9ZaTxVsb6/Fp7YMXJO1yKDDTIQBLS/5bpYsfU9cvNNejbjGZkw==",
+				"shasum": "85ab0ac12cf623f8d729416b3f311206e01375c2",
+				"tarball": "https://registry.npmjs.org/@vssuser/autoprefixer/-/autoprefixer-10.4.27-vss.0.tgz",
+				"fileCount": 83,
+				"unpackedSize": 199197,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIHf06bOnE0Q3nZksk6ETqnZvty5mhgdr6KHPixTp1/18AiAJ8//Uhf4WO7gO09R66XggaRY61J19etWzX+6mpdPo8A=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "vssuser",
+				"email": "aiesst.labs@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "vssuser",
+					"email": "aiesst.labs@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/autoprefixer_10.4.27-vss.0_1776758813869_0.7178451046733525"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-04-21T08:06:53.711Z",
+		"10.4.27-vss.0": "2026-04-21T08:06:54.021Z",
+		"modified": "2026-04-21T08:06:54.194Z"
+	},
+	"maintainers": [
+		{
+			"name": "vssuser",
+			"email": "aiesst.labs@gmail.com"
+		}
+	],
+	"description": "Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website",
+	"homepage": "https://github.com/postcss/autoprefixer#readme",
+	"keywords": [
+		"autoprefixer",
+		"css",
+		"prefix",
+		"postcss",
+		"postcss-plugin"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/postcss/autoprefixer.git"
+	},
+	"author": {
+		"name": "Andrey Sitnik",
+		"email": "andrey@sitnik.ru"
+	},
+	"bugs": {
+		"url": "https://github.com/postcss/autoprefixer/issues"
+	},
+	"license": "MIT",
+	"readme": "# Autoprefixer [![Cult Of Martians][cult-img]][cult]\n\n<img align=\"right\" width=\"94\" height=\"71\"\n     src=\"https://postcss.github.io/autoprefixer/logo.svg\"\n     title=\"Autoprefixer logo by Anton Lovchikov\">\n\n[PostCSS] plugin to parse CSS and add vendor prefixes to CSS rules using values\nfrom [Can I Use]. It is recommended by Google and used in Twitter and Alibaba.\n\nWrite your CSS rules without vendor prefixes (in fact, forget about them\nentirely):\n\n```css\n::placeholder {\n  color: gray;\n}\n\n.image {\n  width: stretch;\n}\n```\n\nAutoprefixer will use the data based on current browser popularity and property\nsupport to apply prefixes for you. You can try the [interactive demo]\nof Autoprefixer.\n\n```css\n::-moz-placeholder {\n  color: gray;\n}\n::placeholder {\n  color: gray;\n}\n\n.image {\n  width: -webkit-fill-available;\n  width: -moz-available;\n  width: stretch;\n}\n```\n\nTwitter account for news and releases: [@autoprefixer].\n\n<a href=\"https://evilmartians.com/?utm_source=autoprefixer\">\n<img src=\"https://evilmartians.com/badges/sponsored-by-evil-martians.svg\" alt=\"Sponsored by Evil Martians\" width=\"236\" height=\"54\">\n</a>\n\n[interactive demo]: https://autoprefixer.github.io/\n[@autoprefixer]:    https://twitter.com/autoprefixer\n[Can I Use]:        https://caniuse.com/\n[cult-img]:         https://cultofmartians.com/assets/badges/badge.svg\n[PostCSS]:          https://github.com/postcss/postcss\n[cult]:             https://cultofmartians.com/tasks/autoprefixer-grid.html\n\n\n## Docs\nRead full docs **[here](https://github.com/postcss/autoprefixer#readme)**.\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-4cd8f2593310628138c2cab22b27977b",
+	"_downloads": [
+		0
+	]
+}
