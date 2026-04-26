@@ -1,7 +1,7 @@
 {
 	"name": "postcss-sort-media-queries",
 	"description": "PostCSS plugin for sorting and combining CSS media queries with mobile first / **desktop first methodologies",
-	"version": "6.4.4",
+	"version": "6.5.0",
 	"engines": {
 		"node": ">=20.0.0"
 	},
@@ -40,10 +40,10 @@
 	"module": "src/index.js",
 	"exports": {
 		".": {
-			"types": "./src/index.d.ts",
-			"require": "./build/wrapper.cjs",
-			"import": "./src/index.js",
-			"default": "./src/index.js"
+			"types": "./dist/index.d.ts",
+			"require": "./dist/wrapper.cjs",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
 		}
 	},
 	"scripts": {
@@ -51,13 +51,15 @@
 		"test:watch": "vitest --watch",
 		"coverage": "vitest --coverage",
 		"lint": "eslint",
+		"format": "prettier --write .",
 		"prepare": "husky",
-		"build": "npm run build:cjs",
-		"build:cjs": "esbuild src/index.js --outfile=build/index.cjs --format=cjs --bundle --platform=node --external:postcss"
+		"build": "npm run build:cjs && cpy \"src/**/*\" dist",
+		"build:cjs": "esbuild src/index.js --outfile=dist/index.cjs --format=cjs --bundle --platform=node --external:postcss"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@vitest/coverage-v8": "^4.1.2",
+		"cpy-cli": "^7.0.0",
 		"esbuild": "^0.28.0",
 		"eslint": "^10.2.0",
 		"globals": "^17.4.0",
@@ -70,23 +72,23 @@
 		"postcss": "^8.5.6"
 	},
 	"dependencies": {
-		"sort-css-media-queries": "^3.0.3"
+		"sort-css-media-queries": "^3.0.5"
 	},
-	"gitHead": "7e1fca5badd9d5e0f0d85d4a0aee4e1cbc962a21",
+	"gitHead": "77f27dbc4be1c05ce217df6bf2f9b38acaee86d9",
 	"types": "./src/index.d.ts",
-	"_id": "postcss-sort-media-queries@6.4.4",
+	"_id": "postcss-sort-media-queries@6.5.0",
 	"_nodeVersion": "24.13.1",
 	"_npmVersion": "11.11.0",
 	"dist": {
-		"integrity": "sha512-Bt1ITSNrSfZzh7Gw0AJse0aoJEGzwKVEDU850bexExP8vX9Ehm5XE66xech8Q/c3j8kLGr1oP5Suw5tAb2O5Nw==",
-		"shasum": "d8f7581fe184ccacee3abc9dc2edffa78f307f9d",
-		"tarball": "https://registry.npmjs.org/postcss-sort-media-queries/-/postcss-sort-media-queries-6.4.4.tgz",
-		"fileCount": 6,
-		"unpackedSize": 24255,
+		"integrity": "sha512-iKKsWQIhCNWx/5xY83erLyZCN1NMdeJ8TOe2Zi2i40uPgQqn5iUt1O3OyEJqs7rzAj/dUExXO5XH0P3b94jTnw==",
+		"shasum": "39d0cbb26de9ccb89dacf4d6f636a50bdaae9b74",
+		"tarball": "https://registry.npmjs.org/postcss-sort-media-queries/-/postcss-sort-media-queries-6.5.0.tgz",
+		"fileCount": 8,
+		"unpackedSize": 28650,
 		"signatures": [
 			{
 				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEYCIQCOZOjST0Y3iCOfqM+PjXfNGoeby4aurKjJxsRYvlf0yAIhALya8UVPsyeEshi6E/PT/plGx5E0gwCMRndoTeoKuzRR"
+				"sig": "MEUCIE1lwqAnQcbHVRDOAWOuG7uZ81rEvlN1GjuXkeE6Ad4MAiEAzrd2QqlyB2uBDwKJOsOunDmgxE7LzjrwlJBBqIjqtKM="
 			}
 		]
 	},
@@ -103,8 +105,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-sort-media-queries_6.4.4_1775648078563_0.864004068055618"
+		"tmp": "tmp/postcss-sort-media-queries_6.5.0_1776146939745_0.6235358774032276"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2026-04-08T11:34:38.727Z"
+	"_time": "2026-04-14T06:08:59.903Z"
 }
