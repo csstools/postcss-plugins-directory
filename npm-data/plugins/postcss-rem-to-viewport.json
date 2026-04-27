@@ -1000,7 +1000,6 @@
 	"readme": "# postcss-rem-to-viewport\n\n[English](./README.md) | 简体中文\n\n一个用于 [PostCSS](https://github.com/ai/postcss) 的插件：把 `rem` 转换为 viewport 单位（默认 `vw`），用于响应式布局。\n\n如果你想把这类规则和其他单位转换、自定义 preset 组合到一个插件里，更建议直接使用 `postcss-rule-unit-converter`。如果你只是想保持现有 `rem -> viewport` API 不变，则继续使用这个包。对应的一一迁移写法可以直接看 [`postcss-rule-unit-converter` 迁移文档](../postcss-rule-unit-converter/MIGRATION.zh-CN.md)。\n\n- 使用 `TypeScript` 重写并覆盖测试\n- `transformUnit` 支持 `vw` 等其他单位\n- 插件内部复用了 `postcss-plugin-shared` 的通用能力。\n\n## 安装\n\n```shell\nnpm i -D postcss-rem-to-viewport\nyarn add -D postcss-rem-to-viewport\npnpm i -D postcss-rem-to-viewport\n```\n\n## 使用\n\n### 在 postcss.config.js 中使用\n\n```js\n// postcss.config.js\nmodule.exports = {\n  plugins: [\n    require('postcss-rem-to-viewport')({\n      // default: rootValue: 375,\n    }),\n  ],\n}\n```\n\n## Options\n\n类型：`Object | Null`\n\n默认值：\n\n```js\nconst defaultOptions = {\n  rootValue: 375, // number | (input) => number\n  unitPrecision: 16,\n  selectorBlackList: [],\n  propList: ['font', 'font-size', 'line-height', 'letter-spacing'],\n  replace: true,\n  mediaQuery: false,\n  minRemValue: 0,\n  exclude: [/node_modules/i],\n  transformUnit: 'vw',\n  disabled: false,\n}\n```\n\n### `rootValue`\n\n类型：`number | (input) => number`\n默认值：`375`\n\n根元素字体大小（换算基数），也可以设置为 `750` 或其他设计稿宽度。\n\n> `100vw = 375px = 23.4375rem`\n\n## unitPrecision\n\n类型：`number`\n默认值：`16`\n\n转换结果允许的小数精度。\n\n## propList\n\n类型：`(string | RegExp)[]`\n\n需要从 rem 转换的属性列表。\n\n字符串条目仍然保持现在的“包含匹配”行为；以 `!` 开头的字符串条目表示排除属性；只要字符串里包含 `*`，就会按 glob 模式匹配，例如：\n\n```js\npropList: ['*', '!font-size', '!padding*', '!--wot-*-font-size']\n```\n\n## selectorBlackList\n\n类型：`(string | RegExp)[]`\n\n命中这些选择器时保持 rem 不变。\n\n## replace\n\n类型：`boolean`\n\n是否直接替换；为 `false` 时会追加一条新声明作为 fallback。\n\n## mediaQuery\n\n类型：`boolean`\n\n是否转换 `@media` 中的 rem。\n\n## minRemValue\n\n类型：`number`\n\n小于该值的 rem 不会被转换。\n\n## exclude\n\n类型：`(string | RegExp)[] | ((filePath: string) => boolean)`\n\n匹配的文件路径将被跳过。\n\n### `exclude`、`selectorBlackList`、`propList` 怎么选\n\n- `exclude`：文件级跳过，命中后整个文件都不处理\n- `selectorBlackList`：选择器级跳过，文件仍会继续处理\n- `propList`：属性级控制，在命中的规则里决定哪些属性处理、哪些属性跳过\n\n适合用 `exclude` 的场景是 `node_modules`、生成产物、整类文件不想处理。\n适合用 `selectorBlackList` 的场景是某些组件或规则整体保留原样。适合用\n`propList` 的场景是文件和选择器仍然需要处理，但像 `font-size` 或\n`--wot-*-font-size` 这样的属性需要跳过。\n\n## transformUnit\n\n类型：`string`\n默认值：`vw`\n\n输出单位。\n\n## disabled\n\n类型：`boolean`\n\n是否禁用插件。\n\n### 关于“忽略 rem”的说明\n\n目前最简单的方式是使用大写单位来标记不转换（浏览器仍可识别）：\n\n```text\n/* `rem` 会被转换 */\n.convert {\n  font-size: 1rem;\n}\n\n/* `Rem` 或 `REM` 会被忽略 */\n.ignore {\n  border: 1Rem solid;\n  border-width: 2REM;\n}\n```\n",
 	"readmeFilename": "README.zh-CN.md",
 	"_downloads": [
-		137,
 		127,
 		127,
 		129,
@@ -1019,6 +1018,7 @@
 		21,
 		21,
 		223,
-		357
+		357,
+		367
 	]
 }
