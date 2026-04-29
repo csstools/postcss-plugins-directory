@@ -1,6 +1,19 @@
 {
 	"name": "@db-ux/core-postcss-plugin",
-	"version": "4.6.1",
+	"version": "4.7.0",
+	"type": "module",
+	"description": "PostCSS plugins for DB UX Design System",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/db-ux-design-system/core-web.git"
+	},
+	"license": "Apache-2.0",
+	"exports": {
+		".": {
+			"types": "./build/index.d.ts",
+			"default": "./build/index.js"
+		}
+	},
 	"keywords": [
 		"postcss",
 		"postcss-plugin",
@@ -8,8 +21,66 @@
 		"css-variables",
 		"light-dark"
 	],
-	"license": "Apache-2.0",
-	"_id": "@db-ux/core-postcss-plugin@4.6.1",
+	"scripts": {
+		"build": "tsc",
+		"copy-output": "npm-run-all copy:*",
+		"copy:changelog": "cpr CHANGELOG.md ../../build-outputs/postcss-plugin/CHANGELOG.md --overwrite",
+		"copy:outputs": "cpr build ../../build-outputs/postcss-plugin/build -o",
+		"copy:package.json": "cpr package.json ../../build-outputs/postcss-plugin/package.json -o",
+		"copy:readme": "cpr README.md ../../build-outputs/postcss-plugin/README.md -o",
+		"test": "vitest run --config vitest.config.ts",
+		"test:update": "vitest run --config vitest.config.ts --update"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"devDependencies": {
+		"postcss": "8.5.11",
+		"typescript": "5.9.3",
+		"vitest": "4.1.5"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
+	},
+	"_id": "@db-ux/core-postcss-plugin@4.7.0",
+	"bugs": {
+		"url": "https://github.com/db-ux-design-system/core-web/issues"
+	},
+	"homepage": "https://github.com/db-ux-design-system/core-web#readme",
+	"_integrity": "sha512-8KczBMH0ORgsbCGFPvTxJNWa+W7iFHLRzs/lC7zU6V0yjWFX5bj2BfhDvOYQxvJl9Tzv5gxWzdJQemXbOMG5mQ==",
+	"_resolved": "/home/runner/work/core-web/core-web/build-outputs/db-ux-core-postcss-plugin-4.7.0.tgz",
+	"_from": "file:db-ux-core-postcss-plugin-4.7.0.tgz",
+	"_nodeVersion": "24.15.0",
+	"_npmVersion": "11.12.1",
+	"dist": {
+		"integrity": "sha512-8KczBMH0ORgsbCGFPvTxJNWa+W7iFHLRzs/lC7zU6V0yjWFX5bj2BfhDvOYQxvJl9Tzv5gxWzdJQemXbOMG5mQ==",
+		"shasum": "7af96a46d02a12790910f60b6cbf407250c2a63b",
+		"tarball": "https://registry.npmjs.org/@db-ux/core-postcss-plugin/-/core-postcss-plugin-4.7.0.tgz",
+		"fileCount": 17,
+		"unpackedSize": 47658,
+		"attestations": {
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/@db-ux%2fcore-postcss-plugin@4.7.0",
+			"provenance": {
+				"predicateType": "https://slsa.dev/provenance/v1"
+			}
+		},
+		"signatures": [
+			{
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEYCIQDcNrDXn1zeH9WSOWgtLHAiRRPn65GhDpNWiNlZsPcz9gIhAMBMkQb7GHwghce+Z1ly6lFDy44dyxAJ08GIXtoMz4cc"
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "GitHub Actions",
+		"email": "npm-oidc-no-reply@github.com",
+		"trustedPublisher": {
+			"id": "github",
+			"oidcConfigId": "oidc:f51fff61-f792-4255-bdaf-5a59a91288fa"
+		}
+	},
+	"directories": {},
 	"maintainers": [
 		{
 			"name": "mfranzke",
@@ -20,81 +91,10 @@
 			"email": "nicolas.merget@gmail.com"
 		}
 	],
-	"homepage": "https://github.com/db-ux-design-system/core-web#readme",
-	"bugs": {
-		"url": "https://github.com/db-ux-design-system/core-web/issues"
-	},
-	"dist": {
-		"shasum": "d9043b0b2e751aa123cb518bcffe8cee1933f5ae",
-		"tarball": "https://registry.npmjs.org/@db-ux/core-postcss-plugin/-/core-postcss-plugin-4.6.1.tgz",
-		"fileCount": 17,
-		"integrity": "sha512-F40hQTnd34LGgl+xxO/F0KVseUwHW72xOQYNQoNaY3G37vKo2IoyMoptcjjZVuUJKwFyGRldImxmhmXWQifGcg==",
-		"signatures": [
-			{
-				"sig": "MEUCIDp3pl+8Qy1cCNrhwlypdOi8klacm89UayjnRabUxCjzAiEA5DJJObg8FgT303PqTyiKFJbQv28ItKHORbwk8Kytf8g=",
-				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
-			}
-		],
-		"attestations": {
-			"url": "https://registry.npmjs.org/-/npm/v1/attestations/@db-ux%2fcore-postcss-plugin@4.6.1",
-			"provenance": {
-				"predicateType": "https://slsa.dev/provenance/v1"
-			}
-		},
-		"unpackedSize": 47631
-	},
-	"type": "module",
-	"_from": "file:db-ux-core-postcss-plugin-4.6.1.tgz",
-	"exports": {
-		".": {
-			"types": "./build/index.d.ts",
-			"default": "./build/index.js"
-		}
-	},
-	"scripts": {
-		"test": "vitest run --config vitest.config.ts",
-		"build": "tsc",
-		"copy-output": "npm-run-all copy:*",
-		"copy:readme": "cpr README.md ../../build-outputs/postcss-plugin/README.md -o",
-		"test:update": "vitest run --config vitest.config.ts --update",
-		"copy:outputs": "cpr build ../../build-outputs/postcss-plugin/build -o",
-		"copy:changelog": "cpr CHANGELOG.md ../../build-outputs/postcss-plugin/CHANGELOG.md --overwrite",
-		"copy:package.json": "cpr package.json ../../build-outputs/postcss-plugin/package.json -o"
-	},
-	"_npmUser": {
-		"name": "GitHub Actions",
-		"email": "npm-oidc-no-reply@github.com",
-		"trustedPublisher": {
-			"id": "github",
-			"oidcConfigId": "oidc:f51fff61-f792-4255-bdaf-5a59a91288fa"
-		}
-	},
-	"_resolved": "/home/runner/work/core-web/core-web/build-outputs/db-ux-core-postcss-plugin-4.6.1.tgz",
-	"_integrity": "sha512-F40hQTnd34LGgl+xxO/F0KVseUwHW72xOQYNQoNaY3G37vKo2IoyMoptcjjZVuUJKwFyGRldImxmhmXWQifGcg==",
-	"repository": {
-		"url": "git+https://github.com/db-ux-design-system/core-web.git",
-		"type": "git"
-	},
-	"_npmVersion": "11.11.0",
-	"description": "PostCSS plugins for DB UX Design System",
-	"directories": {},
-	"_nodeVersion": "24.14.1",
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org/"
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/core-postcss-plugin_4.7.0_1777390637744_0.3401542297783853"
 	},
 	"_hasShrinkwrap": false,
-	"devDependencies": {
-		"vitest": "4.1.3",
-		"postcss": "8.5.10",
-		"typescript": "5.9.3"
-	},
-	"peerDependencies": {
-		"postcss": "^8.0.0"
-	},
-	"_npmOperationalInternal": {
-		"tmp": "tmp/core-postcss-plugin_4.6.1_1776777505444_0.6056943214507979",
-		"host": "s3://npm-registry-packages-npm-production"
-	},
-	"_time": "2026-04-21T13:18:25.578Z"
+	"_time": "2026-04-28T15:37:17.907Z"
 }
