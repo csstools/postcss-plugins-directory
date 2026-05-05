@@ -1,6 +1,6 @@
 {
 	"name": "postcss-merge-at-rules",
-	"version": "1.2.0",
+	"version": "2.0.0",
 	"description": "PostCSS plugin for merging and nesting CSS at rules",
 	"keywords": [
 		"postcss",
@@ -28,42 +28,53 @@
 		"lint": "eslint --ext .js --ignore-path .prettierignore .",
 		"test:update": "gulp",
 		"test": "yarn lint && jest-ci --coverage",
-		"refresh-deps": "rm -rf node_modules && rm package-lock.json && npm i"
+		"refresh-deps": "rm -rf node_modules && rm yarn.lock && yarn",
+		"release": "yarn semantic-release",
+		"release:dry": "yarn semantic-release --dry-run",
+		"prepare": "node .husky/install.mjs"
 	},
 	"packageManager": "yarn@1.22.21",
 	"engines": {
-		"node": ">=14.0.0"
+		"node": ">=20.19.3",
+		"yarn": ">=1.22.4"
 	},
 	"dependencies": {
 		"sort-css-media-queries": "2.2.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^9.1.1",
-		"@commitlint/config-conventional": "^9.1.1",
+		"@commitlint/cli": "^20.3.1",
+		"@commitlint/config-conventional": "^20.3.1",
+		"@open-xamu-co/eslint-config": "^3.0.1",
 		"@semantic-release/changelog": "^5.0.1",
 		"@semantic-release/git": "^9.0.0",
 		"@types/jest": "^29.5.2",
+		"@types/node": "^20.19.3",
+		"@typescript-eslint/eslint-plugin": "^6.15.0",
+		"@typescript-eslint/parser": "^6.15.0",
 		"autoprefixer": "^10.4.0",
 		"eslint": "^8.56.0",
-		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-jest": "^25.3.0",
-		"eslint-plugin-jsdoc": "^46.2.5",
+		"eslint-plugin-jsdoc": "^62.9.0",
 		"eslint-plugin-prettier": "^5.0.0",
 		"gulp": "^5.0.0",
 		"gulp-postcss": "9.0.1",
 		"gulp-rename": "^2.0.0",
-		"husky": "^7.0.4",
+		"husky": "^9.1.7",
 		"jest": "^27.3.1",
 		"jest-ci": "^0.1.1",
 		"jest-cli": "^27.3.1",
-		"lint-staged": "^13.2.1",
+		"lint-staged": "^16.2.7",
 		"postcss": "^8.2.10",
-		"postcss-cli": "^8.3.1",
-		"prettier": "^3.0.0",
+		"postcss-cli": "^11.0.1",
+		"prettier": "^3.7.4",
 		"semantic-release": "^17.1.1",
-		"stylelint": "^15.10.2",
-		"stylelint-config-standard-scss": "^10.0.0",
-		"stylelint-prettier": "^4.0.0"
+		"stylelint": "^16.26.1",
+		"stylelint-config-recommended-scss": "^16.0.2",
+		"stylelint-config-recommended-vue": "^1.6.1",
+		"stylelint-config-standard-scss": "^16.0.0",
+		"stylelint-prettier": "^5.0.3",
+		"typescript": "^5.9.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4.38"
@@ -89,24 +100,24 @@
 		"testEnvironment": "node",
 		"coverageThreshold": {
 			"global": {
-				"statements": 100
+				"statements": 99
 			}
 		}
 	},
-	"gitHead": "99bdf174083d2f07c460e052a62842b95a25609a",
-	"_id": "postcss-merge-at-rules@1.2.0",
-	"_nodeVersion": "16.19.0",
+	"gitHead": "d9f5f9658f9355c56f52a876f98b681668ce27a7",
+	"_id": "postcss-merge-at-rules@2.0.0",
+	"_nodeVersion": "20.19.3",
 	"_npmVersion": "7.24.2",
 	"dist": {
-		"integrity": "sha512-vBE1MyYJPt9i2ovvfKpLOEGo+yetQoKgelSfHKf4z7VJYAH9REzfqVyPDxbyS6AVdVFcojapPYpLMs3EwuAqsQ==",
-		"shasum": "06972741cbd5ac37747b97a878b888252a2674bd",
-		"tarball": "https://registry.npmjs.org/postcss-merge-at-rules/-/postcss-merge-at-rules-1.2.0.tgz",
-		"fileCount": 11,
-		"unpackedSize": 29381,
+		"integrity": "sha512-+uYA/pnQIuFuFlJ2hHle5jBiEDLj5jmz/Xt6A+KpJKf+ng4zrtAlWOSpGxUYa2sN3sMmthNJ/1UWis02N/SxCw==",
+		"shasum": "4b36a224276ba3d35b0e61737da666c612d128d7",
+		"tarball": "https://registry.npmjs.org/postcss-merge-at-rules/-/postcss-merge-at-rules-2.0.0.tgz",
+		"fileCount": 14,
+		"unpackedSize": 32918,
 		"signatures": [
 			{
-				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEYCIQCrryM9j38MLn9/qH9LbmvuRGc8hvxiH/sirBKJAC3rcAIhAIlmCB+hdEnUNbqg8CW4KyjVKxrKKZDg8oS1BILQaolm"
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEYCIQCYEevYGNhuxyM0ExtjpnmP7fWY8ocQ0hJxUCltJFry7wIhAO+oNmVyHVUE0lZxCqhPf+yy1qCjxU/zyGtl1JxPKKnt"
 			}
 		]
 	},
@@ -115,10 +126,16 @@
 		"email": "vis97c@hotmail.com"
 	},
 	"directories": {},
+	"maintainers": [
+		{
+			"name": "vis97c",
+			"email": "vis97c@hotmail.com"
+		}
+	],
 	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-merge-at-rules_1.2.0_1719091844994_0.02737695155582376"
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-merge-at-rules_2.0.0_1777861915215_0.04131337527261025"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2024-06-22T21:30:45.176Z"
+	"_time": "2026-05-04T02:31:55.336Z"
 }
