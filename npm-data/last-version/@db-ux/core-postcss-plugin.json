@@ -1,6 +1,19 @@
 {
 	"name": "@db-ux/core-postcss-plugin",
-	"version": "4.10.0",
+	"version": "4.10.1",
+	"type": "module",
+	"description": "PostCSS plugins for DB UX Design System",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/db-ux-design-system/core-web.git"
+	},
+	"license": "Apache-2.0",
+	"exports": {
+		".": {
+			"types": "./build/index.d.ts",
+			"default": "./build/index.js"
+		}
+	},
 	"keywords": [
 		"postcss",
 		"postcss-plugin",
@@ -8,8 +21,60 @@
 		"css-variables",
 		"light-dark"
 	],
-	"license": "Apache-2.0",
-	"_id": "@db-ux/core-postcss-plugin@4.10.0",
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"devDependencies": {
+		"cpr": "3.0.1",
+		"npm-run-all2": "9.0.1",
+		"postcss": "8.5.15",
+		"typescript": "5.9.3",
+		"vitest": "4.1.7"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsc",
+		"copy-output": "run-p copy:*",
+		"copy:changelog": "cpr CHANGELOG.md ../../build-outputs/postcss-plugin/CHANGELOG.md --overwrite",
+		"copy:outputs": "cpr build ../../build-outputs/postcss-plugin/build -o",
+		"copy:package.json": "cpr package.json ../../build-outputs/postcss-plugin/package.json -o",
+		"copy:readme": "cpr README.md ../../build-outputs/postcss-plugin/README.md -o",
+		"test": "vitest run --config vitest.config.ts",
+		"test:update": "vitest run --config vitest.config.ts --update"
+	},
+	"_nodeVersion": "24.16.0",
+	"_id": "@db-ux/core-postcss-plugin@4.10.1",
+	"dist": {
+		"integrity": "sha512-YNkLgcwVEwowRU8jgygvvWnhvNNX9jMMwWkjPjO7eHkp8JfaNfS5BS+bFIQomQcGeqETx0HMzNMhewLv5ETT3A==",
+		"shasum": "a5d114121fa0ee4c729f0d147ca558a7a2165ec2",
+		"tarball": "https://registry.npmjs.org/@db-ux/core-postcss-plugin/-/core-postcss-plugin-4.10.1.tgz",
+		"fileCount": 17,
+		"unpackedSize": 48200,
+		"attestations": {
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/@db-ux%2fcore-postcss-plugin@4.10.1",
+			"provenance": {
+				"predicateType": "https://slsa.dev/provenance/v1"
+			}
+		},
+		"signatures": [
+			{
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEUCICXT6tSf9wUaBg+288QsQpc6GNoZkE0bsDCBmz51cUi2AiEAlh8mrbl7Esgh1HnhB4XJ2nXsfLMv4dFFafvEuJadRbw="
+			}
+		]
+	},
+	"_npmUser": {
+		"name": "GitHub Actions",
+		"email": "npm-oidc-no-reply@github.com",
+		"trustedPublisher": {
+			"id": "github",
+			"oidcConfigId": "oidc:f51fff61-f792-4255-bdaf-5a59a91288fa"
+		}
+	},
+	"directories": {},
 	"maintainers": [
 		{
 			"name": "mfranzke",
@@ -20,75 +85,10 @@
 			"email": "nicolas.merget@gmail.com"
 		}
 	],
-	"dist": {
-		"shasum": "d10ee30c6b14f0c95fcaa43f70bfbdf269e5bc39",
-		"tarball": "https://registry.npmjs.org/@db-ux/core-postcss-plugin/-/core-postcss-plugin-4.10.0.tgz",
-		"fileCount": 17,
-		"integrity": "sha512-ItyLc/t1dvI8Q92E+N8TMYaX/gQ0vQz09/bWjB5pTLLorniAQAY/yt0zmgLnw04rwtWO0ia3/SElrGn01LdXcg==",
-		"signatures": [
-			{
-				"sig": "MEYCIQCAMypRRhsb8IeEDp1HWPfVAC0LCB/htnNrW0crT1uBjgIhAIPTkEaPKFBBemmvVDybT+/j4yiS/i950rKyV8Bn9ynh",
-				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
-			}
-		],
-		"attestations": {
-			"url": "https://registry.npmjs.org/-/npm/v1/attestations/@db-ux%2fcore-postcss-plugin@4.10.0",
-			"provenance": {
-				"predicateType": "https://slsa.dev/provenance/v1"
-			}
-		},
-		"unpackedSize": 48173
-	},
-	"type": "module",
-	"exports": {
-		".": {
-			"types": "./build/index.d.ts",
-			"default": "./build/index.js"
-		}
-	},
-	"scripts": {
-		"test": "vitest run --config vitest.config.ts",
-		"build": "tsc",
-		"copy-output": "run-p copy:*",
-		"copy:readme": "cpr README.md ../../build-outputs/postcss-plugin/README.md -o",
-		"test:update": "vitest run --config vitest.config.ts --update",
-		"copy:outputs": "cpr build ../../build-outputs/postcss-plugin/build -o",
-		"copy:changelog": "cpr CHANGELOG.md ../../build-outputs/postcss-plugin/CHANGELOG.md --overwrite",
-		"copy:package.json": "cpr package.json ../../build-outputs/postcss-plugin/package.json -o"
-	},
-	"_npmUser": {
-		"name": "GitHub Actions",
-		"email": "npm-oidc-no-reply@github.com",
-		"trustedPublisher": {
-			"id": "github",
-			"oidcConfigId": "oidc:f51fff61-f792-4255-bdaf-5a59a91288fa"
-		}
-	},
-	"repository": {
-		"url": "git+https://github.com/db-ux-design-system/core-web.git",
-		"type": "git"
-	},
-	"description": "PostCSS plugins for DB UX Design System",
-	"directories": {},
-	"_nodeVersion": "24.16.0",
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org/"
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/core-postcss-plugin_4.10.1_1780397986067_0.19587337926290815"
 	},
 	"_hasShrinkwrap": false,
-	"devDependencies": {
-		"cpr": "3.0.1",
-		"vitest": "4.1.7",
-		"postcss": "8.5.15",
-		"typescript": "5.9.3",
-		"npm-run-all2": "9.0.1"
-	},
-	"peerDependencies": {
-		"postcss": "^8.0.0"
-	},
-	"_npmOperationalInternal": {
-		"tmp": "tmp/core-postcss-plugin_4.10.0_1780317791310_0.13808689541296437",
-		"host": "s3://npm-registry-packages-npm-production"
-	},
-	"_time": "2026-06-01T12:43:11.449Z"
+	"_time": "2026-06-02T10:59:46.242Z"
 }
