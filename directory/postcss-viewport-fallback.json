@@ -1,7 +1,7 @@
 {
 	"name": "postcss-viewport-fallback",
-	"version": "1.4.0",
-	"description": "PostCSS plugin that adds fallback for dvh/dvw/lvh/svh/dvi/dvb units.",
+	"version": "1.5.0",
+	"description": "PostCSS plugin that adds classic fallbacks for all dynamic/small/large viewport units (dvh, svh, lvh, dvw, dvmin, ...).",
 	"author": {
 		"name": "Maksim Kravtsov"
 	},
@@ -12,18 +12,30 @@
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js",
-			"require": "./dist/index.cjs"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
 		}
+	},
+	"sideEffects": false,
+	"publishConfig": {
+		"provenance": true
 	},
 	"scripts": {
 		"build": "tsup",
 		"dev": "tsup --watch",
-		"test": "vitest run --passWithNoTests",
-		"release": "npm version patch && npm run build && npm publish",
+		"test": "vitest run",
+		"test:coverage": "vitest run --coverage",
+		"typecheck": "tsc --noEmit",
 		"lint": "eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"check:package": "publint && attw --pack .",
+		"bench": "npm run build && node scripts/bench.mjs"
 	},
 	"peerDependencies": {
 		"postcss": "^8.0.0"
@@ -32,19 +44,24 @@
 		"postcss-value-parser": "^4.2.0"
 	},
 	"devDependencies": {
+		"@arethetypeswrong/cli": "^0.18.3",
 		"@eslint/js": "^9.39.1",
-		"eslint": "^9.39.1",
-		"eslint-config-prettier": "^9.1.2",
-		"eslint-plugin-import": "^2.32.0",
-		"eslint-plugin-n": "^17.23.1",
-		"eslint-plugin-prettier": "^5.5.4",
-		"postcss": "^8.4.0",
-		"postcss-html": "^1.8.0",
-		"prettier": "^3.7.4",
-		"tsup": "^8.2.0",
-		"typescript": "^5.5.0",
-		"typescript-eslint": "^8.48.1",
-		"vitest": "^2.1.0"
+		"@semantic-release/changelog": "^6.0.3",
+		"@semantic-release/git": "^10.0.1",
+		"@types/node": "^20.19.43",
+		"@vitest/coverage-v8": "^2.1.9",
+		"caniuse-api": "^4.0.0",
+		"eslint": "^9.39.4",
+		"eslint-config-prettier": "^10.1.8",
+		"postcss": "^8.5.15",
+		"postcss-html": "^1.8.1",
+		"prettier": "^3.8.4",
+		"publint": "^0.3.21",
+		"semantic-release": "^25.0.5",
+		"tsup": "^8.5.1",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.61.0",
+		"vitest": "^2.1.9"
 	},
 	"engines": {
 		"node": ">=20"
@@ -71,20 +88,26 @@
 		"css",
 		"viewport-units"
 	],
-	"_id": "postcss-viewport-fallback@1.4.0",
-	"gitHead": "7f92f8841a2eeed90665485d6200850967825ebf",
-	"_nodeVersion": "22.17.0",
-	"_npmVersion": "10.9.2",
+	"gitHead": "68ffbfd3070e5ac36938e4474e5b36ad3c8f600e",
+	"_id": "postcss-viewport-fallback@1.5.0",
+	"_nodeVersion": "22.22.3",
+	"_npmVersion": "11.16.0",
 	"dist": {
-		"integrity": "sha512-DSjeLlU1pwnqU3ir7IsXVv9v8Qdqecuv24RkKdH3gpEfTQzAr8MX8hQyelJTtKrlR05CiiqtIKyEx+A4+c/J0Q==",
-		"shasum": "f7f9d5fb3bea51178057c46883e674f0d9303d44",
-		"tarball": "https://registry.npmjs.org/postcss-viewport-fallback/-/postcss-viewport-fallback-1.4.0.tgz",
+		"integrity": "sha512-OljGhDTu6b1YJ71sMRUlPqb26mzsjvTBu6uOwVzNfxWoYOOddgOdRBF8QS+kCEsFBs33V6SU/gR3btkNyr77hg==",
+		"shasum": "865c76dd3b3a4c64a67267dd34a82041a178a7ef",
+		"tarball": "https://registry.npmjs.org/postcss-viewport-fallback/-/postcss-viewport-fallback-1.5.0.tgz",
 		"fileCount": 7,
-		"unpackedSize": 31023,
+		"unpackedSize": 42368,
+		"attestations": {
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-viewport-fallback@1.5.0",
+			"provenance": {
+				"predicateType": "https://slsa.dev/provenance/v1"
+			}
+		},
 		"signatures": [
 			{
 				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEQCIAmUrFKVc3Qn6/2FQLK/TGACiDn9FHZDPACNki17/WuMAiAbaQ6TvVvck3JDUaPTW6kQDmUvcru097kV3kdnf6YqLA=="
+				"sig": "MEUCIDjxeqUi7VGCBBwOLlOlueLu+0pF09Rqrp2wHkSleRVyAiEA89Bn/GgqRpl870tQQJNWjw6agoRt9/xh3uvhgU+iBh0="
 			}
 		]
 	},
@@ -101,8 +124,8 @@
 	],
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-viewport-fallback_1.4.0_1777213525615_0.6951702303286251"
+		"tmp": "tmp/postcss-viewport-fallback_1.5.0_1781190409555_0.1998939965232147"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2026-04-26T14:25:25.771Z"
+	"_time": "2026-06-11T15:06:49.685Z"
 }
