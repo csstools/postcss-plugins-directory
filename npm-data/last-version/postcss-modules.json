@@ -1,6 +1,6 @@
 {
 	"name": "postcss-modules",
-	"version": "6.0.1",
+	"version": "8.3.1",
 	"description": "PostCSS plugin to use CSS Modules everywhere",
 	"main": "build/index.js",
 	"types": "index.d.ts",
@@ -26,8 +26,8 @@
 		"icss-utils": "^5.1.0",
 		"lodash.camelcase": "^4.3.0",
 		"postcss-modules-extract-imports": "^3.1.0",
-		"postcss-modules-local-by-default": "^4.0.5",
-		"postcss-modules-scope": "^3.2.0",
+		"postcss-modules-local-by-default": "^4.2.0",
+		"postcss-modules-scope": "^3.2.1",
 		"postcss-modules-values": "^4.0.0",
 		"string-hash": "^1.1.3"
 	},
@@ -35,55 +35,59 @@
 		"postcss": "^8.0.0"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.17.10",
-		"@babel/core": "^7.18.0",
-		"@babel/eslint-parser": "^7.17.0",
-		"@babel/preset-env": "^7.18.0",
-		"@babel/register": "^7.17.7",
-		"autoprefixer": "^10.0.2",
-		"eslint": "^7.3.1",
-		"eslint-plugin-import": "^2.21.2",
-		"eslint-plugin-jest": "^23.17.0",
-		"husky": "^4.2.5",
-		"jest": "^26.0.1",
-		"lint-staged": "^10.2.11",
-		"postcss": "^8.1.9",
-		"prettier": "^2.0.5"
+		"@eslint/js": "^9.39.4",
+		"@swc/cli": "^0.8.1",
+		"@swc/core": "^1.15.43",
+		"@swc/jest": "^0.2.39",
+		"autoprefixer": "^10.5.2",
+		"eslint": "^9.39.0",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-jest": "^29.15.4",
+		"globals": "^17.7.0",
+		"husky": "^9.1.7",
+		"jest": "^30.4.2",
+		"lint-staged": "^17.0.8",
+		"postcss": "^8.5.16",
+		"prettier": "^3.9.4"
+	},
+	"engines": {
+		"node": ">=20"
 	},
 	"scripts": {
 		"test": "make test",
-		"precommit": "lint-staged"
+		"prepare": "husky || true"
+	},
+	"overrides": {
+		"glob": "^12.0.0",
+		"file-type": "^22.0.0"
 	},
 	"lint-staged": {
 		"*.{json,md}": [
-			"prettier --write",
-			"git add"
+			"prettier --write"
 		],
 		"*.js": [
 			"prettier --write",
-			"eslint --fix",
-			"git add"
+			"eslint --fix"
 		]
 	},
-	"require": "@babel/register",
-	"_id": "postcss-modules@6.0.1",
-	"gitHead": "bfd40605f25a518feee5b62d69277b1f23c0e0e8",
+	"gitHead": "7d21d5a27fe9853a1d69cbc688b63c5d3d0f192e",
+	"_id": "postcss-modules@8.3.1",
 	"bugs": {
 		"url": "https://github.com/css-modules/postcss-modules/issues"
 	},
 	"homepage": "https://github.com/css-modules/postcss-modules#readme",
-	"_nodeVersion": "21.7.3",
-	"_npmVersion": "10.5.0",
+	"_nodeVersion": "26.0.0",
+	"_npmVersion": "11.12.1",
 	"dist": {
-		"integrity": "sha512-zyo2sAkVvuZFFy0gc2+4O+xar5dYlaVy/ebO24KT0ftk/iJevSNyPyQellsBLlnccwh7f6V6Y4GvuKRYToNgpQ==",
-		"shasum": "e3e895918c060c14fa6a22f84ba14a4286f436a5",
-		"tarball": "https://registry.npmjs.org/postcss-modules/-/postcss-modules-6.0.1.tgz",
-		"fileCount": 21,
-		"unpackedSize": 38014,
+		"integrity": "sha512-dCjxCR9BNmdc26bbcen9K8o38FGhNOKhsrhdzxVhvHBhIJ4y8Y4SnZ5W1D2z8PYvHZ8zaVurrjYFCUrN/Gszow==",
+		"shasum": "3adf7febca5b9b6089832bf274b147591a5e94a9",
+		"tarball": "https://registry.npmjs.org/postcss-modules/-/postcss-modules-8.3.1.tgz",
+		"fileCount": 18,
+		"unpackedSize": 42497,
 		"signatures": [
 			{
-				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIDrdDyOM5fX99dzeZNr24cngRbg6eYYI/8AuCzfQh951AiEAowBil33fdeKSYnUxyLLlQT6O5nBz5pqWH0/AjBgl+v0="
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEUCIQDilM6C9jrt+Ezy1wA0wqTFArRcUeA5dsyT/tIiwmWWVQIgBIQIB31Izfl5vNgS92bYnEFc76zezERtkrp+Kwac/1U="
 			}
 		]
 	},
@@ -99,9 +103,9 @@
 		}
 	],
 	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-modules_6.0.1_1731320914447_0.9476915288169481"
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-modules_8.3.1_1782829481977_0.04666780373991597"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2024-11-11T10:28:34.648Z"
+	"_time": "2026-06-30T14:24:42.116Z"
 }
