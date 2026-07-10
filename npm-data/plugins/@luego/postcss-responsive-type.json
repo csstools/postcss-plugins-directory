@@ -1,0 +1,131 @@
+{
+	"_id": "@luego/postcss-responsive-type",
+	"name": "@luego/postcss-responsive-type",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@luego/postcss-responsive-type",
+			"version": "1.0.0",
+			"description": "PostCSS 8 plugin: fluid typography — transforms font-size/line-height/letter-spacing: responsive into calc() + clamping media queries",
+			"main": "index.js",
+			"publishConfig": {
+				"access": "public"
+			},
+			"engines": {
+				"node": ">=18"
+			},
+			"scripts": {
+				"test": "node --test"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"responsive",
+				"fluid-typography",
+				"font-size"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://git.luego-labs.com.br/open-source/postcss-responsive-type.git"
+			},
+			"author": {
+				"name": "TI",
+				"email": "ti@luego.com.br"
+			},
+			"license": "MIT",
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.5.16"
+			},
+			"_id": "@luego/postcss-responsive-type@1.0.0",
+			"gitHead": "706676ea4ba12e12560d2360046c91b8332121cb",
+			"_nodeVersion": "22.16.0",
+			"_npmVersion": "11.6.0",
+			"dist": {
+				"integrity": "sha512-6+6lQWwmst0ERVu6N+bpfXMY43i2hIoCr6HlMUHSO7rRFrDuqSravtIsqdUh7JGD8onUoXUFxE2HPmmcGr4czg==",
+				"shasum": "71da0bfdad854abaec16124ddeb79ea435accfa1",
+				"tarball": "https://registry.npmjs.org/@luego/postcss-responsive-type/-/postcss-responsive-type-1.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 8938,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIACfFVxyQXP1p/K0Geor2wEbPKCXCn9V0RNN2lBHU3dhAiBCaYp4UvutuXjH6hlp18uN9Ijb6tvyd6GT+37ChZ/2eQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "renanvaz",
+				"email": "renan.c.vaz@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "tiluego",
+					"email": "ti@luego.com.br"
+				},
+				{
+					"name": "renanvaz",
+					"email": "renan.c.vaz@gmail.com"
+				},
+				{
+					"name": "rodrigoeddie",
+					"email": "rodrigoeddie@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-responsive-type_1.0.0_1783552831900_0.11810958249402614"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-07-08T23:20:31.800Z",
+		"1.0.0": "2026-07-08T23:20:32.039Z",
+		"modified": "2026-07-08T23:20:32.299Z"
+	},
+	"maintainers": [
+		{
+			"name": "tiluego",
+			"email": "ti@luego.com.br"
+		},
+		{
+			"name": "renanvaz",
+			"email": "renan.c.vaz@gmail.com"
+		},
+		{
+			"name": "rodrigoeddie",
+			"email": "rodrigoeddie@gmail.com"
+		}
+	],
+	"description": "PostCSS 8 plugin: fluid typography — transforms font-size/line-height/letter-spacing: responsive into calc() + clamping media queries",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"responsive",
+		"fluid-typography",
+		"font-size"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://git.luego-labs.com.br/open-source/postcss-responsive-type.git"
+	},
+	"author": {
+		"name": "TI",
+		"email": "ti@luego.com.br"
+	},
+	"license": "MIT",
+	"readme": "# @luego/postcss-responsive-type\n\nPlugin PostCSS 8 de tipografia fluida: transforma `font-size: responsive <min> <max>` (e `line-height`/`letter-spacing`) em `calc()` proporcional ao viewport, com media queries de clamp nos extremos.\n\nPort para a API do PostCSS 8 do [postcss-responsive-type](https://github.com/madeleineostoja/postcss-responsive-type) 1.0.0 (MIT), abandonado na API antiga (`postcss.plugin`, que gera warning de deprecação no PostCSS 8).\n\n## Instalação\n\n```sh\nnpm i -D @luego/postcss-responsive-type postcss\n# ou\nyarn add -D @luego/postcss-responsive-type postcss\n```\n\n`postcss >= 8` é peer dependency.\n\n## Uso\n\n```js\nconst postcssResponsiveType = require('@luego/postcss-responsive-type');\n\npostcss([postcssResponsiveType()]).process(css);\n```\n\n## Sintaxe\n\n```css\n/* entrada */\n.title {\n    font-size: responsive 14px 24px;\n    font-range: 420px 1280px; /* viewport range (opcional, esse é o default) */\n}\n\n/* saída */\n.title {\n    font-size: calc(14px + 10 * ((100vw - 420px) / 860));\n}\n@media screen and (min-width: 1280px) {\n    .title { font-size: 24px; }\n}\n@media screen and (max-width: 420px) {\n    .title { font-size: 14px; }\n}\n```\n\nTambém aceita as propriedades expandidas:\n\n```css\n.title {\n    font-size: responsive;\n    min-font-size: 14px;\n    max-font-size: 24px;\n    lower-font-range: 420px;\n    upper-font-range: 1280px;\n}\n```\n\n- Funciona com `font-size`, `line-height` (`line-height-range`) e `letter-spacing` (`letter-spacing-range`)\n- Unidades: `px`, `rem`, `em` (com `rem`, o range em `px` é convertido usando o `font-size` do `html`)\n- Valores sem unidade lançam erro\n\n## Teste\n\n```sh\nnpm test\n```\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-bd7c6b0e22010b920ecd2cbfb00e52e3",
+	"_downloads": [
+		40
+	]
+}

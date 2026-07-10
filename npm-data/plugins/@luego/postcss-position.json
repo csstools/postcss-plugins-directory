@@ -1,0 +1,127 @@
+{
+	"_id": "@luego/postcss-position",
+	"name": "@luego/postcss-position",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@luego/postcss-position",
+			"version": "1.0.0",
+			"description": "PostCSS 8 plugin: expands the position: <type> <offsets> shorthand into position + top/right/bottom/left",
+			"main": "index.js",
+			"publishConfig": {
+				"access": "public"
+			},
+			"engines": {
+				"node": ">=18"
+			},
+			"scripts": {
+				"test": "node --test"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"position"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://git.luego-labs.com.br/open-source/postcss-position.git"
+			},
+			"author": {
+				"name": "TI",
+				"email": "ti@luego.com.br"
+			},
+			"license": "MIT",
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.5.16"
+			},
+			"_id": "@luego/postcss-position@1.0.0",
+			"gitHead": "b70ad630d8ba1f60d3513b7484c9c3a4de10d15a",
+			"_nodeVersion": "22.16.0",
+			"_npmVersion": "11.6.0",
+			"dist": {
+				"integrity": "sha512-3xSTiLxCkQT0G052saUipt1VvJNi/KsC9WoZ6QKnaI9BdVQd/Odq9ksLb7wwpV9OyBFO45WQnm5uhW0Fl6+Iug==",
+				"shasum": "a1a82ad7bed42da1f9747a5684730dbfc7419b06",
+				"tarball": "https://registry.npmjs.org/@luego/postcss-position/-/postcss-position-1.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 4701,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIG/qLt7rZPuaBMhsttXlc1SrcXRPQV3ugYiTEJXDU8x+AiEAm+GYKoJl8F1udawumFMr+PEMa3NTjxFDQ9XQxs+1kjk="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "renanvaz",
+				"email": "renan.c.vaz@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "tiluego",
+					"email": "ti@luego.com.br"
+				},
+				{
+					"name": "renanvaz",
+					"email": "renan.c.vaz@gmail.com"
+				},
+				{
+					"name": "rodrigoeddie",
+					"email": "rodrigoeddie@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-position_1.0.0_1783552820866_0.002329783261649787"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-07-08T23:20:20.763Z",
+		"1.0.0": "2026-07-08T23:20:21.031Z",
+		"modified": "2026-07-08T23:20:21.209Z"
+	},
+	"maintainers": [
+		{
+			"name": "tiluego",
+			"email": "ti@luego.com.br"
+		},
+		{
+			"name": "renanvaz",
+			"email": "renan.c.vaz@gmail.com"
+		},
+		{
+			"name": "rodrigoeddie",
+			"email": "rodrigoeddie@gmail.com"
+		}
+	],
+	"description": "PostCSS 8 plugin: expands the position: <type> <offsets> shorthand into position + top/right/bottom/left",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"position"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://git.luego-labs.com.br/open-source/postcss-position.git"
+	},
+	"author": {
+		"name": "TI",
+		"email": "ti@luego.com.br"
+	},
+	"license": "MIT",
+	"readme": "# @luego/postcss-position\n\nPlugin PostCSS 8 que expande o shorthand `position: <type> <offsets>` em `position` + `top`/`right`/`bottom`/`left`.\n\nPort para a API do PostCSS 8 do [postcss-position](https://github.com/sylvainbaronnet/postcss-position) 1.1.0 (MIT), abandonado na API antiga (`postcss.plugin`, que gera warning de deprecação no PostCSS 8).\n\n## Instalação\n\n```sh\nnpm i -D @luego/postcss-position postcss\n# ou\nyarn add -D @luego/postcss-position postcss\n```\n\n`postcss >= 8` é peer dependency.\n\n## Uso\n\n```js\nconst postcssPosition = require('@luego/postcss-position');\n\npostcss([postcssPosition()]).process(css);\n```\n\n## Sintaxe\n\nOs offsets seguem a ordem do shorthand de margin/padding (`top right bottom left`):\n\n```css\n/* entrada */\n.overlay { position: absolute 0; }\n.modal   { position: fixed 10px 20px; }\n.pin     { position: absolute 0 null null 0; }\n\n/* saída */\n.overlay { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }\n.modal   { position: fixed; top: 10px; right: 20px; bottom: 10px; left: 20px; }\n.pin     { position: absolute; top: 0; left: 0; }\n```\n\n- `null` / `false` / `undefined` pulam o offset correspondente\n- `auto`, `calc()`, `%` e todas as unidades de comprimento são suportados\n- `position: absolute` sem offsets passa intacto\n\n## Teste\n\n```sh\nnpm test\n```\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-ceeb76a282560c8a851a1e969a7d1bfb",
+	"_downloads": [
+		61
+	]
+}
