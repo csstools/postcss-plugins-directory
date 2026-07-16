@@ -175,6 +175,7 @@
 	"readme": "# postcss-selector-minify\r\n\r\n> Minify selector with PostCSS.\r\n\r\n## Install\r\n\r\nWith [npm](https://www.npmjs.com/package/postcss-selector-minify) do:\r\n\r\n```\r\nnpm install postcss-selector-minify --save\r\n```\r\n\r\n## Example\r\n\r\n### Input\r\n\r\n```css\r\nh1 + p, h2, h3, h2{color:blue}\r\n```\r\n\r\n### Output\r\n\r\n```css\r\nh1+p,h2,h3{color:blue}\r\n```\r\n\r\n## Options\r\n\r\n### `sort`\r\n\r\nType: `boolean`  \r\nDefault: `true`\r\n\r\nAlphabetically sort selectors within a comma-separated list.\r\n\r\n### `convertToIs`\r\n\r\nType: `boolean`  \r\nDefault: `true`\r\n\r\nFactor a shared prefix and/or suffix in a comma-separated selector list into\r\na single `:is(...)` group when the result is strictly shorter and safe with\r\nrespect to the cascade. The rewrite only applies when every variable part\r\nhas the same CSS specificity (so the cascade isn't silently altered) and\r\ncontains no pseudo-elements. It is automatically skipped when the configured\r\n`browserslist` target doesn't support `:is()`.\r\n\r\n#### Input\r\n\r\n```css\r\nsection h1, article h1, aside h1, nav h1 { font-size: 25px }\r\n```\r\n\r\n#### Output\r\n\r\n```css\r\n:is(article,aside,nav,section) h1{font-size:25px}\r\n```\r\n\r\n### Browserslist\r\n\r\nThe plugin reads the `browserslist` configuration from the host project by\r\ndefault. You can override with `overrideBrowserslist`, `stats`, `env`, or\r\n`path` — the same options accepted by `autoprefixer` and `postcss-merge-rules`.\r\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		0
+		0,
+		338
 	]
 }

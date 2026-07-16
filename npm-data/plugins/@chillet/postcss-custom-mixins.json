@@ -1,0 +1,133 @@
+{
+	"_id": "@chillet/postcss-custom-mixins",
+	"name": "@chillet/postcss-custom-mixins",
+	"dist-tags": {
+		"latest": "0.3.0"
+	},
+	"versions": {
+		"0.3.0": {
+			"name": "@chillet/postcss-custom-mixins",
+			"version": "0.3.0",
+			"description": "PostCSS plugin that implements native CSS @mixin and @apply.",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"web-types": "web-types.json",
+			"keywords": [
+				"postcss",
+				"mixins",
+				"css",
+				"postcss-plugin"
+			],
+			"author": "Chillet <chillet@chillet.moe>",
+			"publishConfig": {
+				"registry": "https://registry.npmjs.org/",
+				"access": "public"
+			},
+			"repository": {
+				"url": "https://github.com/chillet-moe/postcss-custom-mixins"
+			},
+			"license": "MIT",
+			"engines": {
+				"node": ">=20.19.0"
+			},
+			"type": "module",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"default": "./dist/index.js"
+				},
+				"./vite": {
+					"types": "./dist/vite.d.ts",
+					"default": "./dist/vite.js"
+				}
+			},
+			"sideEffects": false,
+			"devDependencies": {
+				"@csstools/postcss-tape": "^7.0.0",
+				"@types/node": "^26.1.1",
+				"cross-env": "^10.1.0",
+				"postcss": "^8.5.19",
+				"typescript": "^7.0.2",
+				"vite": "^8.1.4"
+			},
+			"dependencies": {
+				"@csstools/css-parser-algorithms": "^4.0.0",
+				"@csstools/css-tokenizer": "^4.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0",
+				"vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0"
+			},
+			"peerDependenciesMeta": {
+				"vite": {
+					"optional": true
+				}
+			},
+			"scripts": {
+				"build": "tsc -p tsconfig.json",
+				"test": "pnpm build && node --test",
+				"test:rewrite-expects": "pnpm build && cross-env REWRITE_EXPECTS=true node --test"
+			},
+			"_nodeVersion": "24.18.0",
+			"_id": "@chillet/postcss-custom-mixins@0.3.0",
+			"dist": {
+				"integrity": "sha512-JzV7JnZRBnfqD7LiB5J0UQyePNzsp+KcqNVqdZmM8QKm3vCdqCNb6gGIMw955A8D0MIu2NYxK2xwZ39UjONxJw==",
+				"shasum": "1adad9873b1a7ae11efb142e937861285e7edcc4",
+				"tarball": "https://registry.npmjs.org/@chillet/postcss-custom-mixins/-/postcss-custom-mixins-0.3.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 16838,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEYCIQC2g1iTmtLYEdEP4DD/ddWnH6XzOY+BC6YeLF2yORh2ZwIhAMyJUjKrq48TtDhtRLoPt1FNsUWqzJRzrOqrh+dBHeLF"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "chillet",
+				"email": "chillet@chillet.moe"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "chillet",
+					"email": "chillet@chillet.moe"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-custom-mixins_0.3.0_1784112932278_0.3734764596871214"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-07-15T10:55:32.155Z",
+		"0.3.0": "2026-07-15T10:55:32.438Z",
+		"modified": "2026-07-15T10:55:32.705Z"
+	},
+	"maintainers": [
+		{
+			"name": "chillet",
+			"email": "chillet@chillet.moe"
+		}
+	],
+	"description": "PostCSS plugin that implements native CSS @mixin and @apply.",
+	"keywords": [
+		"postcss",
+		"mixins",
+		"css",
+		"postcss-plugin"
+	],
+	"repository": {
+		"url": "https://github.com/chillet-moe/postcss-custom-mixins"
+	},
+	"author": "Chillet <chillet@chillet.moe>",
+	"license": "MIT",
+	"readme": "# postcss-custom-mixins\n\nPostCSS plugin that implements native CSS `@mixin` and `@apply` (draft).\n\n## Example\n\nInput:\n\n```css\n@mixin --card() {\n  @result {\n    padding: 1rem;\n    border: 1px solid black;\n  }\n}\n\n.card {\n  @apply --card();\n  color: red;\n}\n```\n\nOutput:\n\n```css\n.card {\n  padding: 1rem;\n  border: 1px solid black;\n  color: red;\n}\n```\n\n## Usage\n\n```ts\nimport postcss from 'postcss';\nimport mixins from '@chillet/postcss-custom-mixins';\n\nconst result = await postcss([mixins()]).process(css, { from: undefined });\nconsole.log(result.css);\n```\n\n## Vite and Vue\n\nVite processes root stylesheets and Vue `<style scoped>` blocks independently. Use the Vite\nintegration to give them one shared mixin tree scope without listing mixin files:\n\n```ts\n// vite.config.ts\nimport { defineConfig } from 'vite';\nimport customMixins from '@chillet/postcss-custom-mixins/vite';\n\nexport default defineConfig({\n  plugins: [customMixins()],\n});\n```\n\nDo not also add the default export to PostCSS when using this integration. During development,\nnew or changed definitions invalidate the other loaded style modules. During production builds,\ndefinitions and applications are resolved after Vite has assembled the CSS assets.\n\n## Notes\n\n- `@apply` supports comma-separated mixin names.\n- Unknown mixins have no effect, matching native `@apply` behavior.\n- The earlier direct-body `@mixin card { ... }` syntax remains supported for compatibility.\n- Mixin parameters, variable hygiene, `@contents`, conditional `@result`, `@macro`, Shadow DOM\n  tree separation, and cascade-layer precedence are not implemented yet.\n- Invalid params and circular applications throw a PostCSS error.\n",
+	"readmeFilename": "",
+	"_rev": "1-4a979d37bcd05aa3a0f35a98f0cd6c22",
+	"_downloads": [
+		0
+	]
+}
