@@ -1,10 +1,10 @@
 {
 	"_id": "@stylexswc/postcss-plugin",
-	"_rev": "142-d4c5d4fbb7b43c782aed9301cb7aa5fd",
+	"_rev": "146-0932ff2ea38c20df73fcd78d9cba7e77",
 	"name": "@stylexswc/postcss-plugin",
 	"dist-tags": {
-		"latest": "0.17.1",
-		"next": "0.17.1-rc.1"
+		"latest": "0.18.0",
+		"next": "0.18.0-rc.2"
 	},
 	"versions": {
 		"0.6.0-rc.1": {
@@ -15258,8 +15258,479 @@
 		},
 		"0.17.1": {
 			"name": "@stylexswc/postcss-plugin",
-			"description": "PostCSS plugin that collects and extracts StyleX styles using a Rust NAPI-RS/SWC compiler. Ideal for Turbopack and custom CSS pipelines.",
 			"version": "0.17.1",
+			"keywords": [
+				"atomic-css",
+				"css-extraction",
+				"css-in-js",
+				"napi-rs",
+				"postcss",
+				"postcss-plugin",
+				"rust",
+				"stylex",
+				"swc",
+				"turbopack"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.17.1",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin/tree/develop/packages/postcss-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "121f17a9670259b4084c6dee873a09e1d0257803",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.17.1.tgz",
+				"fileCount": 21,
+				"integrity": "sha512-spY8ve/BN6oh+u7HUJfnwFWsNpT4rQ1/664yiOTXs31bcSXBS4rxRdpK0A/6gU/TrlE7vFYyZzQYbf3bOlkyGw==",
+				"signatures": [
+					{
+						"sig": "MEUCIQD2lGatTk50Lktey2jCojA503VkesgLZkIMX7w2HqnAnQIgKcKVV7j+/il8lW9jZAeV1OjyYndanxC4wEGHMeDTg8s=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.17.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 49023
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.17.1.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "jest",
+				"build": "scripty --ts --flatten",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty --ts",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:1f4cf620-5331-472e-abdf-f33ab57ca960"
+				}
+			},
+			"_resolved": "/tmp/6f45867fc6f10f6cd6d9d16d91c5cca9/stylexswc-postcss-plugin-0.17.1.tgz",
+			"_integrity": "sha512-spY8ve/BN6oh+u7HUJfnwFWsNpT4rQ1/664yiOTXs31bcSXBS4rxRdpK0A/6gU/TrlE7vFYyZzQYbf3bOlkyGw==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git",
+				"directory": "packages/postcss-plugin"
+			},
+			"_npmVersion": "11.16.0",
+			"description": "PostCSS plugin that collects and extracts StyleX styles using a Rust NAPI-RS/SWC compiler. Ideal for Turbopack and custom CSS pipelines.",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "24.18.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.16",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.19.0",
+				"@stylexswc/rs-compiler": "0.17.1"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"jest": "^30.4.2",
+				"ts-jest": "^29.4.9",
+				"@types/jest": "^30.0.0",
+				"@types/node": "^26.1.0",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"jest-chain-transform": "^0.0.8",
+				"@stylexswc/eslint-config": "0.17.1",
+				"@stylexswc/typescript-config": "0.17.1"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.17.1_1783600010063_0.10130977636739247",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.17.2-dev.1": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.17.2-dev.1",
+			"keywords": [
+				"atomic-css",
+				"css-extraction",
+				"css-in-js",
+				"napi-rs",
+				"postcss",
+				"postcss-plugin",
+				"rust",
+				"stylex",
+				"swc",
+				"turbopack"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.17.2-dev.1",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin/tree/develop/packages/postcss-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "0708156714e2c11363390bd7594a6de17e7250fb",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.17.2-dev.1.tgz",
+				"fileCount": 21,
+				"integrity": "sha512-mDyv+GQwtJrDMlNJlCcZwVT0so/6vCGo4NACCHf4ynIIfAxXNfyTDcUevD3qZvi6RHkreU1kF7lbDzc7hA3ssg==",
+				"signatures": [
+					{
+						"sig": "MEQCIFTY16+z7wBnulAh1Zt6fCK1y25qoslIm/3BdVN/in0uAiAbl7fKQYed7DTUQL5dPKwv6X9RsTPgcFD6FrYuNzKyoQ==",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.17.2-dev.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 49047
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.17.2-dev.1.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "jest",
+				"build": "scripty --ts --flatten",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty --ts",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:1f4cf620-5331-472e-abdf-f33ab57ca960"
+				}
+			},
+			"_resolved": "/tmp/131e81619067dd977d7f5087323c591f/stylexswc-postcss-plugin-0.17.2-dev.1.tgz",
+			"_integrity": "sha512-mDyv+GQwtJrDMlNJlCcZwVT0so/6vCGo4NACCHf4ynIIfAxXNfyTDcUevD3qZvi6RHkreU1kF7lbDzc7hA3ssg==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git",
+				"directory": "packages/postcss-plugin"
+			},
+			"_npmVersion": "11.16.0",
+			"description": "PostCSS plugin that collects and extracts StyleX styles using a Rust NAPI-RS/SWC compiler. Ideal for Turbopack and custom CSS pipelines.",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "24.18.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.16",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.19.0",
+				"@stylexswc/rs-compiler": "0.17.2-dev.1"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"jest": "^30.4.2",
+				"ts-jest": "^29.4.9",
+				"@types/jest": "^30.0.0",
+				"@types/node": "^26.1.0",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"jest-chain-transform": "^0.0.8",
+				"@stylexswc/eslint-config": "0.17.2-dev.1",
+				"@stylexswc/typescript-config": "0.17.2-dev.1"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.17.2-dev.1_1783781909170_0.3123614493723228",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.18.0-rc.1": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.18.0-rc.1",
+			"keywords": [
+				"atomic-css",
+				"css-extraction",
+				"css-in-js",
+				"napi-rs",
+				"postcss",
+				"postcss-plugin",
+				"rust",
+				"stylex",
+				"swc",
+				"turbopack"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.18.0-rc.1",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin/tree/develop/packages/postcss-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "49b3b422e9cf28ff955bf76e10ef1d8f7d0603d7",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.18.0-rc.1.tgz",
+				"fileCount": 21,
+				"integrity": "sha512-05K16K5kgeyCMWmeXnefv42HY3vJPWMAiC+3DfDVBAb0pVkQoNTD1NVGJZ8iGaezTMxVnchyXquX7ZadDZD+mg==",
+				"signatures": [
+					{
+						"sig": "MEYCIQCxpx60lc28q08g6tPVgrqm3cLZV2e5UmPjJ3X3s9U2IgIhAPRZ5N+i17o9aMjhZG1rWI3YjLS3k9pTcjelLS3ajG8k",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.18.0-rc.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 49043
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.18.0-rc.1.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "jest",
+				"build": "scripty --ts --flatten",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty --ts",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:1f4cf620-5331-472e-abdf-f33ab57ca960"
+				}
+			},
+			"_resolved": "/tmp/a08a1cd01a9db96fa968b4a80c90e935/stylexswc-postcss-plugin-0.18.0-rc.1.tgz",
+			"_integrity": "sha512-05K16K5kgeyCMWmeXnefv42HY3vJPWMAiC+3DfDVBAb0pVkQoNTD1NVGJZ8iGaezTMxVnchyXquX7ZadDZD+mg==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git",
+				"directory": "packages/postcss-plugin"
+			},
+			"_npmVersion": "11.16.0",
+			"description": "PostCSS plugin that collects and extracts StyleX styles using a Rust NAPI-RS/SWC compiler. Ideal for Turbopack and custom CSS pipelines.",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "24.18.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.16",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.19.0",
+				"@stylexswc/rs-compiler": "0.18.0-rc.1"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"jest": "^30.4.2",
+				"ts-jest": "^29.4.9",
+				"@types/jest": "^30.0.0",
+				"@types/node": "^26.1.0",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"jest-chain-transform": "^0.0.8",
+				"@stylexswc/eslint-config": "0.18.0-rc.1",
+				"@stylexswc/typescript-config": "0.18.0-rc.1"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.18.0-rc.1_1783816078481_0.954923972056263",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.18.0-rc.2": {
+			"name": "@stylexswc/postcss-plugin",
+			"version": "0.18.0-rc.2",
+			"keywords": [
+				"atomic-css",
+				"css-extraction",
+				"css-in-js",
+				"napi-rs",
+				"postcss",
+				"postcss-plugin",
+				"rust",
+				"stylex",
+				"swc",
+				"turbopack"
+			],
+			"license": "MIT",
+			"_id": "@stylexswc/postcss-plugin@0.18.0-rc.2",
+			"maintainers": [
+				{
+					"name": "dwlad",
+					"email": "dwlad90@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/Dwlad90/stylex-swc-plugin/tree/develop/packages/postcss-plugin#readme",
+			"bugs": {
+				"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
+			},
+			"dist": {
+				"shasum": "1c79bcbd02de75c00f3c68f76e71ede412917c63",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.18.0-rc.2.tgz",
+				"fileCount": 21,
+				"integrity": "sha512-oORnZCJUTnvuGQBGMu16wDtUGwg4+Ru/+t6tFZSY4GjmkICzZ8qvtEumtUa7vxogydpwxnqwodkuHgyNpq9TRA==",
+				"signatures": [
+					{
+						"sig": "MEQCICihYsFJCCJsYq6J1y71ubEbdjYhjH6rsS9dQNJJyZCaAiAhuorSTGp44+h+bWLhYC8mps5XfPsoveFrEDmTnb0H+A==",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.18.0-rc.2",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 49043
+			},
+			"main": "dist/index.js",
+			"_from": "file:stylexswc-postcss-plugin-0.18.0-rc.2.tgz",
+			"types": "./dist/index.d.ts",
+			"config": {
+				"scripty": {
+					"path": "../../scripts/packages"
+				}
+			},
+			"private": false,
+			"scripts": {
+				"lint": "eslint . --color",
+				"test": "jest",
+				"build": "scripty --ts --flatten",
+				"clean": "del-cli dist",
+				"prepush": "lint-prepush",
+				"postbuild": "pnpm run check:artifacts",
+				"precommit": "lint-staged",
+				"typecheck": "scripty --ts",
+				"lint:check": "eslint . --color --format json --output-file dist/eslint_report.json",
+				"check:artifacts": "scripty"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:1f4cf620-5331-472e-abdf-f33ab57ca960"
+				}
+			},
+			"_resolved": "/tmp/6761a4966befb4de2efe214c142ce499/stylexswc-postcss-plugin-0.18.0-rc.2.tgz",
+			"_integrity": "sha512-oORnZCJUTnvuGQBGMu16wDtUGwg4+Ru/+t6tFZSY4GjmkICzZ8qvtEumtUa7vxogydpwxnqwodkuHgyNpq9TRA==",
+			"repository": {
+				"url": "git+https://github.com/Dwlad90/stylex-swc-plugin.git",
+				"type": "git",
+				"directory": "packages/postcss-plugin"
+			},
+			"_npmVersion": "11.16.0",
+			"description": "PostCSS plugin that collects and extracts StyleX styles using a Rust NAPI-RS/SWC compiler. Ideal for Turbopack and custom CSS pipelines.",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "24.18.0",
+			"dependencies": {
+				"is-glob": "^4.0.3",
+				"postcss": "^8.5.16",
+				"fast-glob": "^3.3.3",
+				"glob-parent": "^6.0.2",
+				"@stylexjs/babel-plugin": "^0.19.0",
+				"@stylexswc/rs-compiler": "0.18.0-rc.2"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"readmeFilename": "README.md",
+			"devDependencies": {
+				"jest": "^30.4.2",
+				"ts-jest": "^29.4.9",
+				"@types/jest": "^30.0.0",
+				"@types/node": "^26.1.0",
+				"@types/is-glob": "^4.0.4",
+				"@types/babel__core": "^7.20.5",
+				"@types/glob-parent": "^5.1.3",
+				"jest-chain-transform": "^0.0.8",
+				"@stylexswc/eslint-config": "0.18.0-rc.2",
+				"@stylexswc/typescript-config": "0.18.0-rc.2"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-plugin_0.18.0-rc.2_1783852888773_0.06997391017857235",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.18.0": {
+			"name": "@stylexswc/postcss-plugin",
+			"description": "PostCSS plugin that collects and extracts StyleX styles using a Rust NAPI-RS/SWC compiler. Ideal for Turbopack and custom CSS pipelines.",
+			"version": "0.18.0",
 			"private": false,
 			"license": "MIT",
 			"sideEffects": false,
@@ -15274,15 +15745,15 @@
 			},
 			"dependencies": {
 				"@stylexjs/babel-plugin": "^0.19.0",
-				"@stylexswc/rs-compiler": "0.17.1",
+				"@stylexswc/rs-compiler": "0.18.0",
 				"fast-glob": "^3.3.3",
 				"glob-parent": "^6.0.2",
 				"is-glob": "^4.0.3",
 				"postcss": "^8.5.16"
 			},
 			"devDependencies": {
-				"@stylexswc/eslint-config": "0.17.1",
-				"@stylexswc/typescript-config": "0.17.1",
+				"@stylexswc/eslint-config": "0.18.0",
+				"@stylexswc/typescript-config": "0.18.0",
 				"@types/babel__core": "^7.20.5",
 				"@types/glob-parent": "^5.1.3",
 				"@types/is-glob": "^4.0.4",
@@ -15327,20 +15798,20 @@
 				"typecheck": "scripty --ts"
 			},
 			"types": "./dist/index.d.ts",
-			"_id": "@stylexswc/postcss-plugin@0.17.1",
-			"_integrity": "sha512-spY8ve/BN6oh+u7HUJfnwFWsNpT4rQ1/664yiOTXs31bcSXBS4rxRdpK0A/6gU/TrlE7vFYyZzQYbf3bOlkyGw==",
-			"_resolved": "/tmp/6f45867fc6f10f6cd6d9d16d91c5cca9/stylexswc-postcss-plugin-0.17.1.tgz",
-			"_from": "file:stylexswc-postcss-plugin-0.17.1.tgz",
+			"_id": "@stylexswc/postcss-plugin@0.18.0",
+			"_integrity": "sha512-70LaPfHU19QCVepizj2LfBwKjdFVqspPIYeE9y0q32JAOtNuEHiKQcwGM7s7ynzfEGv3Z+gqzcFxdQ+QcKAoRQ==",
+			"_resolved": "/tmp/908a6d7a7b741b8037060142adf3e7b7/stylexswc-postcss-plugin-0.18.0.tgz",
+			"_from": "file:stylexswc-postcss-plugin-0.18.0.tgz",
 			"_nodeVersion": "24.18.0",
 			"_npmVersion": "11.16.0",
 			"dist": {
-				"integrity": "sha512-spY8ve/BN6oh+u7HUJfnwFWsNpT4rQ1/664yiOTXs31bcSXBS4rxRdpK0A/6gU/TrlE7vFYyZzQYbf3bOlkyGw==",
-				"shasum": "121f17a9670259b4084c6dee873a09e1d0257803",
-				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.17.1.tgz",
+				"integrity": "sha512-70LaPfHU19QCVepizj2LfBwKjdFVqspPIYeE9y0q32JAOtNuEHiKQcwGM7s7ynzfEGv3Z+gqzcFxdQ+QcKAoRQ==",
+				"shasum": "acee06365f96186ba7e5a2c2afb81381e2982e8b",
+				"tarball": "https://registry.npmjs.org/@stylexswc/postcss-plugin/-/postcss-plugin-0.18.0.tgz",
 				"fileCount": 21,
 				"unpackedSize": 49023,
 				"attestations": {
-					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.17.1",
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/@stylexswc%2fpostcss-plugin@0.18.0",
 					"provenance": {
 						"predicateType": "https://slsa.dev/provenance/v1"
 					}
@@ -15348,7 +15819,7 @@
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEUCIQD2lGatTk50Lktey2jCojA503VkesgLZkIMX7w2HqnAnQIgKcKVV7j+/il8lW9jZAeV1OjyYndanxC4wEGHMeDTg8s="
+						"sig": "MEUCIQCcngLL6fR4/2rgMWjzHs9nNth+i5B6+mU/cJlrlkpCFAIgPqg7ndKEZArZslRcFm6KB0mJXtcTCOlYwSYzWSJBX2A="
 					}
 				]
 			},
@@ -15369,14 +15840,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-plugin_0.17.1_1783600010063_0.10130977636739247"
+				"tmp": "tmp/postcss-plugin_0.18.0_1784183299039_0.8994926094391196"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2025-01-06T21:22:46.008Z",
-		"modified": "2026-07-09T12:26:50.484Z",
+		"modified": "2026-07-16T06:28:19.516Z",
 		"0.6.0-rc.1": "2025-01-06T21:22:46.344Z",
 		"0.6.0-rc.2": "2025-01-07T19:24:10.899Z",
 		"0.6.0": "2025-01-09T22:22:23.309Z",
@@ -15518,7 +15989,11 @@
 		"0.17.0-rc.4": "2026-07-02T22:53:42.367Z",
 		"0.17.0": "2026-07-05T12:56:21.362Z",
 		"0.17.1-rc.1": "2026-07-08T23:30:08.542Z",
-		"0.17.1": "2026-07-09T12:26:50.190Z"
+		"0.17.1": "2026-07-09T12:26:50.190Z",
+		"0.17.2-dev.1": "2026-07-11T14:58:29.325Z",
+		"0.18.0-rc.1": "2026-07-12T00:27:58.645Z",
+		"0.18.0-rc.2": "2026-07-12T10:41:28.895Z",
+		"0.18.0": "2026-07-16T06:28:19.174Z"
 	},
 	"bugs": {
 		"url": "https://github.com/Dwlad90/stylex-swc-plugin/issues"
@@ -15552,7 +16027,6 @@
 	"readme": "# @stylexswc/postcss-plugin\n\n> PostCSS plugin that extracts StyleX styles with a Rust compiler (NAPI-RS +\n> SWC). Part of the\n> [StyleX SWC Plugin](https://github.com/Dwlad90/stylex-swc-plugin#readme)\n> workspace.\n\nThis plugin scans your source files for [StyleX](https://stylexjs.com) code,\ncompiles it with\n[`@stylexswc/rs-compiler`](https://www.npmjs.com/package/@stylexswc/rs-compiler)\n— a Rust implementation of the StyleX transform — and replaces an `@stylex;`\ndirective in your CSS with the generated rules. Because it plugs into any\nPostCSS pipeline, it is the standard way to get CSS extraction where bundler\nplugins cannot run, most notably Next.js with Turbopack.\n\nThis is a community project and is not affiliated with Meta. It tracks the\nofficial StyleX releases\n<!-- stylex-compatibility:start -->(currently compatible with StyleX v0.19.0)<!-- stylex-compatibility:end -->\nand requires Node.js 20 or newer.\n\n## Installation\n\n```bash\nnpm install --save-dev @stylexswc/postcss-plugin\n```\n\n## Usage\n\nAdd the plugin to `postcss.config.js`:\n\n```js\nmodule.exports = {\n  plugins: {\n    '@stylexswc/postcss-plugin': {\n      include: ['src/**/*.{js,jsx,ts,tsx}'],\n    },\n    autoprefixer: {},\n  },\n};\n```\n\nAdd a CSS file containing the `@stylex` directive to your project:\n\n```css\n/* stylex.css */\n\n/**\n * The @stylex directive is replaced with the generated CSS during builds.\n */\n@stylex;\n```\n\nAnd import it in your JS/TS entry point:\n\n```js\nimport './stylex.css';\n```\n\nThe JS/TS files themselves still need a StyleX transform so the class names\nexist at runtime — pair this plugin with one of the `@stylexswc` bundler\nplugins. For example with Next.js:\n\n```js\n// next.config.js\nconst path = require('path');\nconst stylexPlugin = require('@stylexswc/nextjs-plugin');\nconst rootDir = __dirname;\n\nmodule.exports = stylexPlugin({\n  rsOptions: {\n    aliases: {\n      '@/*': [path.join(rootDir, '*')],\n    },\n    unstable_moduleResolution: {\n      type: 'commonJS',\n    },\n  },\n  // Important: prevents generating the StyleX CSS twice\n  extractCSS: false,\n})({\n  transpilePackages: ['@stylexjs/open-props'],\n});\n```\n\n> [!WARNING]\n> Every `@stylexswc` bundler plugin accepts an `extractCSS` option.\n> When this PostCSS plugin owns extraction, set `extractCSS: false` on the\n> bundler plugin to avoid generating the StyleX CSS twice.\n\n> [!NOTE]\n> This approach transforms JS/TS files with StyleX code twice: once for\n> the bundle and once inside the PostCSS plugin. On Next.js with Webpack you can\n> avoid that by skipping this plugin entirely and passing a `transformCss`\n> function to `@stylexswc/nextjs-plugin` instead. With Turbopack, the double\n> transform is currently the only way to extract CSS.\n\n## Plugin Options\n\n> [!NOTE]\n> The `include` and `exclude` options are exclusive to the Rust compiler\n> and are not available in the official StyleX Babel plugin.\n\n### `include`\n\n- Type: `(string | RegExp)[]`\n- Default: auto-discovered\n- Description: Glob patterns or regular expressions selecting the files to scan\n  and transform. When specified, only files matching at least one pattern are\n  processed. Patterns are matched against paths relative to the current working\n  directory. Regular expressions support lookahead and lookbehind.\n\nWhen omitted, the plugin auto-discovers source files in the project `cwd` and\ndirect dependencies that use StyleX.\n\n### `exclude`\n\n- Type: `(string | RegExp)[]`\n- Optional\n- Description: Glob patterns or regular expressions excluding files from the\n  transform. A file matching any exclude pattern is skipped even if it matches\n  an `include` pattern. Patterns are matched against paths relative to the\n  current working directory. Regular expressions support lookahead and\n  lookbehind.\n\nWhen `include` is omitted, the plugin automatically excludes common build and\ndependency folders (for example `node_modules`, `.next`, `dist`, `build`) to\nkeep discovery focused on source files.\n\n### `rsOptions`\n\n- Type: `StyleXOptions`\n- Optional\n- Default: `{}`\n- Description: StyleX compiler options passed to the compiler. For the standard\n  options, see the\n  [official StyleX documentation](https://stylexjs.com/docs/api/configuration/babel-plugin/).\n\n### `useCSSLayers`\n\n- Type: `boolean`\n- Optional\n- Default: `false`\n- Description: Wraps the generated CSS in cascade layers for better style\n  isolation.\n\n### `cwd`\n\n- Type: `string`\n- Optional\n- Default: `process.cwd()`\n- Description: Working directory for resolving files. Dependency paths and\n  config resolution use this value.\n\n### `isDev`\n\n- Type: `boolean`\n- Optional\n- Description: Whether the plugin is running in development mode.\n\n### `importSources`\n\n- Type: `Array<string | { from: string, as: string }>`\n- Optional\n- Description: Overrides import sources at the PostCSS plugin level.\n\nWhen provided, takes precedence over `rsOptions.importSources`. When omitted,\nfalls back to `rsOptions.importSources`, then the built-in defaults\n(`@stylexjs/stylex`, `stylex`).\n\n## Path Filtering Examples\n\nInclude only specific directories:\n\n```js\n{\n  '@stylexswc/postcss-plugin': {\n    include: ['src/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}'],\n  },\n}\n```\n\nExclude test and story files:\n\n```js\n{\n  '@stylexswc/postcss-plugin': {\n    include: ['src/**/*.{ts,tsx}'],\n    exclude: ['**/*.test.*', '**/*.stories.*', '**/__tests__/**'],\n  },\n}\n```\n\nUsing regular expressions:\n\n```js\n{\n  '@stylexswc/postcss-plugin': {\n    include: ['src/**/*.{ts,tsx}', /components\\/.*\\.tsx$/],\n    exclude: [/\\.test\\./, /\\.stories\\./],\n  },\n}\n```\n\nExclude `node_modules` except specific packages (negative lookahead):\n\n```js\n{\n  '@stylexswc/postcss-plugin': {\n    include: ['src/**/*.{ts,tsx}', 'node_modules/**/*.js'],\n    exclude: [/node_modules(?!\\/@stylexjs\\/open-props)/],\n  },\n}\n```\n\n## Debugging auto-discovery\n\nSet `STYLEX_POSTCSS_DEBUG=1` to print resolved plugin inputs, including:\n\n- resolved `importSources` and where they came from\n- final `include` and `exclude` globs\n- discovered dependency directories\n\n## FAQ\n\n### When do I need this plugin instead of a bundler plugin?\n\nWhenever your bundler cannot extract CSS itself: Next.js with Turbopack is the\nmain case, and any pipeline where CSS is produced exclusively through PostCSS\n(for example alongside Tailwind). If you build with Webpack, Rspack, Rollup, or\nVite, the corresponding `@stylexswc` plugin extracts CSS on its own and this\nplugin is unnecessary.\n\n### My generated CSS appears twice. What happened?\n\nBoth the bundler plugin and this plugin extracted it. Set `extractCSS: false` on\nthe bundler plugin so the PostCSS plugin is the only producer.\n\n### Nothing is injected in place of `@stylex;`. What should I check?\n\nConfirm the CSS file with the directive is actually imported by your app, that\nyour `include` globs match the files defining styles, and run with\n`STYLEX_POSTCSS_DEBUG=1` to see which files the plugin discovered.\n\n### Is this an official StyleX package?\n\nNo. It is a community-maintained alternative to the official tooling and is not\naffiliated with or supported by Meta.\n\n## Documentation\n\n- [StyleX documentation](https://stylexjs.com)\n- [`@stylexswc/rs-compiler` compiler options](https://github.com/Dwlad90/stylex-swc-plugin/tree/develop/crates/stylex-rs-compiler)\n\n## License\n\nMIT — see\n[LICENSE](https://github.com/Dwlad90/stylex-swc-plugin/blob/develop/LICENSE)\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		12980,
 		15532,
 		16799,
 		14335,
@@ -15571,6 +16045,7 @@
 		39562,
 		22463,
 		54114,
-		84536
+		84536,
+		127065
 	]
 }
