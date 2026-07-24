@@ -1422,7 +1422,6 @@
 	"readme": "# PostCSS Encode Background SVGs\n[![CI][ci-badge]][ci-link] [![npm version][npm-badge-version]][npm-link]\n\n[npm-badge-version]: https://img.shields.io/npm/v/postcss-encode-background-svgs.svg\n[npm-link]: https://www.npmjs.com/package/postcss-encode-background-svgs\n[ci-badge]: https://github.com/chrisboakes/postcss-encode-background-svgs/actions/workflows/ci.yml/badge.svg\n[ci-link]: https://github.com/chrisboakes/postcss-encode-background-svgs/actions/workflows/ci.yml\n\n[PostCSS](https://github.com/postcss/postcss) plugin to encode background-image SVGs for cross browser compatibility.\n\n### The Problem\nBackground image SVGs are great but they don't render on IE unless encoded properly.\n\n### The Solution\nWrite your background as you usually would:\n\n```scss\n/* Input example */\nbackground-image: url('data:image/svg+xml, <svg xmlns=\"http://www.w3.org/2000/svg\"></svg>');\n```\nThis encoder will then take your readable SVG and return a UTF-8 cross browser encoded solution like so:\n\n```scss\n/* Output example */\nbackground-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E\");\n```\n\n## Requirements\n\n- Node.js >= 20\n- PostCSS 8 (peer dependency)\n\n## Installation\n\n[pnpm](https://pnpm.io/)\n\n```sh\npnpm add -D postcss postcss-encode-background-svgs\n```\n\n[npm](https://www.npmjs.com/)\n\n```sh\nnpm install --save-dev postcss postcss-encode-background-svgs\n```\n\n## Usage\n\nIn your `postcss.config.js`:\n\n```js\nmodule.exports = {\n    plugins: {\n        'postcss-encode-background-svgs': {}\n    }\n};\n```\n\nOr via the API — the package ships both ESM and CommonJS builds with TypeScript types:\n\n```js\n// ESM\nimport postcss from 'postcss';\nimport encodeBackgroundSVGs from 'postcss-encode-background-svgs';\n\npostcss([encodeBackgroundSVGs()]);\n```\n\n```js\n// CommonJS\nconst postcss = require('postcss');\nconst encodeBackgroundSVGs = require('postcss-encode-background-svgs');\n\npostcss([encodeBackgroundSVGs()]);\n```\n\nSee the [PostCSS](https://github.com/postcss/postcss#usage) docs for examples for your environment.\n\nOnce included in your environment, the plugin will search for any scss value with ```data:image/svg+xml```.\n\n## Migrating from v1\n\nVersion 2 is a modernisation release — the encoding behaviour is unchanged:\n\n- PostCSS 8 is now a peer dependency (v1 bundled PostCSS 6); install `postcss` alongside the plugin\n- Node.js >= 20 is required\n- The plugin registers under the name `postcss-encode-background-svgs` (previously `postcss-urlencode-background-svgs`)\n\n## Credits\n\nBig thanks for [Vasi](https://github.com/Vasiharan) and [Rob](https://github.com/RobDWaller) for their help with the Regex.\n\nMIT © [Chris Boakes](https://twitter.com/cboakes)\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		393,
 		418,
 		459,
 		519,
@@ -1441,6 +1440,7 @@
 		636,
 		639,
 		652,
-		674
+		674,
+		668
 	]
 }
