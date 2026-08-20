@@ -1,0 +1,123 @@
+{
+	"_id": "@beam-css/postcss-fluid",
+	"name": "@beam-css/postcss-fluid",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "@beam-css/postcss-fluid",
+			"version": "1.0.0",
+			"description": "PostCSS plugin: compile BEAM fluid(min, max) to clamp().",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"beam-css",
+				"fluid",
+				"clamp",
+				"responsive",
+				"design-tokens"
+			],
+			"license": "MIT",
+			"author": "Andrei Furdui",
+			"homepage": "https://beamcss.org/install/#plugin",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/thefurdui/beamcss.git",
+				"directory": "packages/postcss-beam-fluid"
+			},
+			"bugs": {
+				"url": "https://github.com/thefurdui/beamcss/issues"
+			},
+			"publishConfig": {
+				"access": "public"
+			},
+			"type": "module",
+			"main": "./src/index.js",
+			"exports": {
+				".": "./src/index.js"
+			},
+			"engines": {
+				"node": ">=18.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.0"
+			},
+			"devDependencies": {
+				"postcss": "^8.5.6"
+			},
+			"scripts": {
+				"test": "node --test test/"
+			},
+			"_nodeVersion": "24.18.0",
+			"_id": "@beam-css/postcss-fluid@1.0.0",
+			"dist": {
+				"integrity": "sha512-Ps5X560gqB6hNoQnYl1bn0fUfp1TnOvGVLL3jY4E/1BGI2TDu1+D24Ghb4jmBgEL77K5wY3HGrNVUPRDiJbHFg==",
+				"shasum": "54096bcd23115f545011cdc52e5ef08d4abcf336",
+				"tarball": "https://registry.npmjs.org/@beam-css/postcss-fluid/-/postcss-fluid-1.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 17320,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEYCIQDdwhi1cO+z7KiJd/0c6CWbLN2aKHt+qLHIJ8S2Hh8P/AIhAPHe1G+oa9B5O2g5WrU5f8V0oIEb5D4kD+sMQ74CkXkQ"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "thefurdui",
+				"email": "thefurdui@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "thefurdui",
+					"email": "thefurdui@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-fluid_1.0.0_1787145658762_0.8679771013640727"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-08-19T13:20:58.520Z",
+		"1.0.0": "2026-08-19T13:20:58.946Z",
+		"modified": "2026-08-19T13:20:59.241Z"
+	},
+	"maintainers": [
+		{
+			"name": "thefurdui",
+			"email": "thefurdui@gmail.com"
+		}
+	],
+	"description": "PostCSS plugin: compile BEAM fluid(min, max) to clamp().",
+	"homepage": "https://beamcss.org/install/#plugin",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"beam-css",
+		"fluid",
+		"clamp",
+		"responsive",
+		"design-tokens"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thefurdui/beamcss.git",
+		"directory": "packages/postcss-beam-fluid"
+	},
+	"author": "Andrei Furdui",
+	"bugs": {
+		"url": "https://github.com/thefurdui/beamcss/issues"
+	},
+	"license": "MIT",
+	"readme": "# @beam-css/postcss-fluid\n\nPoint-to-point fluid interpolation for [BEAM CSS](https://beamcss.org). Write `fluid(min, max)`, ship a plain `clamp()`.\n\n```bash\npnpm add -D @beam-css/postcss-fluid\n```\n\n## Why\n\nFluid typography and spacing are solved problems with an unsolved ergonomics story. The formula is always the same, and it is always written by hand:\n\n```css\n/* \"2.25rem at 640px, 8rem at 1280px.\" Obvious, right? */\nfont-size: clamp(2.25rem, calc(2.25rem + (8 - 2.25) * ((100vw - 40rem) / (80 - 40))), 8rem);\n```\n\nNobody reads that. Nobody audits that. Nobody notices when the second `2.25rem` drifts out of sync with the first. So you write it once, copy it forever, and your type scale quietly stops being a scale.\n\n`fluid()` states the intent instead:\n\n```css\nfont-size: fluid(var(--text-4xl), var(--text-9xl));\n```\n\nAt build time that becomes:\n\n```css\nfont-size: clamp(2.25rem, -3.5rem + 14.375vw, 8rem);\n```\n\nNo runtime. No `calc()`. No multiplication or division left in the output – just two bounds and a pre-computed slope.\n\n## Setup\n\n```js\n// postcss.config.mjs\nimport postcssBeamFluid from '@beam-css/postcss-fluid'\n\nexport default {\n  plugins: [\n    postcssBeamFluid({\n      minViewport: '40rem',\n      maxViewport: '80rem',\n      tokenFiles: ['src/styles/theme.css'],\n    }),\n  ],\n}\n```\n\n`tokenFiles` is how the plugin learns your design tokens. It parses the custom properties out of those stylesheets so `fluid(var(--space-4), var(--space-8))` can be resolved without duplicating the scale in your build config. When a token is declared in both `:root` and a themed scope, the `:root` declaration wins.\n\n## Usage\n\n```css\n/* Two tokens, global viewport bounds. */\npadding: fluid(var(--space-4), var(--space-8));\n\n/* Literals work too. */\ngap: fluid(1rem, 3rem);\n\n/* Per-call viewport bounds: min, max, minViewport, maxViewport. */\nfont-size: fluid(2rem, 8rem, 20rem, 60rem);\n\n/* Multiple calls in one shorthand. */\npadding: fluid(var(--space-4), var(--space-8)) fluid(var(--space-6), var(--space-12));\n\n/* Descending is fine – the clamp bounds are ordered for you. */\nletter-spacing: fluid(0.04rem, 0rem);\n```\n\n## Options\n\n| Option         | Default         | Purpose                                                             |\n| -------------- | --------------- | ------------------------------------------------------------------- |\n| `minViewport`  | `'40rem'`       | Viewport width at which the minimum is reached.                     |\n| `maxViewport`  | `'80rem'`       | Viewport width at which the maximum is reached.                     |\n| `tokenFiles`   | `[]`            | Stylesheets to harvest custom properties from. Relative to `cwd`.   |\n| `tokens`       | `{}`            | Inline token map, e.g. `{ '--space-4': '1rem' }`. Useful in tests.  |\n| `rootFontSize` | `16`            | px value of `1rem`. Used to reconcile px bounds with rem viewports. |\n| `cwd`          | `process.cwd()` | Base directory for relative `tokenFiles`.                           |\n\nResolution order is: custom properties declared in the file being processed, then `tokens`, then `tokenFiles`.\n\n## Rules\n\nThe plugin is deliberately strict, because a fluid value that silently resolves to something unintended is worse than a build failure.\n\n- **Static `px` and `rem` only.** `em`, `%`, `vw`, and `ch` depend on context the build cannot see.\n- **One unit per call.** `fluid(16px, 2rem)` is a bug, not a convenience.\n- **`var()` chains are followed** through as many aliases as you like, and `var(--token, fallback)` uses the fallback when the token is missing.\n- **Unresolved tokens throw**, with the file, line, and token name in the message. Nothing degrades quietly.\n- **A unitless `0` is allowed** on either side and adopts the unit of its partner.\n- **Equal bounds collapse** to a single value instead of emitting a pointless `clamp()`.\n\n## Verifying\n\nAdd this to CI. If a raw `fluid(` reaches your build output, the plugin never ran:\n\n```bash\npnpm build && ! rg -q \"fluid\\(\" dist\n```\n\n## The maths\n\nFor bounds `min`/`max` reached at viewports `v0`/`v1`, all expressed in the same unit:\n\n```text\nslope     = (max - min) / (v1 - v0)\nintercept = min - slope * v0\noutput    = clamp(min, intercept + slope * 100vw, max)\n```\n\nBecause `slope` is a ratio of two same-unit lengths it is unitless, which is why the result is correct whether you work in `px` or `rem`. `intercept` and `slope * 100` are evaluated at build time and printed as literals, so the browser only ever sees a sum of two terms.\n\n## License\n\nMIT\n",
+	"readmeFilename": "",
+	"_rev": "1-6e4ecaf740d095e6cb47cdcf4c3b5fce",
+	"_downloads": [
+		0
+	]
+}
