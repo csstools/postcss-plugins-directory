@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-adaptive-matrix",
-	"_rev": "6-aa30af00f5d42519bb4de6eacf100eca",
+	"_rev": "7-4499421342b99c28178ef6ca7ffc620c",
 	"name": "postcss-adaptive-matrix",
 	"dist-tags": {
-		"latest": "0.7.0"
+		"latest": "0.8.0"
 	},
 	"versions": {
 		"0.2.0": {
@@ -681,6 +681,164 @@
 		"0.7.0": {
 			"name": "postcss-adaptive-matrix",
 			"version": "0.7.0",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"responsive",
+				"adaptive",
+				"viewport",
+				"clamp",
+				"fluid-typography",
+				"container-query",
+				"design-tokens",
+				"component-library",
+				"mobile",
+				"desktop",
+				"px-to-vw",
+				"accessibility"
+			],
+			"author": {
+				"name": "Moresyl and contributors"
+			},
+			"license": "MIT",
+			"_id": "postcss-adaptive-matrix@0.7.0",
+			"maintainers": [
+				{
+					"name": "xiaodong112400",
+					"email": "xiaodong112400@163.com"
+				}
+			],
+			"homepage": "https://moresyl.github.io/postcss-adaptive-matrix/",
+			"bugs": {
+				"url": "https://github.com/Moresyl/postcss-adaptive-matrix/issues"
+			},
+			"bin": {
+				"adaptive-matrix": "dist/cli.js"
+			},
+			"dist": {
+				"shasum": "f1f899b659e41868d6316e0bbf7e31012f1d66ed",
+				"tarball": "https://registry.npmjs.org/postcss-adaptive-matrix/-/postcss-adaptive-matrix-0.7.0.tgz",
+				"fileCount": 18,
+				"integrity": "sha512-OkAdfkKIdCtlUJaCCOUwzMGvGyaBhNmWpQsegQIByKXiEm96w7kRfpvpNhRlQTq8MQDvY+TlTGp2WAs0++oi3Q==",
+				"signatures": [
+					{
+						"sig": "MEYCIQCqD/zPXp/Ietzb4lXZ0gSpSxFaq6NICPcUq+/zWxRHUgIhAJ1c3TyZN7FwFoms2Ywf6WYK6k40u2O5aVGmcCTSVyIH",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-adaptive-matrix@0.7.0",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 1182306
+			},
+			"main": "./dist/index.cjs",
+			"type": "module",
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.js",
+			"engines": {
+				"node": ">=18"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.js"
+					},
+					"require": {
+						"types": "./dist/index.d.cts",
+						"default": "./dist/index.cjs"
+					}
+				},
+				"./runtime": {
+					"import": {
+						"types": "./dist/runtime.d.ts",
+						"default": "./dist/runtime.js"
+					},
+					"require": {
+						"types": "./dist/runtime.d.cts",
+						"default": "./dist/runtime.cjs"
+					}
+				},
+				"./package.json": "./package.json"
+			},
+			"gitHead": "868f9f2d83c2a214e559407b9573a2913e0b32df",
+			"scripts": {
+				"lint": "eslint .",
+				"test": "vitest run",
+				"bench": "tsx bench/index.ts",
+				"build": "tsup && tsx scripts/postbuild.ts",
+				"check": "npm run build && npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run test:coverage && npm run docs:build",
+				"format": "prettier --write .",
+				"docs:dev": "vitepress dev docs",
+				"lint:fix": "eslint . --fix",
+				"typecheck": "tsc --noEmit",
+				"docs:build": "vitepress build docs",
+				"docs:check": "node scripts/check-docs.mjs",
+				"pack:check": "npm pack --dry-run",
+				"bench:check": "tsx bench/index.ts --check",
+				"docs:preview": "vitepress preview docs",
+				"format:check": "prettier --check .",
+				"test:coverage": "vitest run --coverage",
+				"prepublishOnly": "npm run check",
+				"conformance:update": "tsx scripts/update-conformance.ts"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:6a7f0a4f-6c75-4a35-bc27-2b799f13562d"
+				}
+			},
+			"repository": {
+				"url": "git+https://github.com/Moresyl/postcss-adaptive-matrix.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.19.0",
+			"description": "Multi-canvas responsive CSS compiler for PostCSS 8: one design width per design file, bounded fluid sizing, zoom-accessible text, and out-of-the-box component library adaptation.",
+			"directories": {},
+			"sideEffects": [
+				"./dist/cli.js"
+			],
+			"_nodeVersion": "24.18.0",
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"publishConfig": {
+				"access": "public",
+				"registry": "https://registry.npmjs.org/"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsx": "^4.23.11",
+				"tsup": "^8.5.1",
+				"eslint": "^9.39.5",
+				"vitest": "^4.1.10",
+				"globals": "^17.9.0",
+				"postcss": "^8.5.26",
+				"prettier": "^3.9.6",
+				"vitepress": "^1.6.4",
+				"typescript": "^5.9.3",
+				"@types/node": "^24.0.0",
+				"caniuse-lite": "^1.0.30001809",
+				"typescript-eslint": "^8.67.0",
+				"@vitest/coverage-v8": "^4.1.10",
+				"eslint-config-prettier": "^10.1.8"
+			},
+			"peerDependencies": {
+				"postcss": "^8.4.0"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-adaptive-matrix_0.7.0_1786420889306_0.5396184639997768",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.8.0": {
+			"name": "postcss-adaptive-matrix",
+			"version": "0.8.0",
 			"description": "Multi-canvas responsive CSS compiler for PostCSS 8: one design width per design file, bounded fluid sizing, zoom-accessible text, and out-of-the-box component library adaptation.",
 			"keywords": [
 				"postcss",
@@ -751,7 +909,7 @@
 				"registry": "https://registry.npmjs.org/"
 			},
 			"scripts": {
-				"build": "tsup && tsx scripts/postbuild.ts",
+				"build": "node scripts/clean-dist.mjs && tsup && tsx scripts/postbuild.ts",
 				"typecheck": "tsc --noEmit",
 				"lint": "eslint .",
 				"lint:fix": "eslint . --fix",
@@ -759,6 +917,7 @@
 				"format:check": "prettier --check .",
 				"test": "vitest run",
 				"test:coverage": "vitest run --coverage",
+				"smoke:runtime": "node scripts/smoke-runtime.mjs",
 				"conformance:update": "tsx scripts/update-conformance.ts",
 				"bench": "tsx bench/index.ts",
 				"bench:check": "tsx bench/index.ts --check",
@@ -766,9 +925,10 @@
 				"docs:dev": "vitepress dev docs",
 				"docs:build": "vitepress build docs",
 				"docs:preview": "vitepress preview docs",
+				"audit:check": "npm audit --audit-level=moderate --registry=https://registry.npmjs.org/",
 				"check": "npm run build && npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run test:coverage && npm run docs:build",
 				"pack:check": "npm pack --dry-run",
-				"prepublishOnly": "npm run check"
+				"prepublishOnly": "npm run check && npm run audit:check"
 			},
 			"peerDependencies": {
 				"postcss": "^8.4.0"
@@ -792,18 +952,26 @@
 				"vitepress": "^1.6.4",
 				"vitest": "^4.1.10"
 			},
-			"gitHead": "868f9f2d83c2a214e559407b9573a2913e0b32df",
-			"_id": "postcss-adaptive-matrix@0.7.0",
-			"_nodeVersion": "24.18.0",
-			"_npmVersion": "11.19.0",
+			"overrides": {
+				"tsup": {
+					"esbuild": "0.28.2"
+				},
+				"vitepress": {
+					"vite": "6.4.3"
+				}
+			},
+			"gitHead": "24b7ed1cd0334b95b282730098e1f2989a77639f",
+			"_id": "postcss-adaptive-matrix@0.8.0",
+			"_nodeVersion": "24.19.0",
+			"_npmVersion": "11.19.1",
 			"dist": {
-				"integrity": "sha512-OkAdfkKIdCtlUJaCCOUwzMGvGyaBhNmWpQsegQIByKXiEm96w7kRfpvpNhRlQTq8MQDvY+TlTGp2WAs0++oi3Q==",
-				"shasum": "f1f899b659e41868d6316e0bbf7e31012f1d66ed",
-				"tarball": "https://registry.npmjs.org/postcss-adaptive-matrix/-/postcss-adaptive-matrix-0.7.0.tgz",
+				"integrity": "sha512-g9dDxqmvUJb7rJxlPa8TppK994Hl97+T+oldijmX8dYnrOjEjaragfl23Kk667NiRI1stBnklgS1eyvfYgNokA==",
+				"shasum": "f898d221bff2eb0f35fedd436577b928c729d85e",
+				"tarball": "https://registry.npmjs.org/postcss-adaptive-matrix/-/postcss-adaptive-matrix-0.8.0.tgz",
 				"fileCount": 18,
-				"unpackedSize": 1182306,
+				"unpackedSize": 2018239,
 				"attestations": {
-					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-adaptive-matrix@0.7.0",
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-adaptive-matrix@0.8.0",
 					"provenance": {
 						"predicateType": "https://slsa.dev/provenance/v1"
 					}
@@ -811,7 +979,7 @@
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEYCIQCqD/zPXp/Ietzb4lXZ0gSpSxFaq6NICPcUq+/zWxRHUgIhAJ1c3TyZN7FwFoms2Ywf6WYK6k40u2O5aVGmcCTSVyIH"
+						"sig": "MEUCIChmaG5nF+jcBEi7scNwq74qeRQdYD21z9QUfshKJeb9AiEAoMd84bq1j0FMmW+Mqdf8Xj9UAMO9mGI67kdrunyLy6A="
 					}
 				]
 			},
@@ -832,20 +1000,21 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-adaptive-matrix_0.7.0_1786420889306_0.5396184639997768"
+				"tmp": "tmp/postcss-adaptive-matrix_0.8.0_1787839056230_0.1583295714996742"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2026-08-09T09:00:28.427Z",
-		"modified": "2026-08-11T04:01:29.831Z",
+		"modified": "2026-08-27T13:57:36.717Z",
 		"0.2.0": "2026-08-09T09:00:28.738Z",
 		"0.3.0": "2026-08-09T10:49:13.124Z",
 		"0.4.0": "2026-08-09T14:29:19.899Z",
 		"0.5.0": "2026-08-10T10:53:32.285Z",
 		"0.6.0": "2026-08-11T03:13:02.163Z",
-		"0.7.0": "2026-08-11T04:01:29.458Z"
+		"0.7.0": "2026-08-11T04:01:29.458Z",
+		"0.8.0": "2026-08-27T13:57:36.407Z"
 	},
 	"bugs": {
 		"url": "https://github.com/Moresyl/postcss-adaptive-matrix/issues"
@@ -882,12 +1051,13 @@
 			"email": "xiaodong112400@163.com"
 		}
 	],
-	"readme": "<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/Moresyl/postcss-adaptive-matrix/main/docs/assets/banner.svg\" alt=\"postcss-adaptive-matrix — 一张设计稿，一个画布\" width=\"900\">\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/Moresyl/postcss-adaptive-matrix/actions/workflows/ci.yml\"><img src=\"https://github.com/Moresyl/postcss-adaptive-matrix/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a>\n  <a href=\"https://www.npmjs.com/package/postcss-adaptive-matrix\"><img src=\"https://img.shields.io/npm/v/postcss-adaptive-matrix.svg\" alt=\"npm version\"></a>\n  <a href=\"./LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-blue.svg\" alt=\"license\"></a>\n  <a href=\"https://postcss.org/\"><img src=\"https://img.shields.io/badge/PostCSS-8-dd3a0a.svg\" alt=\"PostCSS 8\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"./README.md\">English</a> · <b>简体中文</b>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://moresyl.github.io/postcss-adaptive-matrix/zh/\"><b>文档站</b></a> ·\n  <a href=\"https://moresyl.github.io/postcss-adaptive-matrix/zh/docs/playground\">在线试验场</a> ·\n  <a href=\"https://moresyl.github.io/postcss-adaptive-matrix/zh/docs/configuration\">配置参考</a> ·\n  <a href=\"https://moresyl.github.io/postcss-adaptive-matrix/zh/llms.txt\">llms.txt</a>\n</p>\n\n你按设计稿写 `px`，编译器负责换算。但换算的前提是先知道这个 `px` 画在哪张稿子上——**这就是整个项目的核心模型**。\n\n## 同一个 16px，三个正确答案\n\n<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/Moresyl/postcss-adaptive-matrix/main/docs/assets/canvas-model.svg\" alt=\"多画布模型：同一个 16px 来自三张设计稿，各按所属画布换算\" width=\"900\">\n</p>\n\n页面画在 750 上，装进来的移动端组件库画在 375 上，桌面端组件库根本没有画布而是按真实像素绘制。把它们塞进同一个换算公式，得到的一定是三个错误里挑一个。\n\n把组件库加进忽略名单也解决不了：页面缩放而组件不动，或者组件按错误画布被拉变形——这正是忽略名单唯一能给出的两个选项。\n\n给每张设计稿一个**画布**，才是对的。**而这是默认行为，不需要配置。**\n\n## 安装\n\n```bash\nnpm i -D postcss postcss-adaptive-matrix\n```\n\n## 快速开始\n\n`postcss.config.mjs`：\n\n```js\nimport adaptiveMatrix, { appPcPreset } from 'postcss-adaptive-matrix'\n\nexport default {\n  plugins: [\n    adaptiveMatrix(\n      appPcPreset({\n        appDesignWidth: 375,\n        pcDesignWidth: 1440,\n        rootSelector: '#app',\n      }),\n    ),\n  ],\n}\n```\n\n业务 CSS 照常写：\n\n```css\n.page {\n  padding: 16px;\n  font-size: 16px;\n}\n\n@adaptive pc {\n  .page {\n    padding: 48px 64px;\n  }\n}\n```\n\n输出：\n\n```css\n.page {\n  padding: clamp(13.65333px, 4.26667vw, 20.48px);\n  font-size: clamp(0.94867rem, calc(0.65rem + 1.49333vw), 1.098rem);\n}\n\n@media (min-width: 768px) {\n  .page {\n    padding: clamp(34.13333px, 3.33333vw, 64px) clamp(45.51111px, 4.44444vw, 85.33333px);\n  }\n}\n```\n\n到这里，组件库适配、安全区变量、根列布局和 `position: fixed` 修正已经全部生效，不需要再写一行配置。\n\n## 能力\n\n| | |\n| --- | --- |\n| **多画布** | App、PC、平板、车机各有独立设计宽度、断点、流体区间与单位 |\n| **有界流体** | 默认输出 `clamp()`，不会无限放大或无限压缩 |\n| **文字可访问** | `rem + vw` 混合公式，浏览器文字缩放依然有效（WCAG 1.4.4） |\n| **组件库开箱适配** | 内置 11 个主流库，按各自画布换算，无需忽略名单 |\n| **主题 token** | `:root` 上的库变量按名字识别，字号自动走文字公式 |\n| **固定定位修正** | 居中列布局下 `position: fixed` 不再贴到视口边 |\n| **容器查询** | `unit: 'cqi'` + `@container`，尺寸依赖容器而非窗口 |\n| **原子化 CSS** | Tailwind 与 UnoCSS 两个大版本，连它们工具类读的主题 token 一起认领 |\n| **可选运行时** | VisualViewport 观察器，覆盖 WebView、软键盘与动态视口 |\n| **命令行预览** | 改完配置不用构建，一行命令看到逐条声明的换算结果 |\n| **断点接缝检查** | 自动找出「窗口变宽、尺寸反而变小」的位置——两张设计稿没对齐的地方 |\n| **浏览器支持审计** | 拿产物去对你要支持的最低浏览器版本，逐条列出超标的语法 |\n| **工程化** | 完整 TypeScript 类型，ESM + CJS 双产物，语言无关一致性套件 |\n\n## 有界流体尺寸\n\n<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/Moresyl/postcss-adaptive-matrix/main/docs/assets/fluid-range.svg\" alt=\"clamp 在流体区间两端都有界，纯 vw 没有尽头\" width=\"900\">\n</p>\n\n纯 `vw` 在大屏无限放大、小屏无限压缩。默认策略给每个尺寸加上下界：区间内跟随视口，区间外停住。600px 宽的小平板因此不会看到被粗暴放大的手机 UI。\n\n## 组件库开箱适配\n\n```js\nadaptiveMatrix({\n  defaultProfile: 'app',\n  profiles: {\n    app: { designWidth: 750, fluid: { minWidth: 320, maxWidth: 600 } },\n  },\n})\n```\n\n```css\n/* 输入 —— 四处都写 16px */\n:root       { --van-padding-md: 16px }\n.van-cell   { padding: 16px }\n.el-input   { padding: 16px }\n.page-hero  { padding: 16px }\n```\n\n```css\n/* 输出 —— 各按所属画布 */\n:root       { --van-padding-md: clamp(13.65333px, 4.26667vw, 25.6px) }\n.van-cell   { padding: clamp(13.65333px, 4.26667vw, 25.6px) }\n.el-input   { padding: 16px }\n.page-hero  { padding: clamp(6.82667px, 2.13333vw, 12.8px) }\n```\n\n内置：`vant`、`nutui`、`varlet`、`antd-mobile`、`taro-ui`、`element-plus`、`antd`、`arco-design`、`naive-ui`、`quasar`、`mui`。\n\n未收录的库写一行定义即可，收录的库用 `extends` 改一项即可。完整说明见[组件库适配](./docs/libraries.zh-CN.md)。\n\n## 精准控制\n\n```css\n/* adaptive-ignore-next */\nwidth: 320px;              /* 忽略下一条声明 */\n\nheight: 44px;              /* adaptive-ignore */   /* 忽略当前行 */\n\n/* adaptive-ignore-rule */\n.widget { width: 300px }   /* 忽略下一整个规则 */\n```\n\n这三个注释会保留在产物里，因此产物再过一遍编译时仍然生效（压缩器会去掉它们）。默认保留不超过 `1px` 的细线；字符串、`url()`、`local()`、`format()` 不会误转换。\n\n## 改一个数字，立刻看到结果\n\n```bash\nnpx adaptive-matrix src/styles/app.css\n```\n\n```\nsrc/styles/app.css\n  profiles: app (default), pc, +5 library canvases\n  .page\n    padding    16px → clamp(13.65333px, 4.26667vw, 20.48px)\n    font-size  16px → clamp(0.94867rem, calc(0.65rem + 1.49333vw), 1.098rem)\n  @media (min-width: 768px) › .page\n    padding    48px → clamp(34.13333px, 3.33333vw, 64px)\n  shrinks .card font-size gets smaller at 768px: 17.57px → 16.18px\n  3 converted, 0 left as authored\n```\n\n不用启动构建，不用开浏览器。\n\n最后那行是断点接缝检查：App 稿写 16px、PC 稿写 18px，两个数字单独看都合理，但把窗口拉宽一个像素，正文字号会突然变小。编译器输出的公式在视口宽度上都是单调不减的，所以尺寸倒退只可能来自跨断点换画布——两张稿子在这个元素上没对齐。\n\n`--from` 还能把文件路由先试一遍——这是最容易配错又最不容易发现的一项。详见[命令行预览](./docs/cli.zh-CN.md)。\n\n## 产物到底要求浏览器做到什么\n\n```bash\nnpx adaptive-matrix src/app.css --targets \"ios_saf 13, chrome 90\"\n```\n\n```\n  needs @layer — iOS Safari 13 < 15.4, Chrome 90 < 99\n          if unsupported: The whole @layer block is dropped, so the entire root\n          foundation goes with it — the centred column, the safe-area variables\n          and the fixed-position correction all vanish at once.\n          instead: root.layer: false emits the same rules unwrapped. ...\n  needs clamp(), min(), max() — iOS Safari 13 < 13.4-13.7\n```\n\nCSS 不会优雅降级，它**丢弃**，而且全程不说话：值读不懂丢一条声明，选择器读不懂丢一整条规则，`@` 规则读不懂丢一整块。所以审计读的是**编译产物**而不是配置——这是让两者永远不会走偏的唯一做法——并且对每一项先说丢什么，再说换成什么。\n\n版本数据在构建期烘焙进包，因此不增加任何运行时依赖，离线可用。见[浏览器特性支持与降级](./docs/compatibility.zh-CN.md)。\n\n## 文档\n\n| | |\n| --- | --- |\n| [快速上手与双设计稿工作流](./docs/getting-started.zh-CN.md) | 从安装到 App/PC 双稿协作 |\n| [构建工具集成](./docs/integration.zh-CN.md) | Vite、Nuxt、Webpack、Taro，以及四个静默出错的点 |\n| [命令行预览](./docs/cli.zh-CN.md) | `npx adaptive-matrix`：不用构建就能看到换算结果 |\n| [组件库适配](./docs/libraries.zh-CN.md) | 内置清单、匹配方式、覆盖与扩展 |\n| [配置参考](./docs/configuration.zh-CN.md) | 全部选项、类型与默认值 |\n| [架构与转换公式](./docs/architecture.zh-CN.md) | 编译流程、数学公式、幂等、实现边界 |\n| [可选运行时](./docs/runtime.zh-CN.md) | VisualViewport 观察器：软键盘、地址栏、WebView |\n| [浏览器特性支持与降级](./docs/compatibility.zh-CN.md) | 特性 × 版本表、不支持时丢什么、每一项怎么关 |\n| [迁移指南](./docs/migration.zh-CN.md) | 从其它 px 换算方案迁移 |\n| [发布与兼容性](./docs/release.zh-CN.md) | 产物、Node 版本、版本策略 |\n| [一致性套件](./conformance/README.zh-CN.md) | 语言无关的行为规范 |\n| [完整示例](./examples/app-pc/) | 可运行的 App + PC 工程 |\n\n## 兼容性\n\n- Node.js 18+，PostCSS 8.4+\n- `clamp()`、`min()`：现代浏览器基线能力\n- 容器查询配置需要支持 `@container` / `cqi` 的浏览器\n- 更老的 WebView 使用 `strategy: 'viewport'`，或配合 `preserveOriginal: true` 自行提供降级值——用 `--targets` 可以直接看到产物到底要求了什么\n\n## 开发\n\n```bash\nnpm install\nnpm run check          # 类型检查 + 覆盖率测试 + 构建\nnpm run conformance:update\nnpm run bench\n```\n\n## License\n\nMIT。欢迎阅读[贡献指南](./CONTRIBUTING.zh-CN.md)参与开发；安全问题请按[安全策略](./SECURITY.zh-CN.md)私下报告。\n",
+	"readme": "<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/Moresyl/postcss-adaptive-matrix/main/docs/assets/banner.svg\" alt=\"postcss-adaptive-matrix — 一张设计稿，一个画布\" width=\"900\">\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/Moresyl/postcss-adaptive-matrix/actions/workflows/ci.yml\"><img src=\"https://github.com/Moresyl/postcss-adaptive-matrix/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a>\n  <a href=\"https://www.npmjs.com/package/postcss-adaptive-matrix\"><img src=\"https://img.shields.io/npm/v/postcss-adaptive-matrix.svg\" alt=\"npm version\"></a>\n  <a href=\"./LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-blue.svg\" alt=\"license\"></a>\n  <a href=\"https://postcss.org/\"><img src=\"https://img.shields.io/badge/PostCSS-8-dd3a0a.svg\" alt=\"PostCSS 8\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"./README.md\">English</a> · <b>简体中文</b>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://moresyl.github.io/postcss-adaptive-matrix/zh/\"><b>文档站</b></a> ·\n  <a href=\"https://moresyl.github.io/postcss-adaptive-matrix/zh/docs/playground\">在线试验场</a> ·\n  <a href=\"https://moresyl.github.io/postcss-adaptive-matrix/zh/docs/configuration\">配置参考</a> ·\n  <a href=\"https://moresyl.github.io/postcss-adaptive-matrix/zh/llms.txt\">llms.txt</a>\n</p>\n\n你按设计稿写 `px`，编译器负责换算。但换算的前提是先知道这个 `px` 画在哪张稿子上——**这就是整个项目的核心模型**。\n\n## 同一个 16px，三个正确答案\n\n<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/Moresyl/postcss-adaptive-matrix/main/docs/assets/canvas-model.svg\" alt=\"多画布模型：同一个 16px 来自三张设计稿，各按所属画布换算\" width=\"900\">\n</p>\n\n页面画在 750 上，装进来的移动端组件库画在 375 上，桌面端组件库根本没有画布而是按真实像素绘制。把它们塞进同一个换算公式，得到的一定是三个错误里挑一个。\n\n把组件库加进忽略名单也解决不了：页面缩放而组件不动，或者组件按错误画布被拉变形——这正是忽略名单唯一能给出的两个选项。\n\n给每张设计稿一个**画布**，才是对的。**而这是默认行为，不需要配置。**\n\n## 安装\n\n```bash\nnpm i -D postcss postcss-adaptive-matrix\n```\n\n## 快速开始\n\n`postcss.config.mjs`：\n\n```js\nimport adaptiveMatrix, { appPcPreset } from 'postcss-adaptive-matrix'\n\nexport default {\n  plugins: [\n    adaptiveMatrix(\n      appPcPreset({\n        appDesignWidth: 375,\n        pcDesignWidth: 1440,\n        rootSelector: '#app',\n      }),\n    ),\n  ],\n}\n```\n\n业务 CSS 照常写：\n\n```css\n.page {\n  padding: 16px;\n  font-size: 16px;\n}\n\n@adaptive pc {\n  .page {\n    padding: 48px 64px;\n  }\n}\n```\n\n输出：\n\n```css\n.page {\n  padding: clamp(13.65333px, 4.26667vw, 20.48px);\n  font-size: clamp(0.94867rem, calc(0.65rem + 1.49333vw), 1.098rem);\n}\n\n@media (min-width: 768px) {\n  .page {\n    padding: clamp(34.13333px, 3.33333vw, 64px) clamp(45.51111px, 4.44444vw, 85.33333px);\n  }\n}\n```\n\n到这里，组件库适配、安全区变量、根列布局和 `position: fixed` 修正已经全部生效，不需要再写一行配置。\n\n## 能力\n\n| | |\n| --- | --- |\n| **多画布** | App、PC、平板、车机各有独立设计宽度、断点、流体区间与单位 |\n| **有界流体** | 默认输出 `clamp()`，不会无限放大或无限压缩 |\n| **文字可访问** | `rem + vw` 混合公式，浏览器文字缩放依然有效（WCAG 1.4.4） |\n| **组件库开箱适配** | 内置 11 个主流库，按各自画布换算，无需忽略名单 |\n| **主题 token** | `:root` 上的库变量按名字识别，字号自动走文字公式 |\n| **固定定位修正** | 居中列布局下 `position: fixed` 不再贴到视口边 |\n| **容器查询** | `unit: 'cqi'` + `@container`，尺寸依赖容器而非窗口 |\n| **原子化 CSS** | Tailwind 与 UnoCSS 两个大版本，连它们工具类读的主题 token 一起认领 |\n| **可选运行时** | VisualViewport 观察器，覆盖 WebView、软键盘与动态视口 |\n| **命令行预览 + JSON 报告** | 改完配置不用构建；人能看逐条换算，CI 能读带版本号的结构化诊断 |\n| **断点接缝检查** | 自动找出「窗口变宽、尺寸反而变小」的位置——两张设计稿没对齐的地方 |\n| **浏览器支持审计** | 拿产物去对你要支持的最低浏览器版本，逐条列出超标的语法 |\n| **工程化** | 完整 TypeScript 类型，ESM + CJS 双产物，语言无关一致性套件 |\n\n## 有界流体尺寸\n\n<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/Moresyl/postcss-adaptive-matrix/main/docs/assets/fluid-range.svg\" alt=\"clamp 在流体区间两端都有界，纯 vw 没有尽头\" width=\"900\">\n</p>\n\n纯 `vw` 在大屏无限放大、小屏无限压缩。默认策略给每个尺寸加上下界：区间内跟随视口，区间外停住。600px 宽的小平板因此不会看到被粗暴放大的手机 UI。\n\n`fluid` 不是必填，`minWidth` 与 `maxWidth` 也都不是必填：省略整个 `fluid`（或写 `{}`）得到无边界流体表达式，只写一端得到单侧边界，两端都写时才生成 `clamp()`。Profile 真正不可省略的只有用于换算的 `designWidth`，不需要覆盖其他行为时还能直接简写成 `profiles: { app: 375 }`。\n\n## 组件库开箱适配\n\n```js\nadaptiveMatrix({\n  defaultProfile: 'app',\n  profiles: {\n    app: { designWidth: 750, fluid: { minWidth: 320, maxWidth: 600 } },\n  },\n})\n```\n\n```css\n/* 输入 —— 四处都写 16px */\n:root       { --van-padding-md: 16px }\n.van-cell   { padding: 16px }\n.el-input   { padding: 16px }\n.page-hero  { padding: 16px }\n```\n\n```css\n/* 输出 —— 各按所属画布 */\n:root       { --van-padding-md: clamp(13.65333px, 4.26667vw, 25.6px) }\n.van-cell   { padding: clamp(13.65333px, 4.26667vw, 25.6px) }\n.el-input   { padding: 16px }\n.page-hero  { padding: clamp(6.82667px, 2.13333vw, 12.8px) }\n```\n\n内置：`vant`、`nutui`、`varlet`、`antd-mobile`、`taro-ui`、`element-plus`、`antd`、`arco-design`、`naive-ui`、`quasar`、`mui`。\n\n未收录的库写一行定义即可，收录的库用 `extends` 改一项即可。完整说明见[组件库适配](./docs/libraries.zh-CN.md)。\n\n## 精准控制\n\n```css\n/* adaptive-ignore-next */\nwidth: 320px;              /* 忽略下一条声明 */\n\nheight: 44px;              /* adaptive-ignore */   /* 忽略当前行 */\n\n/* adaptive-ignore-rule */\n.widget { width: 300px }   /* 忽略下一整个规则 */\n```\n\n这三个注释会保留在产物里，因此产物再过一遍编译时仍然生效（压缩器会去掉它们）。默认保留不超过 `1px` 的细线；字符串、`url()`、`local()`、`format()` 不会误转换。\n\n## 改一个数字，立刻看到结果\n\n```bash\nnpx adaptive-matrix src/styles/app.css\n```\n\n```\nsrc/styles/app.css\n  profiles: app (default), pc, +5 library canvases\n  .page\n    padding    16px → clamp(13.65333px, 4.26667vw, 20.48px)\n    font-size  16px → clamp(0.94867rem, calc(0.65rem + 1.49333vw), 1.098rem)\n  @media (min-width: 768px) › .page\n    padding    48px → clamp(34.13333px, 3.33333vw, 64px)\n  shrinks .card font-size gets smaller at 768px: 17.57px → 16.18px\n  3 converted, 0 left as authored\n```\n\n不用启动构建，不用开浏览器。\n\n最后那行是断点接缝检查：App 稿写 16px、PC 稿写 18px，两个数字单独看都合理，但把窗口拉宽一个像素，正文字号会突然变小。编译器输出的公式在视口宽度上都是单调不减的，所以尺寸倒退只可能来自跨断点换画布——两张稿子在这个元素上没对齐。\n\n`--from` 还能把文件路由先试一遍——这是最容易配错又最不容易发现的一项。详见[命令行预览](./docs/cli.zh-CN.md)。\n\n## 产物到底要求浏览器做到什么\n\n```bash\nnpx adaptive-matrix src/app.css --targets \"ios_saf 13, chrome 90\"\n```\n\n```\n  needs @layer — iOS Safari 13 < 15.4, Chrome 90 < 99\n          if unsupported: The whole @layer block is dropped, so the entire root\n          foundation goes with it — the centred column, the safe-area variables\n          and the fixed-position correction all vanish at once.\n          instead: root.layer: false emits the same rules unwrapped. ...\n  needs clamp(), min(), max() — iOS Safari 13 < 13.4-13.7\n```\n\nCSS 不会优雅降级，它**丢弃**，而且全程不说话：值读不懂丢一条声明，选择器读不懂丢一整条规则，`@` 规则读不懂丢一整块。所以审计读的是**编译产物**而不是配置——这是让两者永远不会走偏的唯一做法——并且对每一项先说丢什么，再说换成什么。\n\n版本数据在构建期烘焙进包，因此不增加任何运行时依赖，离线可用。见[浏览器特性支持与降级](./docs/compatibility.zh-CN.md)。\n\n## 文档\n\n| | |\n| --- | --- |\n| [快速上手与双设计稿工作流](./docs/getting-started.zh-CN.md) | 从安装到 App/PC 双稿协作 |\n| [构建工具集成](./docs/integration.zh-CN.md) | Vite、Nuxt、Webpack、Taro，以及四个静默出错的点 |\n| [命令行预览](./docs/cli.zh-CN.md) | `npx adaptive-matrix`：不用构建就能看到换算结果 |\n| [组件库适配](./docs/libraries.zh-CN.md) | 内置清单、匹配方式、覆盖与扩展 |\n| [配置参考](./docs/configuration.zh-CN.md) | 全部选项、类型与默认值 |\n| [架构与转换公式](./docs/architecture.zh-CN.md) | 编译流程、数学公式、幂等、实现边界 |\n| [可选运行时](./docs/runtime.zh-CN.md) | VisualViewport 观察器：软键盘、地址栏、WebView |\n| [浏览器特性支持与降级](./docs/compatibility.zh-CN.md) | 特性 × 版本表、不支持时丢什么、每一项怎么关 |\n| [迁移指南](./docs/migration.zh-CN.md) | 从其它 px 换算方案迁移 |\n| [发布与兼容性](./docs/release.zh-CN.md) | 产物、Node 版本、版本策略 |\n| [一致性套件](./conformance/README.zh-CN.md) | 语言无关的行为规范 |\n| [完整示例](./examples/app-pc/) | 可运行的 App + PC 工程 |\n\n## 兼容性\n\n- Node.js 18+，PostCSS 8.4+\n- `clamp()`、`min()`：现代浏览器基线能力\n- 容器查询配置需要支持 `@container` / `cqi` 的浏览器\n- 更老的 WebView 使用 `strategy: 'viewport'`，或配合 `preserveOriginal: true` 自行提供降级值——用 `--targets` 可以直接看到产物到底要求了什么\n\n## 开发\n\n```bash\nnpm install\nnpm run check          # 类型检查 + 覆盖率测试 + 构建\nnpm run conformance:update\nnpm run bench\n```\n\n## License\n\nMIT。欢迎阅读[贡献指南](./CONTRIBUTING.zh-CN.md)参与开发；安全问题请按[安全策略](./SECURITY.zh-CN.md)私下报告。\n",
 	"readmeFilename": "README.zh-CN.md",
 	"_downloads": [
 		0,
 		399,
 		399,
-		637
+		637,
+		667
 	]
 }

@@ -1,9 +1,9 @@
 {
 	"_id": "rainbowindex",
-	"_rev": "8-1f1ecac702374daaf909dad4ccb50f2c",
+	"_rev": "9-611b4dd5007a9015391d9d7c82a12a4b",
 	"name": "rainbowindex",
 	"dist-tags": {
-		"latest": "0.4.1"
+		"latest": "0.5.0"
 	},
 	"versions": {
 		"0.0.0": {
@@ -888,6 +888,159 @@
 		"0.4.1": {
 			"name": "rainbowindex",
 			"version": "0.4.1",
+			"keywords": [
+				"css",
+				"utility-css",
+				"atomic-css",
+				"design-tokens",
+				"design-system",
+				"theming",
+				"dark-mode",
+				"oklch",
+				"fluid-typography",
+				"google-fonts",
+				"postcss",
+				"postcss-plugin",
+				"vite-plugin",
+				"class-merge",
+				"classnames",
+				"tailwind",
+				"tailwindcss",
+				"cli"
+			],
+			"author": {
+				"url": "https://github.com/rainbowindex",
+				"name": "rainbowindex"
+			},
+			"license": "MIT",
+			"_id": "rainbowindex@0.4.1",
+			"maintainers": [
+				{
+					"name": "rainbowindex",
+					"email": "me@milo.ag"
+				}
+			],
+			"homepage": "https://rainbowindex.dev",
+			"bugs": {
+				"url": "https://github.com/rainbowindex/rainbowindex/issues"
+			},
+			"bin": {
+				"rainbowindex": "dist/cli.mjs"
+			},
+			"dist": {
+				"shasum": "1d051f315ff4ea174c86e9dc3f57e8d5478c5bc0",
+				"tarball": "https://registry.npmjs.org/rainbowindex/-/rainbowindex-0.4.1.tgz",
+				"fileCount": 26,
+				"integrity": "sha512-jXEL3mbZwXIoDh9L68ZfaEV0Rl7WbofXr0SQvwzNxh0FJHRXzxeL39DXxagWXUvx8YmLUKLJ04V8IstGANJRlA==",
+				"signatures": [
+					{
+						"sig": "MEYCIQC60nfY4F7HAWQS3jxG0kCddInQaiTE+DbOhZSSSMz7mgIhANxABh9onp9TfRLOjAmuWExCxCkiNnnY6E+6ZAjiLUmC",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/rainbowindex@0.4.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 693920
+			},
+			"main": "./dist/index.mjs",
+			"type": "module",
+			"style": "./dist/index.css",
+			"types": "./dist/index.d.ts",
+			"engines": {
+				"node": ">=20.19"
+			},
+			"exports": {
+				".": {
+					"node": "./dist/index.mjs",
+					"style": "./dist/index.css",
+					"types": "./dist/index.d.ts",
+					"browser": "./dist/browser.mjs",
+					"default": "./dist/index.mjs"
+				},
+				"./vite": {
+					"types": "./dist/vite.d.ts",
+					"default": "./dist/vite.mjs"
+				},
+				"./editor": {
+					"types": "./dist/editor.d.ts",
+					"default": "./dist/editor.mjs"
+				},
+				"./index.css": "./dist/index.css",
+				"./package.json": "./package.json"
+			},
+			"gitHead": "34d015fa995c8ed998ea3c924e5436f073c44d26",
+			"scripts": {
+				"lint": "biome lint .",
+				"test": "vitest run --exclude __tests__/cli/** --exclude __tests__/package.test.ts",
+				"build": "tsup",
+				"check": "pnpm typecheck && pnpm lint && pnpm test && pnpm test:artifacts",
+				"format": "biome format --write .",
+				"lint:fix": "biome lint --write .",
+				"typecheck": "tsc --noEmit",
+				"test:watch": "vitest",
+				"format:check": "biome format .",
+				"test:coverage": "vitest run --coverage --exclude __tests__/cli/** --exclude __tests__/package.test.ts",
+				"prepublishOnly": "pnpm check",
+				"test:artifacts": "pnpm build && vitest run __tests__/cli/cli.test.ts __tests__/package.test.ts"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:954c90f6-2cb7-4251-af60-d7c64fff1d94"
+				}
+			},
+			"repository": {
+				"url": "git+https://github.com/rainbowindex/rainbowindex.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.17.0",
+			"description": "CSS-first system for building and maintaining consistent user interfaces",
+			"directories": {},
+			"sideEffects": [
+				"**/*.css"
+			],
+			"_nodeVersion": "24.19.0",
+			"dependencies": {
+				"chokidar": "^4.0.3",
+				"tinyglobby": "^0.2.15",
+				"lightningcss": "^1.25.0"
+			},
+			"_hasShrinkwrap": false,
+			"packageManager": "pnpm@10.12.1",
+			"devDependencies": {
+				"tsup": "^8.5.1",
+				"vite": "8.0.0",
+				"vitest": "^4.0.17",
+				"postcss": "^8.5.8",
+				"typescript": "^6.0.3",
+				"@types/node": "^25.9.1",
+				"@biomejs/biome": "^2.4.16",
+				"@capsizecss/metrics": "^4.2.0",
+				"@vitest/coverage-v8": "^4.1.0"
+			},
+			"peerDependencies": {
+				"vite": "*",
+				"postcss": "^8.5.0"
+			},
+			"peerDependenciesMeta": {
+				"vite": {
+					"optional": true
+				}
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/rainbowindex_0.4.1_1787679257807_0.8802580397701472",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.5.0": {
+			"name": "rainbowindex",
+			"version": "0.5.0",
 			"description": "CSS-first system for building and maintaining consistent user interfaces",
 			"keywords": [
 				"css",
@@ -994,18 +1147,18 @@
 				"vite": "8.0.0",
 				"vitest": "^4.0.17"
 			},
-			"gitHead": "34d015fa995c8ed998ea3c924e5436f073c44d26",
-			"_id": "rainbowindex@0.4.1",
+			"gitHead": "33607acf97d17cb96065822ed7b1571e8de99731",
+			"_id": "rainbowindex@0.5.0",
 			"_nodeVersion": "24.19.0",
 			"_npmVersion": "11.17.0",
 			"dist": {
-				"integrity": "sha512-jXEL3mbZwXIoDh9L68ZfaEV0Rl7WbofXr0SQvwzNxh0FJHRXzxeL39DXxagWXUvx8YmLUKLJ04V8IstGANJRlA==",
-				"shasum": "1d051f315ff4ea174c86e9dc3f57e8d5478c5bc0",
-				"tarball": "https://registry.npmjs.org/rainbowindex/-/rainbowindex-0.4.1.tgz",
+				"integrity": "sha512-tdF9gibHqT+D0v6qDT7SlfhgepEnP4yUowb/lkAj2Nt+xc1IMaRSGNZEgW/Xu2JG2IYI1ImMmJy2iFq1UIZ7IQ==",
+				"shasum": "472f83dd493037ca0463879cb38436e1dd04c33b",
+				"tarball": "https://registry.npmjs.org/rainbowindex/-/rainbowindex-0.5.0.tgz",
 				"fileCount": 26,
-				"unpackedSize": 693920,
+				"unpackedSize": 700309,
 				"attestations": {
-					"url": "https://registry.npmjs.org/-/npm/v1/attestations/rainbowindex@0.4.1",
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/rainbowindex@0.5.0",
 					"provenance": {
 						"predicateType": "https://slsa.dev/provenance/v1"
 					}
@@ -1013,7 +1166,7 @@
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEYCIQC60nfY4F7HAWQS3jxG0kCddInQaiTE+DbOhZSSSMz7mgIhANxABh9onp9TfRLOjAmuWExCxCkiNnnY6E+6ZAjiLUmC"
+						"sig": "MEUCIQC3Y/vxw91S4+zWbxoUtJQofPbb+5hUalQ79NNL5Vm2owIgNQcpLlgCUfgGjtI/WSRtA7lvWDMQpp0Ylq5qqMx4knk="
 					}
 				]
 			},
@@ -1034,14 +1187,14 @@
 			],
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/rainbowindex_0.4.1_1787679257807_0.8802580397701472"
+				"tmp": "tmp/rainbowindex_0.5.0_1787867729260_0.7315637719278403"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2026-01-23T21:27:59.683Z",
-		"modified": "2026-08-25T17:34:18.611Z",
+		"modified": "2026-08-27T21:55:29.732Z",
 		"0.0.0": "2026-01-23T21:27:59.822Z",
 		"0.1.4": "2026-02-06T00:22:20.427Z",
 		"0.2.0": "2026-07-16T23:56:42.547Z",
@@ -1049,7 +1202,8 @@
 		"0.2.2": "2026-08-13T21:52:45.991Z",
 		"0.3.0": "2026-08-14T17:41:41.684Z",
 		"0.4.0": "2026-08-20T10:57:34.468Z",
-		"0.4.1": "2026-08-25T17:34:17.981Z"
+		"0.4.1": "2026-08-25T17:34:17.981Z",
+		"0.5.0": "2026-08-27T21:55:29.412Z"
 	},
 	"bugs": {
 		"url": "https://github.com/rainbowindex/rainbowindex/issues"
@@ -1100,6 +1254,7 @@
 		347,
 		347,
 		364,
-		510
+		510,
+		642
 	]
 }
