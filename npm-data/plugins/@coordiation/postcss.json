@@ -1,0 +1,103 @@
+{
+	"_id": "@coordiation/postcss",
+	"name": "@coordiation/postcss",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "@coordiation/postcss",
+			"version": "0.1.0",
+			"description": "PostCSS integration for Coordiation CSS",
+			"type": "module",
+			"license": "MIT",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"coordiation",
+				"utility-first",
+				"css"
+			],
+			"exports": {
+				".": "./src/index.js"
+			},
+			"dependencies": {
+				"@coordiation/css": "0.1.0"
+			},
+			"peerDependencies": {
+				"postcss": ">=8"
+			},
+			"publishConfig": {
+				"access": "public"
+			},
+			"homepage": "https://coordiation.com",
+			"author": {
+				"name": "Wiryo Saputra",
+				"email": "wiryosaputra@coordiation.com"
+			},
+			"_id": "@coordiation/postcss@0.1.0",
+			"_nodeVersion": "20.19.2",
+			"_npmVersion": "9.2.0",
+			"dist": {
+				"integrity": "sha512-/YrRl1QHNtVOWxcxB5t90q318zs6lTrHAqDdBO6awlnuTg/k7AwSdRJ1T9c3uBvgkDkQGxL/bHDioI2lFX46qw==",
+				"shasum": "42f3ebf1b4a0fcea93af16be77677c8796b633ba",
+				"tarball": "https://registry.npmjs.org/@coordiation/postcss/-/postcss-0.1.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 7416,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIFJmgzcgkIp4hZFLV/30v6xcxnaayE6yYYIlT9rHQEzAAiA5MHxOFzjrde9IOTNlGFgFiRzMGI3lnl3i310KqKXQsQ=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "wiryosaputra",
+				"email": "wiryosaputraofficial@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "wiryosaputra",
+					"email": "wiryosaputraofficial@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss_0.1.0_1788016786444_0.7714260971448021"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-08-29T15:19:46.237Z",
+		"0.1.0": "2026-08-29T15:19:46.579Z",
+		"modified": "2026-08-29T15:19:46.808Z"
+	},
+	"maintainers": [
+		{
+			"name": "wiryosaputra",
+			"email": "wiryosaputraofficial@gmail.com"
+		}
+	],
+	"description": "PostCSS integration for Coordiation CSS",
+	"homepage": "https://coordiation.com",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"coordiation",
+		"utility-first",
+		"css"
+	],
+	"author": {
+		"name": "Wiryo Saputra",
+		"email": "wiryosaputra@coordiation.com"
+	},
+	"license": "MIT",
+	"readme": "# @coordiation/postcss\n\nOfficial PostCSS 8 adapter for Coordiation CSS. It scans configured source roots, replaces `@coordiation` with static framework output, reports scanner diagnostics through PostCSS warnings, and registers file plus directory dependencies with compatible runners.\n\n## Install\n\n```sh\npnpm add -D postcss @coordiation/css @coordiation/postcss\n```\n\n## Configure\n\n```js\n// postcss.config.mjs\nimport coordiation from \"@coordiation/postcss\";\n\nexport default {\n  plugins: [\n    coordiation({\n      content: [\"src\"],\n      cwd: process.cwd()\n    })\n  ]\n};\n```\n\nPlace Coordiation before Autoprefixer or minification plugins so downstream plugins receive the generated CSS.\n\n## Input\n\n```css\n@coordiation;\n\n@co-theme {\n  --co-color-brand-500: oklch(62.3% 0.214 259.815);\n}\n```\n\nOnly stylesheets containing a top-level `@coordiation` marker are transformed. Other CSS files pass through unchanged, which makes the adapter safe in multi-entry PostCSS pipelines.\n\n## Dependencies and warnings\n\n- Every scanned source file produces a PostCSS `dependency` message.\n- Every configured source directory produces a recursive `dir-dependency` message so runners can rebuild when files are added or removed.\n- Dynamic-class and unsupported-candidate diagnostics use `result.warn()` and appear through the runner's standard warning channel.\n- The plugin is asynchronous and preserves ordinary PostCSS source-map processing.\n\nUse complete literal `co-` class names in scanned source. Dynamic concatenation cannot be discovered reliably; use a safelist when the set is finite.\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-52882ab14aec058dd68de2a416795af1",
+	"_downloads": [
+		0
+	]
+}
