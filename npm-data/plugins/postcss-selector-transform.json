@@ -1,0 +1,134 @@
+{
+	"_id": "postcss-selector-transform",
+	"name": "postcss-selector-transform",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-selector-transform",
+			"version": "0.0.1",
+			"description": "Selector-level plugin surface for PostCSS: one parse, any number of selector transforms — plus styleAliases, build-time “style B like A” via :is() and :where()",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"selectors",
+				"alias",
+				"extend"
+			],
+			"homepage": "https://github.com/leaverou/postcss-selector-transform/#readme",
+			"bugs": {
+				"url": "https://github.com/leaverou/postcss-selector-transform/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/leaverou/postcss-selector-transform.git"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Lea Verou"
+			},
+			"type": "module",
+			"main": "src/index.js",
+			"exports": {
+				".": "./src/index.js",
+				"./style-aliases": "./src/style-aliases.js",
+				"./selectors": "./src/selectors.js"
+			},
+			"engines": {
+				"node": ">=22"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"scripts": {
+				"release": "npm whoami >/dev/null 2>&1 || npm login && release-it",
+				"test": "htest test"
+			},
+			"devDependencies": {
+				"htest.dev": "latest",
+				"postcss": "^8.5.26",
+				"prettier": "~3.5.3",
+				"prettier-plugin-brace-style": "latest",
+				"prettier-plugin-merge": "latest",
+				"prettier-plugin-space-before-function-paren": "latest",
+				"release-it": "latest"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^7.1.5"
+			},
+			"gitHead": "ff8306cc3a6bca26370e2d74445951f496bc425e",
+			"_id": "postcss-selector-transform@0.0.1",
+			"_nodeVersion": "26.2.0",
+			"_npmVersion": "11.13.0",
+			"dist": {
+				"integrity": "sha512-hBleoiHeqIPmFngzUghHgJlpGifhxXoLqg2DNpNySyeyLe8eDAV6v4POl04JP7ADc3W35lNuZyZogAMrpkUnBw==",
+				"shasum": "dff4ba04f1666e82a95075a5291a3961ee1e6c24",
+				"tarball": "https://registry.npmjs.org/postcss-selector-transform/-/postcss-selector-transform-0.0.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 31907,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIA9bflkDmyEBHnIHp/sCiHalN290TTxO+877sYBq32MZAiBXcc5fXcdsHpBLFUIfHom1k6e5Mb6wJlj02qNEOyHPHw=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "leaverou",
+				"email": "lea@verou.me"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "leaverou",
+					"email": "lea@verou.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-selector-transform_0.0.1_1788211300460_0.02413573158086524"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-08-31T21:21:40.385Z",
+		"0.0.1": "2026-08-31T21:21:40.602Z",
+		"modified": "2026-08-31T21:21:40.887Z"
+	},
+	"maintainers": [
+		{
+			"name": "leaverou",
+			"email": "lea@verou.me"
+		}
+	],
+	"description": "Selector-level plugin surface for PostCSS: one parse, any number of selector transforms — plus styleAliases, build-time “style B like A” via :is() and :where()",
+	"homepage": "https://github.com/leaverou/postcss-selector-transform/#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"selectors",
+		"alias",
+		"extend"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/leaverou/postcss-selector-transform.git"
+	},
+	"author": {
+		"name": "Lea Verou"
+	},
+	"bugs": {
+		"url": "https://github.com/leaverou/postcss-selector-transform/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-selector-transform\n\nPostCSS plugin to facilitate selector-level transforms: just write the transform, don't worry about how to find all the selectors.\n\nBuilt on top of it, **Style aliases** that lets you define selectors that should be styled like other selectors. E.g. \"style `.callout-title` like `h4`\".\nEffectively, a build-time `@extend` that works, with no selector explosion, no specificity creep, and no cascade surprises.\n\nSee also [postcss-zero-specificity](https://github.com/leaverou/postcss-zero-specificity), a separate plugin built on this one that wraps every selector in `:where()`.\n\n**Why?** PostCSS has visitors for rules and declarations, but no selector-level plugin surface: every selector-touching plugin re-parses `rule.selector` itself, and _N_ plugins mean _N_ parses per rule. This plugin parses each rule's selector **once** with [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser), runs every registered transform over the shared AST, and stringifies **once** — no matter how many transforms are registered.\n\n```sh\nnpm install postcss-selector-transform\n```\n\n## `selectorTransform`\n\n```js\nimport postcss from \"postcss\";\nimport selectorTransform from \"postcss-selector-transform\";\n\npostcss([\n\tselectorTransform({\n\t\ttransforms: [\n\t\t\t(selectors, { rule }) => {\n\t\t\t\t// mutate the postcss-selector-parser AST in place\n\t\t\t\tselectors.walkClasses(node => (node.value = prefix + node.value));\n\t\t\t},\n\t\t],\n\t}),\n]);\n```\n\nA single transform (or an array) can be passed directly: `selectorTransform(fn)`.\n\nEach transform is called once per rule with the parsed selector AST and `{rule}` — the owning `Rule` (or `AtRule`, for `@scope` preludes). If any transform changed the AST, the selector is written back; otherwise the rule is untouched, byte for byte. Rules are visited in document order, parents before their nested children — transforms may rely on this (`styleAliases` does, for `&` expansion).\n\nSelectors are transformed everywhere they appear:\n\n- inside **all** at-rules — `@media`, `@supports`, `@layer`, `@container`, `@scope`, and any at-rule this plugin has never heard of;\n- in the `@scope` **prelude** (`@scope (A) to (B)`), where the \"params\" are really selectors;\n- **except** inside at-rules whose child \"selectors\" aren't selectors. That's a blacklist, not an allowlist (CSS grows at-rules too fast to enumerate the good ones), it matches vendor prefixes, and it's exported and extensible:\n\n```js\nimport { IGNORED_ATRULES } from \"postcss-selector-transform\";\nIGNORED_ATRULES.add(\"my-weird-atrule\"); // initially just \"keyframes\"\n```\n\n## `styleAliases`\n\n\"Style B like A\" — what `@extend` always wanted to be, at build time, with none of its failure modes:\n\n```js\nimport postcss from \"postcss\";\nimport { styleAliases } from \"postcss-selector-transform\";\n\npostcss([\n\tstyleAliases({\n\t\t// alias: original — \"style .callout-title like h4\"\n\t\t\".callout-title\": \"h4\",\n\t\t\".action\": \"button\",\n\t}),\n]);\n```\n\nEvery occurrence of the original selector `A` is rewritten to `:is(A, :where(B1, B2, …))`:\n\n```css\nmain h4 > code {}\n/* becomes */\nmain :is(h4, :where(.callout-title)) > code {}\n```\n\nWhy this beats classic `@extend`:\n\n- **No selector explosion.** All aliases of one original share a single `:where()` wrapper; the rule count never grows.\n- **Cascade position preserved.** Rules are rewritten in place, never duplicated or moved, so source order — and therefore the cascade — is untouched.\n- **Specificity preserved.** `:where()` has zero specificity and `:is(A, :where(…))` has exactly A's, so the rewritten rule's specificity equals the original's. Aliased elements get the styles at alias-appropriate specificity too, since `:where()` is easy to override.\n\nMatching is **structural**, never textual: `h4` matches `H4` but not `.h400` or `h40`; `[a=b]` matches `[a=\"b\"]`; escaped identifiers match their unescaped forms. Originals are found in every position of complex selectors, in every rule of every (non-ignored) at-rule, in the `@scope` prelude, and inside every pseudo whose argument is a selector: `:is()`, `:where()`, `:not()`, `:has()`, the `of` clause of `:nth-child()` / `:nth-last-child()`, and `:host()`, `:host-context()`, `::slotted()`. The output is idempotent: running the plugin over its own output changes nothing.\n\nThe **original (A)** must be a simple or compound selector (`h4`, `a.button`) — an alias stands in for a single element's selector. The **alias (B)** may be any selector, combinators included (`.card > .title`).\n\nBasic **nesting** is supported: an alias of `button[aria-pressed=\"true\"]` matches\n\n```css\nbutton {\n\t&[aria-pressed=\"true\"] {} /* becomes :is(&[aria-pressed=\"true\"], :where(…)) {} */\n}\n```\n\n### Limitations\n\n- **Nesting is supported only in its simplest shape**: ancestor rules must be compounds or lists of compounds all the way up, and the nested selector must be a `&`-prefixed compound. Complex ancestors (`main button`), `&` mid-compound, multiple `&`, and non-`&` nested selectors are deliberately out of scope — those rules are simply left alone.\n- **No transitive aliases.** Aliasing `.b` to `.a` and `.c` to `.b` does not style `.c` like `.a`. Register `.c` directly against `.a`.\n- **Neither side can contain pseudo-elements** (`\".x::before\": \"h4\"` and `\".x\": \"h4::before\"` both throw), because pseudo-elements are invalid inside `:is()`/`:where()`. Alias the element itself instead — rules like `h4::before` are still rewritten through their `h4` part.\n- **Shadow DOM boundaries apply as usual.** The rewrite is pure CSS; it can't make an alias match inside a shadow tree the original rule couldn't reach.\n- If two originals overlap on the same compound (e.g. `h4.tip` and `h4` both registered, selector `h4.tip`), the more specific original wins for the shared parts; between equally specific overlapping originals, registration order decides.\n\n### Composing with other transforms\n\n`styleAliases(map)` is itself implemented as a selector transform, and that transform factory is exported too. To run it alongside your own transforms — or transforms from other packages, like [postcss-zero-specificity](https://github.com/leaverou/postcss-zero-specificity)'s `zeroTransform` — in a single parse:\n\n```js\nimport selectorTransform, { aliasTransform } from \"postcss-selector-transform\";\nimport { zeroTransform } from \"postcss-zero-specificity\";\n\nselectorTransform({\n\ttransforms: [aliasTransform({ \".callout-title\": \"h4\" }), zeroTransform, myOtherTransform],\n});\n```\n\n## `postcss-selector-transform/selectors`\n\nGeneric helpers over postcss-selector-parser ASTs, for transform authors:\n\n- `isPseudoElement(node)` — whether a node is a pseudo-element, including the legacy single-colon forms (`LEGACY_PSEUDO_ELEMENTS`).\n- `wrap(wrapper, nodes, container)` — move consecutive `nodes` into `wrapper`'s first (empty) selector argument in place, inserting the wrapper where they were and keeping their surrounding whitespace outside — e.g. wrapping a compound in a parsed `:where()`.\n- `partKey(node)` / `selectorKey(selector)` — canonical keys for structural (never textual) selector comparison: `H4` equals `h4`, `[a=b]` equals `[a=\"b\"]`, escapes are normalized.\n- `selectorStart(selector)` — index where actual selector content starts in a selector node, to skip the `An+B of` prefix the parser hands back as tags and combinators inside `:nth-child()` / `:nth-last-child()`. `0` for everything else; `selector.nodes.length` when there is no of-clause at all (`:nth-child(3)`).\n- `SIMPLE`, `LIST_PSEUDOS`, `COMPOUND_PSEUDOS` (`:host()`, `:host-context()`, `::slotted()`), `NTH_PSEUDOS`, `SELECTOR_PSEUDOS` (the union of the latter three) — node-type/pseudo-class classification sets.\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-4c9a326dfbb39ec5b9a9d0507a6bfb9b",
+	"_downloads": [
+		0
+	]
+}

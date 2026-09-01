@@ -1,0 +1,135 @@
+{
+	"_id": "postcss-zero-specificity",
+	"name": "postcss-zero-specificity",
+	"dist-tags": {
+		"latest": "0.0.1"
+	},
+	"versions": {
+		"0.0.1": {
+			"name": "postcss-zero-specificity",
+			"version": "0.0.1",
+			"description": "PostCSS plugin that wraps every selector in :where(), reducing its specificity to zero — the full power of selectors without the brittleness of BEM",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"css",
+				"selectors",
+				"specificity",
+				"where",
+				"cascade"
+			],
+			"homepage": "https://github.com/leaverou/postcss-zero-specificity/#readme",
+			"bugs": {
+				"url": "https://github.com/leaverou/postcss-zero-specificity/issues"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/leaverou/postcss-zero-specificity.git"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Lea Verou"
+			},
+			"type": "module",
+			"main": "src/index.js",
+			"exports": {
+				".": "./src/index.js"
+			},
+			"engines": {
+				"node": ">=22"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"scripts": {
+				"release": "npm whoami >/dev/null 2>&1 || npm login && release-it",
+				"test": "htest test"
+			},
+			"dependencies": {
+				"postcss-selector-parser": "^7.1.5",
+				"postcss-selector-transform": "^0.0.1"
+			},
+			"devDependencies": {
+				"htest.dev": "latest",
+				"postcss": "^8.5.26",
+				"prettier": "~3.5.3",
+				"prettier-plugin-brace-style": "latest",
+				"prettier-plugin-merge": "latest",
+				"prettier-plugin-space-before-function-paren": "latest",
+				"release-it": "latest"
+			},
+			"gitHead": "16316b8b77962d4037d675d799be0426a8051f61",
+			"_id": "postcss-zero-specificity@0.0.1",
+			"_nodeVersion": "26.2.0",
+			"_npmVersion": "11.13.0",
+			"dist": {
+				"integrity": "sha512-VBMpdgV0QiNWjXSuRP4MDFkwMM56uvRTW5Te6oU8Imj7Wmi8QqRzICQ4U0skbHMx+Bpu+1q2OxXDsDhfSeD5jQ==",
+				"shasum": "1fead6692c37bb567af379b2861838e80fad3707",
+				"tarball": "https://registry.npmjs.org/postcss-zero-specificity/-/postcss-zero-specificity-0.0.1.tgz",
+				"fileCount": 3,
+				"unpackedSize": 7155,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIGNgHqS1ia+6oOsiS8caGWsurl/c/74cfj0CmyglLdbOAiBGxcOn4sG5nodhDoGgf4oP7L7Yjv7OtLjR1SEZX4/AjA=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "leaverou",
+				"email": "lea@verou.me"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "leaverou",
+					"email": "lea@verou.me"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-zero-specificity_0.0.1_1788219336410_0.9164127620945643"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-08-31T23:35:36.351Z",
+		"0.0.1": "2026-08-31T23:35:36.556Z",
+		"modified": "2026-08-31T23:35:36.725Z"
+	},
+	"maintainers": [
+		{
+			"name": "leaverou",
+			"email": "lea@verou.me"
+		}
+	],
+	"description": "PostCSS plugin that wraps every selector in :where(), reducing its specificity to zero — the full power of selectors without the brittleness of BEM",
+	"homepage": "https://github.com/leaverou/postcss-zero-specificity/#readme",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"css",
+		"selectors",
+		"specificity",
+		"where",
+		"cascade"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/leaverou/postcss-zero-specificity.git"
+	},
+	"author": {
+		"name": "Lea Verou"
+	},
+	"bugs": {
+		"url": "https://github.com/leaverou/postcss-zero-specificity/issues"
+	},
+	"license": "MIT",
+	"readme": "# postcss-zero-specificity\n\nPostCSS plugin that wraps every selector in `:where()`, reducing its specificity to zero — the full power of selectors without the specificity wars, and without needing naming conventions like BEM to keep everything flat.\n\n```sh\nnpm install postcss-zero-specificity\n```\n\n```js\nimport postcss from \"postcss\";\nimport zeroSpecificity from \"postcss-zero-specificity\";\n\npostcss([zeroSpecificity()]);\n```\n\n```css\n#nav .item a:hover {}\n/* becomes */\n:where(#nav .item a:hover) {}\n```\n\nWith every selector at zero specificity, the cascade reduces to source order: later rules win, and any override — a user's stylesheet, a component consumer's one-liner — actually works without specificity arms races.\n\n## Pseudo-elements\n\nPseudo-elements are invalid inside `:where()`, so they stay outside — along with any pseudo-classes after them, which address the pseudo-element itself:\n\n```css\na:hover::before {}          /* becomes */  :where(a:hover)::before {}\n.tabs::part(tab):hover {}   /* becomes */  :where(.tabs)::part(tab):hover {}\n```\n\nWhat stays outside keeps its specificity — the pseudo-element's own, plus that of any pseudo-classes addressing it and of `::slotted()`/`::part()` arguments. That's inherent to pseudo-elements, not a plugin limitation.\n\n## Details\n\n- Each selector of a list is wrapped separately: `a, .b` becomes `:where(a), :where(.b)`.\n- Selectors that are already zero-specificity (`*`, a lone `:where()`) are left alone, and the output is idempotent.\n- `&` goes inside the wrapper (`&:hover` → `:where(&:hover)`, bare `&` → `:where(&)`) — usually a no-op specificity-wise since parents get wrapped too, but load-bearing where `&` carries specificity of its own, like inside `@scope`.\n- Selectors are transformed everywhere they appear — inside `@media`, `@supports`, `@layer`, `@container`, `@scope`, and any at-rule the plugin has never heard of — except `@keyframes` step names, which aren't selectors.\n- `@scope` prelude selectors contribute no specificity to scoped rules, so they are left untouched.\n- Shadow DOM caveat: selectors built around `:host`/`:host()` are best excluded — browser support for `:host` inside `:is()`/`:where()` has historically been inconsistent, and `:host()` arguments keep their specificity regardless.\n\n## Composing with other transforms\n\nThis plugin is built on [postcss-selector-transform](https://github.com/leaverou/postcss-selector-transform), which parses each rule's selector once and runs any number of transforms over the shared AST. The underlying transform is exported as `zeroTransform`, so it can share a parse with other transforms:\n\n```js\nimport selectorTransform from \"postcss-selector-transform\";\nimport { zeroTransform } from \"postcss-zero-specificity\";\n\nselectorTransform({\n\ttransforms: [myOtherTransform, zeroTransform],\n});\n```\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-5a4fe4001188aed9959e7ee153a62c45",
+	"_downloads": [
+		0
+	]
+}
