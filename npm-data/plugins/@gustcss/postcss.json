@@ -1670,7 +1670,6 @@
 	"readme": "# @gustcss/postcss\n\nPostCSS plugin for [GustCSS](https://www.npmjs.com/package/gustcss) - Lightning-fast CSS utility generator.\n\n## Installation\n\n```bash\nnpm install gustcss @gustcss/postcss postcss\n```\n\n## Usage\n\n### Basic Setup\n\nIn your `postcss.config.js`:\n\n```javascript\nmodule.exports = {\n  plugins: [\n    require('@gustcss/postcss')({\n      content: ['./src/**/*.{js,ts,jsx,tsx}'],\n    }),\n  ],\n}\n```\n\n### In Your CSS\n\nAdd the `@gustcss` directive in your CSS file:\n\n```css\n@gustcss;\n\n/* Your custom styles */\n```\n\nThe plugin will scan your source files and generate utility classes on-demand.\n\n### Configuration\n\n#### Using Plugin Options\n\n```javascript\nmodule.exports = {\n  plugins: [\n    require('@gustcss/postcss')({\n      content: ['./src/**/*.{js,ts,jsx,tsx}'],\n      config: './gustcss.config.json', // Optional: path to config file\n    }),\n  ],\n}\n```\n\n#### Using Config File\n\nCreate `gustcss.config.json` in your project root:\n\n```json\n{\n  \"content\": [\"./src/**/*.{js,ts,jsx,tsx}\"],\n  \"output\": \"dist/utility.css\",\n  \"darkMode\": \"class\",\n  \"theme\": {\n    \"extend\": {\n      \"colors\": {\n        \"brand\": \"#3B82F6\"\n      }\n    }\n  }\n}\n```\n\n### Class-Name Mangling\n\nThe PostCSS plugin does not support `mangleClassNames` because PostCSS cannot rewrite HTML and JavaScript references to match shortened CSS selectors.\n\nThe plugin explicitly disables config-based mangling. Use `@gustcss/vite` for synchronized production CSS and source transformation.\n\n## How It Works\n\n1. The plugin scans files specified in the `content` array\n2. Extracts utility class names from your code\n3. Generates CSS for those utilities on-demand\n4. Injects the generated CSS into your build\n\n## Example\n\n**Input** (your HTML/JSX):\n```jsx\n<div className=\"p-4 bg-blue-500 text-white rounded-lg\">\n  Hello GustCSS!\n</div>\n```\n\n**Output** (generated CSS):\n```css\n.p-4 { padding: 1rem; }\n.bg-blue-500 { background-color: #3b82f6; }\n.text-white { color: #ffffff; }\n.rounded-lg { border-radius: 0.5rem; }\n```\n\n## Requirements\n\n- Node.js >= 18.0.0\n- PostCSS ^8.0.0\n\n## Related Packages\n\n- [gustcss](https://www.npmjs.com/package/gustcss) - CLI tool\n- [@gustcss/vite](https://www.npmjs.com/package/@gustcss/vite) - Vite plugin\n\n## License\n\nMIT\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		700,
 		1005,
 		207,
 		22,
@@ -1689,6 +1688,7 @@
 		900,
 		900,
 		721,
-		162
+		162,
+		400
 	]
 }
