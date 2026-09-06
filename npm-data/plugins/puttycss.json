@@ -1,0 +1,147 @@
+{
+	"_id": "puttycss",
+	"name": "puttycss",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "puttycss",
+			"version": "0.1.0",
+			"description": "Zero-runtime, zero-config CSS-in-JS. Write typed style objects, ship atomic CSS and no JavaScript.",
+			"license": "MIT",
+			"type": "module",
+			"sideEffects": false,
+			"workspaces": [
+				"examples/*"
+			],
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"default": "./dist/index.js"
+				},
+				"./postcss": {
+					"types": "./dist/postcss.d.ts",
+					"default": "./dist/postcss.js"
+				},
+				"./vite": {
+					"types": "./dist/vite.d.ts",
+					"default": "./dist/vite.js"
+				},
+				"./webpack": {
+					"types": "./dist/webpack.d.ts",
+					"default": "./dist/webpack.js"
+				},
+				"./next": {
+					"types": "./dist/next.d.ts",
+					"default": "./dist/next.js"
+				},
+				"./core": {
+					"types": "./dist/core/index.d.ts",
+					"default": "./dist/core/index.js"
+				},
+				"./package.json": "./package.json"
+			},
+			"scripts": {
+				"build": "rm -rf dist && tsc -p tsconfig.json",
+				"typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json",
+				"test": "node --test test/*.test.ts",
+				"prepublishOnly": "npm run typecheck && npm test && npm run build"
+			},
+			"peerDependencies": {
+				"postcss": ">=8",
+				"typescript": ">=5.0",
+				"vite": ">=5"
+			},
+			"peerDependenciesMeta": {
+				"postcss": {
+					"optional": true
+				},
+				"vite": {
+					"optional": true
+				}
+			},
+			"devDependencies": {
+				"@types/node": "^22.10.2",
+				"postcss": "^8.5.0",
+				"typescript": "^5.9.0",
+				"vite": "^6.0.6"
+			},
+			"engines": {
+				"node": ">=20.19"
+			},
+			"keywords": [
+				"css-in-js",
+				"zero-runtime",
+				"atomic-css",
+				"vite-plugin",
+				"postcss-plugin",
+				"nextjs",
+				"webpack-loader",
+				"typescript"
+			],
+			"gitHead": "346fdef705528321d3349c112bc8192415edf149",
+			"_id": "puttycss@0.1.0",
+			"_nodeVersion": "24.19.0",
+			"_npmVersion": "11.17.0",
+			"dist": {
+				"integrity": "sha512-KKMlOErbOjW65f9zo42FvWPv2myYM1eh5HOXxcMnUsasYjPwzYf3YCAa7pyYpWgKfVaRpbSc0S4kSGyXPnE6iw==",
+				"shasum": "50c34fa3019d45f3d228e1a8ddbd3c01fd69cd5d",
+				"tarball": "https://registry.npmjs.org/puttycss/-/puttycss-0.1.0.tgz",
+				"fileCount": 29,
+				"unpackedSize": 61749,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIQC/YyHjYdSssC0yTS44fstZjt20oVS/tCREhpv2maHC4wIgdQ+Ta4HpcCZMlgvVhjPiCdDL6AE8ELIU4wSC/RpoOXg="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "colmtuite",
+				"email": "colmtuite@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "colmtuite",
+					"email": "colmtuite@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/puttycss_0.1.0_1788596203926_0.9335041201288106"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-09-05T08:16:43.855Z",
+		"0.1.0": "2026-09-05T08:16:44.057Z",
+		"modified": "2026-09-05T08:16:44.297Z"
+	},
+	"maintainers": [
+		{
+			"name": "colmtuite",
+			"email": "colmtuite@gmail.com"
+		}
+	],
+	"description": "Zero-runtime, zero-config CSS-in-JS. Write typed style objects, ship atomic CSS and no JavaScript.",
+	"keywords": [
+		"css-in-js",
+		"zero-runtime",
+		"atomic-css",
+		"vite-plugin",
+		"postcss-plugin",
+		"nextjs",
+		"webpack-loader",
+		"typescript"
+	],
+	"license": "MIT",
+	"readme": "# putty\n\nZero-runtime, zero-config CSS-in-JS. Plain CSS for component styles. Putty for layout, overrides, app styles, one-off styles etc.\n\n```tsx\nimport { cx } from 'puttycss';\n\n<button\n  {...cx({\n    display: 'inline-flex',\n    gap: 8,\n    padding: '8px 16px',\n    color: 'var(--gray-12)',\n    '&:hover': {\n      backgroundColor: 'var(--gray-4)'\n    },\n    '@media (min-width: 768px)': { \n      padding: '12px 24px'\n    },\n  })}\n/>\n```\n\nAt build time this becomes\n\n```tsx\n<button {...{ className: \"p1h8cdyu p4e729l pj2ma0x p15lx4rp pdj23pi p1u5ukp2\" }} />\n```\n\nand the matching CSS is generated into your stylesheet. Nothing from `puttycss` is in your bundle: no `cx` function, no style injection, no provider. It works in Server Components because there is nothing to run.\n\n- **Zero runtime.** `cx()` calls are compiled to string literals. The `puttycss` import is removed.\n- **Zero config.** No theme file, no tokens. Design values are plain CSS custom properties.\n- **Atomic.** One class per declaration, deduplicated across your whole app, deterministic order.\n- **Typed.** CSS properties are typed; typos are compile errors.\n- **Any bundler.** Vite, Next.js (Turbopack and webpack), or anything that runs PostCSS.\n\n## Install\n\n```sh\nnpm install -D puttycss\n```\n\n## Setup\n\nTwo pieces: a transform for your bundler that compiles `cx()` away, and a PostCSS plugin that generates the stylesheet.\n\n### 1. Add the `@putty;` directive to your global CSS\n\n```css\n/* globals.css */\n:root {\n  --gray-4: #ededed;\n  --gray-12: #171717;\n}\n\n@putty;\n```\n\nEvery `cx()` call in your project compiles into that line.\n\n### 2. Configure your bundler\n\n**Vite**\n\n```ts\n// vite.config.ts\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\nimport { putty } from 'puttycss/vite';\n\nexport default defineConfig({\n  plugins: [putty(), react()],\n});\n```\n\nIf you don't have a PostCSS config, that's it; the plugin registers `puttycss/postcss` for you. If you do have one (e.g. for Tailwind or autoprefixer), add `'puttycss/postcss'` to it as shown below.\n\n**Next.js** (Turbopack or webpack)\n\n```ts\n// next.config.ts\nimport { withPutty } from 'puttycss/next';\n\nexport default withPutty({\n  /* your config */\n});\n```\n\n```js\n// postcss.config.mjs\nexport default {\n  plugins: {\n    'puttycss/postcss': { content: ['app', 'components'] },\n  },\n};\n```\n\n**webpack**\n\n```js\n// webpack.config.js\nmodule.exports = {\n  module: {\n    rules: [\n      { test: /\\.[jt]sx?$/, exclude: /node_modules/, enforce: 'pre', use: 'puttycss/webpack' },\n      // ...your CSS rule with postcss-loader\n    ],\n  },\n};\n```\n\n**Anything else with PostCSS**\n\nAdd `puttycss/postcss` to your PostCSS config for the stylesheet, and use `transformSource(code, fileName)` from `puttycss/core` to compile `cx()` calls in whatever transform hook your tool provides. Open an issue if you'd like a first-party integration.\n\n## Writing styles\n\n### Everything must be static\n\nBecause `cx()` is compiled away, its argument has to be an object literal made of literal strings, numbers and nested object literals. These are build errors, reported with file, line and column:\n\n```tsx\ncx({ color: theme.red });               // variable\ncx({ color: dark ? 'white' : 'black' }); // conditional\ncx({ ...base, color: 'red' });          // spread\ncx(styles);                              // not a literal\n```\n\nFor values that change at runtime, use a CSS custom property:\n\n```tsx\n<div style={{ '--x': `${offset}px` }} {...cx({ transform: 'translateX(var(--x))' })} />\n```\n\nFor variants, call `cx()` once per variant and pick a result:\n\n```tsx\nconst primary = cx({ backgroundColor: 'blue' });\nconst secondary = cx({ backgroundColor: 'gray' });\n<button {...(isPrimary ? primary : secondary)} />\n```\n\nSince `cx()` returns `{ className }`, combining with other classes is just string concatenation:\n\n```tsx\n<div className={`${cx({ display: 'flex' }).className} ${props.className ?? ''}`} />\n```\n\n## Options\n\n`puttycss/postcss` (and `puttycss/vite`, which forwards them):\n\n| Option    | Default                              | Description                                                             |\n| --------- | ------------------------------------ | ----------------------------------------------------------------------- |\n| `content` | `['.']`                              | Files or directories to scan for `cx()` calls, relative to `cwd`.       |\n| `exclude` | `node_modules`, `.git`, `dist`, `.next`, … | Directory names skipped anywhere in the tree.                   |\n| `cwd`     | `process.cwd()`                      | Base directory.                                                         |\n\n`puttycss/vite` also accepts `postcss: false` to opt out of auto-registering the PostCSS plugin.\n\n## License\n\nMIT\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-37e7c523b7369dcb02e76ab803c1860f",
+	"_downloads": [
+		0
+	]
+}
