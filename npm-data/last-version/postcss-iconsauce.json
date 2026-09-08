@@ -1,37 +1,47 @@
 {
 	"name": "postcss-iconsauce",
-	"version": "1.4.1",
+	"version": "2.0.0",
 	"description": "PostCSS plugin for Iconsauce",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./lib/index.d.ts",
+			"default": "./lib/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"engines": {
+		"node": ">=20.19"
+	},
 	"license": "MIT",
 	"sideEffects": false,
 	"scripts": {
-		"build": "tsc -d",
+		"build": "npm run clean && tsc --declaration -p tsconfig.build.json",
+		"postbuild": "cp -r ./build/src/. ./lib",
+		"clean": "rm -rf build lib coverage",
 		"dev": "tsc --watch",
-		"lint": "eslint --ignore-path .eslintignore",
-		"lint:fix": "npm run lint -- --fix",
-		"prepublishOnly": "npm run build"
+		"lint": "eslint --fix",
+		"prepublishOnly": "npm run build && npm run test",
+		"test": "jest"
 	},
 	"dependencies": {
-		"@iconsauce/config": "^0.4.1",
-		"@iconsauce/core": "^1.2.4"
+		"@iconsauce/core": "^2.0.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.0.0"
 	},
 	"devDependencies": {
-		"@types/debug": "^4.1.7",
-		"@types/jest": "^27.4.1",
-		"@types/node": "^16.11.26",
-		"@types/svg2ttf": "^5.0.1",
-		"@types/svgicons2svgfont": "^10.0.1",
-		"@typescript-eslint/eslint-plugin": "^5.10.1",
-		"@typescript-eslint/parser": "^5.10.1",
-		"eslint": "^8.10.0",
-		"postcss": "^8.4.14",
-		"postcss-nesting": "^10.1.2",
-		"typescript": "^4.7.4"
+		"@babel/preset-env": "7.29.0",
+		"@babel/preset-typescript": "7.28.5",
+		"@types/jest": "30.0.0",
+		"@types/node": "25.3.3",
+		"eslint": "9.39.3",
+		"jest": "30.3.0",
+		"postcss": "8.5.26",
+		"ts-jest": "29.4.9",
+		"typescript": "6.0.3",
+		"typescript-eslint": "8.60.0"
 	},
 	"bugs": {
 		"url": "https://github.com/iconsauce/postcss-iconsauce/issues"
@@ -48,38 +58,52 @@
 		"postcss",
 		"postcss-plugin"
 	],
-	"_id": "postcss-iconsauce@1.4.1",
-	"gitHead": "84d7b4c3eff04fbd76355b2d5a4ae5ad8f03f5bb",
-	"_nodeVersion": "20.10.0",
-	"_npmVersion": "10.2.3",
+	"gitHead": "b7d8faaa00ca5568df2b554282d526e849cd855d",
+	"_id": "postcss-iconsauce@2.0.0",
+	"_nodeVersion": "24.15.0",
+	"_npmVersion": "12.0.2",
 	"dist": {
-		"integrity": "sha512-YAboC6dqJEOFLHolJsAHbV0644Y4y9NPGEdWccAmvi5ngCJqT64wcJl9TiZA6ifrIEai5YKXIHxRjhk8xdjWvQ==",
-		"shasum": "10d8549ad0aa0e1011be38ecaf7bf7f526f5dfd6",
-		"tarball": "https://registry.npmjs.org/postcss-iconsauce/-/postcss-iconsauce-1.4.1.tgz",
+		"integrity": "sha512-HsQ1O9O92OWh5xwUDkv7PIpq2VLlcmyuiyzJtvZiNVGmP5hrGGEeO2I8daGabdNm5I9641x89j06kcF0AVFj3w==",
+		"shasum": "13fb1b6c8ca90bebadbaece583bce6bb90fd80db",
+		"tarball": "https://registry.npmjs.org/postcss-iconsauce/-/postcss-iconsauce-2.0.0.tgz",
 		"fileCount": 6,
-		"unpackedSize": 5944,
+		"unpackedSize": 5460,
+		"attestations": {
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-iconsauce@2.0.0",
+			"provenance": {
+				"predicateType": "https://slsa.dev/provenance/v1"
+			}
+		},
 		"signatures": [
 			{
-				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEUCIDhBOkKmtCIHbsfeehZcWjr1bgwxL1/giXUo19IzpRuYAiEA1VJ56edbKiqliwLPSo52e/RNmm00j2pwPWeOmMMH3lw="
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEYCIQDYVvFadgeqrnvZ/VU8l8pIK9S/C0dLqwSSU2Wvx5R0ZQIhAPhLg13yNszfJaZFvQswwQPSKB1xjVxwFzWuQgmqLkvq"
 			}
 		]
 	},
 	"_npmUser": {
-		"name": "vitto",
-		"email": "vittorio.vittori@maggioli.it"
+		"name": "GitHub Actions",
+		"email": "npm-oidc-no-reply@github.com",
+		"trustedPublisher": {
+			"id": "github",
+			"oidcConfigId": "oidc:896e831c-fbd2-4334-99ba-47a2198906a6"
+		}
 	},
 	"directories": {},
 	"maintainers": [
 		{
 			"name": "vitto",
 			"email": "vittorio.vittori@maggioli.it"
+		},
+		{
+			"name": "nicola.tamburini.maggioli",
+			"email": "nicola.tamburini@maggioli.it"
 		}
 	],
 	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-iconsauce_1.4.1_1706891270527_0.5662678503301926"
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-iconsauce_2.0.0_1788773135551_0.4588531005000531"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2024-02-02T16:27:50.689Z"
+	"_time": "2026-09-07T09:25:35.682Z"
 }
