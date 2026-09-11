@@ -1,0 +1,112 @@
+{
+	"_id": "postcss-px-to-viewport-hybrid",
+	"name": "postcss-px-to-viewport-hybrid",
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"versions": {
+		"1.0.0": {
+			"name": "postcss-px-to-viewport-hybrid",
+			"version": "1.0.0",
+			"description": "postcss 插件，将 px 转换为 viewport 单位，支持设置最大转换宽度（maxWidth）。当屏幕宽度 > maxWidth 时保留原始 px 值（PC端），<= maxWidth 时使用 vw 值（移动端）。其余用法与postcss-px-to-viewport相同。",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "https://gitee.com/jwzyss/postcss-px-to-viewport-hybrid.git"
+			},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"px",
+				"vw",
+				"mobile",
+				"pc",
+				"hybrid"
+			],
+			"author": {
+				"name": "jiangwei"
+			},
+			"license": "ISC",
+			"type": "commonjs",
+			"peerDependencies": {
+				"postcss": "^7.0.0 || ^8.0.0"
+			},
+			"peerDependenciesMeta": {
+				"postcss": {
+					"optional": true
+				}
+			},
+			"gitHead": "f35781ff60b855771331dcdd93c1004bb0ab6a46",
+			"_id": "postcss-px-to-viewport-hybrid@1.0.0",
+			"_nodeVersion": "24.19.0",
+			"_npmVersion": "11.17.0",
+			"dist": {
+				"integrity": "sha512-cMSVBsNAK0j4c1rPULZXtNjO9bAaRsJriwxI6PPK/ReRzdKELLbwe51nW2NUnq5FI718jY3HuMQzA8fZf1lrsw==",
+				"shasum": "847c1c78eccea8114a71a141bb953c308cf565c3",
+				"tarball": "https://registry.npmjs.org/postcss-px-to-viewport-hybrid/-/postcss-px-to-viewport-hybrid-1.0.0.tgz",
+				"fileCount": 3,
+				"unpackedSize": 9144,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEYCIQCHxVa8lMv13LdGS2f457q/vbpOy2FPAvqApDULdhT3KwIhAOHe2L9eE41OWU4U6rbU2XjmG15C05w6TzPEyoXFmcgS"
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "j1440583965",
+				"email": "1440583965@qq.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "j1440583965",
+					"email": "1440583965@qq.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss-px-to-viewport-hybrid_1.0.0_1789033654935_0.8240735663511611"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-09-10T09:47:34.869Z",
+		"1.0.0": "2026-09-10T09:47:35.055Z",
+		"modified": "2026-09-10T09:47:35.253Z"
+	},
+	"maintainers": [
+		{
+			"name": "j1440583965",
+			"email": "1440583965@qq.com"
+		}
+	],
+	"description": "postcss 插件，将 px 转换为 viewport 单位，支持设置最大转换宽度（maxWidth）。当屏幕宽度 > maxWidth 时保留原始 px 值（PC端），<= maxWidth 时使用 vw 值（移动端）。其余用法与postcss-px-to-viewport相同。",
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"px",
+		"vw",
+		"mobile",
+		"pc",
+		"hybrid"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://gitee.com/jwzyss/postcss-px-to-viewport-hybrid.git"
+	},
+	"author": {
+		"name": "jiangwei"
+	},
+	"license": "ISC",
+	"readme": "# postcss-px-to-viewport-hybrid\n\nPostCSS 插件：将 CSS 中的 `px` 转换为 viewport 单位（`vw`），并支持设置最大转换宽度 `maxWidth`，实现移动端自适应 + PC 端固定布局的混合方案。\n\n- 当屏幕宽度 **<= maxWidth** 时：使用 `vw` 值（移动端等比缩放）\n- 当屏幕宽度 **> maxWidth** 时：保留原始 `px` 值（PC 端固定尺寸）\n\n其余用法与 [postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport) 相同。\n\n## 背景\n\n`postcss-px-to-viewport` 会把所有 px 无条件转成 vw，导致在宽屏（PC、平板横屏）上元素被无限放大。本插件通过 `@media (max-width: maxWidth)` 查询实现\"大屏用 px、小屏用 vw\"的混合策略：\n\n```css\n/* 输入 */\n.container {\n  width: 375px;\n  padding: 10px 20px;\n}\n\n/* 输出 */\n.container {\n  width: 375px;\n  padding: 10px 20px;\n}\n\n@media (max-width: 450px) {\n  .container {\n    width: 100vw;\n    padding: 2.66667vw 5.33333vw;\n  }\n}\n```\n\n## 安装\n\n```bash\nnpm install postcss-px-to-viewport-hybrid --save-dev\n```\n\n## 使用\n\n在 `postcss.config.js` 中：\n\n```js\nmodule.exports = {\n  plugins: {\n    'postcss-px-to-viewport-hybrid': {\n      viewportWidth: 375, // 设计稿宽度，默认 375\n      maxWidth: 450,      // 最大转换宽度，默认 450\n    },\n  },\n}\n```\n\n### Vue CLI（vue.config.js）\n\n```js\nmodule.exports = {\n  css: {\n    loaderOptions: {\n      postcss: {\n        plugins: [\n          require('postcss-px-to-viewport-hybrid')({\n            viewportWidth: 375,\n            maxWidth: 450,\n          }),\n        ],\n      },\n    },\n  },\n}\n```\n\n## 配置项\n\n| 参数 | 类型 | 默认值 | 说明 |\n| --- | --- | --- | --- |\n| `viewportWidth` | number | `375` | 设计稿宽度，vw 换算基准 |\n| `maxWidth` | number | `450` | 最大转换宽度（px），小于等于该宽度时应用 vw |\n| `unitPrecision` | number | `5` | vw 值保留的小数位数 |\n| `viewportUnit` | string | `'vw'` | 转换的目标单位 |\n| `minPixelValue` | number | `1` | 小于该值的 px 不转换 |\n| `selectorBlackList` | (string\\|RegExp)[] | `[]` | 选择器黑名单，命中的规则不转换。字符串为包含匹配，如 `'body'` |\n| `propertyBlackList` | string[] | `[]` | 属性黑名单，命中的属性不转换（保留 px） |\n| `exclude` | RegExp | `null` | 忽略匹配的文件，如 `/node_modules/` |\n| `include` | RegExp | `null` | 仅处理匹配的文件 |\n\n## 处理范围\n\n- 普通 CSS 规则：生成原始 px 规则 + `@media` 内的 vw 副本\n- `@font-face`：同样生成两份\n- `@keyframes`：整体克隆一份到 `@media` 内转换\n- 已经在 `@media` 内的规则：**不会重复处理**，保持原样\n\n## 兼容性\n\n兼容 PostCSS 7 和 PostCSS 8（Vue CLI 4 / webpack 4 项目可直接使用）。\n\n## License\n\nISC\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-b58fc4a9dea77c2f01b50fb58cc2907b",
+	"_downloads": [
+		0
+	]
+}
