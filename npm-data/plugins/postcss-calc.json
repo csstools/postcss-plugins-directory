@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-calc",
-	"_rev": "69-f2cd06fc663998bfdd2cfcd303e5e5c7",
+	"_rev": "70-ddafcad4cd8d414111afa229bfc65629",
 	"name": "postcss-calc",
 	"dist-tags": {
 		"next": "11.0.0-rc.3",
-		"latest": "11.1.2"
+		"latest": "11.2.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -4900,15 +4900,147 @@
 			}
 		},
 		"11.1.2": {
+			"name": "postcss-calc",
+			"version": "11.1.2",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"calculation",
+				"calc"
+			],
+			"author": "Andy Jansson",
+			"license": "MIT",
 			"_id": "postcss-calc@11.1.2",
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/postcss/postcss-calc",
 			"dist": {
 				"shasum": "3fd6c5a7bde761bec4f6a2ea6f892211f11cbc42",
 				"tarball": "https://registry.npmjs.org/postcss-calc/-/postcss-calc-11.1.2.tgz",
-				"integrity": "sha512-VYTKcDyI+zrgd9xogzUf96ei8RZqwPP06KxZiE96HMEOx/jNqcKXheCZbZcXiEMxZ1UzY7/dUFPyCHLu/fUBEA==",
 				"fileCount": 61,
-				"unpackedSize": 104182,
+				"integrity": "sha512-VYTKcDyI+zrgd9xogzUf96ei8RZqwPP06KxZiE96HMEOx/jNqcKXheCZbZcXiEMxZ1UzY7/dUFPyCHLu/fUBEA==",
+				"signatures": [
+					{
+						"sig": "MEUCIQDVtRe1PAg/ieZo58yOiDfbrBv/r6XR3RSVH43WB5o7FAIgLNggs4vteNligO9+WxY4e8nz5pHj/eTF6MjcbYP0ZcA=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
 				"attestations": {
 					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-calc@11.1.2",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 104182
+			},
+			"type": "module",
+			"engines": {
+				"node": "^22.22.3 || ^24.15 || >=26.0"
+			},
+			"exports": {
+				".": {
+					"types": "./types/index.d.ts",
+					"default": "./src/index.js"
+				},
+				"./reduce": {
+					"types": "./types/reduce.d.ts",
+					"default": "./src/reduce.js"
+				}
+			},
+			"scripts": {
+				"fmt": "oxfmt",
+				"lint": "oxlint . && tsc && oxfmt --check",
+				"test": "node --test --test-reporter=dot 'test/**/*.test.mjs' test/index.cjs test/convertUnit.cjs",
+				"test:corpus:full": "POSTCSS_CALC_FULL_CORPUS=1 node --test test/conformance/corpus.test.mjs",
+				"test:mutation:corpus": "node test/mutation/corpus-selection.mjs",
+				"benchmark:nested-fallbacks": "node scripts/benchmark-nested-fallbacks.mjs",
+				"benchmark:arithmetic-chains": "node scripts/benchmark-arithmetic-chains.mjs"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"approver": {
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:12fec003-011d-4ec1-bc80-f6b0007d9e4b"
+				}
+			},
+			"devEngines": {
+				"packageManager": {
+					"name": "pnpm",
+					"version": "12.3.4"
+				}
+			},
+			"repository": {
+				"url": "git+https://github.com/postcss/postcss-calc.git",
+				"type": "git"
+			},
+			"description": "PostCSS plugin to reduce calc()",
+			"directories": {},
+			"dependencies": {
+				"@csstools/css-tokenizer": "^4.0.0"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"oxfmt": "^0.67.0",
+				"oxlint": "^1.82.0",
+				"postcss": "^8.5.28",
+				"fast-check": "^4.9.0",
+				"typescript": "~7.0.2",
+				"@types/node": "^26.5.0",
+				"@csstools/css-calc": "^3.3.0",
+				"@rmenke/css-tokenizer-tests": "^1.2.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.5.28"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-calc_11.1.2_1789139301696_0.6117552895844551",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"11.2.0": {
+			"_id": "postcss-calc@11.2.0",
+			"dist": {
+				"shasum": "330791b14b66443c9914a79dd378819df5ebef4c",
+				"tarball": "https://registry.npmjs.org/postcss-calc/-/postcss-calc-11.2.0.tgz",
+				"integrity": "sha512-GeWPgrs+s7W0b35ePAMvyNq0fP4fKsJXt9dLmO919TTiZ93aVUj+enI5t5eba7/YMkUJvWanNunMctyeuP+Dsg==",
+				"fileCount": 77,
+				"unpackedSize": 157824,
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-calc@11.2.0",
 					"provenance": {
 						"predicateType": "https://slsa.dev/provenance/v1"
 					}
@@ -4916,7 +5048,7 @@
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEUCIQDVtRe1PAg/ieZo58yOiDfbrBv/r6XR3RSVH43WB5o7FAIgLNggs4vteNligO9+WxY4e8nz5pHj/eTF6MjcbYP0ZcA="
+						"sig": "MEQCIESdVohzXxUEqEVnPeJcXflit427eKMUzb6S/YV7bofcAiBMfYs8YZ1zCld3kTaCeCAw7pY4LiEIiFFJpxo4XQ7tWQ=="
 					}
 				]
 			},
@@ -4940,13 +5072,18 @@
 			"scripts": {
 				"fmt": "oxfmt",
 				"lint": "oxlint . && tsc && oxfmt --check",
-				"test": "node --test --test-reporter=dot 'test/**/*.test.mjs' test/index.cjs test/convertUnit.cjs",
-				"test:corpus:full": "POSTCSS_CALC_FULL_CORPUS=1 node --test test/conformance/corpus.test.mjs",
-				"test:mutation:corpus": "node test/mutation/corpus-selection.mjs",
-				"benchmark:nested-fallbacks": "node scripts/benchmark-nested-fallbacks.mjs",
-				"benchmark:arithmetic-chains": "node scripts/benchmark-arithmetic-chains.mjs"
+				"test": "node --test --test-reporter=dot 'test/**/*.test.js' 'test/**/*.test.cjs'",
+				"test:benchmark": "node --test 'test/unit/benchmark-*.test.js' test/unit/compare-parser-benchmarks.test.js test/unit/corpus-benchmark.test.js",
+				"benchmark:corpus": "node scripts/benchmark.js",
+				"test:corpus:full": "POSTCSS_CALC_FULL_CORPUS=1 node --test test/conformance/corpus.test.js",
+				"benchmark:reanalyze": "node scripts/compare-parser-benchmarks.js",
+				"test:mutation:corpus": "node test/mutation/corpus-selection.js",
+				"benchmark:serialization": "node scripts/benchmark-serialization.js",
+				"test:benchmark:simulation": "node test/benchmark/statistical-simulation.js",
+				"benchmark:nested-fallbacks": "node scripts/benchmark-nested-fallbacks.js",
+				"benchmark:arithmetic-chains": "node scripts/benchmark-arithmetic-chains.js"
 			},
-			"version": "11.1.2",
+			"version": "11.2.0",
 			"_npmUser": {
 				"name": "GitHub Actions",
 				"email": "npm-oidc-no-reply@github.com",
@@ -4970,7 +5107,7 @@
 			"devEngines": {
 				"packageManager": {
 					"name": "pnpm",
-					"version": "12.3.4"
+					"version": "12.4.2"
 				}
 			},
 			"repository": {
@@ -5013,28 +5150,27 @@
 				"@csstools/css-tokenizer": "^4.0.0"
 			},
 			"devDependencies": {
-				"oxfmt": "^0.67.0",
-				"oxlint": "^1.82.0",
+				"oxfmt": "^0.68.0",
+				"oxlint": "^1.83.0",
 				"postcss": "^8.5.28",
-				"fast-check": "^4.9.0",
+				"fast-check": "^4.10.0",
 				"typescript": "~7.0.2",
-				"@types/node": "^26.5.0",
-				"@csstools/css-calc": "^3.3.0",
-				"@rmenke/css-tokenizer-tests": "^1.2.0"
+				"@types/node": "^26.5.1",
+				"@csstools/css-calc": "^3.3.0"
 			},
 			"peerDependencies": {
 				"postcss": "^8.5.28"
 			},
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-calc_11.1.2_1789139301696_0.6117552895844551"
+				"tmp": "tmp/postcss-calc_11.2.0_1789633965628_0.17176161118581668"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2014-08-04T10:19:24.232Z",
-		"modified": "2026-09-11T15:08:22.138Z",
+		"modified": "2026-09-17T08:32:46.011Z",
 		"1.0.0": "2014-08-04T10:19:24.232Z",
 		"2.0.0": "2014-08-06T07:11:47.541Z",
 		"2.0.1": "2014-08-10T18:57:42.197Z",
@@ -5082,7 +5218,8 @@
 		"11.0.3": "2026-09-01T09:08:06.575Z",
 		"11.1.0": "2026-09-07T08:20:58.593Z",
 		"11.1.1": "2026-09-07T14:33:24.321Z",
-		"11.1.2": "2026-09-11T15:08:21.789Z"
+		"11.1.2": "2026-09-11T15:08:21.789Z",
+		"11.2.0": "2026-09-17T08:32:45.717Z"
 	},
 	"author": "Andy Jansson",
 	"license": "MIT",
@@ -5129,7 +5266,7 @@
 			"email": "sheo13666q@gmail.com"
 		}
 	],
-	"readme": "# PostCSS Calc [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[![NPM Version][npm-img]][npm-url]\n[![Support Chat][git-img]][git-url]\n\n[PostCSS Calc] lets you reduce `calc()` references whenever it's possible.\nWhen multiple units are mixed together in the same expression, the `calc()`\nstatement is left as is, to fallback to the [W3C calc() implementation].\n\n## Installation\n\n```bash\nnpm install postcss-calc\n```\n\n## PostCSS usage\n\n```js\n// dependencies\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar calc = require('postcss-calc');\n\n// css to be processed\nvar css = fs.readFileSync('input.css', 'utf8');\n\n// process css\nvar output = postcss().use(calc()).process(css).css;\n```\n\nUsing this `input.css`:\n\n```css\nh1 {\n  font-size: calc(16px * 2);\n  height: calc(100px - 2em);\n  width: calc(2 * var(--base-width));\n  margin-bottom: calc(16px * 1.5);\n}\n```\n\nyou will get:\n\n```css\nh1 {\n  font-size: 32px;\n  height: calc(100px - 2em);\n  width: calc(2 * var(--base-width));\n  margin-bottom: 24px;\n}\n```\n\nCheckout [tests] for more examples.\n\n## Use the reducer without PostCSS\n\nFor a single CSS component-value string, import the dedicated reducer entry\npoint. It reduces `calc()` and the supported CSS math functions it finds while\nleaving all other text untouched.\n\n```js\nimport reduceCalc from 'postcss-calc/reduce';\n\nreduceCalc('calc(1in + 10px)');\n// => '1.10417in'\n\nreduceCalc('min(50px, calc(2 * 40px))');\n// => '50px'\n```\n\nIt accepts `precision`, `unwrapSingleNegativeNumber`, `warnWhenCannotResolve`, `onParseError`,\nand `onWarn`:\n\n```js\nconst result = reduceCalc('calc(100% + var(--gap))', {\n  precision: false,\n  warnWhenCannotResolve: true,\n  onWarn: console.warn,\n  onParseError(error, input) {\n    console.error(`Invalid calculation: ${input}`, error);\n  },\n});\n```\n\nUnlike the PostCSS plugin, the standalone reducer does not show warnings\nby default; provide `onParseError` and/or `onWarn` if you want diagnostics.\n\n### Standalone reducer options\n\n#### `unwrapSingleNegativeNumber` (default: `false`)\n\nControls whether a finite negative result is serialized as a bare value or\nwrapped in `calc()`. Keep the default when reducing declaration values; set it\nto `true` when the surrounding CSS context requires a bare negative value, such\nas a selector:\n\n```js\nreduceCalc('calc(5px - 10px)');\n// => 'calc(-5px)'\n\nreduceCalc('calc(5px - 10px)', { unwrapNegativeNumbers: true });\n// => '-5px'\n```\n\n### PostCSS plugin options\n\nThese options apply when using the PostCSS plugin:\n\n```js\npostcss().use(calc({ precision: 10 }));\n```\n\n#### `precision` (default: `5`)\n\nAllows you to define the precision for decimal numbers. Set it to `false` to\ndisable rounding.\n\n```js\nvar out = postcss()\n  .use(calc({ precision: 10 }))\n  .process(css).css;\n```\n\n#### `warnWhenCannotResolve` (default: `false`)\n\nAdds warnings when calc() are not reduced to a single value.\n\n```js\nvar out = postcss()\n  .use(calc({ warnWhenCannotResolve: true }))\n  .process(css).css;\n```\n\n#### `mediaQueries` (default: `false`)\n\nAllows calc() usage in media query parameters.\n\n```js\nvar out = postcss()\n  .use(calc({ mediaQueries: true }))\n  .process(css).css;\n```\n\nExample:\n\n```css\n@media (min-width: calc(100px + 100px)) {\n  div {\n    width: 100px;\n  }\n}\n```\n\nWith `mediaQueries: true`, this becomes:\n\n```css\n@media (min-width: 200px) {\n  div {\n    width: 100px;\n  }\n}\n```\n\n#### `selectors` (default: `false`)\n\nReduces `calc()` functions found in selectors. Selectors do not accept\n`calc()` functions, so the plugin replaces them with their reduced values.\nFinite negative results are serialized as bare values because a selector cannot\ncontain a `calc()` function; the plugin enables `unwrapSingleNegativeNumber` automatically\nfor selectors.\n\n```js\nvar out = postcss()\n  .use(calc({ selectors: true }))\n  .process(css).css;\n```\n\nExample:\n\n```css\ndiv:nth-child(calc(1 + 2)) {\n  width: 100px;\n}\n```\n\nWith `selectors: true`, this becomes `div:nth-child(3)`.\n\n#### `onParseError`\n\nCallback invoked when a `calc()` body fails to parse or simplify. Matches\n[`@csstools/css-calc`][csstools-css-calc]'s shape:\n\n```js\npostcss().use(\n  calc({\n    onParseError: (err, input) => {\n      throw err; // or log, route to a different channel, etc.\n    },\n  })\n);\n```\n\nWhen omitted, errors are reported via PostCSS `result.warn()` so the\nplugin never throws at the postcss level.\n\n### Behavior differences from the legacy parser\n\nThe legacy [jison][jison]-generated parser was replaced by a hand-written\nPratt parser whose simplifier follows [CSS Values 4][css-values-4]. Most\ninputs reduce to identical output; the differences are spec-aligned or\ncanonical-form decisions:\n\n- **Strict whitespace (§10.1).** `calc(2px+3px)` is invalid CSS (binary\n  `+` / `-` require surrounding whitespace) and is preserved with a\n  warning instead of reduced.\n- **Canonical operand order.** Commutative operands serialize\n  numeric-first, matching [`@csstools/css-calc`][csstools-css-calc]:\n  `calc(var(--foo) + 10px)` → `calc(10px + var(--foo))`.\n- **Zero buckets are kept.** `calc(100px - (100px - 100%))` →\n  `calc(0px + 100%)`, not `100%` — [WPT calc-serialization-002][wpt-calc-serialization]\n  requires the zero term because it carries the length-percentage type.\n- **Constant folding.** `calc(43 + pi)` now folds to `46.14159` (§10.7.1).\n  Previously `pi` / `e` stayed symbolic.\n- **Reciprocal conversion.** `calc(var(--x) / 2)` becomes\n  `calc(var(--x) * 0.5)`. The two are mathematically equivalent;\n  previously the division shape was kept.\n- **Distributive multiplication.** `calc(0.5 * (100vw - 10px))` becomes\n  `calc(50vw - 5px)`.\n- **Unit case normalization.** `2PX` becomes `2px` (CSS units are case-\n  insensitive; lowercase is conventional).\n- **Calc unwrap (§10.6).** `calc(var(--foo))` becomes `var(--foo)` — a\n  `calc()` containing a single value is replaced by that value.\n- **Spec-style spaced operators.** `2px*var(--x)` is serialized as\n  `2px * var(--x)`. The tokenizer is unaffected; only output spacing\n  differs.\n- **Division by zero / by a unit.** `calc(500px/0)` reduces to\n  `calc(infinity * 1px)` (§10.13) instead of throwing. Use `onParseError`\n  if you want validation behavior.\n\n[css-values-4]: https://www.w3.org/TR/css-values-4/\n[csstools-css-calc]: https://www.npmjs.com/package/@csstools/css-calc\n[wpt-calc-serialization]: https://github.com/web-platform-tests/wpt/blob/master/css/css-values/calc-serialization-002.html\n[jison]: https://github.com/zaach/jison\n\n---\n\n## Related PostCSS plugins\n\nTo replace the value of CSS custom properties at build time, try [PostCSS Custom Properties].\n\n## Contributing\n\nWork on a branch, install dev-dependencies, respect coding style & run tests\nbefore submitting a bug fix or a feature.\n\n```bash\ngit clone git@github.com:postcss/postcss-calc.git\ngit checkout -b patch-1\nnpm install\nnpm test\n```\n\nThe normal test run uses a deterministic structural sample of the harvested\nreal-world corpus. Run the complete differential corpus before releases or\nwhen changing parsing/simplification behavior:\n\n```bash\npnpm test:corpus:full\n```\n\nProfile long arithmetic parser chains with `pnpm benchmark:arithmetic-chains`.\n\n## [Changelog](CHANGELOG.md)\n\n## [License](LICENSE)\n\n[git-img]: https://img.shields.io/badge/support-chat-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[npm-img]: https://img.shields.io/npm/v/postcss-calc.svg\n[npm-url]: https://www.npmjs.com/package/postcss-calc\n[PostCSS]: https://github.com/postcss\n[PostCSS Calc]: https://github.com/postcss/postcss-calc\n[PostCSS Custom Properties]: https://github.com/postcss/postcss-custom-properties\n[tests]: test/index.js\n[W3C calc() implementation]: https://www.w3.org/TR/css3-values/#calc-notation\n",
+	"readme": "# PostCSS Calc [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n[![NPM Version][npm-img]][npm-url]\n[![Support Chat][git-img]][git-url]\n\n[PostCSS Calc] lets you reduce `calc()` references whenever it's possible.\nWhen multiple units are mixed together in the same expression, the `calc()`\nstatement is left as is, to fallback to the [W3C calc() implementation].\n\n## Installation\n\n```bash\nnpm install postcss-calc\n```\n\n## PostCSS usage\n\n```js\n// dependencies\nvar fs = require('fs');\nvar postcss = require('postcss');\nvar calc = require('postcss-calc');\n\n// css to be processed\nvar css = fs.readFileSync('input.css', 'utf8');\n\n// process css\nvar output = postcss().use(calc()).process(css).css;\n```\n\nUsing this `input.css`:\n\n```css\nh1 {\n  font-size: calc(16px * 2);\n  height: calc(100px - 2em);\n  width: calc(2 * var(--base-width));\n  margin-bottom: calc(16px * 1.5);\n}\n```\n\nyou will get:\n\n```css\nh1 {\n  font-size: calc(32px);\n  height: calc(100px - 2em);\n  width: calc(2 * var(--base-width));\n  margin-bottom: calc(24px);\n}\n```\n\nCheckout [tests] for more examples.\n\n## Use the reducer without PostCSS\n\nFor a single CSS component-value string, import the dedicated reducer entry\npoint. It reduces `calc()` and the supported CSS math functions it finds while\nleaving all other text untouched.\n\n```js\nimport reduceCalc from 'postcss-calc/reduce';\n\nreduceCalc('calc(1in + 10px)');\n// => 'calc(1.10417in)'\n\nreduceCalc('min(50px, calc(2 * 40px))');\n// => 'calc(50px)'\n```\n\nIt accepts `precision`, `unwrapSingleValue`, the deprecated\n`unwrapSingleNegativeNumber` alias,\n`warnWhenCannotResolve`, `onParseError`, and `onWarn`:\n\n```js\nconst result = reduceCalc('calc(100% + var(--gap))', {\n  precision: false,\n  warnWhenCannotResolve: true,\n  onWarn: console.warn,\n  onParseError(error, input) {\n    console.error(`Invalid calculation: ${input}`, error);\n  },\n});\n```\n\nUnlike the PostCSS plugin, the standalone reducer does not show warnings\nby default; provide `onParseError` and/or `onWarn` if you want diagnostics.\n\n### Standalone reducer options\n\n#### `unwrapSingleValue` (default: `false`)\n\nSerializes a fully resolved finite scalar result without calculation syntax.\nKeep the default for standard CSS so the browser can perform range clamping\nand integer rounding. Set it to `true` for a non-standard context that requires\na bare value, such as a selector:\n\n```js\nreduceCalc('calc(5px - 10px)');\n// => 'calc(-5px)'\n\nreduceCalc('calc(5px - 10px)', { unwrapSingleValue: true });\n// => '-5px'\n\nreduceCalc('calc(1 / 2)', { unwrapSingleValue: true });\n// => '.5'\n```\n\nThe published `unwrapSingleNegativeNumber` option is retained as a deprecated\nalias for `unwrapSingleValue`.\n\n### PostCSS plugin options\n\nThese options apply when using the PostCSS plugin:\n\n```js\npostcss().use(calc({ precision: 10 }));\n```\n\n#### `precision` (default: `5`)\n\nAllows you to define the precision for decimal numbers. Set it to `false` to\ndisable rounding and preserve full IEEE-754 floating-point precision (emitting\nthe shortest round-tripping decimal representation).\n\n```js\nvar out = postcss()\n  .use(calc({ precision: 10 }))\n  .process(css).css;\n```\n\n#### `unwrapSingleValue` (default: `false`)\n\nSerializes fully resolved finite scalar results without calculation syntax.\nThis can discard browser-applied range clamping or integer rounding. Selectors\nenable it automatically because selectors cannot contain `calc()`.\n\n#### `warnWhenCannotResolve` (default: `false`)\n\nAdds warnings when calc() are not reduced to a single value.\n\n```js\nvar out = postcss()\n  .use(calc({ warnWhenCannotResolve: true }))\n  .process(css).css;\n```\n\n#### `mediaQueries` (default: `false`)\n\nAllows calc() usage in media query parameters.\n\n```js\nvar out = postcss()\n  .use(calc({ mediaQueries: true }))\n  .process(css).css;\n```\n\nExample:\n\n```css\n@media (min-width: calc(100px + 100px)) {\n  div {\n    width: 100px;\n  }\n}\n```\n\nWith `mediaQueries: true`, this becomes:\n\n```css\n@media (min-width: 200px) {\n  div {\n    width: 100px;\n  }\n}\n```\n\n#### `selectors` (default: `false`)\n\nReduces `calc()` functions found in selectors. Selectors do not accept\n`calc()` functions, so the plugin replaces them with their reduced values.\nFinite negative and fractional unitless results are serialized as bare values\nbecause a selector cannot contain a `calc()` function; the plugin enables the\n`unwrapSingleValue` automatically for selectors.\n\n```js\nvar out = postcss()\n  .use(calc({ selectors: true }))\n  .process(css).css;\n```\n\nExample:\n\n```css\ndiv:nth-child(calc(1 + 2)) {\n  width: 100px;\n}\n```\n\nWith `selectors: true`, this becomes `div:nth-child(3)`.\n\n#### `onParseError`\n\nCallback invoked when a `calc()` body fails to parse or simplify. Matches\n[`@csstools/css-calc`][csstools-css-calc]'s shape:\n\n```js\npostcss().use(\n  calc({\n    onParseError: (err, input) => {\n      throw err; // or log, route to a different channel, etc.\n    },\n  })\n);\n```\n\nWhen omitted, errors are reported via PostCSS `result.warn()` so the\nplugin never throws at the postcss level.\n\n### Behavior differences from the legacy parser\n\nThe legacy [jison][jison]-generated parser was replaced by a hand-written\nPratt parser whose simplifier follows [CSS Values 4][css-values-4]. Most\ninputs reduce to identical output; the differences are spec-aligned or\ncanonical-form decisions:\n\n- **Strict whitespace (§10.1).** `calc(2px+3px)` is invalid CSS (binary\n  `+` / `-` require surrounding whitespace) and is preserved with a\n  warning instead of reduced.\n- **Canonical operand order.** Commutative operands serialize\n  numeric-first, matching [`@csstools/css-calc`][csstools-css-calc]:\n  `calc(var(--foo) + 10px)` → `calc(10px + var(--foo))`.\n- **Zero buckets are kept.** `calc(100px - (100px - 100%))` →\n  `calc(0px + 100%)`, not `100%` — [WPT calc-serialization-002][wpt-calc-serialization]\n  requires the zero term because it carries the length-percentage type.\n- **Constant folding.** `calc(43 + pi)` now folds to `46.14159` (§10.7.1).\n  Previously `pi` / `e` stayed symbolic.\n- **Reciprocal conversion.** `calc(var(--x) / 2)` becomes\n  `calc(var(--x) * 0.5)`. The two are mathematically equivalent;\n  previously the division shape was kept.\n- **Distributive multiplication.** `calc(0.5 * (100vw - 10px))` becomes\n  `calc(50vw - 5px)`.\n- **Unit case normalization.** `2PX` becomes `2px` (CSS units are case-\n  insensitive; lowercase is conventional).\n- **Calc unwrap (§10.6).** `calc(var(--foo))` becomes `var(--foo)` — a\n  `calc()` containing a single value is replaced by that value.\n- **Spec-style spaced operators.** `2px*var(--x)` is serialized as\n  `2px * var(--x)`. The tokenizer is unaffected; only output spacing\n  differs.\n- **Division by zero / by a unit.** `calc(500px/0)` reduces to\n  `calc(infinity * 1px)` (§10.13) instead of throwing. Use `onParseError`\n  if you want validation behavior.\n\n[css-values-4]: https://www.w3.org/TR/css-values-4/\n[csstools-css-calc]: https://www.npmjs.com/package/@csstools/css-calc\n[wpt-calc-serialization]: https://github.com/web-platform-tests/wpt/blob/master/css/css-values/calc-serialization-002.html\n[jison]: https://github.com/zaach/jison\n\n---\n\n## Related PostCSS plugins\n\nTo replace the value of CSS custom properties at build time, try [PostCSS Custom Properties].\n\n## Contributing\n\nWork on a branch, install dev-dependencies, respect coding style & run tests\nbefore submitting a bug fix or a feature.\n\n```bash\ngit clone git@github.com:postcss/postcss-calc.git\ngit checkout -b patch-1\nnpm install\nnpm test\n```\n\nThe normal test run uses a deterministic structural sample of the harvested\nreal-world corpus. Run the complete differential corpus before releases or\nwhen changing parsing/simplification behavior:\n\n```bash\npnpm test:corpus:full\n```\n\nProfile parser chains with `pnpm benchmark:arithmetic-chains` or\n`pnpm benchmark:nested-fallbacks`; both use 20 fresh paired blocks by default\nand write ignored schema-v2 reports. Compare a saved report with\n`node scripts/compare-parser-benchmarks.js <report>`. Run the correctness-aware\ncorpus benchmark with `pnpm benchmark:corpus`.\n\nThe PostCSS benchmark awaits `postcss().process(...)`, and that await already\ntriggers result stringification. It therefore does not add a redundant\n`result.css` access.\n\n## [Changelog](CHANGELOG.md)\n\n## [License](LICENSE)\n\n[git-img]: https://img.shields.io/badge/support-chat-blue.svg\n[git-url]: https://gitter.im/postcss/postcss\n[npm-img]: https://img.shields.io/npm/v/postcss-calc.svg\n[npm-url]: https://www.npmjs.com/package/postcss-calc\n[PostCSS]: https://github.com/postcss\n[PostCSS Calc]: https://github.com/postcss/postcss-calc\n[PostCSS Custom Properties]: https://github.com/postcss/postcss-custom-properties\n[tests]: test/\n[W3C calc() implementation]: https://www.w3.org/TR/css3-values/#calc-notation\n",
 	"readmeFilename": "",
 	"users": {
 		"zason": true,
@@ -5138,7 +5275,6 @@
 		"simplesessions": true
 	},
 	"_downloads": [
-		75698332,
 		75985349,
 		75994762,
 		75772966,
@@ -5157,6 +5293,7 @@
 		74486094,
 		67177332,
 		65430169,
-		65264829
+		65264829,
+		66477612
 	]
 }
