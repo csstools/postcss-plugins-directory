@@ -1,10 +1,10 @@
 {
 	"_id": "postcss-calc",
-	"_rev": "70-ddafcad4cd8d414111afa229bfc65629",
+	"_rev": "71-a663627ab04bfb95aca1f9311c84fc19",
 	"name": "postcss-calc",
 	"dist-tags": {
 		"next": "11.0.0-rc.3",
-		"latest": "11.2.0"
+		"latest": "11.2.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -5032,15 +5032,151 @@
 			}
 		},
 		"11.2.0": {
+			"name": "postcss-calc",
+			"version": "11.2.0",
+			"keywords": [
+				"css",
+				"postcss",
+				"postcss-plugin",
+				"calculation",
+				"calc"
+			],
+			"author": "Andy Jansson",
+			"license": "MIT",
 			"_id": "postcss-calc@11.2.0",
+			"maintainers": [
+				{
+					"name": "beneb",
+					"email": "beneb.info@gmail.com"
+				},
+				{
+					"name": "moox",
+					"email": "npm@moox.io"
+				},
+				{
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				{
+					"name": "semigradsky",
+					"email": "semigradskyd@gmail.com"
+				},
+				{
+					"name": "jonathantneal",
+					"email": "jonathantneal@hotmail.com"
+				},
+				{
+					"name": "andyjansson",
+					"email": "jansson.andy@gmail.com"
+				},
+				{
+					"name": "evilebottnawi",
+					"email": "sheo13666q@gmail.com"
+				}
+			],
+			"homepage": "https://github.com/postcss/postcss-calc",
 			"dist": {
 				"shasum": "330791b14b66443c9914a79dd378819df5ebef4c",
 				"tarball": "https://registry.npmjs.org/postcss-calc/-/postcss-calc-11.2.0.tgz",
-				"integrity": "sha512-GeWPgrs+s7W0b35ePAMvyNq0fP4fKsJXt9dLmO919TTiZ93aVUj+enI5t5eba7/YMkUJvWanNunMctyeuP+Dsg==",
 				"fileCount": 77,
-				"unpackedSize": 157824,
+				"integrity": "sha512-GeWPgrs+s7W0b35ePAMvyNq0fP4fKsJXt9dLmO919TTiZ93aVUj+enI5t5eba7/YMkUJvWanNunMctyeuP+Dsg==",
+				"signatures": [
+					{
+						"sig": "MEQCIESdVohzXxUEqEVnPeJcXflit427eKMUzb6S/YV7bofcAiBMfYs8YZ1zCld3kTaCeCAw7pY4LiEIiFFJpxo4XQ7tWQ==",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
 				"attestations": {
 					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-calc@11.2.0",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 157824
+			},
+			"type": "module",
+			"engines": {
+				"node": "^22.22.3 || ^24.15 || >=26.0"
+			},
+			"exports": {
+				".": {
+					"types": "./types/index.d.ts",
+					"default": "./src/index.js"
+				},
+				"./reduce": {
+					"types": "./types/reduce.d.ts",
+					"default": "./src/reduce.js"
+				}
+			},
+			"scripts": {
+				"fmt": "oxfmt",
+				"lint": "oxlint . && tsc && oxfmt --check",
+				"test": "node --test --test-reporter=dot 'test/**/*.test.js' 'test/**/*.test.cjs'",
+				"test:benchmark": "node --test 'test/unit/benchmark-*.test.js' test/unit/compare-parser-benchmarks.test.js test/unit/corpus-benchmark.test.js",
+				"benchmark:corpus": "node scripts/benchmark.js",
+				"test:corpus:full": "POSTCSS_CALC_FULL_CORPUS=1 node --test test/conformance/corpus.test.js",
+				"benchmark:reanalyze": "node scripts/compare-parser-benchmarks.js",
+				"test:mutation:corpus": "node test/mutation/corpus-selection.js",
+				"benchmark:serialization": "node scripts/benchmark-serialization.js",
+				"test:benchmark:simulation": "node test/benchmark/statistical-simulation.js",
+				"benchmark:nested-fallbacks": "node scripts/benchmark-nested-fallbacks.js",
+				"benchmark:arithmetic-chains": "node scripts/benchmark-arithmetic-chains.js"
+			},
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"approver": {
+					"name": "ludovicofischer",
+					"email": "livrerie@gmail.com"
+				},
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "oidc:12fec003-011d-4ec1-bc80-f6b0007d9e4b"
+				}
+			},
+			"devEngines": {
+				"packageManager": {
+					"name": "pnpm",
+					"version": "12.4.2"
+				}
+			},
+			"repository": {
+				"url": "git+https://github.com/postcss/postcss-calc.git",
+				"type": "git"
+			},
+			"description": "PostCSS plugin to reduce calc()",
+			"directories": {},
+			"dependencies": {
+				"@csstools/css-tokenizer": "^4.0.0"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"oxfmt": "^0.68.0",
+				"oxlint": "^1.83.0",
+				"postcss": "^8.5.28",
+				"fast-check": "^4.10.0",
+				"typescript": "~7.0.2",
+				"@types/node": "^26.5.1",
+				"@csstools/css-calc": "^3.3.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.5.28"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-calc_11.2.0_1789633965628_0.17176161118581668",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"11.2.1": {
+			"_id": "postcss-calc@11.2.1",
+			"dist": {
+				"shasum": "851c627091d96e0d765318f97f34ec6599641639",
+				"tarball": "https://registry.npmjs.org/postcss-calc/-/postcss-calc-11.2.1.tgz",
+				"integrity": "sha512-B5KZhrbeVyFznh7aj96O9oYvmipuobzWJVlPZ2NksjHdgSaqiVJ0UijuOuQTk/KVIzrKXp7399AiZGKtZF0jZA==",
+				"fileCount": 76,
+				"unpackedSize": 163819,
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-calc@11.2.1",
 					"provenance": {
 						"predicateType": "https://slsa.dev/provenance/v1"
 					}
@@ -5048,7 +5184,7 @@
 				"signatures": [
 					{
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEQCIESdVohzXxUEqEVnPeJcXflit427eKMUzb6S/YV7bofcAiBMfYs8YZ1zCld3kTaCeCAw7pY4LiEIiFFJpxo4XQ7tWQ=="
+						"sig": "MEQCID5UKC1rPqlsbQEbFvqm52OJeeJhIQkCA26oGTFtXtUJAiBDZ3JHQNtOJQAM+B3edR76Iyxd87b5F2/4bgzQnPM5rw=="
 					}
 				]
 			},
@@ -5083,7 +5219,7 @@
 				"benchmark:nested-fallbacks": "node scripts/benchmark-nested-fallbacks.js",
 				"benchmark:arithmetic-chains": "node scripts/benchmark-arithmetic-chains.js"
 			},
-			"version": "11.2.0",
+			"version": "11.2.1",
 			"_npmUser": {
 				"name": "GitHub Actions",
 				"email": "npm-oidc-no-reply@github.com",
@@ -5147,30 +5283,30 @@
 				}
 			],
 			"dependencies": {
-				"@csstools/css-tokenizer": "^4.0.0"
+				"@csstools/css-tokenizer": "^4.0.1"
 			},
 			"devDependencies": {
 				"oxfmt": "^0.68.0",
 				"oxlint": "^1.83.0",
 				"postcss": "^8.5.28",
-				"fast-check": "^4.10.0",
+				"fast-check": "^4.10.1",
 				"typescript": "~7.0.2",
-				"@types/node": "^26.5.1",
-				"@csstools/css-calc": "^3.3.0"
+				"@types/node": "^26.6.1",
+				"@csstools/css-calc": "^3.4.0"
 			},
 			"peerDependencies": {
 				"postcss": "^8.5.28"
 			},
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-calc_11.2.0_1789633965628_0.17176161118581668"
+				"tmp": "tmp/postcss-calc_11.2.1_1789905446928_0.41594836696112303"
 			},
 			"_hasShrinkwrap": false
 		}
 	},
 	"time": {
 		"created": "2014-08-04T10:19:24.232Z",
-		"modified": "2026-09-17T08:32:46.011Z",
+		"modified": "2026-09-20T11:57:27.307Z",
 		"1.0.0": "2014-08-04T10:19:24.232Z",
 		"2.0.0": "2014-08-06T07:11:47.541Z",
 		"2.0.1": "2014-08-10T18:57:42.197Z",
@@ -5219,7 +5355,8 @@
 		"11.1.0": "2026-09-07T08:20:58.593Z",
 		"11.1.1": "2026-09-07T14:33:24.321Z",
 		"11.1.2": "2026-09-11T15:08:21.789Z",
-		"11.2.0": "2026-09-17T08:32:45.717Z"
+		"11.2.0": "2026-09-17T08:32:45.717Z",
+		"11.2.1": "2026-09-20T11:57:27.047Z"
 	},
 	"author": "Andy Jansson",
 	"license": "MIT",
@@ -5275,7 +5412,6 @@
 		"simplesessions": true
 	},
 	"_downloads": [
-		75985349,
 		75994762,
 		75772966,
 		77493904,
@@ -5294,6 +5430,7 @@
 		67177332,
 		65430169,
 		65264829,
-		66477612
+		66477612,
+		62097695
 	]
 }
