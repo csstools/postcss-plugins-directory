@@ -1,21 +1,87 @@
 {
-	"name": "postcss-rem-to-responsive-pixel",
-	"version": "7.0.5",
-	"description": "Convert rem units to px or rpx units using PostCSS. Based on postcss-pxtorem and postcss-rem-to-pixel, and rewrite with typescript, and support Postcss8",
-	"author": {
-		"name": "ice breaker",
-		"email": "1324318532@qq.com"
-	},
-	"license": "MIT",
-	"homepage": "https://github.com/sonofmagic/postcss-rem-to-responsive-pixel#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/sonofmagic/postcss-plugins.git",
-		"directory": "packages/postcss-rem-to-responsive-pixel"
+	"_id": "postcss-rem-to-responsive-pixel@7.0.6",
+	"tsd": {
+		"compilerOptions": {
+			"paths": {
+				"postcss-plugin-shared": [
+					"../postcss-plugin-shared/dist/index.d.mts"
+				],
+				"postcss-rule-unit-converter": [
+					"../postcss-rule-unit-converter/dist/index.d.mts"
+				]
+			},
+			"module": "NodeNext"
+		}
 	},
 	"bugs": {
-		"url": "https://github.com/sonofmagic/postcss-plugins/issues"
+		"url": "https://github.com/icelib/postcss-plugins/issues"
 	},
+	"dist": {
+		"shasum": "35ad57a960afb59a14133b658dd5108818d9fcf4",
+		"tarball": "https://registry.npmjs.org/postcss-rem-to-responsive-pixel/-/postcss-rem-to-responsive-pixel-7.0.6.tgz",
+		"fileCount": 8,
+		"integrity": "sha512-ZYw6hcXuZ+gG1pDcbVYMKX4bHMn9qeXPJvHIPWZsOaoID1wO3vxABuBPdxpLrBoJ23dxGHTAJM9ZmyYbT9pkjg==",
+		"signatures": [
+			{
+				"sig": "MEUCIQDOQ2maHXkRjuwcKpt56JwrSp2vckcdYXkPHMXS3jGINwIgQq1RbzDr7GTtXzKBSdr3bOZj9PLfIcTS4/Tfm8nNzzI=",
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+			},
+			{
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEYCIQDPflnYl0dszoVEVtCNL+pjod+20owIZrGs67BTvjnpWwIhAKvaeltkpa3PoBrHGezcLPNpKMuJU2ojPnVAKxO+FQT7"
+			}
+		],
+		"attestations": {
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-rem-to-responsive-pixel@7.0.6",
+			"provenance": {
+				"predicateType": "https://slsa.dev/provenance/v1"
+			}
+		},
+		"unpackedSize": 25356
+	},
+	"main": "./dist/index.require.cjs",
+	"name": "postcss-rem-to-responsive-pixel",
+	"type": "module",
+	"types": "./dist/index.d.mts",
+	"author": "ice breaker <1324318532@qq.com>",
+	"module": "./dist/index.mjs",
+	"engines": {
+		"node": ">=16.6.0"
+	},
+	"exports": {
+		".": {
+			"types": {
+				"import": "./dist/index.d.mts",
+				"require": "./dist/index.require.d.cts"
+			},
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.require.cjs"
+		},
+		"./*": "./*"
+	},
+	"license": "MIT",
+	"scripts": {
+		"dev": "tsdown -w",
+		"tsd": "pnpm run build && tsd --typings dist/index.d.mts",
+		"lint": "eslint .",
+		"test": "vitest run",
+		"bench": "vitest bench",
+		"build": "tsdown",
+		"release": "pnpm publish",
+		"lint:fix": "eslint . --fix",
+		"test:dev": "vitest",
+		"typecheck": "tsc --noEmit"
+	},
+	"version": "7.0.6",
+	"_npmUser": {
+		"name": "GitHub Actions",
+		"email": "npm-oidc-no-reply@github.com",
+		"trustedPublisher": {
+			"id": "github",
+			"oidcConfigId": "oidc:97d0e4d8-8323-465b-9aff-7ed72e615fe7"
+		}
+	},
+	"homepage": "https://github.com/icelib/postcss-plugins/tree/main/packages/postcss-rem-to-responsive-pixel#readme",
 	"keywords": [
 		"postcss",
 		"postcss-plugin",
@@ -39,77 +105,12 @@
 		"tailwindcss",
 		"preset"
 	],
-	"sideEffects": false,
-	"exports": {
-		".": {
-			"types": {
-				"import": "./dist/index.d.mts",
-				"require": "./dist/index.require.d.cts"
-			},
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.require.cjs"
-		},
-		"./*": "./*"
+	"repository": {
+		"url": "git+https://github.com/icelib/postcss-plugins.git",
+		"type": "git",
+		"directory": "packages/postcss-rem-to-responsive-pixel"
 	},
-	"main": "./dist/index.require.cjs",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.mts",
-	"engines": {
-		"node": ">=16.6.0"
-	},
-	"peerDependencies": {
-		"postcss": "^8"
-	},
-	"dependencies": {
-		"postcss-plugin-shared": "^1.1.5"
-	},
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org"
-	},
-	"scripts": {
-		"dev": "tsdown -w",
-		"build": "tsdown",
-		"bench": "vitest bench",
-		"test": "vitest run",
-		"test:dev": "vitest",
-		"release": "pnpm publish",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix"
-	},
-	"_id": "postcss-rem-to-responsive-pixel@7.0.5",
-	"_integrity": "sha512-EDXfF/U0jzcK2ojeQB5SuB0SUwyX0Wc9ilvmpbW86Vxgq0wv98e1PclxDR/IPFPyDbJdkaBQJ1XewnuaOFA51w==",
-	"_resolved": "/tmp/9712cd39a58904938670f33409edfbf9/postcss-rem-to-responsive-pixel-7.0.5.tgz",
-	"_from": "file:postcss-rem-to-responsive-pixel-7.0.5.tgz",
-	"_nodeVersion": "24.18.0",
-	"_npmVersion": "11.16.0",
-	"dist": {
-		"integrity": "sha512-EDXfF/U0jzcK2ojeQB5SuB0SUwyX0Wc9ilvmpbW86Vxgq0wv98e1PclxDR/IPFPyDbJdkaBQJ1XewnuaOFA51w==",
-		"shasum": "0b371c3d642dff252a9cf244ae732ec69ef0d545",
-		"tarball": "https://registry.npmjs.org/postcss-rem-to-responsive-pixel/-/postcss-rem-to-responsive-pixel-7.0.5.tgz",
-		"fileCount": 8,
-		"unpackedSize": 62840,
-		"attestations": {
-			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-rem-to-responsive-pixel@7.0.5",
-			"provenance": {
-				"predicateType": "https://slsa.dev/provenance/v1"
-			}
-		},
-		"signatures": [
-			{
-				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEQCICtBucVZvtK4zdeAJ6IIr01wUVDmxZQkwT3TnAbMc6HDAiBM0seWdN5vBIbvi4DnSQz7sP+kLj8dhFfzOS/7GaJXyw=="
-			}
-		]
-	},
-	"_npmUser": {
-		"name": "GitHub Actions",
-		"email": "npm-oidc-no-reply@github.com",
-		"trustedPublisher": {
-			"id": "github",
-			"oidcConfigId": "oidc:e7e0bcbd-3948-46ce-aa63-51dadb63fe29"
-		}
-	},
+	"description": "Convert rem units to px or rpx units using PostCSS. Based on postcss-pxtorem and postcss-rem-to-pixel, and rewrite with typescript, and support Postcss8",
 	"directories": {},
 	"maintainers": [
 		{
@@ -117,10 +118,22 @@
 			"email": "1324318532@qq.com"
 		}
 	],
-	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-rem-to-responsive-pixel_7.0.5_1785082443344_0.12593761391554414"
+	"sideEffects": false,
+	"dependencies": {
+		"postcss-plugin-shared": "1.1.6",
+		"postcss-rule-unit-converter": "0.2.4"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2026-07-26T16:14:03.505Z"
+	"peerDependencies": {
+		"postcss": "^8"
+	},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-rem-to-responsive-pixel_7.0.6_1790175163865_0.7513752871196593"
+	},
+	"_time": "2026-09-23T14:52:43.943Z"
 }
