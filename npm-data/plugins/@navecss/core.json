@@ -1,0 +1,168 @@
+{
+	"_id": "@navecss/core",
+	"name": "@navecss/core",
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"versions": {
+		"0.1.0": {
+			"name": "@navecss/core",
+			"version": "0.1.0",
+			"license": "MIT",
+			"type": "module",
+			"description": "Nave design system — layer architecture, reset, atomic utilities, PostCSS plugin",
+			"keywords": [
+				"css",
+				"design-system",
+				"css-layers",
+				"atomic-css",
+				"postcss-plugin",
+				"zero-runtime"
+			],
+			"homepage": "https://github.com/navecss/navecss/tree/main/packages/core#readme",
+			"publishConfig": {
+				"access": "public"
+			},
+			"exports": {
+				".": "./dist/index.css",
+				"./layers": "./dist/layers.css",
+				"./no-tokens": "./dist/no-tokens.css",
+				"./reset": "./dist/reset.css",
+				"./atomic": "./dist/atomic.css",
+				"./cx": {
+					"types": "./dist/cx.d.ts",
+					"import": "./dist/cx.js"
+				},
+				"./atoms": {
+					"types": "./dist/atoms.d.ts",
+					"import": "./dist/atoms.js"
+				},
+				"./postcss": {
+					"types": "./dist/postcss.d.ts",
+					"import": "./dist/postcss.js"
+				},
+				"./package.json": "./package.json"
+			},
+			"peerDependencies": {
+				"postcss": "^8"
+			},
+			"peerDependenciesMeta": {
+				"postcss": {
+					"optional": true
+				}
+			},
+			"dependencies": {
+				"@navecss/tokens": "^0.1.0"
+			},
+			"devDependencies": {
+				"@types/node": "^26.6.2",
+				"@vitest/browser": "5.0.1",
+				"@vitest/browser-playwright": "5.0.1",
+				"@vitest/coverage-v8": "5.0.1",
+				"playwright": "1.63.0",
+				"postcss": "^8.5.28",
+				"prettier": "3.9.8",
+				"tsup": "^8.5.1",
+				"typescript": "6.0.3",
+				"vitest": "5.0.1"
+			},
+			"engines": {
+				"node": ">=22.18"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/navecss/navecss.git",
+				"directory": "packages/core"
+			},
+			"bugs": {
+				"url": "https://github.com/navecss/navecss/issues"
+			},
+			"sideEffects": [
+				"**/*.css"
+			],
+			"scripts": {
+				"build": "node scripts/build-css.ts && tsup",
+				"dev": "tsup --watch",
+				"clean": "rm -rf dist",
+				"typecheck": "tsc --noEmit && tsc --noEmit -p test/browser/tsconfig.json",
+				"lint": "eslint src scripts --max-warnings 0 && stylelint \"src/**/*.css\" --max-warnings 0",
+				"lint:fix": "eslint src scripts --fix && stylelint \"src/**/*.css\" --fix",
+				"test": "node scripts/generate-consumer-theming-fixtures.ts && vitest run",
+				"test:coverage": "node scripts/generate-consumer-theming-fixtures.ts && vitest run --coverage",
+				"test:browser": "node scripts/generate-consumer-theming-fixtures.ts && vitest run --config vitest.browser.config.ts",
+				"check:pack": "node ../../scripts/without-dry-run.mjs publint && node ../../scripts/without-dry-run.mjs attw --pack . --profile esm-only --exclude-entrypoints . layers no-tokens reset atomic"
+			},
+			"_id": "@navecss/core@0.1.0",
+			"_integrity": "sha512-Zeq56AD7WKd4YaGI2aXYG0thvBKxtVzRA+fZB5N/UW1Mj/jpo+sZ1Dg4bquXqOZZQGOdro4wARY7eRab8mInCw==",
+			"_resolved": "/private/var/folders/_m/_5xv5_ns3mq3dbckcmyzvjxw0000gn/T/ee6852ae259d4d2c483a3b6e5b845f89/navecss-core-0.1.0.tgz",
+			"_from": "file:navecss-core-0.1.0.tgz",
+			"_nodeVersion": "24.17.0",
+			"_npmVersion": "11.13.0",
+			"dist": {
+				"integrity": "sha512-Zeq56AD7WKd4YaGI2aXYG0thvBKxtVzRA+fZB5N/UW1Mj/jpo+sZ1Dg4bquXqOZZQGOdro4wARY7eRab8mInCw==",
+				"shasum": "cf25053d50bdca7a51a42138360c3017721d59d8",
+				"tarball": "https://registry.npmjs.org/@navecss/core/-/core-0.1.0.tgz",
+				"fileCount": 17,
+				"unpackedSize": 106293,
+				"signatures": [
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIC9TCqfhPZK5fX5GXF6/Z85LhkUqY+2TPWvSPG9zSek5AiAmqUWGpyjDoQ+FivKIDwrFMXWTtdsFG540VAIKNMqgIA=="
+					}
+				]
+			},
+			"_npmUser": {
+				"name": "drixsonic",
+				"email": "cedric@niriu.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "drixsonic",
+					"email": "cedric@niriu.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/core_0.1.0_1790281792801_0.030511807107542088"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2026-09-24T20:29:52.625Z",
+		"0.1.0": "2026-09-24T20:29:52.942Z",
+		"modified": "2026-09-24T20:29:53.184Z"
+	},
+	"maintainers": [
+		{
+			"name": "drixsonic",
+			"email": "cedric@niriu.com"
+		}
+	],
+	"description": "Nave design system — layer architecture, reset, atomic utilities, PostCSS plugin",
+	"homepage": "https://github.com/navecss/navecss/tree/main/packages/core#readme",
+	"keywords": [
+		"css",
+		"design-system",
+		"css-layers",
+		"atomic-css",
+		"postcss-plugin",
+		"zero-runtime"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/navecss/navecss.git",
+		"directory": "packages/core"
+	},
+	"bugs": {
+		"url": "https://github.com/navecss/navecss/issues"
+	},
+	"license": "MIT",
+	"readme": "# @navecss/core\n\n> Layer architecture, reset, atomic utilities, and PostCSS plugin for Nave.\n\n## Installation\n\n```bash\npnpm add @navecss/core\n```\n\n## Requirements\n\n- **Browsers: Chrome and Edge 125, Firefox 128, Safari 18 (Baseline 2024).**\n  Every semantic colour in Nave's token stylesheet is a `light-dark()` pair, and\n  most of them are also derived with relative colour syntax. An older browser\n  drops whichever of them it does not support, without an error: surfaces and\n  text lose their colours. Your CSS build has to target the same floor, and\n  [PostCSS plugin setup](#postcss-plugin-setup) has the line for Vite.\n  [Why this floor](https://github.com/navecss/navecss/blob/main/docs/04-adr/0005-browser-floor.md).\n- **A resolver that reads `exports` maps.** Every entry point, the stylesheet\n  included, is reachable only through the package's `exports` map: there is no\n  `main` field to fall back on.\n- **ES modules.** `@navecss/core/cx`, `@navecss/core/atoms` and\n  `@navecss/core/postcss` load through `import` only. A `require()` of any of\n  them fails with `ERR_PACKAGE_PATH_NOT_EXPORTED`, which reads as though the\n  entry point did not exist. In TypeScript, set `moduleResolution` to `bundler`,\n  `node16` or `nodenext`; under `node10` their types are not found. A CommonJS\n  file type-checks against them and then fails when it runs, so import them from\n  an ES module.\n- **Node 22.18 or later.**\n- **PostCSS 8, for `@nave` only.** `postcss` is an optional peer dependency, so\n  nothing installs it for you: add it yourself if you use `@nave`. Without it,\n  importing `@navecss/core/postcss` fails with `Cannot find package 'postcss'`.\n  The stylesheets and `cx()` need no PostCSS.\n\n## Setup\n\nImport once at your app entry point:\n\n```css\n/* app.css */\n@import url('@navecss/core/layers');\n@import url('@navecss/core');\n```\n\nThis imports the full layer stack in the correct order:\n`tokens.defaults → tokens.presets → reset → atomic → components.nave → components.consumer → overrides`\n\nThe order holds only if it is the first `@layer` declaration your page sees:\na stylesheet of yours that declares a layer and loads earlier fixes that\nlayer's position first, and the order inverts with no error. So keep\n`@navecss/core/layers`, the order statement alone, as the first line of\n`app.css`, and import `app.css` in your entry file before anything that brings\nits own stylesheet, components included. The `@navecss/core` import after it\nrepeats the same statement, which changes nothing\n([why, and where your CSS goes](https://github.com/navecss/navecss/blob/main/docs/04-adr/0003-layer-cascade-contract.md)).\n\nYour component CSS goes in `@layer components.consumer`, and a deliberate\nexception goes in `@layer overrides`, which beats every other layer. Left outside\nany layer, your CSS would beat all of them, `overrides` included. Do not write\ninto a bare `@layer components` or `@layer tokens`: a rule written directly into a\nlayer outranks everything in that layer's sublayers.\n\n---\n\n## Styling components\n\nNave gives you three ways to apply atomic utilities. Start with @nave directives.\nEvery built-in atom, with the declarations it applies, is listed in\n[ATOMS.md](./ATOMS.md).\n\n### Primary — @nave directives\n\nRequires the PostCSS plugin. Everything stays in CSS files.\n\n```css\n/* button.module.css */\n@layer components.consumer {\n  .root {\n    @nave interactive focusRing transition;\n    background: var(--nave-color-action-primary);\n    color: var(--nave-color-on-action-primary);\n    padding: var(--nave-spacing-control-md) var(--nave-spacing-control-lg);\n    border-radius: var(--nave-radius-control);\n  }\n}\n```\n\nDeclarations are inlined at build time, and nothing of `@nave` is left at run time.\nPseudo-class rules (`:focus-visible` from `focusRing`), `@media` and\n`@container` blocks are emitted as native CSS nesting inside your rule, so they\napply to every selector in a selector list. Native nesting is inside the browser\nfloor under [Requirements](#requirements).\n\n### Escape hatch — cx() utility\n\nNo PostCSS required. Atom names move to JSX — autocompleted, and type-checked.\n\n```tsx\nimport { cx } from '@navecss/core/cx'\nimport styles from './button.module.css'\n\n;<button className={`${cx('interactive', 'focusRing', 'transition')} ${styles.root}`} />\n```\n\nUse this if you cannot or do not want to add a PostCSS plugin to your build.\n\nA `cx()` class is a default, not an override: it sits in the `atomic` layer,\nbelow your component CSS, so your own rule wins wherever the two set the same\nproperty.\n\nTwo channels, because they carry different things. `cx()` takes Nave's built-in\natoms and nothing else. Your own classes compose in the template literal, the\nway your own declarations sit beside `@nave` in a rule body. `cx.raw()` is for a\nclass from outside any system Nave can see — a legacy global class, a\nthird-party widget's class — and it returns what you give it, untouched:\n\n```tsx\n;<div className={`${cx('interactive')} ${cx.raw('legacy-card')}`} />\n```\n\n**A conditional class goes in a call, not in a slot.** Both channels filter\nfalsy arguments, so `cx('interactive', isActive && 'focusRing')` and\n`cx.raw(isActive && styles.active)` each drop the argument when the condition\nis false. A template-literal slot does not: `${isActive && styles.active}`\ninterpolates the string `false`, and an undefined one interpolates `undefined`.\n\nWhat that buys you, and what it does not:\n\n- **An unknown name is a compile error**, in your own `tsc`, with nothing\n  installed from us. That covers a typo (`cx('interactve')`), a name typed\n  from the CSS side (`cx('sr-only')` — the atom is `srOnly`, and the class it\n  _emits_ is `nave-sr-only`; neither spelling is the key), and any class that is\n  not a Nave atom. **TypeScript only:\n  a JavaScript consumer gets none of it.** For a build-level check that does not\n  depend on types, use the `@nave` directive with `navePlugin()` — it fails the\n  build on an unknown atom by default.\n- **`cx.raw()` cannot shadow one of your classes.** It never consults the atom\n  map, so `cx.raw('container')` is the literal `container`. Inside `cx()` an\n  atom name still resolves to that atom's global class — `cx('container')` is\n  `nave-container` — which is why the ordinary-sounding names (`container`,\n  `hidden`, `grid`, `flex`, `block`, `border`, `rounded`, `transition`,\n  `relative`, `absolute`, `gap`, `truncate`, `interactive`) belong on the\n  `cx.raw()` side when you mean your own.\n- **Nothing checks the rest of the `className` attribute.** A bare\n  `'legacy-card'` sitting beside these calls is seen by nothing and still works.\n  So `cx.raw()` is a **declared** escape channel, not an enforced one: its value\n  today is that every deliberate step outside the system leaves a token you can\n  find (`grep -r 'cx.raw'`). A lint that closes the attribute itself is not part\n  of this release.\n\n### Tokens only\n\nFor library authors or teams building on top of Base UI or Radix UI.\nCSS custom properties are always available — no atomic layer required.\n\n```css\n.root {\n  background: var(--nave-color-action-primary);\n  border-radius: var(--nave-radius-control);\n  transition-duration: var(--nave-motion-duration-base);\n}\n```\n\nEvery custom property Nave declares is in the stylesheet you already installed, at `@navecss/tokens/css`.\n\n---\n\n## PostCSS plugin setup\n\n```ts\n// vite.config.ts\nimport { defineConfig } from 'vite'\nimport { navePlugin } from '@navecss/core/postcss'\n\nexport default defineConfig({\n  // your existing options, plugins included, stay as they are\n  css: { postcss: { plugins: [navePlugin()] } },\n  build: { cssTarget: ['chrome125', 'edge125', 'firefox128', 'safari18', 'ios18'] },\n})\n```\n\n`build.cssTarget` is the browser floor, in Vite's terms. Vite's default targets\nolder browsers, and building for them gains you nothing, because the output\nstill needs the floor. It does cost you something: Vite rewrites `light-dark()`\nin Nave's colours into an emulation that a `color-scheme` set from script, or on\npart of the page, does not switch. If your project already has a\n`postcss.config.js`, put `navePlugin()` there instead: Vite reads no PostCSS\nconfig file once `css.postcss` is set inline.\n\n```js\n// postcss.config.js\nimport { navePlugin } from '@navecss/core/postcss'\n\nexport default {\n  plugins: [navePlugin()],\n}\n```\n\n### Options\n\n```ts\nnavePlugin({\n  // 'error' (default) — throw, failing the build\n  // 'warn'            — log and skip\n  // 'ignore'          — silently skip\n  onUnknown: 'error',\n})\n```\n\nTo add atoms of your own to `@nave`, pass them as `extend`: see\n[CONSUMER-ATOMS.md](./CONSUMER-ATOMS.md).\n\n`postcss` is an optional peer dependency.\nIf you are using only `cx()` or tokens, you do not need to install it.\n\n**If your Vite config sets `css.transformer: 'lightningcss'`, this plugin never\nruns.** That option replaces Vite's CSS pipeline with Lightning CSS, which does\nnot run PostCSS plugins at all: the build stays green, `@nave` reaches the\nbrowser as an unknown at-rule, and the browser drops it, so the rule renders\nwith none of the declarations its atoms were going to give it. Leave the\ndefault transformer in place on a project using `@nave`.\n\n### Plugin order\n\nPut `navePlugin()` before any autoprefixing or syntax-down-levelling plugin (`autoprefixer`,\n`postcss-preset-env`, and the like) in your `plugins` array. `navePlugin()` resolves `@nave`\ndirectives into literal declarations; a prefixer ordered before it only ever sees the\nunexpanded directive, so it has nothing of Nave's to add a prefix to. Nave's own atoms already\nship the vendor-prefixed properties their declarations need (`interactive`'s\n`-webkit-user-select` alongside `user-select`, for one), so this is only a concern for your own\nCSS sharing the same pipeline.\n\n### Where `@nave` is valid\n\n`@nave` must be the direct child of a CSS rule selector block. Any rule will\ndo and the nesting depth does not matter, so `.card { @nave flex; }`,\n`.card { &:hover { @nave flex; } }`, `.card { .badge { @nave flex; } }` and\n`@supports (display: grid) { .card { @nave flex; } }` are all valid. Two\nshapes that parse without error are still rejected, through the same\n`onUnknown` option as an unknown atom name (so the default is a build\nfailure, not a silently incomplete build):\n\n- **Nested inside `@media` or `@container` with no rule in between** —\n  `.card { @media (width >= 37.5em) { @nave flex; } }`. Write the directive\n  inside a rule instead: `.card { @media (width >= 37.5em) { & { @nave flex; } } }`.\n- **Inside `@keyframes`** — a keyframe step (`to`, `from`, `50%`) parses as a\n  rule, but `&` has no meaning there and a browser drops the nesting with no\n  other symptom, so it is rejected the same way.\n\n---\n\n## Exports\n\n| Export                    | Description                                                                                           |\n| ------------------------- | ----------------------------------------------------------------------------------------------------- |\n| `@navecss/core`           | CSS entry point — `@import url('@navecss/core')`                                                      |\n| `@navecss/core/layers`    | The `@layer` order statement alone. Import it first, before any other stylesheet                      |\n| `@navecss/core/no-tokens` | Entry point for projects that generate their own Nave token layer; see the header comment in the file |\n| `@navecss/core/reset`     | Reset stylesheet only. It reads Nave's custom properties, so it needs a token layer beside it         |\n| `@navecss/core/atomic`    | Generated atomic CSS (global `nave-` classes)                                                         |\n| `@navecss/core/cx`        | `cx()` / `cx.raw()` utilities + `AtomName` type                                                       |\n| `@navecss/core/atoms`     | Atom definitions + `atomClassMap`                                                                     |\n| `@navecss/core/postcss`   | PostCSS plugin — `navePlugin()`                                                                       |\n",
+	"readmeFilename": "README.md",
+	"_rev": "1-1303f5474e3da083884c251792f3e21b",
+	"_downloads": [
+		0
+	]
+}
