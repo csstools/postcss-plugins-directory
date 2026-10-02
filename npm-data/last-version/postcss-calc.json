@@ -1,13 +1,13 @@
 {
-	"_id": "postcss-calc@11.2.1",
+	"_id": "postcss-calc@11.2.2",
 	"dist": {
-		"shasum": "851c627091d96e0d765318f97f34ec6599641639",
-		"tarball": "https://registry.npmjs.org/postcss-calc/-/postcss-calc-11.2.1.tgz",
-		"integrity": "sha512-B5KZhrbeVyFznh7aj96O9oYvmipuobzWJVlPZ2NksjHdgSaqiVJ0UijuOuQTk/KVIzrKXp7399AiZGKtZF0jZA==",
-		"fileCount": 76,
-		"unpackedSize": 163819,
+		"shasum": "30c655cffc48cb4cc8aa05f6ed94456e2c5cf9cd",
+		"tarball": "https://registry.npmjs.org/postcss-calc/-/postcss-calc-11.2.2.tgz",
+		"integrity": "sha512-wSquceGIY20fnsXcdIYtzW0r34aoXlT6iDYpYKpgR5Ax/KCZMDteE54Z+4Ee24ryYkjnRU5F3cxvhRfNp6t5VA==",
+		"fileCount": 86,
+		"unpackedSize": 192760,
 		"attestations": {
-			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-calc@11.2.1",
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-calc@11.2.2",
 			"provenance": {
 				"predicateType": "https://slsa.dev/provenance/v1"
 			}
@@ -15,7 +15,7 @@
 		"signatures": [
 			{
 				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEQCID5UKC1rPqlsbQEbFvqm52OJeeJhIQkCA26oGTFtXtUJAiBDZ3JHQNtOJQAM+B3edR76Iyxd87b5F2/4bgzQnPM5rw=="
+				"sig": "MEUCIDsYHfPlgPaJDpBYx66T0gPQHd0Ix+J3qEG3CV42zfo5AiEAkkHqSmfCWWqoA2lLC05Wlmpk7as2BwQ7LGXiMbTXV1M="
 			}
 		]
 	},
@@ -41,22 +41,22 @@
 		"lint": "oxlint . && tsc && oxfmt --check",
 		"test": "node --test --test-reporter=dot 'test/**/*.test.js' 'test/**/*.test.cjs'",
 		"test:benchmark": "node --test 'test/unit/benchmark-*.test.js' test/unit/compare-parser-benchmarks.test.js test/unit/corpus-benchmark.test.js",
-		"benchmark:corpus": "node scripts/benchmark.js",
+		"benchmark:corpus": "node scripts/benchmark/benchmark-corpus.js",
 		"test:corpus:full": "POSTCSS_CALC_FULL_CORPUS=1 node --test test/conformance/corpus.test.js",
-		"benchmark:reanalyze": "node scripts/compare-parser-benchmarks.js",
+		"benchmark:reanalyze": "node scripts/benchmark/compare-parser-benchmarks.js",
 		"test:mutation:corpus": "node test/mutation/corpus-selection.js",
-		"benchmark:serialization": "node scripts/benchmark-serialization.js",
+		"benchmark:serialization": "node scripts/benchmark/benchmark-serialization.js",
 		"test:benchmark:simulation": "node test/benchmark/statistical-simulation.js",
-		"benchmark:nested-fallbacks": "node scripts/benchmark-nested-fallbacks.js",
-		"benchmark:arithmetic-chains": "node scripts/benchmark-arithmetic-chains.js"
+		"benchmark:nested-fallbacks": "node scripts/benchmark/benchmark-parser.js nested-fallbacks",
+		"benchmark:arithmetic-chains": "node scripts/benchmark/benchmark-parser.js arithmetic-chains"
 	},
-	"version": "11.2.1",
+	"version": "11.2.2",
 	"_npmUser": {
 		"name": "GitHub Actions",
 		"email": "npm-oidc-no-reply@github.com",
 		"trustedPublisher": {
 			"id": "github",
-			"oidcConfigId": "oidc:12fec003-011d-4ec1-bc80-f6b0007d9e4b"
+			"oidcConfigId": "12fec003-011d-4ec1-bc80-f6b0007d9e4b"
 		},
 		"approver": {
 			"name": "ludovicofischer",
@@ -74,7 +74,7 @@
 	"devEngines": {
 		"packageManager": {
 			"name": "pnpm",
-			"version": "12.4.2"
+			"version": "12.8.1"
 		}
 	},
 	"repository": {
@@ -114,24 +114,24 @@
 		}
 	],
 	"dependencies": {
-		"@csstools/css-tokenizer": "^4.0.1"
+		"@csstools/css-tokenizer": "^4.0.2"
 	},
 	"devDependencies": {
-		"oxfmt": "^0.68.0",
-		"oxlint": "^1.83.0",
+		"oxfmt": "^0.71.0",
+		"oxlint": "^1.86.0",
 		"postcss": "^8.5.28",
-		"fast-check": "^4.10.1",
+		"fast-check": "^4.10.2",
 		"typescript": "~7.0.2",
-		"@types/node": "^26.6.1",
-		"@csstools/css-calc": "^3.4.0"
+		"@types/node": "^26.6.3",
+		"@csstools/css-calc": "^3.4.1"
 	},
 	"peerDependencies": {
 		"postcss": "^8.5.28"
 	},
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-calc_11.2.1_1789905446928_0.41594836696112303"
+		"tmp": "tmp/postcss-calc_11.2.2_1790889449158_0.8344229634176177"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2026-09-20T11:57:27.047Z"
+	"_time": "2026-10-01T21:17:29.238Z"
 }
