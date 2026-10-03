@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-iconsauce",
-	"_rev": "28-8c2dcc32fed4f3ee4539f2e1bd9cd061",
+	"_rev": "29-b15c751ac7e1ed2f54c4d64637446981",
 	"name": "postcss-iconsauce",
 	"dist-tags": {
-		"latest": "2.0.0"
+		"latest": "2.0.1"
 	},
 	"versions": {
 		"1.0.0": {
@@ -1967,56 +1967,6 @@
 		"2.0.0": {
 			"name": "postcss-iconsauce",
 			"version": "2.0.0",
-			"description": "PostCSS plugin for Iconsauce",
-			"main": "lib/index.js",
-			"types": "lib/index.d.ts",
-			"exports": {
-				".": {
-					"types": "./lib/index.d.ts",
-					"default": "./lib/index.js"
-				},
-				"./package.json": "./package.json"
-			},
-			"engines": {
-				"node": ">=20.19"
-			},
-			"license": "MIT",
-			"sideEffects": false,
-			"scripts": {
-				"build": "npm run clean && tsc --declaration -p tsconfig.build.json",
-				"postbuild": "cp -r ./build/src/. ./lib",
-				"clean": "rm -rf build lib coverage",
-				"dev": "tsc --watch",
-				"lint": "eslint --fix",
-				"prepublishOnly": "npm run build && npm run test",
-				"test": "jest"
-			},
-			"dependencies": {
-				"@iconsauce/core": "^2.0.0"
-			},
-			"peerDependencies": {
-				"postcss": "^8.0.0"
-			},
-			"devDependencies": {
-				"@babel/preset-env": "7.29.0",
-				"@babel/preset-typescript": "7.28.5",
-				"@types/jest": "30.0.0",
-				"@types/node": "25.3.3",
-				"eslint": "9.39.3",
-				"jest": "30.3.0",
-				"postcss": "8.5.26",
-				"ts-jest": "29.4.9",
-				"typescript": "6.0.3",
-				"typescript-eslint": "8.60.0"
-			},
-			"bugs": {
-				"url": "https://github.com/iconsauce/postcss-iconsauce/issues"
-			},
-			"homepage": "https://github.com/iconsauce/postcss-iconsauce#readme",
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/iconsauce/postcss-iconsauce.git"
-			},
 			"keywords": [
 				"font",
 				"icon",
@@ -2024,28 +1974,62 @@
 				"postcss",
 				"postcss-plugin"
 			],
-			"gitHead": "b7d8faaa00ca5568df2b554282d526e849cd855d",
+			"license": "MIT",
 			"_id": "postcss-iconsauce@2.0.0",
-			"_nodeVersion": "24.15.0",
-			"_npmVersion": "12.0.2",
+			"maintainers": [
+				{
+					"name": "vitto",
+					"email": "vittorio.vittori@maggioli.it"
+				},
+				{
+					"name": "nicola.tamburini.maggioli",
+					"email": "nicola.tamburini@maggioli.it"
+				}
+			],
+			"homepage": "https://github.com/iconsauce/postcss-iconsauce#readme",
+			"bugs": {
+				"url": "https://github.com/iconsauce/postcss-iconsauce/issues"
+			},
 			"dist": {
-				"integrity": "sha512-HsQ1O9O92OWh5xwUDkv7PIpq2VLlcmyuiyzJtvZiNVGmP5hrGGEeO2I8daGabdNm5I9641x89j06kcF0AVFj3w==",
 				"shasum": "13fb1b6c8ca90bebadbaece583bce6bb90fd80db",
 				"tarball": "https://registry.npmjs.org/postcss-iconsauce/-/postcss-iconsauce-2.0.0.tgz",
 				"fileCount": 6,
-				"unpackedSize": 5460,
+				"integrity": "sha512-HsQ1O9O92OWh5xwUDkv7PIpq2VLlcmyuiyzJtvZiNVGmP5hrGGEeO2I8daGabdNm5I9641x89j06kcF0AVFj3w==",
+				"signatures": [
+					{
+						"sig": "MEYCIQDYVvFadgeqrnvZ/VU8l8pIK9S/C0dLqwSSU2Wvx5R0ZQIhAPhLg13yNszfJaZFvQswwQPSKB1xjVxwFzWuQgmqLkvq",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
 				"attestations": {
 					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-iconsauce@2.0.0",
 					"provenance": {
 						"predicateType": "https://slsa.dev/provenance/v1"
 					}
 				},
-				"signatures": [
-					{
-						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEYCIQDYVvFadgeqrnvZ/VU8l8pIK9S/C0dLqwSSU2Wvx5R0ZQIhAPhLg13yNszfJaZFvQswwQPSKB1xjVxwFzWuQgmqLkvq"
-					}
-				]
+				"unpackedSize": 5460
+			},
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"engines": {
+				"node": ">=20.19"
+			},
+			"exports": {
+				".": {
+					"types": "./lib/index.d.ts",
+					"default": "./lib/index.js"
+				},
+				"./package.json": "./package.json"
+			},
+			"gitHead": "b7d8faaa00ca5568df2b554282d526e849cd855d",
+			"scripts": {
+				"dev": "tsc --watch",
+				"lint": "eslint --fix",
+				"test": "jest",
+				"build": "npm run clean && tsc --declaration -p tsconfig.build.json",
+				"clean": "rm -rf build lib coverage",
+				"postbuild": "cp -r ./build/src/. ./lib",
+				"prepublishOnly": "npm run build && npm run test"
 			},
 			"_npmUser": {
 				"name": "GitHub Actions",
@@ -2055,6 +2039,114 @@
 					"oidcConfigId": "oidc:896e831c-fbd2-4334-99ba-47a2198906a6"
 				}
 			},
+			"repository": {
+				"url": "git+https://github.com/iconsauce/postcss-iconsauce.git",
+				"type": "git"
+			},
+			"_npmVersion": "12.0.2",
+			"description": "PostCSS plugin for Iconsauce",
+			"directories": {},
+			"sideEffects": false,
+			"_nodeVersion": "24.15.0",
+			"dependencies": {
+				"@iconsauce/core": "^2.0.0"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"jest": "30.3.0",
+				"eslint": "9.39.3",
+				"postcss": "8.5.26",
+				"ts-jest": "29.4.9",
+				"typescript": "6.0.3",
+				"@types/jest": "30.0.0",
+				"@types/node": "25.3.3",
+				"@babel/preset-env": "7.29.0",
+				"typescript-eslint": "8.60.0",
+				"@babel/preset-typescript": "7.28.5"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-iconsauce_2.0.0_1788773135551_0.4588531005000531",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"2.0.1": {
+			"_id": "postcss-iconsauce@2.0.1",
+			"bugs": {
+				"url": "https://github.com/iconsauce/postcss-iconsauce/issues"
+			},
+			"dist": {
+				"shasum": "3c7a08bd47166522d9ba944537c9df85a4067348",
+				"tarball": "https://registry.npmjs.org/postcss-iconsauce/-/postcss-iconsauce-2.0.1.tgz",
+				"fileCount": 6,
+				"integrity": "sha512-zW5qNrKUcrq9md4fCyhujageiQUy/JzU7Dx6j2veesR2LnyccWL4pC4qGMMjnS/reAvKKohiPNOm+dRPnTzxFA==",
+				"signatures": [
+					{
+						"sig": "MEUCIGJVuk4soxBIrsgd9xho6RDIRNookXLDU+Q4ZlAR1OXAAiEAvhruIlR/WRN+qIZcYjL4NHYeisvmGd22tipWGglN1Io=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					},
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIEiEIISVVrJXtmI/MBiZfva+QzQIsJyF8rXORfEJL9iuAiEA/kVY7brGLt1Xe1G3oUsNHpuviX632DHBYiCcYsaRC7Q="
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-iconsauce@2.0.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 5460
+			},
+			"main": "lib/index.js",
+			"name": "postcss-iconsauce",
+			"types": "lib/index.d.ts",
+			"engines": {
+				"node": ">=20.19"
+			},
+			"exports": {
+				".": {
+					"types": "./lib/index.d.ts",
+					"default": "./lib/index.js"
+				},
+				"./package.json": "./package.json"
+			},
+			"gitHead": "e2a7d3c596f8c89135060d8513e54412ddeee5af",
+			"license": "MIT",
+			"scripts": {
+				"dev": "tsc --watch",
+				"lint": "eslint --fix",
+				"test": "jest",
+				"build": "npm run clean && tsc --declaration -p tsconfig.build.json",
+				"clean": "rm -rf build lib coverage",
+				"postbuild": "cp -r ./build/src/. ./lib",
+				"prepublishOnly": "npm run build && npm run test"
+			},
+			"version": "2.0.1",
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "896e831c-fbd2-4334-99ba-47a2198906a6"
+				}
+			},
+			"homepage": "https://github.com/iconsauce/postcss-iconsauce#readme",
+			"keywords": [
+				"font",
+				"icon",
+				"iconsauce",
+				"postcss",
+				"postcss-plugin"
+			],
+			"repository": {
+				"url": "git+https://github.com/iconsauce/postcss-iconsauce.git",
+				"type": "git"
+			},
+			"_npmVersion": "12.2.0",
+			"description": "PostCSS plugin for Iconsauce",
 			"directories": {},
 			"maintainers": [
 				{
@@ -2066,16 +2158,36 @@
 					"email": "nicola.tamburini@maggioli.it"
 				}
 			],
+			"sideEffects": false,
+			"_nodeVersion": "24.15.0",
+			"dependencies": {
+				"@iconsauce/core": "^2.0.1"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"jest": "30.3.0",
+				"eslint": "9.39.3",
+				"postcss": "8.5.26",
+				"ts-jest": "29.4.9",
+				"typescript": "6.0.3",
+				"@types/jest": "30.0.0",
+				"@types/node": "25.3.3",
+				"@babel/preset-env": "7.29.0",
+				"typescript-eslint": "8.60.0",
+				"@babel/preset-typescript": "7.28.5"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0"
+			},
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-iconsauce_2.0.0_1788773135551_0.4588531005000531"
-			},
-			"_hasShrinkwrap": false
+				"tmp": "tmp/postcss-iconsauce_2.0.1_1790927448985_0.46437854402802126"
+			}
 		}
 	},
 	"time": {
 		"created": "2022-02-10T15:47:23.795Z",
-		"modified": "2026-09-07T09:25:36.003Z",
+		"modified": "2026-10-02T07:50:49.368Z",
 		"1.0.0": "2022-02-10T15:47:23.997Z",
 		"1.0.1": "2022-02-10T16:15:14.224Z",
 		"0.0.1": "2022-02-14T13:43:43.848Z",
@@ -2100,7 +2212,8 @@
 		"1.3.0": "2022-03-17T08:47:15.402Z",
 		"1.4.0": "2022-07-21T07:47:40.056Z",
 		"1.4.1": "2024-02-02T16:27:50.689Z",
-		"2.0.0": "2026-09-07T09:25:35.682Z"
+		"2.0.0": "2026-09-07T09:25:35.682Z",
+		"2.0.1": "2026-10-02T07:50:49.048Z"
 	},
 	"bugs": {
 		"url": "https://github.com/iconsauce/postcss-iconsauce/issues"
@@ -2115,8 +2228,8 @@
 		"postcss-plugin"
 	],
 	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/iconsauce/postcss-iconsauce.git"
+		"url": "git+https://github.com/iconsauce/postcss-iconsauce.git",
+		"type": "git"
 	},
 	"description": "PostCSS plugin for Iconsauce",
 	"maintainers": [
@@ -2132,7 +2245,6 @@
 	"readme": "# postcss-iconsauce\n\nFor more infos go to [iconsauce docs][iconsauce-docs].\n\n#### Installation\n\nTo install iconsauce you'll need to run this command\n\n```\nnpm i --save-dev @iconsauce/core postcss-iconsauce autoprefixer\n```\n\n#### PostCSS config\n\nPlace a `postcss.config.js` into the root of your project:\n\n```js\nmodule.exports = {\n  plugins: [\n    require('postcss-iconsauce'),\n    require('autoprefixer'),\n  ],\n}\n```\n\n#### CSS entry point\n\nTo let iconsauce builds, it needs a css entrypoint with a special `at-rule` inside:\n\n```css\n@iconsauce;\n\n/* You can also add more code for icons here */\n```\n\nAt this point, how PostCSS is integrated in yout build system depends on the framework you are using, we will add more reproducible example as soon as possibile:\n\n* create-react-app\n* Next\n* Angular\n\n#### PostCSS CLI\n\nIf you want to use iconsauce from CLI with PostCSS, install an additional dependency:\n\n```\nnpm i --save-dev postcss-cli\n```\n\nNow you can add a script to build in your `package.json` file.\n\n```json\n\"scripts\": {\n  \"build:iconsauce\": \"postcss src/styles/iconsauce.css -o public/styles/iconsauce.css\"\n}\n```\n\n[iconsauce-docs]: https://iconsauce.github.io/docs/\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		267,
 		240,
 		241,
 		229,
@@ -2151,6 +2263,7 @@
 		199,
 		215,
 		215,
-		406
+		406,
+		481
 	]
 }
