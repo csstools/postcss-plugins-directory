@@ -364,7 +364,6 @@
 	"readme": "<div align=\"center\">\n\n# 🎨 Pargin CSS ✨\n**A PostCSS plugin that supercharges your CSS with `pargin` and `madding` shorthand properties**\n\n[![PostCSS](https://img.shields.io/badge/PostCSS-%23DD3A0A.svg?style=flat&logo=postcss&logoColor=white)](https://postcss.org/)\n[![npm](https://img.shields.io/npm/v/pargin-css)](https://www.npmjs.com/package/pargin-css)\n[![License](https://img.shields.io/npm/l/pargin-css)](./LICENSE)\n\n</div>\n\n---\n\n## 🔗 Table of Contents\n\n- [✨ Features](#-features)\n- [🔧 Installation](#-installation)\n- [⚙️ Configuration](#️-configuration)\n  - [📦 Vite](#-vite-configuration)\n  - [🧰 Webpack](#-webpack-configuration)\n- [🚀 Usage](#-usage)\n- [📄 License](#-license)\n\n---\n\n## ✨ Features\n\n- 🆕 Adds two new CSS properties: `pargin` and `madding`\n- 🔄 Converts shorthand into standard `padding` and `margin`\n- 🪶 Lightweight with **zero dependencies**\n- 🔧 Compatible with any PostCSS setup\n\n---\n\n## 🔧 Installation\n\n```bash\nnpm install --save-dev pargin-css\n# or\nyarn add --dev pargin-css\n# or\npnpm add --save-dev pargin-css\n```\n\n---\n\n## ⚙️ Configuration\n\n### 📦 Vite Configuration\n\nVite automatically detects postcss configs <br>\nCreate <i>postcss.config.js<i> and add the folowing:\n\n```ts\n// postcss.config.js\nimport postcssPargin from \"pargin-css\";\n\nexport default {\n  plugins: [postcssPargin()],\n};\n\n```\n\n---\n\n### 🧰 Webpack Configuration\n\nInstall required dependencies:\n\n```bash\nnpm install --save-dev postcss postcss-loader pargin-css\n```\n\nThen configure:\n\n```js\n// webpack.config.js\nmodule.exports = {\n  module: {\n    rules: [\n      {\n        test: /\\.css$/i,\n        use: [\n          'style-loader',\n          'css-loader',\n          {\n            loader: 'postcss-loader',\n            options: {\n              postcssOptions: {\n                plugins: [\n                  [\n                    'pargin-css',\n                    {\n                      // Optional configuration\n                    }\n                  ]\n                ]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n}\n```\n\n## 🚀 Usage\n\n### ✅ Basic\n\n```css\n/* Input */\n.box {\n  pargin: 10px 20px;\n}\n\n/* Output */\n.box {\n  padding: 10px 20px;\n  margin: 10px 20px;\n}\n```\n\n### 🔁 Longhand Expansion\n\n```css\n.pargin-example {\n  pargin: 5px 10px, 15px 20px;\n}\n\n.madding-example {\n  madding: 1rem 2rem, 4px;\n}\n```\n\nBecomes:\n\n```css\n.pargin-example {\n  padding: 5px 10px;\n  margin: 15px 20px;\n}\n\n.madding-example {\n  padding 4px;\n  margin: 1rem 2rem;\n}\n```\n\n---\n\n## 📄 License\n\nLicensed under the [MIT License](./LICENSE).\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		3,
 		6,
 		10,
 		2,
@@ -383,6 +382,7 @@
 		19,
 		12,
 		14,
-		14
+		14,
+		12
 	]
 }
