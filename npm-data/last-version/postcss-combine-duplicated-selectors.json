@@ -1,88 +1,120 @@
 {
-	"name": "postcss-combine-duplicated-selectors",
-	"version": "10.0.3",
-	"description": "automatically keep css selectors unique",
-	"main": "src/index.js",
-	"types": "types/index.d.ts",
-	"scripts": {
-		"commit": "commit",
-		"test": "run-s test:*",
-		"test:unit": "ava",
-		"test:lint-js": "eslint --ext md,js .",
-		"test:lint-md": "remark *.md -q --no-stdout",
-		"test:types": "dtslint types",
-		"commitlint": "commitlint --from HEAD~1"
+	"_id": "postcss-combine-duplicated-selectors@11.0.0",
+	"bugs": {
+		"url": "https://github.com/ChristianMurphy/postcss-combine-duplicated-selectors/issues"
 	},
+	"dist": {
+		"shasum": "8a9c3cf41508e081f40a514fee7945a9b4a3424e",
+		"tarball": "https://registry.npmjs.org/postcss-combine-duplicated-selectors/-/postcss-combine-duplicated-selectors-11.0.0.tgz",
+		"fileCount": 5,
+		"integrity": "sha512-vUMUhOJZzC/tDhjF7mLB3/HK/dod6BnTXCYwABRlwZ5pzNfBSjr88fv3DS+nHbYjkEzBBv0yyvNeOSA9Jxxg3g==",
+		"signatures": [
+			{
+				"sig": "MEUCIQC1DdZ6wcpCs8/ZCZtfkurBuYcYNKkSCACVOsjfYihCmQIgZaJ5QkAra7BlSTn5hO4t8CCkI7g20YE/p+I4ekGQyFQ=",
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+			},
+			{
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEUCIQC42ASYcEcXC2QTAcM3rddehkgEFoC3rYGXY7GWO7dicQIgG1U17+g9z5D+bHAF/Ljbg4XqkyF/7W7NTTKe8od0aIU="
+			}
+		],
+		"unpackedSize": 33884
+	},
+	"name": "postcss-combine-duplicated-selectors",
+	"type": "module",
+	"types": "./src/index.d.ts",
+	"author": {
+		"url": "https://github.com/ChristianMurphy",
+		"name": "Christian Murphy",
+		"email": "christian.murphy.42@gmail.com"
+	},
+	"engines": {
+		"node": ">=24"
+	},
+	"exports": {
+		".": {
+			"types": "./src/index.d.ts",
+			"default": "./src/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"license": "MIT",
+	"scripts": {
+		"fuzz": "node --test test/properties.js test/selector-soundness.js",
+		"test": "run-s test:*",
+		"bench": "node --experimental-bench --bench bench/frameworks.js",
+		"build": "node node_modules/typescript/bin/tsc --build --clean && node node_modules/typescript/bin/tsc --build && type-coverage",
+		"commit": "commit",
+		"format": "oxfmt",
+		"prepack": "npm run build",
+		"prepare": "husky",
+		"test:unit": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 \"test/**/*.js\"",
+		"commitlint": "commitlint --from HEAD~1",
+		"test:types": "npm run build",
+		"test:format": "oxfmt --check",
+		"test:lint-js": "oxlint",
+		"test:lint-md": "remark *.md -q --no-stdout"
+	},
+	"version": "11.0.0",
+	"_npmUser": {
+		"name": "christianmurphy",
+		"email": "Christian.Murphy.42@gmail.com"
+	},
+	"homepage": "https://github.com/ChristianMurphy/postcss-combine-duplicated-selectors",
 	"keywords": [
 		"postcss-plugin",
 		"selector"
 	],
-	"author": {
-		"name": "Christian Murphy",
-		"email": "christian.murphy.42@gmail.com",
-		"url": "https://github.com/ChristianMurphy"
+	"renovate": {
+		"major": {
+			"automerge": false
+		},
+		"extends": [
+			"config:recommended"
+		],
+		"automerge": true,
+		"packageRules": [
+			{
+				"automerge": false,
+				"groupName": "benchmark frameworks",
+				"matchFileNames": [
+					"bench/package.json"
+				]
+			}
+		],
+		"semanticPrefix": "chore:",
+		"lockFileMaintenance": {
+			"enabled": true
+		},
+		"semanticCommitScope": ""
+	},
+	"overrides": {
+		"type-coverage-core": {
+			"typescript": "npm:@typescript/typescript6@^6"
+		}
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
 	},
 	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ChristianMurphy/postcss-combine-duplicated-selectors.git"
+		"url": "git+https://github.com/ChristianMurphy/postcss-combine-duplicated-selectors.git",
+		"type": "git"
 	},
-	"homepage": "https://github.com/ChristianMurphy/postcss-combine-duplicated-selectors",
-	"bugs": {
-		"url": "https://github.com/ChristianMurphy/postcss-combine-duplicated-selectors/issues"
-	},
-	"license": "MIT",
-	"peerDependencies": {
-		"postcss": "^8.1.0"
-	},
-	"dependencies": {
-		"postcss-selector-parser": "^6.0.4"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "12.1.1",
-		"@commitlint/config-conventional": "12.1.1",
-		"@commitlint/prompt-cli": "12.1.1",
-		"ava": "3.15.0",
-		"dtslint": "4.0.9",
-		"eslint": "7.26.0",
-		"eslint-config-google": "0.14.0",
-		"eslint-plugin-ava": "12.0.0",
-		"eslint-plugin-markdown": "1.0.2",
-		"husky": "5.2.0",
-		"npm-run-all": "4.1.5",
-		"postcss": "8.2.15",
-		"postcss-less": "4.0.1",
-		"postcss-nested": "5.0.5",
-		"postcss-scss": "3.0.5",
-		"remark-cli": "9.0.0",
-		"remark-preset-lint-consistent": "4.0.0",
-		"remark-preset-lint-recommended": "5.0.0",
-		"remark-validate-links": "10.0.4",
-		"typescript": "4.2.4"
-	},
-	"engines": {
-		"node": "^10.0.0 || ^12.0.0 || >=14.0.0"
-	},
-	"eslintConfig": {
-		"root": true,
-		"parserOptions": {
-			"ecmaVersion": 8
-		},
-		"env": {
-			"es6": true,
-			"node": true
-		},
-		"plugins": [
-			"markdown"
-		],
-		"extends": [
-			"eslint:recommended",
-			"google"
-		],
-		"rules": {
-			"prefer-arrow-callback": "error",
-			"prefer-const": "error",
-			"prefer-template": "error"
+	"_npmVersion": "11.19.0",
+	"description": "automatically keep css selectors unique",
+	"directories": {},
+	"maintainers": [
+		{
+			"name": "christianmurphy",
+			"email": "Christian.Murphy.42@gmail.com"
 		}
+	],
+	"_nodeVersion": "24.20.0",
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0",
+		"postcss-selector-parser": "^7.0.0"
 	},
 	"remarkConfig": {
 		"plugins": [
@@ -91,64 +123,41 @@
 			"validate-links"
 		]
 	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
-	},
-	"renovate": {
-		"extends": [
-			"config:base"
-		],
-		"automerge": true,
-		"major": {
-			"automerge": false
-		},
-		"lockFileMaintenance": {
-			"enabled": true
-		},
-		"semanticPrefix": "chore:",
-		"semanticCommitScope": ""
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm test",
-			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-		}
-	},
-	"gitHead": "a7a38734e9bb35609682dae8b2efafe2b5f9bb28",
-	"_id": "postcss-combine-duplicated-selectors@10.0.3",
-	"_nodeVersion": "16.1.0",
-	"_npmVersion": "7.11.2",
-	"dist": {
-		"integrity": "sha512-IP0BmwFloCskv7DV7xqvzDXqMHpwdczJa6ZvIW8abgHdcIHs9mCJX2ltFhu3EwA51ozp13DByng30+Ke+eIExA==",
-		"shasum": "71e8b6783e99cd560cf08ba7b896ad0db318c11c",
-		"tarball": "https://registry.npmjs.org/postcss-combine-duplicated-selectors/-/postcss-combine-duplicated-selectors-10.0.3.tgz",
-		"fileCount": 5,
-		"unpackedSize": 12678,
-		"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgmpwJCRA9TVsSAnZWagAAt6YQAJDEybW4QKql5gCsAnQJ\n0FwpJbnmkheXjUIl6a6XszbyMBgqMed7AJPSpuq8YvUj3/PXiunxLh4mllxf\nAu9Xdvsvfaofq0ICeD4SHFVhk2cMPq4JncR/Z/NP6Z4lBvWKpchYJ0+Cwdy7\nxZkEL+sAy7POEN4LGhgmYiB8E9u+InM8j/b8EwdwiRTHitQ4EdOuimxKDcsT\nXpu9sBrm0NkOT044tOSnLdiCIzTuA/Gnr3gQuPzFRG7NOTnZGG+1/SYdwu6q\noQ0UbCtMEKoS836flLFhZWZtMzag70VLVbUKOVMPRGU+G9n7unhPN9g/xHjh\n6u8IEm7mIB1DT+DZsckS+uEDvz7kdJVUUt9L8Bo2QIzQdM9BZV9kzRwiz52J\n0z24vMnyxfIq87LO0bW4Oc/1NWdZBowU31Y05c2N18Vo3K2A04UeXB4Bb9rT\nyBpNtTr+YcrXsMeVQ3zbRjiw8LJYMBn5hRJ9N4Mrj8KLObl3GU1MDoBMcZe/\n9lKyJTgcCXUbRRji/FB/tjk7oNGp0LZsiLIMj8wf8oFk/Dgj9RDhCBA3l6eZ\nENgbpTjDXcgOxDlweo0/xOMBOTAvcMCYjoaA0EFKAo/j/p37AtOFh+g0yF0w\neJoT12gefTHOx8W4hHyAWsaF53IesiZ+rWEIPx16PzF2ZUQQE6sqrSO+P2FQ\nC1r0\r\n=HzUH\r\n-----END PGP SIGNATURE-----\r\n",
-		"signatures": [
-			{
-				"keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
-				"sig": "MEQCICDZk/vKpKtSywnzpDlcLsJcEymJuyyisCS/sPd4/6fUAiBn72smagHOsgzxgiCwafsR7Z1zTMdeGHWfw0rsaUbTzQ=="
-			}
-		]
-	},
-	"_npmUser": {
-		"name": "christianmurphy",
-		"email": "Christian.Murphy.42@gmail.com"
-	},
-	"directories": {},
-	"maintainers": [
-		{
-			"name": "christianmurphy",
-			"email": "Christian.Murphy.42@gmail.com"
-		}
-	],
-	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages",
-		"tmp": "tmp/postcss-combine-duplicated-selectors_10.0.3_1620745224873_0.6578003743109051"
+	"typeCoverage": {
+		"detail": true,
+		"strict": true,
+		"atLeast": 100,
+		"ignoreNested": true
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2021-05-11T15:00:25.294Z"
+	"devDependencies": {
+		"husky": "9.1.7",
+		"oxfmt": "0.71.0",
+		"oxlint": "1.86.0",
+		"postcss": "8.5.28",
+		"css-select": "7.0.0",
+		"domhandler": "6.0.1",
+		"fast-check": "4.10.2",
+		"remark-cli": "12.0.1",
+		"typescript": "7.0.2",
+		"@types/node": "24.19.1",
+		"npm-run-all2": "9.0.3",
+		"postcss-scss": "4.0.9",
+		"type-coverage": "2.30.3",
+		"postcss-nested": "8.0.1",
+		"@commitlint/cli": "21.2.3",
+		"remark-validate-links": "13.1.0",
+		"@commitlint/prompt-cli": "21.2.3",
+		"remark-preset-lint-consistent": "6.0.1",
+		"remark-preset-lint-recommended": "7.0.1",
+		"@commitlint/config-conventional": "21.2.3"
+	},
+	"peerDependencies": {
+		"postcss": "^8.1.0"
+	},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-combine-duplicated-selectors_11.0.0_1791123397142_0.4167320963456682"
+	},
+	"_time": "2026-10-04T14:16:37.229Z"
 }
