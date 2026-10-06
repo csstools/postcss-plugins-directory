@@ -365,7 +365,6 @@
 	"readme": "# PostCSS Mixins [<img src=\"https://postcss.github.io/postcss/logo.svg\" alt=\"PostCSS Logo\" width=\"90\" height=\"90\" align=\"right\">][PostCSS]\n\n`npm install @csstools/postcss-mixins --save-dev`\n\n[PostCSS Mixins] lets you use `@mixin` and `@apply` following [CSS Mixins 1].\n\nSeveral specification aspects of CSS Mixins still need to be settled.  \nThis plugin is only a partial implementation to avoid conflicts with the final specification.\n\nUnsupported:\n- typed mixin arguments\n- layered `@mixin` declarations\n- mixin overrides\n\n```css\n@mixin --foo() {\n\tcolor: green;\n}\n\n.foo {\n\t@apply --foo;\n}\n\n@mixin --bar(--baz) {\n\tcolor: rgb(var(--baz) 127 0);\n}\n\n.bar {\n\t@apply --bar(200);\n}\n\n@mixin --a {\n\tfont-weight: 500;\n}\n\n@mixin --b {\n\t@apply --a;\n\tfont-size: 2rem;\n}\n\n.c {\n\t@apply --b;\n}\n\n/* becomes */\n\n.foo {\n\tcolor: green;\n}\n\n.bar {\n\t--_csstools-p-1agle9gi-0--arg-0: 200;\n\t--_csstools-p-1agle9gi-1--baz: var(--_csstools-p-1agle9gi-0--arg-0);\n\tcolor: rgb(var(--_csstools-p-1agle9gi-1--baz) 127 0);\n}\n\n.c {\n\tfont-weight: 500;\n\tfont-size: 2rem;\n}\n```\n\n## Usage\n\nAdd [PostCSS Mixins] to your project:\n\n```bash\nnpm install postcss @csstools/postcss-mixins --save-dev\n```\n\nUse it as a [PostCSS] plugin:\n\n```js\nconst postcss = require('postcss');\nconst postcssMixins = require('@csstools/postcss-mixins');\n\npostcss([\n\tpostcssMixins(/* pluginOptions */)\n]).process(YOUR_CSS /*, processOptions */);\n```\n\n\n\n## Options\n\n### preserve\n\nThe `preserve` option determines whether the original notation\nis preserved. By default, it is not preserved.\n\n```js\npostcssMixins({ preserve: true })\n```\n\n```css\n@mixin --foo() {\n\tcolor: green;\n}\n\n.foo {\n\t@apply --foo;\n}\n\n@mixin --bar(--baz) {\n\tcolor: rgb(var(--baz) 127 0);\n}\n\n.bar {\n\t@apply --bar(200);\n}\n\n@mixin --a {\n\tfont-weight: 500;\n}\n\n@mixin --b {\n\t@apply --a;\n\tfont-size: 2rem;\n}\n\n.c {\n\t@apply --b;\n}\n\n/* becomes */\n\n@mixin --foo() {\n\tcolor: green;\n}\n\n.foo {\n\tcolor: green;\n\t@apply --foo;\n}\n\n@mixin --bar(--baz) {\n\tcolor: rgb(var(--baz) 127 0);\n}\n\n.bar {\n\t--_csstools-p-1agle9gi-0--arg-0: 200;\n\t--_csstools-p-1agle9gi-1--baz: var(--_csstools-p-1agle9gi-0--arg-0);\n\tcolor: rgb(var(--_csstools-p-1agle9gi-1--baz) 127 0);\n\t@apply --bar(200);\n}\n\n@mixin --a {\n\tfont-weight: 500;\n}\n\n@mixin --b {\n\t@apply --a;\n\tfont-size: 2rem;\n}\n\n.c {\n\tfont-weight: 500;\n\tfont-size: 2rem;\n\t@apply --b;\n}\n```\n\n[cli-url]: https://github.com/csstools/postcss-plugins/actions/workflows/test.yml?query=workflow/test\n[css-url]: https://cssdb.org/#mixins\n[discord]: https://discord.gg/bUadyRwkJS\n[npm-url]: https://www.npmjs.com/package/@csstools/postcss-mixins\n\n[PostCSS]: https://github.com/postcss/postcss\n[PostCSS Mixins]: https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-mixins\n[CSS Mixins 1]: https://drafts.csswg.org/css-mixins/#mixin-rule\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		1755699,
 		1699452,
 		1656090,
 		1813741,
@@ -384,6 +383,7 @@
 		1794162,
 		1849403,
 		2141538,
-		2161545
+		2161545,
+		2153988
 	]
 }
