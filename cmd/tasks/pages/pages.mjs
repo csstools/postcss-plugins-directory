@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import he from 'he';
+import * as he from 'he';
 import { NPM_DATA_MAINTAINED_PLUGINS_FILE_PATH, PAGES_INDEX_HTML_FILE_PATH, PAGES_KEYWORDS_FILE_PATH } from '../constants.mjs';
 import { normalizeKeyword } from '../../config/normalize-keywords.mjs';
 import { excludedKeywords } from '../../config/excluded-keywords.mjs';
