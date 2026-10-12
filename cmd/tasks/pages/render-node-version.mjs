@@ -1,4 +1,4 @@
-import he from 'he';
+import * as he from 'he';
 import { html } from "../util/html.mjs";
 
 export function renderNodeVersion(engines) {

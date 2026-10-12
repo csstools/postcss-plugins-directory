@@ -1,4 +1,4 @@
-import he from 'he';
+import * as he from 'he';
 import { html } from "../util/html.mjs";
 import { renderFunding } from "./render-funding.mjs";
 import { renderKeywords } from "./render-keywords.mjs";
