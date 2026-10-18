@@ -482,7 +482,6 @@
 	"readme": "# PostCSS Overflow Overlay Pollify\n\n\n一款自动为带有 'overflow: overlay' 属性的元素添加 'overflow: auto' 属性的 [PostCSS] 插件。\n\n```css\n/* Input example */\n.foo {\n  overflow: overlay;\n}\n\n/* Output example */\n.foo {\n  overflow: overlay;\n  overflow: auto;\n}\n```\n\n## 🍳 使用方法\n\n**Step 1:** 安装依赖:\n\n```sh\nnpm install --save-dev postcss postcss-overflow-overlay-pollify\n```\n\n**Step 2:** 配置插件:\n\n```diff\nmodule.exports = {\n  plugins: [\n+   require('postcss-overflow-overlay-pollify'),\n  ]\n}\n```\n\n## 📝 效果展示\n\n```css\n/* Input */\n.foo {\n  overflow-x: overlay;\n}\n\n/* Output */\n.foo {\n  overflow-x: overlay;\n  overflow-x: auto;\n}\n```\n\n```css\n/* Input */\n.foo {\n  overflow: hidden overlay;\n}\n\n/* Output */\n.foo {\n  overflow: hidden overlay;\n  overflow: hidden auto;\n}\n```\n\n```css\n/* Input */\n.foo {\n  overflow: overlay !important;\n}\n\n/* Output */\n.foo {\n  overflow: overlay !important;\n  overflow: auto !important;\n}\n```\n\n```css\n/* Input */\n.foo {\n  overflow: overlay;\n  overflow: scroll;\n}\n\n/* Output */\n.foo {\n  overflow: overlay;\n  overflow: auto;\n  overflow: scroll;\n}\n```\n\n```css\n/* Input */\n.foo {\n  overflow: overlay;\n  overflow: overlay;\n}\n\n/* Output */\n.foo {\n  overflow: overlay;\n  overflow: auto;\n  overflow: overlay;\n}\n```\n",
 	"readmeFilename": "README.md",
 	"_downloads": [
-		3,
 		4,
 		4,
 		5,
@@ -501,6 +500,7 @@
 		28,
 		20,
 		9,
-		24
+		24,
+		19
 	]
 }
