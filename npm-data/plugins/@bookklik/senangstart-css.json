@@ -1,9 +1,9 @@
 {
 	"_id": "@bookklik/senangstart-css",
-	"_rev": "20-62b50b3a932d1e717d28e7dffed3f19b",
+	"_rev": "21-980dadd87e374a1fef48f961c8d8c4a6",
 	"name": "@bookklik/senangstart-css",
 	"dist-tags": {
-		"latest": "0.4.0"
+		"latest": "0.4.1"
 	},
 	"versions": {
 		"0.1.0": {
@@ -1554,13 +1554,37 @@
 			}
 		},
 		"0.4.0": {
+			"name": "@bookklik/senangstart-css",
+			"version": "0.4.0",
+			"keywords": [
+				"css",
+				"framework",
+				"utility-css",
+				"natural-language",
+				"intent-first",
+				"vite-plugin",
+				"postcss-plugin",
+				"vite",
+				"postcss"
+			],
+			"author": {
+				"name": "a-hakim"
+			},
+			"license": "MIT",
 			"_id": "@bookklik/senangstart-css@0.4.0",
+			"maintainers": [
+				{
+					"name": "a-hakim",
+					"email": "a.hakim.solution@gmail.com"
+				}
+			],
+			"homepage": "https://bookklik-technologies.github.io/senangstart-css",
+			"bugs": {
+				"url": "https://github.com/bookklik-technologies/senangstart-css/issues"
+			},
 			"bin": {
 				"sen": "src/cli/index.js",
 				"senangstart": "src/cli/index.js"
-			},
-			"bugs": {
-				"url": "https://github.com/bookklik-technologies/senangstart-css/issues"
 			},
 			"dist": {
 				"shasum": "116556e6ae824de96957e9f02d1bbb72f08ea6f0",
@@ -1573,11 +1597,217 @@
 						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
 					},
 					{
-						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEQCIGV1A8tlhOhE9ug7gXsKei4nhdaDfxguwhgmxg+zXjxQAiA5PAmgbk2e1LNLbS8AHU3B48pt+q0Yi2rycPdDTRgRqw=="
+						"sig": "MEQCIGV1A8tlhOhE9ug7gXsKei4nhdaDfxguwhgmxg+zXjxQAiA5PAmgbk2e1LNLbS8AHU3B48pt+q0Yi2rycPdDTRgRqw==",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
 					}
 				],
 				"unpackedSize": 5891714
+			},
+			"main": "./dist/senangstart-css.cjs",
+			"type": "module",
+			"types": "types/index.d.ts",
+			"module": "./dist/senangstart-css.mjs",
+			"engines": {
+				"node": ">=20.0.0"
+			},
+			"exports": {
+				".": {
+					"import": {
+						"types": "./types/index.d.ts",
+						"default": "./dist/senangstart-css.mjs"
+					},
+					"default": "./dist/senangstart-css.cjs",
+					"require": {
+						"types": "./types/index.d.cts",
+						"default": "./dist/senangstart-css.cjs"
+					}
+				},
+				"./cli": "./src/cli/program.js",
+				"./vue": {
+					"types": "./types/vue.d.ts"
+				},
+				"./data": "./types/senang-data.json",
+				"./node": {
+					"types": "./types/node.d.ts",
+					"import": "./src/node.js",
+					"default": "./src/node.js"
+				},
+				"./vite": {
+					"types": "./types/vite.d.ts",
+					"import": "./src/integrations/vite.js",
+					"default": "./src/integrations/vite.js"
+				},
+				"./astro": {
+					"types": "./types/astro.d.ts"
+				},
+				"./react": {
+					"types": "./types/react.d.ts"
+				},
+				"./solid": {
+					"types": "./types/solid.d.ts"
+				},
+				"./typed": {
+					"types": "./types/typed.d.ts",
+					"default": "./types/typed.js"
+				},
+				"./dist/*": "./dist/*",
+				"./preact": {
+					"types": "./types/preact.d.ts"
+				},
+				"./schema": "./schema/senangstart.config.schema.json",
+				"./svelte": {
+					"types": "./types/svelte.d.ts"
+				},
+				"./postcss": {
+					"types": "./types/postcss.d.ts",
+					"import": "./src/integrations/postcss.js",
+					"default": "./src/integrations/postcss.js"
+				},
+				"./converter": {
+					"types": "./types/converter.d.ts",
+					"import": "./src/converter/index.js",
+					"default": "./src/converter/index.js"
+				},
+				"./html-data": "./types/senang.html-data.json",
+				"./attributes": {
+					"types": "./types/attributes.d.ts"
+				},
+				"./package.json": "./package.json"
+			},
+			"gitHead": "2f7d91443dfb9d611217141306390ce661cb30cc",
+			"scripts": {
+				"dev": "node src/cli/index.js dev",
+				"lint": "eslint src/",
+				"size": "size-limit",
+				"test": "node --test \"tests/**/*.test.js\"",
+				"build": "npm run build:dist && npm run docs:generate && vitepress build docs && npm run docs:llms",
+				"golden": "node tests/golden/build-golden.mjs --check",
+				"docs:dev": "vitepress dev docs",
+				"lint:all": "npm run lint && npm run lint:css",
+				"lint:css": "stylelint \"public/**/*.css\" \"dist/**/*.css\"",
+				"test:jit": "playwright test --config playwright.jit.config.js",
+				"docs:llms": "node scripts/generate-llms-txt.js",
+				"test:sync": "node --test \"tests/sync/**/*.test.js\"",
+				"test:unit": "node --test \"tests/unit/**/*.test.js\"",
+				"typecheck": "tsc -p tests/types/tsconfig.json",
+				"build:dist": "node scripts/build-dist.js",
+				"test:watch": "node --test --watch \"tests/**/*.test.js\"",
+				"docs:syntax": "node scripts/extract-syntax.js",
+				"test:visual": "playwright test",
+				"lint:css:fix": "stylelint \"public/**/*.css\" \"dist/**/*.css\" --fix",
+				"docs:generate": "node scripts/generate-docs.js",
+				"test:coverage": "npx c8 --exclude dist --reporter=text --reporter=html node --test \"tests/**/*.test.js\"",
+				"generate:oklch": "node scripts/generate-oklch-palette.js",
+				"generate:types": "node scripts/generate-types.js",
+				"prepublishOnly": "npm run lint && npm test && npm run golden && npm run build:dist && npm run size",
+				"test:packaging": "node --test \"tests/packaging/**/*.test.js\"",
+				"docs:sync-check": "node scripts/generate-docs.js --compare",
+				"test:conformance": "playwright test --config playwright.conformance.config.js",
+				"test:integration": "node --test \"tests/integration/**/*.test.js\"",
+				"test:visual:update": "playwright test --update-snapshots"
+			},
+			"_npmUser": {
+				"name": "a-hakim",
+				"email": "a.hakim.solution@gmail.com"
+			},
+			"overrides": {
+				"vitepress": {
+					"vite": "^6.4.3"
+				}
+			},
+			"repository": {
+				"url": "git+https://github.com/bookklik-technologies/senangstart-css.git",
+				"type": "git"
+			},
+			"size-limit": [
+				{
+					"gzip": true,
+					"name": "CDN JIT runtime (min, gzip)",
+					"path": "dist/senangstart-css.min.js",
+					"limit": "40 KB"
+				},
+				{
+					"gzip": true,
+					"name": "Standalone CSS (min, gzip)",
+					"path": "dist/senangstart.min.css",
+					"limit": "30 KB"
+				}
+			],
+			"_npmVersion": "11.19.0",
+			"description": "Fluent Style Utilities for Humans and AI",
+			"directories": {},
+			"sideEffects": [
+				"./src/cli/**",
+				"./src/cdn/**",
+				"./dist/*.js"
+			],
+			"_nodeVersion": "24.21.0",
+			"dependencies": {
+				"chokidar": "^3.6.0",
+				"commander": "^11.1.0",
+				"tinyglobby": "^0.2.17"
+			},
+			"publishConfig": {
+				"access": "public"
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"eslint": "^9.0.0",
+				"esbuild": "^0.27.2",
+				"stylelint": "^17.11.1",
+				"vitepress": "^1.6.4",
+				"@eslint/js": "^9.0.0",
+				"size-limit": "^14.1.0",
+				"typescript": "^7.0.2",
+				"http-server": "^14.1.1",
+				"tailwindcss": "^4.3.3",
+				"@playwright/test": "^1.60.0",
+				"@size-limit/file": "^14.1.0",
+				"@tailwindcss/node": "^4.3.3",
+				"stylelint-config-standard": "^40.0.0"
+			},
+			"peerDependencies": {
+				"vite": ">=5.0.0",
+				"postcss": ">=8.4.0"
+			},
+			"peerDependenciesMeta": {
+				"vite": {
+					"optional": true
+				},
+				"postcss": {
+					"optional": true
+				}
+			},
+			"_npmOperationalInternal": {
+				"tmp": "tmp/senangstart-css_0.4.0_1790846493034_0.2873379118491899",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"0.4.1": {
+			"_id": "@bookklik/senangstart-css@0.4.1",
+			"bin": {
+				"sen": "src/cli/index.js",
+				"senangstart": "src/cli/index.js"
+			},
+			"bugs": {
+				"url": "https://github.com/bookklik-technologies/senangstart-css/issues"
+			},
+			"dist": {
+				"shasum": "b492180b391401c6947a3c943f64ab0397d3ef53",
+				"tarball": "https://registry.npmjs.org/@bookklik/senangstart-css/-/senangstart-css-0.4.1.tgz",
+				"fileCount": 113,
+				"integrity": "sha512-24TheCt9FjYn+LOntiBH6wZBPFQd+VniNHvtwq2FWSP8cF5OCP3Y1nOmOIgbvJKg8jLuK7xkcx9oT3ZQ3SjZRg==",
+				"signatures": [
+					{
+						"sig": "MEYCIQDUG40awVRuMlo+SI5XO9dhCSuKhzrp1P9dCcElIXshawIhAI4+/h2SZdjp3ZFgMWW2096P7A2E190+pgcEqnRMlV38",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					},
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEUCIQD6VCjxY5q8EdTlUyI2/U9KFzKdDtvhfdxa9pEBYnkgGAIgAgkiKTVZKv+DpyrpNkdZI2+U8Lj+bJBa9xvtfwa2r9U="
+					}
+				],
+				"unpackedSize": 5893660
 			},
 			"main": "./dist/senangstart-css.cjs",
 			"name": "@bookklik/senangstart-css",
@@ -1654,7 +1884,7 @@
 				},
 				"./package.json": "./package.json"
 			},
-			"gitHead": "2f7d91443dfb9d611217141306390ce661cb30cc",
+			"gitHead": "44688ef24891a0d8a22df6a8f13f5ee1dee2085a",
 			"license": "MIT",
 			"scripts": {
 				"dev": "node src/cli/index.js dev",
@@ -1677,17 +1907,18 @@
 				"test:visual": "playwright test",
 				"lint:css:fix": "stylelint \"public/**/*.css\" \"dist/**/*.css\" --fix",
 				"docs:generate": "node scripts/generate-docs.js",
+				"release:check": "npm run lint && npm run typecheck && npm run docs:sync-check && npm audit --audit-level=high && npm run golden && npm run build:dist && npm test && npm run size",
 				"test:coverage": "npx c8 --exclude dist --reporter=text --reporter=html node --test \"tests/**/*.test.js\"",
 				"generate:oklch": "node scripts/generate-oklch-palette.js",
 				"generate:types": "node scripts/generate-types.js",
-				"prepublishOnly": "npm run lint && npm test && npm run golden && npm run build:dist && npm run size",
+				"prepublishOnly": "npm run release:check",
 				"test:packaging": "node --test \"tests/packaging/**/*.test.js\"",
 				"docs:sync-check": "node scripts/generate-docs.js --compare",
 				"test:conformance": "playwright test --config playwright.conformance.config.js",
 				"test:integration": "node --test \"tests/integration/**/*.test.js\"",
 				"test:visual:update": "playwright test --update-snapshots"
 			},
-			"version": "0.4.0",
+			"version": "0.4.1",
 			"_npmUser": {
 				"name": "a-hakim",
 				"email": "a.hakim.solution@gmail.com"
@@ -1706,7 +1937,7 @@
 			],
 			"overrides": {
 				"vitepress": {
-					"vite": "^6.4.3"
+					"vite": "^6.4.5"
 				}
 			},
 			"repository": {
@@ -1780,13 +2011,13 @@
 			},
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/senangstart-css_0.4.0_1790846493034_0.2873379118491899"
+				"tmp": "tmp/senangstart-css_0.4.1_1793198691940_0.6843973515545425"
 			}
 		}
 	},
 	"time": {
 		"created": "2026-01-09T12:00:20.272Z",
-		"modified": "2026-10-01T09:21:33.383Z",
+		"modified": "2026-10-28T14:44:52.314Z",
 		"0.1.0": "2026-01-09T12:00:20.520Z",
 		"0.1.1": "2026-01-09T12:04:18.952Z",
 		"0.1.2": "2026-01-09T13:34:10.375Z",
@@ -1806,7 +2037,8 @@
 		"0.2.12": "2026-02-08T05:01:22.221Z",
 		"0.3.0": "2026-05-17T15:12:46.869Z",
 		"0.3.1": "2026-09-05T13:49:06.582Z",
-		"0.4.0": "2026-10-01T09:21:33.175Z"
+		"0.4.0": "2026-10-01T09:21:33.175Z",
+		"0.4.1": "2026-10-28T14:44:52.069Z"
 	},
 	"bugs": {
 		"url": "https://github.com/bookklik-technologies/senangstart-css/issues"
@@ -1842,6 +2074,7 @@
 	"readmeFilename": "README.md",
 	"_downloads": [
 		324,
-		374
+		374,
+		334
 	]
 }
