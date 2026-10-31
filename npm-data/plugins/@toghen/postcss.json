@@ -1,9 +1,9 @@
 {
 	"_id": "@toghen/postcss",
-	"_rev": "5-2a0a9ea06c3588bff7743b50b63d2b23",
+	"_rev": "6-41b91a87f19413e445563e44525f4b93",
 	"name": "@toghen/postcss",
 	"dist-tags": {
-		"latest": "0.1.0"
+		"latest": "0.1.1"
 	},
 	"versions": {
 		"0.0.0-stage": {
@@ -98,6 +98,7 @@
 			},
 			"_resolved": "/private/var/folders/11/1k2_0cb55bs0mnxpx3dr3r100000gn/T/63549ef396849fe0123ed270dc13d722/toghen-postcss-0.18.0.tgz",
 			"_integrity": "sha512-JzErg+5ajsDDSi6M9prnITE/Uo+VzOPNnj4qL8sKrh/t3QaVU9acxoVkU17ZyGAHOa6dM6LtWwH6DkqBTJOXcQ==",
+			"deprecated": "Toghen moved to Codeberg and restarted at 0.1.0: see https://codeberg.org/Toghen/postcss",
 			"repository": {
 				"url": "git+https://github.com/egildo/Toghen.git",
 				"type": "git",
@@ -127,8 +128,7 @@
 			"_npmOperationalInternal": {
 				"tmp": "tmp/postcss_0.18.0_1792506295808_0.614259734384643",
 				"host": "s3://npm-registry-packages-npm-production"
-			},
-			"deprecated": "Toghen moved to Codeberg and restarted at 0.1.0: see https://codeberg.org/Toghen/postcss"
+			}
 		},
 		"0.21.0": {
 			"name": "@toghen/postcss",
@@ -191,6 +191,7 @@
 			},
 			"_resolved": "/private/var/folders/11/1k2_0cb55bs0mnxpx3dr3r100000gn/T/ef7fa0d9532a91da89992d2fa9c6e0c0/toghen-postcss-0.21.0.tgz",
 			"_integrity": "sha512-tb7mRzN4eQe2wzeFxSVnkOva2Nvmz8QdCCFwTpP2S4Y73bKNPjvTIicSbDpLvCclGKW3GRCemaNnWuakw5XSXA==",
+			"deprecated": "Toghen moved to Codeberg and restarted at 0.1.0: see https://codeberg.org/Toghen/postcss",
 			"repository": {
 				"url": "git+https://github.com/egildo/Toghen.git",
 				"type": "git",
@@ -220,8 +221,7 @@
 			"_npmOperationalInternal": {
 				"tmp": "tmp/postcss_0.21.0_1792885755885_0.9926253618434435",
 				"host": "s3://npm-registry-packages-npm-production"
-			},
-			"deprecated": "Toghen moved to Codeberg and restarted at 0.1.0: see https://codeberg.org/Toghen/postcss"
+			}
 		},
 		"0.1.0": {
 			"name": "@toghen/postcss",
@@ -318,15 +318,116 @@
 				"tmp": "tmp/postcss_0.1.0_1792927116166_0.1385377693420402",
 				"host": "s3://npm-registry-packages-npm-production"
 			}
+		},
+		"0.1.1": {
+			"_id": "@toghen/postcss@0.1.1",
+			"dist": {
+				"shasum": "225210d8ba4776eb17bc7ce58a64bbed9a5b32ac",
+				"tarball": "https://registry.npmjs.org/@toghen/postcss/-/postcss-0.1.1.tgz",
+				"fileCount": 5,
+				"integrity": "sha512-tga1svQ1FijkVpPxkrZvRF+wp1yDfebjpB8eiu704pMjIfzgjp93cykoXxz1yW+Krhjy9oLau6FldpuYvVClNw==",
+				"signatures": [
+					{
+						"sig": "MEUCIGs8hDB/tzllPWPVKwLR9TqGTft3SHSUhryGCiPT5jw9AiEAu3tOaV/9UK/OO/Qk70/kqvkSpw44zdFq7+nylCfokBo=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					},
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIB279EO3g7g+fqBBfn3ecxOggVQLtV89L+CRa4gvTV/CAiAv724JphUrN9iugNLGl2xIolA0xBf7kd1L5QrTwHySHw=="
+					}
+				],
+				"unpackedSize": 78679
+			},
+			"main": "dist/index.js",
+			"name": "@toghen/postcss",
+			"type": "module",
+			"types": "dist/index.d.ts",
+			"author": {
+				"name": "Egildo Tagliareni",
+				"email": "egildo@tagliareni.it"
+			},
+			"engines": {
+				"node": ">=24"
+			},
+			"exports": {
+				".": "./dist/index.js"
+			},
+			"gitHead": "a7f102a6d731f6b95a050df32940b2eeb224e7e0",
+			"license": "MIT",
+			"scripts": {
+				"dev": "tsup src/index.ts --format esm --watch",
+				"lint": "biome check .",
+				"test": "node --import tsx/esm --test 'test/**/*.test.ts'",
+				"build": "tsup src/index.ts --format esm --dts --clean --external @toghen/lib --external postcss",
+				"check": "biome check . && pnpm typecheck && pnpm test && pnpm build && node scripts/check-purity.mjs",
+				"format": "biome check --write .",
+				"prepare": "pnpm run build",
+				"typecheck": "tsc --noEmit -p tsconfig.json && tsc -p tsconfig.test.json"
+			},
+			"version": "0.1.1",
+			"_npmUser": {
+				"name": "GitHub Actions",
+				"email": "npm-oidc-no-reply@github.com",
+				"trustedPublisher": {
+					"id": "github",
+					"oidcConfigId": "cb07972f-a3ac-4ef5-b741-18035c3038cb"
+				}
+			},
+			"keywords": [
+				"postcss-plugin",
+				"design-tokens",
+				"toghen",
+				"css"
+			],
+			"repository": {
+				"url": "git+https://codeberg.org/Toghen/postcss.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.19.1",
+			"description": "PostCSS plugin for resolving Toghen design tokens in CSS",
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "egildo",
+					"email": "egildo@tagliareni.it"
+				}
+			],
+			"_nodeVersion": "24.22.1",
+			"dependencies": {
+				"mdn-data": "^2.37.2"
+			},
+			"_hasShrinkwrap": false,
+			"packageManager": "pnpm@10.29.3",
+			"devDependencies": {
+				"tsx": "^4.20.3",
+				"tsup": "^8.4.0",
+				"postcss": "^8.5.6",
+				"typescript": "^5.8.3",
+				"@toghen/lib": "^0.1.1",
+				"@types/node": "^24.1.0",
+				"@biomejs/biome": "2.5.15",
+				"postcss-custom-media": "12.0.3",
+				"@csstools/postcss-mixins": "1.1.0",
+				"postcss-custom-selectors": "9.0.4"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0",
+				"@toghen/lib": "^0.1.1"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages-npm-production",
+				"tmp": "tmp/postcss_0.1.1_1793387970354_0.28835118175794405"
+			}
 		}
 	},
 	"time": {
 		"created": "2026-10-20T14:23:52.097Z",
-		"modified": "2026-10-25T14:53:13.711Z",
+		"modified": "2026-10-30T19:19:30.636Z",
 		"0.0.0-stage": "2026-10-20T14:23:52.097Z",
 		"0.18.0": "2026-10-20T14:24:55.909Z",
 		"0.21.0": "2026-10-24T23:49:15.971Z",
-		"0.1.0": "2026-10-25T11:18:36.262Z"
+		"0.1.0": "2026-10-25T11:18:36.262Z",
+		"0.1.1": "2026-10-30T19:19:30.443Z"
 	},
 	"author": {
 		"name": "Egildo Tagliareni",
@@ -356,6 +457,7 @@
 		0,
 		0,
 		5,
-		5
+		5,
+		473
 	]
 }
