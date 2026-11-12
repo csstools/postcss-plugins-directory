@@ -1,35 +1,67 @@
 {
+	"_id": "postcss-token-utilities@1.8.0",
+	"bugs": {
+		"url": "https://github.com/aplance-tech/postcss-token-utilities/issues"
+	},
+	"dist": {
+		"shasum": "a8b0179f04595cda4beff95c6f6e82b57df0fd07",
+		"tarball": "https://registry.npmjs.org/postcss-token-utilities/-/postcss-token-utilities-1.8.0.tgz",
+		"fileCount": 8,
+		"integrity": "sha512-2/ndGhU0RyEZnunRAf/UWkRG4I3pe8YY8uE/6r5MQa3sKkySlA6MvRj8md0CDgbuqxW+BBKK0e9S13P5z7l5WQ==",
+		"signatures": [
+			{
+				"sig": "MEYCIQCr3GLudJrJ86r1bXHbdp7d4NzhY8TZnBM1srfYWFdHvAIhAIgH8A296HiROb1oFDx94T6S9ZdD3UEI23GyVr/TrfBQ",
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+			},
+			{
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEQCIEKMuKVjfs3KtEqzsTdsH7amTX4Ov2URf+fcMGMY+ZMTAiBXBRFSHu1SOY7N6GLgCm+/3CwyWRlqymC/YXlgHw43TQ=="
+			}
+		],
+		"unpackedSize": 168439
+	},
+	"main": "dist/index.cjs",
 	"name": "postcss-token-utilities",
-	"version": "1.7.0",
-	"description": "Token-driven utility CSS generator for PostCSS with JIT-style injection.",
+	"type": "module",
+	"types": "dist/index.d.cts",
 	"author": {
 		"name": "Aplance Tech",
 		"email": "tech.aplance@gmail.com"
 	},
-	"contributors": [
-		{
-			"name": "Viraj Gamdha",
-			"email": "viraj@aplance.com"
-		}
-	],
-	"license": "MIT",
-	"type": "module",
-	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
 	"exports": {
 		".": {
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs",
-			"types": "./dist/index.d.ts"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
+	"gitHead": "528645a9ed13cbc4e3660843c25f68ca4849a0b8",
+	"license": "MIT",
 	"scripts": {
+		"test": "node --test test/plugin.test.mjs",
 		"build": "rollup -c",
-		"clean": "node -e \"fs.rmSync('./dist', {recursive: true, force: true})\" && mkdir dist",
+		"check": "npm run typecheck && npm run clean-build && npm test",
+		"clean": "node -e \"const fs = require('node:fs'); fs.rmSync('./dist', { recursive: true, force: true }); fs.mkdirSync('./dist', { recursive: true })\"",
+		"typecheck": "tsc --noEmit",
+		"clean-pack": "npm run check && npm pack --ignore-scripts",
 		"clean-build": "npm run clean && npm run build",
-		"clean-pack": "npm run clean-build && npm pack"
+		"prepublishOnly": "npm run check"
 	},
+	"version": "1.8.0",
+	"_npmUser": {
+		"name": "tech-aplance",
+		"email": "tech.aplance@gmail.com"
+	},
+	"homepage": "https://github.com/aplance-tech/postcss-token-utilities#readme",
 	"keywords": [
 		"postcss",
 		"postcss-plugin",
@@ -43,53 +75,11 @@
 		"utility-first"
 	],
 	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/aplance-tech/postcss-token-utilities.git"
+		"url": "git+https://github.com/aplance-tech/postcss-token-utilities.git",
+		"type": "git"
 	},
-	"bugs": {
-		"url": "https://github.com/aplance-tech/postcss-token-utilities/issues"
-	},
-	"homepage": "https://github.com/aplance-tech/postcss-token-utilities#readme",
-	"engines": {
-		"node": "^14 || ^16 || >=18"
-	},
-	"peerDependencies": {
-		"postcss": "^8.4"
-	},
-	"dependencies": {
-		"fast-glob": "^3.3.3"
-	},
-	"devDependencies": {
-		"@rollup/plugin-commonjs": "^28.0.2",
-		"@rollup/plugin-node-resolve": "^15.3.0",
-		"@rollup/plugin-terser": "^0.4.4",
-		"@rollup/plugin-typescript": "^12.1.2",
-		"@types/node": "^24.10.1",
-		"postcss": "^8.5.6",
-		"rollup": "^4.30.1",
-		"typescript": "~5.9.3"
-	},
-	"_id": "postcss-token-utilities@1.7.0",
-	"gitHead": "13eec5c8bba3387b4503929f358663db45c329e2",
-	"_nodeVersion": "22.18.0",
 	"_npmVersion": "11.1.0",
-	"dist": {
-		"integrity": "sha512-pMbF/gFqX4/Jf4GLDm9mdJAIuuDmmnXBqbJjI98JshDyZybJhrCSSjKcnmDGPV35FcT+w66DjkrkS1z5UemE2w==",
-		"shasum": "4d1cfd4ea08efa202b202615c555188aee0416f5",
-		"tarball": "https://registry.npmjs.org/postcss-token-utilities/-/postcss-token-utilities-1.7.0.tgz",
-		"fileCount": 7,
-		"unpackedSize": 90094,
-		"signatures": [
-			{
-				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEUCIEjhb8IYO0vPT90Iopx+BxBYWFzO7lxdhFyZhQxSwihPAiEA9c/D7NrG+JrOA2jsDKVIimBvyDcum6BNCeDfRgNFOKg="
-			}
-		]
-	},
-	"_npmUser": {
-		"name": "tech-aplance",
-		"email": "tech.aplance@gmail.com"
-	},
+	"description": "Token-driven utility CSS generator for PostCSS with JIT-style injection.",
 	"directories": {},
 	"maintainers": [
 		{
@@ -101,10 +91,31 @@
 			"email": "vrjgamdha@gmail.com"
 		}
 	],
-	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-token-utilities_1.7.0_1781873626289_0.42174100693191763"
+	"sideEffects": false,
+	"_nodeVersion": "24.22.2",
+	"contributors": [
+		{
+			"name": "Viraj Gamdha",
+			"email": "viraj@aplance.com"
+		}
+	],
+	"dependencies": {
+		"fast-glob": "^3.3.3"
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2026-06-19T12:53:46.426Z"
+	"devDependencies": {
+		"rollup": "^4.30.1",
+		"postcss": "^8.5.6",
+		"typescript": "~5.9.3",
+		"@types/node": "^24.10.1",
+		"@rollup/plugin-typescript": "^12.1.2"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4"
+	},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-token-utilities_1.8.0_1794406130283_0.21567264732070668"
+	},
+	"_time": "2026-11-11T14:08:50.468Z"
 }
