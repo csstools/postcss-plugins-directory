@@ -1,9 +1,9 @@
 {
 	"_id": "postcss-viewport-fallback",
-	"_rev": "5-95b2cdfe9ab03f7e43d407aeeae31fc4",
+	"_rev": "6-5b3299a947e0141e39330d4fb9703c87",
 	"name": "postcss-viewport-fallback",
 	"dist-tags": {
-		"latest": "1.6.1"
+		"latest": "2.0.0"
 	},
 	"versions": {
 		"1.0.0": {
@@ -483,15 +483,68 @@
 		"1.6.1": {
 			"name": "postcss-viewport-fallback",
 			"version": "1.6.1",
-			"description": "PostCSS plugin that adds classic fallbacks for all dynamic/small/large viewport units (dvh, svh, lvh, dvw, dvmin, ...).",
+			"keywords": [
+				"postcss",
+				"postcss-plugin",
+				"viewport",
+				"dvh",
+				"dvw",
+				"svh",
+				"svw",
+				"lvh",
+				"lvw",
+				"dvmin",
+				"dvmax",
+				"dynamic-viewport-units",
+				"viewport-units",
+				"fallback",
+				"polyfill",
+				"100vh",
+				"mobile-viewport",
+				"css",
+				"tailwind"
+			],
 			"author": {
 				"name": "Maksim Kravtsov"
 			},
 			"license": "MIT",
-			"type": "module",
+			"_id": "postcss-viewport-fallback@1.6.1",
+			"maintainers": [
+				{
+					"name": "surdeddd",
+					"email": "maximkravtsov3355@icloud.com"
+				}
+			],
+			"homepage": "https://github.com/Surdeddd/postcss-viewport-fallback#readme",
+			"bugs": {
+				"url": "https://github.com/Surdeddd/postcss-viewport-fallback/issues"
+			},
+			"dist": {
+				"shasum": "046a638e5583bd4788e088facc893b4a5d54a2aa",
+				"tarball": "https://registry.npmjs.org/postcss-viewport-fallback/-/postcss-viewport-fallback-1.6.1.tgz",
+				"fileCount": 11,
+				"integrity": "sha512-JKU15kqKvOZwxK443H34qnV36QhiQkSdtoQ/M/G3J28/DOEcmp/54xVVOAxssjZHKJi60j6dnQzYntXvaAVG2Q==",
+				"signatures": [
+					{
+						"sig": "MEUCIHXLYRuCV5Lq9H+KR8crFw+2jNeCJ+l+m1T9e5hF+nxtAiEApLi00z1M7A9EGcFmYzTZG4IzoMO6vU22otGrSf0qobQ=",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-viewport-fallback@1.6.1",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 70302
+			},
 			"main": "./dist/index.cjs",
-			"module": "./dist/index.js",
+			"type": "module",
 			"types": "./dist/index.d.ts",
+			"module": "./dist/index.js",
+			"engines": {
+				"node": ">=20"
+			},
 			"exports": {
 				".": {
 					"import": {
@@ -514,7 +567,37 @@
 					}
 				}
 			},
+			"gitHead": "07af64c47c248842f0a8ecef1257856300469781",
+			"scripts": {
+				"dev": "tsup --watch",
+				"lint": "eslint .",
+				"test": "vitest run",
+				"bench": "npm run build && node scripts/bench.mjs",
+				"build": "tsup",
+				"format": "prettier --write .",
+				"typecheck": "tsc --noEmit",
+				"check:package": "publint && attw --pack .",
+				"test:coverage": "vitest run --coverage"
+			},
+			"_npmUser": {
+				"name": "surdeddd",
+				"email": "maximkravtsov3355@icloud.com"
+			},
+			"repository": {
+				"url": "git+https://github.com/Surdeddd/postcss-viewport-fallback.git",
+				"type": "git"
+			},
+			"_npmVersion": "11.16.0",
+			"description": "PostCSS plugin that adds classic fallbacks for all dynamic/small/large viewport units (dvh, svh, lvh, dvw, dvmin, ...).",
+			"directories": {},
 			"sideEffects": false,
+			"_nodeVersion": "22.23.1",
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"publishConfig": {
+				"provenance": true
+			},
 			"typesVersions": {
 				"*": {
 					"runtime": [
@@ -522,62 +605,130 @@
 					]
 				}
 			},
-			"publishConfig": {
-				"provenance": true
-			},
-			"scripts": {
-				"build": "tsup",
-				"dev": "tsup --watch",
-				"test": "vitest run",
-				"test:coverage": "vitest run --coverage",
-				"typecheck": "tsc --noEmit",
-				"lint": "eslint .",
-				"format": "prettier --write .",
-				"check:package": "publint && attw --pack .",
-				"bench": "npm run build && node scripts/bench.mjs"
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsup": "^8.5.1",
+				"eslint": "^10.6.0",
+				"vitest": "^4.1.10",
+				"globals": "^17.7.0",
+				"postcss": "^8.5.15",
+				"publint": "^0.3.21",
+				"prettier": "^3.8.4",
+				"@eslint/js": "^10.0.1",
+				"typescript": "^6.0.3",
+				"@types/node": "^26.1.0",
+				"caniuse-api": "^4.0.0",
+				"postcss-html": "^1.8.1",
+				"semantic-release": "^25.0.5",
+				"typescript-eslint": "^8.63.0",
+				"@vitest/coverage-v8": "^4.1.10",
+				"@arethetypeswrong/cli": "^0.18.3",
+				"@semantic-release/git": "^10.0.1",
+				"eslint-config-prettier": "^10.1.8",
+				"@semantic-release/changelog": "^6.0.3"
 			},
 			"peerDependencies": {
 				"postcss": "^8.0.0"
 			},
-			"dependencies": {
-				"postcss-value-parser": "^4.2.0"
+			"_npmOperationalInternal": {
+				"tmp": "tmp/postcss-viewport-fallback_1.6.1_1783800063191_0.37981038118894395",
+				"host": "s3://npm-registry-packages-npm-production"
+			}
+		},
+		"2.0.0": {
+			"_id": "postcss-viewport-fallback@2.0.0",
+			"bugs": {
+				"url": "https://github.com/Surdeddd/postcss-viewport-fallback/issues"
 			},
-			"devDependencies": {
-				"@arethetypeswrong/cli": "^0.18.3",
-				"@eslint/js": "^10.0.1",
-				"@semantic-release/changelog": "^6.0.3",
-				"@semantic-release/git": "^10.0.1",
-				"@types/node": "^26.1.0",
-				"@vitest/coverage-v8": "^4.1.10",
-				"caniuse-api": "^4.0.0",
-				"eslint": "^10.6.0",
-				"eslint-config-prettier": "^10.1.8",
-				"globals": "^17.7.0",
-				"postcss": "^8.5.15",
-				"postcss-html": "^1.8.1",
-				"prettier": "^3.8.4",
-				"publint": "^0.3.21",
-				"semantic-release": "^25.0.5",
-				"tsup": "^8.5.1",
-				"typescript": "^6.0.3",
-				"typescript-eslint": "^8.63.0",
-				"vitest": "^4.1.10"
+			"dist": {
+				"shasum": "7c0031d75193f2d9aac039beacc3b393237f27ae",
+				"tarball": "https://registry.npmjs.org/postcss-viewport-fallback/-/postcss-viewport-fallback-2.0.0.tgz",
+				"fileCount": 13,
+				"integrity": "sha512-hWnu7AOx4kFw/wLZCxMXU9Y/V9q78LcRi2NAJIjugejuJN7cnd+s372zGHKQWOqOa2c59x8A/muGIt271Xq9Gg==",
+				"signatures": [
+					{
+						"sig": "MEQCIEAwFJKrZNX16/hR7I5bZbqHfifXL5uh7JEidlaK9EgUAiBidpA86ogxPRHiI8MjtDPgBpSQkmGaRmz5DYziSh8uDQ==",
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+					},
+					{
+						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+						"sig": "MEQCIEKckfjlRwkYtha0IAfkJtmAYF6wPIhCjtYQNj14hYwwAiBgG6Ohy2bDdBzJRbswjjxPNZI8V1NCZNz5cnCJHeZaCA=="
+					}
+				],
+				"attestations": {
+					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-viewport-fallback@2.0.0",
+					"provenance": {
+						"predicateType": "https://slsa.dev/provenance/v1"
+					}
+				},
+				"unpackedSize": 318487
 			},
+			"main": "./dist/index.cjs",
+			"name": "postcss-viewport-fallback",
+			"type": "module",
+			"types": "./dist/index.d.cts",
+			"author": {
+				"name": "Maksim Kravtsov"
+			},
+			"module": "./dist/index.js",
 			"engines": {
 				"node": ">=20"
 			},
-			"repository": {
-				"type": "git",
-				"url": "git+https://github.com/Surdeddd/postcss-viewport-fallback.git"
+			"exports": {
+				".": {
+					"import": {
+						"types": "./dist/index.d.ts",
+						"default": "./dist/index.js"
+					},
+					"require": {
+						"types": "./dist/index.d.cts",
+						"default": "./dist/index.cjs"
+					}
+				},
+				"./runtime": {
+					"import": {
+						"types": "./dist/runtime.d.ts",
+						"default": "./dist/runtime.js"
+					},
+					"require": {
+						"types": "./dist/runtime.d.cts",
+						"default": "./dist/runtime.cjs"
+					}
+				},
+				"./seed.css": "./dist/seed.css",
+				"./package.json": "./package.json"
 			},
-			"bugs": {
-				"url": "https://github.com/Surdeddd/postcss-viewport-fallback/issues"
+			"gitHead": "66f148bb2e2897d24f88c70181bae5b7ce2fdf92",
+			"license": "MIT",
+			"scripts": {
+				"dev": "tsup --watch",
+				"lint": "eslint .",
+				"test": "vitest run",
+				"bench": "npm run build && node scripts/bench.mjs",
+				"build": "tsup && node scripts/cjs-types.mjs && node scripts/seed-css.mjs",
+				"format": "prettier --write .",
+				"typecheck": "tsc --noEmit && tsc -p playground",
+				"playground": "npm run build && node scripts/playground.mjs",
+				"properties": "node scripts/properties.mjs",
+				"format:check": "prettier --check .",
+				"check:package": "publint && attw --pack . --exclude-entrypoints seed.css && node scripts/smoke.mjs && tsc -p test/types && tsc -p test/types/tsconfig.node10.json",
+				"test:coverage": "vitest run --coverage"
+			},
+			"version": "2.0.0",
+			"_npmUser": {
+				"name": "surdeddd",
+				"email": "maximkravtsov3355@icloud.com"
 			},
 			"homepage": "https://github.com/Surdeddd/postcss-viewport-fallback#readme",
 			"keywords": [
 				"postcss",
 				"postcss-plugin",
+				"postcss8",
+				"css",
 				"viewport",
+				"viewport-units",
+				"dynamic-viewport-units",
+				"viewport-unit-fallback",
 				"dvh",
 				"dvw",
 				"svh",
@@ -586,42 +737,26 @@
 				"lvw",
 				"dvmin",
 				"dvmax",
-				"dynamic-viewport-units",
-				"viewport-units",
+				"100dvh",
+				"100vh",
+				"dvh-fallback",
 				"fallback",
 				"polyfill",
-				"100vh",
+				"progressive-enhancement",
+				"legacy-browsers",
 				"mobile-viewport",
-				"css",
+				"ios",
+				"safari",
+				"browserslist",
+				"custom-properties",
 				"tailwind"
 			],
-			"gitHead": "07af64c47c248842f0a8ecef1257856300469781",
-			"_id": "postcss-viewport-fallback@1.6.1",
-			"_nodeVersion": "22.23.1",
-			"_npmVersion": "11.16.0",
-			"dist": {
-				"integrity": "sha512-JKU15kqKvOZwxK443H34qnV36QhiQkSdtoQ/M/G3J28/DOEcmp/54xVVOAxssjZHKJi60j6dnQzYntXvaAVG2Q==",
-				"shasum": "046a638e5583bd4788e088facc893b4a5d54a2aa",
-				"tarball": "https://registry.npmjs.org/postcss-viewport-fallback/-/postcss-viewport-fallback-1.6.1.tgz",
-				"fileCount": 11,
-				"unpackedSize": 70302,
-				"attestations": {
-					"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-viewport-fallback@1.6.1",
-					"provenance": {
-						"predicateType": "https://slsa.dev/provenance/v1"
-					}
-				},
-				"signatures": [
-					{
-						"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-						"sig": "MEUCIHXLYRuCV5Lq9H+KR8crFw+2jNeCJ+l+m1T9e5hF+nxtAiEApLi00z1M7A9EGcFmYzTZG4IzoMO6vU22otGrSf0qobQ="
-					}
-				]
+			"repository": {
+				"url": "git+https://github.com/Surdeddd/postcss-viewport-fallback.git",
+				"type": "git"
 			},
-			"_npmUser": {
-				"name": "surdeddd",
-				"email": "maximkravtsov3355@icloud.com"
-			},
+			"_npmVersion": "11.21.1",
+			"description": "PostCSS plugin that gives dvh, svh, lvh and every other dynamic viewport unit a vh/vw fallback that really applies in older browsers: in calc(), var(), custom properties, @media and Tailwind output.",
 			"directories": {},
 			"maintainers": [
 				{
@@ -629,21 +764,75 @@
 					"email": "maximkravtsov3355@icloud.com"
 				}
 			],
+			"sideEffects": [
+				"**/*.css"
+			],
+			"_nodeVersion": "22.23.4",
+			"dependencies": {
+				"postcss-value-parser": "^4.2.0"
+			},
+			"publishConfig": {
+				"provenance": true
+			},
+			"typesVersions": {
+				"*": {
+					"runtime": [
+						"./dist/runtime.d.ts"
+					]
+				}
+			},
+			"_hasShrinkwrap": false,
+			"devDependencies": {
+				"tsup": "^9.0.0",
+				"acorn": "^8.19.0",
+				"eslint": "^10.13.0",
+				"vitest": "^5.0.5",
+				"globals": "^17.13.0",
+				"postcss": "^8.5.31",
+				"publint": "^0.3.25",
+				"prettier": "^3.9.10",
+				"@eslint/js": "^10.0.1",
+				"typescript": "^6.0.3",
+				"@types/node": "^26.6.5",
+				"@webref/css": "^8.7.9",
+				"caniuse-api": "^4.0.0",
+				"postcss-html": "^2.0.0",
+				"postcss-logical": "^9.0.2",
+				"postcss-nesting": "^14.0.3",
+				"semantic-release": "^25.0.5",
+				"typescript-eslint": "^8.72.0",
+				"@vitest/coverage-v8": "^5.0.5",
+				"@arethetypeswrong/cli": "^0.18.3",
+				"@semantic-release/git": "^11.0.1",
+				"eslint-config-prettier": "^10.1.8",
+				"@fontsource/ibm-plex-mono": "^5.3.0",
+				"@fontsource/ibm-plex-sans": "^5.3.0",
+				"@semantic-release/changelog": "^7.0.0"
+			},
+			"peerDependencies": {
+				"postcss": "^8.0.0",
+				"caniuse-api": "^3.0.0 || ^4.0.0"
+			},
+			"peerDependenciesMeta": {
+				"caniuse-api": {
+					"optional": true
+				}
+			},
 			"_npmOperationalInternal": {
 				"host": "s3://npm-registry-packages-npm-production",
-				"tmp": "tmp/postcss-viewport-fallback_1.6.1_1783800063191_0.37981038118894395"
-			},
-			"_hasShrinkwrap": false
+				"tmp": "tmp/postcss-viewport-fallback_2.0.0_1794738081437_0.1311031899672076"
+			}
 		}
 	},
 	"time": {
 		"created": "2025-12-03T21:53:52.857Z",
-		"modified": "2026-07-11T20:01:03.608Z",
+		"modified": "2026-11-15T10:21:22.193Z",
 		"1.0.0": "2025-12-03T21:53:53.070Z",
 		"1.4.0": "2026-04-26T14:25:25.771Z",
 		"1.5.0": "2026-06-11T15:06:49.685Z",
 		"1.6.0": "2026-07-06T22:40:25.427Z",
-		"1.6.1": "2026-07-11T20:01:03.331Z"
+		"1.6.1": "2026-07-11T20:01:03.331Z",
+		"2.0.0": "2026-11-15T10:21:21.565Z"
 	},
 	"bugs": {
 		"url": "https://github.com/Surdeddd/postcss-viewport-fallback/issues"
@@ -656,7 +845,12 @@
 	"keywords": [
 		"postcss",
 		"postcss-plugin",
+		"postcss8",
+		"css",
 		"viewport",
+		"viewport-units",
+		"dynamic-viewport-units",
+		"viewport-unit-fallback",
 		"dvh",
 		"dvw",
 		"svh",
@@ -665,30 +859,34 @@
 		"lvw",
 		"dvmin",
 		"dvmax",
-		"dynamic-viewport-units",
-		"viewport-units",
+		"100dvh",
+		"100vh",
+		"dvh-fallback",
 		"fallback",
 		"polyfill",
-		"100vh",
+		"progressive-enhancement",
+		"legacy-browsers",
 		"mobile-viewport",
-		"css",
+		"ios",
+		"safari",
+		"browserslist",
+		"custom-properties",
 		"tailwind"
 	],
 	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Surdeddd/postcss-viewport-fallback.git"
+		"url": "git+https://github.com/Surdeddd/postcss-viewport-fallback.git",
+		"type": "git"
 	},
-	"description": "PostCSS plugin that adds classic fallbacks for all dynamic/small/large viewport units (dvh, svh, lvh, dvw, dvmin, ...).",
+	"description": "PostCSS plugin that gives dvh, svh, lvh and every other dynamic viewport unit a vh/vw fallback that really applies in older browsers: in calc(), var(), custom properties, @media and Tailwind output.",
 	"maintainers": [
 		{
 			"name": "surdeddd",
 			"email": "maximkravtsov3355@icloud.com"
 		}
 	],
-	"readme": "# postcss-viewport-fallback\n\n[![npm version](https://img.shields.io/npm/v/postcss-viewport-fallback)](https://www.npmjs.com/package/postcss-viewport-fallback)\n[![npm downloads](https://img.shields.io/npm/dm/postcss-viewport-fallback)](https://www.npmjs.com/package/postcss-viewport-fallback)\n[![CI](https://github.com/Surdeddd/postcss-viewport-fallback/actions/workflows/test.yml/badge.svg)](https://github.com/Surdeddd/postcss-viewport-fallback/actions/workflows/test.yml)\n[![license](https://img.shields.io/npm/l/postcss-viewport-fallback)](https://github.com/Surdeddd/postcss-viewport-fallback/blob/main/LICENSE)\n[![node](https://img.shields.io/node/v/postcss-viewport-fallback)](https://nodejs.org)\n\nThe universal fallback layer for modern CSS viewport units — all 18 of them:\n\n- `dvw`, `dvh`, `dvi`, `dvb`, `dvmin`, `dvmax` (dynamic)\n- `svw`, `svh`, `svi`, `svb`, `svmin`, `svmax` (small)\n- `lvw`, `lvh`, `lvi`, `lvb`, `lvmin`, `lvmax` (large)\n\nTwo strategies, one plugin:\n\n- **`duplicate`** (default, zero-runtime) — inserts a classic `vh`/`vw`/... twin before the original declaration; old browsers use the twin, modern browsers use the real unit\n- **`css-var`** — rewrites units to `calc(var(--pvf-dvh, 1vh) * N)` with an auto-injected `@supports` seed, optionally paired with a ~1 KB (gzip) runtime that gives legacy browsers *actually dynamic* `dv*` values (sv*/lv* are approximated)\n\nWorks in `calc()`, `@media`/`@supports`/`@container` params, nested CSS, Tailwind output, Vue/Svelte SFCs.\n\n---\n\n## Features\n\n### Core Transformation\n\n- All **18** viewport units — dynamic, small, and large × `w/h/i/b/min/max`\n- Two [strategies](#strategy): zero-runtime `duplicate` twins, or dynamic `css-var` + runtime\n- Works inside `calc()`, `min()`, `max()`, `clamp()`, and nested functions of any depth\n- Decimals, negative and signed values, scientific notation, case-insensitive units\n- Safe parsing with `postcss-value-parser` — never touches strings, `url()`, or idents\n- Fully configurable: `preserve`, `onlyProperties`, `excludeProperties`, `customUnits`, `includeCustomProps`\n- Performance: `browserslist` auto-skip, `fastSkip` per-file scan, dedup, concurrent-safe stats\n\n### At-Rule Support\n\nFallback generation inside:\n\n- `@media`\n- `@supports`\n- `@container` (including nested container queries)\n\n#### At-rule example\n\n```css\n@media (min-height: 100dvh) { ... }\n/* becomes */\n@media (min-height: 100vh) { ... }\n@media (min-height: 100dvh) { ... }\n```\n\n## Example\n\n### Input\n\n```css\n.app {\n  height: 100dvh;\n  width: calc(100dvw - 20px);\n}\n```\n\n### Output\n\n```css\n.app {\n  height: 100vh;\n  height: 100dvh;\n  width: calc(100vw - 20px);\n  width: calc(100dvw - 20px);\n}\n```\n\n---\n\n## Do you still need this in 2026?\n\nDynamic viewport units are [Baseline Widely Available](https://caniuse.com/viewport-unit-variants) (~93% global support: Chrome 108+, Safari 15.4+, Firefox 101+). For a typical US/EU consumer app the fallback is close to optional.\n\nYou **do** still need it if your `browserslist` includes any of:\n\n- **Emerging-market browsers** — Opera Mini (no support, ever), UC Browser, QQ, KaiOS\n- **Smart-TV / digital-signage** — Tizen & webOS pin Chromium per model year; 2016–2022 TVs never reach Chromium 108\n- **Embedded WebViews / kiosks / car head units** stuck on pre-108 Chromium\n- **Long-tail / public-sector device matrices** that keep old iOS & Android in scope\n\nThe honest pitch: *if you don't need it, `browserslist: true` makes the plugin cost exactly zero. If you do, it's the most complete option available.* See the [comparison](#comparison) below.\n\n---\n\n## Options\n\n```js\nviewportFallback({\n  strategy: 'duplicate',   // or 'css-var' (dynamic legacy values, pairs with the runtime)\n  preserve: true,          // false removes original dvh, keeps only vh fallback\n  includeCustomProps: false,\n  onlyProperties: undefined,   // string | RegExp | Array<string | RegExp>\n  excludeProperties: undefined,\n  debug: false,            // or 'minimal' | 'verbose'\n  strict: false,\n  customUnits: undefined,  // e.g. { cqh: 'vh', cqw: 'vw' }\n  browserslist: false,     // true | browserslist query — auto-skip if all targets support dvh\n  fastSkip: false,         // skip files without viewport units via one regex scan\n  onTransform(meta) {\n    console.log(meta);\n  },\n  onComplete(stats) {\n    console.log(stats); // { declarations, atRules, skipped, timeMs }\n  },\n});\n```\n\n### Option Details\n\n#### strategy\n\nHow declaration fallbacks are produced (default: `'duplicate'`).\n\n**`'duplicate'`** — the classic, zero-runtime approach. Inserts a static twin declaration before the original:\n\n```css\n/* height: 100dvh  →  */\nheight: 100vh;\nheight: 100dvh;\n```\n\nOld browsers keep the last value they understand (`100vh`); modern browsers use `100dvh`. Nothing to ship, works everywhere. Best default for most projects.\n\n**`'css-var'`** — dynamic fallback for legacy browsers. Rewrites each unit to a `calc()` over a CSS variable and injects a `:root` seed that upgrades to the real unit via `@supports`:\n\n```css\n/* input */\n.sheet { height: 100dvh; }\n\n/* output */\n:root { --pvf-dvh: 1vh }\n@supports (height: 1dvh) { :root { --pvf-dvh: 1dvh } }\n.sheet { height: calc(var(--pvf-dvh, 1vh) * 100); height: 100dvh; }\n```\n\nOn its own this behaves like `duplicate` (falls back to `1vh`). Its power comes from pairing it with the **runtime** (below), which sets `--pvf-dvh` from the *actual* viewport in browsers that lack `dvh` — so `100dvh` follows the live viewport instead of the static `vh` approximation that ignores mobile browser chrome.\n\n> The `--pvf-` custom-property prefix is reserved by the plugin: declarations whose name starts with `--pvf-` are never transformed, and the runtime writes only those variables. Don't define your own `--pvf-*` properties.\n\nAt-rule params (`@media (min-height: 100dvh)`) always use the `duplicate` strategy, because `var()`/`calc()` are invalid in feature-query context.\n\n#### The runtime (for `strategy: 'css-var'`)\n\nA dependency-free module (ESM: 2.9 KB raw / 1.0 KB gzip). Import it once at your app entry:\n\n```js\nimport { applyViewportVars } from 'postcss-viewport-fallback/runtime';\n\napplyViewportVars(); // no-op in browsers that support dvh\n```\n\nIn browsers **with** native `dv*` support it detects `CSS.supports('height','1dvh')` and does nothing (the `@supports` seed already handles them). In browsers **without** it, it measures the layout viewport (`innerWidth`/`innerHeight`), sets every `--pvf-*` variable to 1% of the live dimension, and honors vertical writing modes for `vi`/`vb`. Returns `{ update, destroy }` for manual control and SPA teardown. SSR-safe (no-op without `window`).\n\n**Accuracy — honest limitations.** Native `sv*`/`lv*` values cannot be reproduced exactly from JavaScript, so the runtime approximates:\n\n- `dv*` follow the live layout viewport — the closest JS can get to native behavior\n- `sv*`/`lv*` track the smallest/largest size *seen so far in the current orientation* (extremes reset on rotation), so they converge to native-like values only after the browser chrome has actually collapsed/expanded once\n- updates are **frozen during pinch-zoom** (`visualViewport.scale !== 1`), which must not affect viewport units\n- a same-width height collapse >30% while an input is focused is treated as the **on-screen keyboard** and ignored, matching native `dv*` semantics (heuristic — a deliberately resized window with a focused input can be misclassified)\n\nFramework entry points:\n\n```js\n// Vite / plain\nimport { applyViewportVars } from 'postcss-viewport-fallback/runtime';\napplyViewportVars();\n\n// Next.js — app/layout.tsx (client component) or a <Script> tag\n'use client';\nimport { applyViewportVars } from 'postcss-viewport-fallback/runtime';\napplyViewportVars();\n```\n\n> If your target browsers all support `dvh` (or you're happy with the static `vh` approximation), stick with the default `duplicate` strategy and skip the runtime entirely.\n\n#### preserve\n\nKeep the original modern declaration alongside the fallback (default: `true`).\n\nSet to `false` to output only the fallback — useful when targeting only older browsers:\n\n```js\n// Input:  height: 100dvh;\n// Output: height: 100vh;   (original removed)\npreserve: false\n```\n\nApplies to at-rules too: `@media (min-height: 100dvh)` is replaced by its `vh` fallback block.\n\n> **Note:** `replace: true` still works as a deprecated alias for `preserve: false`.\n\n#### includeCustomProps\n\nTransform custom properties, e.g.:\n\n```css\n--header-height: 100dvh;\n```\n\n#### onlyProperties\n\nApply transformation only to selected properties. Accepts a string, a RegExp, or an array of both:\n\n```js\nonlyProperties: ['height', /^(min|max)-height$/]\nonlyProperties: 'height'\n```\n\n#### excludeProperties\n\nSkip transformation for selected properties. Same format as `onlyProperties`:\n\n```js\nexcludeProperties: [/^padding/, 'margin']\n```\n\n> At-rules participate in property filters under the names `@media`, `@supports`, `@container`. For example, `excludeProperties: ['@media']` skips media query params, and `onlyProperties: ['height']` disables at-rule transformation entirely (the allowlist doesn't include `@media`).\n\n#### browserslist\n\nAuto-skip the entire plugin if all target browsers (resolved from your browserslist config) support dynamic viewport units. Requires `caniuse-api` as an optional dependency:\n\n```bash\nnpm install caniuse-api --save-dev\n```\n\n```js\nbrowserslist: true                  // resolve targets from project browserslist config\nbrowserslist: 'last 2 versions'     // or pass a query directly\nbrowserslist: ['chrome >= 120', 'safari >= 17']\n```\n\nIf `caniuse-api` is not installed, the plugin quietly keeps transforming as usual. An **invalid query or broken browserslist config, however, throws at plugin init** — misconfiguration is never silently ignored.\n\n#### fastSkip\n\nSkip whole files that contain no viewport units using a single regex scan over the raw source, instead of visiting every declaration (default: `false`):\n\n```js\nfastSkip: true\n```\n\n> **Warning:** do not enable when an earlier plugin in the same PostCSS pipeline *generates* viewport units that are not present in the source file — e.g. Tailwind producing `h-dvh` utilities from `@tailwind utilities`. The scan only sees the original source.\n\n#### debug\n\nControls logging output:\n\n- `false` — no output (default)\n- `true` or `'verbose'` — per-transform warnings + summary with timing\n- `'minimal'` — summary only (e.g., `\"3 declarations, 1 at-rules transformed (0.42ms)\"`)\n\nOutput is emitted via PostCSS `result.warn()`, so it integrates with postcss-reporter and other PostCSS tooling.\n\n#### strict\n\nThrows an error with source position when dynamic viewport units are found. Useful for CI pipelines to enforce that all viewport units have been manually reviewed.\n\nStrict throws exactly where a transform would otherwise happen — declarations and at-rules that are skipped by `excludeProperties`/`onlyProperties`, custom properties without `includeCustomProps`, and idents that merely contain a unit substring (e.g. `var(--dvh-color)`) do not trigger it.\n\n#### customUnits\n\nAdd custom unit-to-fallback mappings beyond the built-in ones:\n\n```js\ncustomUnits: { cqh: 'vh', cqw: 'vw' }\n```\n\nCustom units are merged with built-in units. You can also override built-in mappings. Chains are allowed (`cqh → svh → vh` produces progressive fallbacks); mapping cycles (e.g. `{ dvh: 'svh', svh: 'dvh' }`) are rejected at plugin init.\n\n#### onTransform(meta)\n\nCallback fired for every transformation (declarations and at-rules).\n\n#### onComplete(stats)\n\nCallback fired after processing with statistics:\n\n```js\nonComplete(stats) {\n  console.log(stats.declarations); // fallback declarations added\n  console.log(stats.atRules);      // at-rule fallbacks added\n  console.log(stats.skipped);      // dedup skips\n  console.log(stats.timeMs);       // processing time in ms\n}\n```\n\n---\n\n## Control Comments\n\nDisable transformation for a specific declaration by placing a comment before it:\n\n```css\n.app {\n  /* postcss-viewport-fallback: off */\n  height: 100dvh; /* will NOT get a fallback */\n  width: 50dvw;   /* will get a fallback */\n}\n```\n\nOr disable a whole range with `disable` / `enable` (applies to all following siblings and cascades into nested blocks):\n\n```css\n/* postcss-viewport-fallback: disable */\n.hero { height: 100dvh; }                          /* skipped */\n@media (min-height: 50dvh) { .x { width: 10dvw; } } /* skipped, including contents */\n/* postcss-viewport-fallback: enable */\n.app { height: 100dvh; }                           /* gets a fallback */\n```\n\n---\n\n## Supported units\n\nAll small (`sv*`), large (`lv*`), and dynamic (`dv*`) viewport units from [CSS Values 4](https://www.w3.org/TR/css-values-4/#viewport-relative-units):\n\n| Modern units        | Fallback |\n| ------------------- | -------- |\n| dvw, svw, lvw       | vw       |\n| dvh, svh, lvh       | vh       |\n| dvi, svi, lvi       | vi       |\n| dvb, svb, lvb       | vb       |\n| dvmin, svmin, lvmin | vmin     |\n| dvmax, svmax, lvmax | vmax     |\n\nMatching is case-insensitive (`100DVH` → `100vh`), per CSS spec.\n\n> **Honest note on `vi`/`vb` fallbacks:** logical viewport units (`vi`, `vb`) shipped in browsers at roughly the same time as their dynamic variants (Chromium 108, Safari 15.4) — a browser missing `dvi` almost certainly also misses `vi`. The practical value of this plugin is in the `vh`/`vw`/`vmin`/`vmax` fallbacks; `vi`/`vb` mappings are provided for completeness.\n\n---\n\n## Comparison\n\n| | **postcss-viewport-fallback** | postcss-100vh-fix | postcss-viewport-unit-fallback | LightningCSS | postcss-preset-env |\n| --- | :---: | :---: | :---: | :---: | :---: |\n| All 18 `sv*`/`lv*`/`dv*` units | ✅ | ❌ (100vh only) | ⚠️ height units only | ❌ | ❌ |\n| `dvw`/width & logical units | ✅ | ❌ | ❌ | ❌ | ⚠️ `vi`/`vb` only |\n| Inside `calc()`/`min()`/`clamp()` | ✅ | ❌ | ❌ | — | — |\n| `@media`/`@supports`/`@container` | ✅ | ❌ | ❌ | — | — |\n| Preserves `!important` | ✅ | ✅ | ❌ ([bug](https://github.com/gooodev/postcss-viewport-unit-fallback/issues/1)) | — | — |\n| Dynamic runtime fallback option | ✅ (`css-var`) | ❌ | ❌ | ❌ | ❌ |\n| `browserslist` auto-skip | ✅ | ❌ | ❌ | ✅ (targets) | ✅ (stage) |\n| Actively maintained | ✅ | ⚠️ | ❌ (2023) | ✅ | ✅ |\n\n- **LightningCSS** does not lower viewport units and [won't](https://github.com/parcel-bundler/lightningcss/issues/534) — the maintainer's position is that `dvw → vw` isn't a correct static lowering and a proper polyfill needs JavaScript (which is exactly what `strategy: 'css-var'` + the runtime provides).\n- **Autoprefixer** only adds vendor prefixes; units are not prefixable, so it never touches them.\n- **postcss-100vh-fix** solves the older iOS `-webkit-fill-available` problem (height-only, breaks in `calc()`); it's orthogonal, not a `dvh` fallback.\n\n---\n\n## Gotchas worth knowing\n\nBeing *the* viewport-units tool means being honest about their sharp edges — a fallback plugin can't fix these, but you should know them:\n\n- **`dvh` doesn't react to the on-screen keyboard.** By default the dynamic viewport ignores the virtual keyboard. Opt in with `<meta name=\"viewport\" content=\"interactive-widget=resizes-content\">` (Chromium-only today).\n- **`dvh` can jank.** Some browsers debounce dynamic viewport updates rather than tracking at 60fps. For sticky/animated elements, `svh` (smallest viewport) is often the calmer choice than `dvh`.\n- **`svh` vs `dvh`:** `svh` assumes browser chrome is *visible* (safe, never clipped); `dvh` follows the live viewport (uses all space, but shifts). Pick `svh` for guaranteed-visible content, `dvh` for full-bleed.\n- **Safari 15.6 (macOS)** has a known bug where `dvh` renders larger than expected ([WebKit #242758](https://bugs.webkit.org/show_bug.cgi?id=242758)).\n\n---\n\n## Installation\n\n```bash\nnpm install postcss-viewport-fallback --save-dev\n```\n\n---\n\n## Usage (PostCSS Config)\n\n```js\nimport viewportFallback from 'postcss-viewport-fallback';\n\nexport default {\n  plugins: [viewportFallback()],\n};\n```\n\n---\n\n## Usage with Frameworks\n\n### Tailwind CSS\n\nTailwind has [declined](https://github.com/tailwindlabs/tailwindcss/discussions/12752) to emit `vh` fallbacks for its `dvh` utilities — this plugin is the answer. **Order matters:** list `viewportFallback` *after* Tailwind so it transforms the generated `h-dvh` / `min-h-dvh` / `max-h-dvh` output:\n\n```js\n// postcss.config.js — Tailwind v3\nexport default {\n  plugins: {\n    tailwindcss: {},\n    'postcss-viewport-fallback': {},\n  },\n};\n```\n\n```js\n// Tailwind v4 (@tailwindcss/postcss)\nexport default {\n  plugins: {\n    '@tailwindcss/postcss': {},\n    'postcss-viewport-fallback': {},\n  },\n};\n```\n\nBecause Tailwind generates utilities *during* the build (they aren't in your source), leave `fastSkip` off for the Tailwind entry — the raw-source scan wouldn't see them.\n\n### Vue / Nuxt\n\nWorks with `<style>` blocks in `.vue` files without extra configuration — `vue-loader` and Vite handle PostCSS natively.\n\n### Svelte / SvelteKit\n\nWorks with `<style>` blocks in `.svelte` files. Vite and svelte-preprocess apply PostCSS automatically.\n\n### styled-components / Emotion (CSS-in-JS)\n\nFor template literal CSS-in-JS, configure `postcss-jsx` as a syntax plugin:\n\n```js\nimport postcssJsx from 'postcss-jsx';\n\nexport default {\n  plugins: [viewportFallback()],\n  syntax: postcssJsx,\n};\n```\n\n### HTML inline styles\n\nFor `<style>` tags in `.html` files, use `postcss-html`:\n\n```js\nimport postcssHtml from 'postcss-html';\n\nexport default {\n  plugins: [viewportFallback()],\n  syntax: postcssHtml,\n};\n```\n\n---\n\n## Development\n\n```bash\nnpm test               # vitest suite\nnpm run test:coverage  # suite + v8 coverage report\nnpm run typecheck      # tsc --noEmit\nnpm run lint           # eslint\nnpm run build          # tsup → dist (esm + cjs + d.ts/d.cts)\nnpm run check:package  # publint + arethetypeswrong (package exports health)\nnpm run bench          # quick perf benchmark on 20k generated rules\n```\n\nCI runs lint, typecheck, tests (Node 20/22/24), build, and package checks on every push/PR. Coverage is reported on the Node 22 job.\n\n### Releases\n\nFully automated with [semantic-release](https://github.com/semantic-release/semantic-release): every push to `main` with [Conventional Commits](https://www.conventionalcommits.org) (`fix:` → patch, `feat:` → minor, `BREAKING CHANGE` → major) runs CI and, if a release is due, bumps the version, updates `CHANGELOG.md`, tags a GitHub release, and publishes to npm with provenance — no manual steps.\n\n---\n\n## License\n\nMIT License © 2025 Maksim Kravtsov\n",
-	"readmeFilename": "README.md",
+	"readme": "# postcss-viewport-fallback\n\nEnglish: [README.md](./README.md)\n\n[![npm version](https://img.shields.io/npm/v/postcss-viewport-fallback)](https://www.npmjs.com/package/postcss-viewport-fallback)\n[![npm downloads](https://img.shields.io/npm/dm/postcss-viewport-fallback)](https://www.npmjs.com/package/postcss-viewport-fallback)\n[![CI](https://github.com/Surdeddd/postcss-viewport-fallback/actions/workflows/test.yml/badge.svg)](https://github.com/Surdeddd/postcss-viewport-fallback/actions/workflows/test.yml)\n[![license](https://img.shields.io/npm/l/postcss-viewport-fallback)](https://github.com/Surdeddd/postcss-viewport-fallback/blob/main/LICENSE)\n[![node](https://img.shields.io/node/v/postcss-viewport-fallback)](https://nodejs.org)\n\nPostCSS-плагин, который даёт `dvh`, `svh`, `lvh` и остальным пятнадцати динамическим viewport-единицам fallback, который старые браузеры действительно применяют.\n\n```css\n/* you write */\n.app {\n  height: 100dvh;\n  min-height: calc(100dvh - var(--header));\n}\n\n/* browsers get */\n.app {\n  height: 100vh;\n  height: 100dvh;\n  min-height: calc(100vh - var(--header));\n}\n@supports (height: 1dvh) {\n  .app {\n    min-height: calc(100dvh - var(--header));\n  }\n}\n```\n\nОн обрабатывает обычные значения, `calc()` и родственные функции, значения с `var()`, пользовательские свойства, `@media`, `@container`, условия `@import`, `@keyframes` и `@property` — и не трогает то, о чём вы уже позаботились сами.\n\n**[Попробуйте в песочнице](https://surdeddd.github.io/postcss-viewport-fallback/)**: вставьте свой CSS, переключите опции и прочитайте, что напишет плагин.\n\n## Установка\n\n```bash\nnpm install postcss-viewport-fallback --save-dev\n```\n\n```js\n// postcss.config.js\nimport viewportFallback from 'postcss-viewport-fallback';\n\nexport default {\n  plugins: [viewportFallback()],\n};\n```\n\nОбъектная форма, которую читает `postcss-load-config` (Vite, postcss-cli, postcss-loader, Next.js, Nuxt), тоже работает, как и `require()`:\n\n```js\n// postcss.config.cjs\nmodule.exports = {\n  plugins: {\n    'postcss-viewport-fallback': {},\n  },\n};\n```\n\nСтавьте плагин **после** всего, что создаёт viewport-единицы: Tailwind, Sass, миксины, переменные.\n\n## Содержание\n\n- [Нужен ли он вам ещё?](#нужен-ли-он-вам-ещё)\n- [Что получает fallback](#что-получает-fallback)\n- [Что остаётся как есть](#что-остаётся-как-есть)\n- [Стратегии](#стратегии)\n- [Опции](#опции)\n- [Управляющие комментарии](#управляющие-комментарии)\n- [Фреймворки и инструменты](#фреймворки-и-инструменты)\n- [Поддерживаемые единицы](#поддерживаемые-единицы)\n- [Сравнение](#сравнение)\n- [Что полезно знать о самих единицах](#что-полезно-знать-о-самих-единицах)\n- [Известные ограничения](#известные-ограничения)\n- [Частые вопросы](#частые-вопросы)\n- [Переход с 1.x](#переход-с-1x)\n- [Разработка](#разработка)\n\n## Нужен ли он вам ещё?\n\nДинамические viewport-единицы — [Baseline Widely Available](https://caniuse.com/viewport-unit-variants): Chrome 108+, Safari 15.4+, Firefox 101+, около 93% пользователей в мире. Для типичного потребительского приложения в США или ЕС fallback почти не нужен.\n\nОн **нужен**, если в вашем `browserslist` есть что-то из этого:\n\n- **Браузеры развивающихся рынков** — Opera Mini (поддержки нет и не будет), UC Browser, QQ, KaiOS\n- **Smart TV и digital signage** — Tizen и webOS фиксируют версию Chromium по модельному году; телевизоры 2016–2022 годов до Chromium 108 не доживают\n- **Встроенные WebView, киоски, автомобильные мультимедиа** на Chromium старше 108\n- **Длинный хвост устройств и госсектор**, где в поддержке остаются старые iOS и Android\n\nЕсли он вам не нужен, `browserslist: true` сводит стоимость плагина к нулю. Если нужен — это самое полное из доступных решений, см. [сравнение](#сравнение).\n\n## Что получает fallback\n\n### Объявления\n\nПеред объявлением ставится двойник с классической единицей. Браузер, который не знает `dvh`, отбрасывает вторую строку и оставляет первую.\n\n```css\n/* input */\n.a {\n  width: calc(100dvw - 20px);\n  inset: 1svh 2lvw;\n}\n\n/* output */\n.a {\n  width: calc(100vw - 20px);\n  width: calc(100dvw - 20px);\n  inset: 1vh 2vw;\n  inset: 1svh 2lvw;\n}\n```\n\nЭто работает на любой глубине `calc()`, `min()`, `max()`, `clamp()`, с дробными числами, знаками, экспоненциальной записью и любым регистром, с `!important` и без пробелов вокруг операторов (`100dvh*2`, `height>=100dvh`).\n\n### Значения с `var()` или `env()`\n\nОбъявление с `var()` или `env()` любой браузер принимает при разборе таблицы стилей, а ломается оно позже — когда значение подставляется. Двойник перед ним никогда не сработает: браузер без `dvh` оставит `calc(100dvh - var(--header))`, признает значение некорректным и получит `auto`. Поэтому для таких объявлений плагин записывает fallback в само правило, а исходное значение переносит в блок `@supports` сразу после него:\n\n```css\n/* input */\n.page {\n  min-height: calc(100dvh - var(--header));\n}\n\n/* output */\n.page {\n  min-height: calc(100vh - var(--header));\n}\n@supports (height: 1dvh) {\n  .page {\n    min-height: calc(100dvh - var(--header));\n  }\n}\n```\n\n- Объявление ниже в том же правиле, которое может пересечься с улучшаемым, — его лонгхенд, шортхенд, который его включает, логическое написание вроде `margin-block-start` — повторяется внутри блока, поэтому более поздний `margin-top` по-прежнему перебивает шортхенд `margin` выше. Объявления несвязанных свойств в блок не попадают:\n\n  ```css\n  /* input */\n  .card {\n    margin: calc(2dvh + var(--gap));\n    margin-top: 0;\n    color: red;\n  }\n\n  /* output */\n  .card {\n    margin: calc(2vh + var(--gap));\n    margin-top: 0;\n    color: red;\n  }\n  @supports (height: 1dvh) {\n    .card {\n      margin: calc(2dvh + var(--gap));\n      margin-top: 0;\n    }\n  }\n  ```\n\n  Какие свойства пересекаются, плагин знает из таблицы, собранной по спецификациям CSS и сверенной с тем, что делает Chrome. Свойство, которого в таблице нет, считается связанным с любым другим.\n\n- Объявления, которым нужны одни и те же единицы, делят один блок. Все восемнадцать встроенных единиц появились в каждом браузере одновременно, поэтому одна проба, `(height: 1dvh)`, отвечает за все.\n- Во вложенном CSS блок вкладывается внутрь правила, сразу после объявлений, которые он улучшает, если вложенный блок ниже задаёт связанное свойство и иначе проиграл бы ему.\n- Со `strategy: 'css-var'` или `preserve: false` значение переписывается на месте, и блок не нужен.\n\nТам, где блок `@supports` поставить нельзя, — в атрибуте `style=\"\"`, на верхнем уровне фрагмента CSS-in-JS (если не включить [`fragmentGuards`](#fragmentguards)) или ниже вложенного блока того же правила, который задаёт связанное свойство, — объявление остаётся как есть, и о нём сообщается через `result.warn()`.\n\n### Пользовательские свойства\n\nПо умолчанию выключено, см. [`includeCustomProps`](#includecustomprops). С ними плагин поступает так же, через `@supports`, потому что пользовательское свойство валидно в любом браузере.\n\n### `@media`, `@import` и `@custom-media`\n\nПониженный запрос добавляется в список. Браузер, который не понимает `(min-height: 100dvh)`, считает этот один запрос «никогда», а остальные учитывает, поэтому блок не дублируется:\n\n```css\n/* input */\n@media (min-height: 100dvh) { … }\n@import url(\"tall.css\") (min-height: 100dvh);\n@custom-media --tall (min-height: 100dvh);\n\n/* output */\n@media (min-height: 100vh), (min-height: 100dvh) { … }\n@import url(\"tall.css\") (min-height: 100vh), (min-height: 100dvh);\n@custom-media --tall (min-height: 100vh), (min-height: 100dvh);\n```\n\n### `@container`\n\nСписки условий в container queries пока поддерживаются не везде, поэтому `@container` получает правило-двойника перед собой:\n\n```css\n/* input */\n@container card (width > 50dvw) { … }\n\n/* output */\n@container card (width > 50vw) { … }\n@container card (width > 50dvw) { … }\n```\n\n### `@keyframes`\n\nОбычные значения получают двойника внутри кадра. Значению с `var()` двойник не поможет, а `@supports` внутри `@keyframes` стоять не может, поэтому плагин понижает значение и повторяет всё правило `@keyframes` под `@supports`; там, где единицы поддерживаются, побеждает более позднее правило с тем же именем. Цепочка `customUnits` получает по такой копии на каждый шаг, от самого слабого.\n\n```css\n/* input */\n@keyframes grow {\n  to {\n    height: calc(100dvh - var(--gap));\n  }\n}\n\n/* output */\n@keyframes grow {\n  to {\n    height: calc(100vh - var(--gap));\n  }\n}\n@supports (height: 1dvh) {\n  @keyframes grow {\n    to {\n      height: calc(100dvh - var(--gap));\n    }\n  }\n}\n```\n\n### `@property`\n\nБраузер принимает любое `initial-value`, когда разбирает правило, и отбрасывает всю регистрацию, если потом не может прочитать значение, так что двойник не поможет и здесь. Плагин понижает значение и повторяет правило под `@supports`; там, где единицы поддерживаются, побеждает более поздняя регистрация.\n\n```css\n/* input */\n@property --sheet {\n  syntax: '<length>';\n  inherits: false;\n  initial-value: 100dvh;\n}\n\n/* output */\n@property --sheet {\n  syntax: '<length>';\n  inherits: false;\n  initial-value: 100vh;\n}\n@supports (height: 1dvh) {\n  @property --sheet {\n    syntax: '<length>';\n    inherits: false;\n    initial-value: 100dvh;\n  }\n}\n```\n\n## Что остаётся как есть\n\n- **Feature query `@supports` никогда не переписываются**, а то, что под их защитой, не получает fallback. `@supports (height: 100dvh) { … }` уже означает «только там, где единица работает»; проба одной встроенной единицы отвечает за все. Условия с `not`, `and` и `or` читаются по тому, что они гарантируют: `(height: 1dvh) or (height: 1svh)` и `not (not (height: 1dvh))` защищают блок, а `(height: 1dvh) or (display: grid)` и `not (height: 1dvh)` — нет.\n- **Fallback-и, написанные вами.** Объявление не трогается, если его fallback уже действует:\n\n  ```css\n  .a { height: 100vh; height: 100dvh; }\n  .b { min-height: 100vh; min-height: -webkit-fill-available; min-height: 100dvh; }\n  @media (min-height: 50vh), (min-height: 50dvh) { … }\n  ```\n\n  Fallback должен занимать то же место в каскаде: между ним и современным объявлением могут стоять комментарии, пользовательские свойства, объявления несвязанных свойств и другие значения того же свойства, написанные вами. Шортхенд или лонгхенд этого свойства между ними мог бы его изменить, поэтому в таком случае плагин добавляет собственного двойника:\n\n  ```css\n  /* input */\n  .c {\n    margin-top: 5vh;\n    margin: 0;\n    margin-top: 5dvh;\n  }\n\n  /* output */\n  .c {\n    margin-top: 5vh;\n    margin: 0;\n    margin-top: 5vh;\n    margin-top: 5dvh;\n  }\n  ```\n\n  С [`existingFallback: 'any'`](#existingfallback) засчитывается любое более раннее значение свойства, а не только точный эквивалент в `vh`.\n\n- **Строки, `url()`, идентификаторы** вроде `--dvh-color` или `x100dvh`, значения и прелюдии с CSS-экранированием, container style queries (`@container style(--h: 100dvh)`).\n- **Дескрипторы** в `@font-face`, `@page` и подобных правилах всегда получают обычного двойника, в том числе с `css-var`, потому что `var()` там недопустим. `initial-value` в `@property` вместо этого [повторяется под `@supports`](#property).\n\n## Стратегии\n\n### `duplicate` (по умолчанию)\n\nВсё, что описано выше: статические fallback-и, в бандл ничего не попадает, работает везде. Fallback `vh` на мобильных — это _наибольший_ viewport, то есть то же, чем `100vh` был всегда.\n\n### `css-var`\n\nДля старых браузеров, которые должны следовать за _живым_ viewport. Каждая единица превращается в `calc()` над CSS-переменной, а небольшой seed задаёт переменные:\n\n<!-- prettier-ignore -->\n```css\n/* input */\n.sheet { height: 100dvh; }\n\n/* output */\n:root, :host { --pvf-dvh: 1vh }\n@supports (height: 1dvh) { :root, :host { --pvf-dvh: 1dvh } }\n.sheet { height: calc(var(--pvf-dvh, 1vh) * 100); height: 100dvh; }\n```\n\nСам по себе этот режим ведёт себя как `duplicate`. Его смысл — в **runtime**, который в браузерах без `dvh` выставляет `--pvf-dvh` по реальному размеру окна:\n\n```js\nimport { applyViewportVars } from 'postcss-viewport-fallback/runtime';\n\napplyViewportVars(); // does nothing in browsers that support dvh\n```\n\nУ runtime нет зависимостей (ESM: 3.1 КБ raw, 1.1 КБ gzip), и написан он в синтаксисе ES5, поэтому разбирается теми браузерами, ради которых существует, даже если ваш сборщик не транспилирует `node_modules`. Он возвращает `{ update, destroy }`, ничего не делает без `window` (SSR), обновляется не чаще раза в кадр и измеряет заново, когда страница возвращается из back/forward cache.\n\nЧто он может воспроизвести, а что нет:\n\n- `dv*` следуют за живым layout viewport — ближе к нативному поведению из JavaScript не подойти\n- `sv*` / `lv*` отслеживают наименьший / наибольший размер, замеченный к этому моменту в текущей ориентации, поэтому устанавливаются только после того, как интерфейс браузера один раз свернулся или развернулся\n- обновления замораживаются во время pinch-zoom: масштабирование не должно влиять на viewport-единицы\n- падение высоты более чем на 30% при той же ширине и сфокусированном поле ввода считается экранной клавиатурой и игнорируется, как это делают нативные `dv*` (эвристика)\n\n**Seed** ставится в начало каждой таблицы стилей, которой он нужен, — после `@charset` / `@import` / `@namespace` и ведущего комментария `/*! license */` — и перечисляет только те единицы, которые были переписаны. Его селектор — `:root, :host`, поэтому таблица стилей работает и внутри shadow root. С `postcss-html` каждый блок `<style>` получает собственный seed.\n\nЧтобы подключить seed один раз — много точек входа, CSS-in-JS, библиотека компонентов, — выключите его и импортируйте готовый файл:\n\n```js\nviewportFallback({ strategy: 'css-var', seed: false });\n```\n\n```js\nimport 'postcss-viewport-fallback/seed.css'; // all 18 units, 0.2 KB gzip\n```\n\n> Префикс `--pvf-` зарезервирован: объявления, имя которых начинается с `--pvf-`, никогда не трансформируются, а runtime пишет только эти переменные.\n\nПрелюдии `@media` / `@container` и дескрипторы всегда используют `duplicate`, потому что `var()` там недопустим.\n\n## Опции\n\n```js\nviewportFallback({\n  strategy: 'duplicate', // or 'css-var'\n  preserve: true, // false keeps only the fallback\n  includeCustomProps: false,\n  logicalFallback: 'physical', // or 'logical'\n  existingFallback: 'exact', // or 'any'\n  fragmentGuards: false,\n  seed: true,\n  onlyProperties: undefined, // string | RegExp | Array<string | RegExp>\n  excludeProperties: undefined,\n  customUnits: undefined, // e.g. { cqh: 'vh' }\n  browserslist: false, // true | query | query[]\n  fastSkip: false,\n  strict: false,\n  debug: false, // true | 'minimal' | 'verbose'\n  onTransform(meta) {},\n  onComplete(stats) {},\n});\n```\n\nОпции проверяются при создании плагина: неизвестное имя, неверный тип или неизвестное значение сразу приводят к исключению.\n\n### strategy\n\n`'duplicate'` (по умолчанию) или `'css-var'`. См. [Стратегии](#стратегии).\n\n### preserve\n\nОставлять современное объявление рядом с fallback (по умолчанию `true`). С `false` остаётся только fallback — полезно, когда сборка рассчитана только на старые браузеры:\n\n```css\n/* height: 100dvh  →  */\nheight: 100vh;\n/* @media (min-height: 100dvh)  →  */\n@media (min-height: 100vh);\n```\n\nБлоки под защитой подходящего `@supports` остаются как есть: старые браузеры их всё равно не применяют.\n\n### includeCustomProps\n\nДавать fallback и пользовательским свойствам (по умолчанию `false`).\n\n```css\n/* input */\n:root {\n  --header-height: 100dvh;\n  --sheet: 80svh;\n}\n\n/* output */\n:root {\n  --header-height: 100vh;\n  --sheet: 80vh;\n}\n@supports (height: 1dvh) {\n  :root {\n    --header-height: 100dvh;\n    --sheet: 80svh;\n  }\n}\n```\n\nВо вложенном CSS блок следует порядку исходника, как и для [значений с `var()`](#значения-с-var-или-env):\n\n```css\n/* input */\n:root {\n  --h: 100dvh;\n  @media (orientation: landscape) {\n    --h: 60dvh;\n  }\n}\n\n/* output */\n:root {\n  --h: 100vh;\n  @supports (height: 1dvh) {\n    --h: 100dvh;\n  }\n  @media (orientation: landscape) {\n    --h: 60vh;\n    @supports (height: 1dvh) {\n      --h: 60dvh;\n    }\n  }\n}\n```\n\n### logicalFallback\n\nВо что превращаются `dvi` / `svi` / `lvi` и `dvb` / `svb` / `lvb` (по умолчанию `'physical'`).\n\n- `'physical'` — `vw` и `vh`. Это верно для горизонтальных writing modes, и это работает: браузер без `dvi` не знает и `vi`, так что fallback с `vi` был бы отброшен точно так же.\n- `'logical'` — `vi` и `vb`, как их сопоставляет спецификация. Выбирайте для страниц с вертикальным writing mode.\n\n### existingFallback\n\nЧто считать fallback-ом, который вы уже написали (по умолчанию `'exact'`).\n\n- `'exact'` — более раннее объявление свойства ровно с пониженным значением (`height: 100vh; height: 100dvh`)\n- `'any'` — любое более раннее значение свойства, которое принимают старые браузеры (`height: 500px; height: 100dvh` остаётся как есть)\n\nВ обоих случаях более раннее объявление должно занимать то же место в каскаде, см. [Что остаётся как есть](#что-остаётся-как-есть).\n\n### fragmentGuards\n\nСчитать объявления верхнего уровня телом правила (по умолчанию `false`). Включайте для styled-components, Emotion и других шаблонов CSS-in-JS — тогда значения с `var()` и пользовательские свойства получат блок `@supports` прямо на месте:\n\n```css\n/* input: the body of a styled.div`…` */\nmin-height: calc(100dvh - var(--header));\ncolor: red;\n\n/* output */\nmin-height: calc(100vh - var(--header));\n@supports (height: 1dvh) {\n  min-height: calc(100dvh - var(--header));\n}\ncolor: red;\n```\n\nПо умолчанию опция выключена, потому что так же выглядит атрибут `style=\"\"`, разобранный без `postcss-html`, а at-правило в нём недопустимо.\n\n### seed\n\nЗаписывать seed переменных `--pvf-*` для `strategy: 'css-var'` в каждую таблицу стилей (по умолчанию `true`). С `false` вы подключаете его один раз сами, см. [Стратегии](#css-var).\n\n### onlyProperties / excludeProperties\n\nОграничить плагин некоторыми свойствами или не подпускать его к некоторым. Строка сравнивается с именем свойства целиком (для пользовательских свойств — с учётом регистра), RegExp проверяет имя; обе опции принимают и массив.\n\n```js\nonlyProperties: ['height', /^(min|max)-height$/];\nexcludeProperties: [/^padding/, 'margin'];\n```\n\nAt-правила участвуют под именами `@media`, `@container`, `@import` и `@custom-media`: `excludeProperties: ['@media']` оставляет media-запросы как есть, а `onlyProperties: ['height']` отключает at-правила целиком.\n\n### customUnits\n\nДобавить собственные пары «единица → fallback» или переопределить встроенную:\n\n```js\ncustomUnits: { cqh: 'vh', cqw: 'vw' }\n```\n\nFallback — это имя единицы или `%`. Цепочки допустимы (`cqh → svh → vh` даёт fallback на каждый шаг). При создании плагина отклоняются два вида цепочек: циклы и цепочки, которые уходят от встроенных единиц и возвращаются к ним (`vmin: 'dvw'` дало бы `dvmin → vmin → dvw → vw`), потому что поддержку всех встроенных единиц подтверждает одна проверка `@supports`. Пользовательские единицы считаются единицами длины: блоки `@supports` проверяют их как `height: 1<единица>`, каждую своей пробой, и идут от самого слабого шага цепочки к самому сильному.\n\n### browserslist\n\nПерестать обрабатывать встроенные единицы там, где их поддерживают все целевые браузеры; `customUnits` продолжают работать. Нужна необязательная peer-зависимость `caniuse-api`:\n\n```bash\nnpm install caniuse-api --save-dev\n```\n\n```js\nbrowserslist: true; // the browserslist config that applies to each file\nbrowserslist: 'last 2 versions'; // or a query\nbrowserslist: ['chrome >= 120', 'safari >= 17'];\n```\n\nС `true` целевые браузеры определяются для каталога каждого обрабатываемого файла, поэтому у пакетов монорепозитория они могут быть разными. Если `caniuse-api` не установлен, плагин продолжает трансформировать; неверный запрос или сломанный конфиг приводят к исключению.\n\n### fastSkip\n\nПропускать файл, в исходнике которого нет viewport-единиц, после одного сканирования регулярным выражением (по умолчанию `false`). Не включайте, если предыдущий плагин приносит единицы, которых нет в исходном файле, — утилиты Tailwind, `postcss-import`.\n\n### strict\n\nБросать ошибку с позицией в исходнике везде, где был бы добавлен fallback или где он нужен, но поставить его некуда. Заслон для CI, когда каждая viewport-единица должна быть проверена вручную. Объявления, пропущенные фильтрами или управляющими комментариями, защищённые `@supports` или уже прикрытые вашим собственным fallback-ом, его не вызывают.\n\n### debug\n\n`false` (по умолчанию), `'minimal'` — итог одной строкой, `true` / `'verbose'` — строка на каждого кандидата и каждую трансформацию плюс итог. Вывод идёт через `result.warn()`, поэтому его показывают postcss-reporter и подобные инструменты.\n\n### onTransform(meta)\n\nВызывается один раз для каждого объявления или at-правила, получившего fallback, с `{ prop, original, fallback, file, selector, loc }`. `selector` — селектор ближайшего объемлющего правила стилей; для at-правил `prop` равен `@media`, `@container`, `@import` или `@custom-media`.\n\n### onComplete(stats)\n\nВызывается один раз на обработанный файл — один раз на документ для HTML-подобных синтаксисов:\n\n```js\nonComplete(stats) {\n  stats.declarations; // fallback declarations added\n  stats.atRules;      // at-rule fallbacks added\n  stats.skipped;      // left alone: the fallback was already there\n  stats.timeMs;       // processing time\n}\n```\n\n### Язык сообщений\n\nОшибки и предупреждения выводятся на английском. Задайте переменную окружения `PVF_LANG=ru`, чтобы получать их на русском.\n\n## Управляющие комментарии\n\nВыключить плагин для следующего объявления или at-правила:\n\n```css\n.app {\n  /* postcss-viewport-fallback: off */\n  height: 100dvh; /* no fallback */\n  width: 50dvw; /* gets one */\n}\n```\n\nИли для диапазона. Он действует на всё, что идёт дальше в том же блоке, включая вложенные блоки:\n\n```css\n/* postcss-viewport-fallback: disable */\n.hero {\n  height: 100dvh;\n}\n@media (min-height: 50dvh) {\n  .x {\n    width: 10dvw;\n  }\n}\n/* postcss-viewport-fallback: enable */\n.app {\n  height: 100dvh;\n}\n```\n\nДиапазон принадлежит блоку, в котором он записан, а `enable` внутри блока отменяет `disable` снаружи. Пробелы и регистр не важны: `/*postcss-viewport-fallback:off*/` тоже работает.\n\nВыключенное объявление остаётся таким, каким вы его написали, везде: там, где плагину приходится повторить его внутри блока `@supports`, чтобы сохранить место в каскаде, копия получает собственный комментарий `off`.\n\n## Фреймворки и инструменты\n\n### Tailwind CSS\n\nTailwind [не генерирует](https://github.com/tailwindlabs/tailwindcss/discussions/12752) fallback-и с `vh` для `h-dvh`, `min-h-dvh`, `max-h-dvh` и произвольных значений вроде `min-h-[calc(100dvh-var(--header))]`. Поставьте этот плагин после Tailwind:\n\n```js\n// postcss.config.js — Tailwind v4\nexport default {\n  plugins: {\n    '@tailwindcss/postcss': {},\n    'postcss-viewport-fallback': {},\n  },\n};\n```\n\n```js\n// Tailwind v3\nexport default {\n  plugins: {\n    tailwindcss: {},\n    'postcss-viewport-fallback': {},\n  },\n};\n```\n\nДля точки входа Tailwind оставьте `fastSkip` выключенным: утилит нет в вашем исходном файле.\n\n### Vite\n\nVite сам читает `postcss.config.js`. Конфигурация прямо в конфиге Vite тоже работает:\n\n```js\n// vite.config.js\nimport viewportFallback from 'postcss-viewport-fallback';\n\nexport default {\n  css: { postcss: { plugins: [viewportFallback()] } },\n};\n```\n\n### Next.js\n\nNext.js ждёт имена плагинов строками, а собственный конфиг заменяет его конфиг по умолчанию:\n\n```js\n// postcss.config.mjs\nexport default {\n  plugins: {\n    '@tailwindcss/postcss': {},\n    'postcss-viewport-fallback': {},\n  },\n};\n```\n\nДля `strategy: 'css-var'` вызовите `applyViewportVars()` из клиентского компонента в корневом layout.\n\n### Nuxt\n\n```ts\n// nuxt.config.ts\nexport default defineNuxtConfig({\n  postcss: {\n    plugins: {\n      'postcss-viewport-fallback': {},\n    },\n  },\n});\n```\n\n### Astro, SvelteKit, Vue\n\nВсе три работают через Vite: достаточно `postcss.config.js` в корне проекта, а блоки `<style>` в файлах `.astro`, `.svelte` и `.vue` тоже обрабатываются.\n\n### webpack\n\n```js\n// postcss-loader picks up postcss.config.js; or inline:\n{ loader: 'postcss-loader', options: { postcssOptions: { plugins: ['postcss-viewport-fallback'] } } }\n```\n\n### Sass, Less, Stylus\n\nЗапускайте плагин на их выводе — так PostCSS-плагины обычно и работают. Переменные `$variables` верхнего уровня в SCSS-файле, разобранном через `postcss-scss`, не мешают.\n\n### styled-components, Emotion\n\nРазбирайте шаблоны синтаксисом для CSS-in-JS и включите [`fragmentGuards`](#fragmentguards):\n\n```js\nimport postcssJsx from 'postcss-jsx';\n\nexport default {\n  syntax: postcssJsx,\n  plugins: [viewportFallback({ fragmentGuards: true })],\n};\n```\n\nСо `strategy: 'css-var'` во фрагменте нет места для seed: используйте `seed: false` и один раз импортируйте `postcss-viewport-fallback/seed.css`.\n\n### HTML\n\n```js\nimport postcssHtml from 'postcss-html';\n\nexport default {\n  syntax: postcssHtml,\n  plugins: [viewportFallback()],\n};\n```\n\nОбрабатываются блоки `<style>` и атрибуты `style=\"\"`. В атрибуте блок `@supports` стоять не может, поэтому о значении с `var()` внутри него плагин только сообщает.\n\n## Поддерживаемые единицы\n\nВсе small (`sv*`), large (`lv*`) и dynamic (`dv*`) viewport-единицы из [CSS Values 4](https://www.w3.org/TR/css-values-4/#viewport-relative-units):\n\n| Единицы             | Fallback                                 |\n| ------------------- | ---------------------------------------- |\n| dvw, svw, lvw       | vw                                       |\n| dvh, svh, lvh       | vh                                       |\n| dvmin, svmin, lvmin | vmin                                     |\n| dvmax, svmax, lvmax | vmax                                     |\n| dvi, svi, lvi       | vw (`vi` с `logicalFallback: 'logical'`) |\n| dvb, svb, lvb       | vh (`vb` с `logicalFallback: 'logical'`) |\n\nИмена единиц распознаются в любом регистре, как и в CSS.\n\n## Сравнение\n\n|                                                                            | **postcss-viewport-fallback** | postcss-100vh-fix |                         postcss-viewport-unit-fallback                         | LightningCSS | postcss-preset-env  |\n| -------------------------------------------------------------------------- | :---------------------------: | :---------------: | :----------------------------------------------------------------------------: | :----------: | :-----------------: |\n| Все 18 единиц `sv*` / `lv*` / `dv*`                                        |              ✅               | ❌ (только 100vh) |                            ⚠️ только единицы высоты                            |      ❌      |         ❌          |\n| Единицы ширины и логические                                                |              ✅               |        ❌         |                                       ❌                                       |      ❌      | ⚠️ только `vi`/`vb` |\n| Внутри `calc()` / `min()` / `clamp()`                                      |              ✅               |        ❌         |                                       ❌                                       |      —       |          —          |\n| Значения с `var()` / `env()`, у которых fallback действительно срабатывает |              ✅               |        ❌         |                                       ❌                                       |      —       |          —          |\n| Работающие fallback-и для пользовательских свойств                         |              ✅               |        ❌         |                                       ❌                                       |      —       |          —          |\n| Прелюдии `@media` / `@container` / `@import`                               |              ✅               |        ❌         |                                       ❌                                       |      —       |          —          |\n| Сохраняет `!important`                                                     |              ✅               |        ✅         | ❌ ([баг](https://github.com/gooodev/postcss-viewport-unit-fallback/issues/1)) |      —       |          —          |\n| Живые значения в старых браузерах                                          |        ✅ (`css-var`)         |        ❌         |                                       ❌                                       |      ❌      |         ❌          |\n| Автопропуск по `browserslist`                                              |              ✅               |        ❌         |                                       ❌                                       | ✅ (targets) |     ✅ (stage)      |\n| Активно поддерживается                                                     |              ✅               |        ⚠️         |                                   ❌ (2023)                                    |      ✅      |         ✅          |\n\n- **LightningCSS** не понижает viewport-единицы и [не будет](https://github.com/parcel-bundler/lightningcss/issues/534): мейнтейнер считает статическое `dvw → vw` некорректным, а настоящий polyfill — зависящим от JavaScript; именно это и даёт `strategy: 'css-var'` вместе с runtime.\n- **Autoprefixer** добавляет вендорные префиксы; у единиц их нет.\n- **postcss-100vh-fix** решает старую проблему iOS с `-webkit-fill-available`. Он ортогонален и не является fallback-ом для `dvh`.\n\n## Что полезно знать о самих единицах\n\n- **`dvh` не реагирует на экранную клавиатуру.** Включить это можно через `<meta name=\"viewport\" content=\"interactive-widget=resizes-content\">` (пока только Chromium).\n- **`dvh` может «дёргаться».** Некоторые браузеры сглаживают обновления динамического viewport. Для sticky или анимируемых элементов `svh` часто спокойнее.\n- **`svh` или `dvh`?** `svh` предполагает, что интерфейс браузера виден: контент никогда не обрезается. `dvh` следует за живым viewport: занимает всё место — и двигается.\n- **Safari 15.6 на macOS** отображает `dvh` больше ожидаемого ([WebKit #242758](https://bugs.webkit.org/show_bug.cgi?id=242758)).\n\n## Известные ограничения\n\n- **Пониженный media-запрос ничем не ограждён.** `(max-height: 100vh)` вычисляют и современные браузеры. Для запросов `min-*` он может сработать только там, где срабатывает и оригинал; для `max-*` и сравнений `<` есть узкая полоса между динамическим и большим размером viewport, в которой срабатывает только пониженный запрос. То же относится к двойнику `@container`.\n- **Разные пользовательские единицы в одном правиле получают по блоку.** Встроенные единицы делят один блок `@supports`. Значения, которым нужны _разные_ пробы, получают по блоку в порядке исходника, а объявление, которое пересекается со значениями из нескольких блоков, повторяется в каждом из них. `@keyframes` и `@property` повторяются целиком, поэтому там такие значения повышаются вместе: браузер, который знает только часть единиц, остаётся на fallback для всех.\n- **Значения с CSS-экранированием пропускаются.** Значение или прелюдия с обратной косой чертой (`100d\\76h`, `u\\72l(…)`) остаётся нетронутым — плагин не гадает. At-правило, чьё _имя_ записано с экранированием (`@keyframe\\73`), не опознаётся вовсе: PostCSS обрывает имя на обратной косой черте.\n- **В атрибутах `style=\"\"`** нет места ни для блока `@supports`, ни для css-var seed. О значении с `var()` в атрибуте плагин сообщает, а не пишет fallback, который не может работать. Seed для атрибута уходит в первый блок `<style>` документа, и плагин не проверяет, что этот блок действует там же, где атрибут (атрибут `media`, shadow root): если нет, [подключите seed сами](#seed).\n- **Другие плагины.** Когда другой плагин пайплайна обходит узлы — `postcss-nesting`, `postcss-logical`, `postcss-preset-env`, конвертер `px` в `rem`, — этот плагин делает свою работу после того, как все они закончили, где бы он ни стоял в конфиге. Поэтому он пишет то же, что написал бы для таблицы стилей, которую эти плагины оставляют, и порядок этих двух ничего не меняет: тесты прогоняют оба порядка с настоящими `postcss-logical` и `postcss-nesting`. Fallback-и такие плагины не видят. Плагины, которые в конце работают со всей таблицей стилей (Autoprefixer, минификаторы), идут в порядке конфига: ставьте минификатор после этого плагина, иначе написанное им останется несжатым.\n\n## Частые вопросы\n\n**Как добавить fallback для `100dvh`?**\nУстановите плагин и добавьте его в конфиг PostCSS. `height: 100dvh` превратится в `height: 100vh; height: 100dvh`: старые браузеры используют первую строку, новые — вторую.\n\n**Добавляет ли Tailwind CSS fallback с `vh` для `h-dvh` или `min-h-dvh`?**\nНет. Поставьте этот плагин после Tailwind, и каждая утилита с `dvh` / `svh` / `lvh`, включая произвольные значения, получит fallback.\n\n**Почему мой собственный fallback не работает для `calc(100dvh - var(--header))`?**\nИз-за `var()`. При разборе браузер не может понять, что значение некорректно, поэтому оставляет объявление, отбрасывает ваш fallback и лишь потом получает `auto`. Fallback должен быть значением в самом правиле, а современное значение — в `@supports`; именно так плагин и пишет.\n\n**Нужен ли polyfill на JavaScript?**\nДля статического fallback — нет. Если старые браузеры должны следовать за живым viewport, как это делает `dvh`, используйте `strategy: 'css-var'` с runtime на 1.1 КБ.\n\n**Хороший ли fallback `100vh` для `100dvh`?**\nЭто самое близкое статическое значение. На мобильных `100vh` — это viewport со скрытым интерфейсом браузера, поэтому контент может оказаться под адресной строкой; так старые браузеры вели себя всегда.\n\n**В каких браузерах нет `dvh`, `svh` и `lvh`?**\nChrome и Edge до 108, Safari до 15.4, Firefox до 101, Samsung Internet до 21, Opera Mini, а также WebView и телевизоры на этих движках.\n\n**Работает ли он с Lightning CSS, postcss-preset-env или Autoprefixer?**\nДа. Ни один из них не понижает viewport-единицы. Запускайте плагин после всего, что создаёт единицы, и перед минификатором. Рядом с `postcss-preset-env` порядок не важен: плагин дожидается плагинов, обходящих узлы, и понижает то, что они оставили.\n\n**Меняет ли он то, что отображают современные браузеры?**\nНет. В тестах плагина есть рандомизированная проверка: для каждого селектора и свойства браузер, поддерживающий единицы, получает ровно то значение, которое вы написали.\n\n## Переход с 1.x\n\n2.0 меняет вывод там, где 1.x создавал fallback-и, которые не могли сработать. Коротко: если вы зависите от старого вывода — зафиксируйте 1.x, иначе обновляйтесь и один раз просмотрите diff собранного CSS.\n\n- **`@supports` больше не переписывается.** Версии 1.x добавляли двойника с `vh` каждому блоку `@supports (… dvh)`, из-за чего блок открывался всем и ломались написанные вручную лесенки. Объявления под защитой подходящего `@supports` тоже больше не получают двойника.\n- **Значения с `var()` / `env()` и пользовательские свойства** получают fallback в правиле, а оригинал — в блоке `@supports`, вместо двойника, который никогда не применялся. С `initial-value` в `@property` так же: регистрация повторяется под `@supports`.\n- **`@media` получает более длинный список запросов вместо второго блока.** У `@container` остаётся правило-двойник. Условия `@import` и `@custom-media` теперь обрабатываются.\n- **Одна проба `@supports (height: 1dvh)`** отвечает за все встроенные единицы. Цепочка `customUnits`, которая уходит от встроенных единиц и возвращается к ним, отклоняется.\n- **Логические единицы понижаются до `vw` / `vh`**, а не до `vi` / `vb`. Для прежнего соответствия задайте `logicalFallback: 'logical'`.\n- **Существующий fallback распознаётся по позиции**, а не по одному лишь присутствию среди соседей.\n- **Seed стратегии css-var** использует селектор `:root, :host`, стоит после `@import` / `@charset`, содержит один блок улучшения на все встроенные единицы, не обёрнут в управляющие комментарии, а с `postcss-html` попадает в каждый блок `<style>`, которому он нужен.\n- **`replace` удалён:** используйте `preserve: false`. Неизвестные имена опций и некорректные значения приводят к исключению.\n- **`selector` в `onTransform`** — селектор ближайшего объемлющего правила.\n- **`require('postcss-viewport-fallback')` возвращает функцию плагина**; `.default` по-прежнему работает.\n- **`browserslist: true`** определяется для каждого файла и оставляет `customUnits` активными.\n- **Другие плагины, обходящие узлы, больше не видят fallback-и.** Когда такие плагины есть в пайплайне, плагин работает после них. Минификатор должен стоять после него.\n\n## Разработка\n\n```bash\nnpm test               # vitest suite\nnpm run test:coverage  # suite + v8 coverage report (thresholds: 100%)\nnpm run typecheck      # tsc --noEmit\nnpm run lint           # eslint\nnpm run format:check   # prettier\nnpm run build          # tsup → dist (esm + cjs + d.ts/d.cts + seed.css)\nnpm run check:package  # publint + arethetypeswrong + smoke test + consumer type fixtures\nnpm run bench          # quick benchmark on 20k generated rules\n```\n\nCI запускает всё это на Node 20, 22 и 24 для каждого pull request. О том, как устроены тесты, — в [CONTRIBUTING.ru.md](./CONTRIBUTING.ru.md), о том, что может появиться дальше, — в [ROADMAP.ru.md](./ROADMAP.ru.md).\n\nРелизы автоматизированы через [semantic-release](https://github.com/semantic-release/semantic-release): push в `main` с [Conventional Commits](https://www.conventionalcommits.org) запускает CI и, если пора выпускать релиз, повышает версию, обновляет `CHANGELOG.md`, создаёт тег и GitHub release и публикует пакет в npm с provenance.\n\n## Лицензия\n\nMIT License © 2025 Maksim Kravtsov\n",
+	"readmeFilename": "README.ru.md",
 	"_downloads": [
-		721,
 		653,
 		613,
 		588,
@@ -707,6 +905,7 @@
 		362,
 		374,
 		374,
-		410
+		410,
+		612
 	]
 }

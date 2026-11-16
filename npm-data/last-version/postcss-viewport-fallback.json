@@ -1,15 +1,42 @@
 {
+	"_id": "postcss-viewport-fallback@2.0.0",
+	"bugs": {
+		"url": "https://github.com/Surdeddd/postcss-viewport-fallback/issues"
+	},
+	"dist": {
+		"shasum": "7c0031d75193f2d9aac039beacc3b393237f27ae",
+		"tarball": "https://registry.npmjs.org/postcss-viewport-fallback/-/postcss-viewport-fallback-2.0.0.tgz",
+		"fileCount": 13,
+		"integrity": "sha512-hWnu7AOx4kFw/wLZCxMXU9Y/V9q78LcRi2NAJIjugejuJN7cnd+s372zGHKQWOqOa2c59x8A/muGIt271Xq9Gg==",
+		"signatures": [
+			{
+				"sig": "MEQCIEAwFJKrZNX16/hR7I5bZbqHfifXL5uh7JEidlaK9EgUAiBidpA86ogxPRHiI8MjtDPgBpSQkmGaRmz5DYziSh8uDQ==",
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+			},
+			{
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEQCIEKckfjlRwkYtha0IAfkJtmAYF6wPIhCjtYQNj14hYwwAiBgG6Ohy2bDdBzJRbswjjxPNZI8V1NCZNz5cnCJHeZaCA=="
+			}
+		],
+		"attestations": {
+			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-viewport-fallback@2.0.0",
+			"provenance": {
+				"predicateType": "https://slsa.dev/provenance/v1"
+			}
+		},
+		"unpackedSize": 318487
+	},
+	"main": "./dist/index.cjs",
 	"name": "postcss-viewport-fallback",
-	"version": "1.6.1",
-	"description": "PostCSS plugin that adds classic fallbacks for all dynamic/small/large viewport units (dvh, svh, lvh, dvw, dvmin, ...).",
+	"type": "module",
+	"types": "./dist/index.d.cts",
 	"author": {
 		"name": "Maksim Kravtsov"
 	},
-	"license": "MIT",
-	"type": "module",
-	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
+	"engines": {
+		"node": ">=20"
+	},
 	"exports": {
 		".": {
 			"import": {
@@ -30,72 +57,41 @@
 				"types": "./dist/runtime.d.cts",
 				"default": "./dist/runtime.cjs"
 			}
-		}
+		},
+		"./seed.css": "./dist/seed.css",
+		"./package.json": "./package.json"
 	},
-	"sideEffects": false,
-	"typesVersions": {
-		"*": {
-			"runtime": [
-				"./dist/runtime.d.ts"
-			]
-		}
-	},
-	"publishConfig": {
-		"provenance": true
-	},
+	"gitHead": "66f148bb2e2897d24f88c70181bae5b7ce2fdf92",
+	"license": "MIT",
 	"scripts": {
-		"build": "tsup",
 		"dev": "tsup --watch",
-		"test": "vitest run",
-		"test:coverage": "vitest run --coverage",
-		"typecheck": "tsc --noEmit",
 		"lint": "eslint .",
+		"test": "vitest run",
+		"bench": "npm run build && node scripts/bench.mjs",
+		"build": "tsup && node scripts/cjs-types.mjs && node scripts/seed-css.mjs",
 		"format": "prettier --write .",
-		"check:package": "publint && attw --pack .",
-		"bench": "npm run build && node scripts/bench.mjs"
+		"typecheck": "tsc --noEmit && tsc -p playground",
+		"playground": "npm run build && node scripts/playground.mjs",
+		"properties": "node scripts/properties.mjs",
+		"format:check": "prettier --check .",
+		"check:package": "publint && attw --pack . --exclude-entrypoints seed.css && node scripts/smoke.mjs && tsc -p test/types && tsc -p test/types/tsconfig.node10.json",
+		"test:coverage": "vitest run --coverage"
 	},
-	"peerDependencies": {
-		"postcss": "^8.0.0"
-	},
-	"dependencies": {
-		"postcss-value-parser": "^4.2.0"
-	},
-	"devDependencies": {
-		"@arethetypeswrong/cli": "^0.18.3",
-		"@eslint/js": "^10.0.1",
-		"@semantic-release/changelog": "^6.0.3",
-		"@semantic-release/git": "^10.0.1",
-		"@types/node": "^26.1.0",
-		"@vitest/coverage-v8": "^4.1.10",
-		"caniuse-api": "^4.0.0",
-		"eslint": "^10.6.0",
-		"eslint-config-prettier": "^10.1.8",
-		"globals": "^17.7.0",
-		"postcss": "^8.5.15",
-		"postcss-html": "^1.8.1",
-		"prettier": "^3.8.4",
-		"publint": "^0.3.21",
-		"semantic-release": "^25.0.5",
-		"tsup": "^8.5.1",
-		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.63.0",
-		"vitest": "^4.1.10"
-	},
-	"engines": {
-		"node": ">=20"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Surdeddd/postcss-viewport-fallback.git"
-	},
-	"bugs": {
-		"url": "https://github.com/Surdeddd/postcss-viewport-fallback/issues"
+	"version": "2.0.0",
+	"_npmUser": {
+		"name": "surdeddd",
+		"email": "maximkravtsov3355@icloud.com"
 	},
 	"homepage": "https://github.com/Surdeddd/postcss-viewport-fallback#readme",
 	"keywords": [
 		"postcss",
 		"postcss-plugin",
+		"postcss8",
+		"css",
 		"viewport",
+		"viewport-units",
+		"dynamic-viewport-units",
+		"viewport-unit-fallback",
 		"dvh",
 		"dvw",
 		"svh",
@@ -104,42 +100,26 @@
 		"lvw",
 		"dvmin",
 		"dvmax",
-		"dynamic-viewport-units",
-		"viewport-units",
+		"100dvh",
+		"100vh",
+		"dvh-fallback",
 		"fallback",
 		"polyfill",
-		"100vh",
+		"progressive-enhancement",
+		"legacy-browsers",
 		"mobile-viewport",
-		"css",
+		"ios",
+		"safari",
+		"browserslist",
+		"custom-properties",
 		"tailwind"
 	],
-	"gitHead": "07af64c47c248842f0a8ecef1257856300469781",
-	"_id": "postcss-viewport-fallback@1.6.1",
-	"_nodeVersion": "22.23.1",
-	"_npmVersion": "11.16.0",
-	"dist": {
-		"integrity": "sha512-JKU15kqKvOZwxK443H34qnV36QhiQkSdtoQ/M/G3J28/DOEcmp/54xVVOAxssjZHKJi60j6dnQzYntXvaAVG2Q==",
-		"shasum": "046a638e5583bd4788e088facc893b4a5d54a2aa",
-		"tarball": "https://registry.npmjs.org/postcss-viewport-fallback/-/postcss-viewport-fallback-1.6.1.tgz",
-		"fileCount": 11,
-		"unpackedSize": 70302,
-		"attestations": {
-			"url": "https://registry.npmjs.org/-/npm/v1/attestations/postcss-viewport-fallback@1.6.1",
-			"provenance": {
-				"predicateType": "https://slsa.dev/provenance/v1"
-			}
-		},
-		"signatures": [
-			{
-				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEUCIHXLYRuCV5Lq9H+KR8crFw+2jNeCJ+l+m1T9e5hF+nxtAiEApLi00z1M7A9EGcFmYzTZG4IzoMO6vU22otGrSf0qobQ="
-			}
-		]
+	"repository": {
+		"url": "git+https://github.com/Surdeddd/postcss-viewport-fallback.git",
+		"type": "git"
 	},
-	"_npmUser": {
-		"name": "surdeddd",
-		"email": "maximkravtsov3355@icloud.com"
-	},
+	"_npmVersion": "11.21.1",
+	"description": "PostCSS plugin that gives dvh, svh, lvh and every other dynamic viewport unit a vh/vw fallback that really applies in older browsers: in calc(), var(), custom properties, @media and Tailwind output.",
 	"directories": {},
 	"maintainers": [
 		{
@@ -147,10 +127,63 @@
 			"email": "maximkravtsov3355@icloud.com"
 		}
 	],
-	"_npmOperationalInternal": {
-		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-viewport-fallback_1.6.1_1783800063191_0.37981038118894395"
+	"sideEffects": [
+		"**/*.css"
+	],
+	"_nodeVersion": "22.23.4",
+	"dependencies": {
+		"postcss-value-parser": "^4.2.0"
+	},
+	"publishConfig": {
+		"provenance": true
+	},
+	"typesVersions": {
+		"*": {
+			"runtime": [
+				"./dist/runtime.d.ts"
+			]
+		}
 	},
 	"_hasShrinkwrap": false,
-	"_time": "2026-07-11T20:01:03.331Z"
+	"devDependencies": {
+		"tsup": "^9.0.0",
+		"acorn": "^8.19.0",
+		"eslint": "^10.13.0",
+		"vitest": "^5.0.5",
+		"globals": "^17.13.0",
+		"postcss": "^8.5.31",
+		"publint": "^0.3.25",
+		"prettier": "^3.9.10",
+		"@eslint/js": "^10.0.1",
+		"typescript": "^6.0.3",
+		"@types/node": "^26.6.5",
+		"@webref/css": "^8.7.9",
+		"caniuse-api": "^4.0.0",
+		"postcss-html": "^2.0.0",
+		"postcss-logical": "^9.0.2",
+		"postcss-nesting": "^14.0.3",
+		"semantic-release": "^25.0.5",
+		"typescript-eslint": "^8.72.0",
+		"@vitest/coverage-v8": "^5.0.5",
+		"@arethetypeswrong/cli": "^0.18.3",
+		"@semantic-release/git": "^11.0.1",
+		"eslint-config-prettier": "^10.1.8",
+		"@fontsource/ibm-plex-mono": "^5.3.0",
+		"@fontsource/ibm-plex-sans": "^5.3.0",
+		"@semantic-release/changelog": "^7.0.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0",
+		"caniuse-api": "^3.0.0 || ^4.0.0"
+	},
+	"peerDependenciesMeta": {
+		"caniuse-api": {
+			"optional": true
+		}
+	},
+	"_npmOperationalInternal": {
+		"host": "s3://npm-registry-packages-npm-production",
+		"tmp": "tmp/postcss-viewport-fallback_2.0.0_1794738081437_0.1311031899672076"
+	},
+	"_time": "2026-11-15T10:21:21.565Z"
 }
