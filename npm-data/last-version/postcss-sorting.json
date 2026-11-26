@@ -1,7 +1,58 @@
 {
+	"_id": "postcss-sorting@11.0.0",
+	"bugs": {
+		"url": "https://github.com/hudochenkov/postcss-sorting/issues"
+	},
+	"dist": {
+		"shasum": "5f7146f6bc7efb52c13e18cb1506fc97adb87dea",
+		"tarball": "https://registry.npmjs.org/postcss-sorting/-/postcss-sorting-11.0.0.tgz",
+		"fileCount": 34,
+		"integrity": "sha512-7+2QRoi+2f1h/KP0ZTHQZiwKG5DDQo504XbnY5YB9nmLdTfQ1DKCIB86Zhm3WHGAT13Q+iYBByz9Lj4eedE5cg==",
+		"signatures": [
+			{
+				"sig": "MEQCIDYDifh7WAXkN362C6+JLvMXtw9TQOZ1Xb1io2Bj2a3VAiBYhT5jq+Hu7G3MazVRSOPSnnYrYEq2J7CLIqb/GqVLMQ==",
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+			},
+			{
+				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+				"sig": "MEQCIHuuSi2P/uXMSRnd3JR2ZOpJ8RdukXYZYr9PeeaEdQ3DAiA+1xkB5TbuqU/nIGGwhrj1I/WLlIhvMFCicr+ZtKbNcw=="
+			}
+		],
+		"unpackedSize": 70387
+	},
+	"jest": {
+		"runner": "jest-light-runner",
+		"testRegex": "__tests__/[a-zA-Z-.]+\\.js$",
+		"setupFiles": [
+			"./jest-setup.js"
+		],
+		"watchPlugins": [
+			"jest-watch-typeahead/filename",
+			"jest-watch-typeahead/testname"
+		],
+		"testEnvironment": "node"
+	},
 	"name": "postcss-sorting",
-	"version": "10.0.0",
-	"description": "PostCSS plugin to keep rules and at-rules content in order.",
+	"type": "module",
+	"author": "Aleks Hudochenkov <aleks@hudochenkov.com>",
+	"exports": "./index.js",
+	"license": "MIT",
+	"scripts": {
+		"fix": "eslint . --max-warnings 0 --fix && prettier --write '**/*.{js,ts}'",
+		"lint": "eslint . --max-warnings 0 && prettier --check '**/*.{js,ts}'",
+		"test": "jest",
+		"types": "tsc",
+		"watch": "jest --watch",
+		"coverage": "jest --coverage",
+		"benchmark": "node benchmark/run.js",
+		"test-full": "pnpm run lint && pnpm run types && pnpm run test"
+	},
+	"version": "11.0.0",
+	"_npmUser": {
+		"name": "hudochenkov",
+		"email": "aleks@hudochenkov.com"
+	},
+	"homepage": "https://github.com/hudochenkov/postcss-sorting",
 	"keywords": [
 		"postcss",
 		"css",
@@ -9,96 +60,50 @@
 		"sorting",
 		"order"
 	],
-	"author": {
-		"name": "Aleks Hudochenkov",
-		"email": "aleks@hudochenkov.com"
-	},
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/hudochenkov/postcss-sorting.git"
-	},
-	"bugs": {
-		"url": "https://github.com/hudochenkov/postcss-sorting/issues"
-	},
-	"homepage": "https://github.com/hudochenkov/postcss-sorting",
-	"peerDependencies": {
-		"postcss": "^8.4.20"
-	},
-	"devDependencies": {
-		"eslint": "^9.39.4",
-		"eslint-config-hudochenkov": "^13.0.0",
-		"eslint-config-prettier": "^10.1.8",
-		"globals": "^17.4.0",
-		"husky": "^9.1.7",
-		"jest": "^30.2.0",
-		"jest-watch-typeahead": "^3.0.1",
-		"lint-staged": "^16.3.2",
-		"postcss": "^8.5.8",
-		"postcss-html": "^1.8.1",
-		"postcss-styled-syntax": "^0.7.1",
-		"prettier": "^3.8.1",
-		"prettier-config-hudochenkov": "^0.4.0"
-	},
-	"scripts": {
-		"test-full": "npm run lint && jest",
-		"test": "jest",
-		"watch": "jest --watch",
-		"coverage": "jest --coverage",
-		"fix": "eslint '*.{js,mjs}' 'lib/**/*.js' --max-warnings 0 --fix && prettier --write '*.{js,mjs}' 'lib/**/*.js'",
-		"lint": "eslint '*.{js,mjs}' 'lib/**/*.js' --max-warnings 0 && prettier --check '*.{js,mjs}' 'lib/**/*.js'",
-		"prepare": "husky"
-	},
-	"lint-staged": {
-		"*.{js,mjs}": [
-			"eslint --fix --max-warnings=0",
-			"prettier --write"
-		]
-	},
-	"jest": {
-		"setupFiles": [
-			"./jest-setup.js"
-		],
-		"testEnvironment": "node",
-		"testRegex": "__tests__/[a-zA-Z-.]+\\.js$",
-		"watchPlugins": [
-			"jest-watch-typeahead/filename",
-			"jest-watch-typeahead/testname"
-		]
-	},
 	"prettier": "prettier-config-hudochenkov",
-	"gitHead": "480fdd4cf54f2ae640419dc479000ce909203af0",
-	"_id": "postcss-sorting@10.0.0",
-	"_nodeVersion": "24.11.1",
-	"_npmVersion": "11.11.0",
-	"dist": {
-		"integrity": "sha512-TXbU+h6vVRW+86c/+ewhWq9k7pr7ijASTnepVhCQiC87zAOTkvB1v2dHyWP+ggstSTX/PNvjzS+IOqzejndz9w==",
-		"shasum": "45789c87f60e6d9153f640c706bd79216701ccf6",
-		"tarball": "https://registry.npmjs.org/postcss-sorting/-/postcss-sorting-10.0.0.tgz",
-		"fileCount": 32,
-		"unpackedSize": 56597,
-		"signatures": [
-			{
-				"keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
-				"sig": "MEYCIQCCWKPSCfpjZare/rD6sJBON3nTkByRLdlIFP2CMAjhfwIhAPYHoCwEHmY4WCwjkFDxtwpj0rycZOubK8R/if3XMM78"
-			}
-		]
+	"repository": {
+		"url": "hudochenkov/postcss-sorting",
+		"type": "git"
 	},
-	"_npmUser": {
-		"name": "hudochenkov",
-		"email": "aleks@hudochenkov.com"
-	},
+	"description": "PostCSS plugin to keep rules and at-rules content in order.",
 	"directories": {},
+	"lint-staged": {
+		"*.js": "eslint --fix --max-warnings=0",
+		"*.{js,ts}": "prettier --write"
+	},
 	"maintainers": [
 		{
 			"name": "hudochenkov",
 			"email": "aleks@hudochenkov.com"
 		}
 	],
+	"_hasShrinkwrap": false,
+	"devDependencies": {
+		"jest": "^30.5.2",
+		"husky": "^9.1.7",
+		"eslint": "^9.39.5",
+		"globals": "^17.13.0",
+		"postcss": "^8.5.30",
+		"prettier": "^3.9.10",
+		"tinybench": "^6.2.2",
+		"typescript": "^6.0.3",
+		"@types/jest": "^30.0.0",
+		"@types/node": "^26.6.5",
+		"lint-staged": "^17.6.0",
+		"postcss-html": "^2.0.0",
+		"jest-light-runner": "^0.8.2",
+		"jest-watch-typeahead": "^3.0.1",
+		"postcss-styled-syntax": "^0.7.4",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-config-hudochenkov": "^13.0.0",
+		"prettier-config-hudochenkov": "^0.4.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4.20"
+	},
 	"_npmOperationalInternal": {
 		"host": "s3://npm-registry-packages-npm-production",
-		"tmp": "tmp/postcss-sorting_10.0.0_1773093129317_0.5857272826044728"
+		"tmp": "tmp/postcss-sorting_11.0.0_1795609071005_0.03874450264127183"
 	},
-	"_hasShrinkwrap": false,
-	"_time": "2026-03-09T21:52:09.458Z"
+	"_time": "2026-11-25T12:17:51.104Z"
 }
